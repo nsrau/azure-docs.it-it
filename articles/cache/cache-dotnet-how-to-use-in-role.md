@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 In questa guida viene illustrato come utilizzare la **Cache nel ruolo per Cache di Azure**. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono **configurazione di un cluster di cache**, **configurazione di client della cache**, **aggiunta e rimozione di oggetti dalla cache, archiviazione dello stato della sessione ASP.NET nella cache** e **abilitazione della memorizzazione nella cache dell'output delle pagine ASP.NET**. Per ulteriori informazioni sull'utilizzo di Cache nel ruolo, fare riferimento alla sezione [Passaggi successivi][].
 
->[AZURE.NOTE]Per indicazioni sulla scelta dell'offerta di Cache di Azure più adatta all'applicazione, vedere [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?][].
+>[AZURE.IMPORTANT]Microsoft annuncia per il 30 novembre 2016 il ritiro del Servizio cache gestita di Azure e di Cache nel ruolo di Azure. Si consiglia di eseguire la migrazione a Cache Redis di Azure in preparazione a tale ritiro. Per altre informazioni sulle date e indicazioni per la migrazione, vedere [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me).
 
 <a name="what-is"></a>
 ## Informazioni su Cache nel ruolo
@@ -408,10 +408,9 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Diagnostica e risoluzione dei problemi di In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

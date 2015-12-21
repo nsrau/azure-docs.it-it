@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Risolvere i problemi del back-end .NET di Servizi mobili
@@ -66,14 +66,14 @@ Ora è possibile esplorare le diverse API HTTP esposte dal servizio mobile con l
 <a name="RuntimeDebugging"></a>
 ## Debug del runtime
 
-Una delle principali funzionalità del back-end .NET è la capacità di eseguire il debug del codice di servizio a livello locale, ma anche di eseguire il debug del codice eseguito dinamicamente nell'ambiente cloud. Attenersi alla procedura descritta di seguito:
+Una delle principali funzionalità del back-end .NET è la capacità di eseguire il debug del codice di servizio a livello locale, ma anche di eseguire il debug del codice eseguito dinamicamente nell'ambiente cloud. A tale scopo, seguire questa procedura:
 
-1. Aprire il progetto del servizio mobile di cui eseguire il debug in **Visual Studio 2013 Update 2** o versione successiva.
+1. Aprire il progetto del servizio mobile di cui si vuole eseguire il debug in **Visual Studio 2013 Update 2** o versione successiva.
 2. Configurare il caricamento del simbolo. Passare al menu **Debug** e selezionare **Opzioni e impostazioni**. Assicurarsi che l'opzione **Abilita Just My Code** sia deselezionata e che l'opzione **Abilita il supporto del server di origine** sia selezionata.
 
     ![Configurare il caricamento del simbolo][SymbolLoading]
 
-3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server (SymbolSource)[http://symbolsource.org] usando l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
+3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server [SymbolSource] usando l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
 
     ![Configurare il server dei simboli][SymbolServer]
 
@@ -159,4 +159,8 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
@@ -46,7 +46,38 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/it-IT/downloads). Usarlo per creare un certificato di sicurezza.
-- **Azure PowerShell 1.0 o versione successiva**. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
+
+
+##Installare Azure PowerShell 1.0 e versioni successive
+
+Per iniziare, è necessario disinstallare le versioni di Azure PowerShell 0.9x. Per controllare la versione di PowerShell installata, eseguire il comando seguente da una finestra di PowerShell:
+
+	Get-Module *azure*
+	
+Per disinstallare la versione precedente, eseguire **Programmi e funzionalità** nel pannello di controllo e rimuovere la versione installata se è precedente a PowerShell 1.0.
+
+Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
+
+- [Raccolta di PowerShell](https://www.powershellgallery.com/). Dalla console di Windows PowerShell con privilegi elevati o di PowerShell ISE con privilegi elevati, eseguire i comandi seguenti:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/).
+
+- [Installazione guidata piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
  
 
 ## Creare un Archivio Azure Data Lake
@@ -87,7 +118,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 	L'output di questa operazione deve essere **True**.
 
-4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [repository Git di Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -105,7 +136,7 @@ Per configurare l'autenticazione di Active Directory per Azure Data Lake, è nec
 
 ### Creare un certificato autofirmato
 
-Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/it-IT/downloads) prima di continuare con i passaggi descritti in questa sezione. È necessario avere creato anche una directory, ad esempio **C:\\mycertdir**, in cui sarà creato il certificato.
+Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/it-IT/downloads) prima di continuare con i passaggi descritti in questa sezione. È necessario aver creato anche una directory, ad esempio **C:\\mycertdir**, in cui sarà creato il certificato.
 
 1. Dalla finestra di PowerShell passare al percorso in cui è installato Windows SDK, in genere `C:\Program Files (x86)\Windows Kits\10\bin\x86`, e usare l'utilità [MakeCert][makecert] per creare un certificato autofirmato e una chiave privata. Usare il comandi seguenti:
 
@@ -116,7 +147,7 @@ Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/it-IT/down
 
 		makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
 
-	Verrà richiesto di immettere la password della chiave privata. Una volta completata l'esecuzione del comando, nella directory del certificato specificata verranno visualizzati **CertFile.cer** e **myKey**.
+	Verrà richiesto di immettere la password della chiave privata. Una volta completata l'esecuzione del comando, nella directory del certificato specificata verranno visualizzati **CertFile.cer** e **mykey.pvk**.
 
 4. Usare l'utilità [Pvk2Pfx][pvk2pfx] per convertire i file con estensione PVK e CER creati da MakeCert in un file con estensione PFX. Eseguire il comando indicato di seguito.
 
@@ -162,7 +193,7 @@ In questa sezione seguire la procedura per creare un'entità servizio per un'app
 		
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
-	Al prompt immettere**Y** per confermare.
+	Al prompt immettere **Y** per confermare.
 
 ## Creare un cluster HDInsight con l'autenticazione per Archivio Data Lake
 
@@ -267,7 +298,7 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **Sfoglia**, su **cluster HDInsight** e quindi sul cluster HDInsight creato.
+2. Fare clic su **Sfoglia**, su **Cluster HDInsight** e quindi sul cluster HDInsight creato.
 
 3. Nel pannello del cluster fare clic su **Desktop remoto** e quindi nel pannello **Desktop remoto** fare clic su **Connetti**.
 
@@ -291,7 +322,7 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 
 * [Portale: Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/it-IT/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

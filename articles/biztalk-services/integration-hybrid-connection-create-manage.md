@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -41,7 +41,7 @@ Una connessione ibrida può essere creata nel portale di Azure usando le app Web
 2. Nel pannello di navigazione sinistro selezionare **Servizi BizTalk**, quindi scegliere il servizio BizTalk. 
 
 	Se non ne esiste già uno, è possibile [creare un servizio BizTalk](biztalk-provision-services.md).
-3. Selezionare la scheda Connessioni ibride: ![scheda per le connessioni ibride][HybridConnectionTab]
+3. Selezionare la scheda **Connessioni ibride**: ![scheda per le connessioni ibride][HybridConnectionTab]
 
 4. Selezionare **Creare una connessione ibrida** o il pulsante **AGGIUNGI** nella barra delle applicazioni. Immettere le informazioni seguenti:
 
@@ -119,7 +119,7 @@ Per gestire le connessioni ibride è possibile:
 
 	**Gestisci connessione** elenca le stringhe di connessione dell'applicazione e locali. È possibile copiare le stringhe di connessione o rigenerare la chiave di accesso usata nella stringa di connessione.
 
-	**Se si seleziona Rigenera**, la chiave di accesso condivisa usata nella stringa di connessione viene modificata. Eseguire la seguente operazione: nel portale di Azure classico selezionare **Chiavi di sincronizzazione** nell'applicazione Azure. Eseguire nuovamente la **Configurazione locale**. Quando si esegue di nuovo l'installazione locale, la risorsa locale viene configurata automaticamente per usare la stringa di connessione primaria aggiornata.
+	**Se si seleziona Rigenera**, la chiave di accesso condivisa usata nella stringa di connessione viene modificata. Eseguire l'operazione seguente: nel portale di Azure classico selezionare **Chiavi di sincronizzazione** nell'applicazione Azure. Eseguire nuovamente la **Configurazione locale**. Quando si esegue di nuovo l'installazione locale, la risorsa locale viene configurata automaticamente per usare la stringa di connessione primaria aggiornata.
 
 
 #### Usare i Criteri di gruppo per controllare le risorse locali usate da una connessione ibrida
@@ -138,16 +138,16 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 
 ## Avanti
 
-[Connettere le app Web di Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md) [Connettersi a un’istanza di SQL Server locale dalle app Web di Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
+[Connettere le app Web di Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md) [Connettersi a un'istanza di SQL Server locale dalle app Web di Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
 
 
 ## Vedere anche
 
-[API REST per la gestione di servizi BizTalk in Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md) [Creare un servizio BizTalk tramite il portale di Azure classico](biztalk-provision-services.md) [Servizi BizTalk: schede Dashboard, Monitor e Scalabilità](biztalk-dashboard-monitor-scale-tabs.md)
+[API REST per la gestione di servizi BizTalk in Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md) [Creare un servizio BizTalk tramite il portale di Azure classico](biztalk-provision-services.md) [Servizi BizTalk: schede Dashboard, Monitor e Ridimensiona](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

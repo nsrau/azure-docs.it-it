@@ -26,7 +26,7 @@ Rete virtuale di Azure permette di estendere le soluzioni Hadoop in modo da aggi
 
 ##<a id="whatis"></a>Che cos'è Rete virtuale di Azure?
 
-[Rete virtuale di Azure](/documentation/services/virtual-network/) permette di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
+[Rete virtuale di Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permette di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
 
 * Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
@@ -58,7 +58,7 @@ Rete virtuale di Azure permette di estendere le soluzioni Hadoop in modo da aggi
 
 Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete virtuale, vedere la [panoramica della rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima del provisioning di un cluster HDInsight. Per altre informazioni, vedere [Attività di configurazione della rete virtuale](/documentation/services/virtual-network/).
+> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima del provisioning di un cluster HDInsight. Per altre informazioni, vedere [Attività di configurazione della rete virtuale](http://azure.microsoft.com/documentation/services/virtual-network/).
 >
 > Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
 >
@@ -176,4 +176,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

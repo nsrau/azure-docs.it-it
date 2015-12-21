@@ -213,7 +213,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
 	![][3]
 
-	g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al portale di gestione d Azure, venga visualizzata una schermata simile alla seguente:
+	g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al [portale di Azure classico], venga visualizzata una schermata simile alla seguente:
 
 	![][4]
 
@@ -250,7 +250,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
 	![][5]
 
-4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web, selezionando Log in relazione al processo Web nel portale di gestione di Azure:
+4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web, selezionando il collegamento Log in relazione al processo Web nel [portale di Azure classico]\:
 
 	![][6]
 
@@ -271,5 +271,6 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Web di Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -22,7 +22,7 @@ In Gestione API di Azure le API e le relative operazioni vengono aggiunte ai pro
 
 ## <a name="create-apis"> </a>Come creare API
 
-Un'API in Gestione API rappresenta un set di operazioni che possono essere richiamate dalle applicazioni client. Le nuove API vengono create nel portale di gestione API.
+Un'API in Gestione API rappresenta un set di operazioni che possono essere richiamate dalle applicazioni client. Le nuove API vengono create nel portale di pubblicazione.
 
 Questa guida illustra come creare e configurare una nuova API in Gestione API.
 
@@ -62,4 +62,4 @@ In Gestione API un prodotto contiene una o più API, oltre a una quota di utiliz
 [Come importare la definizione di un'API con le operazioni]: api-management-howto-import-api.md
 [Come creare e configurare le impostazioni avanzate del prodotto]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

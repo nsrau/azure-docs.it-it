@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica sulle considerazioni di progettazione dell'identità ibrida di Azure Active Directory | Microsoft Azure"
+	pageTitle="Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Panoramica | Microsoft Azure"
 	description="Panoramica e mappa dei contenuti della guida alle considerazioni sulla progettazione di identità ibrida"
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Considerazioni di progettazione dell'identità ibrida di Azure Active Directory
@@ -55,4 +55,4 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 
                                                              
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -63,7 +63,7 @@ Le connessioni ExpressRoute abilitano l'accesso ai servizi seguenti.
 
 - Servizi di Microsoft Azure
 - Servizi di Microsoft Office 365
-- Servizi di Microsoft CRM Online (presto disponibili) 
+- Servizi di Microsoft CRM Online 
  
 Per un elenco dettagliato dei servizi supportati per ExpressRoute, visitare la pagina [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
@@ -124,4 +124,4 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

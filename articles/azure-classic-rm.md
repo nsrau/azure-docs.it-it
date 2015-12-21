@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Modelli di distribuzione di Azure
@@ -68,4 +68,4 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
 - Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

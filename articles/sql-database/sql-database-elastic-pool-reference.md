@@ -32,8 +32,8 @@ Un pool di database elastici è una raccolta di unità di produttività di datab
 ## Prerequisiti per la creazione e la gestione dei pool di database elastici
 
 
-- I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure.   
-- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di Azure](https://portal.azure.com), PowerShell e la libreria client .NET (costituita per le API REST) soltanto per Gestione risorse di Azure; il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati.
+- I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure. Per eseguire l'aggiornamento a V12 e la migrazione dei database direttamente in un pool, vedere [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-powershell.md).
+- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di Azure](https://portal.azure.com), PowerShell e la libreria client .NET (costituita per le API REST) soltanto per Gestione risorse di Azure. Il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati.
 - Inoltre, Transact-SQL supporta la creazione di nuovi database elastici e lo spostamento dei database esistenti da e verso i pool di database elastici.
 
 
@@ -76,7 +76,7 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 Un pool di database elastici è una risorsa Azure Resource Manager di tipo "ElasticPool" nel Database SQL di Microsoft Azure.
 
 - **spazio dei nomi**: Microsoft.Sql/ElasticPool
-- **gestione-endpoint** per le chiamate API REST (Gestione risorse di Azure): https://management.azure.com
+- **gestione-endpoint** per le chiamate API REST (Gestione risorse): https://management.azure.com
 
 
 
@@ -147,19 +147,19 @@ Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 
 ## Libreria Client .NET, API REST e PowerShell
 
-Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per la creazione e la gestione dei pool elastici: Per informazioni dettagliate ed esempi di codice, vedere [Creare e gestire un pool di database elastici del Database SQL utilizzando PowerShell](sql-database-elastic-pool-powershell.md), e [Creare e gestire Database SQL con C#](sql-database-client-library.md).
+Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per la creazione e la gestione dei pool elastici: Per informazioni dettagliate ed esempi di codice, vedere [Creare un pool di database elastici con PowerShell per la scalabilità orizzontale delle risorse per più database SQL](sql-database-elastic-pool-powershell.md) e [Creazione e gestione di database SQL con C#](sql-database-client-library.md).
 
-> [AZURE.IMPORTANT]Iniziando con la versione di anteprima di Azure PowerShell 1.0, il cmdlet Switch-AzureMode non è più disponibile e i cmdlet che sono stati nel modulo Azure ResourceManager sono stati rinominati. Per informazioni dettagliate, vedere [Deprecazione di Switch-AzureMode, in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+
 
 | [Cmdlet PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandi API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| [New-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Creare un pool di database elastici](https://msdn.microsoft.com/library/mt163596.aspx) |
-| [Set-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Modificare le impostazioni delle prestazioni di un pool di database elastici](https://msdn.microsoft.com/library/mt163641.aspx) |
-| [Remove-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [Eliminare un pool di database elastici](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Ottiene i pool di database elastici e i relativi valori di proprietà](https://msdn.microsoft.com/it-IT/library/mt163646.aspx) |
-| [Get-AzureRMSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Ottenere lo stato delle operazioni del pool di database elastici](https://msdn.microsoft.com/library/mt163669.aspx) |
-| [Get-AzureRMSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Ottenere i database in un pool di database elastici](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureRMSqlElasticPoolDatabaseActivity]() | [Ottiene lo stato di spostamento dei database da e verso un pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Creare un pool di database elastici](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Modificare le impostazioni delle prestazioni di un pool di database elastici](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [Eliminare un pool di database elastici](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Ottiene i pool di database elastici e i relativi valori di proprietà](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Ottenere lo stato delle operazioni del pool di database elastici](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRmSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Ottenere i database in un pool di database elastici](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRmSqlElasticPoolDatabaseActivity]() | [Ottiene lo stato di spostamento dei database da e verso un pool](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
@@ -211,4 +211,4 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

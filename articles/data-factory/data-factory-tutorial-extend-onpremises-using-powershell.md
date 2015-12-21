@@ -24,12 +24,6 @@ Nell'ultimo passaggio dello scenario di elaborazione dei log dalla prima procedu
  
 Per copiare i dati dell'efficacia della campagna di marketing dal BLOB di Azure a SQL Server locale, è necessario creare altri servizi collegati, tabelle e pipeline locali con lo stesso set di cmdlet presentati nella prima procedura dettagliata.
 
-> [AZURE.IMPORTANT]Questo articolo non illustra tutti i cmlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
->    
-> Se si usa Azure PowerShell 1.0, sarà necessario usare i cmdlet documentati [qui](https://msdn.microsoft.com/library/dn820234.aspx). Usare ad esempio New-AzureRMDataFactory invece di New-AzureDataFactory.
-
-## Prerequisiti
-
 È **necessario** eseguire la procedura dettagliata in [Esercitazione: spostare ed elaborare file di log con Data factory][datafactorytutorial] prima di eseguire la procedura dettagliata di questo articolo.
 
 **(consigliato)** Esaminare ed eseguire la procedura dettagliata per [consentire alla pipeline di usare dati locali][useonpremisesdatasources] nell'articolo sulla creazione di una pipeline per spostare i dati da SQL Server locale a un archivio BLOB di Azure.
@@ -55,7 +49,7 @@ Il gateway di gestione dati è un agente client che fornisce accesso alle origin
 
 Se esiste già un gateway di dati che è possibile usare, saltare questo passaggio.
 
-1.	Creare un gateway di dati logico. Nel **Portale di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY**.
+1.	Creare un gateway di dati logico. Nel **portale di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY**.
 2.	Fare clic su **Aggiungi (+) Gateway dati** nella barra dei comandi.  
 3.	Nel pannello **Nuovo gateway dati** fare clic su **CREA**.
 4.	Nel pannello **Crea** immettere **MyGateway** come **nome** del gateway di dati.
@@ -101,7 +95,7 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 
 ### Creare il servizio collegato
 
-1.	Nel **Portale di Azure** fare clic sul riquadro **Servizi collegati** nel pannello **DATA FACTORY** per **LogProcessingFactory**.
+1.	Nel **portale di Azure** fare clic sul riquadro **Servizi collegati** nel pannello **DATA FACTORY** per **LogProcessingFactory**.
 2.	Nel pannello **Servizi collegati** fare clic **su Aggiungi (+) archivio dati**.
 3.	Nel pannello **Nuovo archivio dati** immettere **OnPremSqlLinkedService** come **nome**. 
 4.	Fare clic su **Tipo (Impostazioni obbligatorie)** e selezionare **SQL Server**. Ora dovrebbero essere visualizzate le impostazioni **GATEWAY DATI**, **Server**, **Database** e **CREDENZIALI** nel pannello **Nuovo archivio dati**. 
@@ -120,22 +114,22 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 ### Creare la tabella logica locale
 
 1.	In **Azure PowerShell** passare alla cartella **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Usare il cmdlet **New-AzureDataFactoryDataset** per creare le tabelle nel modo seguente per **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+2.	Usare il cmdlet **New-AzureRmDataFactoryDataset** per creare le tabelle nel modo seguente per **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Creare la pipeline per copiare i dati dal BLOB di Azure a SQL Server
 
-1.	Usare il cmdlet **New-AzureDataFactoryPipeline** per creare la pipeline nel modo seguente per **EgressDataToOnPremPipeline.json**.
+1.	Usare il cmdlet **New-AzureRmDataFactoryPipeline** per creare la pipeline nel modo seguente per **EgressDataToOnPremPipeline.json**.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Usare il cmdlet **Set-AzureDataFactoryPipelineActivePeriod** per specificare il periodo attivo per **EgressDataToOnPremPipeline**.
+2. Usare il cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** per specificare il periodo attivo per **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Premere **"Y"** per continuare.
 	
@@ -169,9 +163,11 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

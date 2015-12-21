@@ -13,43 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/06/2015"
    ms.author="hascipio"/>
 
 # Creazione di un account del venditore Microsoft
 In questo articolo viene illustrata la creazione e la registrazione dell’account necessario per diventare un venditore Microsoft approvato per Azure Marketplace.
 
 ## 1\. Creare un account Microsoft
-> [AZURE.WARNING]Per completare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà utilizzato per la registrazione e l’accesso sia al portale di pubblicazione, sia al Dashboard venditori. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. Essi non devono essere specifici per servizi oppure offerte.
+> [AZURE.WARNING]Per avviare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà usato per registrarsi e per accedere a **Microsoft Developer Center** e al **portale di pubblicazione di Azure**. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. Essi non devono essere specifici per servizi oppure offerte.
 
-L'indirizzo che costituisce il nome utente deve trovarsi nel dominio dell'editore e deve essere controllato dal team IT, ad esempio publishing@example.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
+L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed essere controllato dal team IT, ad esempio publishing@example.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
 
   >[AZURE.WARNING]Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account Microsoft. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
+
+### Istruzioni
 
 1. Creare un elenco di distribuzione (DL) o un gruppo di sicurezza (SG) all'interno del dominio della società.
   - Aggiungere il proprio team di implementazione al DL
   - Il DL deve essere attivo per la ricezione di posta elettronica di conferma.
-  - Utilizzare marketplace@example.com come indirizzo di posta elettronica per il DL.
+  - Usare marketplace@example.com come indirizzo di posta elettronica per la lista di distribuzione.
   - Questa operazione deve essere completata nei sistemi interni.
 2. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account esistente.
 3. Registrare un account Microsoft tramite la posta elettronica della lista di distribuzione (DL).
- - È possibile effettuare la registrazione ad un account Microsoft all'indirizzo [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
- - Utilizzare marketplace@example.com come indirizzo di posta elettronica.
- - L’ID dell'account Microsoft è ora marketplace@example.com.
-
-    <!--[drawing][img-msalive]-->
-
+ - È possibile registrarsi per un account Microsoft all'indirizzo [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
+ - Usare marketplace@example.com come indirizzo di posta elettronica.
+ - L'ID dell'account Microsoft è ora marketplace@example.com.
 4. Per la registrazione, utilizzare un numero di telefono valido. Il sistema invierà un codice di verifica come SMS o come chiamata automatica se è necessaria la verifica dell'identità.
 5. Verificare l'indirizzo di posta elettronica inviato al DL.
+6. A questo punto si è pronti per usare il nuovo account Microsoft nel Microsoft Developer Center.
 
-    <!--[drawing][img-email]-->
+> [AZURE.TIP]L’utilizzo della lista di distribuzione consente a più utenti di ricevere notifiche tramite posta elettronica che sono importanti per la segnalazione di informazioni relative ai proventi. Inoltre, garantisce che la proprietà dell'account Microsoft possa essere trasferita e che non sia legata a un singolo utente.
 
-6. A questo punto si è pronti per utilizzare il nuovo account Microsoft nel Dashboard venditori.
-
-> [AZURE.IMPORTANT]L’utilizzo della lista di distribuzione consente a più utenti di ricevere notifiche tramite posta elettronica che sono importanti per la segnalazione di informazioni relative ai proventi. Inoltre, garantisce che la proprietà dell'account Microsoft possa essere trasferita e che non sia legata a un singolo utente.
-
-## 2\. Creare un account per il Dashboard venditori
-Il Dashboard venditori Microsoft viene utilizzato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve utilizzare un account Microsoft condiviso per la società e questo account deve essere utilizzato nel portale di pubblicazione di Azure. Assicurarsi che l'azienda non possieda già un account per il Dashboard venditori prima di tentare di crearne uno. Durante il processo, Microsoft raccoglierà le informazioni sul conto bancario, i dati fiscali e le informazioni sull'indirizzo dell'azienda. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
+## 2\. Creare l'account Microsoft Developer Center
+Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società ** e questo account deve essere usato anche nel portale di pubblicazione di Azure**. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
 
 > [AZURE.IMPORTANT]I seguenti componenti del profilo del venditore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell’offerta.
 
@@ -61,15 +57,13 @@ Il Dashboard venditori Microsoft viene utilizzato per registrare le informazioni
 |Conto bancario | Facoltativo | Facoltativo | Facoltativo | Necessario |
 
 
-> [AZURE.NOTE]Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un’offerta **gratuita**.
+> [AZURE.NOTE]Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un'offerta **gratuita**.
 
 
 ### Registrare l'account della società
 1. Aprire una nuova sessione in incognito in InPrivate Browsing in Internet Explorer o Chrome per assicurarsi di non essere connessi a un account personale.
 
-2. Visitare [http://sellerdashboard.microsoft.com](http://sellerdashboard.microsoft.com).
-
-    ![disegno][img-sd-url]
+2. Passare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 3. Accedere con l'account Microsoft di registrazione dell'azienda (ad esempio, marketplace@example.com).
 
@@ -79,92 +73,87 @@ Il Dashboard venditori Microsoft viene utilizzato per registrare le informazioni
 
     ![disegno][img-verify]
 
-5. Passare a **Dettagli account**. In questa schermata sarà necessario immettere le informazioni personali, che verranno utilizzate esclusivamente per la verifica dell'identità. Si tratta di nome e cognome, indirizzo di posta elettronica, indirizzo di residenza e numero di telefono personale. Queste informazioni non verranno condivise al di fuori di Microsoft.
+5. Nella sezione "Informazioni sull'Account di registrazione" selezionare **il paese/l'area geografica dell'account** nel menu a discesa.
 
-    ![disegno][img-sd-top]
+    > [AZURE.WARNING]**Paesi di origine della vendita:** per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per altre informazioni, vedere [Politiche di partecipazione a Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
-    <!--[drawing][img-sd-info]-->
+6. Selezionare "Tipo di account", **utente singolo** o **aziendale**.
 
-6. Registrarsi per conto della società, definendo il tipo di account come **Società**, non **Individuale**. Fare clic su **Avanti**.
+    <!-- Insert screenshot -->> [AZURE.IMPORTANT]Per comprendere meglio i tipi di account e quale sia più adatto per le proprie esigenze, visitare la pagina [Tipi di account, aree geografiche e tariffe](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
-    ![disegno][img-sd-type]
+7. Immettere il **Nome visualizzato dell'editore**, in genere il nome della società.
 
-7. Inserire i dettagli della società. Queste informazioni devono essere accurate: sede centrale e referente verranno tutti controllati da un team di Microsoft.
+    > [AZURE.TIP]Attualmente, il portale di pubblicazione di Azure non usa il nome visualizzato dell'editore. Deve tuttavia essere compilato per completare il processo di registrazione.
 
-    ![disegno][img-sd-mktg1]
+8. Immettere le informazioni di contatto per l'account.
 
-8. Il nome della società viene utilizzato dal portale di pubblicazione, pertanto dovrebbe essere accurato.
+    > [AZURE.IMPORTANT]È necessario fornire informazioni accurate, perché saranno usate nel processo di verifica dell'azienda per essere approvata in Developer Center.
 
-    <!--[drawing][img-sd-mktg2]-->
+9. Per un account aziendale, è anche necessario fornire informazioni di contatto per il **Responsabile approvazione aziendale**, ovvero la persona che può verificare che si è autorizzati a creare l'account per conto dell'organizzazione. Al termine, fare clic su **Avanti** per passare alla **"sezione dei pagamenti"**.
 
-9. Utilizzare l'indirizzo della sede centrale della società.
+10. Immettere le informazioni per il pagamento dell'account. Se si ha un codice promozionale che copre il costo della registrazione, è possibile immettere qui. In caso contrario, fornire le informazioni della carta di credito o di PayPal nei mercati supportati. Al termine, fare clic su **Avanti** per passare alla **"schermata di verifica"**.
 
-    ![disegno][img-sd-addr]
+11. Esaminare le informazioni dell'account e verificare che tutto sia corretto. Leggere quindi e accettare le condizioni di **Microsoft Azure Marketplace - Contratto dell'editore**. Selezionare la casella per indicare di aver letto e accettato queste condizioni.
 
-10. Utilizzare un referente che sia accessibile e riconoscibile come un rappresentante della società.
+12. Fare clic su **Fine** per confermare la registrazione. Verrà inviato un messaggio di conferma all'indirizzo di posta elettronica dello sviluppatore.
 
-    ![disegno][img-sd-legal]
+13. Se si prevede di pubblicare offerte gratis, fare clic sul collegamento per **passare al portale di pubblicazione di Azure Marketplace** e passare direttamente alla sezione 3 di questo documento, [Registrare l'account nel portale di pubblicazione](#3-register-your-account-in-the-publishing-portal).
 
-11. Fare clic su **Invia per approvazione** e l’operazione è terminata.
-
-    ![disegno][img-sd-submit]
-
-
-Se si prevede di pubblicare solo offerte gratuite, è possibile passare alla sezione 3, “Registrare l'account nel portale di pubblicazione”.
-
-Se si prevede di pubblicare offerte commerciali, è necessario completare le informazioni fiscali e bancarie nell'account del Dashboard venditori.
+14. Se si prevede di pubblicare offerte commerciali, fare clic sul collegamento per **aggiornare le informazioni sull'account** dove è necessario completare le informazioni fiscali e bancarie nell'account Developer Center.
 
 > [AZURE.IMPORTANT]Non sarà possibile testare correttamente le offerte in Gestione temporanea e non sarà possibile inserire le offerte nella produzione senza completare le informazioni fiscali e del conto bancario.
 
-Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo momento, è possibile passare alla sezione 3, "Registrare l'account nel portale di pubblicazione" e tornare indietro successivamente tramite l'utilizzo di collegamenti nel portale di pubblicazione.
+Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo momento, è possibile passare alla sezione 3, [Registrare l'account nel portale di pubblicazione](#3-register-your-account-in-the-publishing-portal) e tornare indietro successivamente usando i collegamenti nel portale di pubblicazione di Azure.
 
 ### Aggiungere le informazioni fiscali e bancarie
- Se si desidera pubblicare offerte commerciali per l'acquisto, è necessario aggiungere anche informazioni sui pagamenti e fiscali e inviarle per la convalida nel Dashboard venditori. Se si pubblicheranno solo offerte gratuite (oppure offerte BYOL), non è necessario aggiungere tali informazioni. È possibile aggiungerle in un secondo momento, ma questo richiede del tempo per convalidare le informazioni fiscali. Se si sa che si offriranno offerte commerciali per l'acquisto, è consigliabile aggiungerle non appena possibile.
+ Per pubblicare offerte commerciali per l'acquisto, è necessario aggiungere anche informazioni sui pagamenti e fiscali e inviarle per la convalida al Developer Center. Se si pubblicheranno solo offerte gratuite (oppure offerte BYOL), non è necessario aggiungere tali informazioni. È possibile aggiungerle in un secondo momento, ma questo richiede del tempo per convalidare le informazioni fiscali. Se si sa che si offriranno offerte commerciali per l'acquisto, è consigliabile aggiungerle non appena possibile.
 
-1. Accedere al [Dashboard venditori](http://sellerdashboard.microsoft.com) con il proprio account Microsoft.
+**Informazioni bancarie**
 
-2. Scegliere la scheda **ACCOUNT**, quindi fare clic su **pagamento e dati fiscali**.
+1. Accedi a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft.
 
-3. Fare clic su **AGGIUNGERE INFORMAZIONI DI PAGAMENTO E DATI FISCALI**.
+2. Fare clic sull'**account per pagamento** nel menu di sinistra, in **Scegli il metodo di pagamento** fare clic su **Conto bancario** o **PayPal**.
 
-4. Nella pagina **Scegliere un metodo di pagamento**, in **Nuovo metodo di pagamento** fare clic su **Conto bancario** o **PayPal**.
+    > [AZURE.IMPORTANT]Se si dispone di offerte commerciali che i clienti acquistano nel Marketplace, questo è l'account in cui si riceveranno i pagamenti per tali acquisti.
 
-> [AZURE.IMPORTANT]Se si dispone di offerte commerciali che i clienti acquistano nel Marketplace, questo è l'account in cui si riceveranno i pagamenti per tali acquisti.
+3. Immettere le informazioni di pagamento e fare clic su **Salva** quando si è soddisfatti.
 
-5. Immettere i dettagli di un conto bancario o di un account PayPal.
+    > [AZURE.IMPORTANT]Se è necessario aggiornare o modificare l'account di pagamento, seguire la stessa procedura precedente, sostituendo le informazioni attuali con quelle nuove. La modifica dell'account per il pagamento può ritardare i pagamenti per un massimo di un ciclo di pagamento. Questo ritardo si verifica perché è necessario verificare la modifica dell'account, come è stato fatto per la configurazione iniziale dell'account di pagamento. Dopo aver verificato l'account, verrà comunque pagato per l'intero importo. Ii pagamenti in scadenza per il ciclo pagamento corrente saranno aggiunti a quello successivo.
 
-6. Fare clic su **AVANTI**.
+4. Fare clic su **Avanti**.
 
-7. Nella pagina **Informazioni fiscali**, selezionare il paese o l’area in cui si dispone della residenza permanente, quindi selezionare il paese o la regione in cui dispone della cittadinanza primaria. Fare clic su **AVANTI**.
+**Informazioni fiscali**
 
-8. Immettere i propri dettagli fiscali, quindi fare clic su **AVANTI**.
+1. Accedere a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 
-9. Fare clic su **Submit**. Se non si è ancora pronti a inviare le informazioni fiscali per la convalida, è possibile fare clic su **Salva** o su **Salva e chiudi**. È necessario del tempo per convalidare le informazioni fiscali, pertanto si consiglia di inviarle per la convalida non appena possibile.
+2. Fare clic su **Profilo fiscale ** nel menu a sinistra.
 
-> [AZURE.WARNING]Non sarà possibile eseguire il push nella produzione delle offerte commerciali senza completare le informazioni fiscali e del conto bancario nell'account del Dashboard venditori.
+3. Nella pagina **Configura modulo per la tassazione** selezionare il paese o l'area geografica in cui ha la residenza permanente, quindi selezionare il paese o l'area geografica della cittadinanza principale. Fare clic su **Avanti**.
+
+4. Immettere i dettagli fiscali, quindi fare clic su **Avanti**.
+
+> [AZURE.WARNING]Non sarà possibile eseguire il push in produzione delle offerte commerciali senza completare le informazioni fiscali e del conto bancario nell'account Microsoft Developer Center.
 
 ## 3\. Registrare l'account nel portale di pubblicazione
 Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte. Nel portale di pubblicazione sono disponibili informazioni utili che guideranno attraverso il processo di creazione dell’offerta.
 
-> [AZURE.WARNING]Qui è obbligatorio utilizzare lo stesso account Microsoft della società utilizzato nella registrazione nel Dashboard venditori. È possibile aggiungere altri utenti per l’assistenza una volta creato l'account di editore principale.
+> [AZURE.WARNING]Qui è obbligatorio usare lo stesso account Microsoft della società usato per la registrazione in Microsoft Developer Center . È possibile aggiungere altri utenti per l’assistenza una volta creato l'account di editore principale.
 
 1.	Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
-2.	Visitare [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3.	 Accedere con l’account Microsoft di registrazione della società (ad esempio marketplace@example.com)) e sarà possibile aggiungere coamministratori in base alle esigenze.
-4.	Leggere e accettare le condizioni del contratto dell’editore (primo accesso al portale di pubblicazione) e l’operazione è terminata.
 
-  >[AZURE.TIP]Vengono descritti i criteri di partecipazione nel [sito Web di Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+2.	Visitare la pagina [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-  > In caso di problemi con il completamento della registrazione del venditore, registrare un ticket di supporto come indicato di seguito:
-  1. Contattare il [Supporto tecnico](http://go.microsoft.com/fwlink?LinkId=272975)
-  2. Scegliere la **registrazione nel Dashboard venditori e il proprio account**
-  3. Scegliere **Registrazione per un account sviluppatore**
-  4. Scegliere il **metodo** di contatto
+3.	Accedere con l'account Microsoft di registrazione della società (ad esempio marketplace@example.com)) per aggiungere coamministratori in base alle esigenze.
 
-### Paesi di origine della vendita
+  >[AZURE.TIP]I criteri di partecipazione sono descritti nel [sito Web di Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-> [AZURE.WARNING]
-Per vendere i propri servizi in Microsoft Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro. Per un elenco completo, vedere la sezione 1b del documento all’indirizzo [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito:
+  1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286).
+  2. Scegliere **Developer Center**.
+  3. Scegliere **Profilo**.
+  4. Scegliere un metodo di contatto.
+
+
 
 
 
@@ -174,10 +163,10 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 
 || Immagine di macchina virtuale| Servizio sviluppatore | Servizio dati | Modello per la soluzione |
 |----|-----|-----|-----|-----|
-|**Passaggio2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)|
-|| [Prerequisiti tecnici per una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | Prerequisiti tecnici per un servizio dati | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | Guida alla pubblicazione di un servizio dati | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) |
-|| [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |[ Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging]
+|**Passaggio 2: Creare la propria offerta** |[Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)| [Prerequisiti non tecnici generali](marketplace-publishing-pre-requisites.md)|
+|| [Prerequisiti tecnici per l'immagine di una VM][link-single-vm-prereq] | Prerequisiti tecnici per un servizio per sviluppatori | [Prerequisiti tecnici per un servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guida alla pubblicazione di un'immagine di VM][link-single-vm] | Guida alla pubblicazione di un servizio per sviluppatori | [Guida alla pubblicazione di un servizio dati](marketplace-publishing-data-service-creation.md) | [Guida alla pubblicazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md) |
+|| [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] | [Guida ai contenuti marketing in Azure Marketplace][link-pushstaging] |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -196,7 +185,7 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [img-sd-legal]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
 [img-sd-submit]: media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
-[link-msdndoc]: https://msdn.microsoft.com/it-IT/library/jj552460.aspx
+[link-msdndoc]: https://msdn.microsoft.com/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
 [link-single-vm]: marketplace-publishing-vm-image-creation.md
@@ -209,4 +198,4 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

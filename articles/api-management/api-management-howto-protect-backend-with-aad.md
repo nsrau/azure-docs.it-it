@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -30,7 +30,7 @@ Il video che segue illustra come compilare il back-end di un'API Web e protegger
 
 ## Creare una directory di Azure AD
 
-Per proteggere il back-end dell'API Web con Azure Active Directory, si deve avere prima di tutto un tenant AAD. Questo video usa un tenant denominato **APIMDemo**. Per creare un tenant AAD, accedere al [portale di Azure](https://manage.windowsazure.com) e fare clic su **Nuovo**->**Servizi app**->**Active Directory**->**Directory**->**Creazione personalizzata**.
+Per proteggere il back-end dell'API Web con Azure Active Directory, si deve avere prima di tutto un tenant AAD. Questo video usa un tenant denominato **APIMDemo**. Per creare un tenant AAD, accedere al [portale di Azure classico](https://manage.windowsazure.com) e fare clic su **Nuovo**->**Servizi app**->**Active Directory**->**Directory**->**Creazione personalizzata**.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -143,11 +143,7 @@ Sostituire la classe controller generata con il codice seguente. Questo codice i
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-    }
+HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
 
 
 Premere **F6** per compilare e verificare la soluzione.
@@ -156,7 +152,7 @@ Premere **F6** per compilare e verificare la soluzione.
 
 In questo passaggio il progetto di Visual Studio viene pubblicato in Azure. Questo passaggio del video inizia da 5:45 minuti.
 
-Per pubblicare il progetto in Azure, fare clic con il pulsante destro del mouse sul progetto **APIMAADDemo** in Visual Studio e scegliere **Pubblica**. Mantenere le impostazioni predefinite nella finestra di dialogo **Pubblica sito Web** e fare clic su **Pubblica**.
+Per pubblicare il progetto in Azure, fare clic con il pulsante destro del mouse sul progetto **APIMAADDemo** in Visual Studio e scegliere **Pubblica**. Mantenere le impostazioni predefinite nella finestra di dialogo **Pubblica sul Web** e fare clic su **Pubblica**.
 
 ![Pubblicazione sul Web][api-management-web-publish]
 
@@ -166,7 +162,7 @@ Nella directory di Azure AD viene creata una nuova applicazione per il servizio 
 
 ![Applicazione][api-management-aad-backend-app]
 
-Fare clic sul nome dell'applicazione per configurare le autorizzazioni necessarie. Passare alla scheda **Configura** e scorrere verso il basso fino alla sezione **Autorizzazioni per altre applicazioni**. Fare clic sull'elenco a discesa **Autorizzazioni applicazione** accanto a **Microsoft** **Azure Active Directory**, selezionare la casella **Leggi i dati della directory** e fare clic su **Salva**.
+Fare clic sul nome dell'applicazione per configurare le autorizzazioni necessarie. Passare alla scheda **Configura** e scorrere verso il basso fino alla sezione **Autorizzazioni per altre applicazioni**. Fare clic sull'elenco a discesa **Autorizzazioni applicazione** accanto a **Microsoft** **Azure Active Directory**, selezionare la casella **Lettura dati directory** e fare clic su **Salva**.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-permissions]
 
@@ -178,7 +174,7 @@ Prendere nota dell'**URI ID app** che verrà usato in un passaggio successivo du
 
 ## Importare l'API Web in Gestione API
 
-Le API vengono configurate dal portale di pubblicazione delle API, accessibile dal portale di gestione di Azure. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][] nell'esercitazione[Gestire la prima API in Gestione API di Azure][].
+Le API vengono configurate dal portale di pubblicazione delle API, accessibile dal portale di Azure classico. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][] nell'esercitazione[Gestire la prima API in Gestione API di Azure][].
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -186,137 +182,7 @@ Le operazioni possono essere [aggiunte alle API manualmente](api-management-howt
 
 Creare un file denominato `calcapi.json` con il contenuto seguente e salvarlo nel computer. Assicurarsi che l'attributo `host` punti al back-end dell'API Web. In questo esempio viene usato `"host": "apimaaddemo.azurewebsites.net"`.
 
-	{
-	  "swagger": "2.0",
-	  "info": {
-		"title": "Calculator",
-		"description": "Arithmetics over HTTP!",
-		"version": "1.0"
-	  },
-	  "host": "apimaaddemo.azurewebsites.net",
-	  "basePath": "/api",
-	  "schemes": [
-		"http"
-	  ],
-	  "paths": {
-		"/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+{ "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>51</code>.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>49</code>.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>50</code>.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
 Per importare l'API di calcolatrice, fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere **Importa API**.
 
@@ -341,7 +207,7 @@ Fare clic su **Portale per sviluppatori** sul lato in alto a destra del portale 
 
 ![Portale per sviluppatori][api-management-developer-portal-menu]
 
-Fare clic su **API** e quindi clic sull'API **Calculator**.
+Fare clic su **API** e quindi sull'API **Calculator**.
 
 ![Portale per sviluppatori][api-management-dev-portal-apis]
 
@@ -367,11 +233,11 @@ Fare clic sul pulsante **Add** per creare una nuova applicazione di Azure Active
 
 ![Nuova applicazione][api-management-new-aad-application-menu]
 
-Scegliere **Applicazione Web e/o API Web**, immettere un nome e fare clic sulla freccia successiva. In questo esempio viene usato **APIMDeveloperPortal**.
+Scegliere **Applicazione Web e/o API Web**, immettere un nome e fare clic sulla freccia avanti. In questo esempio viene usato **APIMDeveloperPortal**.
 
 ![Nuova applicazione][api-management-aad-new-application-devportal-1]
 
-Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato ****https://contoso5.portal.azure-api.net/signin**.
+Per **URL accesso** immettere l'URL del servizio Gestione API e aggiungere `/signin`. In questo esempio viene usato ****https://contoso5.portal.azure-api.net/signin **.
 
 Per **URI ID app** immettere l'URL del servizio Gestione API e aggiungere alcuni caratteri univoci. Si può usare qualsiasi carattere. In questo esempio vengono usati ****https://contoso5.portal.azure-api.net/dp**. Dopo aver completato la configurazione delle **Proprietà dell'app**, fare clic sul segno di spunta per creare l'applicazione.
 
@@ -431,19 +297,19 @@ Copiare la chiave negli Appunti, tornare al portale di pubblicazione, incollare 
 
 ![Add authorization server][api-management-add-authorization-server-3]
 
-Subito dopo le credenziali del client è presente una concessione del codice di autorizzazione. Copiare questo codice di autorizzazione e tornare all'applicazione del portale per sviluppatori Azure AD e incollare la concessione di autorizzazione nel campo **URL di risposta** e fare di nuovo clic su **Salva**.
+Subito dopo le credenziali del client è presente una concessione del codice di autorizzazione. Copiare questo codice di autorizzazione e tornare all'applicazione del portale per sviluppatori Azure AD e incollare la concessione di autorizzazione nel campo **URL di risposta**, quindi fare di nuovo clic su **Salva**.
 
 ![URL di risposta][api-management-aad-reply-url]
 
-Il passaggio successivo consiste nel configurare le autorizzazioni per l'applicazione AAD nel portale per sviluppatori. Fare clic su **Autorizzazioni applicazione** e selezionare la casella per **Leggi i dati della directory**. Fare clic su **Salva** per salvare la modifica e quindi scegliere **Aggiungi applicazione**.
+Il passaggio successivo consiste nel configurare le autorizzazioni per l'applicazione AAD nel portale per sviluppatori. Fare clic su **Autorizzazioni applicazione** e selezionare la casella per **Lettura dati directory**. Fare clic su **Salva** per salvare la modifica e quindi scegliere **Aggiungi applicazione**.
 
 ![Aggiungere autorizzazioni][api-management-add-devportal-permissions]
 
-Fare clic sull'icona di ricerca digitare **APIM** nella casella Che inizia con, selezionare **APIMAADDemo** e fare clic sul segno di spunta per salvare.
+Fare clic sull'icona di ricerca, digitare **APIM** nella casella Che inizia con, selezionare **APIMAADDemo** e fare clic sul segno di spunta per salvare.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-app-permissions]
 
-Fare clic su **Autorizzazioni delegate** per **APIMAADDemo** e selezionare la casella **Accedi a APIMAADDemo ** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
+Fare clic su **Autorizzazioni delegate** per **APIMAADDemo**, selezionare la casella **Accedi a APIMAADDemo ** e fare clic su **Salva**. Questa impostazione consente all'applicazione nel portale per sviluppatori di accedere al servizio back-end.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-delegated-permissions]
 
@@ -455,7 +321,7 @@ Fare clic su **API**nel menu a sinistra, quindi fare clic su **Calculator** per 
 
 ![API Calculator][api-management-calc-api]
 
-Passare alla scheda **Sicurezza**, selezionare la casella di controllo **OAuth 2.0**, selezionare il server di autorizzazione specifico dall'elenco a discesa del **Authorization server** e fare clic su **Salva**.
+Passare alla scheda **Sicurezza**, selezionare la casella di controllo **OAuth 2.0**, selezionare il server di autorizzazione specifico dall'elenco a discesa **Authorization server** e fare clic su **Salva**.
 
 ![API Calculator][api-management-enable-aad-calculator]
 
@@ -463,7 +329,7 @@ Passare alla scheda **Sicurezza**, selezionare la casella di controllo **OAuth 2
 
 Dopo avere configurato l'autorizzazione OAuth 2.0 nell'API, le relative operazioni possono essere chiamate correttamente dal centro per sviluppatori. Questo passaggio è illustrato nel video a partire da 15:00 minuti.
 
-Tornare all'operazione **Add two integers** del servizio calcolatrice nel portale per sviluppatori e fare clic su **Prova**. Si noti il nuovo elemento nella sezione **Autorizzazione** corrispondente al server autorizzazione appena aggiunto.
+Tornare all'operazione **Add two integers** del servizio calcolatrice nel portale per sviluppatori e fare clic su **Prova**. Si noti il nuovo elemento nella sezione **Authorization** corrispondente al server autorizzazione appena aggiunto.
 
 ![API Calculator][api-management-calc-authorization-server]
 
@@ -481,7 +347,7 @@ La procedura successiva del video inizia da 16:30 minuti e configura una semplic
 
 ## Configurare criteri di convalida JWT per preautorizzare le richieste
 
-L'ultima procedura dei video inizia da 20:48 minuti e illustra come usare i criteri di [convalida JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) per preautorizzare le richieste con la convalida dei token di accesso di ogni richiesta in ingresso. Se la richiesta non viene convalidata dai criteri di convalida JWT, viene bloccata da Gestione API e non viene passata al back-end.
+L'ultima procedura dei video inizia dal minuto 20:48 e illustra come usare i criteri di [convalida JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) per preautorizzare le richieste con la convalida dei token di accesso di ogni richiesta in ingresso. Se la richiesta non viene convalidata dai criteri di convalida JWT, viene bloccata da Gestione API e non viene passata al back-end.
 
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
         <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
@@ -492,7 +358,7 @@ L'ultima procedura dei video inizia da 20:48 minuti e illustra come usare i crit
         </required-claims>
     </validate-jwt>
 
-Per un'altra dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente a 13:50 minuti. Passare a 15:00 minuti per vedere i criteri configurati nell'editor dei criteri e quindi a 18:50 minuti per una dimostrazione della chiamata di un'operazione dal portale per sviluppatori, con e senza il token di autorizzazione richiesto.
+Per un'altra dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 13:50. Passare a 15:00 minuti per vedere i criteri configurati nell'editor dei criteri e quindi a 18:50 minuti per una dimostrazione della chiamata di un'operazione dal portale per sviluppatori, con e senza il token di autorizzazione richiesto.
 
 ## Passaggi successivi
 -	Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
@@ -547,4 +413,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 [Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

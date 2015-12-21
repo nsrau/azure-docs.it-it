@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Uso di modelli collegati con Gestione risorse di Azure
@@ -102,7 +102,7 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
         }
     }
 
-È inoltre possibile utilizzare [distribuzione ()](resource-group-template-functions.md/#deployment) per ottenere l'URL di base per il modello corrente e utilizzarlo per ottenere l'URL per i modelli nello stesso percorso. Ciò è utile se il percorso del modello cambia (forse a causa del controllo delle versioni) o si desidera evitare la codifica URL nel file del modello.
+È inoltre possibile usare [deployment ()](../resource-group-template-functions/#deployment) per ottenere l'URL di base per il modello corrente e usarlo per ottenere l'URL per altri modelli nello stesso percorso. Ciò è utile se il percorso del modello cambia (forse a causa del controllo delle versioni) o si desidera evitare la codifica URL nel file del modello.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
@@ -116,4 +116,4 @@ Se è necessario passare un valore dal modello collegato al modello principale, 
 - [Creazione di modelli](./resource-group-authoring-templates.md)
 - [Distribuzione di modelli](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

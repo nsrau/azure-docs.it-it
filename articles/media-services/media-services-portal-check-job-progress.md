@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/04/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Controllare lo stato dei processi
@@ -50,4 +50,4 @@ Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

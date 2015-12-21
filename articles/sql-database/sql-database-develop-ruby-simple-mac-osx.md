@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Connettersi al Database SQL utilizzando Ruby con TinyTDS in Mac OS X (Yosemite)" 
+<properties
+	pageTitle="Connettersi al Database SQL utilizzando Ruby con TinyTDS in Mac OS X (Yosemite)"
 	description="Fornire un esempio di codice Ruby che è possibile eseguire su Mac OS X (Yosemite) per connettersi al Database di SQL Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ajlam" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ajlam"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="andrela"/>
 
 
@@ -24,7 +24,9 @@
 
 Questo argomento presenta un esempio di codice Ruby in esecuzione su computer Mac che esegue Yosemite per connettersi a un database di SQL Azure.
 
-## Installare i moduli necessari
+## Prerequisiti
+
+### Installare i moduli necessari
 
 Aprire il terminale in uso e installare quanto segue:
 
@@ -40,53 +42,51 @@ Aprire il terminale in uso e installare quanto segue:
 
     gem install tiny_tds
 
-## Creare un database e recuperare la stringa di connessione
+### Un database SQL
 
-L'esempio Ruby si basa sul database di esempio AdventureWorks. Se non si dispone già di AdventureWorks, è possibile vedere come crearlo nell'argomento seguente:[creare il primo Database di SQL Azure](sql-database-get-started.md)
+Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
-Nell’argomento viene inoltre illustrato come recuperare la stringa di connessione del database.
 
-## Connettersi al database SQL
+## Passaggio 1: Ottenere i dettagli di connessione
 
-La funzione[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds)viene utilizzata per connettersi al Database SQL.
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-    require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
+## Passaggio 2: Connettersi
 
-## Eseguire un'istruzione SELECT e recuperare il set di risultati
+La funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) viene usata per connettersi al database SQL.
 
-La funzione[TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds)viene utilizzata per recuperare un set di risultati da una query sul Database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato utilizzando[result.each si |row|](https://github.com/rails-sqlserver/tiny_tds).
+    require 'tiny_tds'
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
+
+## Passaggio 3: Eseguire una query
+
+La funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene usata per recuperare un set di risultati di una query sul database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
     require 'tiny_tds'  
     print 'test'     
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
-    results = client.execute("select * from SalesLT.Product") 
-    results.each do |row| 
-    puts row 
-    end 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
+    results = client.execute("select * from SalesLT.Product")
+    results.each do |row|
+    puts row
+    end
 
-## Inserimento di una riga, passaggio di parametri e recupero del valore di chiave primaria generato
+## Passaggio 4: Inserire una riga
 
-Nell'esempio di codice:
+Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
-- Passa i parametri per i valori da inserire in una riga.
-- Inserisce la riga.
-- Recupera il valore che è stato generato per la chiave primaria.
-
-Nel database SQL, per generare automaticamente i valori di [chiave primaria](http://msdn.microsoft.com/library/ms179610.aspx), è possibile usare la proprietà [IDENTITY](http://msdn.microsoft.com/library/ms186775.aspx) e l'oggetto [SEQUENCE](http://msdn.microsoft.com/library/ff878058.aspx).
 
 Per utilizzare TinyTDS con Azure, si consiglia di eseguire diverse`SET`istruzioni per modificare la modalità di gestione informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET`vengono fornite nell’esempio di codice Ad esempio,`SET ANSI_NULL_DFLT_ON`consentirà a nuove colonne create di consentire valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
 
 Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microsoft.com/library/ms187819.aspx), utilizzare la funzione[strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime)per eseguire il cast nel formato datetime corrispondente.
 
-    require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
-    host: 'yourserver.database.windows.net', port: 1433, 
-    database: 'AdventureWorks', azure:true 
+    require 'tiny_tds'
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
+    host: 'yourserver.database.windows.net', port: 1433,
+    database: 'AdventureWorks', azure:true
     results = client.execute("SET ANSI_NULLS ON")
     results = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
     results = client.execute("SET ANSI_NULL_DFLT_ON ON")
@@ -97,11 +97,11 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     results = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
     require 'date'
     t = Time.now
-    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
-    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L")
+    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
     OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
-    results.each do |row| 
+    results.each do |row|
     puts row
     end
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

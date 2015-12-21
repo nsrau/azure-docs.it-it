@@ -49,11 +49,13 @@ ms.service="virtual-machines"
 
 ### Esercitazioni
 
-* [Esercitazione: Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Esercitazione: Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Esercitazione: Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Esercitazione: Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Esercitazione: Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Esercitazione: Eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Esercitazione: Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

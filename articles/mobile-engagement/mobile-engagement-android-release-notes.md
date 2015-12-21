@@ -19,6 +19,10 @@
 
 #Note sulla versione
 
+##4\.1.3 (9/12/2015)
+
+- Miglioramenti della stabilità.
+
 ##4\.1.2 (11/25/2015)
 
 - Miglioramenti della stabilità.
@@ -30,8 +34,8 @@
 ##4\.1.0 (08/25/2015)
 
 - Gestione di un nuovo modello di autorizzazione per Android M.
-- Ora è possibile configurare le funzionalità di indirizzo in fase di esecuzione anziché utilizzare `AndroidManifest.xml`.
-- Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
+- È ora possibile configurare le funzionalità del percorso in fase di esecuzione anziché usare `AndroidManifest.xml`.
+- Correzione di un bug delle autorizzazioni: se si usa `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
 - Miglioramenti della stabilità.
 
 ##4\.0.0 (06/07/2015)
@@ -53,4 +57,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stata rimossa la verifica per Google Play e SmartAd.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

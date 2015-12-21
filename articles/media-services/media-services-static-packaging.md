@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015"   
+	ms.date="12/05/2015"   
 	ms.author="juliako"/>
 
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]Windows Azure Media Packager e Windows Azure Media Encryptor raggiungeranno la fine della vita il 1° marzo 2016. In quel momento, questi componenti non saranno più disponibili. Le funzionalità di crittografia e di conversione di formato verranno rese disponibile tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]Microsoft Azure Media Packager e Microsoft Azure Media Encryptor raggiungeranno la fine della vita il 1° marzo 2016. In quel momento, questi componenti non saranno più disponibili. Le funzionalità di crittografia e di conversione di formato verranno rese disponibile tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Panoramica
 
@@ -1447,4 +1447,4 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

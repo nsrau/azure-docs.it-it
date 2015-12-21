@@ -107,7 +107,7 @@ Verrà creato un account di accesso per l'utente specificato usando la password 
 
 ###Interfaccia della riga di comando per Azure per Mac, Linux e Windows
 
-È possibile usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat.md) per creare un nuovo cluster tramite il comando `azure hdinsight cluster create`.
+È possibile usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md) per creare un nuovo cluster tramite il comando `azure hdinsight cluster create`.
 
 Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -238,4 +238,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

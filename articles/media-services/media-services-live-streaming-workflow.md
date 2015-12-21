@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"  
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 
@@ -93,4 +93,4 @@ Per altre informazioni, vedere [Uso di canali che ricevono il flusso live a più
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

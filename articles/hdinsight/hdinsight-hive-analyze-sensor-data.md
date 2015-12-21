@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
@@ -54,4 +54,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

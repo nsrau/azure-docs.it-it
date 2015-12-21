@@ -35,25 +35,21 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
-##4\.1.2 (11/25/2015)
-
-- Miglioramenti della stabilità.
-
-##4\.1.1 (11/04/2015)
+##4\.1.3 (9/12/2015)
 
 - Miglioramenti della stabilità.
 
 ##4\.1.0 (08/25/2015)
 
 - Gestione di un nuovo modello di autorizzazione per Android M.
-- Ora è possibile configurare le funzionalità di indirizzo in fase di esecuzione anziché utilizzare `AndroidManifest.xml`.
-- Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
+- È ora possibile configurare le funzionalità del percorso in fase di esecuzione anziché usare `AndroidManifest.xml`.
+- Correzione di un bug delle autorizzazioni: se si usa `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
 - Miglioramenti della stabilità.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 
 ##Procedure di aggiornamento
 
-Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
+Se è già stata integrata una versione precedente dell'SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

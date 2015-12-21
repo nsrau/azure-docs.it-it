@@ -87,11 +87,11 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
 |conditionType |S |"Metric", "Event" |Sono supportati due tipi di avviso, uno basato sulla metrica e l'altro basato sull'evento. In futuro saranno supportati gli avvisi per gli eventi. Usare quindi questo valore ("Event") per controllare se l'avviso si basa sulla metrica o sull'evento.|
 |condition |S | |Saranno disponibili campi specifici da verificare in base al valore di conditionType|
 |metricName |Per avvisi relativi alle metriche | |Nome della metrica che definisce l'oggetto monitorato dalla regola.|
-|metricUnit |Per avvisi relativi alle metriche |"Byte", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds"|	 Unità consentita nella metrica. Valori consentiti: https://msdn.microsoft.com/it-IT/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit |Per avvisi relativi alle metriche |"Byte", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds"|	 Unità consentita nella metrica. Valori consentiti: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |Per avvisi relativi alle metriche | |Valore effettivo della metrica che ha generato l'avviso|
 |threshold |Per avvisi relativi alle metriche | |Valore di soglia che attiva l'avviso|
 |windowSize |Per avvisi relativi alle metriche | |Periodo di tempo usato per monitorare l'attività degli avvisi in base alla soglia. Deve essere compreso tra 5 minuti e 1 giorno. Il formato della durata è conforme a ISO 8601.|
-|timeAggregation |Per avvisi relativi alle metriche |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Valori consentiti: https://msdn.microsoft.com/it-IT/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |Per avvisi relativi alle metriche |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Valori consentiti: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |Per avvisi relativi alle metriche | |Operatore usato per confrontare i dati e la soglia.|
 |subscriptionId |S | |GUID della sottoscrizione di Azure|
 |resourceGroupName |S | |Nome del gruppo di risorse della risorsa interessata|
@@ -123,4 +123,4 @@ Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguent
 
 [Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

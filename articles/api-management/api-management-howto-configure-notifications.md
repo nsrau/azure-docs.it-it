@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
@@ -22,7 +22,7 @@ Gestione API consente di configurare notifiche per eventi specifici nonché di c
 
 ## <a name="publisher-notifications"> </a>Configurare le notifiche dell'editore
 
-Per configurare le notifiche, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+Per configurare le notifiche, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -54,7 +54,7 @@ Per specificare gli utenti a cui inviare le notifiche, fare clic su **Aggiungi d
 
 Dopo avere configurato i destinatari delle notifiche, fare clic su **Salva** per rendere effettivi i destinatari delle notifiche aggiornati.
 
->Se si esce dalla scheda **Notifiche dell'editore**, il portale di gestione API visualizza un avviso in caso di modifiche non salvate.
+>Se si esce dalla scheda **Notifiche dell'editore**, il portale di pubblicazione visualizza un avviso in caso di modifiche non salvate.
 
 ## <a name="email-templates"> </a>Configurare modelli di posta elettronica
 
@@ -114,4 +114,4 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Come scalare Cache Redis di Azure
 
->[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima, non è possibile ridimensionare, da o in una cache di livello premium.
+>[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima non è possibile scalare da o verso una cache di livello premium, ma è possibile modificare il piano tariffario in una cache premium.
 
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di anteprima di Azure](https://portal.azure.com).
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache usando il pannello **Modifica piano tariffario** nel [portale di Azure](https://portal.azure.com).
 
 ## Quando è necessario scalare
 
@@ -36,7 +36,7 @@ Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilit
 Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile passare a un livello di prezzo della cache superiore o inferiore che sia adatto all'applicazione. Per ulteriori informazioni su come determinare quale tipo di livello di prezzo di cache utilizzare, vedere l’articolo relativo all’[offerta e alle dimensioni di Cache Redis da utilizzare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scalare una cache
-Per ridimensionare la cache [Sfoglia alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di anteprima](https://portal.azure.com) e fare clic su **Impostazioni**, **Livello prezzi**.
+Per scalare la cache [passare alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Impostazioni**, **Piano tariffario**.
 
 È inoltre possibile scegliere il **livello Standard** o il **livello Basic** nel pannello **Cache Redis**.
 
@@ -61,7 +61,7 @@ Quando il ridimensionamento è completato, lo stato passa da **Ridimensionamento
 
 ## Come automatizzare un’operazione di ridimensionamento
 
-Oltre a scalare l'istanza di Cache Redis di Azure nel portale di anteprima, è possibile eseguire il ridimensionamento mediante le [librerie di gestione di Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Per scalare la cache, chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione per `RedisProperties.SKU.Capacity`.
+Oltre a scalare l'istanza di Cache Redis di Azure nel portale di Azure, è possibile eseguire il ridimensionamento mediante le [librerie di gestione di Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Per scalare la cache, chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione per `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ Nell’elenco seguente sono fornite le risposte alle domande poste comunemente s
 
 ## È possibile ridimensionare verso, da o in una cache Premium
 
-Durante il periodo di anteprima, la scalabilità non è disponibile per cache **Premium**.
+Durante il periodo di anteprima non è possibile scalare le cache **Premium**, ma è possibile modificare il piano tariffario in una cache premium.
 
 ## Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?
 
@@ -121,7 +121,7 @@ Le cache**Basic** sono offline durante le operazioni di ridimensionamento, ma ri
 
 ## Operazioni non supportate
 
-Non è possibile ridimensionare verso, da o in una cache **Premium**.
+Non è possibile scalare da o verso una cache **Premium**.
 
 Non è possibile passare da una cache**Standard** a una cache **Basic**.
 
@@ -137,7 +137,7 @@ Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati
 
 ## Come è possibile stabilire quando il ridimensionamento è completato?
 
-Nel portale di anteprima è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
+Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
 
 ## Perché questa funzionalità è in anteprima?
 
@@ -155,4 +155,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

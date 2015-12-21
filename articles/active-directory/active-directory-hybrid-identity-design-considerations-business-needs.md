@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Determinare i requisiti per la soluzione ibrida di gestione delle identità | Microsoft Azure"
+	pageTitle="Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare i requisiti di identità | Microsoft Azure"
 	description="Identificare le esigenze aziendali che consentiranno di definire i requisiti per la progettazione della soluzione ibrida di gestione delle identità."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determinare i requisiti per la soluzione ibrida di gestione delle identità
@@ -96,4 +96,4 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 ## Vedere anche
 [Panoramica delle considerazioni sulla progettazione]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

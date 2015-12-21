@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti dei servizi, quote e vincoli
@@ -179,9 +179,17 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 ### Limiti relativi alla ricerca
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+Il piano tariffario determina la capacità e i limiti del servizio di ricerca.
 
-Per ulteriori informazioni sui limiti massimi per il servizio condiviso o una suddivisione dei limiti su chiavi, richieste e risposte, vedere [Limiti del servizio in Ricerca di Azure](search/search-limits-quotas-capacity.md).
+####Livello Standard
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Livello condiviso (parte di un servizio multi-tenant, disponibile gratuitamente per i sottoscrittori di Azure)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+Per altre informazioni su limiti delle chiavi, combinazioni delle partizioni di replica, richieste, risposte e su come ottenere una disponibilità elevata per diversi carichi di lavoro, vedere [Limiti dei servizi in Ricerca di Azure](search/search-limits-quotas-capacity.md).
 
 ### Limiti relativi ai servizi multimediali
 
@@ -264,7 +272,7 @@ Per ulteriori informazioni sui limiti massimi per il servizio condiviso o una su
 
 ### Limiti relativi al database SQL
 
-Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).
+Per i limiti del database SQL, vedere [Limiti delle risorse del database SQL di Azure](sql-database/sql-database-resource-limits.md).
 
 ## Vedere anche
 
@@ -272,4 +280,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

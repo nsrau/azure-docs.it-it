@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # Informazioni su pipeline e attività
@@ -282,9 +282,9 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 ### Uso di Azure PowerShell
 È possibile utilizzare Azure PowerShell per creare pipeline nella Data factory di Azure. Ad esempio, è stata definita la pipeline di JSON in un file nella posizione c:\\DPWikisample.json. È possibile caricarla nell'istanza Data factory di Azure, come illustrato nell'esempio seguente.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Per altre informazioni su questo cmdlet, vedere il cmdlet [New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
+Per altre informazioni su questo cmdlet, vedere il cmdlet [New-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
 
 ### Uso dell'API REST
 È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere [Creare o aggiornare una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -335,4 +335,4 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/07/2015" 
 	ms.author="femila"/>
 
 # Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory.
@@ -66,7 +66,7 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 | Gli utenti accedono a Windows con le credenziali dell'account aziendale (come già accade attualmente) | Gli utenti possono accedere a Windows con le credenziali dell'account aziendale gestite in Azure AD. Questo si applica ai dispositivi aziendali nei tre casi seguenti. L'organizzazione non dispone di Active Directory locale (ad esempio, piccola impresa). L'organizzazione non crea tutti gli account utente in Active Directory (ad esempio studenti, consulenti, lavoratori stagionali). Dispositivi aziendali che non possono essere aggiunti a un dominio (locale), ad esempio telefoni o tablet che eseguono uno SKU per dispositivi mobili. Ad esempio, un dispositivo secondario che viene usato in uno stabilimento o in un negozio. Funziona per le organizzazioni federate e gestite. | Gli utenti accedono a Windows usando le credenziali dell'account Microsoft (MSA) personale (invariato) |
 | Gli utenti hanno accesso al roaming delle impostazioni e a Windows Store. Questi servizi funzionano con un account aziendale (non è necessario un account Microsoft personale). È necessario che l'organizzazione connetta Active Directory locale ad Azure AD | Configurazione self-service: gli utenti possono usare una procedura di configurazione iniziale guidata tramite l'account aziendale, in alternativa al provisioning del dispositivo effettuato dal reparto IT. Entrambi i metodi sono supportati | L'aggiunta di un account aziendale gestito in Active Directory o in Azure AD è estremamente semplice |
 | Accesso Single Sign-On dal desktop ad app/siti Web/risorse aziendali locali e nel cloud che usano Azure AD per l'autenticazione | Registrazione automatica nella directory aziendale (Azure AD) e registrazione automatica in MDM. (funzionalità di Azure AD Premium) | Offre accesso Single Sign-On tramite l'account aziendale per tutte le app, i siti Web e le risorse |
-| Gli utenti possono aggiungere il proprio account Microsoft personale per accedere ai propri file o immagini senza compromettere i dati aziendali (le impostazioni di roaming continuano a funzionare con l'account aziendale). L'account Microsoft personale consente l'accesso SSO e non gestisce più il roaming delle impostazioni | La reimpostazione delle password self-service durante l'esecuzione di winlogon (possibilità di reimpostare le password dimenticate). Questa funzionalità richiede Azure AD Premium | Fornisce l'accesso alla sezione dello Store dedicata alle app aziendali, in modo che gli utenti possano acquistare e usare app line-of-business sui propri dispositivi personali | |
+| Gli utenti possono aggiungere il proprio account Microsoft personale per accedere ai propri file o immagini senza compromettere i dati aziendali (le impostazioni di roaming continuano a funzionare con l'account aziendale). L'account Microsoft personale consente l'accesso SSO e non gestisce più il roaming delle impostazioni | La reimpostazione delle password self-service durante l'esecuzione di winlogon (possibilità di reimpostare le password dimenticate). Questa funzionalità richiede Azure AD Premium | Fornisce l'accesso allo store dedicato alle app aziendali, in modo che gli utenti possano acquistare e usare app line-of-business sui propri dispositivi personali | |
 
 
 ## Informazioni aggiuntive
@@ -77,4 +77,4 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

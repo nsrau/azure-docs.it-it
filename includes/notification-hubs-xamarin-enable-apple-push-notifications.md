@@ -78,7 +78,7 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
 10. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push appena creato nella categoria **Certificati**. Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi fare clic su **Salva**.
 
-	Prendere nota del nome e del percorso del file di certificato con estensione p12 esportato. Questo certificato verrà usato per abilitare l'autenticazione con il servizio APN, una volta caricato nel portale di Azure.
+	Prendere nota del nome e del percorso del file di certificato con estensione p12 esportato. Questo certificato verrà usato per abilitare l'autenticazione con il servizio APN caricandolo nel portale di Azure classico.
 
 
 
@@ -110,4 +110,4 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

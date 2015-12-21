@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -227,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

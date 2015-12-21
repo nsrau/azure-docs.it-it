@@ -126,14 +126,14 @@ Di seguito sono riportati i passaggi per integrare SQL AlwaysOn con ASR.
 - Impostazione del gruppo di disponibilità di SQL tra server SQL Server locale e server SQL in esecuzione in Azure
 - La comunicazione remota di PowerShell deve essere abilitata sul server SQL locale. Il server VMM deve essere in grado di effettuare chiamate remote di PowerShell a SQL Server
 - Nel server SQL locale è necessario aggiungere un account utente ai gruppi di utenti SQL con almeno le seguenti autorizzazioni
-	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/it-IT/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/it-IT/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/it-IT/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - È necessario creare un account RunAs nel server VMM per l'account nel passaggio precedente
 - Il modulo SQL PS deve essere installato sui server SQL in esecuzione in locale e sulle macchine virtuali di Azure
 - VM Agent deve essere installato nelle macchine virtuali in esecuzione in Azure
 - NTAUTHORITY\\System deve disporre delle autorizzazioni seguenti in SQL Server in esecuzione su macchine virtuali in Azure
-	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/it-IT/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/it-IT/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/it-IT/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. Aggiunta di un server SQL
 
@@ -374,4 +374,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

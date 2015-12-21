@@ -3,8 +3,8 @@
 	description="Un elenco di controllo delle procedure consolidate per l'utilizzo dell'archiviazione di Azure nello sviluppo di applicazioni ad elevate prestazioni."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 
@@ -235,7 +235,7 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 -	.NET: Impostare ParallelOperationThreadCount in un oggetto BlobRequestOptions da usare.
 -	Java/Android: Usare BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: Usare parallelOperationThreadCount nelle opzioni della richiesta o nel servizio BLOB.
--	C++: Usare il metodo blob\_request\_options::set\_parallelism\_factor.
+-	C++: Usare il metodo blob_request_options::set_parallelism_factor.
 
 ####<a name="subheading22"></a>Caricamento rapido di più BLOB
 Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della redazione di questo documento, un account di archiviazione con ridondanza locale (LRS) basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, un valore molto più alto della velocità effettiva supportata da un singolo BLOB. [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.
@@ -382,4 +382,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

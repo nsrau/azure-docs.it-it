@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
@@ -117,7 +117,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 
 ## <a name="delegate-example-code"> </a>Codice di esempio ##
 
-I codici di esempio seguenti illustrano come usare la *chiave di convalida della delega*, che è impostata nella schermata Delega del portale di Gestione API, per creare un HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato. Lo stesso codice funziona per productId e userId con leggeri modifiche.
+I codici di esempio seguenti illustrano come usare la *chiave di convalida della delega*, impostata nella schermata Delega del portale di pubblicazione, per creare un HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato. Lo stesso codice funziona per productId e userId con leggeri modifiche.
 
 **Codice C# per generare l'hash di returnUrl**
 
@@ -166,4 +166,4 @@ Per altre informazioni sulla delega, vedere il video seguente.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

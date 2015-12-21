@@ -29,9 +29,9 @@ In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio ra
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* [Account Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con un indirizzo di posta elettronica verificato
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Completare l'[esercitazione relativa alla guida introduttiva](../app-service-mobile-android-get-started.md).
+* [Account Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con un indirizzo di posta elettronica verificato.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) (non necessario per un progetto di back-end Node.js).
+* Completare l'[esercitazione di avvio rapido](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Creare un hub di notifica
 
@@ -82,4 +82,4 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 <!-- URLs -->
 [avvio rapido di Android ]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

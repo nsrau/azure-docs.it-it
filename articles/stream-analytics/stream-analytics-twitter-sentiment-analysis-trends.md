@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Analisi dei sentimenti di Twitter in tempo reale con Analisi di flusso | Microsoft Azure"
 	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-	keywords="twitter in tempo reale, analisi del sentimento, analisi dei social network, strumenti di analisi dei social network"
+	keywords="analisi delle tendenze twitter in tempo reale, analisi dei sentimenti, analisi dei social media, esempio di analisi di tendenza"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,19 +14,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
 # Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
 
-In questa esercitazione si apprenderà come creare una soluzione di analisi dei sentimenti portando gli eventi di Twitter in tempo reale nell’hub eventi, creando query di Analisi di flusso per analizzare i dati, quindi archiviando i risultati o utilizzando un dashboard per fornire le informazioni in tempo reale.
+Informazioni su come creare una soluzione di analisi dei sentimenti per analisi dei social media portando gli eventi di Twitter in tempo reale negli hub eventi. Si scriverà una query di Analisi di flusso per analizzare i dati e quindi archiviare i risultati per analisi successive, oppure usare un dashboard per rendere disponibili le informazioni in tempo reale usando [Power BI](https://powerbi.com/).
 
-Gli strumenti di analisi di social media consentono alle organizzazioni di comprendere gli argomenti di tendenza, i soggetti significativi e le attitudini con un elevato numero di post nei social media. L’analisi del sentimento, denominata anche "opinion mining", utilizza gli strumenti di analisi dei social media per determinare le attitudini rispetto a un prodotto, un’idea e così via.
+Gli strumenti di analisi di social media consentono alle organizzazioni di comprendere gli argomenti di tendenza, i soggetti significativi e le attitudini con un elevato numero di post nei social media. L’analisi del sentimento, denominata anche "opinion mining", utilizza gli strumenti di analisi dei social media per determinare le attitudini rispetto a un prodotto, un’idea e così via. L'analisi delle tendenze Twitter in tempo reale è un ottimo esempio, perché il modello di sottoscrizione hashtag consente di ascoltare determinate parole chiave e sviluppare l'analisi dei sentimenti nel feed.
 
-## Scenario
+## Scenario: analisi dei sentimenti in tempo reale
 
-Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Viene utilizzata l’analisi dei social media su argomenti rilevanti per i lettori eseguendo l’analisi del sentimento in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti che sono di tendenza in tempo reale su Twitter, si necessita di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti.
+Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Viene utilizzata l’analisi dei social media su argomenti rilevanti per i lettori eseguendo l’analisi del sentimento in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti che sono di tendenza in tempo reale su Twitter, si necessita di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti. In questo modo, è necessario un motore di analisi dei sentimenti basato su questo feed di social media.
 
 ## Prerequisiti
 1.	Per questa esercitazione è necessario un account Twitter.  
@@ -38,7 +38,7 @@ L'applicazione di esempio genererà gli eventi e li invierà a un'istanza dell�
 
 Attenersi alla procedura seguente per creare un hub eventi.
 
-1.	Nel portale di Azure fare clic su **NUOVO** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e fornire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
+1.	Nel portale di Azure fare clic su **NUOVO** > **SERVIZI APP** > **BUS DI SERVIZIO** > **HUB EVENTI** > **CREAZIONE RAPIDA** e inserire un nome, un’area e uno spazio dei nomi nuovo o esistente per creare un nuovo hub eventi.  
 2.	Come procedura consigliata, ogni processo di analisi dei flussi deve essere letto da un singolo gruppo di consumer di hub eventi. Verrà illustrata la procedura di creazione di un gruppo di consumer riportata di seguito e ulteriori informazioni. Per creare un gruppo di consumer, individuare l'hub eventi appena creato, quindi scegliere la scheda **GRUPPI DI CONSUMER**, fare clic su **CREA** nella parte inferiore della pagina, quindi fornire un nome per il gruppo di consumer.
 3.	Per concedere l'accesso all'Hub di eventi, è necessario creare un criterio di accesso condiviso. Scegliere la scheda **CONFIGURA** dell'Hub eventi.
 4.	Under **CRITERI DI ACCESSO CONDIVISI**, creare un nuovo criterio di **gestione** delle autorizzazioni.
@@ -51,7 +51,7 @@ Attenersi alla procedura seguente per creare un hub eventi.
 
 ## Configurazione e avvio dell'applicazione client Twitter
 
-Abbiamo fornito un'applicazione client che interagirà con i dati di Twitter tramite le [API di streaming di Twitter](https://dev.twitter.com/streaming/overview) per raccogliere gli eventi Tweet relativi a un insieme di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet (0: negativo 2: neutro, 4: positivo) e gli eventi di Tweet vengono indirizzati all'hub eventi.
+È stata messa a disposizione un'applicazione client che interagirà con i dati di Twitter tramite le [API di streaming di Twitter](https://dev.twitter.com/streaming/overview) per raccogliere gli eventi Tweet relativi a un insieme di argomenti con parametri. Lo strumento di origine [Sentiment140](http://help.sentiment140.com/) viene utilizzato per assegnare un valore sentimento a ogni tweet (0: negativo 2: neutro, 4: positivo) e gli eventi di Tweet vengono indirizzati all'hub eventi.
 
 Attenersi alla seguente procedura per configurare l'applicazione:
 
@@ -74,7 +74,7 @@ Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possib
 
 ### Eseguire il provisioning di un processo di Analisi di flusso
 
-1.	Nel [portale di Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
+1.	Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
 
 	* **NOME PROCESSO**: immettere un nome del processo.
@@ -153,7 +153,7 @@ Per confrontare il numero di riferimenti tra gli argomenti, è possibile sfrutta
 
 #### Identificazione degli argomenti di tendenza: finestra scorrevole
 
-Per identificare argomenti di tendenza si cercheranno argomenti che superano un valore soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti menzionati più di 20 volte negli ultimi 5 secondi utilizzando una [finestra scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Per identificare argomenti di tendenza si cercheranno argomenti che superano un valore soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti menzionati più di 20 volte negli ultimi 5 secondi usando una [finestra scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Modificare la query nell'editor di codice nel modo seguente:
 
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

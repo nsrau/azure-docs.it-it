@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Scrivere Query| Microsoft Azure" 
-	description="Scrivere query in Analisi di flusso | segmento del percorso di apprendimento."
+	pageTitle="Come scrivere query in Analisi di flusso | Microsoft Azure" 
+	description="Scrivere query in Analisi di flusso ed eseguire query sui dati | segmento del percorso di apprendimento."
+	keywords="come scrivere query, eseguire query sui dati, scrivere una query, scrittura di query"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,45 +14,45 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 # Come scrivere query in Analisi di flusso
 
-La logica di elaborazione del flusso in analisi di flusso di Azure viene implementato come una "query in esecuzione" definita prima che un processo venga avviato ed eseguita sui dati nel momento in cui raggiunge il processo. La trasformazione dei dati è espressa in un linguaggio di query di tipo SQL, che è sostanzialmente un sottoinsieme di T-SQL con alcune estensioni di linguaggio aggiunte come [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) utilizzato per esprimere la semantica temporale.
+La scrittura di query per la logica di elaborazione del flusso in Analisi di flusso di Azure viene implementata come una "query in esecuzione" definita prima che un processo venga avviato ed eseguita sui dati nel momento in cui raggiunge il processo. La trasformazione dei dati è espressa in un linguaggio di query di tipo SQL, che è sostanzialmente un sottoinsieme di T-SQL con alcune estensioni di linguaggio aggiunte come [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) usato per esprimere la semantica temporale.
 
-## Per creare una query di analisi di flusso: ##
+## Scrittura di query: ##
 
-1. Nel processo dell’analisi di flusso nel portale di Azure classico, fare clic su **Query**.
+1. Nel processo di Analisi di flusso nel portale di gestione di Azure, fare clic su **Query**.
 
     ![Query di selezione](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    Nel portale di Azure fare clic su **Query**.
+    Nel portale di anteprima di Azure fare clic su **Query**.
 
     ![Selezionare l'anteprima della query](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	I nuovi processi dispongono di un modello di query per rendere più semplice l’inizio. Il modello di query esegue una query "pass-through" che proietta tutti i campi dagli eventi di input nell'output.
 
-    - Se sono stati definiti almeno un input e un output per il processo, è possibile sostituire i campi segnaposto "[YourOutputAlias]" e "[YourInputAlias]" con gli alias dell’input e dell’output che si desidera utilizzare per primi. È inoltre possibile creare e testare la query nel portale di Azure classico senza la definizione di input e output del processo.
-    - Se si desidera eseguire un'elaborazione più complessa rispetto a un semplice pass-through, è possibile modificare la definizione della query. Per iniziare a utilizzare la creazione di query, esaminiamo alcuni modelli di query comuni [qui](stream-analytics-query-patterns).  
+    - Se sono stati definiti almeno un input e un output per il processo, è possibile sostituire i campi segnaposto "[YourOutputAlias]" e "[YourInputAlias]" con gli alias dell’input e dell’output che si desidera utilizzare per primi. È inoltre possibile creare e testare la query nel portale di Azure senza la definizione di input e output del processo.
+    - Se si desidera eseguire un'elaborazione più complessa rispetto a un semplice pass-through, è possibile modificare la definizione della query. Per iniziare a usare la creazione di query, esaminiamo alcuni modelli di query comuni [qui](stream-analytics-query-patterns).  
   
-    ![Finestra di query](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
+    ![Eseguire query sui dati, finestra](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
-## Per testare una query: ##
+## Per verificare se le query sui dati funzionano: ##
 
 È possibile verificare che la query funzioni come previsto eseguendola nel browser su uno o più file JSON locali contenenti i dati di test. Il test non avvia il processo e non ha implicazioni relative alla fatturazione.
 
-> [AZURE.NOTE]Attualmente il test delle query nel browser non è supportato nel portale di Azure.
+> [AZURE.NOTE]Attualmente il test delle query nel browser non è supportato nel portale di anteprima di Azure.
 
 1.	Assicurarsi che non siano presenti errori nella query (in caso contrario il pulsante Test verrà disabilitato) e quindi fare clic sul pulsante Test.  
 
-    ![Test della query](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
+    ![Eseguire query sui dati, test](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
 
 2.	Verrà chiesto di specificare i file per ognuno degli input a cui si fa riferimento nella query. In questo esempio, la query del modello viene lasciata come è, pertanto è richiesto l’input denominato "yourinputalias".
 
-    ![Dati di test](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
+    ![Verificare query sui dati](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Passare a un file di test. Diversi file di esempio sono disponibili su [github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample dati) ed è inoltre possibile recuperare i dati di esempio dai propri input del flusso di dati tramite la funzione dati di esempio nella scheda Input.
+3.	Passare a un file di test. Diversi file di esempio sono disponibili su [github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample dati) ed è anche possibile recuperare dati di esempio dai propri input del flusso di dati tramite la funzione Dati di esempio nella scheda Input.
 
     ![Input della query](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -68,6 +69,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

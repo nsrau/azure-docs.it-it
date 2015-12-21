@@ -48,7 +48,7 @@ Quando i nodi di calcolo in un pool sono in grado di eseguire attività simultan
 
 La proprietà [CloudPool.TaskSchedulingPolicy][task_schedule] consente di specificare se le attività devono essere assegnate in modo uniforme tra tutti i nodi del pool ("diffusione") oppure di assegnare il maggior numero di attività possibile a ogni nodo prima di procedere all'assegnazione di attività a un altro nodo del pool ("compressione").
 
-Per comprendere l'importanza di questa funzionalità, si consideri il pool di nodi Standard D14 dell'esempio precedente, configurato con un valore di 16 per [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se nei criteri [CloudPool.TaskSchedulingPolicy][task_schedule] il tipo [ComputeNodeFillType][fill_type] è configurato su *Pack*, verrà ottimizzato l'utilizzo di tutti e 16 i core di ogni nodo e, per i [pool con scalabilità automatica](./batch-automatic-scaling.md), sarà possibile escludere i nodi non utilizzati dal pool (nodi a cui non sono assegnate attività), riducendo così al minimo l'utilizzo delle risorse e generando un risparmio sui costi.
+Per comprendere l'importanza di questa funzionalità, si consideri il pool di nodi Standard D14 dell'esempio precedente, configurato con un valore di 16 per [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se i criteri [CloudPool.TaskSchedulingPolicy][task_schedule] sono configurati con il tipo [ComputeNodeFillType][fill_type] di *Pack*, verrà ottimizzato l'utilizzo di tutti e 16 i core di ogni nodo e, per i [pool con scalabilità automatica](./batch-automatic-scaling.md), sarà possibile escludere i nodi non utilizzati dal pool (nodi a cui non sono assegnate attività), riducendo così al minimo l'utilizzo delle risorse e generando un risparmio sui costi.
 
 ## Esempio per Batch .NET
 
@@ -117,7 +117,7 @@ La seconda esecuzione dell'esempio mostra una riduzione significativa della dura
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/it-IT/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -127,4 +127,4 @@ La seconda esecuzione dell'esempio mostra una riduzione significativa della dura
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

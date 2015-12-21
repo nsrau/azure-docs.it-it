@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Uso del reindirizzamento in Azure RemoteApp" 
-    description="Informazioni su come configurare e usare il reindirizzamento in RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Uso del reindirizzamento in Azure RemoteApp | Microsoft Azure"
+    description="Informazioni su come configurare e usare il reindirizzamento in RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/10/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Uso del reindirizzamento in Azure RemoteApp
@@ -36,7 +36,7 @@ Quando si usa RemoteApp, i reindirizzamenti seguenti sono abilitati per impostaz
 ## Quali altri reindirizzamenti sono disponibili?
 Due opzioni di reindirizzamento sono disabilitate per impostazione predefinita:
 
-- Reindirizzamento delle unità (mapping di unità): le unità del computer locale diventano unità mappate nella sessione remota. In questo modo è possibile salvare o aprire file da unità locali mentre si lavora nella sessione remota. 
+- Reindirizzamento delle unità (mapping di unità): le unità del computer locale diventano unità mappate nella sessione remota. In questo modo è possibile salvare o aprire file da unità locali mentre si lavora nella sessione remota.
 - Reindirizzamento USB: è possibile usare i dispositivi USB collegati al computer locale all'interno della sessione remota.
 
 ## Modificare le impostazioni di reindirizzamento in RemoteApp
@@ -45,13 +45,13 @@ Due opzioni di reindirizzamento sono disabilitate per impostazione predefinita:
 Usare quindi un comando simile al seguente per impostare le proprietà RDP personalizzate:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
-    
+
 (Si noti che *'n* viene usato come delimitatore tra le singole proprietà)
 
 Per un elenco delle proprietà RDP configurate, eseguire il cmdlet seguente. Si noti che solo le proprietà personalizzate vengono visualizzate come risultati di output, non le proprietà predefinite:
 
-    Get-AzureRemoteAppCollection -CollectionName <collection name> 
- 
+    Get-AzureRemoteAppCollection -CollectionName <collection name>
+
 Quando si impostano proprietà personalizzate, è necessario specificare tutte le proprietà personalizzate ogni volta. In caso contrario, l'impostazione viene nuovamente disabilitata.
 
 ### Esempi comuni
@@ -72,7 +72,7 @@ Usare questo cmdlet per disabilitare la condivisione degli Appunti:
 ## Modificare le impostazioni di reindirizzamento USB nel client Windows
 
 Se si desidera usare il reindirizzamento USB su un computer che si connette a RemoteApp, è necessario eseguire 2 azioni. 1 - L'amministratore deve abilitare il reindirizzamento USB a livello di raccolta tramite Azure PowerShell. 2 - Su ogni dispositivo su cui si desidera usare il reindirizzamento USB, è necessario abilitare un criterio di gruppo che lo consente. È necessario eseguire questo passaggio per ogni utente che desidera usare il reindirizzamento USB.
-   
+
 > [AZURE.NOTE]Il reindirizzamento USB con Azure RemoteApp è supportato solo per i computer Windows.
 
 ### Abilitare il reindirizzamento USB per la raccolta di RemoteApp
@@ -88,7 +88,7 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 2. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
 3. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 4. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
-5. Aprire un prompt dei comandi con autorizzazioni amministrative ed eseguire il comando seguente: 
+5. Aprire un prompt dei comandi con autorizzazioni amministrative ed eseguire il comando seguente:
 
 		gpupdate /force
 6. Riavviare il computer.
@@ -104,4 +104,4 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 8. Fare clic su **OK**.  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

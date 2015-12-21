@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # Applicazione dell'infrastruttura di servizi e fasi successive
@@ -59,17 +59,21 @@ L'infrastruttura di servizi fornisce l'integrazione con ASP.NET 5 per la creazio
 ### Creare un cluster di Azure
 LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure][create-cluster-in-portal]
 
+### Provare a distribuire in Azure gratuitamente i cluster di terze parti
+
+Se si vuole provare a distribuire e gestire applicazioni in Azure senza configurare i propri cluster, è possibile usare il [servizio gratuito per l'uso di cluster di terze parti](http://aka.ms/tryservicefabric).
+
 ### Pubblicazione dell'applicazione in Azure
-È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per altre informazioni, vedere [Pubblicare l'applicazione in Azure][publish-app-to-azure].
+È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per informazioni, vedere [Pubblicare l'applicazione in Azure][publish-app-to-azure].
 
 ### Visualizzare il cluster con Service Fabric Explorer
 Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e layout fisico. Per informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer][visualize-with-sfx].
 
 ### Effettuare il versioning e aggiornare i servizi
-Infrastruttura di servizi consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere le procedure per [Effettuare il versioning e l'aggiornamento dei servizi][app-upgrade-tutorial].
+Infrastruttura di servizi consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere l'articolo relativo all'[esecuzione del versioning e dell'aggiornamento dei servizi][app-upgrade-tutorial].
 
 ### Configurare l'integrazione continua con Visual Studio Online
-Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere l'articolo su come [configurare l'integrazione continua con Visual Studio Online][ci-with-vso].
+Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere l'articolo relativo alla [configurazione dell'integrazione continua con Visual Studio Online][ci-with-vso].
 
 
 <!-- Links -->
@@ -81,4 +85,4 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

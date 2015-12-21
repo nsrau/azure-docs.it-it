@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # Come configurare connessioni VPN in Gestione API di Azure
@@ -22,9 +22,9 @@ Il supporto VPN di Gestione API consente di connettere il gateway di Gestione AP
 
 ## <a name="enable-vpn"> </a>Abilitare connessioni VPN
 
->La connettività VPN è disponibile solo nel livello **Premium**. Per passare a questo livello, aprire il servizio Gestione API nel [portale di gestione][] e quindi aprire la scheda **Scalabilità**. Nella sezione **Generale** selezionare il livello Premium e fare clic su Salva.
+>La connettività VPN è disponibile solo nel livello **Premium**. Per passare a questo livello, aprire il servizio Gestione API nel [portale di Azure classico][] e quindi aprire la scheda **Ridimensiona**. Nella sezione **Generale** selezionare il livello Premium e fare clic su Salva.
 
-Per abilitare la connettività VPN, aprire il servizio Gestione API nel [portale di gestione][] e passare alla scheda **Configura**.
+Per abilitare la connettività VPN, aprire il servizio Gestione API nel [portale di Azure classico][] e passare alla scheda **Configura**.
 
 Nella sezione VPN impostare **Connessione VPN** su **Attivata**.
 
@@ -36,7 +36,7 @@ Selezionare un VPN e una subnet per ogni area. L'elenco di VPN viene popolato in
 
 ![Selezionare una VPN][api-management-setup-vpn-select]
 
-Fare clic su **Salva** nella parte inferiore della schermata. Non sarà possibile eseguire altre operazioni nel servizio Gestione API dal portale di gestione di Azure durante l'aggiornamento. Il gateway del servizio rimarrà disponibile e le chiamate di runtime non dovrebbero essere interessate.
+Fare clic su **Salva** nella parte inferiore della schermata. Durante l'aggiornamento non sarà possibile eseguire altre operazioni nel servizio Gestione API dal portale di Azure classico. Il gateway del servizio rimarrà disponibile e le chiamate di runtime non dovrebbero essere interessate.
 
 Si noti che l'indirizzo VIP del gateway cambierà ogni volta che la VPN verrà abilitata o disabilitata.
 
@@ -50,8 +50,8 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 ## <a name="related-content"> </a>Contenuti correlati
 
 
- * [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito][]
- * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure][]
+* [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito][]
+* [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,10 +61,9 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[portale di gestione]: https://manage.windowsazure.com/
+[portale di Azure classico]: https://manage.windowsazure.com/
 
 [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

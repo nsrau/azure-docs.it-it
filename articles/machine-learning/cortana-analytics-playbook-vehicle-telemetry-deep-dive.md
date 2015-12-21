@@ -40,26 +40,26 @@ Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo.
 
 Si tratta di un set di dati in formato JSON che contiene lo schema riportato di seguito.
 
-Colonna | Descrizione | Valori |  
-------- | ----------- | --------- | 
-vin | Numero identificativo del veicolo generato in modo casuale | Viene ottenuto da un elenco master di 10.000 numeri identificativi di veicoli generati in modo casuale | 
-outsideTemperature | Temperatura all'esterno durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale | 
-engineTemperature | Temperatura del motore del veicolo | Numero da 0 a 500 generato in modo casuale | 
-speed | Velocità del motore durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale | 
-fuel | Livello di carburante del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di carburante) | 
-engineoil | Livello dell'olio del motore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di olio del motore) | 
-tirepressure | Pressione degli pneumatici del veicolo | Numero da 0 a 50 generato in modo casuale (indica la percentuale del livello di pressione degli pneumatici) | 
-odometer | Lettura del contachilometri del veicolo | Numero da 0 a 200000 generato in modo casuale | 
-accelerator\_pedal\_position | Posizione del pedale dell'acceleratore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello dell'acceleratore) | 
-parking\_brake\_status | Indica se il freno di stazionamento è attivato o meno | true o false | 
-headlamp\_status | Indica se il fanale anteriore è acceso o meno | true o false | 
-brake\_pedal\_status | Indica se il pedale del freno è premuto o meno | true o false | 
-transmission\_gear\_position | Posizione del cambio del veicolo | Stati: first, second, third, fourth, fifth, sixth, seventh, eighth | 
-ignition\_status | Indica se il veicolo è acceso o meno | true o false | 
-windshield\_wiper\_status | Indica se il tergicristallo è attivato o meno | true o false | 
-abs | Indica se l'ABS è attivato o meno | true o false | 
-timestamp | Timestamp di creazione del punto dati | Data | 
-city | Località in cui si trova il veicolo | 4 città in questa soluzione: Bellevue, Redmond, Sammamish, Seattle | 
+Colonna | Descrizione | Valori   
+ ------- | ----------- | ---------  
+vin | Numero identificativo del veicolo generato in modo casuale | Viene ottenuto da un elenco master di 10.000 numeri identificativi di veicoli generati in modo casuale
+outsideTemperature | Temperatura all'esterno durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale
+engineTemperature | Temperatura del motore del veicolo | Numero da 0 a 500 generato in modo casuale
+speed | Velocità del motore durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale
+fuel | Livello di carburante del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di carburante)
+engineoil | Livello dell'olio del motore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di olio del motore)
+tirepressure | Pressione degli pneumatici del veicolo | Numero da 0 a 50 generato in modo casuale (indica la percentuale del livello di pressione degli pneumatici)
+odometer | Lettura del contachilometri del veicolo | Numero da 0 a 200000 generato in modo casuale
+accelerator\_pedal\_position | Posizione del pedale dell'acceleratore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello dell'acceleratore)
+parking\_brake\_status | Indica se il freno di stazionamento è attivato o meno | true o false
+headlamp\_status | Indica se il fanale anteriore è acceso o meno | true o false
+brake\_pedal\_status | Indica se il pedale del freno è premuto o meno | true o false
+transmission\_gear\_position | Posizione del cambio del veicolo | Stati: first, second, third, fourth, fifth, sixth, seventh, eighth
+ignition\_status | Indica se il veicolo è acceso o meno | true o false
+windshield\_wiper\_status | Indica se il tergicristallo è attivato o meno | true o false
+abs | Indica se l'ABS è attivato o meno | true o false
+timestamp | Timestamp di creazione del punto dati | Data
+city | Località in cui si trova il veicolo | 4 città in questa soluzione: Bellevue, Redmond, Sammamish, Seattle
 
 
 Il set di dati di riferimento del modello di veicolo contiene il mapping del numero identificativo del veicolo al modello.
@@ -696,4 +696,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

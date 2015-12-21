@@ -49,7 +49,7 @@ Creare prima gli oggetti richiesti da PolyBase per la connessione ai dati nell'a
 Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenziale con ambito di database che archivia informazioni di autenticazione per l'account di archiviazione Azure. Seguire questi passaggi per archiviare le credenziali con il database.
 
 1. Connettersi al database SQL Data Warehouse.
-2. Utilizzare [CREATE MASTER KEY (Transact-SQL)][] per creare una chiave master del database. Se il database ha già una chiave master che non è necessario crearne un’altra. Questa chiave viene usata per crittografare il segreto delle credenziali nel passaggio successivo.
+2. Usare [CREATE MASTER KEY (Transact-SQL)][] per creare una chiave master del database. Se il database ha già una chiave master che non è necessario crearne un’altra. Questa chiave viene usata per crittografare il segreto delle credenziali nel passaggio successivo.
 
     ```
     -- Create a E master key
@@ -62,11 +62,11 @@ Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenzia
     -- Verificare le credenziali con ambito di database esistenti.
     SELECT * FROM sys.database\_credential;
 
-3. Utilizzare [CREATE CREDENTIAL (Transact-SQL)][] per creare credenziali con ambito di database per ogni account di archiviazione di Azure a cui si desidera accedere. In questo esempio, IDENTITY è un nome descrittivo per le credenziali. Il nome dell'identità non influenza l'autenticazione per Archiviazione di Azure. SECRET è la chiave dell'account di archiviazione Azure.
+3. Usare [CREATE CREDENTIAL (Transact-SQL)][] per creare credenziali con ambito di database per ogni account di archiviazione di Azure a cui si desidera accedere. In questo esempio, IDENTITY è un nome descrittivo per le credenziali. Il nome dell'identità non influenza l'autenticazione in Archiviazione di Azure. SECRET è la chiave dell'account di archiviazione Azure.
 
     -- Crea credenziali con ambito di database CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
-1. Se è necessario eliminare le credenziali con ambito di database, utilizzare [DROP CREDENTIAL (Transact-SQL)][]\:
+1. Se è necessario eliminare le credenziali con ambito di database, usare [DROP CREDENTIAL (Transact-SQL)][]\:
 
 ```
 -- Dropping credential
@@ -169,7 +169,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Quando si elimina una tabella esterna è necessario utilizzare `DROP EXTERNAL TABLE`. **Non è possibile** usare `DROP TABLE`.
+> [AZURE.NOTE]Quando si elimina una tabella esterna è necessario usare `DROP EXTERNAL TABLE`. **Non è possibile** usare `DROP TABLE`.
 
 Argomento di riferimento: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -205,7 +205,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta-- è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi*. Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE]Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta: è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi*. Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
 
 
 ## Caricare dati dall'archiviazione BLOB di Azure
@@ -350,13 +350,13 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

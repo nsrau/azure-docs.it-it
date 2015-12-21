@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="12/06/2015"
       ms.author="hascipio; avikova" />
 
 # Mapping di un servizio Web esistente in OData tramite CSDL
@@ -72,11 +72,11 @@ Consente di definire le funzioni (SPROC) e le entità che vengono esposte tramit
 > [AZURE.TIP]Se l'articolo non viene visualizzato, fare clic sull'elenco a discesa **Altre versioni** e selezionare una versione.
 
 ### EDM - Entry Data Model, Modello di dati di movimento
-- Panoramica: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+- Panoramica: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
 [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Anteprima: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+- Anteprima: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
 [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Tipi di dati: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
+- Tipi di dati: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
 [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 Di seguito viene illustrato il flusso di dettagli da sinistra a destra da cui il client immette l'istruzione di OData (chiamata al servizio Web del provider di contenuti) per ottenere risultati o dati:
@@ -123,9 +123,9 @@ Il documento metadati/mapping viene utilizzato per il mapping dei servizi Web es
 
 A seguire, un esempio di CSDL: (copiare e incollare il CSDL di esempio seguente in un editor XML e modificarlo affinché corrisponda al proprio servizio. Quindi incollare il contenuto nel mapping CSDL, nella scheda DataService, durante la creazione del servizio nel [portale di pubblicazione di Azure Marketplace](https://publish.windowsazure.com)).
 
-**Termini:** riguardo la correlazione fra i termini di CSDL e quelli dell'interfaccia utente del [portale di pubblicazione](https://publish.windowsazure.com) (PPUI), il "Titolo" dell'offerta nella PPUI si riferisce a MyWebOffer. MyCompany nella PPUI si riferisce al nome della società nell'interfaccia utente di [Dashboard venditori](https://sellerdashboard.microsoft.com). L'API si riferisce a un servizio dati o Web (un piano nella PPUI)
+**Termini:** riguardo la correlazione fra i termini di CSDL e quelli dell'interfaccia utente del [portale di pubblicazione](https://publish.windowsazure.com) (PPUI) - il "Titolo" dell'offerta in PPUI si riferisce a MyWebOffer - MyCompany in PPUI si riferisce al **nome visualizzato dell'editore** nell'interfaccia utente del [Centro per sviluppatori Microsoft](http://dev.windows.com/registration?accountprogram=azure) - l'API si riferisce a un servizio dati o Web (un piano nella PPUI)
 
-**Gerarchia:** una società (provider di contenuti) è titolare delle offerte dotate di piani, ossia servizi, che si allineano a un'API.
+**Gerarchia:** una società (provider di contenuti) è titolare delle offerte con piani, ossia servizi, che si allineano a un'API.
 
 ### Esempio di CSDL di WebService
 
@@ -239,7 +239,7 @@ Si connette a un servizio che espone un endpoint dell'applicazione Web (ad esemp
             </EntityType>
         </Schema>
 
-> [AZURE.TIP]Ulteriori esempi di CSDL di servizi Web sono disponibili nell'articolo [Mapping di un servizio Web esistente in OData tramite CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+> [AZURE.TIP]Altri esempi di CSDL di servizi Web sono disponibili nell'articolo relativo agli [esempi di mapping di un servizio Web esistente in OData tramite CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 ###Esempio di CSDL di DataService
 
@@ -297,8 +297,8 @@ Si connette a un servizio che espone una vista o tabella di database come un end
         </Schema>
 
 ## Vedere anche
-- Per ricevere formazione e informazioni sui nodi specifici e i relativi parametri, leggere questo articolo [Nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) per le definizioni e le spiegazioni e per esempi e casi di utilizzo contestuali.
-- Per esaminare gli esempi, leggere questo articolo [Esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e apprendere la sintassi del codice e il contesto.
-- Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
+- Per ricevere formazione e informazioni sui nodi specifici e i relativi parametri, leggere l'articolo relativo ai [nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) per definizioni, spiegazioni, esempi e casi di utilizzo contestuali.
+- Per esaminare gli esempi, leggere l'articolo relativo agli [esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e comprendere il contesto e la sintassi del codice.
+- Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere l'articolo di [guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1210_2015-->

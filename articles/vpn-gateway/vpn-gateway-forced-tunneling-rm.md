@@ -10,7 +10,11 @@
 
 # Configurare il tunneling forzato tramite PowerShell e Gestione risorse di Azure
 
-Questo articolo si applica alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione di Gestione risorse di Azure. Se si vuole configurare il tunneling forzato usando il modello di distribuzione di Gestione dei servizi, vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Questo articolo si applica alle reti virtuali e ai gateway VPN creati usando il modello di distribuzione di Gestione risorse di Azure. Se si vuole configurare il tunneling forzato per le reti virtuali create usando Gestione dei servizi (noto anche come modello di distribuzione classico), vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -48,7 +52,7 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 La procedura seguente consente di creare un gruppo di risorse e una rete virtuale. Si passerà quindi alla creazione di un gateway VPN e alla configurazione del tunneling forzato.
 
-Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*), con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'utilizzo del tunneling forzato.
+Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*), con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
 
 	
 ### Prima di iniziare
@@ -132,4 +136,4 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

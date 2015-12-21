@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -42,7 +42,7 @@ Il Centro sicurezza di Azure fornisce funzionalità semplici ed efficaci integra
 | | Suggerisce alcune modalità per arrestare l'attacco attuale e prevenire quelli futuri |
 
 ## Procedura dettagliata introduttiva
-È possibile accedere al Centro sicurezza di Azure tramite il [portale di anteprima di Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). A questo scopo, [accedere al portale di anteprima di Azure](https://ms.portal.azure.com/), selezionare **Esplora** e scorrere fino all'opzione **Centro sicurezza** o selezionare il riquadro **Centro sicurezza** aggiunto in precedenza al dashboard del portale di anteprima di Azure.
+È possibile accedere al Centro sicurezza di Azure tramite il [portale di Azure](http://azure.microsoft.com/features/azure-portal/). A questo scopo, [accedere al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino all'opzione **Centro sicurezza** o selezionare il riquadro **Centro sicurezza** aggiunto in precedenza al dashboard del portale.
 
 ![][1]
 
@@ -88,7 +88,7 @@ Selezionare un tipo di risorsa nel riquadro **Integrità delle risorse** per vis
 
 Il Centro sicurezza di Azure raccoglie, analizza e integra automaticamente i dati di log dalle risorse di Azure, dalla rete e dalle soluzioni dei partner, ad esempio antimalware e firewall. Quando vengono rilevate minacce, viene creato un avviso di sicurezza. Ad esempio, è incluso il rilevamento di:
 
-- Macchine virtuali compromesse che comunicano con noti indirizzi IP dannosi
+- Macchine virtuali compromesse in comunicazione con indirizzi IP dannosi noti
 - Malware avanzato rilevato tramite Segnalazione errori Windows
 - Attacchi di forza bruta contro le macchine virtuali
 - Avvisi di sicurezza da antimalware e firewall integrati
@@ -104,7 +104,7 @@ Se si seleziona un avviso, verranno visualizzate altre informazioni sull'attacco
 ## Introduzione
 Per iniziare a usare Centro sicurezza di Azure, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-È possibile accedere al Centro sicurezza di Azure tramite il [portale di anteprima di Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Per altre informazioni, vedere la [documentazione del portale di anteprima di Microsoft Azure](https://azure.microsoft.com/documentation/services/azure-portal/).
+È possibile accedere al Centro sicurezza di Azure tramite il [portale di Azure](http://azure.microsoft.com/features/azure-portal/). Per altre informazioni, vedere la [documentazione del portale](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 [Introduzione al Centro sicurezza di Azure](security-center-get-started.md) fornisce una rapida descrizione dei componenti di monitoraggio della sicurezza e gestione dei criteri del Centro sicurezza di Azure.
 
@@ -126,4 +126,4 @@ Questo documento ha illustrato il Centro sicurezza di Azure, le funzionalità pr
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

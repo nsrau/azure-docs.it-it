@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Rispondere agli eventi del ciclo di vita di Servizi Cloud utilizzando .NET" 
+pageTitle="Gestire gli eventi del ciclo di vita del servizio cloud | Microsoft Azure" 
 description="Informazioni su come utilizzare i metodi del ciclo di vita di un ruolo del Servizio Cloud in .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
@@ -80,4 +80,4 @@ L’esecuzione dell'override del metodo**Run**non è obbligatoria, l'implementaz
 ## Passaggi successivi
 Informazioni su come[creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

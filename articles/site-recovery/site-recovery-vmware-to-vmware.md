@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Configurare la protezione tra siti VMware locali" 
-	description="Utilizzare questo articolo per configurare la protezione tra due siti VMware usando Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="Configurare la protezione tra siti VMware locali"
+	description="Utilizzare questo articolo per configurare la protezione tra due siti VMware usando Azure Site Recovery."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/03/2015"
 	ms.author="raynew"/>
 
 
@@ -60,19 +60,19 @@ Scopri gli ultimi[aggiornamenti](#updates). È necessario installare i file di a
 
 Installare come segue:
 
-1. Scaricare il file zip [aggiornamento] (http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRUpdate1.zip Scout 8.0.1). Il file zip contiene i file seguenti:
+1. Scaricare il file zip di [aggiornamento](http://aka.ms/scoutupdates). Il file zip contiene i file seguenti:
 
 	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
-	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
+	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
 	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
 	-  UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
 	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. Estrarre i file zip
-2. **Server RX**: copia**RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**al server RX ed estrarre i file. Nella cartella estratta eseguire**/Install**.
-2. **Server di elaborazione/server di configurazione**: copia**CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe**per il server di configurazione e il server di elaborazione. Fare doppio clic per eseguirlo.
-3. **Server master di destinazione Windows**: per aggiornare la copia di agente unificata**UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe**per il server master di destinazione. Fare doppio clic su di esso per eseguirlo. Si noti che l'agente unificato per Windows non è applicabile nel server di origine. Deve essere installato solo nel server di destinazione master di Windows.
-4. **Server master di destinazione Linux**: per aggiornare la copia di agente unificata**UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**per il server master di destinazione ed estrarre i file. Nella cartella estratta eseguire**/Install**.
-5. **Server vContinuum**: copia**vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe**al server vContinuum. Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
+2. **Server RX**: copiare **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz** nel server RX ed estrarre i file. Nella cartella estratta eseguire **/Install**.
+2. **Server di elaborazione/server di configurazione**: copiare **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe** nel server di configurazione e nel server di elaborazione. Fare doppio clic per eseguirlo.
+3. **Server master di destinazione Windows**: per aggiornare l'agente unificato, copiare **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** nel server master di destinazione. Fare doppio clic su di esso per eseguirlo. Si noti che l'agente unificato per Windows non è applicabile nel server di origine. Deve essere installato solo nel server di destinazione master di Windows.
+4. **Server master di destinazione Linux**: per aggiornare l'agente unificato, copiare **UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** nel server master di destinazione ed estrarre i file. Nella cartella estratta eseguire **/Install**.
+5. **Server vContinuum**: copiare **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe ** nel server vContinuum. Assicurarsi che la procedura guidata vContinuum sia stata chiusa. Fare doppio clic sul file per eseguirlo.
 
 ## Passaggio 4: Configurare la replica
 5. Impostare la replica tra i siti di origine e di destinazione VMware.
@@ -86,6 +86,19 @@ Installare come segue:
 
 
 ## Aggiornamenti
+
+### ASR Scout 8.0.1 - Aggiornamento del 03 dicembre 2015
+
+Le correzioni apportate all'aggiornamento del 03 dicembre 2015 includono:
+
+- **Server di configurazione**: è stato risolto un problema che impediva il corretto funzionamento della funzionalità di misurazione gratuita per 31 giorni quando il server di configurazione veniva registrato in Site Recovery.
+- **Agente unificato**: è stato risolto un problema dell'aggiornamento 1 relativo alla destinazione master, che comportava la mancata installazione di un aggiornamento nel server di destinazione master quando veniva aggiornato dalla versione 8.0 alla versione 8.0.1.
+
+>[AZURE.NOTE]
+>
+>-	Tutti gli aggiornamenti di ASR sono cumulativi.
+>-	Non è possibile annullare gli aggiornamenti CS e RX dopo l'applicazione al sistema.
+
 
 ### ASR Scout 8.0.1 Update 1
 
@@ -109,12 +122,12 @@ L'aggiornamento più recente include correzioni di bug e nuove funzionalità:
 	- La soglia di risincronizzazione non è applicata come previsto, causando un comportamento incoerente della replica.
 	- Le impostazioni RPO non vengono visualizzate correttamente nell'interfaccia di configurazione del server. Il valore di dati non compressi mostra in modo errato il valore compresso.
 	-  L'operazione di rimozione non elimina come previsto nella procedura guidata vContinuum e la replica non viene eliminata dall'interfaccia del server di configurazione.
-	-  Nella procedura guidata vContinuum il disco viene deselezionato automaticamente quando si fa clic su**Dettagli**nella visualizzazione del disco durante la protezione delle macchine virtuali MSCS.
+	-  Nella procedura guidata vContinuum il disco viene deselezionato automaticamente quando si fa clic su **Dettagli** nella visualizzazione del disco durante la protezione delle macchine virtuali MSCS.
 	- Durante lo scenario P2V, i servizi HP, come ad esempio CIMnotify e CqMgHost non vengono spostati sul Manuale nella macchina virtuale di ripristino causando tempo di avvio aggiuntivo.
 	- La macchina virtuale Linux protetta ha esito negativo quando sono presenti più di 26 dischi nel server master di destinazione.
-	
+
 ## Passaggi successivi
 
-In caso di domande, è possibile pubblicarle nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
+In caso di domande, è possibile pubblicarle nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

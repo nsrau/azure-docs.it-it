@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introduzione a Azure RemoteApp con PowerShell"
+   pageTitle="Introduzione a Azure RemoteApp con PowerShell | Microsoft Azure"
    description="Informazioni su come iniziare a usare Azure RemoteApp con PowerShell"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,7 +22,7 @@
 =====================================
 
 
-## Ottenere i cmdlet 
+## Ottenere i cmdlet
 -------------
 Prima di tutto è necessario scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175), inclusi quelli di RemoteApp.
 
@@ -99,6 +99,5 @@ Altri cmdlet di RemoteApp:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

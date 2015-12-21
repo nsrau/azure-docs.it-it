@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Confronto: Apache Storm e Analisi di flusso di Azure | Microsoft Azure"
-	description="Imparare a utilizzare Analisi di flusso per l'analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale."
-	keywords="twitter in tempo reale, analisi del sentimento, analisi dei social network, strumenti di analisi dei social network"
+	pageTitle="Piattaforme di analisi: confronto tra Apache Storm e Analisi di flusso | Microsoft Azure"
+	description="Informazioni utili per scegliere una piattaforma di analisi cloud: confronto tra Apache Storm e Analisi di flusso. Comprendere le funzionalità e le differenze."
+	keywords="piattaforma di analisi, piattaforme di analisi, piattaforma di analisi cloud, confronto con Storm"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Confronto tra Apache Storm e Analisi di flusso di Azure #
+# Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
 
-## Introduzione ##
+Informazioni utili per scegliere una piattaforma di analisi cloud: confronto tra Apache Storm e Analisi di flusso di Azure. Comprendere le proposte di valore di Analisi di flusso e Apache Storm come servizio gestito in Azure HDInsight, per poter scegliere la soluzione ideale per i casi d'uso aziendali.
 
-Questo documento illustra il posizionamento di Analisi di flusso di Azure e di Apache Storm come servizio gestito in HDInsight. L'obiettivo è consentire ai clienti di comprendere la proposta di valore di entrambi i servizi e di scegliere quello più adatto al proprio caso di utilizzo aziendale.
+Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tuttavia si differenziano per alcune importanti funzionalità specifiche. Di seguito sono riportate sia le funzionalità che le limitazioni di questi servizi, per facilitare la scelta della soluzione più adatta per il raggiungimento dei propri obiettivi.
 
-Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si differenziano per alcune importanti funzionalità specifiche. Di seguito sono elencate le funzionalità, ma anche le limitazioni, di questi servizi per aiutare i clienti a scegliere la soluzione più adatta a realizzare i loro obiettivi.
-
-## Generale ##
+## Confronto tra Storm e Analisi di flusso: caratteristiche generali ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +136,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
         </tr>
     </tbody>
 </table>
-## Creazione ##
+## Creazione nelle due piattaforme di analisi ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
         </tr>
     </tbody>
 </table>
-## Input e output ##
+## Origini dati e output ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +561,7 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
             </td>
             <td width="246" valign="top">
                 <p>
-                    Nessun limite alle dimensioni dei dati. Connettori disponibili per HBase, DocumentDB, SQL Server e Azure. I connettori non supportati possono essere implementati tramite codice personalizzato. 
+                    Nessun limite alle dimensioni dei dati. Connettori disponibili per HBase, DocumentDB, SQL Server e Azure. I connettori non supportati possono essere implementati tramite codice personalizzato.
                 </p>
                 <p>
                     L'aggiornamento dei dati di riferimento deve essere gestito dal codice personalizzato.
@@ -590,4 +588,4 @@ Sebbene entrambi i servizi offrano i vantaggi di una soluzione PaaS, tuttavia si
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

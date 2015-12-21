@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/07/2015"
 	ms.author="mandia"/>
 
 
@@ -142,4 +142,4 @@ I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari pe
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

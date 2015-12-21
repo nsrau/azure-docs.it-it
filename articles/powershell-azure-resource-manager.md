@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -338,7 +338,7 @@ Dopo avere creato il gruppo di risorse e il modello, si è pronti per distribuir
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-Vengono specificati il gruppo di risorse e il percorso del modello. Se il modello non è locale, è possibile usare il parametro -TemplateUri e specificare un URI per il modello.
+Vengono specificati il gruppo di risorse e il percorso del modello. Se il modello non è locale, è possibile usare il parametro **-TemplateUri** e specificare un URI per il modello. È possibile impostare il parametro **-Mode** su **Incremental** o **Complete**. Per impostazione predefinita, Gestione risorse esegue un aggiornamento incrementale durante la distribuzione. Non è pertanto fondamentale impostare il parametro **-Mode** se si vuole la modalità **Incremental**. Per comprendere le differenze tra le modalità di distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
 ###Parametri del modello dinamici
 
@@ -380,7 +380,7 @@ In pochi passaggi, sono state create e distribuite le risorse necessarie per un 
 
 Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo di Gestione risorse per gestire i gruppi di risorse.
 
-- Per ottenere tutti i gruppi di risorse della propria sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
+- Per ottenere tutti i gruppi di risorse della sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
 
 		PS C:\>Get-AzureRmResourceGroup
 
@@ -414,7 +414,7 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 ## Spostare una risorsa
 
-È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o in una sottoscrizione nuovi](resource-group-move-resources.md).
+È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 
 ## Eliminare un gruppo di risorse
 
@@ -436,9 +436,9 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
-- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](./resource-group-template-deploy.md).
+- Per informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
+- Per informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](./resource-group-template-deploy.md).
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Per altre informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

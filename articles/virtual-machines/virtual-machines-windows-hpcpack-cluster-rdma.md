@@ -63,7 +63,7 @@ Di seguito sono riportati i passaggi per il potenziamento in istanze di Azure A8
 
 4. **Distribuire e configurare un nodo head HPC Pack 2012 R2**
 
-    Scaricare il pacchetto di installazione di HPC Pack più recente dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=47755). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere [Guida introduttiva per HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Burst in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Scaricare il pacchetto di installazione di HPC Pack più recente dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere [Guida introduttiva per HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) e [Burst in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 5. **Configurare un certificato di gestione nella sottoscrizione di Azure**
 
@@ -107,14 +107,14 @@ Di seguito sono riportati i passaggi per il potenziamento in istanze di Azure A8
 
 ## Scenario 2. Distribuzione di nodi di calcolo in macchine virtuali a elevato utilizzo di calcolo (IaaS)
 
-In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali aggiunte a un dominio di Active Directory in una rete virtuale di Azure. Lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) consente di eseguire automaticamente la maggior parte di questo processo e offre opzioni flessibili per la distribuzione, inclusa la possibilità di specificare le dimensioni di macchina virtuale A8 o A9 per i nodi del cluster. Attenersi alla seguente procedura per usare questo metodo di distribuzione automatica. In alternativa, è possibile distribuire il cluster con il modello di distribuzione di Gestione risorse usando un modello di Guida introduttiva di Azure. Per le distribuzioni di test, è anche possibile distribuire manualmente il dominio di Active Directory, la macchina virtuale del nodo head, le macchine virtuali del nodo di calcolo e altre parti dell'infrastruttura del cluster HPC Pack in Azure. Vedere [Opzioni per creare e gestire un cluster HPC con Microsoft HPC Pack in Azure](virtual-machines-hpcpack-cluster-options.md).
+In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali aggiunte a un dominio di Active Directory in una rete virtuale di Azure. Lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) consente di eseguire automaticamente la maggior parte di questo processo e offre opzioni flessibili per la distribuzione, inclusa la possibilità di specificare le dimensioni di macchina virtuale A8 o A9 per i nodi del cluster. Attenersi alla seguente procedura per usare questo metodo di distribuzione automatica. In alternativa, è possibile distribuire il cluster con il modello di distribuzione di Gestione risorse usando un modello di avvio rapido di Azure. Per le distribuzioni di test, è anche possibile distribuire manualmente il dominio di Active Directory, la macchina virtuale del nodo head, le macchine virtuali del nodo di calcolo e altre parti dell'infrastruttura del cluster HPC Pack in Azure. Vedere [Opzioni per creare e gestire un cluster HPC con Microsoft HPC Pack in Azure](virtual-machines-hpcpack-cluster-options.md).
 
 ![Cluster in macchine virtuali di Azure][iaas]
 
 
 1. **Creare macchine virtuali del nodo head del cluster e del nodo di calcolo eseguendo lo script di distribuzione IaaS di HPC Pack in un computer client**
 
- Scaricare il pacchetto dello script di distribuzione IaaS di HPC Pack dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=47755).
+ Scaricare il pacchetto dello script di distribuzione IaaS di HPC Pack dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
  Per preparare il computer client, creare il file di configurazione dello script ed eseguire lo script. Vedere [Creare un cluster HPC Windows con lo script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md). Per distribuire nodi di calcolo di dimensioni A8 e A9, vedere le considerazioni aggiuntive più avanti in questo articolo.
 
@@ -198,8 +198,12 @@ Per eseguire mpipingpong sul cluster:
 
     In un cluster HPC Pack distribuito in macchine virtuali di Azure modificare il comando come indicato nel passaggio 2.
 
-5. Al termine del processo, per visualizzare l'output, in questo caso l'output dell'attività 1 del processo, digitare quanto segue: task view &lt;JobID&gt;.1
+5. Al termine del processo, per visualizzare l'output (in questo caso l'output dell'attività 1 del processo) digitare quanto riportato di seguito:
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   Nell'output saranno inclusi risultati relativi alla velocità effettiva simili a quanto riportato di seguito.
 
   ![Velocità effettiva ping pong][pingpong2]
@@ -238,7 +242,7 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 
 ## Passaggi successivi
 
-* Per eseguire applicazioni MPI Linux che accedono alla rete RDMA in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
+* Per eseguire applicazioni MPI Linux che accedono alla rete RDMA in Azure, vedere [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/burst.png
@@ -246,4 +250,4 @@ Di seguito sono riportate alcune considerazioni per l'esecuzione di applicazioni
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

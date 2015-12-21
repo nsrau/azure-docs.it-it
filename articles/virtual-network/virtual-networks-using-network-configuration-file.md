@@ -4,7 +4,7 @@
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="telmosampaio" 
-	manager="carolz" 
+	manager="carmonm" 
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="08/10/2015"
+	ms.date="12/07/2015"
 	ms.author="telmos"/>
 
 # Configurare una rete virtuale usando un file di configurazione di rete
@@ -48,4 +48,4 @@ Quando si esporta, tutte le impostazioni per le reti virtuali nella sottoscrizio
 3. Nella pagina **Importa file di configurazione della rete** passare al file di configurazione della rete, quindi fare clic su **Avanti**.
 4. Nella pagina** Compilazione della rete** verranno visualizzate le informazioni sulla schermata che mostra quali sezioni della configurazione di rete verranno modificate o create. Se le modifiche sembrano corrette, fare clic sul segno di spunta per continuare con l'aggiornamento o la creazione della rete virtuale. 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

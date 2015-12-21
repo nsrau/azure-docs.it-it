@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -83,7 +83,7 @@ Qui di seguito sono indicate le firme di funzioni principali canoniche per le op
 
 >[AZURE.NOTE]Una funzione registrata per l'operazione di eliminazione deve essere denominata _del_ perché delete è una parola chiave riservata in JavaScript.
 
-Ogni script del server include una funzione principale e può avere funzioni di supporto facoltative. Anche se è stato creato per una tabella specifica, uno script può fare riferimento anche ad altre tabelle nello stesso database. È inoltre possibile definire funzioni comuni come moduli nodes.js che possono essere condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
+Ogni script del server include una funzione principale e può avere funzioni di supporto facoltative. Anche se uno script del server è stato creato per una tabella specifica, può fare riferimento anche ad altre tabelle nello stesso database. È inoltre possibile definire funzioni comuni come moduli nodes.js che possono essere condivisi tra gli script. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
 ###<a name="register-table-scripts"></a>Procedura: Eseguire la registrazione degli script di tabella
 
@@ -289,7 +289,7 @@ In JavaScript si tratta di una versione compatta dell'equivalente più lungo:
 
 ###<a name="work-with-users"></a>Procedura: Usare gli utenti
 
-In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili]. Quando un utente autenticato richiama un'operazione su tabella, Servizi mobili utilizza l'[oggetto user] per fornire informazioni sull'utente alla funzione dello script registrato. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente. Nell'esempio seguente viene impostata la proprietà owner di un elemento in base alla proprietà userId di un utente autenticato:
+In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili]. Quando un utente autenticato richiama un'operazione su tabella, Servizi mobili utilizza l'[oggetto user] per fornire informazioni sull'utente alla funzione dello script registrato. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente. L'esempio seguente imposta la proprietà owner di un elemento in base alla proprietà **userId** di un utente autenticato:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@ Questa funzione API personalizzata viene richiamata da una richiesta HTTP GET al
 
 In Servizi mobili di Azure è possibile utilizzare un provider di identità per autenticare gli utenti. Per ulteriori informazioni, vedere [Introduzione all'autenticazione in Servizi mobili]. Quando un utente autenticato richiede un'API personalizzata, Servizi mobili utilizza l'[oggetto user] per fornire informazioni sull'utente al codice dell'API personalizzata. L'[oggetto user] è accessibile dalla proprietà user dell'[oggetto request]. La proprietà **userId** può essere utilizzata per archiviare e recuperare informazioni specifiche sull'utente.
 
-Nella seguente funzione API personalizzata **OrderPizza** viene impostata la proprietà owner di un elemento in base alla proprietà userId di un utente autenticato:
+La funzione API personalizzata **OrderPizza** seguente imposta la proprietà owner di un elemento in base alla proprietà **userId** di un utente autenticato:
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -449,7 +449,7 @@ Gli script registrati per i processi pianificati hanno una funzione principale i
 
 ###<a name="scheduler-scripts"></a>Procedura: Definire script di processi pianificati
 
-È possibile assegnare uno script del server a un processo definito nell'utilità di pianificazione di Servizi mobili. Questi script appartengono al processo e vengono eseguiti in base alla pianificazione del processo. È inoltre possibile utilizzare il [portale di Azure classico] per eseguire processi su richiesta. Uno script che definisce un processo pianificato non include parametri perché non riceve dati da Servizi mobili; esso viene eseguito come una normale funzione JavaScript e non interagisce direttamente con Servizi mobili.
+È possibile assegnare uno script del server a un processo definito nell'utilità di pianificazione di Servizi mobili. Questi script appartengono al processo e vengono eseguiti in base alla pianificazione del processo. È inoltre possibile usare il [portale di Azure classico] per eseguire processi su richiesta. Uno script che definisce un processo pianificato non include parametri perché non riceve dati da Servizi mobili; esso viene eseguito come una normale funzione JavaScript e non interagisce direttamente con Servizi mobili.
 
 Per definire processi pianificati è possibile procedere in uno dei modi seguenti:
 
@@ -924,7 +924,7 @@ Il modo principale per eseguire il debug e risolvere i problemi relativi agli sc
 
 Per scrivere nei log, utilizzare l'[oggetto console] globale. Utilizzare la funzione **log** o **info** per registrare avvisi a livello di informazioni. Le funzioni **warning** e **error** registrano i rispettivi livelli, che sono descritti nei log.
 
-> [AZURE.NOTE]Per visualizzare i log per il proprio servizio mobile, accedere al [portale di Azure classico](https://manage.windowsazure.com/), selezionare il servizio mobile, quindi scegliere la scheda **Log**.
+> [AZURE.NOTE]Per visualizzare i log per il proprio servizio mobile, accedere al [portale di Azure classico](https://manage.windowsazure.com/), selezionare il servizio mobile e quindi scegliere la scheda **Log**.
 
 È anche possibile utilizzare la funzione di registrazione dell'[oggetto console] per formattare i messaggi mediante parametri. Nell'esempio seguente un oggetto JSON viene fornito come parametro alla stringa del messaggio:
 
@@ -1050,4 +1050,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

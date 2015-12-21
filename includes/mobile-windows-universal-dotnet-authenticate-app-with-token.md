@@ -42,6 +42,7 @@
                 // expired, as shown in this post: http://aka.ms/jww5vp.
 
                 success = true;
+			    message = string.Format("Cached credentials for user - {0}", user.UserId);
             }
             else
             {
@@ -73,10 +74,10 @@
 
 	In questa versione di **AuthenticateAsync** l'app tenta di usare le credenziali archiviate in **PasswordVault** per accedere al servizio mobile. Un accesso normale viene eseguito anche quando non sono disponibili credenziali archiviate.
 
-	>[AZURE.NOTE]Un token memorizzato nella cache potrebbe essere scaduto, ma la scadenza del token può avvenire anche dopo l'autenticazione mentre l'app è in uso. Per informazioni su come determinare se un token è scaduto, vedere [Cercare i token di autenticazione scaduti](http://aka.ms/jww5vp). Per una soluzione relativa alla gestione degli errori di autorizzazione relativi ai token scaduti, vedere il post sulla [memorizzazione nella cache e la gestione dei token scaduti nell'SDK per il codice gestito di Servizi mobili di Azure ](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
+	>[AZURE.NOTE]Un token memorizzato nella cache potrebbe essere scaduto, ma la scadenza del token può avvenire anche dopo l'autenticazione mentre l'app è in uso. Per informazioni su come determinare se un token è scaduto, vedere [Cercare i token di autenticazione scaduti](http://aka.ms/jww5vp). Per una soluzione relativa alla gestione degli errori di autorizzazione relativi ai token scaduti, vedere il post sulla [memorizzazione nella cache e la gestione dei token scaduti nell'SDK per il codice gestito di Servizi mobili di Azure ](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 
 3. Riavviare l'app due volte.
 
 	Si noti che al primo avvio viene di nuovo richiesto l'accesso con il provider. Al secondo riavvio, invece, verranno usate le credenziali memorizzate nella cache e l'accesso sarà ignorato.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
@@ -28,7 +28,7 @@ In questa guida viene illustrato come configurare un'istanza del servizio di Ges
 
 ## <a name="step1"> </a>Caricare un certificato client
 
-Per iniziare, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione delle API][api-management-management-console]
 
@@ -141,4 +141,4 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,3 +1,3 @@
->[AZURE.NOTE]Si tratta di un argomento di **Servizi Mobili di Azure**. Microsoft Azure consiglia App per dispositivi mobili del servizio app di Azure per tutte le nuove distribuzioni di back-end mobile. Per iniziare con App per dispositivi mobili del servizio app di Azure, vedere [Centro documentazione App per dispositivi mobili del servizio app]((/documentation/services/app-service/mobile).
+>[AZURE.NOTE]Si tratta di un argomento di **Servizi Mobili di Azure**. Microsoft Azure consiglia App per dispositivi mobili del servizio app di Azure per tutte le nuove distribuzioni di back-end mobile. Per iniziare con App per dispositivi mobili del Servizio app di Azure, vedere il [centro documentazione di App per dispositivi mobili del servizio app](/documentation/services/app-service/mobile).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

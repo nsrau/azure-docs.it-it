@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure (Azure CLI)
@@ -107,7 +107,50 @@ L'esempio seguente rimuove l'assegnazione del ruolo *Virtual Machine Contributor
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## Creare un ruolo personalizzato
+Per creare un ruolo personalizzato, usare il comando `azure role create`.
+
+Nell'esempio seguente viene creato un ruolo personalizzato denominato *Operatore macchina virtuale* che concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni. In questo esempio viene usato un file json come input.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Modificare un ruolo personalizzato
+
+Per modificare un ruolo personalizzato, usare il comando Mostra ruolo di Azure per recuperare la definizione di ruolo. Apportare quindi le modifiche desiderate alla definizione del ruolo. Infine, usare il comando Imposta ruolo di Azure per salvare la definizione del ruolo modificata.
+
+Nell'esempio seguente viene aggiunta l'operazione Microsoft.Insights/diagnosticSettings/* alle azioni e una sottoscrizione di Azure alla proprietà AssignableScopes del ruolo personalizzato Operatore macchina virtuale.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Eliminare un ruolo personalizzato
+
+Per eliminare un ruolo personalizzato, usare il comando `azure role show` per determinare l'**ID** del ruolo. Usare quindi il comando `azure role delete` per eliminare il ruolo specificando l'**ID**.
+
+Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale*.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## Elencare ruoli personalizzati
+
+Per elencare i ruoli disponibili per l'assegnazione a un ambito, usare il comando `azure role list`.
+
+Nell'esempio seguente vengono elencati tutti i ruoli disponibili per l'assegnazione nella sottoscrizione selezionata.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non è disponibile nella sottoscrizione *Production4* poiché la sottoscrizione non si trova nella proprietà **AssignableScopes** del ruolo.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## Argomenti relativi a Controllo degli accessi in base al ruolo
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

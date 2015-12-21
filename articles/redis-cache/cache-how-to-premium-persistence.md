@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare la persistenza dei dati per una Cache Redis di Azure Premium
@@ -33,7 +33,7 @@ La persistenza può essere configurata dal pannello **Nuova Cache Redis** durant
 
 ## Creare una cache premium
 
-Per creare una cache e configurare la persistenza, accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati + Archiviazione**>**Cache Redis**.
+Per creare una cache e configurare la persistenza, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati e archiviazione**>**Cache Redis**.
 
 ![Creare una Cache Redis][redis-cache-new-cache-menu]
 
@@ -107,4 +107,4 @@ Informazioni su come utilizzare altre funzionalità di cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/02/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -49,7 +49,7 @@ Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di Azure][portale di anteprima].
+1. Visitare il [portale di anteprima di Azure][portale di anteprima].
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
@@ -60,7 +60,9 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 ##<a id="create"></a>Creare l'applicazione
 
 1. Aprire Visual Studio 2012 o 2013.
+
 2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
+
 3. Nella finestra di dialogo Nuovo progetto digitare o selezionare i seguenti valori:
 
 	<table>
@@ -81,8 +83,11 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 <th>SubmitPigJob</th>
 </tr>
 </table>
+
 4. Fare clic su **OK** per creare il progetto.
+
 5. Selezionare **Gestione pacchetti libreria** o **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi scegliere **Console di Gestione pacchetti**.
+
 6. Usare il seguente comando nella console per installare i pacchetti di .NET SDK.
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
@@ -158,4 +163,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

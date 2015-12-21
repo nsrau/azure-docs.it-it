@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare un'app per la logica" 
+	pageTitle="Creare un'app per la logica usando modelli di Gestione risorse di Azure in Servizio app di Azure | Microsoft Azure" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app per la logica vuota per la definizione dei flussi di lavoro." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Creare un'app per la logica usando un modello
 
-Questo argomento illustra come creare un modello di Gestione risorse di Azure per creare un'app per la logica vuota da usare per definire i flussi di lavoro. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Per creare un'app per la logica vuota da usare per definire i flussi di lavoro, è possibile ricorrere a un modello di Gestione risorse di Azure, che consente di definire le risorse da distribuire e le modalità di definizione dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948513.aspx). Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md).
+Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [API di gestione del flusso di lavoro delle app per la logica](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md).
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
@@ -28,7 +30,7 @@ Per il modello completo, vedere [Modello di app per la logica](https://github.co
 
 ## Elementi distribuiti
 
-Con questo modello, verrà distribuita un'app per la logica.
+Con questo modello si distribuisce un'app per la logica.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -75,7 +77,7 @@ Crea l'app per la logica.
 
 Il modello usa un valore di parametro per il nome dell'app per la logica. Imposta la località dell'app per la logica sulla stessa località del gruppo di risorse.
 
-Questa definizione specifica verrà eseguita una volta all'ora e verrà effettuato il ping del percorso specificato nel parametro **testUri**.
+Questa particolare definizione viene eseguita una volta ogni ora e consente di eseguire il ping del percorso specificato nel parametro **testUri**.
 
     {
         "type": "Microsoft.Logic/workflows",
@@ -140,4 +142,4 @@ Questa definizione specifica verrà eseguita una volta all'ora e verrà effettua
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

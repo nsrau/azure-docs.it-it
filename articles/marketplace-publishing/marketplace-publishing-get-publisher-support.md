@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/06/2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -60,7 +60,7 @@ I tipi di problemi disponibili sono i seguenti:
   - **Gestione dei clienti**
   - **Gestione delle offerte**
   - **Proventi**
-  - **Dashboard venditori**
+  - **Centro per sviluppatori**
   - **Altri**
 
 ## 4\. Richiedere supporto
@@ -92,4 +92,4 @@ Per informazioni su come risolvere specifici problemi di supporto, vedere [Risol
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

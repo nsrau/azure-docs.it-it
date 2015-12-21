@@ -385,7 +385,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
 	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink** come **tipo di sink**.
-- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+	- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
@@ -431,7 +431,7 @@ In questo passaggio viene usato il portale di Azure classico per monitorare le a
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
     
 
-	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
+	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureRmDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
 	-  Lo stato della sezione cambia a causa di un'esecuzione, ad esempio un'esecuzione avviata, un'esecuzione terminata con errore, un'esecuzione terminata correttamente e così via.
  
 	Fare clic sul titolo degli elenchi oppure sui **... (puntini di sospensione)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
@@ -528,7 +528,7 @@ Se si accede al portale da un computer diverso dal computer del gateway, è nece
 
 Quando si usa l'applicazione "Impostazione credenziali" avviata dal portale di Azure classico per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda Certificato della configurazione del Gateway di gestione dati nel computer del gateway.
 
-Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento EncryptedCredential di connectionString nel file JSON da usare con il cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) oppure nel frammento di codice JSON dell'editor di Data factory nel portale.
+Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento EncryptedCredential di connectionString nel file JSON da usare con il cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) oppure nel frammento di codice JSON dell'editor di Data factory nel portale.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -546,14 +546,14 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
         switch-azuremode AzureResourceManager
 
 
-2. Usare il cmdlet **New-AzureDataFactoryGateway** per creare un gateway logico come illustrato di seguito:
+2. Usare il cmdlet **New-AzureRmDataFactoryGateway** per creare un gateway logico come illustrato di seguito:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Comando di esempio e output**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -567,15 +567,15 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		ProvisioningState : Succeeded
 
 
-3. Usare il cmdlet **New-AzureDataFactoryGatewayKey** per generare una chiave di registrazione per il gateway appena creato e archiviare la chiave in una variabile locale **$Key**:
+3. Usare il cmdlet **New-AzureRmDataFactoryGatewayKey** per generare una chiave di registrazione per il gateway appena creato e archiviare la chiave in una variabile locale **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
+		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Output del comando di esempio**:
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. In Azure PowerShell passare alla cartella **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key**, come mostrato nel comando seguente per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
@@ -584,11 +584,11 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		
 		Agent registration is successful!
 
-5. È possibile usare il cmdlet **Get-AzureDataFactoryGateway** per ottenere l'elenco di gateway nell'istanza di Data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
+5. È possibile usare il cmdlet **Get-AzureRmDataFactoryGateway** per ottenere l'elenco di gateway nell'istanza di Data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
 
-		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-È possibile rimuovere un gateway con il cmdlet **Remove-AzureDataFactoryGateway** e aggiornare la descrizione per un gateway usando il cmdlet **Set-AzureDataFactoryGateway**. Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data factory.
+È possibile rimuovere un gateway con il cmdlet **Remove-AzureRmDataFactoryGateway** e aggiornare la descrizione per un gateway usando i cmdlet **Set-AzureRmDataFactoryGateway**. Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data factory.
 
 
 ## Flusso di dati per la copia mediante il Gateway di gestione dati
@@ -609,7 +609,7 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 1. Come descritto in precedenza nella procedura dettagliata, sono disponibili diversi modi per impostare le credenziali per gli archivi dati locali con Data factory. Per le porte occorre fare considerazioni diverse a seconda delle opzioni selezionate.	
 
 	- Uso dell'applicazione **Impostazione credenziali**: per impostazione predefinita, il programma di installazione del Gateway di gestione dati apre le porte **8050** e **8051** in Windows Firewall nel computer del gateway. Queste porte vengono usate dall'applicazione Impostazione credenziali per trasmettere le credenziali al gateway e vengono aperte solo nel computer locale in cui è attivo Windows Firewall. Queste porte non sono raggiungibili da Internet e non è necessario tenerle aperte nel firewall aziendale.
-	2.	Uso del cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): se si usa un cmdlet di PowerShell per crittografare le credenziali e di conseguenza non si desidera che durante l'installazione del gateway vengano aperte le porte in ingresso in Windows Firewall sul computer del gateway, questa operazione può essere eseguita usando il comando seguente durante l'installazione:
+	2.	Uso del cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx): se si usa un cmdlet di PowerShell per crittografare le credenziali e di conseguenza non si desidera che durante l'installazione del gateway vengano aperte le porte in ingresso in Windows Firewall sul computer del gateway, questa operazione può essere eseguita usando il comando seguente durante l'installazione:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Se si usa l'applicazione **Impostazione credenziali**, è necessario avviarla in un computer che possa connettersi al Gateway di gestione dati per impostare le credenziali per l'origine dati e testare la connessione all'origine dati.
@@ -618,4 +618,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 	- 	Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP del computer del gateway** agli **indirizzi IP consentiti**.
 5.	Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

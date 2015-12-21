@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
@@ -34,8 +34,8 @@ L'elenco seguente riepiloga le funzionalità principali non supportate in Azure 
 - Clausola di output
 - Funzioni inline definite dall'utente
 - Funzioni a istruzioni multiple
+- [espressioni di tabella comune](#Common-table-expressions)
 - [espressioni tabella comune ricorsive (CTE)] (#Recursive-common-table-expressions-(CTE)
-- [Aggiornamenti tramite espressioni tabella comune](#Updates-through-CTEs)
 - Funzioni e procedure CLR
 - Funzione $partition
 - Variabili di tabella
@@ -52,13 +52,16 @@ L'elenco seguente riepiloga le funzionalità principali non supportate in Azure 
 
 Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le spiegazioni sono fornite dagli articoli pertinenti a cui viene fatto riferimento più indietro.
 
+### Espressioni di tabella comune
+L'implementazione corrente delle espressioni di tabella comune (CTE) all'interno di SQL Data Warehouse presenta le funzionalità e le limitazioni seguenti:
+
+**Funzionalità delle CTE**: una CTE può essere specificata in un'istruzione SELECT, in un'istruzione CREATE VIEW, in un'istruzione CREATE TABLE AS SELECT (CTAS), in un'istruzione CREATE REMOTE TABLE AS SELECT (CRTAS) e in un'istruzione CREATE EXTERNAL TABLE AS SELECT (CETAS). Da una CTE è possibile fare riferimento a una tabella remota e a una tabella esterna. Più definizioni di query CTE possono essere definite in una CTE.
+
+**Limitazioni delle CTE**: una CTE deve essere seguita da una singola istruzione SELECT. Le istruzioni INSERT, UPDATE, DELETE e MERGE non sono supportate. Non è supportata un'espressione di tabella comune che include riferimenti a se stessa (espressione di tabella comune ricorsiva). A tale proposito, vedere la sezione seguente. Non è consentito specificare più di una clausola WITH in una CTE. Ad esempio, se un oggetto CTE\_query\_definition contiene una sottoquery, la sottoquery non può contenere una clausola WITH nidificata che definisce un'altra CTE. Non è possibile usare una clausola ORDER BY in un oggetto CTE\_query\_definition, se non quando viene specificata una clausola TOP. Quando una CTE viene usata in un'istruzione che fa parte di un batch, l'istruzione precedente deve essere seguita da un punto e virgola. Se usate in istruzioni preparate da sp\_prepare, le CTE si comportano come altre istruzioni SELECT in PDW. Tuttavia, se le CTE vengono usate come parte di istruzioni CETAS preparate da sp\_prepare, il comportamento può variare rispetto a SQL Server e altre istruzioni PDW per la modalità di implementazione del binding per sp\_prepare. Se l'istruzione SELECT che fa riferimento alla CTE usa una colonna non corretta che non esiste nella CTE, sp\_prepare passa senza rilevare l'errore, che invece viene generato durante sp\_execute.
+
 ### Espressioni tabella comune ricorsive
 
-Si tratta di uno scenario complesso senza correzioni rapide. Le espressioni tabella comune ricorsive dovranno essere suddivise e gestite nei passaggi. In genere è possibile utilizzare un ciclo piuttosto complesso; popolamento di una tabella temporanea mentre si scorrono le query provvisorie ricorsive. Una volta che viene popolata la tabella temporanea, è quindi possibile restituire i dati come un unico set di risultati. Un approccio simile è stato utilizzato per risolvere `GROUP BY WITH CUBE` nell'articolo [Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][].
-
-### Aggiornamenti tramite espressioni tabella comune
-
-Se le espressioni tabella comune non sono ricorsive, è possibile scrivere nuovamente la query per l'utilizzo di sottoquery. Per le espressioni tabella comune ricorsive è necessario creare il set di risultati prima come descritto sopra, quindi aggiungere il set di risultati finale per la tabella di destinazione ed eseguire l'aggiornamento.
+Si tratta di uno scenario di migrazione complesso e il modo migliore di procedere è suddividere l'espressione CTE e gestire i singoli passaggi. In genere è possibile usare un ciclo e popolare una tabella temporanea mentre si scorrono le query provvisorie ricorsive. Una volta che viene popolata la tabella temporanea, è quindi possibile restituire i dati come un unico set di risultati. Un approccio simile è stato usato per risolvere `GROUP BY WITH CUBE` nell'articolo relativo al [raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][].
 
 ### Funzioni di sistema
 
@@ -113,4 +116,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

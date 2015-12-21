@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registrare un'API dalla definizione dell'API Swagger 2.0  
 Molte organizzazioni dispongono già di alcune API che gli utenti possono utilizzare e sfruttare all'interno delle proprie app. Per utilizzare queste API nelle applicazioni, è necessario "registrare" le API nel portale di Azure. Sono disponibili le seguenti opzioni:
 
-- Registrare un'[API gestita da Microsoft o gestita dal reparto IT](powerapps-register-from-available-apis.md)
-- Registrare un'API ospitata all'interno dell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md).
-- Registrazione mediante una definizione API Swagger 2.0
+- Registrare un'[API gestita da Microsoft o gestita dal reparto IT](powerapps-register-from-available-apis.md) predefinita.
+- Registrare un'app Web, un'app per le API e un'app per dispositivi mobili ospitata nell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md).
+- Registrare una delle API Swagger usando una definizione API di Swagger 2.0 (in questo argomento).
 
-In questo articolo verrà illustrato come **registrare una definizione API Swagger 2.0** creata da un'API esistente.
+Questo articolo illustra come **registrare una delle API mediante la definizione delle API di Swagger 2.0** creata da un'API esistente.
 
 #### Prerequisiti per iniziare
 
@@ -58,12 +58,13 @@ In questo articolo verrà illustrato come **registrare una definizione API Swagg
 
 In questo argomento è stato possibile esaminare come registrare un'API dalla definizione API Swagger 2.0. Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correlati seguenti:
 
-- [Configurare le API](powerapps-configure-apis.md)
-- [Aggiunta di una nuova API](powerapps-register-from-available-apis.md)
+- [Configurare le proprietà dell'API](powerapps-configure-apis.md)
+- [Consentire agli utenti di accedere alle API](powerapps-manage-api-connection-user-access.md)
+- [Iniziare a creare le app in PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

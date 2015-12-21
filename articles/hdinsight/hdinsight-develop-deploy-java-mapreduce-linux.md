@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Sviluppare programmi MapReduce Java per Hadoop in HDInsight
@@ -31,7 +31,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di prova gratuita di Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Una sottoscrizione di Azure**
 
 - **Interfaccia della riga di comando di Azure**: per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
@@ -270,7 +270,7 @@ In questo documento si è appreso come sviluppare un processo Java MapReduce. Ve
 - [Usare Pig con HDInsight][hdinsight-use-pig]
 - [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni, vedere anche il [Centro per sviluppatori Java](http://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -282,22 +282,14 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

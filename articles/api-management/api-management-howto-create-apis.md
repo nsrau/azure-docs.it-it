@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come creare API in Gestione API di Azure
@@ -24,7 +24,7 @@ Questa guida illustra il primo passaggio del processo per creare e configurare u
 
 ## <a name="create-new-api"> </a>Creare una nuova API
 
-Le API vengono create e configurate nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API.
+Le API vengono create e configurate nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -40,7 +40,7 @@ Usare la finestra **Aggiungi nuova API** per configurare la nuova API.
 
 Per configurare la nuova API, vengono usati i campi seguenti.
 
--	La casella **Titolo API Web** consente di specificare un nome univoco e descrittivo per l'API, che viene visualizzato nel portale di gestione e nel portale per sviluppatori.
+-	La casella **Titolo API Web** consente di specificare un nome univoco e descrittivo per l'API, che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
 -	Il valore specificato nella casella **URL del servizio Web** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.
 -	Il valore della casella **Suffisso dell'URL dell'API Web** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 -	L'opzione **Schema URL API Web** determina il protocollo da usare per l'accesso all'API. Per impostazione predefinita è specificato il valore HTTPs.
@@ -97,4 +97,4 @@ Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi con
 [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure]: api-management-howto-mutual-certificates.md
 [Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

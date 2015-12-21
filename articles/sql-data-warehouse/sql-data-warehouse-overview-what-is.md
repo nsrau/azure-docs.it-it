@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -29,7 +29,7 @@ Fondamentalmente, SQL Data Warehouse viene eseguito usando l'architettura di ela
 
 ![Architettura di SQL Data Warehouse][1]
 
-- **Nodo di controllo:** si stabilisce la connessione al nodo di controllo quando si usa SQL Data Warehouse con qualsiasi strumento di sviluppo, caricamento o business intelligence. In SQL Data Warehouse il nodo di calcolo è un database SQL e quando si stabilisce la connessione ha l'aspetto di un normale database SQL. Tuttavia, in background coordina completamente lo spostamento e il calcolo dei dati eseguiti nel sistema. Quando viene inviato un comando al nodo di controllo, lo suddivide in un set di query che saranno passate ai nodi di calcolo del servizio.
+- **Nodo di controllo:** si stabilisce la connessione al nodo di controllo quando si usa SQL Data Warehouse con qualsiasi strumento di sviluppo, caricamento o business intelligence. In SQL Data Warehouse il nodo di controllo è un database SQL e quando si stabilisce la connessione ha l'aspetto di un normale database SQL. Tuttavia, in background coordina completamente lo spostamento e il calcolo dei dati eseguiti nel sistema. Quando viene inviato un comando al nodo di controllo, lo suddivide in un set di query che saranno passate ai nodi di calcolo del servizio.
 
 - **Nodi di calcolo:** come il nodo di controllo, i nodi di calcolo di SQL Data Warehouse si basano sull'uso di database SQL. Il loro scopo è fornire la potenza di calcolo del servizio. Dietro le quinte, ogni volta che si caricano dati in SQL Data Warehouse, questi vengono distribuiti tra i nodi del servizio. Quindi, ogni volta che il nodo di controllo riceve un comando lo suddivide in parti per ogni nodo di calcolo e questi operano sui dati corrispondenti. Al termine del calcolo, i nodi di calcolo passano i risultati parziali al nodo di controllo, che quindi aggrega i risultati prima di restituire una risposta.
 
@@ -138,4 +138,4 @@ Dopo avere appreso alcune nozioni su SQL Data Warehouse, per iniziare, vedere [C
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

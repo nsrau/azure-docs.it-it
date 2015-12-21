@@ -24,13 +24,13 @@ Una delle domande più frequenti dei clienti che usano Hub di notifica di Azure 
 
 Prima di tutto, è fondamentale comprendere il modo in cui Hub di notifica di Azure invia le notifiche push ai dispositivi. ![][0]
 
-In un tipico flusso di invio di notifiche il messaggio viene inviato dal **back-end dell'applicazione** a **Hub di notifica di Azure**, che a sua volta elabora tutte le registrazioni tenendo conto dei tag configurati e delle espressioni tag per determinare i "destinatari", ovvero tutte le registrazioni che devono ricevere la notifica push. Queste registrazioni possono coprire alcune o tutte le piattaforme supportate: iOS, Google, Windows, Windows Phone, Kindle e Baidu per Andoid in Cina. Una volta determinate le destinazioni, Hub di notifica invia notifiche push, suddivise su più batch di registrazioni, al **servizio di notifica push (PNS)** specifico della piattaforma del dispositivo, ad esempio il servizio APNS per Apple, GCM per Google e così via. Hub di notifica effettua l’autenticazione con il rispettivo PNS in base alle credenziali impostate nel portale di Azure e nella pagina Configura Hub di notifica. Il PNS inoltra quindi le notifiche ai dispositivi **client corrispondenti**. Questa è la modalità ottimale per la piattaforma per il recapito delle notifiche push e tenere presente che l'ultima parte del recapito delle notifiche avviene tra il PNS della piattaforma e il dispositivo. Pertanto si hanno quattro componenti principali: *client*, *back-end dell'applicazione*, *Hub di notifica di Azure (NH)* e *servizio di notifica push (PNS)*; uno di questi componenti può essere la causa dell'eliminazione delle notifiche. Informazioni più dettagliate su questa architettura sono disponibili in [Panoramica dell'Hub di notifica].
+In un tipico flusso di invio di notifiche il messaggio viene inviato dal **back-end dell'applicazione** a **Hub di notifica di Azure**, che a sua volta elabora tutte le registrazioni tenendo conto dei tag configurati e delle espressioni tag per determinare i "destinatari", ovvero tutte le registrazioni che devono ricevere la notifica push. Queste registrazioni possono coprire alcune o tutte le piattaforme supportate: iOS, Google, Windows, Windows Phone, Kindle e Baidu per Andoid in Cina. Una volta determinate le destinazioni, Hub di notifica invia notifiche push, suddivise su più batch di registrazioni, al **servizio di notifica push (PNS)** specifico della piattaforma del dispositivo, ad esempio il servizio APNS per Apple, GCM per Google e così via. Hub di notifica esegue l'autenticazione con il rispettivo PNS in base alle credenziali impostate nel portale di Azure classico e nella pagina Configura Hub di notifica. Il PNS inoltra quindi le notifiche ai dispositivi **client corrispondenti**. Questa è la modalità ottimale per la piattaforma per il recapito delle notifiche push e tenere presente che l'ultima parte del recapito delle notifiche avviene tra il PNS della piattaforma e il dispositivo. Pertanto si hanno quattro componenti principali: *client*, *back-end dell'applicazione*, *Hub di notifica di Azure (NH)* e *servizio di notifica push (PNS)*; uno di questi componenti può essere la causa dell'eliminazione delle notifiche. Informazioni più dettagliate su questa architettura sono disponibili in [Panoramica dell'Hub di notifica].
 
 Il mancato recapito delle notifiche può avvenire nella fase di test iniziale/staging, che potrebbe indicare un problema di configurazione, oppure può avvenire nell'ambiente di produzione, con l'eliminazione di alcune o tutte le notifiche, che indica un problema più profondo a livello di modello di messaggistica o applicazione. Nella seguente sezione verranno esaminati alcuni scenari di notifiche eliminate, dai più comuni ai più rari, alcuni dei quali possono sembrare ovvi, altri molto meno.
 
 ##Configurazione errata di Hub di notifica di Azure 
 
-Hub di notifica di Azure deve eseguire l'autenticazione nel contesto dell'applicazione dello sviluppatore affinché possa inviare notifiche al PNS corrispondente. Ciò è reso possibile dagli sviluppatori creando un account sviluppatore con la rispettiva piattaforma (Google, Apple, Windows e così via) e quindi registrando l'applicazione, dove ottengono le credenziali che devono essere configurate nella sezione di configurazione di Hub di notifica nel portale di Azure. Se non perviene nessuna notifica, prima di tutto occorre assicurarsi che siano configurate le credenziali corrette in Hub di notifica, verificandone la corrispondenza con l'applicazione creata con l'account sviluppatore specifico della piattaforma. L'[esercitazione introduttiva] è utile per ottenere istruzioni dettagliate su questa procedura. Ecco alcuni errori di configurazione comuni:
+Hub di notifica di Azure deve eseguire l'autenticazione nel contesto dell'applicazione dello sviluppatore affinché possa inviare notifiche al PNS corrispondente. Questa operazione è resa possibile dagli sviluppatori creando un account sviluppatore con la rispettiva piattaforma (Google, Apple, Windows e così via) e quindi registrando l'applicazione, dove ottengono le credenziali che devono essere configurate nella sezione di configurazione di Hub di notifica nel portale. Se non perviene nessuna notifica, prima di tutto occorre assicurarsi che siano configurate le credenziali corrette in Hub di notifica, verificandone la corrispondenza con l'applicazione creata con l'account sviluppatore specifico della piattaforma. L'[esercitazione introduttiva] è utile per ottenere istruzioni dettagliate su questa procedura. Ecco alcuni errori di configurazione comuni:
 
 1. **Generale**
  
@@ -97,7 +97,7 @@ Di seguito vengono illustrate le diverse strategie per diagnosticare e identific
 
 	Verificarle nel rispettivo portale per sviluppatori PNS (APNS, GCM, WNS e così via) usando le [Esercitazioni introduttive].
 
-2. **Portale di gestione di Azure**
+2. **Portale di Azure classico**
 
 	Passare alla scheda Configura per esaminare e confrontare le credenziali con quelle ottenute dal portale per sviluppatori PNS.
 
@@ -123,7 +123,7 @@ Di seguito vengono illustrate le diverse strategie per diagnosticare e identific
 
 ###Verificare le notifiche di messaggi
 
-1. **Portale di Azure**
+1. **Portale di Azure classico**
 
 	Passare alla scheda "Debug" per inviare notifiche di prova ai client senza la necessità di un servizio back-end operativo.
 
@@ -183,9 +183,9 @@ Questo messaggio indica che nell'hub di notifica sono state configurate credenzi
 
 ###Esaminare i dati di telemetria 
 
-1. **Usare il portale di Azure**
+1. **Usare il portale di Azure classico**
 
-	Il portale di Azure consente di ottenere una rapida panoramica di tutte le attività in Hub di notifica.
+	Il portale consente di ottenere una rapida panoramica di tutte le attività in Hub di notifica.
 	
 	a) Nella scheda "Dashboard" è presente una visualizzazione aggregata delle registrazioni, delle notifiche e degli errori per piattaforma.
 	
@@ -206,7 +206,7 @@ Per informazioni dettagliate:
 - [Accesso alla telemetria a livello di codice]
 - [Esempio di accesso alla telemetria tramite API] 
 
-> [AZURE.NOTE]Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di gestione di Azure.
+> [AZURE.NOTE]Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di Azure classico.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -240,4 +240,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

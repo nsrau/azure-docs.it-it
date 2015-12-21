@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Creare un processo | Microsoft Azure" 
-	description="Creare un processo per Analisi di flusso | segmento del percorso di apprendimento."
+	pageTitle="Come creare un processo di elaborazione di analisi dei dati per Analisi di flusso| Microsoft Azure" 
+	description="Creare un processo di elaborazione di analisi dei dati per Analisi di flusso | segmento del percorso di apprendimento."
+	keywords="elaborazione di analisi dei dati"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,41 +14,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/01/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Creare un processo di Analisi di flusso.
+# Come creare un processo di elaborazione di analisi dei dati per Analisi di flusso
 
-La risorsa di livello principale nell’analisi di flusso di Azure è il processo di analisi del flusso. È costituito da una o più origini dati di input, una query che esprime la trasformazione dei dati e uno o più destinazioni di output in cui vengono scritti i risultati.
+La risorsa di livello principale nell’analisi di flusso di Azure è il processo di analisi del flusso. È costituito da una o più origini dati di input, una query che esprime la trasformazione dei dati e uno o più destinazioni di output in cui vengono scritti i risultati. Insieme questi consentono all'utente di eseguire elaborazioni di analisi dei dati per scenari di flussi di dati.
 
-Per iniziare a utilizzare l’analisi di flusso, creare un nuovo processo di analisi di flusso. Si noti che questa azione non ha implicazioni sulla fatturazione fino a quando il processo non viene avviato.
+Per iniziare a usare Analisi di flusso, creare un nuovo processo di Analisi di flusso. Si noti che questa azione non ha implicazioni sulla fatturazione fino a quando il processo non viene avviato.
 
-1.  Accedere al [portale di Microsoft Azure classico](http://manage.windowsazure.com) online o al portale di Azure.
-2.  Nel portale di Azure classico: **Fare clic su Nuovo**, quindi fare clic su **Servizi dati**, e fare clic su **Analisi di flusso** e **Creazione rapida**.
+1.  Accedere al [portale di Microsoft Azure](http://manage.windowsazure.com) online o al portale di anteprima di Azure.
+2.  Nel portale di Azure: **fare clic su nuovo**, fare clic su **Servizi dati** e quindi fare clic su **Analisi di flusso** e **Creazione rapida**.
 
-    ![Procedura guidata creazione rapida](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)
+    ![Procedura guidata del processo di elaborazione di analisi dei dati](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)
 
-    Nel portale di Azure: fare clic su Nuovo, quindi fare clic su Dati e analisi e quindi fare clic su Analisi di flusso di Azure.
+    Nel portale di anteprima di Azure: fare clic su Nuovo, quindi fare clic su Dati e analisi e quindi fare clic su Analisi di flusso di Azure.
 
-    ![Creazione processo Portale di Azure classico](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)
+    ![Creare un processo di elaborazione di analisi dei dati](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)
 
 3.  Specificare la configurazione desiderata per il processo di analisi di flusso.
-	- Nella casella **Nome processo** immettere un nome per identificare il processo di analisi di flusso. Quando il **Nome processo**viene convalidato, appare un segno di spunta verde nella relativa casella. Il **Nome processo** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 63 caratteri.
-	- Utilizzare **Area** nel portale di Azure classico oppure **Posizione** nel portale di Azure per specificare la posizione geografica in cui si desidera eseguire il processo.
-	- Se si utilizza il portale di Azure classico, selezionare o creare un account di archiviazione da utilizzare come **Account di archiviazione di monitoraggio regionale**. Questo account di archiviazione viene utilizzato per archiviare i dati di monitoraggio per tutti i processi di Analisi del flusso in esecuzione all'interno dell'area.
-	- Se si utilizza il portale di Azure, specificare un **gruppo di risorse** nuovo o esistente per contenere le risorse correlate per l'applicazione.
+	- Nella casella **Nome processo** immettere un nome per identificare il processo di Analisi di flusso. Quando il **Nome processo** viene convalidato, viene visualizzato un segno di spunta verde nella relativa casella. Il **Nome processo** può contenere solo caratteri alfanumerici e il carattere '-' e deve avere una lunghezza compresa tra 3 e 63 caratteri.
+	- Usare **Area** nel portale di Azure o **Posizione** nel portale di anteprima di Azure per specificare la posizione geografica in cui si desidera eseguire il processo.
+	- Se si usa il portale di Azure, selezionare o creare un account di archiviazione da usare come **Account di archiviazione di monitoraggio regionale**. Questo account di archiviazione viene utilizzato per archiviare i dati di monitoraggio per tutti i processi di Analisi del flusso in esecuzione all'interno dell'area.
+	- Se si usa il portale di anteprima di Azure, specificare un **gruppo di risorse** nuovo o esistente per contenere le risorse correlate per l'applicazione.
 
-4.  Dopo la configurazione delle nuove opzioni del processo di analisi di flusso, fare clic su **Crea processo di analisi di flusso**. La creazione del processo di analisi di flusso può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nell’hub delle notifiche.
+4.  Dopo aver configurato le nuove opzioni del processo di Analisi di flusso, fare clic su **Crea processo di Analisi di flusso**. La creazione del processo di analisi di flusso può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nell’hub delle notifiche.
 
-    ![Hub Notifiche](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)
+    ![Processo di elaborazione di analisi dei dati, hub di notifica](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)
 
-    ![Creazione processo portale di Azure](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)
+    ![Portale di anteprima di Azure, processo di elaborazione di analisi dei dati, creare processo](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)
 
-5.  Il nuovo processo verrà visualizzato nell'elenco con uno stato **Creato**. Si noti che il pulsante**Avvia** è disabilitato. Prima di poter avviare il processo, è necessario configurare input, output, e la relativa query.
+5.  Il nuovo processo verrà visualizzato nell'elenco con uno stato **Creato**. Si noti che il pulsante **Avvia** è disabilitato. Prima di poter avviare il processo, è necessario configurare input, output, e la relativa query.
 
-    ![Stato processo](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)
+    ![Processo di elaborazione di analisi dei dati, stato processo](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)
 
-    ![Stato del processo Portale di Azure](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)
+    ![Portale di anteprima di Azure, processo di elaborazione di analisi dei dati, stato processo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -60,4 +61,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

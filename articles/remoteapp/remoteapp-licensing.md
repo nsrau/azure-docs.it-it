@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Licenze di Azure RemoteApp" 
-    description="Informazioni sul funzionamento delle licenze in Azure RemoteApp." 
-    services="remoteapp" 
-    solutions="" documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Licenze di Azure RemoteApp | Microsoft Azure"
+    description="Informazioni sul funzionamento delle licenze in Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -34,6 +34,5 @@ Per le altre app, è necessario assicurarsi di disporre della licenza per condiv
 Riassumendo, è possibile pubblicare qualsiasi app di cui si detiene il diritto legale alla condivisione. È quindi necessario assicurarsi di avere effettivamente il diritto di condividere i propri programmi.
 
 Si noti che non è possibile usare una licenza CAL o un contratto multilicenza in una raccolta nel cloud. È *possibile* usare un contratto multilicenza per attivare applicazioni nella raccolta ibrida (ad eccezione di Office). È sufficiente installarle nell'immagine modello dai supporti forniti per contratti multilicenza. Seguire le indicazioni del fornitore dell'applicazione per installare le licenze in un ambiente Desktop remoto.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

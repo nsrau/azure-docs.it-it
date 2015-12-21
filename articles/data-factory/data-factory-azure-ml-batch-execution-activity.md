@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="spelluru"/>
 
 # Creare pipeline predittive con le attività di Azure Machine Learning   
@@ -623,4 +623,4 @@ Se si vuole continuare a usare l'attività AzureMLBatchScoring, vedere l'articol
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

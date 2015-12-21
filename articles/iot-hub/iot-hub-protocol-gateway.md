@@ -26,7 +26,7 @@ Il gateway del protocollo IoT Azure è un framework per l'adattamento del protoc
 
 Il gateway del protocollo può essere distribuito in Azure in modo altamente scalabile utilizzando i ruoli di lavoro dei servizi cloud. Inoltre, il gateway del protocollo può essere distribuito in ambienti locali come gateway di campo.
 
-Il gateway del protocollo IoT Azure include un adattatore MQTT per semplificare la comunicazione con i dispositivi tramite il protocollo MQTT v3.1.1. Il gateway del protocollo e l'implementazione di MQTT vengono forniti come progetto OSS per la flessibilità per consentire la personalizzazione dell'implementazione in base alle esigenze.
+Il gateway del protocollo IoT Azure include un adattatore MQTT per semplificare la comunicazione con i dispositivi tramite il protocollo MQTT v3.1.1. Il gateway del protocollo e l'implementazione di MQTT vengono forniti come progetto OSS per la flessibilità, in modo da consentire la personalizzazione dell'implementazione in base alle esigenze.
 
 L'adattatore MQTT viene dimostra inoltre il modello di programmazione per la creazione di adattatori del protocollo per altri protocolli. Inoltre, il modello di programmazione del gateway del protocollo IoT consente di collegare componenti personalizzati per l'elaborazione specializzata, ad esempio l'autenticazione personalizzata, trasformazioni di messaggi, compressione/decompressione o crittografia/decrittografia del traffico tra i dispositivi e l’hub IoT.
 
@@ -37,4 +37,4 @@ Per ulteriori informazioni sul gateway del protocollo IoT Azure e su come utiliz
 * [Archivio gateway del protocollo IoT Azure su GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guida per sviluppatori del gateway del protocollo IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

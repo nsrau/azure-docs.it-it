@@ -33,7 +33,7 @@ Per iniziare, è necessario:
 
 Nel portale di Azure copiare la stringa di connessione della firma di accesso condiviso radice del bus di servizio. Questa stringa di connessione connette il connettore di Azure al sistema locale.
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885) selezionare lo spazio dei nomi del bus di servizio e selezionare **Informazioni di connessione**:
+1. Nel [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885) selezionare lo spazio dei nomi del bus di servizio e selezionare **Informazioni di connessione**:
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ Nel portale di Azure copiare la stringa di connessione della firma di accesso co
 
 ## Installare Gestione connessione ibrida
 
-1. Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare il connettore creato. Per aprirlo, è possibile selezionare **Sfoglia**, **App per le API** e quindi il connettore o l'app per le API. <br/><br/> In **Connessione ibrida** l'installazione è **incompleta**: <br/> ![][2] 
+1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) selezionare il connettore creato. Per aprirlo, è possibile selezionare **Sfoglia**, **App per le API** e quindi il connettore o l'app per le API. <br/><br/> In **Connessione ibrida** l'installazione è **incompleta**: <br/> ![][2] 
 
 2. Selezionare **Connessione ibrida**. Viene elencata la stringa di connessione del bus di servizio immessa in precedenza.
 3. Copiare la **Stringa di configurazione primaria**: <br/> ![][PrimaryConfigString]
@@ -98,7 +98,7 @@ Porta di sistema locale | Nel sistema locale aprire la porta usata dal sistema. 
 
 
 
-### Nel portale di Azure
+### Nel portale di Azure classico:
 
 1. Verificare che lo stato dello spazio dei nomi del bus di servizio sia **Attivo**.
 2. Quando si crea il connettore, immettere la stringa di connessione della firma di accesso condiviso del bus di servizio. Non immettere la stringa di connessione ACS.
@@ -133,4 +133,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

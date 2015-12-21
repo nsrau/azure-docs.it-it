@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introduzione ad Analisi di flusso | Microsoft Azure" 
-	description="Informazioni su Analisi di flusso di Azure, un servizio cloud completamente gestito che consente di analizzare i dati di streaming di Internet delle cose (IoT) in tempo reale." 
-	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
+	description="Informazioni su Analisi di flusso, un servizio gestito che consente di analizzare i dati di streaming di Internet delle cose (IoT) in tempo reale." 
+	keywords="analisi come servizio, servizi gestiti, elaborazione dei flussi, analisi di flusso, che cos'è Analisi di flusso"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# Cos'è Analisi di flusso di Azure?
+# Che cos'è Analisi di flusso?
 
 Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale completamente gestito e conveniente che contribuisce a estrarre informazioni dettagliate dai dati. Analisi di flusso facilita la configurazione di calcoli analitici in tempo reale sullo streaming di dati da dispositivi, sensori, siti Web, social media, applicazioni, sistemi di infrastruttura e molto altro.
 
@@ -53,4 +53,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

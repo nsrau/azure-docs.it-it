@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015" 
+	ms.date="12/05/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -401,4 +401,4 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

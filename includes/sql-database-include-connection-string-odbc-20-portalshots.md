@@ -7,31 +7,31 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### Ottenere la stringa di connessione dal portale di Azure
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+Utilizzare l’[anteprima del portale Azure](http://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il Database SQL di Azure:
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. Fare clic su **ESPLORA** > **database SQL**.
 
-    ![Select SQL][1-select-sql]
+    ![Selezione di SQL][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. Immettere il nome del database nella casella di testo filtro vicino alla parte superiore sinistra del pannello **Database SQL**.
 
-    ![Select Database][2-select-database]]
+    ![Selezionare il database][2-select-database]]
 
-3. Click the row for your database.
+3. Fare clic sulla riga per il database.
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. Quando viene visualizzato il pannello del database, è possibile scegliere i controlli di riduzione a icona standard per comprimere i pannelli che sono stati utilizzati per la ricerca e filtro database per motivi di praticità visiva.
 
-5. On the blade for your database, click **Show database connection strings**.
+5. Nel pannello del database fare clic su **Mostra stringhe di connessione del database**.
 
-6. If you intend to use the ODBC connection library, copy the string labeled **ODBC (Includes Node.js)**.
+6. Se si prevede di usare la libreria di connessione ODBC, copiare la stringa di etichetta **ODBC (che include Node.js)**.
 
-	![Copy the ODBC connection string for your database][3-get-connection-string]
+	![Copiare la stringa di connessione ODBC per il database][3-get-connection-string]
 
-7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
+7. Incollare le informazioni sulla stringa di connessione nel codice del programma client. Sarà necessario sostituire {your\_password\_here} con la password reale.
 
 
 
@@ -58,3 +58,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

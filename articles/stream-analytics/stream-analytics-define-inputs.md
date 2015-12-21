@@ -1,40 +1,46 @@
-<properties 
-	pageTitle="Definire gli input | Microsoft Azure" 
-	description="Informazioni sugli input di analisi di flusso" 
-	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="Connessione dati: input di flussi di dati da un flusso di eventi | Microsoft Azure"
+	description="Informazioni sulla configurazione di una connessione dati ad Analisi di flusso denominata 'input'. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento."
+	keywords="flusso di dati, connessione dati, flusso di eventi"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
 	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Informazioni sulle connessioni di input di Analisi di flusso
+# Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 
-Gli input di analisi di flusso di Azure vengono definiti come connessione a un'origine dati. L'analisi di flusso si integra perfettamente con le origini di Azure Hub eventi, hub IoT e archivio BLOB all'interno e all'esterno della sottoscrizione di Azure in cui viene eseguito il processo. Quando i dati vengono inseriti a tale origine dati, vengono usati dal processo di analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi distinti: input del flusso dei dati e input dei dati di riferimento.
+La connessione dati ad Analisi di flusso è un flusso di dati di eventi da un'origine dati. Questo viene detto "input". Analisi di flusso si integra perfettamente con origini di flussi di dati di Azure come hub eventi, hub IoT e archivi BLOB appartenenti alla stessa sottoscrizione di Azure del processo di analisi o a una sottoscrizione diversa.
 
-- **Input del flusso di dati**: un flusso di dati è una sequenza non associata di eventi che si verificano nel tempo. I processi di analisi di flusso devono includere almeno un input del flusso dei dati che deve essere utilizzato e trasformato dal processo stesso. L'archivio BLOB, gli Hub eventi e gli hub IoT sono supportati come origini di input del flusso dei dati. Gli Hub eventi vengono usati per raccogliere i flussi di eventi da più dispositivi e servizi, ad esempio i feed attività dei social media, le informazioni sulle quotazioni azionarie o i dati dei sensori. Gli hub IoT sono ottimizzati per raccogliere dati dai dispositivi connessi in scenari Internet of Things (IoT). Si può usare l'archivio BLOB come origine di input per l'inserimento di dati in blocco come flusso.  
-- **Dati di riferimento**: l'analisi di flusso supporta un secondo tipo di input, ovvero i dati di riferimento. Si tratta di dati ausiliari, che sono statici o cambiano lentamente, usati di solito per eseguire correlazioni e ricerche. L'archivio BLOB di Azure attualmente è l'unica origine di input supportata per i dati di riferimento. Le dimensioni dei BLOB di origine dei dati di riferimento non possono superare i 50 MB. Per informazioni su come creare input dei dati di riferimento, vedere [Usare i dati di riferimento](stream-analytics-use-reference-data.md)  
+## Tipi di input di dati: flusso di dati e dati di riferimento
+Quando i dati vengono inviati a un'origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi distinti: input del flusso dei dati e input dei dati di riferimento.
 
-## Creazione di un flusso di input di dati Hub eventi
+### Input del flusso dei dati
+Un flusso di dati è una sequenza non associata di eventi che si verificano nel tempo. I processi di analisi di flusso devono includere almeno un input del flusso dei dati che deve essere utilizzato e trasformato dal processo stesso. L'archivio BLOB, gli Hub eventi e gli hub IoT sono supportati come origini di input del flusso dei dati. Gli Hub eventi vengono usati per raccogliere i flussi di eventi da più dispositivi e servizi, ad esempio i feed attività dei social media, le informazioni sulle quotazioni azionarie o i dati dei sensori. Gli hub IoT sono ottimizzati per raccogliere dati dai dispositivi connessi in scenari Internet of Things (IoT). Si può usare l'archivio BLOB come origine di input per l'inserimento di dati in blocco come flusso.
 
-Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono ingestor di eventi di pubblicazione-sottoscrizione altamente scalabili. Può raccogliere milioni di eventi al secondo in modo che sia possibile elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. È uno degli input più usati per l'analisi di flusso. Gli Hub eventi, insieme all'analisi di flusso, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi consentono ai clienti di inserire gli eventi in Azure in tempo reale. I processi di analisi di flusso possono anche essere elaborati in tempo reale. Ad esempio, i clienti possono inviare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi di flusso per usare gli Hub eventi come flussi dei dati di input per l'applicazione di filtri, l'aggregazione e la correlazione in tempo reale.
+### Dati di riferimento
+L'analisi di flusso supporta un secondo tipo di input, ovvero i dati di riferimento. Si tratta di dati ausiliari, che sono statici o cambiano lentamente, usati di solito per eseguire correlazioni e ricerche. L'archivio BLOB di Azure attualmente è l'unica origine di input supportata per i dati di riferimento. Le dimensioni dei BLOB di origine dei dati di riferimento non possono superare i 50 MB. Per informazioni su come creare input dei dati di riferimento, vedere [Usare i dati di riferimento](stream-analytics-use-reference-data.md)
+
+## Creare un input del flusso di dati con un hub eventi
+
+Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono un ingestor eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo in modo che sia possibile elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. È uno degli input più usati per l'analisi di flusso. Gli Hub eventi, insieme all'analisi di flusso, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi consentono ai clienti di inserire gli eventi in Azure in tempo reale. I processi di analisi di flusso possono anche essere elaborati in tempo reale. Ad esempio, i clienti possono inviare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi di flusso per usare gli Hub eventi come flussi dei dati di input per l'applicazione di filtri, l'aggregazione e la correlazione in tempo reale.
 
 È importante notare che il timestamp predefinito degli eventi proveniente dagli Hub eventi nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'Hub eventi, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-## Gruppi di utenti
+### Gruppi di utenti
 
 Ogni input dell'Hub eventi per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di Hub eventi di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](./event-hubs/event-hubs-programming-guide.md).
 
-## Configurazione dell'Hub eventi come flusso di dati di input ##
+## Configurare l'hub eventi come flusso di dati di input
 
 La tabella seguente illustra ciascuna proprietà nella scheda di input dell'Hub eventi con la relativa descrizione:
 
@@ -67,15 +73,15 @@ SELECT
 FROM Input
 ````
 
-## Creazione di un input del flusso di dati hub IoT ##
+## Creare un input del flusso di dati Hub IoT
 
-Hub IoT è un ingestor di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT. È importante notare che il timestamp predefinito degli eventi proveniente dagli hub IoT nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'hub IoT, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+Hub IoT di Azure è un servizio di inserimento di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT. È importante notare che il timestamp predefinito degli eventi proveniente dagli hub IoT nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'hub IoT, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-## Gruppi di utenti ##
+### Gruppi di utenti
 
 Ogni input dell'hub IoT per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di hub IoT di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso.
 
-## Configurazione dell'hub IoT come flusso di dati di input ##
+## Configurare Hub IoT come input del flusso di dati
 
 La tabella seguente illustra ciascuna proprietà nella scheda di input dell’hub IoT con la relativa descrizione:
 
@@ -104,7 +110,7 @@ Quando i dati provengono da un'origine di hub IoT, è possibile accedere ai poch
 | IoTHub.EnqueuedTime | Ora di ricezione del messaggio da parte dell'hub IoT. |
 | IoTHub.StreamId | Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
 
-## Creazione di un input del flusso di dati dell'archivio BLOB ##
+## Creare un input del flusso di dati dell'archivio BLOB
 
 Per gli scenari che dispongono di grandi quantità di dati non strutturati da archiviare nel cloud, l'archivio BLOB offre una soluzione conveniente e scalabile. I dati nell'[archivio BLOB](http://azure.microsoft.com/services/storage/blobs/) vengono generalmente considerati come dati "inattivi", ma possono essere elaborati come flusso di dati dall'analisi di flusso. Uno scenario comune per gli input dell'archivio BLOB con l'analisi di flusso è l'elaborazione dei log, dove i dati di telemetria vengono acquisiti da un sistema e devono essere analizzati ed elaborati per estrarne i dati significativi.
 
@@ -186,7 +192,7 @@ FROM Input
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
-È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:
+Sono state apprese le opzioni di connessione dei dati in Azure per i processi di Analisi di flusso. Per altre informazioni su Analisi di flusso, vedere:
 
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
@@ -201,4 +207,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come integrare Kiteworks con Azure Active Director
 
 - È possibile controllare in Azure AD chi può accedere a Kiteworks 
 - È possibile abilitare gli utenti per l'accesso automatico a Kiteworks (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: Azure Active Directory 
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Kiteworks in Azure AD, è necessario aggiunger
 
 **Per aggiungere Kiteworks dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -81,15 +81,15 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kiteworks, è
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione Kiteworks. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Kiteworks. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-Per configurare l'accesso Single Sign-On per Kiteworks, è necessario un dominio registrato. Se ancora non si ha un dominio registrato, contattare il team di supporto di Kiteworks all'indirizzo [support@kiteworks.com](mailto:support@flatterfiles.com).
+Per configurare l'accesso Single Sign-On per Kiteworks, è necessario un dominio registrato. Se ancora non si dispone ancora di un dominio registrato, contattare il team di supporto di Kiteworks.
 
 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Kiteworks, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Kiteworks** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **Kiteworks** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Kiteworks** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
 
@@ -103,61 +103,61 @@ Per configurare l'accesso Single Sign-On per Kiteworks, è necessario un dominio
  
 4. Nella pagina **Configura accesso Single Sign-On in Kiteworks** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_05.png) <br>
 
-    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
+    a. Fare clic su **Download certificato** e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
 
 1. Accedere al sito aziendale di Kiteworks come amministratore.
 
-1. Sulla barra degli strumenti in alto fare clic su **Settings**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
+1. Sulla barra degli strumenti in alto fare clic su **Impostazioni**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
 
 
-1. Nella sezione **Authentication and Authorization** fare clic su **SSO Setup**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
+1. Nella sezione **Autenticazione e autorizzazione** fare clic su **Configurazione Single Sign-On**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
 
 
-1. Nella pagina SSO Setup seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_09.png) <br>
+1. Nella pagina di configurazione dell'accesso Single Sign-On seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_09.png) <br>
 
-    a. Selezionare **Authenticate via SSO**.
+    a. Selezionare **Autentica tramite Single Sign-On**.
 
-    b. Selezionare **Initiate AuthnRequest**.
+    b. Selezionare **Avvia richiesta autenticazione**.
 
-    c. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kiteworks** nel portale di Azure copiare il valore di **ID entità** e quindi incollarlo nella casella di testo **IDP Entity ID**.
+    c. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kiteworks** nel portale di Azure classico copiare il valore di **ID entità** e incollarlo nella casella di testo **ID entità IDP**.
 
-    d. Nella pagina **Configura accesso Single Sign-On in Kiteworks** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Single Sign-On Service URL**.
+    d. Nella pagina **Configura accesso Single Sign-On in Kiteworks** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL servizio Single Sign-On**.
 
-    e. Nella pagina **Configura accesso Single Sign-On in Kiteworks** del portale di Azure copiare il valore di **URL servizio Single Sign-Out** e quindi incollarlo nella casella di testo **Single Logout Service URL**.
+    e. Nella pagina **Configura accesso Single Sign-On in Kiteworks** del portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **URL servizio Single Sign-Out**.
 
-    f. Aprire il certificato scaricato nel Blocco note, copiare il contenuto e incollarlo nella casella di testo **RSA Public Key Certificate**.
+    f. Aprire il certificato scaricato nel Blocco note, copiare il contenuto e incollarlo nella casella di testo **Certificato di chiave pubblica RSA**.
 
     g. Fare clic su **Save**.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, sulla barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    b. Nella **casella di testo** Nome utente digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
@@ -165,13 +165,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
-    b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome**, digitare **Simon**.
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
  
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_08.png) <br>
   
@@ -192,19 +192,19 @@ Non è necessario alcun intervento dell'utente in questa sezione. Durante il ten
 
 ### Assegnazione dell'utente test di Azure AD
 
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kiteworks. <br><br>![Assegna utente][200] <br>
+Questa sezione descrive come abilitare Britta Simon per l'utilizzo dell'accesso Single Sign-On di Azure concedendole l'accesso a Kiteworks. <br><br>![Assegna utente][200] <br>
 
 **Per assegnare Britta Simon a Kiteworks, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Assegna utente][201] <br>
 
 2. Nell'elenco di applicazioni selezionare **Kiteworks**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_50.png) <br>
 
-1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
+1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203]<br>
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
 
 
 
@@ -237,4 +237,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

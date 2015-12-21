@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Esempi di Cache Redis di Azure 
@@ -57,7 +57,7 @@ Questo esempio mette a confronto le prestazioni di accesso ai dati da una cache 
 
 ## Memorizzazione nella cache dell'output e dello stato sessione ASP.NET
 
-Nell’[esempio relativo all’uso di Cache Redis di Azure per archiviare SessionState e OutputCache ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) viene illustrato come usare Cache Redis di Azure per archiviare la cache di output e la sessione ASP.NET usando i provider SessionState e OutputCache per Redis.
+L'esempio relativo all'[uso di Cache Redis di Azure per archiviare SessionState e OutputCache di ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) illustra come usare Cache Redis di Azure per archiviare la cache di output e la sessione ASP.NET usando i provider SessionState e OutputCache per Redis.
 
 ## Gestire Cache Redis di Azure con MAML
 
@@ -65,7 +65,7 @@ Nell’esempio relativo alla [gestione di Cache Redis di Azure con le librerie d
 
 ## Esempio di monitoraggio personalizzato
 
-Nell’esempio relativo all’[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) viene illustrato come accedere ai dati di monitoraggio per Cache Redis di Azure all'esterno del portale di anteprima di Azure.
+L'esempio relativo all'[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) illustra come accedere ai dati di monitoraggio per Cache Redis di Azure all'esterno del portale di Azure.
 
 ## Clone in stile Twitter scritto utilizzando PHP e Redis
 
@@ -75,4 +75,4 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

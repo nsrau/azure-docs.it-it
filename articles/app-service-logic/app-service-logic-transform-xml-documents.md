@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="BizTalk Transform" 
-	description="Informazioni su come trasformare i documenti XML da uno schema a un altro." 
+	pageTitle="Uso di BizTalk Transform in app per la logica in Servizio app di Azure | Microsoft Azure" 
+	description="Informazioni su come trasformare documenti XML da uno schema a un altro" 
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#BizTalk Transform
+# BizTalk Transform
 
 
 ## Panoramica
@@ -45,11 +45,11 @@ Le altre funzionalità includono:
 ## Creare e aggiungere la mappa
 Le app per le API Transform o Map vengono create in Visual Studio usando il download gratuito dell'[SDK Servizi BizTalk di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087).
 
-Per assistenza nella creazione di una mappa, vedere [Creare una mappa in Visual Studio](http://aka.ms/createamapinvs). Dopo aver creato la mappa pronta per la produzione, è possibile aggiungere il file trfm all'app per le API BizTalk Transform creata nel portale di gestione di Azure.
+Per assistenza nella creazione di una mappa, vedere [Creare una mappa in Visual Studio](http://aka.ms/createamapinvs). Dopo aver creato una mappa pronta per la produzione, è possibile aggiungere il file della mappa (con estensione trfm) all'app per le API BizTalk Transform creata nel portale di Azure.
 
-Se la mappa cambia o subisce modifiche dopo il caricamento, è possibile caricare la mappa aggiornata che sostituirà quella esistente nell'app per le API Transform.
+Se la mappa cambia o subisce modifiche dopo il caricamento, è possibile caricare la mappa aggiornata, che sostituirà quella esistente nell'app per le API Transform.
 
-1.	Selezionare **Sfoglia** nel portale di gestione di Azure (a sinistra dello schermo), quindi **App per le API**. Se l'opzione **App per le API** non è visualizzata, selezionare **Tutto**, quindi **App per le API** dall'elenco disponibile:
+1.	Selezionare **Sfoglia** nel portale di Azure (a sinistra dello schermo), quindi **App per le API**. Se l'opzione **App per le API** non è visualizzata, selezionare **Tutto**, quindi **App per le API** dall'elenco disponibile:
 
 	![][7]
 
@@ -116,4 +116,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

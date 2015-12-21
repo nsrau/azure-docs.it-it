@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Usare i dati di riferimento | Microsoft Azure" 
-	description="Utilizzare dati di riferimento in un flusso di input di Analisi di flusso" 
-	keywords="analisi di big data, servizio cloud, internet delle cose, servizio gestito, elaborazione del flusso, analisi di flusso, dati del flusso"
+	pageTitle="Usare i dati di riferimento e le tabelle di ricerca in Analisi di flusso | Microsoft Azure" 
+	description="Usare i dati di riferimento in una query di Analisi di flusso" 
+	keywords="tabella di ricerca, dati di riferimento"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Utilizzo di dati di riferimento in un flusso di input di Analisi di flusso
+# Uso dei dati di riferimento o delle tabelle di ricerca in un flusso di input di Analisi di flusso
 
-Dati di riferimento sono un set di dati limitato di natura statica o che cambiano molto lentamente, usati per eseguire una ricerca o la correlazione con il flusso di dati. Per usare i dati di riferimento nel processo di analisi di flusso di Azure si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Analisi di flusso usa l'archiviazione BLOB di Azure come livello di archiviazione per i dati di riferimento, mentre con Data factory di Azure i dati di riferimento possono essere trasformati e/o copiati nell'archivio BLOB di Azure, da usare come dati di riferimento, da [un numero qualsiasi di archivi dati basati sul cloud e locali](./articles/data-factory-data-movement-activities.md). I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella configurazione di input) in ordine crescente in base alla data/ora specificata nel nome di BLOB. Supporta **solo** supporta l'aggiunta alla fine della sequenza utilizzando una data/ora **maggiore** rispetto a quella specificata dall'ultimo BLOB nella sequenza.
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambiano molto lentamente, usati per eseguire una ricerca o la correlazione con il flusso di dati. Per usare i dati di riferimento nel processo di analisi di flusso di Azure si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Analisi di flusso usa l'archiviazione BLOB di Azure come livello di archiviazione per i dati di riferimento, mentre con Data factory di Azure i dati di riferimento possono essere trasformati e/o copiati nell'archivio BLOB di Azure, da usare come dati di riferimento, da [un numero qualsiasi di archivi dati basati sul cloud e locali](./articles/data-factory-data-movement-activities.md). I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella configurazione di input) in ordine crescente in base alla data/ora specificata nel nome di BLOB. Supporta **solo** supporta l'aggiunta alla fine della sequenza utilizzando una data/ora **maggiore** rispetto a quella specificata dall'ultimo BLOB nella sequenza.
 
 ## Configurazione dei dati di riferimento
 
@@ -103,4 +103,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

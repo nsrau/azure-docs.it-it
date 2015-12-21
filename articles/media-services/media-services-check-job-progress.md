@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="12/04/2015"   
 	ms.author="juliako"/>
 
 #Procedura: Controllare lo stato dei processi
@@ -437,4 +437,4 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -26,7 +26,7 @@ I servizi presentano tuttavia molte differenze, illustrate in dettaglio nelle se
 | ---- | ------- | ---------- |
 | Modelli di comunicazione | Ingresso di eventi da dispositivo a cloud e messaggistica da cloud a dispositivo. | Solo ingresso di eventi, considerato di solito per scenari da dispositivo a cloud. |
 | Sicurezza | Identità per dispositivo e controllo di accesso revocabile. Vedere la [Guida per gli sviluppatori dell'hub IoT - Sicurezza]. | [Criteri di accesso condivisi][Event Hub - security] a livello di Hub eventi, con supporto limitato per la revoca tramite [criteri dell'entità di pubblicazione][Event Hub publisher policies]. Nel contesto delle soluzioni IoT, è spesso necessario implementare una soluzione personalizzata per supportare le credenziali per dispositivo e le misure antispoofing. |
-| Scale | L'hub IoT è ottimizzato per supportare milioni di dispositivi connessi simultaneamente. | Hub eventi può supportare un numero più limitato di connessioni simultanee: al massimo 5.000 connessioni AMQP, in base al valore di [Quote del bus di servizio][]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
+| Scale | L'hub IoT è ottimizzato per supportare milioni di dispositivi connessi simultaneamente. | Hub eventi può supportare un numero più limitato di connessioni simultanee: fino a 5000 connessioni AMQP, in base a quanto descritto in [Quote del bus di servizio][]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
 | SDK del dispositivo | L'hub IoT fornisce [SDK del dispositivo][Azure IoT Hub SDKs] per un'ampia gamma di piattaforme e linguaggi | Hub eventi è supportato in .NET, C e fornisce interfacce di invio AMQP e HTTP. |
 
 In breve, anche se il solo caso di utilizzo è l'ingresso dei dati di telemetria da dispositivo a cloud, l'hub IoT fornisce un servizio progettato espressamente per la connettività dei dispositivi IoT e continuerà a espandere le proposte di valore per questi scenari con funzionalità specifiche per IoT. Hub eventi è progettato per l'ingresso di eventi su vasta scala, sia nel contesto di scenari all'interno e tra data center.
@@ -49,4 +49,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

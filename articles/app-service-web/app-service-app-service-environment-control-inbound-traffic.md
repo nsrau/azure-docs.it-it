@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
 
 ## Panoramica ##
 Un ambiente del servizio app viene sempre creato in una subnet di una [rete virtuale][virtualnetwork] "v1" classica regionale. È possibile definire una nuova rete virtuale "v1" classica regionale e una nuova subnet al momento della creazione di un ambiente del servizio app. In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale "v1" classica regionale e in una subnet preesistenti. Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
+
+**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2" gestita da ARM.
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
@@ -45,16 +47,27 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 - 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
 
 ## Requisiti per DNS e connettività in uscita ##
-Si noti che per il corretto funzionamento di un ambiente del servizio app, è anche necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+Per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
 
-Il cliente potrebbe anche avere configurato server DNS personalizzati nella rete virtuale. Gli ambienti del servizio app devono poter risolvere gli endpoint di Azure in *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
+Gli ambienti del servizio app richiedono anche un'infrastruttura DNS valida configurata per la rete virtuale. Se per qualsiasi motivo viene modificata la configurazione DNS dopo aver creato un ambiente di servizio app, gli sviluppatori possono forzare un ambiente di servizio app per selezionare la nuova configurazione del DNS. L'attivazione di un riavvio di ambiente in sequenza mediante l'icona "Riavvia" nella parte superiore del pannello di gestione dell'ambiente del servizio app, disponibile nel [nuovo portale di gestione][NewPortal], consentirà all'ambiente di selezionare la nuova configurazione del DNS.
+
+L'elenco seguente illustra i requisiti relativi al DNS e alla connettività per un ambiente del servizio app:
+
+-  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+-  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*.
+-  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
+-  Connettività di rete in uscita verso *ocsp.msocsp.com*. È necessario per supportare la funzionalità SSL.
+-  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
+-  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app. 
+-  Il percorso di rete in uscita non può attraversare i proxy aziendali interni, né può essere sottoposto a tunneling forzato all’ambiente locale. In questo modo viene modificato l'indirizzo NAT effettivo del traffico di rete in uscita dall'ambiente di servizio app. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app provocherà errori di connettività a molti degli endpoint sopra elencati. Ciò comporta dei tentativi non riusciti nella creazione dell’ambiente di servizio app, così come il fatto che ambienti di servizio app che prima erano integri vengano contrassegnati come non integri.  
+-  L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito secondo quanto illustrato in questo [articolo](app-service-app-service-environment-control-inbound-traffic.md).
 
 È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo. In modo analogo, se esiste un server DNS personalizzato nell’altra estremità di un gateway VPN e il server DNS è irraggiungibile o non disponibile, anche il processo di creazione dell’ambiente del servizio App avrà esito negativo.
 
 ## Creazione di un gruppo di sicurezza di rete ##
 Per i dettagli sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups] seguenti. Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
 
-**Nota:** i gruppi di sicurezza di rete possono essere configurati solo tramite i cmdlet di Powershell descritti di seguito. I gruppi di sicurezza di rete non possono essere configurati graficamente usando il nuovo [Portale di Azure](portal.azure.com), poiché il Portale di Azure consente solo la configurazione grafica di NSG associati a reti virtuali "v2". Tuttavia, attualmente gli ambienti del servizio app funzionano solo in reti virtuali "v1" classiche. Di conseguenza è possibile utilizzare solo i cmdlet di Powershell per configurare i gruppi di sicurezza di rete associati alle reti virtuali "v1".
+**Nota:** i gruppi di sicurezza di rete possono essere configurati solo tramite i cmdlet di Powershell descritti di seguito. I gruppi di sicurezza di rete non possono essere configurati graficamente usando il nuovo [portale di Azure](portal.azure.com), poiché il portale consente la configurazione grafica solo di gruppi di sicurezza di rete associati a reti virtuali "v2". Tuttavia, attualmente gli ambienti del servizio app funzionano solo in reti virtuali "v1" classiche. Di conseguenza è possibile utilizzare solo i cmdlet di Powershell per configurare i gruppi di sicurezza di rete associati alle reti virtuali "v1".
 
 I gruppi di sicurezza di rete vengono innanzitutto creati come un'entità autonoma associata a una sottoscrizione. Poiché i gruppi di sicurezza di rete vengono creati in un'area di Azure, assicurarsi di creare il gruppo di sicurezza di rete nella stessa area dell'ambiente del servizio app.
 
@@ -82,7 +95,7 @@ Se si desidera usufruire del supporto per FTP, è possibile usare le regole segu
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Nota:** l'intervallo delle porte dei canali di dati per FTP potrebbero variare durante il periodo di anteprima del servizio.)
+**Nota:** l'intervallo delle porte dei canali di dati può variare durante il periodo di anteprima.
 
 Se si usa la funzionalità di debug remoto con Visual Studio, usare le regole seguenti per concedere l'accesso. Esiste una regola separata per ogni versione supportata di Visual Studio, dal momento che ogni versione usa una porta diversa per il debug remoto. Come per l'accesso FTP, il traffico di debug remoto potrebbe non transitare correttamente attraverso un dispositivo proxy o un firewall per applicazioni Web tradizionale. È quindi possibile impostare *SourceAddressPrefix* sull'intervallo di indirizzi IP dei computer di sviluppo che eseguono Visual Studio.
 
@@ -131,7 +144,8 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
+[NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

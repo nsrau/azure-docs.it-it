@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Come importare la definizione di un'API con le operazioni in Gestione API di Azure
@@ -29,7 +29,7 @@ In questa guida viene illustrato come creare una nuova API e importarne le opera
 
 ## <a name="import-api"> </a>Importare un'API
 
-Le API vengono create e configurate nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure per il servizio Gestione API. Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+Le API vengono create e configurate nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -95,4 +95,4 @@ Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e conf
 [Come creare le API]: api-management-howto-create-apis.md
 [Come configurare le impostazioni API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

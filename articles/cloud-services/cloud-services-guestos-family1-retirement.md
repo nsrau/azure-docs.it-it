@@ -3,7 +3,7 @@
    description="Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 
 
@@ -37,7 +37,7 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 
 1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1". 
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
-3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure classico è "Windows Server 2008". Vedere [questo argomento](https://msdn.microsoft.com/library/azure/gg456325.aspx) per individuare tale valore.
+3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure classico è "Windows Server 2008".
 
 Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
@@ -79,6 +79,6 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.
 
 ## Passaggi successivi
-Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
+Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

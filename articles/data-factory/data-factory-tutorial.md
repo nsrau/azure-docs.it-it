@@ -243,17 +243,20 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 	5. Per **linkedServiceName** specificare l'oggetto **HDInsightStorageLinkedService** creato nell'esercitazione introduttiva. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Si noti che il **tipo** di servizio collegato è impostato su **HDInsightOnDemandLinkedService**.
+		Si noti che il **tipo** di servizio collegato è impostato su **HDInsightOnDemand**.
 
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
    
@@ -321,12 +324,13 @@ In questo passaggio si creeranno le pipeline seguenti:
         "isPaused": false
 
 	Si noti che le date di inizio e di fine vengono impostate sull'1 maggio 2014 e sul 5 maggio 2014 perché i dati di esempio in questa procedura dettagliata sono compresi tra l'1 maggio 2014 e il 5 maggio 2014.
- 
+ 	
+	Se si usa il servizio collegato HDInsight su richiesta, impostare la proprietà **linkedServiceName** su **HDInsightOnDemandLinkedService**.
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la pipeline. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **CREAZIONE PIPELINE COMPLETATA**.
 4. Ripetere i passaggi da 1 a 3 con il contenuto dei file seguenti: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Chiudere i pannelli di Data factory premendo **X** (in alto a destra) per visualizzare la home page (**pannello DATA FACTORY**) per la Data factory.
+4. Chiudere i pannelli di Data factory premendo **X** in alto a destra per visualizzare la home page (**pannello DATA FACTORY**) della propria Data factory.
 
 ### Vista diagramma
 
@@ -345,7 +349,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 	Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista Diagramma con tutte le pipeline.
 
 
-**Congratulazioni.** Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
+**Congratulazioni**. Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
 
 
 ## <a name="MainStep6"></a> Passaggio 6: monitorare le pipeline e le sezioni di dati 
@@ -355,11 +359,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 
 		![Monitoraggio della schermata iniziale][image-data-factory-monitoring-startboard]
 
-	2. Fare clic sull'hub **SFOGLIA** e fare clic su **Tutto**.
-	 	
-		![Monitoraggio hub Tutto][image-data-factory-monitoring-hub-everything]
-
-		Nel pannello **Sfoglia** selezionare **Istanze di Data factory** e selezionare **LogProcessingFactory** nel pannello **Istanze di Data factory**.
+	2. Fare clic su **SFOGLIA**, nel pannello **Sfoglia** selezionare **Data factory** e quindi selezionare **LogProcessingFactory** nel pannello **Data factory**.
 
 		![Monitoraggio esplorazione data factory][image-data-factory-monitoring-browse-datafactories]
 2. È possibile monitorare l'istanza di Data factory in diversi modi. È possibile iniziare con le pipeline o con i set di dati. Si inizierà con l'esaminare le pipeline. 
@@ -375,7 +375,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
 
-	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
+	-  Lo stato della sezione viene aggiornato manualmente, ad esempio usando **Set-AzureRmDataFactorySliceStatus** oppure facendo clic su **ESEGUI** nel pannello **SEZIONE** della sezione.
 	-  Lo stato della sezione cambia a causa di un'esecuzione, ad esempio un'esecuzione avviata, un'esecuzione terminata con errore, un'esecuzione terminata correttamente e così via.
  
 	Fare clic sul titolo degli elenchi oppure sui **... (puntini di sospensione)** per visualizzare un elenco più ampio delle sezioni. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
@@ -392,7 +392,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 
 	![Pannello SEZIONE DATI RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
+	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Ready** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
 
 	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
  
@@ -407,7 +407,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 	
 Quando tutta la pipeline ha completato l'esecuzione, è possibile visualizzare i risultati in **MarketingCampaignEffectivenessTable** nel database SQL di Azure **MarketingCampaigns**.
 
-**Congratulazioni**. Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
+**Congratulazioni.** Ora è possibile monitorare e risolvere i problemi dei flussi di lavoro. In questa esercitazione si è appreso come usare Data factory di Azure per elaborare i dati e ottenere l'analisi.
 
 ## Estendere l'esercitazione all'uso dei dati locali
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla procedura dettagliata in questo articolo, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
@@ -524,4 +524,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

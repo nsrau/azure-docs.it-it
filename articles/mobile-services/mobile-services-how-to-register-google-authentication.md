@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Registrare le app per l'autenticazione Google con Servizi mobili
@@ -33,13 +34,15 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 3. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), accedere con le credenziali dell'account Google, fare clic su **Create Project**, specificare un valore in **Project name**, quindi fare clic su **Create**.
 
-4. Nella barra di spostamento a sinistra, fare clic su **API & Auth**, quindi in **API Social** fare clic su **API Google+** > **Enable API**.
+4. Nel menu a discesa **Products & services** fare clic su **API Manage**, quindi in **Social APIs** fare clic su **Google+ API** > **Enable API**.
 
-5. Fare clic su **API & Auth** > **Credenziali** > **OAuth consent screen**, quindi selezionare il proprio **Indirizzo di posta elettronica**, immettere un **Nome prodotto** e quindi fare clic su **Salva**.
+5. Fare clic su **Credentials** > **OAuth consent screen**, quindi selezionare il proprio **indirizzo di posta elettronica**, immettere un **nome prodotto** e quindi fare clic su **Save**
 
 6. Nella scheda **Credenziali** fare clic su **Aggiungi credenziali** > **ID client OAuth 2.0**, quindi selezionare **Applicazione Web**.
 
-7. Digitare l'URL del servizio mobile in **Authorized JavaScript Origins**, sostituire l'URL generato in **Authorized Redirect URI** con uno dei seguenti formati di URL, e poi fare clic su **Creare ID client**:
+
+7. Digitare l'URL del servizio mobile in **Authorized JavaScript Origins**, sostituire l'URL generato in **Authorized Redirect URI** con uno dei formati di URL seguenti e quindi fare clic su **Create**:
+ 
 
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-google`
 	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google`
@@ -61,4 +64,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

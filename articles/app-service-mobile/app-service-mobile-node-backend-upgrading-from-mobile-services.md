@@ -24,11 +24,11 @@ Questo argomento descrive come eseguire l'aggiornamento di un'applicazione back-
 
 Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizio app di Azure, questo ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non a quelli di Servizi mobili.
 
-## Eseguire la migrazione o l'aggiornamento
+## Eseguire la migrazione o aggiornare
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Prima di eseguire un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza costi aggiuntivi.
+>[AZURE.TIP]Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza costi aggiuntivi.
 
 ### Miglioramenti apportati all'SDK del server Node.js di App per dispositivi mobili
 
@@ -244,10 +244,9 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Utilità di pianificazione di Azure]: /it-IT/documentation/services/scheduler/
 [processo Web]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
@@ -265,4 +264,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

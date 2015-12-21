@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -47,9 +47,9 @@ Per completare questa esercitazione, è necessario disporre di Xamarin.Android e
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili].
+3. In Xamarin Studio aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili].
 
-4. Nel menu **Run** fare clic su **Run** per eseguire l'app e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
+4. Nel menu **Run** fare clic su **Start debugging** per avviare l'app e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
 
 	 L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella _TodoItem_ richiede ora l'autenticazione.
 
@@ -94,7 +94,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+            toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
@@ -112,7 +112,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 		await CreateTable();
 
 
-6. Nel menu **Run** fare clic su **Run** per avviare l'app e accedere con il provider di identità scelto.
+6. Nel menu **Run** fare clic su **Start debugging** per avviare l'app e accedere con il provider di identità scelto.
 
    	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query in Servizi mobili e aggiornare i dati.
 
@@ -138,7 +138,8 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
+[Introduzione a Servizi mobili]: partner-xamarin-mobile-services-android-get-started.md
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

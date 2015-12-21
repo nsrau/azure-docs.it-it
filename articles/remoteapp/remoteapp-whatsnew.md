@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Novità di RemoteApp di Azure"
-    description="Informazioni sulle modifiche e i miglioramenti apportati a RemoteApp di Azure" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Novità di Azure RemoteApp | Microsoft Azure"
+    description="Informazioni sulle modifiche e i miglioramenti apportati a RemoteApp di Azure"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/23/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
     ms.author="elizapo" />
 
 
@@ -56,7 +56,7 @@ A luglio vengono portati in scena le novità in arrivo nel mese di agosto, perta
 
 Sono state introdotte numerose modifiche. Il team è stato molto occupato nel mese di giugno:
 
-- La [pagina di destinazione](https://www.remoteapp.windowsazure.com/) di RemoteApp di Azure è stata riprogettata. 
+- La [pagina di destinazione](https://www.remoteapp.windowsazure.com/) di RemoteApp di Azure è stata riprogettata.
 - Il software di tutte le immagini disponibili come parte della sottoscrizione è stato aggiornato.
 - Sono stati apportati miglioramenti alle raccolte ibride, tra cui il supporto del tunneling forzato e il controllo della dimensione della subnet IP prima di tentare di creare la raccolta.
 - Rilevato che il carattere jolly * non funziona per le webcam. In alternativa, è necessario specificare l'ID di istanza o GUID. Microsoft aggiornerà le informazioni sul reindirizzamento di conseguenza
@@ -68,7 +68,7 @@ Altre modifiche saranno distribuite nel mese di luglio, per cui sarà presto dis
 
 Sono state introdotte diverse aggiunte e sono trascorsi diversi mesi dopo la creazione iniziale di questo argomento, pertanto questo elenco non è esaustivo. Provare queste nuove funzionalità:
 
-- Automatizzare tutto - RemoteApp di Azure ora ha [cmdlet nel modulo Azure PowerShell](remoteapp-tutorial-arawithpowershell.md). 
+- Automatizzare tutto - RemoteApp di Azure ora ha [cmdlet nel modulo Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
 - [Creare un'immagine di RemoteApp di Azure da una macchina virtuale di Azure](remoteapp-image-on-azurevm.md). Consente di caricare l'immagine personalizzata in Azure molto più rapidamente.
 - Utilizzare una rete virtuale di Azure invece di una rete virtuale RemoteApp per connettersi alle risorse di rete aziendale in Azure. Sono state aggiornate le [istruzioni sulle raccolte ibride](remoteapp-create-hybrid-deployment.md) per illustrare nei dettagli la creazione di una rete virtuale di Azure (Passaggio 1).
 - Parlando di reti virtuali, consultare le [nuove informazioni](remoteapp-vnetsizing.md) su limiti e limitazioni delle dimensioni delle reti virtuali.
@@ -81,7 +81,7 @@ Si desidera vedere RemoteApp di Azure nel mondo reale? Consultare l’esercitazi
 Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese prossimo.
 
 
-### Come contribuire al miglioramento 
-Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+### Come contribuire al miglioramento
+Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

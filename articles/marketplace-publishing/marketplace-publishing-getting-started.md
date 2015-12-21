@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # Come pubblicare un'offerta in Azure Marketplace
@@ -58,7 +58,11 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 - [Creazione di un'immagine di macchina virtuale in locale](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines-windows-tutorial/)
 
-**Servizi dati** - [Mapping OData servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) - [Nodi mapping OData servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) - [Esempi mapping OData servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+**Servizi dati**
+
+- [Mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [Nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [Esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]: marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
@@ -77,4 +81,4 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
