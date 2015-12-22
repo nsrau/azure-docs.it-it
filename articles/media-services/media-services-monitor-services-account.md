@@ -22,7 +22,7 @@
 
 Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di uso e informazioni relative all'account che è possibile usare per gestire il proprio account di Servizi multimediali.
 
-You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
+È possibile monitorare il numero di processi di codifica in coda, le attività di codifica non riuscite, i processi di codifica attivi rappresentati dai dati di input e output dal codificatore e l'utilizzo dell'archiviazione BLOB associato all'account di Servizi multimediali. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
  
 >[AZURE.NOTE]Al monitoraggio dei dati di archiviazione nel portale di Azure classico sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://go.microsoft.com/fwlink/?LinkId=256667).
 
