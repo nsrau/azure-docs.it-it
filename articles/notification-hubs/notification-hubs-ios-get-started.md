@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app per iOS
@@ -88,9 +88,11 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 4. Scaricare la versione 1.2.4 di [Mobile Services iOS SDK] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** e fare clic su **Add**.
 
+	>[AZURE.NOTE]Notification Hubs SDK non supporta attualmente bitcode Xcode 7. È necessario impostare **Enable Bitcode** su **No** in **Build Options** per il progetto.
+
    	![][10]
 
-5. Aggiungere un nuovo file di intestazione al progetto denominato **HubInfo.h**. Questo file includerà le costanti per l'hub di notifica. Aggiungere le definizioni seguenti e sostituire i segnaposto dei valori letterali stringa con *hub name* e *DefaultListenSharedAccessSignature* annotati in precedenza.
+5. Aggiungere un nuovo file di intestazione al progetto denominato **HubInfo.h**. Questo file includerà le costanti per l'hub di notifica. Aggiungere le definizioni seguenti e sostituire i segnaposto dei valori letterali stringa con il *nome dell'hub* e *DefaultListenSharedAccessSignature* annotati in precedenza.
 
 		#ifndef HubInfo_h
 		#define HubInfo_h
@@ -157,7 +159,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 ## Inviare notifiche
 
 
-È possibile testare la ricezione delle notifiche nell'app inviando notifiche nel [portale di Azure classico] tramite la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
+È possibile testare la ricezione delle notifiche nell'app con l'invio di notifiche nel [portale di Azure classico] usando la scheda Debug nell'hub di notifica, come illustrato nella schermata seguente.
 
 ![][30]
 
@@ -210,7 +212,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. In ViewController.m aggiungere il codice seguente all'implementazione dell'interfaccia. Questo codice analizzerà la stringa di connessione *DefaultFullSharedAccessSignature*. Come indicato nel [riferimento all'API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), queste informazioni analizzate verranno usate per generare un token di firma di accesso condiviso per l'intestazione della richiesta **Authorization**.
+5. In ViewController.m aggiungere il codice seguente all'implementazione dell'interfaccia. Questo codice analizza la stringa di connessione *DefaultFullSharedAccessSignature*. Come indicato nel [riferimento all'API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), queste informazioni analizzate verranno usate per generare un token di firma di accesso condiviso per l'intestazione della richiesta **Authorization**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -253,6 +255,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
+			[_notificationMessage setDelegate:self];
 		}
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
@@ -391,7 +394,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		}
 
 
-10. In ViewController.m aggiungere i metodi delegati seguenti per supportare l'analisi della risposta tramite `NSXMLParser`.
+10. In ViewController.m aggiungere i metodi delegati seguenti per supportare l'analisi della risposta con `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -446,7 +449,7 @@ Per testare le notifiche push in iOS, è necessario distribuire l'applicazione i
 
 	![][33]
 
-2. È possibile inviare una notifica di prova dal portale di Azure. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
+2. È possibile inviare una notifica di prova dal [portale di Azure classico]. Se è stato aggiunto codice per l'invio della notifica nell'app, toccare nel campo di testo per immettere un messaggio di notifica. Usare il pulsante **Send** sulla tastiera o il pulsante **Send Notification** nella visualizzazione per inviare il messaggio di notifica.
 
 	![][34]
 
@@ -459,9 +462,9 @@ In caso di problemi o suggerimenti per migliorare questa esercitazione per tutti
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Usare Hub di notifica di Azure per inviare notifiche agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
+In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
 
-Se si vuole segmentare gli utenti per gruppi di interesse, è possibile vedere anche [Usare Hub di notifica per inviare le ultime notizie].
+Se si vuole segmentare gli utenti per gruppi di interesse, è possibile vedere anche [Uso di Hub di notifica per inviare le ultime notizie].
 
 Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
@@ -500,11 +503,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Introduzione alle notifiche push in Servizi mobili]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Usare Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

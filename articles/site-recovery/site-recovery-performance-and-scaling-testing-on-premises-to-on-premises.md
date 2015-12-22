@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery: test di prestazioni e risultati di scalabilità per la replica Hyper-V da locale a locale"
+	pageTitle="Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery | Microsoft Azure"
 	description="Questo articolo fornisce informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale usando Azure Site Recovery."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery: test di prestazioni e risultati di scalabilità per la replica Hyper-V da locale a locale
+# Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery
 
 Microsoft Azure Site Recovery consente di coordinare e gestire la replica di macchine virtuali e server fisici in Azure o in un data center secondario. Questo articolo illustra i risultati del test di prestazioni eseguito durante la replica di macchine virtuali Hyper-V tra due data center locali.
 
@@ -210,4 +210,4 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

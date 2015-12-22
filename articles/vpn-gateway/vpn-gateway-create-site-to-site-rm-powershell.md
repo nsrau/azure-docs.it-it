@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell | Microsoft Azure"
-   description="Questo articolo illustra la creazione di una rete virtuale mediante il modello di Gestione risorse e la connessione alla rete locale mediante una connessione del gateway VPN da sito a sito. Include passaggi aggiuntivi per modificare i prefissi di indirizzo IP per i siti locali esistenti."
+   description="Questo articolo illustra la creazione di una rete virtuale con il modello di Gestione risorse e la connessione alla rete locale con una connessione del gateway VPN da sito a sito. Le connessioni da sito a sito possono essere usate per le configurazioni ibride. Include passaggi aggiuntivi per modificare i prefissi di indirizzo IP per i siti locali esistenti."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito mediante PowerShell
@@ -23,9 +23,12 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale mediante il modello di distribuzione di Gestione risorse di Azure. È possibile selezionare l'articolo per il modello di distribuzione e lo strumento di distribuzione usando le schede riportate sopra.
+Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale mediante il modello di distribuzione di Gestione risorse di Azure. Se si sta cercando un modello di distribuzione differente per questa configurazione, usare le schede riportate sopra per selezionare l'articolo più pertinente. Se si vuole connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale](vpn-gateway-vnet-vnet-rm-ps.md).
 
->[AZURE.NOTE]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
+
+**Informazioni sui modelli di distribuzione di Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Prima di iniziare
 
@@ -37,8 +40,11 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 	
 - Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlet di Azure PowerShell (1.0 o versione successiva). È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/).
-	
+## Installare i moduli di PowerShell
+
+Per configurare la connessione è necessario usare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure.
+
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
 ## 1\. Eseguire la connessione alla sottoscrizione 
 
@@ -74,7 +80,7 @@ Creare prima un gruppo di risorse:
 
 Successivamente, creare la rete virtuale. Verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
 
-Nell'esempio seguente viene creata una rete virtuale denominata *testvnet* e due subnet, una chiamata *GatewaySubnet* e l'altra denominata *Subnet1*. È importante creare una subnet denominata specificamente *GatewaySubnet*. Se si assegnano altri nomi, la configurazione della connessione avrà esito negativo.
+Nell'esempio seguente viene creata una rete virtuale denominata *testvnet* e due subnet, una denominata *GatewaySubnet* e l'altra denominata *Subnet1*. È importante creare una subnet denominata specificamente *GatewaySubnet*. Se si assegnano altri nomi, la configurazione della connessione avrà esito negativo.
 
 		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 		$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
@@ -82,7 +88,7 @@ Nell'esempio seguente viene creata una rete virtuale denominata *testvnet* e due
 
 ### <a name="gatewaysubnet"></a>Per aggiungere una subnet del gateway a una rete virtuale (facoltativo)
 
-Questo passaggio è obbligatorio solo se è necessario aggiungere una subnet del gateway a una rete virtuale.
+Questo passaggio è obbligatorio solo se è necessario aggiungere una subnet del gateway a una rete virtuale creata in precedenza.
 
 Se si dispone già di una rete virtuale esistente e si desidera aggiungere una subnet del gateway, è possibile creare quest'ultima tramite l'esempio seguente. Assicurarsi di assegnare alla subnet del gateway il nome 'GatewaySubnet'. Se si assegna un altro nome, si creerà una subnet, ma non verrà visualizzata da Azure come una subnet del gateway.
 
@@ -136,7 +142,7 @@ La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da u
 
 ## 6\. Creare il gateway
 
-In questo passaggio si creerà il gateway di rete virtuale. Si noti che la creazione di un gateway richiede alcuni minuti.
+In questo passaggio si creerà il gateway di rete virtuale. Si noti che la creazione di un gateway può richiedere molto tempo. Spesso anche oltre 20 minuti.
 
 Usare i valori seguenti:
 
@@ -158,7 +164,7 @@ Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, utilizzare l'e
 Successivamente, verrà creata la connessione VPN da sito a sito tra il gateway di rete virtuale e il dispositivo VPN. Assicurarsi di sostituire i valori per il proprio. La chiave condivisa deve corrispondere al valore utilizzato per la configurazione del dispositivo VPN.
 
 		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
@@ -209,13 +215,13 @@ Se è necessario modificare i prefissi per il sito locale, usare le istruzioni s
 ### Aggiungere o rimuovere i prefissi senza una connessione del gateway VPN
 
 
-- **Per aggiungere** prefissi di indirizzi aggiuntivi a un sito locale creato, ma che non dispone ancora di una connessione di gateway VPN, usare l'esempio seguente.
+- **Per aggiungere** prefissi di indirizzi aggiuntivi a un sito locale creato, ma che non ha ancora una connessione di gateway VPN, usare l'esempio seguente.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- **Per rimuovere** un prefisso di indirizzo da un sito locale che non dispone di una connessione VPN, usare l'esempio seguente. Escludere i prefissi non più necessari. In questo esempio, non è più necessario il prefisso 20.0.0.0/24 (dell'esempio precedente). In tal modo, sarà possibile aggiornare il sito locale ed escludere tale prefisso.
+- **Per rimuovere** un prefisso di indirizzo da un sito locale che non ha una connessione VPN, usare l'esempio seguente. Escludere i prefissi non più necessari. In questo esempio, non è più necessario il prefisso 20.0.0.0/24 (dell'esempio precedente). In tal modo, sarà possibile aggiornare il sito locale ed escludere tale prefisso.
 
 		local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
@@ -246,6 +252,6 @@ Se è stata creata la connessione VPN e si desidera aggiungere o rimuovere i pre
 
 ## Passaggi successivi
 
-Aggiungere una macchina virtuale alla rete virtuale. [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

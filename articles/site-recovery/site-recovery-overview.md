@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Che cos'è Site Recovery?" 
+	pageTitle="Che cos'è Site Recovery? | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali e dei server fisici ubicati nei server locali in Azure o in un sito locale secondario." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/29/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Che cos'è Site Recovery?
@@ -22,6 +22,7 @@ Site Recovery è un servizio di Azure che favorisce la strategia di continuità 
 
 
 ## Perché usare Site Recovery? 
+
 - **Strategia di continuità aziendale e ripristino di emergenza più semplice**: Site Recovery consente di gestire facilmente i processi di replica, failover e ripristino delle applicazioni e dei carichi di lavoro locali.
 - **Flessibilità di replica**: è possibile replicare server locali, macchine virtuali Hyper-V e macchine virtuali VMware. Site Recovery esegue una replica iniziale intelligente utilizzando solo i blocchi di dati, non l’intero disco rigido virtuale. Per la replica continua, vengono replicate solo le modifiche differenziali. Site Recovery supporta il trasferimento di dati offline e funziona con utilità di ottimizzazione WAN. 
 - **Eliminazione della necessità di data center secondari**: Site Recovery non solo consente di automatizzare la replica tra data center, ma offre anche la possibilità di evitare una postazione locale secondaria eseguendo la replica in Azure. I dati replicati vengono archiviati in Archiviazione di Azure, caratterizzato da elevati livelli di resilienza.
@@ -37,10 +38,10 @@ Macchine virtuali VMware | Server VMware locale | Archiviazione di Azure | [Dist
 Server fisico Windows/Linux | Server fisico locale | Archiviazione di Azure | [Distribuire](site-recovery-vmware-to-azure.md)
 Macchine virtuali Hyper-V | Server host Hyper-V locale nel cloud VMM | Archiviazione di Azure | [Distribuire](site-recovery-vmm-to-azure.md)
 Macchine virtuali Hyper-V | Sito Hyper-V locale (uno o più server host Hyper-V) | Archiviazione di Azure | [Distribuire](site-recovery-hyper-v-site-to-azure.md)
-Macchine virtuali Hyper-V locali| Server host Hyper-V locale nel cloud VMM | Server host Hyper-V locale nel cloud VMM del data center secondario | [Distribuire](site-recovery-vmm-to-vmm)
+Macchine virtuali Hyper-V locali| Server host Hyper-V locale nel cloud VMM | Server host Hyper-V locale nel cloud VMM del data center secondario | [Distribuire](site-recovery-vmm-to-vmm.md)
 Macchine virtuali Hyper-V | Server host Hyper-V locale nel cloud VMM con archiviazione SAN| Server host Hyper-V locale nel cloud VMM con archiviazione SAN del data center secondario | [Distribuire](site-recovery-vmm-san.md)
-Macchine virtuali VMware | Server VMware locale | Data center secondario che esegue VMware | [Distribuire](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
-Server fisico Windows/Linux | Server fisico locale | Centro dati secondario | [Distribuire](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+Macchine virtuali VMware | Server VMware locale | Data center secondario che esegue VMware | [Distribuire](site-recovery-vmware-to-vmware.md) 
+Server fisico Windows/Linux | Server fisico locale | Centro dati secondario | [Distribuire](site-recovery-vmware-to-vmware.md) 
 
 Questi scenari sono riepilogati nei diagrammi seguenti.
 
@@ -67,4 +68,4 @@ Per saperne di più, vedere [Quali carichi di lavoro può proteggere Site Recove
 Una volta completata questa panoramica, è possibile [approfondire](site-recovery-components.md) l'architettura di Site Recovery.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

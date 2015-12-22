@@ -26,7 +26,7 @@ Questa esercitazione illustra come usare le funzionalità di autenticazione e au
 
 ## Autenticazione e autorizzazione nel servizio app
 
-Per un'introduzione alle funzionalità di autenticazione usate in questa esercitazione, vedere l'esercitazione precedente della serie, relativa ad [autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
+Per un'introduzione alle funzionalità di autenticazione usate in questa esercitazione, vedere l'esercitazione precedente della serie [Autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-authentication.md).
 
 ## Come seguire questa esercitazione
 
@@ -304,4 +304,4 @@ Questa è l'ultima esercitazione della serie introduttiva alle app per le API. Q
 	* [Configurare un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md)
 	* [Abilitare HTTPS per un sito Web di Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

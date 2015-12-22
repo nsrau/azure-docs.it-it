@@ -74,26 +74,26 @@ Il servizio app passa il token JWT nell'intestazione dell'autorizzazione di una 
  
 In un'API .NET è possibile usare l'attributo `Authorize` e per l'autorizzazione con granularità fine è possibile scrivere facilmente codice basato su attestazioni, perché le informazioni sulle attestazioni sono popolate automaticamente nelle classi .NET.
 
-## Autenticazione di un'entità servizio
+## <a id="internal"></a> Autenticazione dell'account del servizio
 
-È possibile usare l'autenticazione del servizio app anche per scenari interni, ad esempio per la chiamata da un'app per le API a un'altra. In questo scenario per l'autenticazione si possono usare le credenziali per un account del servizio anziché le credenziali dell'utente finale. Un account del servizio è noto anche come *entità servizio* e l'autenticazione che usa un account di questo tipo è nota anche come scenario da servizio a servizio.
+È possibile usare l'autenticazione del servizio app anche per scenari interni, ad esempio per la chiamata da un'app per le API a un'altra. In questo scenario per l'autenticazione si possono usare le credenziali per un account del servizio anziché le credenziali dell'utente finale. Un account del servizio è noto anche come *entità servizio* in Azure Active Directory e l'autenticazione che usa un account di questo tipo è nota anche come scenario da servizio a servizio.
 
-Per gli scenari interni, è possibile proteggere l'app per le API chiamata usando Azure Active Directory e fornire un token AAD di autorizzazione dell'entità servizio durante la chiamata all'app per le API. Per richiedere il token è possibile fornire l'ID client e il segreto client dell'applicazione AAD. Non è necessario alcun codice speciale di Azure, come quello usato per la gestione del token zumo dei servizi mobili. Un esempio di questo scenario che usa le app per le API ASP.NET è illustrato nell'esercitazione [Autenticazione dell'entità servizio per app per le API](app-service-api-dotnet-service-principal-auth.md).
+Per gli scenari da servizio a servizio è possibile proteggere l'app per le API chiamata usando Azure Active Directory e fornire un token AAD di autorizzazione dell'entità servizio durante la chiamata all'app per le API. Per richiedere il token è possibile fornire l'ID client e il segreto client dell'applicazione AAD. Non è necessario alcun codice speciale di Azure, come quello usato per la gestione del token zumo dei servizi mobili. Un esempio di questo scenario che usa le app per le API ASP.NET è illustrato nell'esercitazione [Autenticazione dell'entità servizio per app per le API](app-service-api-dotnet-service-principal-auth.md).
 
-Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni su come configurare l'autenticazione di base in ASP.NET, vedere il blog sui [filtri di autenticazione nell'API Web 2 ASP.NET ](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-L'autenticazione dell'entità servizio da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
+L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Altre informazioni
 
-Per altre informazioni sui servizi di autenticazione e autorizzazione nel servizio app di Azure, vedere [Espansione di autenticazione e autorizzazione del servizio app](/blog/announcing-app-service-authentication-authorization/).
+Per altre informazioni sui servizi di autenticazione e autorizzazione nel servizio app di Azure, vedere il blog sull'[espansione di autenticazione e autorizzazione del servizio app](/blog/announcing-app-service-authentication-authorization/).
 
 ## Passaggi successivi
 
 Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione delle app per le API del servizio app.
 
-Se si segue la sequenza introduttiva di esercitazioni per ASP.NET e le app per le API, provare queste funzionalità nell'esercitazione successiva relativa all'[autenticazione utente nelle app per le API del servizio app](app-service-api-dotnet-user-principal-auth.md).
+Se si segue la sequenza introduttiva di esercitazioni per ASP.NET e le app per le API, provare queste funzionalità nell'esercitazione successiva [Autenticazione utente per le app per le API del servizio app di Azure](app-service-api-dotnet-user-principal-auth.md).
 
 Per altre informazioni sull'uso di Node e di Java nel servizio app di Azure, vedere il [centro per sviluppatori di Node.js](/develop/nodejs/) e il [centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

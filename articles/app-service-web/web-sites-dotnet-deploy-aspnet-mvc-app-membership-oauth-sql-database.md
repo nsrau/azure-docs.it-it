@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla nel servizio app di Azure
@@ -43,7 +43,7 @@ Contenuto dell'esercitazione:
 
 Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o versione superiore e la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Il presente articolo è stato scritto per Visual Studio Update 4 e SDK 2.7.1. Le stesse istruzioni si applicano a Visual Studio 2015 con la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installata. Tenere presente che alcune schermate potrebbero essere diverse da quelle illustrate.
+Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) o versione superiore e la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Il presente articolo è stato scritto per Visual Studio Update 4 e SDK 2.8.1. Le stesse istruzioni si applicano a Visual Studio 2015 con la versione più recente di [Azure SDK per .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installata. Tenere presente che alcune schermate potrebbero essere diverse da quelle illustrate.
 
 ## Creazione di un'applicazione ASP.NET MVC 5
 
@@ -61,7 +61,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
  
 	**Nota:** assicurarsi di immettere "ContactManager". Nei blocchi di codice che verranno copiati in seguito si presuppone che il nome del progetto sia ContactManager.
 
-1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**. Verificare che l'opzione **Autenticazione** sia impostata su **Account utente individuali** e che le opzioni **Ospita nel cloud** e **App Web** siano selezionate.
+1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**. Verificare che **Autenticazione** sia impostato su **Singoli account utente** e che le opzioni **Ospita nel cloud** e **Servizio app** siano selezionate.
 
 	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -107,7 +107,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![\_Layout.cshtml in Solution Explorer][newapp004]
+	![_Layout.cshtml in Solution Explorer][newapp004]
 
 1. Sostituire il contenuto del file *Layout.cshtml* con il codice seguente.
 
@@ -509,7 +509,8 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Aprire il file *App\_Start\\FilterConfig.cs* e sostituire il metodo *RegisterGlobalFilters* con il codice seguente, che consente di aggiungere due filtri:
 
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -712,7 +713,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 In caso di problemi, ecco alcuni suggerimenti su come procedere.
 
-* Errori durante il provisioning del database SQL: verificare che sia installato l'SDK corrente. Le versioni precedenti alla 2.7.1 contengono un bug che in alcuni scenari causa errori quando VS cerca di creare il server di database o il database.
+* Errori durante il provisioning del database SQL: verificare che sia installato l'SDK corrente. Le versioni precedenti alla 2.8.1 contengono un bug che in alcuni scenari causa errori quando VS cerca di creare il server di database o il database.
 * Messaggio di errore simile a "Operazione non supportata per il tipo di offerta di sottoscrizione" durante la creazione di risorse di Azure: come sopra.
 * Errori durante la distribuzione: vedere l'articolo sulla [distribuzione ASP.NET di base](web-sites-dotnet-get-started.md). Tale scenario di distribuzione è più semplice e, se si verifica lo stesso problema, potrebbe essere più facile isolarlo. In alcuni ambienti aziendali, ad esempio, un firewall aziendale potrebbe impedire a Distribuzione Web di stabilire i tipi di connessione ad Azure necessari.
 * Nessuna opzione per selezionare la stringa di connessione nella procedura guidata Pubblica sito Web durante la distribuzione: se è stato usato un metodo diverso per creare le risorse di Azure (ad esempio, si sta cercando di eseguire la distribuzione in un'app Web e in un database SQL creati nel portale), il database SQL potrebbe non essere associato all'app Web. La soluzione più semplice consiste nel creare una nuova app Web e un nuovo database usando VS, come mostrato nell'esercitazione. Non è necessario ricominciare l'esercitazione da capo. Nella procedura guidata Pubblica sito Web è infatti possibile scegliere di creare una nuova app Web. In questo modo verrà aperta la stessa finestra di dialogo di creazione delle risorse di Azure che si apre quando si crea il progetto.
@@ -797,4 +798,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

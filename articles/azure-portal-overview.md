@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Panoramica del portale di anteprima di Microsoft Azure"
-	description="Informazioni su come usare il portale di anteprima di Microsoft Azure."
+	pageTitle="Panoramica del portale di Microsoft Azure"
+	description="Informazioni su come usare il portale di Microsoft Azure."
 	services=""
 	documentationCenter=""
 	authors="davidwrede"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
-# Panoramica del portale di anteprima di Microsoft Azure
+# Panoramica del portale di Microsoft Azure
 
-Il portale di anteprima di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione fornisce informazioni generali sul portale e mostra come usare alcune delle funzionalità chiave: - Un **Marketplace completo** che permette di esplorare migliaia di elementi offerti da Microsoft e da altri fornitori e che possono essere acquistati e/o sottoposti a provisioning. - Un'**esperienza di esplorazione unificata e scalabile** che semplifica l'individuazione delle risorse desiderate e l'esecuzione di diverse operazioni di gestione. - **Pagine di gestione coerenti** (o pannelli) che permettono di gestire la vasta gamma di servizi di Azure tramite una modalità coerente di esposizione di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e altro ancora. - Un'**esperienza personale** che permette di creare una schermata di avvio personalizzata che mostra le informazioni desiderate a ogni accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
+Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione fornisce informazioni generali sul portale e mostra come usare alcune delle funzionalità chiave: - Un **Marketplace completo** che permette di esplorare migliaia di elementi offerti da Microsoft e da altri fornitori e che possono essere acquistati e/o sottoposti a provisioning. - Un'**esperienza di esplorazione unificata e scalabile** che semplifica l'individuazione delle risorse desiderate e l'esecuzione di diverse operazioni di gestione. - **Pagine di gestione coerenti** (o pannelli) che permettono di gestire la vasta gamma di servizi di Azure tramite una modalità coerente di esposizione di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e altro ancora. - Un'**esperienza personale** che permette di creare una schermata di avvio personalizzata che mostra le informazioni desiderate a ogni accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
 
  ![Orientamento dell'interfaccia utente del portale di Azure][UIOrientation]
 
@@ -32,7 +32,7 @@ Il Marketplace di Azure offre migliaia di elementi che possono essere creati da 
 
 1.	Windows Server 2012 è disponibile, quindi è possibile selezionarlo dalla categoria Calcolo.  
 2.	Inserire alcuni input di base in un form.
-3.	Fare clic su 'Crea' e il provisioning della macchina virtuale verrà avviato immediatamente.
+3.	Fare clic su 'Crea'. Il provisioning della macchina virtuale verrà avviato immediatamente.
 
 L'hub di notifica avviserà l'utente quando la risorsa è stata creata e verrà visualizzato un pannello di gestione. È possibile passare alle risorse anche in seguito.
 
@@ -78,7 +78,7 @@ In caso di problemi, sono disponibili numerose opzioni per il supporto. Il porta
 
 In questa esercitazione è stato illustrato quanto segue: - Come iscriversi, ottenere una sottoscrizione e passare al portale - Informazioni generali sull'interfaccia utente del portale e su come creare e visualizzare le risorse - Come creare una risorsa ed esplorare le risorse - Informazioni sulla struttura o sui pannelli di gestione e su come gestire in modo coerente diversi tipi di risorse - Come personalizzare il portale per evidenziare le informazioni rilevanti - Come controllare l'accesso alle risorse mediante il controllo degli accessi in base al ruolo - Come visualizzare la Guida e ottenere supporto
 
-Il portale di anteprima di Microsoft Azure semplifica in modo radicale lo sviluppo e la gestione delle applicazioni nel cloud. Vedere il [blog sulla gestione](http://azure.microsoft.com/blog/topics/management/) per rimanere aggiornati, poiché Microsoft [esamina i commenti e i suggerimenti](http://feedback.azure.com/forums/223579-azure-preview-portal) e apporta miglioramenti costantemente. Il [blog di ScottGu](http://weblogs.asp.net/scottgu) è un'altra risorsa ottimale per ottenere informazioni su tutti gli aggiornamenti di Azure.
+Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gestione delle applicazioni nel cloud. Vedere il [blog sulla gestione](http://azure.microsoft.com/blog/topics/management/) per rimanere aggiornati, poiché Microsoft [esamina i commenti e i suggerimenti](http://feedback.azure.com/forums/223579-azure-preview-portal) e apporta miglioramenti costantemente. Il [blog di ScottGu](http://weblogs.asp.net/scottgu) è un'altra risorsa ottimale per ottenere informazioni su tutti gli aggiornamenti di Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Il portale di anteprima di Microsoft Azure semplifica in modo radicale lo svilup
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

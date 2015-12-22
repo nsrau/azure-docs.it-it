@@ -189,7 +189,9 @@ Queste API sono le stesse API (V12) correnti utilizzate per monitorare l'utilizz
 
 * Per questa API, le metriche recuperate vengono espresse come percentuale del valore databaseDtuMax (o limite di utilizzo equivalente per la metrica sottostante, come CPU, IO e così via) impostato per tale pool di database elastici. Ad esempio, l’utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per DB per quella risorsa nel pool padre di database elastici. 
 
-Ottenere la metrica: $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Ottenere le metriche:
+
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Ottenere altri giorni, se necessario, ripetendo la chiamata e accodando i dati:
 
@@ -235,4 +237,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

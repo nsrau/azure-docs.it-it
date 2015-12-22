@@ -21,10 +21,15 @@
 # Creare una macchina virtuale che esegue Linux
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br> La creazione di una macchina virtuale (VM) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come usare interfaccia della riga di comando di Azure (CLI) per Mac, Linux e Windows per creare rapidamente una VM di Ubuntu Server in esecuzione in Azure, connettersi alla macchina virtuale tramite **ssh** e infine creare e montare un nuovo disco. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
+<br>
+
+La creazione di una macchina virtuale (VM) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure (CLI) per Mac, Linux e Windows per creare rapidamente una VM di Ubuntu Server in esecuzione in Azure, connettersi alla macchina virtuale usando **ssh** e infine creare e montare un nuovo disco. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
@@ -40,7 +45,7 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 Il primo passaggio consiste nell’[installare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-Ottimo. Assicurarsi di essere in modalità di gestione risorse digitando `azure config mode arm`.
+Ottimo. Assicurarsi di essere in modalità Gestione risorse digitando `azure config mode arm`.
 
 Ancora meglio. [Accedere con l'ID aziendale o dell'istituto di istruzione](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni dell'esperienza interattiva per l'accesso all'account Azure.
 
@@ -311,7 +316,7 @@ Il disco dati è ora pronto per l'uso come `/datadrive`.
 
 ## Passaggi successivi
 
-Tenere presente che il nuovo disco non è in genere disponibile sulla macchina virtuale se la macchina virtuale viene riavviata, a meno che non si scrivano queste informazioni nel file [fstab](http://en.wikipedia.org/wiki/Fstab). Se necessario, è possibile aggiungere altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md).
+Tenere presente che il nuovo disco non è in genere disponibile sulla macchina virtuale se la macchina virtuale viene riavviata, a meno che non si scrivano queste informazioni nel file [fstab](http://en.wikipedia.org/wiki/Fstab). Se necessario, è possibile aggiungere altri dischi e la [configurazione RAID](virtual-machines-linux-configure-raid.md).
 
 Per altre informazioni su Linux in Azure, vedere:
 
@@ -323,4 +328,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

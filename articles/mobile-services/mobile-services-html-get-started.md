@@ -82,7 +82,7 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Utilizzare la condivisione di risorse tra origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT]Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Utilizzare la condivisione di risorse tra origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Ospitare ed eseguire l'app HTML
 
@@ -154,4 +154,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

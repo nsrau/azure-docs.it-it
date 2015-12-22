@@ -135,11 +135,16 @@ Per altre informazioni sull'abilitazione di HTTPS per il contenuto della rete CD
 
 Per altre informazioni sul mapping di un dominio personalizzato, vedere [Come eseguire il mapping del contenuto della rete per la distribuzione di contenuti (CDN) a un dominio personalizzato](cdn-map-content-to-custom-domain.md).
 
+## Gestione della rete CDN a livello di codice
+
+La rete CDN di Microsoft Azure può essere gestita a livello di codice usando le informazioni disponibili nell'articolo [Riferimento API REST del Provider di risorse della rete CDN](https://msdn.microsoft.com/library/mt634456.aspx).
+
+
 ## Vedere anche
 
 - [Come abilitare la rete per la distribuzione di contenuti (CDN) per Azure](cdn-create-new-endpoint.md)
 - [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md)
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
- 
+- [Riferimento API REST del Provider di risorse della rete CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

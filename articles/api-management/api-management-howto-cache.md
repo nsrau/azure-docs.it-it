@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie"/>
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -22,13 +22,15 @@ Le operazioni in Gestione API possono essere configurate per la memorizzazione n
 
 Questa Guida illustra come aggiungere la memorizzazione delle risposte nella cache per l'API e configurare i criteri per le operazioni API Echo di esempio. Per verificare il funzionamento della memorizzazione della cache, è possibile chiamare l'operazione dal portale per sviluppatori.
 
+>[AZURE.NOTE]Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
+
 ## Prerequisiti
 
 Prima di eseguire i passaggi di questa guida, è necessario avere un'istanza del servizio Gestione API con un'API e un prodotto configurati. Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 ## <a name="configure-caching"> </a>Configurare un'operazione per la memorizzazione nella cache
 
-In questo passaggio viene vengono riviste le impostazioni di memorizzazione nella cache dell'operazione **GET su risorsa (memorizzata nella cache)** dell'API Echo di esempio.
+In questo passaggio vengono riviste le impostazioni di caching dell'operazione **GET su risorsa (memorizzata nella cache)** dell'API Echo di esempio.
 
 >[AZURE.NOTE]Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
 
@@ -36,11 +38,11 @@ Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il ser
 
 ![Portale di pubblicazione][api-management-management-console]
 
-Fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere **API Echo**.
+Fare clic su **API** dal menu **Gestione API** a sinistra, quindi scegliere **API Echo**.
 
 ![API Echo][api-management-echo-api]
 
-Fare clic sulla scheda **Operazioni**, quindi fare clic sull'operazione **GET su risorsa (memorizzata nella cache)** nell'elenco **Operazioni**.
+Fare clic sulla scheda **Operazioni**, quindi sull'operazione **GET su risorsa (memorizzata nella cache)** nell'elenco **Operazioni**.
 
 ![Operazioni dell'API Echo][api-management-echo-api-operations]
 
@@ -54,7 +56,7 @@ La risposta di ogni operazione è associata a una chiave in base ai valori dei c
 
 La **durata** specifica l'intervallo di scadenza delle risposte memorizzate nella cache. In questo esempio l'intervallo è di **3600** secondi, equivalente a un'ora.
 
-Nella configurazione di esempio del caching, la prima richiesta all'operazione **GET su risorsa (memorizzata nella cache)** restituisce una risposta dal servizio back-end. Questa risposta viene memorizzata nella cache, associata a una chiave mediante le intestazioni e i parametri delle stringhe di query specificati. Le chiamate successive all'operazione, con i parametri corrispondenti, riceveranno la risposta memorizzata nella cache finché non scade l'intervallo di durata della cache.
+Nella configurazione di esempio del caching la prima richiesta all'operazione **GET su risorsa (memorizzata nella cache)** restituisce una risposta dal servizio back-end. Questa risposta viene memorizzata nella cache, associata a una chiave mediante le intestazioni e i parametri delle stringhe di query specificati. Le chiamate successive all'operazione, con i parametri corrispondenti, riceveranno la risposta memorizzata nella cache finché non scade l'intervallo di durata della cache.
 
 ## <a name="caching-policies"> </a>Rivedere i criteri di memorizzazione nella cache
 
@@ -62,7 +64,7 @@ In questo passaggio vengono riviste le impostazioni di caching dell'operazione *
 
 Quando le impostazioni di memorizzazione nella cache vengono configurate per un'operazione nella scheda **Memorizzazione nella cache**, vengono aggiunti i criteri di memorizzazione nella cache per l'operazione. Questi criteri possono essere visualizzati e modificati nell'editor dei criteri.
 
-Fare clic su **Criteri** nel menu **Gestione API** sulla sinistra, quindi selezionare **API Echo/GET su risorsa (memorizzata nella cache)** dall'elenco a discesa **Operazione**.
+Fare clic su **Criteri** dal menu **Gestione API** a sinistra, quindi selezionare **API Echo/GET su risorsa (memorizzata nella cache)** dall'elenco a discesa **Operazione**.
 
 ![Operazione nell'ambito dei criteri][api-management-operation-dropdown]
 
@@ -95,13 +97,13 @@ Per vedere il funzionamento della memorizzazione nella cache, l'operazione viene
 
 ![Portale per sviluppatori][api-management-developer-portal-menu]
 
-Fare clic su **API** nel menu superiore, quindi scegliere **API Echo**.
+Fare clic su **API** dal menu in alto e quindi scegliere **API Echo**.
 
 ![API Echo][api-management-apis-echo-api]
 
 >Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
-Selezionare l'operazione **GET su risorsa (memorizzata nella cache)**, quindi fare clic su **Apri console**.
+Selezionare l'operazione **GET su risorsa (memorizzata nella cache)** e quindi fare clic su **Apri console**.
 
 ![Open console][api-management-open-console]
 
@@ -117,7 +119,7 @@ Immettere **sampleheader:value1** nella casella di testo **Intestazioni della ri
 
 Fare clic su **GET HTTP** e annotare le intestazioni di risposta.
 
-Immettere **sampleheader:value2** nella casella di testo **Intestazioni della richiesta**, quindi fare clic su **GET HTTP**.
+Immettere **sampleheader:value2** nella casella di testo **Intestazioni della richiesta** e quindi fare clic su **GET HTTP**.
 
 Il valore di **sampleheader** nella risposta è ancora **value1**. Provare altri valori diversi e notare che viene restituita la risposta memorizzata nella cache della prima chiamata.
 
@@ -128,7 +130,8 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 ## <a name="next-steps"> </a>Passaggi successivi
 
 -	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
--	Per altre informazioni sui criteri di memorizzazione nella cache, vedere [Criteri di memorizzazione nella cache][] nell'argomento di [riferimento ai criteri di Gestione API][].
+-	Per altre informazioni sui criteri di caching, vedere [Criteri di caching][] nell'argomento [Riferimento ai criteri di Gestione API][].
+-	Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -150,8 +153,8 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Introduzione alla configurazione API avanzata]: api-management-get-started-advanced.md
 
-[riferimento ai criteri di Gestione API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Criteri di memorizzazione nella cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[Riferimento ai criteri di Gestione API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Criteri di caching]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
@@ -160,4 +163,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

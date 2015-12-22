@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Creare un SQL Data Warehouse
@@ -29,6 +29,10 @@ In questa esercitazione si apprenderà come:
 
 - Creare un server per ospitare il database.
 - Creare un database contenente il database di esempio AdventureWorksDW.
+
+Se si sta cercando di eseguire la migrazione di un database esistente in SQL Data Warehouse, vedere i [cenni preliminari sulla migrazione](./sql-data-warehouse-get-started-overview-migrate.md) o usare l'[utilità di migrazione](./sql-data-warehouse-migrate-migration-utility.md).
+
+Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -89,11 +93,11 @@ Ora che il server SQL logico è stato selezionato, è possibile completare la cr
         > 
         > È possibile modificare rapidamente e facilmente il livello di prestazioni dopo la creazione del database. Ad esempio, se non si usa il database, spostare il dispositivo di scorrimento verso sinistra per ridurre i costi. Oppure, aumentare le prestazioni quando sono necessarie ulteriori risorse. Per non incorrere in alcun costo, è possibile sospendere il database. Questo è il vantaggio a livello di scalabilità offerto da SQL Data Warehouse.
 
-    - **Seleziona origine**. Fare clic su **Seleziona origine** > **Esempio**. Poiché per ora è disponibile un solo database di esempio, quando si seleziona Esempio, Azure popola automaticamente l'opzione **Selezionare l'esempio** con AdventureWorksDW.
+    - **Selezionare l'origine**. Fare clic su **Selezionare l'origine** > **Esempio**. Poiché per ora è disponibile un solo database di esempio, quando si seleziona Esempio, Azure popola automaticamente l'opzione **Selezionare l'esempio** con AdventureWorksDW.
   
         ![Selezionare l'esempio](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
-    - **Gruppo di risorse**. È possibile lasciare i valori predefiniti. I gruppi di risorse sono contenitori progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [gruppi di risorse](../azure-portal/resource-group-portal.md)
+    - **Gruppo di risorse**. È possibile lasciare i valori predefiniti. I gruppi di risorse sono contenitori progettati per facilitare la gestione di una raccolta di risorse di Azure. Altre informazioni sui [gruppi di risorse](../azure-portal/resource-group-portal.md).
     
     - **Sottoscrizione**. Selezionare la sottoscrizione per la fatturazione del database.
 
@@ -118,7 +122,7 @@ Per connettersi al server dall'indirizzo IP corrente, aggiungere l'indirizzo IP 
 
 1. Creare una regola del firewall con un intervallo di indirizzi IP. È possibile eseguire questa operazione subito o più avanti.
 
-	>[AZURE.IMPORTANT]È possibile che l'indirizzo IP cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per assicurare un accesso coerente, è consigliabile aggiungere un intervallo di indirizzi IP. Per altre informazioni, vedere [Come configurare le impostazioni del firewall](../sql-database/sql-database-configure-firewall-settings.md).
+	>[AZURE.IMPORTANT]È possibile che l'indirizzo IP cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per assicurare un accesso coerente, è consigliabile aggiungere un intervallo di indirizzi IP. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](../sql-database/sql-database-configure-firewall-settings.md).
 
     Per creare una regola, immettere un nome e l'intervallo di indirizzi IP e fare clic su **Salva**.
 
@@ -130,4 +134,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

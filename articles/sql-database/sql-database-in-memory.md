@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
 # Introduzione alle tecnologie in memoria (anteprima) in database SQL
-
 
 Le funzionalità in memoria migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici in determinate situazioni.
 
@@ -28,6 +27,7 @@ Questo argomento presenta due dimostrazioni, una relativa a OLTP in memoria e l'
 - usare il codice per testare le varianti e vedere le differenze nei risultati delle prestazioni; oppure
 - leggere il codice per comprendere lo scenario e apprendere come creare e usare gli oggetti in memoria.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### OLTP in memoria
 
@@ -59,7 +59,7 @@ In altri servizi gli indici columnstore hanno necessariamente l'ottimizzazione p
 
 #### Analisi in tempo reale
 
-Per l'[analisi in tempo reale](http://msdn.microsoft.com/library/dn817827.aspx) si combinano analisi e OLTP in memoria per ottenere:
+Per l'[analisi in tempo reale](http://msdn.microsoft.com/library/dn817827.aspx) si combinano OLTP e analisi in memoria per ottenere:
 
 - Informazioni commerciali approfondite in tempo reale basate su dati operativi.
 
@@ -82,7 +82,7 @@ Anteprima:
 Le considerazioni sulle funzionalità in memoria in fase di anteprima sono disponibili [più avanti in questo argomento](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE]Le funzionalità in fase di anteprima sono disponibili solo per database SQL di Azure di livello [*Premium*](sql-database-service-tiers.md), non per i database di livello di servizio Standard o Basic.
+> [AZURE.NOTE]Le funzionalità in fase di anteprima sono disponibili solo per database SQL di Azure di livello [*Premium*](sql-database-service-tiers.md), non per database a un livello di servizio Standard o Basic.
 
 
 
@@ -243,7 +243,7 @@ Installare nella macchina virtuale o nell'host scelto le utilità RML (Replay Ma
 
 - Vedere la discussione su ostress.exe nell'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
  - In alternativa, vedere l'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
- - In alternativa, vedere il [blog sull'installazione di ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
+ - In alternativa, vedere il [blog sull'installazione di ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -525,4 +525,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -19,7 +19,7 @@
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure classico
 
-Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce un motore di ricerca e il servizio di archiviazione per i dati di ricerca, ai quali è possibile accedere e che possono essere gestiti tramite il portale di Azure classico, .NET SDK o un'API REST. Le funzionalità chiave includono query con completamento automatico, corrispondenza fuzzy, evidenziazione dei risultati, esplorazione in base a facet, profili di punteggio e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere l'articolo [Che cos'è la Ricerca di Azure](seach-what-is-search.md).
+Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce un motore di ricerca e il servizio di archiviazione per i dati di ricerca, ai quali è possibile accedere e che possono essere gestiti tramite il portale di Azure classico, .NET SDK o un'API REST. Le funzionalità chiave includono query con completamento automatico, corrispondenza fuzzy, evidenziazione dei risultati, esplorazione in base a facet, profili di punteggio e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere l'articolo [Che cos'è la Ricerca di Azure?](search-what-is-azure-search.md).
 
 ## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
 
@@ -123,4 +123,4 @@ Gli argomenti riportati di seguito contengono informazioni su come creare e gest
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

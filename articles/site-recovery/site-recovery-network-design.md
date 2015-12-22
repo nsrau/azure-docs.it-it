@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerazioni relative all'infrastruttura di rete per Site Recovery" 
+	pageTitle="Considerazioni relative all'infrastruttura di rete per Site Recovery | Microsoft Azure" 
 	description="In questo articolo vengono illustrate alcune considerazioni pratiche sulla progettazione di rete per il failover con Site Recovery" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Considerazioni relative all'infrastruttura di rete per Site Recovery
@@ -62,7 +62,7 @@ In caso di emergenza, è possibile ripristinare i carichi di lavoro come indicat
 ### Server VMM in cluster
 
 
-[La distribuzione di VMM in un cluster](https://technet.microsoft.com/it-IT/library/gg610675.aspx) garantisce disponibilità e protezione elevate contro il failover hardware. Se si distribuisce il cluster VMM con Site Recovery, si noti che:
+La [distribuzione di VMM in un cluster](https://technet.microsoft.com/library/gg610675.aspx) garantisce disponibilità e protezione elevate contro il failover hardware. Se si distribuisce il cluster VMM con Site Recovery, si noti che:
 
 Il server VMM deve essere distribuito in un cluster esteso in tutti i siti geograficamente separati. Il database di SQL Server usato da VMM deve essere protetto con gruppi di disponibilità AlwaysOn di SQL Server con una replica nel sito secondario. In caso di emergenze, il server VMM e il SQL Server corrispondente eseguiranno automaticamente il failover nel sito di ripristino. È quindi possibile eseguire il failover dei carichi di lavoro mediante Site Recovery.
 
@@ -190,4 +190,4 @@ Esaminiamo questo scenario con un esempio che comprende un terzo sito da cui è 
 
 [Informazioni](site-recovery-network-mapping.md) sulla modalità di mapping delle reti di origine e destinazione di Site Recovery.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

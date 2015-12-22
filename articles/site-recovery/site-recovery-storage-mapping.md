@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ Il mapping di archiviazione è utile solo quando si esegue la replica di macchin
 	- **Posizionamento delle macchine virtuali di replica**: il mapping di archiviazione viene usato per posizionare in modo ottimale le macchine virtuali di replica nei server host Hyper-V. Le macchine virtuali di replica saranno posizionate negli host che possono accedere alla classificazione di archiviazione mappata.
 	- **Nessun mapping di archiviazione**: se non si configura il mapping di archiviazione, le macchine virtuali vengono replicate nella posizione di archiviazione predefinita specificata nel server host Hyper-V associato alla macchina virtuale di replica.
 
-- **Replica da sito locale a sito locale con la replica SAN**: viene eseguito il mapping dei pool di array di archiviazione su un server VMM di origine e uno di destinazione per:
+- **Replica da sito locale a sito locale con la replica SAN**: viene eseguito il mapping dei pool di array di archiviazione su un server VMM di origine e uno di destinazione.
 	- **Specificare il pool**: specifica il pool di archiviazione secondario che dovrà ricevere i dati di replica dal pool principale.
 	- **Identificare pool di archiviazione di destinazione**: garantisce che i LUN di un gruppo di replica di origine siano replicati nel pool di archiviazione di destinazione mappato precedentemente indicato.
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene ut
 
 Dopo aver acquisito familiarità con il mapping di archiviazione, è ora possibile [prepararsi alla distribuzione di Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare la prima pipeline di Data factory di Azure con l'editor di Data factory"
-	description="In questa esercitazione viene creata una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure classico."
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure classico)
+# Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima pipeline. Questa esercitazione include i passaggi seguenti:
@@ -89,7 +90,7 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 ### Creare un servizio collegato Azure HDInsight
 Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che sarà usato per eseguire lo script Hive.
 
-1. Nell'**editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
+1. Nell'**Editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
 
 	![Nuovo calcolo](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1. Il frammento di codice JSON descrive le proprietà che saranno usate per creare il cluster HDInsight su richiesta. 
@@ -155,7 +156,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 ## Passaggio 3: Creazione della prima pipeline
 In questo passaggio si creerà la prima pipeline.
 
-1. Nell'**editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
+1. Nell'**Editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
 	
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
@@ -217,7 +218,7 @@ In questo passaggio si creerà la prima pipeline.
 	![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. In Vista diagramma saranno visualizzati una panoramica della pipeline e i set di dati usati in questa esercitazione.
 	
-	![Vista diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
+	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
 8. In Vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Verrà visualizzata la sezione in fase di elaborazione.
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
@@ -233,4 +234,4 @@ In questo passaggio si creerà la prima pipeline.
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

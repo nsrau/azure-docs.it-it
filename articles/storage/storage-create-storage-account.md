@@ -137,5 +137,6 @@ Per rimuovere un account di archiviazione non più in uso, passare all'account d
 
 - Per altre informazioni su Archiviazione di Azure, vedere la relativa documentazione sul sito Web [azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

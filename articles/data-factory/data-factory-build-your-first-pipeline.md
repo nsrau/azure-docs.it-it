@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 Questo articolo consente di iniziare a compilare la prima Data factory di Azure.
 
@@ -172,4 +173,4 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

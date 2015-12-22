@@ -186,7 +186,7 @@ Se si preferisce, è possibile consentire a Visual Studio di eseguire automatica
 
 Nella finestra di dialogo Nuovo progetto selezionare Application Insights.
 
-Se viene chiesto l'accesso, usare le credenziali dell'account Azure (che è diverso dall'account di Visual Studio Online).
+Se viene chiesto di accedere, usare le credenziali dell'account Azure, che è diverso dall'account Visual Studio Team Services.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -231,4 +231,4 @@ Quando [viene rilasciata una nuova versione di SDK](app-insights-release-notes-w
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
