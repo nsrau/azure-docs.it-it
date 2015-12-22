@@ -75,7 +75,7 @@ Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 
 ## Esportazione e analisi dei dati
 
-+ [Alooma](http://alooma.com/blog/application-insights-amazon-redshift)
++ [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [Analisi dei flussi](app-insights-export-power-bi.md)
 
@@ -83,4 +83,4 @@ Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

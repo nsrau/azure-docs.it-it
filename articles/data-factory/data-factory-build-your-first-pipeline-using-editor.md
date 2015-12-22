@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare la prima pipeline di Data factory di Azure con l'editor di Data factory"
-	description="In questa esercitazione viene creata una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure classico."
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando l'editor di Data factory nel portale di Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure classico)
+# Creare la prima pipeline di Data factory di Azure con l'editor di Data factory (portale di Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima pipeline. Questa esercitazione include i passaggi seguenti:
@@ -233,4 +234,4 @@ In questo passaggio si creerà la prima pipeline.
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -205,10 +205,10 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. A questo punto, si avrà una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile andare al **passaggio 3** della sezione [Creare una nuova rete virtuale con connettività sia ExpressRoute che da sito a sito](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) in questo articolo.
+5. A questo punto, si avrà una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile andare al **passaggio 4** della sezione [Creare una nuova rete virtuale con connettività sia ExpressRoute che da sito a sito](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) in questo articolo.
 
 ## Passaggi successivi
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

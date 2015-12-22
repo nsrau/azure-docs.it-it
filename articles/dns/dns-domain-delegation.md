@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/15/2015"
    ms.author="joaoma"/>
 
 
@@ -71,8 +71,8 @@ Per configurare la delega, è necessario conoscere i nomi dei server dei nomi pe
 
 È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona).
 
-	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,18 +118,18 @@ L'unica differenza è che nel passaggio 3 è necessario creare i record NS nella
 
 L'esempio di PowerShell seguente lo dimostra. È necessario prima creare le zone padre e figlio, che possono trovarsi nello stesso gruppo di risorse o in gruppi di risorse diversi.
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Successivamente, si recupereranno i record NS autorevoli dalla zona figlio, come indicato nel seguente esempio:
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Infine, si crea un set di record NS corrispondente nella zona padre per completare la delega (si noti che il nome del set di record nella zona padre corrisponde al nome della zona figlio, in questo caso "partner").
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 Come nel caso della delega con un registrar, è possibile verificare che tutto sia configurato correttamente eseguendo la ricerca di record SOA della zona figlio.
 
@@ -149,14 +149,14 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 
 ## Passaggi successivi
 
-[Gestire le zone DNS](../dns-operations-dnszones)
+[Gestire le zone DNS](dns-operations-dnszones.md)
 
-[Gestire i record DNS](../dns-operations-recordsets)
+[Gestire i record DNS](dns-operations-recordsets.md)
 
-[Panoramica di Gestione traffico](../traffic-manager-overview)
+[Panoramica di Gestione traffico](traffic-manager-overview.md)
 
-[Automatizzare le operazioni di Azure con .NET SDK](../dns-sdk)
+[Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
 
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

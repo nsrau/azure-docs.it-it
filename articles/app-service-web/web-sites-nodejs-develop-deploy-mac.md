@@ -39,7 +39,7 @@ L'applicazione completata scrive una breve stringa "hello world" nel browser.
 
 Per esercitazioni ed esempi di codice con applicazioni Node.js più complesse o per altri argomenti relativi all'uso di Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non è disponibile un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -47,7 +47,7 @@ Per esercitazioni ed esempi di codice con applicazioni Node.js più complesse o 
 
 Seguire questa procedura per creare un'app Web nel servizio app di Azure e abilitare la pubblicazione Git.
 
-[Git](http://git-scm.com/%20target="_blank) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Il codice scritto per l'app Web verrà archiviato in un repository Git locale e verrà distribuito in Azure tramite il push in un repository remoto. Questo metodo di distribuzione è una funzionalità delle app Web del servizio app.
+[Git](http://git-scm.com/) è un sistema di controllo delle versioni distribuite che è possibile usare per distribuire il sito Web di Azure. Il codice scritto per l'app Web verrà archiviato in un repository Git locale e verrà distribuito in Azure tramite il push in un repository remoto. Questo metodo di distribuzione è una funzionalità delle app Web del servizio app.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -224,4 +224,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
