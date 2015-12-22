@@ -100,17 +100,17 @@ A questo punto è possibile eseguire le applicazioni.
 
 In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi è stata creata un'identità del dispositivo nel registro delle identità dell'hub. Questa identità del dispositivo è stata usata in un dispositivo simulato che invia all'hub messaggi da dispositivo a cloud ed è stata creata un'altra app che visualizza i messaggi ricevuti dall'hub. È possibile continuare a esplorare le funzionalità dell'hub IoT e altri scenari IoT nelle esercitazioni seguenti:
 
-- [Inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d-tutorial] illustra come inviare messaggi ai dispositivi ed elaborare i commenti sul recapito generati dall'hub IoT.
-- [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial] illustra come elaborare in modo affidabile dati di telemetria e messaggi interattivi provenienti dai dispositivi.
-- [Caricare file dai dispositivi al cloud con l'hub IoT][lnk-upload-tutorial] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
+- [Inviare messaggi da cloud a dispositivo con l'hub IoT](lnk-c2d-tutorial) illustra come inviare messaggi ai dispositivi ed elaborare i commenti sul recapito generati dall'hub IoT.
+- [Elaborare messaggi da dispositivo a cloud dell'hub IoT](lnk-process-d2c-tutorial) illustra come elaborare in modo affidabile dati di telemetria e messaggi interattivi provenienti dai dispositivi.
+- [Caricare file dai dispositivi al cloud con l'hub IoT](lnk-upload-tutorial) descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
 
 È possibile trovare altre informazioni sull'hub IoT negli articoli seguenti:
 
-* [Panoramica dell'hub IoT][lnk-hub-overview]
-* [Guida per sviluppatori dell'hub IoT][lnk-hub-dev-guide]
-* [Progettare la soluzione hub IoT][lnk-hub-guidance]
-* [Piattaforme e linguaggi di dispositivi supportati][lnk-supported-devices]
-* [Centro per sviluppatori Azure IoT][lnk-dev-center]
+* [Panoramica dell'hub IoT](lnk-hub-overview)
+* [Guida per sviluppatori dell'hub IoT](lnk-hub-dev-guide)
+* [Progettare la soluzione hub IoT](lnk-hub-guidance)
+* [Piattaforme e linguaggi di dispositivi supportati](lnk-supported-devices)
+* [Centro per sviluppatori Azure IoT](lnk-dev-center)
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
