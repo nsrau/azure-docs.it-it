@@ -55,8 +55,10 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-&emsp;&emsp;7. Fare clic sulla scheda **Configure** nella parte superiore, immettere il valore **API Key** ottenuto nella sezione precedente, quindi fare clic su **Save**.
-
+<ol start="7">
+<li><p>Fare clic sulla scheda <b>Configure</b> nella parte superiore, immettere il valore <b>API Key</b> ottenuto nella sezione precedente, quindi fare clic su <b>Save</b>.</p>
+</li>
+</ol>
 &emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
 L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle stringhe di connessione per registrare l'app in modo da ricevere e inviare le notifiche push.
@@ -129,7 +131,10 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure classico]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto:
+	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure].
+	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
 
 
 

@@ -90,7 +90,7 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 ### Creare un servizio collegato Azure HDInsight
 Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che sarà usato per eseguire lo script Hive.
 
-1. Nell'**editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
+1. Nell'**Editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
 
 	![Nuovo calcolo](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1. Il frammento di codice JSON descrive le proprietà che saranno usate per creare il cluster HDInsight su richiesta. 
@@ -156,7 +156,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 ## Passaggio 3: Creazione della prima pipeline
 In questo passaggio si creerà la prima pipeline.
 
-1. Nell'**editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
+1. Nell'**Editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
 	
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
@@ -218,7 +218,7 @@ In questo passaggio si creerà la prima pipeline.
 	![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. In Vista diagramma saranno visualizzati una panoramica della pipeline e i set di dati usati in questa esercitazione.
 	
-	![Vista diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
+	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
 8. In Vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Verrà visualizzata la sezione in fase di elaborazione.
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)

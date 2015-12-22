@@ -195,7 +195,13 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\\Processore(\_Totale)\\% tempo del processore| |Memoria disponibile|\\Memoria\\MByte disponibili| |IOPS|\\DiscoFisico(\_Totale)\\Trasferimenti su disco/sec| | Operazioni lettura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni lettura/sec| |Operazioni scrittura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni scrittura/S| |Produttività lettura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte lettura/sec| |Produttività scrittura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte scrittura/sec|
+|CPU|\\Processore (\_Totale) \\ % tempo del processore|
+|Memoria disponibile|\\MByte della memoria disponibile|
+|IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec|
+| Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec|
+| Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S|
+| Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec|
+| produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
 
 
 ## Passaggi successivi

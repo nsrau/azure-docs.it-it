@@ -107,7 +107,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![\_Layout.cshtml in Solution Explorer][newapp004]
+	![_Layout.cshtml in Solution Explorer][newapp004]
 
 1. Sostituire il contenuto del file *Layout.cshtml* con il codice seguente.
 
@@ -509,7 +509,8 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Aprire il file *App\_Start\\FilterConfig.cs* e sostituire il metodo *RegisterGlobalFilters* con il codice seguente, che consente di aggiungere due filtri:
 
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());

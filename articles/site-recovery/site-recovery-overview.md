@@ -56,7 +56,7 @@ Site Recovery favorisce la continuità aziendale basata sul riconoscimento delle
 - Snapshot coerenti con l'applicazione per le applicazioni a uno o più livelli.
 - Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, tra cui la replica di Active Directory, i gruppi di disponibilità dei database di Exchange e Oracle Data Guard.
 - Piani di ripristino flessibili, che consentono di ripristinare un intero stack di applicazioni con un singolo clic e possono includere script esterni o azioni manuali. 
-- Gestione di rete avanzata in Site Recovery e, in Azure, requisiti di rete più semplici per le app, quali la prenotazione di indirizzi IP, la configurazione di servizi di bilanciamento del carico o l'integrazione di Gestione traffico di Windows Azure per transizioni di rete con RTO ridotto.
+- Gestione di rete avanzata in Site Recovery e, in Azure, requisiti di rete più semplici per le app, quali la prenotazione di indirizzi IP, la configurazione di servizi di bilanciamento del carico o l'integrazione di Gestione traffico di Microsoft Azure per transizioni di rete con RTO ridotto.
 - Una libreria di automazione avanzata, in grado di fornire script generici per l'ambiente di produzione e specifici per ogni applicazione, che possono essere scaricati e integrati con Site Recovery.  
 
 

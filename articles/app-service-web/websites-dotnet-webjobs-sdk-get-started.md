@@ -73,11 +73,13 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 1. Aprire la finestra **Esplora server** in Visual Studio.
 
-2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**. ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**.
+![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Accedere con le credenziali di Azure.
 
-5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**. ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**.
+![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione.
 
@@ -121,10 +123,12 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	La stringa di connessione di archiviazione è un esempio contenente i segnaposto per il nome dell'account di archiviazione e la chiave di accesso. La si sostituirà con una stringa di connessione contenente il nome e la chiave dell'account di archiviazione.
 
-	<pre class="prettyprint">&lt;connectionStrings>
-  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-&lt;/connectionStrings></pre>La stringa di connessione di archiviazione si chiama AzureWebJobsStorage perché questo è il nome usato da WebJobs SDK per impostazione predefinita. Poiché qui viene usato lo stesso nome, è necessario impostare solo un valore della stringa di connessione nell'ambiente di Azure.
+	<pre class="prettyprint">&lt;connectionStrings&gt;
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+	&lt;/connectionStrings&gt;</pre>
+
+	La stringa di connessione di archiviazione si chiama AzureWebJobsStorage perché questo è il nome usato da WebJobs SDK per impostazione predefinita. Poiché qui viene usato lo stesso nome, è necessario impostare solo un valore della stringa di connessione nell'ambiente di Azure.
 
 2. In **Esplora server** fare clic con il pulsante destro del mouse sull'account di archiviazione sotto il nodo **Archiviazione** e quindi scegliere **Proprietà**.
 
@@ -142,7 +146,17 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 6. Aprire il file *App.config* nel progetto ContosoAdsWebJob.
 
-	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. È possibile usare account di archiviazione separati per i dati applicazione e la registrazione oppure usare [più account di archiviazione per i dati](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). In questa esercitazione viene usato un singolo account di archiviazione. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. In questa esercitazione sarà usato lo stesso account per entrambe. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione.
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -207,7 +221,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 4. Accedere ad Azure se non si è già connessi.
 
-5. Fare clic su **New**.
+5. Fare clic su **Nuovo**.
 
 	L'aspetto della finestra di dialogo dipende dalla versione di Azure SDK per .NET installata.
 
@@ -456,7 +470,7 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs*
 	- Nella cartella *Views\\Shared*: il file *\_Layout.cshtml*
-- Nella cartella *Views\\Home*: *Index.cshtml*
+	- Nella cartella *Views\\Home*: *Index.cshtml*
 	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml* <br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.

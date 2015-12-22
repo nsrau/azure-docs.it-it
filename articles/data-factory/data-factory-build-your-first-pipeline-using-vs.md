@@ -143,7 +143,7 @@ In questo passaggio si creerà la prima pipeline.
 2. Selezionare **Pipeline di trasformazione Hive** nell'elenco e fare clic su **Aggiungi**. 
 3. Sostituire il codice **JSON** con il frammento seguente.
 
-	> [AZURE.IMPORTANT]Sostituire **storageaccountname** con il nome del proprio account di archiviazione.
+	> [AZURE.IMPORTANT]sostituire **storageaccountname** con il nome del proprio account di archiviazione.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -233,9 +233,9 @@ Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricat
 
 Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguire le operazioni seguenti:
 
-1. Fare clic su **Strumenti** nel menu e selezionare **Estensioni e aggiornamenti**.
+1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**.
 2. Selezionare **Aggiornamenti** nel riquadro di sinistra e quindi selezionare **Visual Studio Gallery**.
-3. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
+3. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md).
  

@@ -123,12 +123,12 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
+[Elaborare i messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
+[Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
+[Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
+[Indicazioni per l'hub IoT]: iot-hub-guidance.md
+[Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
