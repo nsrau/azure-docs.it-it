@@ -63,10 +63,11 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **Folder Path**: specificare il percorso della cartella da cui devono essere recuperati i file.
 	- **The type of the file: text or binary**: selezionare il tipo di file.
 	- **File Mask**: specificare il filtro file da applicare per recuperare i file. '*' recupera tutti i file contenuti nella cartella specificata.
-- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
+	- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	È possibile usare le azioni SFTP nel flusso in modo analogo. È possibile usare l'azione "Upload File" per caricare un file nel server SFTP. Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -75,9 +76,10 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **File Path**: specificare il percorso del file da caricare.
 	- **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già.
 	- ****Append If Exists**: specificare "true" o "false". Se il parametro è impostato su "true", i dati vengono aggiunti al file, se esistente. Se impostato su "false", il file, se esistente, viene sovrascritto.
-- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
+	- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-	![][11] ![][12]
+	![][11]  
+	![][12]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -103,4 +105,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
