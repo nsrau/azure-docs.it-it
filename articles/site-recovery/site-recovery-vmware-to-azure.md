@@ -23,7 +23,8 @@ Questo articolo descrive come distribuire Site Recovery per:
 - **Proteggere le macchine virtuali VMware** - Coordinare la replica, il failover e il ripristino di macchine virtuali VMware locali in Azure
 - **Proteggere server fisici** - Coordinare la replica, il failover e il ripristino di server fisici Windows e Linux locali in Azure tramite il servizio Azure Site Recovery.
 
-Questo articolo include una panoramica, i prerequisiti per la distribuzione e istruzioni per l'installazione. Alla fine dell'articolo le macchine virtuali VMware o i server fisici eseguiranno la replica in Azure. Nel caso di problemi, inviare domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Questo articolo include una panoramica, i prerequisiti per la distribuzione e istruzioni per l'installazione. Alla fine dell'articolo le macchine virtuali VMware o i server fisici eseguiranno la replica in Azure.
+Nel caso di problemi, inviare domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Che cos'è Azure Site Recovery?
@@ -228,7 +229,8 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 4. In **Dettagli del nuovo server di configurazione** specificare:
 
 	- Un nome per il server di configurazione e le credenziali per la connessione.
-	- Nel tipo di connettività di rete a discesa selezionare Internet pubblico o VPN.[AZURE.NOTE]Questa impostazione è un’opzione del tempo di distribuzione e non può essere modificata successivamente.  
+	- Nel tipo di connettività di rete a discesa selezionare Internet pubblico o VPN
+	[AZURE.NOTE]Questa impostazione è un’opzione del tempo di distribuzione e non può essere modificata successivamente.  
 	- Selezionare la rete di Azure in cui dovrà essere collocato il server. Se VPN è stato specificato come il tipo di connettività di rete verificare che la rete virtuale di Azure sia connessa al sito locale tramite una connessione ExpressRoute o una VPN da sito a sito.
 	- Specificare l'indirizzo IP interno e la subnet da assegnare al server. Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per l'uso interno in Azure. Usare gli altri indirizzi IP disponibili.
 	
@@ -382,7 +384,8 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
 	1. Assicurarsi di aver installato il LIS (Linux Integration Services) più recente prima dell'installazione del software del server di destinazione master. È possibile trovare la versione più recente di LIS insieme alle istruzioni su come installarlo [qui](https://www.microsoft.com/IT-IT/download/details.aspx?id=46842). Riavviare il computer dopo l’installazione di LIS.
 	2. In **Preparare le risorse (Azure) di destinazione** fare clic su **Scarica e installa il software aggiuntivo (solo per il server di destinazione master Linux)** per scaricare il pacchetto del server di destinazione master Linux. Copiare il file TAR scaricato nella macchina virtuale usando un client SFTP. In alternativa, è possibile accedere al server di destinazione master Linux distribuito e usare *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* per scaricare il file.
 	2. Accedere al server con un client Secure Shell. Se si è connessi alla rete di Azure tramite VPN, usare l'indirizzo IP interno. In caso contrario, usare l'indirizzo IP esterno e l'endpoint pubblico SSH.
-	3. Estrarre i file dal programma di installazione compresso con gzip eseguendo: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Server di destinazione master Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+	3. Estrarre i file dal programma di installazione compresso con gzip eseguendo: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***
+	![Server di destinazione master Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Accertarsi di essere nella directory nella quale è stato estratto il contenuto del file TAR.
 	5. Copiare la passphrase del server di configurazione in un file locale usando il comando **echo *`<passphrase>`* >passphrase.txt**
 	6. Eseguire il comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
@@ -757,21 +760,23 @@ Se un server di elaborazione è in stato critico, nel dashboard di Site Recovery
 
 1. Passare alla pagina **SERVER DI CONFIGURAZIONE** in **SERVER**
 2. Fare clic sul nome del server di configurazione e passare a **Dettagli server**.
-3. Nell'elenco **Server di elaborazione** fare clic su **Cambia server di elaborazione** accanto al server da modificare. ![Modificare il server di elaborazione 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. Nella finestra di dialogo **Cambia server di elaborazione** selezionare il nuovo server in **Server di elaborazione di destinazione** e quindi selezionare le macchine virtuali da replicare nel nuovo server. Fare clic sull'icona delle informazioni accanto al nome del server per ottenere informazioni su di esso, ad esempio lo spazio disponibile e la memoria usata. Per consentire di prendere le decisioni relative al carico, viene visualizzato lo spazio medio che sarà necessario per replicare ogni macchina virtuale selezionata nel nuovo server di elaborazione. ![Modificare il server di elaborazione 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. Nell'elenco **Server di elaborazione** fare clic su **Cambia server di elaborazione** accanto al server da modificare.
+	![Modificare il server di elaborazione 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. Nella finestra di dialogo **Cambia server di elaborazione** selezionare il nuovo server in **Server di elaborazione di destinazione** e quindi selezionare le macchine virtuali da replicare nel nuovo server. Fare clic sull'icona delle informazioni accanto al nome del server per ottenere informazioni su di esso, ad esempio lo spazio disponibile e la memoria usata. Per consentire di prendere le decisioni relative al carico, viene visualizzato lo spazio medio che sarà necessario per replicare ogni macchina virtuale selezionata nel nuovo server di elaborazione.
+	![Modificare il server di elaborazione 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. Fare clic sul segno di spunta per avviare la replica nel nuovo server di elaborazione. Se si rimuovono tutte le macchine virtuali da un server di elaborazione in stato critico, per tale server non dovrebbe più essere visualizzato un avviso critico nel dashboard.
 
 
 ## Informazioni e comunicazioni sul software di terze parti
 
-Non tradurre o localizzare
+Do Not Translate or Localize
 
-Il software e il firmware eseguito nel prodotto o nel servizio Microsoft si basa su materiale incorporato dai progetti elencati di seguito (collettivamente, "Codice di terze parti"). Microsoft non è l'autore originale del Codice di terze parti. Le informazioni sul copyright e le condizioni di licenza originali in base alle quali Microsoft ha ricevuto il Codice di terze parti sono definite di seguito.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-Le informazioni nella sezione A riguardano i componenti del Codice di terze parti dai progetti elencati di seguito. Le licenze e le informazioni vengono fornite a scopo esclusivamente informativo. Il Codice di terze parti viene riconcesso in licenza all'utente da Microsoft in base alle condizioni di licenza del software definite da Microsoft per il prodotto o il servizio Microsoft.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-Le informazioni nella sezione B riguardano i componenti del Codice di terze parti resi disponibili all'utente da Microsoft in base alle condizioni di licenza originali.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-Il file completo è disponibile nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft si riserva tutti i diritti non espressamente disciplinati dal presente documento, sia tacitamente, per preclusione o per qualsivoglia altro motivo.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=AcomDC_1210_2015-->
