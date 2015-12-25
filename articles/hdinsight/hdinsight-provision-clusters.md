@@ -54,11 +54,6 @@ Di seguito sono presenti le opzioni di configurazione di base per la creazione d
 	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
 	- **HDInsight su Linux (Ubuntu 12.04 LTS per Linux) (Anteprima)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
-
-- **Versione HDInsight**
-
-	Consente di determinare la versione di HDInsight da usare per questo cluster. Per altre informazioni, vedere [Versioni e componenti di Hadoop in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
-
 - **Tipo di cluster** e **Dimensioni del cluster (definiti anche nodi dati)**
 
 	HDInsight consente ai clienti di distribuire svariati tipi di cluster, per diversi carichi di lavoro di analisi di dati. Sono attualmente disponibili i tipi di cluster seguenti:
