@@ -123,7 +123,8 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 ### Eseguire l'applicazione in locale
 
-1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito. ![Pagina iniziale dell'app To Do List](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito. ![Pagina iniziale dell'app To Do List](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/
+2. rr5.PNG)
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
@@ -205,7 +206,7 @@ La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticame
 
 1. Nella finestra di dialogo **Add Scaffold** selezionare **MVC Controller with views, using EF**, quindi fare clic su **Aggiungi**.
 
- ![Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. Impostare il nome del controller su **HomeController**. Selezionare **Contact** come classe del modello. Fare clic sul pulsante **Nuovo contesto dati** e accettare il contesto predefinito "ContactManager.Models.ContactManagerContext" per **Nuovo tipo di contesto dati**. Fare clic su **Aggiungi**.
 
@@ -814,4 +815,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!------HONumber=AcomDC_1217_2015-->
+<!---------HONumber=AcomDC_1217_2015-->
