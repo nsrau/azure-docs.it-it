@@ -24,9 +24,9 @@
 
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
-Per ulteriori informazioni, vedere [Panoramica di Hub eventi][].
+Per ulteriori informazioni, vedere [Panoramica di Hub eventi].
 
-Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ][]in C#.
+Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ]in C#.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -38,7 +38,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Creare un hub eventi
 
-1. Accedere al [portale di Azure classico][] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure classico] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub eventi** e infine **Creazione rapida**.
 
@@ -91,10 +91,10 @@ A questo punto è possibile eseguire le applicazioni.
 
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-- Un'[applicazione di esempio completa che usa Hub eventi][].
-- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][].
-- Una [soluzione di messaggistica accodata][] che usa le code di Bus di servizio.
-- [Panoramica di Hub eventi][]
+- Un'[applicazione di esempio completa che usa Hub eventi].
+- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
+- Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
+- [Panoramica di Hub eventi]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png

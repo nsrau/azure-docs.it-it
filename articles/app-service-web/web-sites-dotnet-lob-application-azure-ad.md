@@ -63,7 +63,8 @@ L'applicazione di esempio in questa esercitazione, [WebApp-RoleClaims-DotNet](ht
 
 1.	Clonare o scaricare la soluzione di esempio da [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) alla directory locale.
 
-2.	Seguire le istruzioni disponibili nell'argomento relativo all'[esecuzione dell'esempio come app single-tenant](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) per configurare il progetto e l'applicazione di Azure Active Directory. Assicurarsi di seguire tutte le istruzioni per convertire l'applicazione multi-tenant in single-tenant.
+2.	Seguire le istruzioni disponibili nell'argomento relativo all'[esecuzione dell'esempio come app single-tenant](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) per configurare il progetto e l'applicazione di Azure Active Directory.
+Assicurarsi di seguire tutte le istruzioni per convertire l'applicazione multi-tenant in single-tenant.
 
 3.	Nel [portale di Azure classico](https://manage.windowsazure.com) visualizzare l'applicazione Azure Active Directory appena creata, fare clic sulla scheda **UTENTI**. e quindi assegnare gli utenti ai ruoli desiderati.
 
@@ -152,10 +153,12 @@ In questo scenario si pubblicherà l'applicazione in un'app Web in Servizio app 
 11. In Visual Studio aprire **Web.Release.config** nel progetto. Inserire il codice XML seguente nel tag `<configuration>` e quindi sostituire il valore di ogni chiave con le informazioni salvate per la nuova applicazione di Azure Active Directory.
 	<pre class="prettyprint">
 &lt;appSettings>
-   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Assicurarsi che il valore di ida:PostLogoutRedirectUri termini con una barra "/".
+   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+&lt;/appSettings></pre>
+
+	Assicurarsi che il valore di ida:PostLogoutRedirectUri termini con una barra "/".
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
@@ -231,28 +234,31 @@ public class WorkItemsController : Controller
     public ActionResult Create()
     ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
     <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
-}</pre>Poiché i mapping dei ruoli vengono gestiti nell'interfaccia utente del portale di Azure classico, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
+	}</pre>
+	Poiché i mapping dei ruoli vengono gestiti nell'interfaccia utente del portale di Azure classico, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
 
-	> [AZURE.NOTE]Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto: + Azure Active Directory non invia il http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, richiesto per impostazione predefinita dal token antifalsificazione. + Se Azure Active Directory prevede la sincronizzazione con la directory di ADFS, per impostazione predefinita il trust ADFS non invia l'attestazione http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, anche se è possibile configurare manualmente ADFS per l'invio di questa attestazione, come illustrato nel passaggio successivo.
+	> [AZURE.NOTE] Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto:
+	> + Azure Active Directory non invia il http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, richiesto per impostazione predefinita dal token antifalsificazione.
+	> + Se Azure Active Directory prevede la sincronizzazione con la directory di ADFS, per impostazione predefinita il trust ADFS non invia l'attestazione http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, anche se è possibile configurare manualmente ADFS per l'invio di questa attestazione, come illustrato nel passaggio successivo.
 
 12.  In App\_Start\\Startup.Auth.cs aggiungere la riga di codice seguente nel metodo `ConfigureAuth`. Fare clic con il pulsante destro del mouse su ogni errore di risoluzione della denominazione per risolvere il problema.
 
@@ -340,8 +346,9 @@ public class WorkItemsController : Controller
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>Nello script l'oggetto AadPicker chiama l'[API Graph di Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) per cercare gli utenti e i gruppi corrispondenti all'input.
+	Nello script l'oggetto AadPicker chiama l'[API Graph di Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) per cercare gli utenti e i gruppi corrispondenti all'input.
 
 15. Aprire la [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) ed eseguire **Enable-Migrations –EnableAutomaticMigrations**. In modo analogo all'opzione selezionata alla pubblicazione dell'app in Azure, questo comando consente di aggiornare lo schema del database dell'app in [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) quando viene eseguito il debug in Visual Studio.
 

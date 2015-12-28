@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect: eseguire l'aggiornamento dallo strumento di sincronizzazione Windows Azure AD (DirSync) | Microsoft Azure"
+   pageTitle="Azure AD Connect: eseguire l'aggiornamento dallo strumento di sincronizzazione Microsoft Azure AD (DirSync) | Microsoft Azure"
    description="Informazioni su come eseguire l'aggiornamento da DirSync ad Azure AD Connect. Questo articolo descrive i passaggi necessari per aggiornare lo strumento Microsoft Azure AD Sync (DirSync) ad Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -197,4 +197,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

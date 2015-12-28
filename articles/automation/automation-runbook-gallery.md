@@ -54,7 +54,7 @@ La [raccolta di runbook](http://gallery.technet.microsoft.com/scriptcenter/site/
 
 Microsoft consiglia di aggiungere alla raccolta dei runbook i runbook ritenuti più utili per gli altri clienti. È possibile aggiungere un runbook [caricandolo nello Script Center](http://gallery.technet.microsoft.com/site/upload), a condizione che si considerino i seguenti dettagli.
 
-- È necessario specificare *Windows Azure* nel campo **Categoria** e *Automazione* nel campo **Sottocategoria** per il runbook da visualizzare nella procedura guidata.  
+- È necessario specificare *Microsoft Azure* nel campo **Categoria** e *Automazione* nel campo **Sottocategoria** per il runbook da visualizzare nella procedura guidata.  
 
 - Il caricamento deve interessare un singolo file con estensione PS1 o GRAPHRUNBOOK. Se il runbook richiede eventuali moduli, runbook figlio o asset, è consigliabile elencare questi elementi nella descrizione dell'invio e nella sezione dei commenti del runbook. Se si dispone di una soluzione che richiede più runbook, caricare ciascuna soluzione separatamente ed elencare i nomi dei runbook correlati in ognuna delle relative descrizioni. Assicurarsi di usare gli stessi tag in modo che vengano visualizzati nella stessa categoria. Un utente dovrà fare riferimento alla descrizione per sapere se sono necessari altri runbook per il corretto funzionamento della soluzione.
 
@@ -108,4 +108,4 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -194,7 +194,8 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
-Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): 
+-   [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)

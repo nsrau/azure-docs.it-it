@@ -171,7 +171,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 	    }
 
-	This method handles notifications received when the app is running by displaying a simple **UIAlert**.
+	Questo metodo gestisce le notifiche ricevute quando l'app è in esecuzione visualizzando un semplice **UIAlert**.
 
 11. In ViewController.m, aggiungere un'istruzione import per AppDelegate.h e copiare il codice seguente nel metodo **subscribe** generato da XCode. Questo codice aggiornerà la registrazione della notifica per utilizzare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
 
@@ -363,8 +363,8 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Usare Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
+[linee guida per gli hub di notifica]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [portale di Azure classico]: https://manage.windowsazure.com
