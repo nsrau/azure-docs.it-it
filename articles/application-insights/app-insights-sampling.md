@@ -51,11 +51,11 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Quando il valore della percentuale di campionamento cambia, periodo di tempo dopo il quale è consentito aumentare nuovamente la percentuale di campionamento per acquisire più dati.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     Quando la percentuale di campionamento varia, valore minimo che è consentito impostare.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     Quando la percentuale di campionamento varia, valore massimo che è consentito impostare.
 
@@ -63,7 +63,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Nel calcolo della media mobile, peso assegnato al valore più recente. Usare un valore uguale o inferiore a 1. I valori più bassi rendono l'algoritmo meno reattivo alle modifiche improvvise.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     Valore assegnato quando l'app è appena stata avviata. Non ridurlo durante il debug.
 
@@ -297,4 +297,4 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
  * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

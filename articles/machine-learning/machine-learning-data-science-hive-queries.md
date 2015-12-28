@@ -274,11 +274,11 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate [in questo sito](http://www.movable-type.co.uk/scripts/latlong.html) creato da Peter Lapisu. In JavaScript la funzione toRad() è semplicemente `lat_or_lon*pi/180` e consente di convertire i gradi in radianti. Qui `lat_or_lon` rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) creato da Peter Lapisu. In JavaScript la funzione toRad() è semplicemente `lat_or_lon*pi/180` e consente di convertire i gradi in radianti. Qui `lat_or_lon` rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
 
 ![Creare un'area di lavoro][1]
 
-Un elenco completo di UDF di Hive incorporate è disponibile [qui](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+Un elenco completo di UDF di Hive incorporate è disponibile nel [Manuale sul linguaggio delle UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
 
 ## <a name="tuning"></a> Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query
 
@@ -325,4 +325,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

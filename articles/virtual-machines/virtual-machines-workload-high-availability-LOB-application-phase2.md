@@ -32,8 +32,8 @@ In questa fase della distribuzione di un'applicazione line-of-business a disponi
 
 Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | Standard\_D1
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | Standard\_D1
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | Standard\_D2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | Standard\_D2
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (server di database primario, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (server di database secondario, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise - Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nodo di maggioranza per il cluster, nell'esempio MN1) | Windows Server 2012 R2 Datacenter | Standard\_D1
@@ -42,9 +42,9 @@ Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 
 **Tabella M - Macchine virtuali per l'applicazione line-of-business a disponibilità elevata in Azure**
 
-Per l’elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Per un elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
 
-Usare il seguente blocco di comandi di Azure PowerShell per creare le macchine virtuali per i due controller di dominio. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo set di comandi di PowerShell vengono usati i valori delle tabelle seguenti:
+Utilizzare il seguente blocco di comandi di Azure PowerShell per creare le macchine virtuali per i due controller di dominio. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo blocco di comandi di PowerShell vengono usati i valori delle tabelle seguenti:
 
 - Tabella M, per le macchine virtuali
 - Tabella V, per le impostazioni di rete virtuale
@@ -54,7 +54,7 @@ Usare il seguente blocco di comandi di Azure PowerShell per creare le macchine v
 
 È importante ricordare che le tabelle V, S, ST e A sono state definite nella [Fase 1: Configurare Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire tutte le istanze di "-AzureRM" con "-Azure" e aggiungere il comando **Switch-AzureMode AzureResourceManager** prima di eseguire i comandi. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
@@ -165,17 +165,16 @@ Verrà chiesto di fornire le credenziali di un account amministratore di dominio
 
 A questo punto, è necessario aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da usare come server DNS. In questa procedura vengono usati i valori della Tabella V (per le impostazioni di rete virtuale) e della Tabella M (per le macchine virtuali).
 
-1.	Nel riquadro sinistro del portale di Azure fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
-2.	Nel riquadro della rete virtuale fare clic su **Tutte le impostazioni**.
-3.	Nel riquadro **Impostazioni** fare clic su **Server DNS**.
-4.	Nel riquadro **Server DNS** digitare quanto segue:
+1.	Nel riquadro sinistro del portale di Azure, fare clic su **Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
+2.	Nel riquadro **Impostazioni** fare clic su **Server DNS**.
+3.	Nel riquadro **Server DNS** digitare quanto segue:
 	- Per **Server DNS primario**: Tabella V - Elemento 6 - Colonna Valore
 	- Per **Server DNS secondario **: Tabella V - Elemento 7 - Colonna Valore
-5.	Nel riquadro sinistro del portale di Azure fare clic su **Sfoglia tutto > Macchine virtuali**.
-6.	Nel **riquadro Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
-7.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**.
-8.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel riquadro **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
-9.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
+4.	Nel riquadro sinistro del portale di Azure, fare clic su **Macchine virtuali**.
+5.	Nel riquadro **Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
+6.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**.
+7.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel riquadro **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
+8.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
 
 Si noti che sono stati riavviati i due controller di dominio per cui essi non vengono configurati con i server DNS locali come server DNS. Dal momento che sono essi stessi server DNS, sono stati configurati automaticamente con i server DNS locali come server d'inoltro DNS quando sono stati alzati di livello e sono diventati controller di dominio.
 
@@ -196,18 +195,6 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 ## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 3: Configurare l'infrastruttura di SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+- Seguire la [Fase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md) per continuare con la configurazione di questo carico di lavoro.
 
-## Risorse aggiuntive
-
-[Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664)
-
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # Query SQL in DocumentDB
@@ -186,7 +186,7 @@ Per un esempio che illustra come configurare i criteri di indicizzazione per una
 ## Nozioni di base di una query SQL di DocumentDB
 Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato.
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -661,8 +661,39 @@ L'operatore speciale (*) è supportato per proiettare il documento così com'è.
 	    "isRegistered": true
 	}]
 
+###Operatore TOP
+La parola chiave TOP può essere usata per limitare il numero di valori restituiti da una query. Se si usa TOP in combinazione con la clausola ORDER BY, il set di risultati è limitato al primo numero N di valori ordinati. In caso contrario, restituisce il primo numero N di risultati in un ordine non definito. Come procedura consigliata, in un'istruzione SELECT, usare sempre una clausola ORDER BY con la clausola TOP. Questo è l'unico modo per indicare in modo prevedibile le righe interessate dalla clausola TOP.
+
+
+**Query**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**Risultati**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+È possibile usare TOP con un valore costante (come illustrato in precedenza) o con un valore della variabile usando le query con parametri. Per altre informazioni dettagliate, vedere le query con parametri seguenti.
+
 ## Clausola ORDER BY
-Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita di Order By, vedere l'[esercitazione su Order By in DocumentDB](documentdb-orderby.md).
+Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita di Order By, fare riferimento alla [procedura dettagliata su Order By in DocumentDB](documentdb-orderby.md).
 
 Ad esempio, la query seguente recupera le famiglie in ordine di nome della città di residenza.
 
@@ -708,7 +739,7 @@ La query seguente recupera le famiglie in ordine di data di creazione, archiviat
 	
 ## Concetti avanzati relativi ai database e alle query SQL
 ### Iterazione
-Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
+In SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
 
 **Query**
 
@@ -849,7 +880,7 @@ L'esempio seguente illustra un join più convenzionale:
 
 
 
-Per prima cosa occorre notare che il valore `from_source` della clausola **JOIN** è un iteratore. Pertanto il flusso in questo caso è il seguente:
+Si noti innanzitutto che il valore `from_source` della clausola **JOIN** è un iteratore. Pertanto il flusso in questo caso è il seguente:
 
 -	Espandere ciascun elemento figlio **c** nella matrice.
 -	Applicare un prodotto incrociato con la radice del documento **f** con ogni elemento figlio **c** che è stato convertito nel primo passaggio.
@@ -961,7 +992,7 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` ed controlla se il primo corrisponde al modello specificato nella seconda mediante la funzione string.match() di JavaScript.
+L'esempio precedente crea una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nel secondo mediante la funzione string.match() di JavaScript.
 
 
 È ora possibile usare questa UDF in una query in una proiezione. Le UDF devono essere qualificate con il prefisso con distinzione tra maiuscole e minuscole "udf." quando chiamate dall'interno delle query.
@@ -1073,6 +1104,15 @@ Questa richiesta può quindi essere inviata a DocumentDB come query con parametr
         "parameters": [          
             {"name": "@lastName", "value": "Wakefield"},         
             {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+L'argomento può essere impostato su TOP mediante query con parametri, come illustrato di seguito.
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
         ] 
     }
 
@@ -1389,7 +1429,7 @@ L'esempio seguente usa ARRAY\_LENGTH per ottenere il numero di figli per ogni fa
 
 ### Funzioni spaziali
 
-DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per altre informazioni sul supporto geospaziale in DocumentDB, vedere [Uso dei dati geospaziali in Azure DocumentDB](documentdb-geospatial.md).
+DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per altre informazioni dettagliate sul supporto geospaziale in DocumentDB, vedere [Uso dei dati geospaziali in Azure DocumentDB](documentdb-geospatial.md).
 
 <table>
 <tr>
@@ -1428,7 +1468,7 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
       "id": "WakefieldFamily"
     }]
 
-Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando l'intestazione della richiesta `x-ms-documentdb-query-enable-scan` con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l'argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
 
 ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
@@ -1449,7 +1489,7 @@ Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
+>[AZURE.NOTE]In modo analogo al funzionamento dei tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato come **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
 
 ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
 
@@ -1485,7 +1525,7 @@ Viene eseguito il wrapping di funzioni spaziali e della sintassi SQL per Documen
 ## Da LINQ a SQL di DocumentDB
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. DocumentDB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di DocumentDB.
 
-Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che indirizza la query al provider di query di DocumentDB, il quale a sua volta traduce la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
+Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che indirizza la query al provider di query di DocumentDB, che a sua volta converte la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
 
 ![Architettura di supporto delle query LINQ usando DocumentDB.][1]
  
@@ -1602,6 +1642,22 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 		new Parent { familyName = "Smith", givenName = "Joe" };
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
+
+### Elenco di operatori LINQ supportati
+Di seguito è riportato un elenco di operatori LINQ supportati nel provider LINQ incluso in DocumentDB .NET SDK.
+
+-	**Select**: le proiezioni convertono in SQL SELECT inclusa la costruzione dell'oggetto.
+-	**Where**: i filtri convertono in SQL WHERE e supportano la conversione tra && , || e ! in operatori SQL.
+-	**SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Può essere usato per concatenare/annidare le espressioni per filtrare in base agli elementi della matrice.
+-	**OrderBy e OrderByDescending**: converte in ORDER BY crescente o decrescente.
+-	**CompareTo**: converte in confronti di intervallo. In genere usato per le stringhe in quanto non sono confrontabili in .NET
+-	**Take**: converte in SQL TOP per limitare i risultati da una query.
+-	**Math Functions**: supporta la conversione da Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate di .NET nelle funzioni predefinite di SQL equivalenti.
+-	**String Functions**: supporta la conversione da Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper di .NET nelle funzioni predefinite di SQL equivalenti.
+-	**Array Functions**: supporta la conversione da Concat, Contains e Count di .NET nelle funzioni predefinite di SQL equivalenti.
+-	**Geospatial Extension Functions**: supporta la conversione dai metodi sthub Distance, Within, IsValid e IsValidDetailed nelle funzioni predefinite di SQL equivalenti.
+-	**User Defined Function Extension Function**: supporta la conversione dal metodo stub UserDefinedFunctionProvider.Invoke alla funzione corrispondente definita dall'utente.
+-	**Miscellaneous**: supporta la conversione degli operatori condizionali e di unione. Consente la conversione di Contains in String CONTAINS, ARRAY\_CONTAINS o SQL IN in base al contesto.
 
 ### Operatori di query SQL
 Di seguito sono riportati alcuni esempi che illustrano in che modo gli operatori di query LINQ standard vengono tradotti nelle query di DocumentDB.
@@ -1754,7 +1810,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 
 #### Annidamento
 
-La sintassi è `input.SelectMany(x=>x.Q())` dove Q è un operatore `Select`, `SelectMany` o `Where`.
+La sintassi è `input.SelectMany(x=>x.Q())`, dove Q è un operatore `Select`, `SelectMany` o `Where`.
 
 In una query annidata, la query più interna viene applicata a ogni elemento della raccolta esterna. Una funzionalità importante è che la query interna può riferirsi ai campi degli elementi nella raccolta esterna come a self-join.
 
@@ -1807,7 +1863,7 @@ DocumentDB offre un modello di programmazione aperto RESTful su HTTP. È possibi
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di DocumentDB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Tipo-Contenuto `application/query+json` per indicare che l'operazione è una query.
+Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type: `application/query+json` per indicare che l'operazione è una query.
 
 
 **Richiesta**
@@ -1930,7 +1986,7 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
 	}
 
 
-Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count`.
+Se i risultati di una query superano le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token`. I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count`.
 
 Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di DocumentDB][consistency-levels].
 
@@ -2024,7 +2080,7 @@ Nell'esempio successivo vengono illustrati i join, espressi tramite la clausola 
 
 
 
-Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione relativa alle API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` e `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
+Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione dell'API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` e `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount`.
 
 Gli sviluppatori possono anche controllare esplicitamente il paging creando un oggetto `IDocumentQueryable` che usi l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e passandoli nuovamente come `RequestContinuationToken` in `FeedOptions`. È possibile impostare `EnableScanInQuery` in modo da abilitare le scansioni quando la query non può essere supportata dai criteri di indicizzazione configurati.
 
@@ -2088,4 +2144,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

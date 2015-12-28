@@ -48,7 +48,7 @@ Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mo
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
-- [Password Single Sign-On](active-directory-passwords-getting-started.md)
+- [Password Single Sign-On](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Agente di password Single Sign-On
 - [Assegnazione di gruppi](active-directory-accessmanagement-self-service-group-management.md)
 - App personalizzate basate su password
@@ -72,4 +72,4 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
+	ms.date="12/14/2015" 
 	ms.author="rasquill" 
 />
 
@@ -33,9 +33,9 @@ Azure offre soluzioni cloud eccezionali montate su macchine virtuali&mdash; basa
 - [Gestione risorse di Azure](resource-group-overview.md) e [modelli del gruppo di risorse](resource-group-authoring-templates.md) per semplificare la distribuzione e l’aggiornamento di applicazioni distribuite complesse
 - integrazione con un'ampia gamma di strumenti di gestione della configurazione sia proprietari che open source
 
-E poiché è possibile creare a livello di programmazione le VM e i contenitori Linux in Azure, è inoltre possibile utilizzare strumenti di *orchestrazione* per VM e contenitori per creare gruppi di Macchine virtuali (VM) e distribuire le applicazioni sia all'interno di contenitori Linux che, presto, all’interno di [contenitori Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+E poiché è possibile creare a livello di programmazione le VM e i contenitori Linux in Azure, è inoltre possibile utilizzare strumenti di *orchestrazione* per VM e contenitori per creare gruppi di Macchine virtuali (VM) e distribuire le applicazioni sia all'interno di contenitori Linux che, presto, all’interno di [contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-In questo articolo non solo vengono discussi questi concetti a livello generale, ma vengono anche forniti numerosi link per accedere a maggiori informazioni, esercitazioni e prodotti correlati all’utilizzo di contenitori e cluster in Azure. Se si è già a conoscenza di tutto ciò e si desidera visualizzare i link, essi si trovano [qui](#tools-for-working-with-containers).
+In questo articolo non solo vengono discussi questi concetti a livello generale, ma vengono anche forniti numerosi link per accedere a maggiori informazioni, esercitazioni e prodotti correlati all’utilizzo di contenitori e cluster in Azure. Se si è già a conoscenza di tutto ciò e si desidera visualizzare i link, essi si trovano proprio qui negli [strumenti per lavorare con i contenitori](#tools-for-working-with-containers).
 
 ## La differenza tra le macchine virtuali e i contenitori
 
@@ -47,7 +47,7 @@ Poiché in questo modello di isolamento ed esecuzione il kernel del computer hos
 
 È davvero fantastico.
 
-[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) fornisce gli stessi vantaggi di Linux containers per le applicazioni eseguite in Windows. Windows Server Containers supporta il formato di immagine Docker e l'API Docker. Di conseguenza, un'applicazione che utilizza Windows Server containers può essere sviluppata, pubblicata, recuperata e distribuita utilizzando comandi simili a quelli in Mac e Linux. Oltre a usare un [nuovo supporto Docker in Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0). L’[ecosistema contenitore](https://msdn.microsoft.com/virtualization/windowscontainers/about/container_ecosystem) di dimensioni maggiori offrirà a tutti gli strumenti per svolgere le operazioni necessarie con i contenitori.
+I contenitori Windows forniscono gli stessi vantaggi dei contenitori Linux, ma per le applicazioni eseguite in Windows. I contenitori Windows supportano il formato di immagine Docker e l'API Docker, tuttavia possono essere gestiti anche tramite PowerShell. Due runtime contenitore sono disponibili con i contenitori Windows, i contenitori Windows Server e i contenitori Hyper-V. I contenitori Hyper-V forniscono un ulteriore livello di isolamento tramite l’hosting di ogni contenitore in una macchina virtuale super ottimizzata. Per ulteriori informazioni sui contenitori Windows, vedere [Informazioni sui contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Per provare i contenitori Windows in Azure, vedere la [Guida introduttiva di Azure sui contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
 
 Anche questo è davvero fantastico.
 
@@ -63,7 +63,7 @@ Detto ciò, è necessario ricordare che i contenitori eseguono su un host del co
 
 ## Per quale scopo sono utili i contenitori?
 
-I contenitori trovano molte applicazioni, ad esempio favoriscono&mdash; come fanno anche i [Servizi Cloud di Azure](http://azure.microsoft.com/services/cloud-services/) e l’[Infrastruttura di servizi di Azure](service-fabric-overview.md)&mdash;la creazione di un singolo servizio, di applicazioni distribuite orientate al [microservizio], in cui il design dell’applicazione si basa su parti più piccole, componibili anziché su componenti più grandi e più fortemente accoppiati.
+I contenitori trovano molte applicazioni, ad esempio favoriscono&mdash; come fanno anche i [Servizi Cloud di Azure](http://azure.microsoft.com/services/cloud-services/) e [Azure Service Fabric](service-fabric-overview.md)&mdash;la creazione di un singolo servizio, di applicazioni distribuite orientate al [microservizio], in cui il design dell’applicazione si basa su parti più piccole, componibili anziché su componenti più grandi e più fortemente accoppiati.
 
 Ciò vale soprattutto in ambienti di cloud pubblico come Azure, in cui in si possono affittare VM quando e dove si desidera. Non solo si ottengono un isolamento, una rapida distribuzione e gli strumenti di orchestrazione, ma è anche possibile prendere decisioni più efficienti sull’infrastruttura delle applicazioni.
 
@@ -123,14 +123,14 @@ A questo punto, qualsiasi architetto, sviluppatore o specialista in operazioni I
 
 È vero e può essere qualsiasi numero di sistemi, molti dei quali sia già disponibile, in grado di gestire i gruppi di macchine virtuali di Azure e inserire codice personalizzato utilizzando gli script, spesso con la [CustomScriptingExtension per Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension per Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). È possibile automatizzare&mdash; e probabilmente è stato già fatto&mdash;le distribuzioni di Azure utilizzando gli script di PowerShell o dell’interfaccia della riga di comando di Azure [come segue](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
 
-Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) per automatizzare la creazione di VM su larga scala e la loro configurazione (sono disponibili [qui](#tools-for-working-with-containers)dei link su come utilizzare questi strumenti con Azure).
+Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) per automatizzare la creazione di VM su larga scala e la loro configurazione (qui sono disponibili alcuni link su [come utilizzare questi strumenti con Azure](#tools-for-working-with-containers)).
 
 ### Modelli di gruppo di risorse di Azure
 
 Più di recente, Azure ha rilasciato l’API REST [Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) e aggiornato gli strumenti di PowerShell e dell’interfaccia della riga di comando di Azure per utilizzarla con facilità. È possibile distribuire, modificare o ridistribuire intere topologie di applicazioni usando i [modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) con l'API di Gestione risorse di Azure usando:
 
 - il [portale di Azure utilizzando i modelli](https://github.com/Azure/azure-quickstart-templates)&mdash;si consiglia di utilizzare il pulsante "Distribuisci su Azure"
-- l’[Interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- l'[interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md).
 - i [ moduli di Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 
@@ -166,9 +166,9 @@ Alcune tecnologie per i contenitori di Linux:
 - [Open Container Project](http://opencontainers.org/)
 - [RancherOS](http://rancher.com/rancher-os/)
 
-Link a Windows Server Container:
+Link ai contenitori Windows:
 
-- [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+- [Contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
 
 Link a Visual Studio Docker:
 
@@ -233,11 +233,11 @@ Configurazione, gestione del cluster e orchestrazione del contenitore:
 
 ## Passaggi successivi
 
-Vedere [Docker](https://www.docker.com) e [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Vedere [Docker](https://www.docker.com) e [Contenitori Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservizio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -77,12 +77,13 @@ Ogni back-end Node.js per le app per dispositivi mobili del servizio app di Azur
 
 Questa applicazione crea una semplice API Web ottimizzata per dispositivi mobili con un endpoint singolo, `/tables/TodoItem`, che consente l'accesso non autenticato a un archivio dati SQL sottostante usando uno schema dinamico. È adatta per l'avvio rapido delle librerie client seguenti:
 
+- [Avvio rapido di client Android]
 - [Avvio rapido di client iOS]
+- [Avvio rapido di client Windows Store]
 - [Avvio rapido di client Xamarin.iOS]
 - [Avvio rapido di client Xamarin.Android]
 - [Avvio rapido di client Xamarin.Forms]
-- [Avvio rapido di client Windows Store]
-- [Avvio rapido di client HTML/JavaScript]
+
 
 Il codice per questa applicazione di base è disponibile nell'[esempio basicapp in GitHub].
 
@@ -322,6 +323,33 @@ Di seguito è riportato un file _azureMobile.js_ di esempio che implementa le im
 
 È consigliabile aggiungere _azureMobile.js_ al file con estensione _gitignore_, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud. Configurare sempre le impostazioni di produzione in Impostazioni app nel [portale di Azure].
 
+### <a name="howto-appsettings"><a>Impostazioni app per la configurazione dell'app per dispositivi mobili
+
+Quasi tutte le impostazioni nel file _azureMobile.js_ hanno un'impostazione app equivalente nel [portale di Azure]. Usare l'elenco seguente per configurare l'app in Impostazioni app:
+
+| Impostazione app | Impostazione di _azureMobile.js_ | Descrizione | Valori validi |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS\_MobileAppName** | name | Nome dell'app | string |
+| **MS\_MobileLoggingLevel** | logging.level | Livello log minimo di messaggi da registrare | error, warning, info, verbose, debug, silly |
+| **MS\_DebugMode** | debug | Abilitare o disabilitare la modalità di debug | true, false |
+| **MS\_TableSchema** | data.schema | Nome dello schema predefinito per le tabelle SQL | string (valore predefinito: dbo) |
+| **MS\_DynamicSchema** | data.dynamicSchema | Abilitare o disabilitare la modalità di debug | true, false |
+| **MS\_DisableVersionHeader** | version (impostata su undefined)| Disabilita l'intestazione X-ZUMO-Server-Version | true, false |
+| **MS\_SkipVersionCheck** | skipversioncheck | Disabilita il controllo della versione dell'API client | true, false |
+
+Per definire un'impostazione app:
+
+1. Accedere al [portale di Azure].
+2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome dell'app per dispositivi mobili.
+3. Verrà aperto il pannello Impostazioni per impostazione predefinita. In caso contrario, fare clic su **Impostazioni**.
+4. Fare clic su **Impostazioni dell'applicazione** nel menu GENERALE.
+5. Scorrere fino alla sezione Impostazioni app.
+6. Se l'impostazione app esiste già, fare clic sul valore dell'impostazione dell'app per modificare il valore.
+7. Se l'impostazione app non esiste, immettere l'Impostazione app nella casella Chiave e il valore nella casella Valore.
+8. Al termine, fare clic su **Salva**.
+
+Per modificare la maggior parte delle impostazioni dell'app, sarà necessario riavviare il servizio.
+
 ### <a name="howto-use-sqlazure"></a>Procedura: Usare il database SQL come archivio dati di produzione
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
@@ -330,13 +358,13 @@ L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi d
 
 1. Accedere al [portale di Azure].
 
-2. Nella parte superiore sinistra della finestra fare clic su **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end dell'app per dispositivi mobili.
+2. Nella parte superiore sinistra della finestra fare clic sul pulsante **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end dell'app per dispositivi mobili.
 
 3. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 
-4. Verrà selezionato il piano di servizio app predefinito. Per modificare il piano di servizio app, fare clic su Piano di servizio app > **+ Crea nuovo**. Specificare un nome del nuovo piano di servizio app e selezionare un percorso appropriato. Fare clic su Piano tariffario e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo avere scelto il piano tariffario, fare clic sul pulsante **Seleziona**. Nel pannello **Piano di servizio app** fare clic su **OK**.
+4. Verrà selezionato il piano di servizio app predefinito. Per modificare il piano di servizio app, fare clic su Piano di servizio app > **+ Crea nuovo**. Specificare un nome del nuovo piano di servizio app e selezionare un percorso appropriato. Fare clic su Piano tariffario e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona**. Nel pannello **Piano di servizio app** fare clic su **OK**.
 
-5. Fare clic su **Crea**. In questo modo, viene creato un back-end dell'app per dispositivi mobili in cui verrà in seguito distribuito il progetto server. L'operazione di provisioning di un back-end dell'app per dispositivi mobili può richiedere alcuni minuti. Dopo avere effettuato il provisioning del back-end dell'app per dispositivi mobili, nel portale verrà aperto il pannello **Impostazioni** per il back-end dell'app per dispositivi mobili.
+5. Fare clic su **Crea**. In questo modo, viene creato un back-end dell'app per dispositivi mobili in cui verrà in seguito distribuito il progetto server. L'operazione di provisioning di un back-end dell'app per dispositivi mobili può richiedere alcuni minuti. Dopo aver effettuato il provisioning del back-end dell'app per dispositivi mobili, nel portale verrà aperto il pannello **Impostazioni** per il back-end dell'app per dispositivi mobili.
 
 Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegliere se connettere un database SQL esistente o creare un nuovo database SQL. In questa sezione viene creato un nuovo database SQL.
 
@@ -392,9 +420,9 @@ Ogni tabella ha una proprietà di accesso che può essere usata per controllare 
 
 La proprietà di accesso può assumere uno dei tre valori seguenti:
 
-  - *anonymous* indica che all'applicazione client è consentito leggere i dati senza autenticazione.
-  - *authenticated* indica che l'applicazione client deve inviare un token di autenticazione valido con la richiesta.
-  - *disabled* indica che la tabella è attualmente disabilitata.
+  - *anonymous* indica che all'applicazione client è consentito leggere i dati senza autenticazione
+  - *authenticated* indica che l'applicazione client deve inviare un token di autenticazione valido con la richiesta
+  - *disabled* indica che la tabella è attualmente disabilitata
 
 Se la proprietà di accesso non è definita, è consentito l'accesso non autenticato.
 
@@ -402,10 +430,10 @@ Se la proprietà di accesso non è definita, è consentito l'accesso non autenti
 
 Oltre che sulla tabella, la proprietà di accesso può essere usata per controllare singole operazioni. Sono disponibili quattro operazioni:
 
-  - *read* è l'operazione GET RESTful sulla tabella.
-  - *insert* è l'operazione POST RESTful sulla tabella.
-  - *update* è l'operazione PATCH RESTful sulla tabella.
-  - *delete* è l'operazione DELETE RESTful sulla tabella.
+  - *read* è l'operazione GET RESTful sulla tabella
+  - *insert* è l'operazione POST RESTful sulla tabella
+  - *update* è l'operazione PATCH RESTful sulla tabella
+  - *delete* è l'operazione DELETE RESTful sulla tabella
 
 Si supponga, ad esempio, di voler fornire una tabella non autenticata di sola lettura. A questo scopo è possibile usare la definizione di tabella seguente:
 
@@ -531,7 +559,7 @@ Per usare l'autenticazione del servizio app con un'API personalizzata, è necess
 
 Le API personalizzate vengono definite in modo molto simile alle API di tabella.
 
-1. Creare una directory **api**.
+1. Creare una directory **api**
 2. Creare un file JavaScript di definizione dell'API nella directory **api**.
 3. Usare il metodo di importazione per importare la directory **api**.
 
@@ -603,44 +631,44 @@ Il Servizio app di Azure offre diverse tecniche di debug e risoluzione dei probl
 - [Abilitazione della registrazione diagnostica nel servizio app di Azure]
 - [Risoluzione dei problemi di un Servizio app di Azure in Visual Studio]
 
-### <a name="howto-diagnostic-logs"></a>Procedura: Scrivere nei log di diagnostica delle app per dispositivi mobili di Azure
+### <a name="howto-diagnostic-logs"></a>Procedura: Scrivere nei log di diagnostica di App per dispositivi mobili di Azure
 
-Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Al suo interno Node.js SDK per le app per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica. Questa opzione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS\_DebugMode** nel [portale di Azure]. I log generati verranno visualizzati tra i log di diagnostica del [portale di Azure].
+Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Al suo interno Node.js SDK per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica. Questa opzione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS\_DebugMode** nel [portale di Azure]. I log generati verranno visualizzati tra i log di diagnostica del [portale di Azure].
 
 ## <a name="in-portal-editing"></a>Esperienza di modifica del codice nel portale
 
-Gli strumenti speciali disponibili nel portale di Azure consentono di lavorare a un progetto back-end di Node.js senza dover scaricare il progetto di codice. Le impostazioni Easy Tables e Easy APIs nel portale consentono di creare e utilizzare tabelle e API personalizzate direttamente nel portale. È anche possibile modificare l'operazione su tabella e gli script API nel portale usando l'editor "Monaco" di Visual Studio Online.
+Gli strumenti speciali disponibili nel portale di Azure consentono di lavorare a un progetto back-end di Node.js senza dover scaricare il progetto di codice. Le impostazioni Easy Tables e Easy APIs nel portale consentono di creare e utilizzare tabelle e API personalizzate direttamente nel portale. È anche possibile modificare l'operazione su tabella e gli script API nel portale usando l'editor "Monaco" di Visual Studio Team Services.
 
-### <a name="work-easy-tables"></a>Procedura: Utilizzare Easy Tables nel portale di Azure
+### <a name="work-easy-tables"></a>Procedura: Usare Easy Tables nel portale di Azure
 
-Quando fa clic su **Easy tables** nelle impostazioni del sito di back-end, è possibile aggiungere una nuova tabella oppure modificarne o eliminarne una esistente. È anche possibile visualizzare i dati nella tabella.
+Quando si fa clic su **Easy tables** nelle impostazioni del sito di back-end, è possibile aggiungere una nuova tabella oppure modificarne o eliminarne una esistente. È anche possibile visualizzare i dati nella tabella.
 
 ![Utilizzare Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 I comandi seguenti sono disponibili sulla barra dei comandi di una tabella:
 
 + **Modifica autorizzazioni**: è possibile modificare l'autorizzazione per le operazioni di lettura, inserimento, aggiornamento ed eliminazione di operazioni sulla tabella. Le opzioni consentono di eseguire l'accesso anonimo, richiedere l'autenticazione o disabilitare qualunque tipo di accesso all'operazione. In questo modo si modifica il file di codice del progetto table.json.
-+ **Modifica script**: il file di script per la tabella viene aperto nell'editor di Visual Studio Online.
++ **Modifica script**: il file di script per la tabella viene aperto nell'editor di Visual Studio Team Services.
 + **Gestisci schema**: è possibile aggiungere o eliminare le colonne o modificare l'indice di tabella.
 + **Cancella tabella**: tronca una tabella esistente eliminando tutte le righe di dati ma lasciando lo schema invariato.
 + **Elimina righe**: è possibile eliminare singole righe di dati.
 + **Visualizzare log di streaming**: consente di connettersi al servizio di log in streaming del sito.
 
-###<a name="work-easy-apis"></a>Procedura: Utilizzare Easy APIs nel portale di Azure
+###<a name="work-easy-apis"></a>Procedura: Usare Easy APIs nel portale di Azure
 
-Quando fa clic su **Easy APIs** nelle impostazioni del sito di back-end, è possibile aggiungere un endpoint dell'API personalizzata oppure modificarne o eliminarne uno esistente.
+Quando si fa clic su **Easy APIs** nelle impostazioni del sito di back-end, è possibile aggiungere un endpoint dell'API personalizzata oppure modificarne o eliminarne uno esistente.
 
 ![Utilizzare Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Nel portale è possibile modificare le autorizzazioni di accesso per una determinata azione HTTP, modificare il file di script dell'API nell'editor di Visual Studio Online o visualizzare i log in streaming.
+Nel portale è possibile modificare le autorizzazioni di accesso per una determinata azione HTTP, modificare il file di script dell'API nell'editor di Visual Studio Team Services o visualizzare i log in streaming.
 
-###<a name="online-editor"></a>Procedura: Modificare il codice in Visual Studio Online
+###<a name="online-editor"></a>Procedura: Modificare il codice in Visual Studio Team Services
 
-Il portale di Azure consente di modificare i file di script del back-end Node.js in Visual Studio Online senza dover scaricare il progetto nel computer locale. Per modificare i file di script nell'editor online:
+Il portale di Azure consente di modificare i file di script del back-end Node.js in Visual Studio Team Services senza dover scaricare il progetto nel computer locale. Per modificare i file di script nell'editor online:
 
-1. Nel pannello del back-end delle app per dispositivi mobili fare clic su **Tutte le impostazioni** > **Easy tables** o **Easy APIs**, fare clic su una tabella o un'API, quindi fare clic su **Modifica script**. Il file di script viene aperto nell'editor di Visual Studio Online.
+1. Nel pannello del back-end delle app per dispositivi mobili fare clic su **Tutte le impostazioni** > **Easy tables** o **Easy APIs**, fare clic su una tabella o un'API e quindi su **Modifica script**. Il file di script viene aperto nell'editor di Visual Studio Team Services.
 
-	![Editor di codice di Visual Studio Online](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Editor del codice di Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Apportare le modifiche al file di codice nell'editor online. Le modifiche vengono salvate automaticamente durante la digitazione.
 
@@ -657,12 +685,13 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Avvio rapido di client Android]: app-service-mobile-android-get-started.md
 [Avvio rapido di client iOS]: app-service-mobile-ios-get-started.md
 [Avvio rapido di client Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Avvio rapido di client Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Avvio rapido di client Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Avvio rapido di client Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
-[Avvio rapido di client HTML/JavaScript]: app-service-html-get-started.md
+[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [sincronizzazione dati offline]: app-service-mobile-offline-data-sync.md
 [Come configurare l'autenticazione di Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Come configurare l'autenticazione di Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
@@ -693,4 +722,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

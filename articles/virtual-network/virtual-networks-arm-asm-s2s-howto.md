@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/18/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Connessione di reti virtuali classiche a nuove reti virtuali
@@ -130,4 +130,4 @@ Per creare un gateway VPN per la rete virtuale di Gestione risorse di Azure, seg
 - Leggere ulteriori informazioni su [NRP (Network Resource Provider) per Gestione risorse di Azure](../resource-groups-networking.md).
 - Creare una [soluzione end-to-end che connette una rete virtuale classica a una rete virtuale di Gestione risorse di Azure utilizzando una VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

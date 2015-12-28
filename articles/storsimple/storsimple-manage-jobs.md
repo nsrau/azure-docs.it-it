@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple.
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## Panoramica
 
@@ -25,7 +27,7 @@ La pagina**processi**fornisce un unico portale centralizzato per la visualizzazi
 
 È possibile trovare rapidamente i processi desiderati filtrando i campi, ad esempio:
 
-- **Stato**– i processi possono essere in esecuzione, pianificati, non riusciti, completati, in fase di annullamento o annullati.
+- **Stato**: i processi possono essere in esecuzione, pianificati, non riusciti, completati, in fase di annullamento o annullati.
 
 - **Tipo**: i processi possono essere creati come risultato di un backup su richiesta o pianificato (**eseguire Backup**), di una clonazione, di un ripristino del dispositivo o di un'operazione di aggiornamento.
 
@@ -43,7 +45,7 @@ I processi filtrati vengono quindi elaborati in base ai seguenti attributi:
 
 - **Dispositivo**: il nome del dispositivo su cui è stato avviato il processo.
 
-- **Avviato su**: l'ora di inizio del processo.
+- **Avviato alle**: l'ora di inizio del processo.
 
 - **Stato di avanzamento**: la percentuale di completamento di un processo in esecuzione. Per un processo completato deve sempre essere 100%.
 
@@ -61,7 +63,7 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 
 #### Per visualizzare i dettagli dei processi
 
-1. Nella pagina**processi**, visualizzare i processi desiderati eseguendo una query con filtri appropriati. È possibile cercare processi completati, in esecuzione o annullati.
+1. Nella pagina**Processi**, visualizzare i processi desiderati eseguendo una query con filtri appropriati. È possibile cercare processi completati, in esecuzione o annullati.
 
 2. Selezionare un processo.
 
@@ -75,7 +77,7 @@ Eseguire la procedura seguente per annullare un processo in esecuzione.
 
 ### Per annullare un processo
 
-1. Nella pagina **processi**, visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati.
+1. Nella pagina **Processi**, visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati.
 
 1. Selezionare il processo.
 
@@ -91,4 +93,4 @@ Questo processo ora viene annullato.
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/16/2015"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite la CLI di Azure
@@ -23,10 +23,7 @@
 
 Informazioni su come usare l'[Interfaccia della riga di comando di Azure](xplat-cli-install.md) per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
 
-L'interfaccia della riga di comando di Azure è open source. Il codice sorgente viene gestito in GitHub all'indirizzo <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
-
 In questo articolo viene illustrato solo l’uso dell’interfaccia della riga di comando di Azure con HDInsight. Per una guida generale sull'uso dell’interfaccia della riga di comando di Azure vedere [Installare e configurare l’interfaccia della riga di comando di Azure][azure-command-line-tools].
-
 
 ##Prerequisiti
 
@@ -44,8 +41,11 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 		azure config mode arm
 
+Per ottenere assistenza, utilizzare l’opzione **-h**. Ad esempio:
 
-##Creazione di cluster
+	azure hdinsight cluster create -h
+	
+##Creare i cluster
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
@@ -88,60 +88,38 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **(Facoltativo) Contenitore di BLOB predefinito**: il comando **azure hdinsight cluster create** crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile usare il comando seguente:
 
-	azure storage container create --account-name <Storage Account Name> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
 
-Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibile creare un cluster:
+Dopo aver preparato l'account di archiviazione, è possibile creare un cluster.
 
-	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<Storage Account Name>" --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
-
-![HDI.CLIClusterCreation][image-cli-clustercreation]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	azure hdinsight cluster create --resource-group <Resource Group Name> --clusterName <Cluster Name> --location <Location> --osType <Windows | Linux> --version <Cluster Version> --clusterType <Hadoop | HBase | Spark | Storm> --storageAccountName <Default Storage Account Name> --storageAccountKey <Storage Account Key> --storageContainer <Default Storage Container> --username <HDInsight Cluster Username> --password <HDInsight Cluster Password> --sshUserName <SSH Username> --sshPassword <SSH User Password> --workerNodeCount <Number of Worker Nodes>
 
 
 ##Creare cluster mediante i file di configurazione
 In genere, si crea un cluster HDInsight, vi si eseguono i processi e quindi si elimina il cluster per ridurre il costo. L'interfaccia della riga di comando consente di salvare le configurazioni in un file, per poterle riutilizzare ogni volta che si crea un cluster.
 
-> [AZURE.NOTE]La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+	azure hdinsight config create [options ] <Config File Path> <overwirte>
+	azure hdinsight config add-config-values [options] <Config File Path>
+	azure hdinsight config add-script-action [options] <Config File Path>
 
-	azure hdinsight cluster config create <file>
+Esempio: creare un file di configurazione che contiene un'azione script per l'esecuzione durante la creazione di un cluster.
 
-	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <Script Action URI> --name myScriptAction --parameters "-param value"
 
-	azure hdinsight cluster config storage add <file> --storageAccountName ""<Storage Account Name>".blob.core.windows.net"
-	       --storageAccountKey "<StorageAccountKey>"
+##Creare cluster con un’azione di script
 
-	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
-	       --database "<HiveDatabaseName>" --user "<Username>" --metastorePassword "<UserPassword>"
+Di seguito è fornito un esempio:
 
-	azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
-	       --database "<OozieDatabaseName>" --user "<SQLUsername>" --metastorePassword "<SQLPassword>"
-
-	azure hdinsight cluster create --config <file>
-
-
-
-![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
-
+	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	
+Per informazioni generali sull'azione di script, vedere [Personalizzare cluster HDInsight mediante l'azione script (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Elencare i cluster e visualizzarne i dettagli
 Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
 	azure hdinsight cluster list
-	azure hdinsight cluster show <ClusterName>
+	azure hdinsight cluster show <Cluster Name>
 
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
@@ -149,13 +127,25 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 ##Eliminare cluster
 Utilizzare il comando seguente per eliminare un cluster:
 
-	azure hdinsight cluster delete <ClusterName>
+	azure hdinsight cluster delete <Cluster Name>
 
 ##Ridimensionare i cluster
 
-Per modificare le dimensioni del cluster Hadoop mediante Azure PowerShell, eseguire il comando seguente da un computer client:
+Per modificare le dimensioni del cluster Hadoop:
 
-	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
+	azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+
+
+## Abilitare/disabilitare l'accesso HTTP per un cluster
+
+	azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+	azure hdinsight cluster disable-http-access [options] <Cluster Name>
+
+## Abilitare/disabilitare l'accesso RDP per un cluster
+
+  	azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+  	azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+
 
 ##Passaggi successivi
 In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
@@ -182,4 +172,4 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elenco e visualizzazione di cluster"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

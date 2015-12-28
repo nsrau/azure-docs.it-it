@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight in Advanced Analytics Process and Technology 
 
-Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning. Il documento illustra inoltre due attività di gestione dei dati: creazione di funzionalità ed esplorazione dei dati. Descrive infine query Hive generiche che illustrano come esplorare i dati o creare funzionalità usando Hive in un cluster Hadoop del servizio HDInsight di Azure. Tali query Hive usano le funzioni definite dall'utente fornite.
+Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. Questa attività è parte del Cortana Analytics Process (CAP). Il documento illustra inoltre due attività di gestione dei dati: creazione di funzionalità ed esplorazione dei dati. Vengono presentate le query Hive generiche che illustrano come esplorare i dati o creare funzionalità usando Hive in un cluster Hadoop del servizio HDInsight di Azure. Tali query Hive usano le funzioni definite dall'utente fornite.
 
 Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
 
-Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
+Nella parte finale del documento, vengono descritti i parametri che gli utenti possono utilizzare per impostare e migliorare le prestazioni delle query Hive.
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -34,12 +34,12 @@ Questo articolo presuppone che l'utente abbia:
 
 
 ## <a name="submit"></a>Come inviare query Hive
-È possibile inviare query Hive mediante:
+È possibile inviare query hive utilizzando le seguenti applicazioni:
 
-* Riga di comando di Hadoop presente nel nodo head del cluster
-* IPython Notebook
-* Editor Hive
-* Script di Azure PowerShell
+* **Riga di comando di Hadoop** presente nel nodo head del cluster
+* **IPython Notebook**
+* **Editor Hive**
+* Script di **PowerShell**
 
 Le query Hive sono simili a SQL. Gli utenti che conoscono SQL possono trovare utile il <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">foglio informativo relativo all'uso di Hive per gli utenti di SQL</a>.
 
@@ -67,7 +67,7 @@ Gli utenti possono eseguire comandi simili al seguente
 
 per inviare query Hive semplici direttamente alla riga di comando di Hive. In questo esempio, la casella rossa evidenzia il comando che consente di inviare la query Hive, mentre quella verde evidenzia l'output della query.
 
-![Creare un'area di lavoro][10]
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### Inviare query nei file con estensione hql
 
@@ -85,9 +85,9 @@ Per impostazione predefinita, dopo aver inviato una query Hive nella riga di com
 
 #### Inviare query Hive nella console dei comandi di Hive
 
-Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
+Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` dalla riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
 
-![Creare un'area di lavoro][11]
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
 
@@ -108,11 +108,11 @@ Gli utenti possono anche restituire i risultati della query Hive in un BLOB di A
 
 Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio **wasb:///queryoutputdir/queryoutput.txt*.
 
-![Creare un'area di lavoro][13]
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 L'output della query Hive può essere visualizzato nell'archiviazione BLOB, aprendo il contenitore predefinito del cluster Hadoop tramite lo strumento Esplora archivi Azure (o uno equivalente). È possibile applicare il filtro (evidenziato nella casella rossa) se si desidera recuperare soltanto un BLOB che contiene determinate lettere nei nomi.
 
-![Creare un'area di lavoro][14]
+![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### Attraverso i comandi dell'editor Hive o di Azure PowerShell
 
@@ -270,11 +270,11 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Creare un'area di lavoro][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
-Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite dall'utente e incorporate di Hive.
+Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite e incorporate di Hive.
 
 ## <a name="tuning"></a> Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query
 
@@ -310,13 +310,8 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

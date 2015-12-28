@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guida al monitoraggio e alla risoluzione dei problemi di VMM e di protezione dei siti di Hyper-V" 
+	pageTitle="Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici | Microsoft Auzre" 
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server locali in Azure o in un data center secondario. Utilizzare questo articolo per monitorare e risolvere i problemi di VMM e di protezione dei siti di Hyper-V" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# Monitorare e risolvere i problemi di protezione per VMware, VMM, Hyper-V e siti fisici
+# Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici
 
 La Guida al monitoraggio e la alla risoluzione dei problemi consente come monitorare e apprendere lo stato della replica di rilevamento e risoluzione dei problemi di tecniche per Azure Site Recovery.
 
@@ -194,10 +194,9 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
-Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): 
--   [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

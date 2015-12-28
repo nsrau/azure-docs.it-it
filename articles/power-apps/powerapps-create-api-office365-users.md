@@ -84,7 +84,7 @@ Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizz
 Viene creata una nuova applicazione Azure Active Directory È possibile utilizzare questa app nella configurazione dell'API di Office 365 Users nel portale di Azure.
 
 ## Riepilogo e passaggi successivi
-In questo argomento, è stata aggiunta l'API di Office 365 Outlook alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
+In questo argomento, è stata aggiunta l'API di Office 365 Users alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
 
 [Aggiungere una connessione e fornire agli utenti l'accesso](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@ In questo argomento, è stata aggiunta l'API di Office 365 Outlook alla PowersAp
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

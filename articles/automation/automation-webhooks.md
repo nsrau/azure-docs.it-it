@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Webhook di Automazione di Azure
@@ -53,7 +53,24 @@ L'oggetto **$WebhookData** disporrà delle proprietà seguenti:
 
 Non è richiesta alcuna configurazione del webhook per supportare il parametro **$WebhookData** e il Runbook non deve necessariamente accettarlo. Se il Runbook non definisce il parametro, gli eventuali dettagli della richiesta inviata dal client verranno ignorati.
 
-Se si specifica un valore per $WebhookData quando si crea il webhook, viene eseguito l'override di tale valore quando il webhook avvia il Runbook con i dati della richiesta POST del client, anche se il client non include dati nel corpo della richiesta. Se si avvia un Runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal Runbook. Questo valore deve essere un oggetto con le stesse proprietà di $Webhookdata in modo che il Runbook possa usarlo correttamente.
+Se si specifica un valore per $WebhookData quando si crea il webhook, viene eseguito l'override di tale valore quando il webhook avvia il Runbook con i dati della richiesta POST del client, anche se il client non include dati nel corpo della richiesta. Se si avvia un Runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal Runbook. Questo valore deve essere un oggetto con le stesse [proprietà](#details-of-a-webhook) di $Webhookdata in modo che il Runbook possa usarlo correttamente come se stesse usando con il WebhookData effettivo passato da un webhook.
+
+Ad esempio, se si inizia il seguente runbook dal portale di Azure e si desidera passare alcuni esempi WebhookData per testarli, poiché WebhookData è un oggetto, deve essere passato come JSON nell'interfaccia utente.
+
+![Parametro WebhookData dall'interfaccia utente](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+Per il runbook riportato sopra, se si hanno le seguenti proprietà per il parametro WebhookData:
+
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
+
+Passare quindi il seguente valore JSON nell'interfaccia utente per il parametro WebhookData:
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"["VM1","VM2"]"}
+
+![Parametro WebhookData Start dall'interfaccia utente](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+
 
 >[AZURE.NOTE]I valori di tutti i parametri di input vengono registrati con il processo di Runbook. Qualsiasi input fornito dal client nella richiesta del webhook verrà quindi registrato e sarà disponibile per chiunque abbia accesso al processo di automazione. Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
 
@@ -179,7 +196,7 @@ Oltre a usare gli avvisi di Azure come sistema di notifica, è anche possibile a
 
 Se si considera una risorsa di Azure, ad esempio una macchina virtuale, l'uso della CPU del computer rappresenta una delle metriche fondamentali relative alle prestazioni. Se l'uso della CPU è pari al 100% o più di una certa quantità per un lungo periodo di tempo, si potrebbe voler riavviare la macchina virtuale per risolvere il problema. Questo problema può essere risolto tramite la configurazione di una regola di avviso per la macchina virtuale. Tale regola userà la percentuale di CPU come metrica. La percentuale di CPU viene usata solo come esempio. È tuttavia possibile configurare numerose altre metriche per le risorse di Azure e riavviare la macchina virtuale per risolvere il problema. È comunque possibile configurare il runbook per eseguire altre operazioni.
 
-Quando la regola di avviso viene abilitata e attiva il runbook abilitato per i webhook, la regola invia il contesto dell'avviso al runbook. Il [contesto dell'avviso](Azure-portal/insights-receive-alert-notifications.md) contiene dettagli, tra cui i valori di **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** e **Timestamp** richiesti dal runbook per identificare la risorsa in cui verrà eseguita l'azione. Il contesto dell'avviso è incorporato nel corpo del contesto dell'oggetto **WebhookData** inviato al runbook, a cui è possibile accedere tramite la proprietà **Webhook.RequestBody**.
+Quando la regola di avviso viene abilitata e attiva il runbook abilitato per i webhook, la regola invia il contesto dell'avviso al runbook. Il [contesto dell'avviso](Azure-portal/insights-receive-alert-notifications.md) contiene dettagli, tra cui i valori di **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** e **Timestamp** richiesti dal runbook per identificare la risorsa in cui verrà eseguita l'azione. Il contesto dell'avviso è incorporato nel corpo del contesto dell'oggetto **WebhookData** inviato al runbook, a cui è possibile accedere tramite la proprietà **Webhook.RequestBody**
 
 
 ### Esempio
@@ -255,4 +272,4 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 - [Visualizzazione dello stato di un processo di Runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Uso di Automazione di Azure per eseguire azioni sugli avvisi di Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

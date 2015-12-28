@@ -292,26 +292,7 @@ Se si tenta di distribuire un modello che crea più di 4 core nell'area Stati Un
 
 In questi casi, si deve accedere al portale e rivolgersi all'assistenza per richiedere l'aumento della quota per l'area di destinazione della distribuzione.
 
-> [AZURE.NOTE]Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree.
-<!-- -->
-Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
-
+> [AZURE.NOTE]Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree. <!-- --> Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Verifica della registrazione del provider di risorse
@@ -409,7 +390,7 @@ Se si usano i modelli creati, è importante comprendere che il sistema Gestione 
 
 Tuttavia, questo non implica necessariamente che il gruppo di risorse è “attivo e disponibile per gli utenti”. Ad esempio, la maggior parte delle distribuzioni richiede la distribuzione per scaricare gli aggiornamenti, attendere altre risorse esterne al modello oppure installare script complessi o altre attività eseguibili che Azure non rileva perché non sono attività registrate da un provider. In questi casi potrebbe trascorrere altro tempo prima che le risorse siano effettivamente pronte per l'uso. Di conseguenza, è necessario che lo stato di distribuzione venga completato correttamente prima di poter usare la distribuzione.
 
-Per impedire che Azure segnali lo stato di completamento della distribuzione, tuttavia, è possibile creare uno script personalizzato per il modello personalizzato usando, ad esempio, [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), che consente di monitorare la conformità dell'intera distribuzione a livello di sistema e di restituire lo stato di completamento corretto solo quando gli utenti possono interagire con l'intera distribuzione. Per assicurarsi che l'estensione specificata sia l'ultima a essere eseguita, usare la proprietà **dependsOn** nel modello. Per un esempio, vedere [qui](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+Per impedire che Azure segnali lo stato di completamento della distribuzione, tuttavia, è possibile creare uno script personalizzato per il modello personalizzato usando, ad esempio, [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), che consente di monitorare la conformità dell'intera distribuzione a livello di sistema e di restituire lo stato di completamento corretto solo quando gli utenti possono interagire con l'intera distribuzione. Per assicurarsi che l'estensione specificata sia l'ultima a essere eseguita, usare la proprietà **dependsOn** nel modello. È possibile visualizzare un esempio durante [la creazione di distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Strumenti utili per interagire con Azure
 Quando si utilizzano le risorse di Azure dalla riga di comando, si raccolgono gli strumenti che consentono di svolgere il lavoro. I modelli di gruppi di risorse di Azure sono documenti JSON e l'API Gestione risorse di Azure accetta e restituisce JSON, quindi gli strumenti di analisi di JSON sono tra gli strumenti più importanti per cercare informazioni sulle risorse e progettare o interagire con i modelli e i file dei parametri di modello.
@@ -435,4 +416,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

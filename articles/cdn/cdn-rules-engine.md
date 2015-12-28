@@ -63,6 +63,7 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 - L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l’override delle azioni specificate da una regola precedente.
 
 ## Vedere anche
+* [Informazioni dettagliate sulle condizioni di corrispondenza e sulle funzionalità del motore regole](cdn-rules-engine-details.md)
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

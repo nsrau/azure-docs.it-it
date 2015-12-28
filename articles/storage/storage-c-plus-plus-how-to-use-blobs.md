@@ -236,10 +236,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 -	[Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
-
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

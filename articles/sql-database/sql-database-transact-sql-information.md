@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Informazioni su Transact-SQL del Database SQL di Azure | Microsoft Azure"
-   description="Istruzioni Transact-SQL nel Database SQL Azure"
+   pageTitle="Non sono supportate in T-SQL del Database SQL di Azure | Microsoft Azure"
+   description="Istruzioni Transact-SQL non completamente supportate nel Database SQL di Azure"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,12 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Informazioni su Transact-SQL del Database SQL di Azure
+# Differenze di Transact-SQL del Database SQL di Azure
 
-La maggior parte delle istruzioni relative a Transact-SQL di SQL Server 2016 sono completamente supportate nel Database SQL di Microsoft Azure. Sono inclusi i tipi di dati di SQL Server, operatori e la stringa, funzioni aritmetiche, logiche e di cursore e gli altri elementi Transact-SQL da cui dipende la maggior parte delle applicazioni. Alcune funzioni non sono supportate o sono supportate parzialmente poiché il database SQL gestisce il database in modo diverso (ad esempio file, disponibilità elevata e funzionalità di sicurezza) o per le funzionalità speciali, ad esempio Service broker. Poiché il database SQL isola molte funzionalità dalla dipendenza nel database master, molte attività a livello di server sono inappropriate e non supportate. Le funzionalità deprecate in SQL Server in genere non sono supportate nel Database SQL.
+
+La maggior parte delle funzionalità Transact-SQL essenziali per le applicazioni è supportata in Microsoft SQL Server e Database SQL di Azure. Segue un elenco parziale delle funzionalità supportate per le applicazioni:
+
+- Tipi di dati.
+- Operatori.
+- Stringa, funzioni aritmetiche, logiche e di cursore.
+
+Tuttavia, il Database SQL di Azure è progettato per isolare le funzionalità di tutte le dipendenze nel database **master**. Di conseguenza molte attività a livello di server non sono appropriate per il Database SQL e non sono supportate. In questo argomento vengono descritte le funzionalità che non sono completamente supportate nel Database SQL.
+
+Inoltre, le funzionalità deprecate in SQL Server in genere non sono supportate nel Database SQL.
 
 ## Eseguire l'aggiornamento alla versione 12 del Database SQL
 
@@ -65,6 +74,7 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - KILL STATS JOB
 - Server collegati, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, 3 e 4 nomi della parte
 - Server master e di destinazione
+- .NET framework [integrazione CLR con SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Resource governor
 - Ricerca semantica
 - Credenziali del server
@@ -91,8 +101,10 @@ Per ulteriori informazioni sulla grammatica Transact-SQL, uso ed esempi, vedere[
 
 ### Informazioni sui tag "Si applica a"
 
-Il riferimento a Transact-SQL include argomenti relativi a SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 e Database SQL di Microsoft Azure. Nella parte superiore di ogni argomento c’è una sezione che indica quali prodotti supportano l'oggetto dell'argomento. Se un prodotto viene omesso, la funzionalità descritta dall'argomento non è disponibile in tale prodotto. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L’argomento**CREA AVAILABILITY GROUP**indica che si applica a**SQL Server (SQL Server 2012 fino alla versione corrente)**poiché non è applicabile a SQL Server 2008, SQL Server 2008 R2 o Database SQL di Microsoft Azure.
+Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'argomento generalmente è presente una riga "Si applica a" che elenca le versioni di SQL Server e probabilmente anche altri nomi di prodotto. Spesso negli stessi tag "Si applica a" è elencato anche il Database SQL di Azure. Se in un tag "Si applica a" non è elencato il Database SQL di Azure, il contenuto dell'argomento non è applicabile al Database SQL di Azure. In alcuni casi, si noterà una riga "Si applica a" in cui sono elencati più prodotti, ciascuno con una piccola icona per indicare se l'argomento si applica a ogni prodotto.
 
-In alcuni casi, l'oggetto generale dell’argomento può essere utilizzato in un prodotto, ma non tutti gli argomenti sono supportati. Ad esempio, gli utenti di database indipendente sono stati introdotti in SQL Server 2012. L’istruzione**CREATE USER**può essere utilizzata in qualsiasi prodotto di SQL Server, tuttavia la sintassi **WITH PASSWORD**non può essere utilizzata con le versioni precedenti. In questo caso, ulteriori sezioni **si applica a**vengono inserite nella descrizione dell’argomento appropriato nel corpo dell'argomento.
+ Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L’argomento**CREA AVAILABILITY GROUP**indica che si applica a**SQL Server (SQL Server 2012 fino alla versione corrente)**poiché non è applicabile a SQL Server 2008, SQL Server 2008 R2 o Database SQL di Azure.
 
-<!---HONumber=Nov15_HO3-->
+In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
+
+<!---HONumber=AcomDC_1217_2015-->

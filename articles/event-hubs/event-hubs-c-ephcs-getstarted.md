@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -24,13 +24,13 @@
 
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
-Per ulteriori informazioni, vedere [Panoramica di Hub eventi].
+Per ulteriori informazioni, vedere [Panoramica di Hub eventi][].
 
-Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ]in C#.
+Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ][]in C#.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-+ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [VM Linux in Azure ](../virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
++ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure ](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
 
 + Microsoft Visual Studio Express 2013 per Windows
 
@@ -79,11 +79,11 @@ L'hub eventi è stato creato e sono disponibili le stringhe di connessione neces
 
 A questo punto è possibile eseguire le applicazioni.
 
-1.	Eseguire il progetto **Receiver** da Visual Studio, quindi attendere che il progetto avvii i ricevitori per tutte le partizioni.
+1.	In Visual Studio eseguire il progetto **Receiver**, quindi attendere che il progetto avvii i ricevitori per tutte le partizioni.
 
    	![][21]
 
-2.	Eseguire il programma **sender**. Gli eventi verranno visualizzati nella finestra del ricevitore.
+2.	Eseguire il programma **Sender**. Gli eventi verranno visualizzati nella finestra del ricevitore.
 
    	![][24]
 
@@ -91,10 +91,10 @@ A questo punto è possibile eseguire le applicazioni.
 
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-- Un'[applicazione di esempio completa che usa Hub eventi].
-- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
-- Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
-- [Panoramica di Hub eventi]
+- Un'[applicazione di esempio completa che usa Hub eventi][].
+- Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][].
+- Una [soluzione di messaggistica accodata][] che usa le code di Bus di servizio.
+- [Panoramica di Hub eventi][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -115,6 +115,6 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

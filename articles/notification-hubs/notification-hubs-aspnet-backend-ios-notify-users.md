@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET"
+	pageTitle="Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET"
 	description="Informazioni su come inviare notifiche push agli utenti in Azure. Gli esempi di codice sono scritti in Objective-C e nell'API .NET per il back-end."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
-#Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
+#Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ##Panoramica
 
-Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx).
+Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registrazione dal back-end dell'app](notification-hubs-registration-management.md#registration-management-from-a-backend).
 
 > [AZURE.NOTE]In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) di questa esercitazione.
 
@@ -262,7 +262,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 		@end
 
-	Il codice riportato sopra implementa la logica illustrata nell'articolo di istruzioni [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx) usando NSURLSession per eseguire chiamate REST al back-end dell'app e NSUserDefaults per archiviare in locale l'ID registrazione restituito dall'hub di notifica.
+	Il codice riportato sopra implementa la logica illustrata nell'articolo di istruzioni [Registrazione dal back-end dell'app](notification-hubs-registration-management.md#registration-management-from-a-backend) usando NSURLSession per eseguire chiamate REST al back-end dell'app e NSUserDefaults per archiviare in locale l'ID registrazione restituito dall'hub di notifica.
 
 	Si noti che per il corretto funzionamento di questa classe è necessario che sia impostata la relativa proprietà **authorizationHeader**. Questa proprietà viene impostata tramite la classe **ViewController** dopo l'accesso.
 
@@ -465,4 +465,4 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

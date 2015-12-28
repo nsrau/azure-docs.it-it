@@ -3,9 +3,9 @@
    description="Informazioni su come aggiungere nuovi ruoli al progetto di servizio cloud di Azure o rimuovere quelli esistenti con Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Gestione dei ruoli nei progetti di Servizi cloud di Azure con Visual Studio
 
@@ -58,4 +58,4 @@ Ad esempio, è possibile rimuovere un ruolo del servizio Web e poi decidere di a
 
 Per altre informazioni su come configurare i ruoli in Visual Studio, vedere [Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

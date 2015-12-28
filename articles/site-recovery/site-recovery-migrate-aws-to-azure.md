@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migrazione di macchine virtuali Windows da Amazon Web Services a Microsoft Azure"
+	pageTitle="Migrazione di macchine virtuali Windows da Amazon Web Services ad Azure con Site Recovery | Microsoft Azure"
 	description="Utilizzare Azure Site Recovery per eseguire la migrazione di macchine virtuali Windows in esecuzione in Amazon Web Services (AWA) ad Azure."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Eseguire la migrazione delle macchine virtuali di Amazon Web Services (AWS) in Azure
+#  Eseguire la migrazione delle macchine virtuali di Amazon Web Services (AWS) in Azure con Azure Site Recovery
 
 
 ## Panoramica
@@ -71,4 +71,4 @@ Di seguito sono riportati i prerequisiti necessari per iniziare:
 
 Inviare commenti o domande nel [forum di Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -52,19 +52,26 @@ Per accedere all'archiviazione BLOB di Azure, è necessario creare una credenzia
 2. Usare [CREATE MASTER KEY (Transact-SQL)][] per creare una chiave master del database. Se il database ha già una chiave master che non è necessario crearne un’altra. Questa chiave viene usata per crittografare il segreto delle credenziali nel passaggio successivo.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
 1. Verificare se si dispone già di credenziali del database. A tale scopo, utilizzare la vista del sistema sys.database\_credentials, non sys.credentials che mostra solo le credenziali del server.
 
     ```
-    -- Verificare le credenziali con ambito di database esistenti.
-    SELECT * FROM sys.database\_credential;
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
 3. Usare [CREATE CREDENTIAL (Transact-SQL)][] per creare credenziali con ambito di database per ogni account di archiviazione di Azure a cui si desidera accedere. In questo esempio, IDENTITY è un nome descrittivo per le credenziali. Il nome dell'identità non influenza l'autenticazione in Archiviazione di Azure. SECRET è la chiave dell'account di archiviazione Azure.
 
-    -- Crea credenziali con ambito di database CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
+    ```
+    -- Create a database scoped credential
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Se è necessario eliminare le credenziali con ambito di database, usare [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -359,4 +366,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

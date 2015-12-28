@@ -24,8 +24,8 @@ Questa versione contiene l'aggiornamento seguente.
 
 Titolo | Descrizione
 ---|---
-Aggiornamento della versione dell'API REST | La versione dell'API REST è stata aggiornata a 2015-10-01. I dettagli sono disponibili su MSDN nella sezione di [riferimento dell'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx).
-Integrazione con Azure Machine Learning | Questa versione offre il supporto per le funzioni definite dall'utente di Azure Machine Learning. È disponibile un'esercitazione [qui](stream-analytics-machine-learning-tutorial.md), nonché l'annuncio generale sul blog [qui](http://blogs.msdn.com/b/streamanalytics/).
+Aggiornamento della versione dell'API REST | La versione dell'API REST è stata aggiornata a 2015-10-01. I dettagli sono disponibili su MSDN nella sezione di [riferimento dell'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integrazione di Machine Learning in Analisi di flusso](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
+Integrazione con Azure Machine Learning | Questa versione offre il supporto per le funzioni definite dall'utente di Azure Machine Learning. È disponibile un'esercitazione [qui](stream-analytics-machine-learning-tutorial.md), nonché l'annuncio generale sul blog [qui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Note per la versione 12/11/2015 di Analisi di flusso ##
 
@@ -133,4 +133,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

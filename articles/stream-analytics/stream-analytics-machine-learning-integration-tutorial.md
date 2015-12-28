@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -38,7 +38,7 @@ Figura 2:
 I prerequisiti per questo articolo sono i seguenti:
 
 1.	Una sottoscrizione di Azure attiva
-2.	Un file CSV contenente alcuni dati. È possibile scaricare quello illustrato nella figura 2 o crearne uno nuovo. Questa esercitazione è stata scritta presumendo che venga usato quello disponibile per il download.
+2.	Un file CSV contenente alcuni dati. Quello illustrato nella figura 2 è fornito [in GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) per il download o è possibile crearne uno nuovo. Questa esercitazione è stata scritta presumendo che venga usato quello disponibile per il download.
 
 In generale, verranno eseguiti i passaggi seguenti:
 
@@ -73,13 +73,13 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, incluso quello spec
 3.	Effettuare l'accesso per passare all'area di lavoro. Scegliere la posizione più adatta alla propria.
 4.	Fare clic su **Run** nella parte inferiore di Studio.  
 5.	Una volta in esecuzione, fare clic su **Deploy Web Service**.
-6.	Il modello di analisi dei sentimenti è pronto per essere usato. Per la convalida, fare clic sul pulsante **test** e immettere l'input di testo, ad esempio "I love Microsoft". Il test restituirà un risultato simile al seguente:
+6.	Il modello di analisi dei sentimenti è pronto per essere usato. Per la convalida, fare clic sul pulsante **test** e immettere il testo di input, ad esempio "I love Microsoft". Il test restituirà un risultato simile al seguente:
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
 ![Dati di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
 
-Fare clic sul collegamento della cartella di lavoro **Excel 2010 or earlier** per ottenere la chiave API e l'URL che saranno necessari in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per sfruttare un modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'esercitazione presume che sia necessario per questo scenario.
+Fare clic sul collegamento della cartella di lavoro **Excel 2010 o earlier** per ottenere la chiave API e l'URL che saranno necessari in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per sfruttare un modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'esercitazione presume che sia necessario per questo scenario.
 
 ![Esperimento di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
 
@@ -90,19 +90,19 @@ Prendere nota dell'URL del servizio Web e della chiave di accesso dal file di Ex
 ## Creare un processo di Analisi di flusso che usi il modello di Machine Learning
 
 1.	Passare al [portale di gestione di Azure](https://manage.windowsazure.com).  
-2.	Fare clic su **Nuovo**, **Servizi dati**, **Analisi di flusso** e **Creazione rapida**. Specificare il **Nome processo** e l'**Area** appropriata per il processo e scegliere un **Account di archiviazione di monitoraggio regionale**.    
+2.	Fare clic su **Nuovo**, **Servizi dati**, **Analisi di flusso** e **Creazione rapida**. Specificare il **Nome processo** e l'**Area** appropriata per il processo e scegliere un **Account di archiviazione per il monitoraggio a livello di area**.    
 3.	Una volta creato il processo, passare alla scheda **Input** e fare clic su **Aggiungi input**.  
 
     ![Aggiunta di input di Machine Learning ai dati nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
-4.	Nella prima pagina della finestra della procedura guidata **Aggiungi input** selezionare **Flusso dati** e fare clic su Avanti. Nella seconda pagina selezionare **Archivio BLOB** come input e fare clic su **Avanti**.
-5.	Nella pagina **Impostazioni archivio BLOB** della procedura guidata specificare il nome del contenitore BLOB dell'account di archiviazione definito prima durante il caricamento dei dati. Fare clic su **Avanti**. Scegliere **CSV** come **Formato di serializzazione eventi**. Accettare le impostazioni predefinite per le altre **Impostazioni di serializzazione**. Fare clic su **OK**.  
+4.	Nella prima pagina della finestra della procedura guidata **Aggiungi input** selezionare **Flusso dati** e fare clic su Avanti. Nella seconda pagina selezionare **Archiviazione BLOB** come input e fare clic su **Avanti**.
+5.	Nella pagina **Impostazioni archiviazione BLOB** della procedura guidata specificare il nome del contenitore BLOB dell'account di archiviazione definito in precedenza durante il caricamento dei dati. Fare clic su **Avanti**. Scegliere **CSV** come **Formato di serializzazione degli eventi**. Accettare le impostazioni predefinite per le altre **Impostazioni di serializzazione**. Fare clic su **OK**.  
 6.	Passare alla scheda **Output** e fare clic su **Aggiungi un output**.  
 
     ![Aggiunta di output nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-7.	Scegliere **Archivio BLOB** e specificare gli stessi parametri a eccezione del contenitore. **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. Per **Output**, inserire "testoutput". I nomi dei contenitori devono essere diversi. Verificare che questo contenitore esista.
-8.	Fare clic su **Avanti** per configurare le **Impostazioni di serializzazione** dell'ouput. Come per Input, scegliere **CSV** e fare clic su **OK**.
+7.	Scegliere **Archiviazione BLOB** e specificare gli stessi parametri a eccezione del contenitore. **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. Per **Output**, inserire "testoutput". I nomi dei contenitori devono essere diversi. Verificare che questo contenitore esista.
+8.	Fare clic su **Avanti** per configurare le **Impostazioni di serializzazione** dell'output. Come per Input, scegliere **CSV** e fare clic su **OK**.
 9.	Passare alla scheda **Funzioni** e fare clic su **Aggiungi una funzione di Machine Learning**.  
 
     ![Aggiunta di una funzione di Machine Learning nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
@@ -113,9 +113,17 @@ Prendere nota dell'URL del servizio Web e della chiave di accesso dal file di Ex
 
 11.	Passare alla scheda **Query** e modificare la query come mostrato di seguito:
 
-    ![Query di Machine Learning nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)
+```
+	WITH subquery AS (  
+		SELECT text, sentiment(text) as result from input  
+	)  
+	  
+	Select text, result.[Score]  
+	Into output  
+	From subquery  
+```
 
-12. Fare clic su **Salva** per salvare la query.
+12. Fare clic su **Salva** per salvare la query.    
 
 ## Avviare il processo di Analisi di flusso ed esaminare l'output
 
@@ -142,4 +150,4 @@ In questa esercitazione è stato creato un processo di Analisi di flusso che leg
 
     ![Visualizzazione monitoraggio ML nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

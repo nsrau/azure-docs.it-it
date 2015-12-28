@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ Un modulo R personalizzato viene definito da un file ZIP che contiene almeno due
 Nel file ZIP è possibile includere anche altri file ausiliari che forniscono funzionalità a cui è possibile accedere dal modulo personalizzato. Questa opzione viene illustrata di seguito.
 
 ## Esempio di Guida introduttiva: definire, creare un pacchetto e registrare un modulo R personalizzato
-In questo esempio viene illustrato come costruire i file richiesti da un modulo R personalizzato, inserirli in un file ZIP e quindi registrare il modulo nell'area di lavoro di Machine Learning. I file e il pacchetto ZIP di esempio possono essere scaricati da [qui](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+In questo esempio viene illustrato come costruire i file richiesti da un modulo R personalizzato, inserirli in un file ZIP e quindi registrare il modulo nell'area di lavoro di Machine Learning. I file e il pacchetto ZIP di esempio possono essere scaricati da [Scarica file CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Considerare l'esempio di un modulo **Add Rows personalizzato** che modifica l'implementazione standard del modulo Add Rows usato per concatenare le righe (osservazioni) da due set di dati (frame di dati). Il modulo Add Rows standard aggiunge le righe del secondo set di dati di input alla fine del primo set di dati di input usando l'algoritmo rbind. Analogamente, la funzione `CustomAddRows` personalizzata accetta due set di dati, ma accetta anche un parametro di scambio booleano aggiuntivo come input. Se il parametro di scambio è **FALSE**, restituisce lo stesso set di dati come implementazione standard. Ma, se il parametro di scambio è **TRUE**, aggiunge invece righe del primo set di dati di input alla fine del secondo set di dati. Il file che implementa la funzione `CustomAddRows` R, esposta dal modulo **Add Rows personalizzato**, contiene il seguente codice R.
 
@@ -92,7 +92,7 @@ Salvare questi due file come *CustomAddRows.R* e *CustomAddRows.xml* e quindi co
 
 Per registrarli nell'area di lavoro di Machine Learning, accedere all'area di lavoro in Machine Learning Studio, fare clic sul pulsante **+NUOVO** in fondo e scegliere **MODULO -> DA PACCHETTO ZIP** per caricare il nuovo modulo personalizzato Add Rows.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Caricamento file ZIP](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 Ora è possibile accedere al modulo **Add Rows personalizzato** con gli esperimenti di Machine Learning.
 
@@ -363,4 +363,4 @@ Le **limitazioni dell'ambiente di esecuzione** includono:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

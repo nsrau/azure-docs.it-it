@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/09/2015"
    ms.author="v-sharos" />
 
 # Distribuire un dispositivo StorSimple locale nel portale di Azure Government
+
+[AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## Panoramica
 
@@ -48,7 +50,7 @@ Effettuare i seguenti passaggi necessari per configurare il dispositivo StorSimp
 | Passaggio 4: Completare l'installazione minima del dispositivo</br>Facoltativo: aggiornare il dispositivo StorSimple. | Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
 | Passaggio 5: Creare un contenitore di volumi. | Creare un contenitore di volumi di provisioning. Un contenitore di volumi dispone di account di archiviazione, larghezza di banda e impostazioni di crittografia per tutti i volumi in esso contenuti. |
 | Passaggio 6: Creare un volume. | Eseguire il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
-| Passaggio 7: Montare, inizializzare e formattare un volume. </br>Facoltativo: Configurare MPIO. | Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Se si desidera configurare MPIO per assicurarsi che i server siano in grado di tollerare errori di collegamento, rete e interfaccia. |
+| Passaggio 7: Montare, inizializzare e formattare un volume. </br>Facoltativo: Configurare MPIO. | Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano di tollerare errori di collegamento, rete e interfaccia. |
 | Passaggio 8: Eseguire un backup. | Impostare criteri di backup per proteggere i dati |
 | | |
 | **ALTRE PROCEDURE** | Potrebbe essere necessario fare riferimento a queste procedure quando si distribuisce la soluzione. |
@@ -150,7 +152,7 @@ Un servizio StorSimple Manager può gestire più dispositivi StorSimple. Effettu
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
-Quando il servizio StorSimple Manager è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio.
+Quando il servizio StorSimple Manager è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple al servizio.
 
 Eseguire i passaggi seguenti nel portale per enti pubblici.
 
@@ -238,7 +240,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 
 L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passaggi seguenti per la ricerca e l’applicazione degli aggiornamenti sul dispositivo.
 
-<!-- > [AZURE.NOTE] Se si dispone di un gateway configurato su un’interfaccia di rete diversa da Data 0, è necessario disabilitare le interfacce di rete Data 2 e Data 3 prima di installare l'aggiornamento. Andare a **Dispositivi > Configura** e disabilitare le interfacce Data 2 e Data 3. Dopo aver aggiornato il dispositivo, è necessario attivare nuovamente tali interfacce.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Per aggiornare il dispositivo
 
@@ -277,4 +279,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Limitazioni e restrizioni
@@ -85,4 +85,4 @@ Modello app 2.0 supporta i protocolli Open ID Connect e OAuth 2.0. Tuttavia, non
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata in Modello app 2.0, leggere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

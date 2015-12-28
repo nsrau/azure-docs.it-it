@@ -60,7 +60,7 @@ Eseguire la procedura seguente per abilitare un repository Git per l'app Web.
 
 1. Accedere al [Portale di Azure].
 
-2. Nel pannello dell'app Web scorrere fino alla sezione **Distribuzione** e fare clic su **Imposta distribuzione continua**. Fare clic su **Scegli origine**, quindi su **Repository Git locale** e infine su **OK**.
+2. Nel pannello dell'app Web fare clic su **Impostazioni > Distribuzione continua**. Fare clic su **Scegli origine**, quindi su **Repository Git locale** e infine su **OK**.
 
 	![Repository Git locale](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Eseguire la procedura seguente per abilitare un repository Git per l'app Web.
 
 Eseguire la procedura seguente per pubblicare l’app Web in Azure utilizzando Git locale.
 
-1. Nel pannello dell'app Web, nella sezione Distribuzione, fare clic su **Nessuna distribuzione trovata**.
+1. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà** per **URL Git**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -138,7 +138,7 @@ Per distribuire file da GitHub, CodePlex o BitBucket, è necessario aver pubblic
 
 1. Inserire innanzitutto i file dell'app Web nel repository selezionato da utilizzare per la distribuzione continua.
 
-2. Nel pannello dell'app Web nel portale scorrere fino alla sezione **Distribuzione** e fare clic su **Imposta distribuzione continua**. Fare clic su **Scegli origine** e quindi su **GitHub**, ad esempio.
+2. Nel pannello dell'app Web nel portale, fare clic su **Impostazioni > Recapito continuo**. Fare clic su **Scegli origine** e quindi su **GitHub**, ad esempio.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -192,11 +192,11 @@ Dopo avere impostato il repository come descritto e avere configurato l'app Web 
 
 ## Disabilitare la distribuzione continua
 
-La distribuzione continua può essere disabilitata dal pannello **Distribuzioni**. Dal pannello dell’app Web, nella sezione **Distribuzione**, fare clic su **Distribuzione attiva**. e quindi su **Disconnetti**.
+La distribuzione continua può essere disabilitata dal pannello **Distribuzioni**. Dal pannello dell'app Web fare clic su **Impostazioni > Distribuzione continua**. e quindi su **Disconnetti**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
-Dopo aver risposto **Sì** al messaggio di conferma, è possibile tornare al pannello dell'app Web e fare clic su **Imposta distribuzione continua** se si desidera impostare la pubblicazione da un'altra origine.
+Dopo aver risposto **Sì** al messaggio di conferma, è possibile tornare al pannello dell'app Web e fare clic su **Impostazioni > Distribuzione continua** se si desidera impostare la pubblicazione da un'altra origine.
 
 ## <a id="Step8"></a>Risoluzione dei problemi
 
@@ -268,7 +268,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
 [Portale di Azure]: https://portal.azure.com
@@ -297,4 +297,4 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [utilizzo di Dropbox per la condivisione di archivi Git]: https://gist.github.com/trey/2722927
 [Distribuzione continua in Azure tramite Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

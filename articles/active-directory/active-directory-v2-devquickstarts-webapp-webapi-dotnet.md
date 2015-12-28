@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Chiamata di un'API Web da un'app Web .NET
@@ -46,16 +46,16 @@ In alternativa, è possibile [scaricare l'app completata come file con estension
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrare un'app
+## 1. Registrare un'app
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
-- Creare una **Chiave privata app** di tipo **Password** e copiare il relativo valore per usarlo in seguito.
+- Creare una **chiave privata app** di tipo **Password** e copiare il relativo valore per usarlo in seguito.
 - Aggiungere la piattaforma **Web** per l'app.
 - Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `https://localhost:44326/`.
 
 
-## 2\. Far accedere l'utente con OpenID Connect
+## 2. Far accedere l'utente con OpenID Connect
 In questo caso, il middleware OWIN verrà configurato per l'uso del [protocollo di autenticazione OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `web.config` nella radice del progetto `TodoList-WebApp` e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
@@ -114,12 +114,14 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
+## 3. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
 Nella notifica `AuthorizationCodeReceived` si desidera usare [OAuth 2.0 in parallelo con OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) per riscattare l'authorization\_code per un token di accesso al servizio To Do List. ADAL può semplificare il processo:
 
 - Per prima cosa installare la versione di anteprima di ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Aggiungere quindi un'altra istruzione `using` al file `App_Start\Startup.Auth.cs` per ADAL. - Aggiungere ora un nuovo metodo, il gestore dell'evento `OnAuthorizationCodeReceived`. Questo gestore userà ADAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di ADAL per usi successivi:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- Aggiungere quindi un'altra istruzione `using` al file `App_Start\Startup.Auth.cs` per ADAL. 
+- Aggiungere ora un nuovo metodo, il gestore dell'evento `OnAuthorizationCodeReceived`. Questo gestore userà ADAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di ADAL per usi successivi:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -141,7 +143,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Chiamare l'API Web To Do List
+## 4. Chiamare l'API Web To Do List
 È ora possibile usare il token di accesso acquisito al passaggio 3. Aprire il file `Controllers\TodoListController.cs` dell'app Web, che esegue tutte le richieste CRUD all'API To Do List.
 
 - È possibile usare nuovamente ADAL per recuperare i token di accesso dalla cache ADAL. Per prima cosa aggiungere un'istruzione `using` per ADAL a questo file.
@@ -205,4 +207,4 @@ Per altre risorse consultare:
 - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

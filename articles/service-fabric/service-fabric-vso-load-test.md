@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Eseguire test di carico dell'applicazione usando Visual Studio Online | Microsoft Azure"
-    description="Informazioni su come eseguire test di stress dell'infrastruttura di servizi Azure usando Visual Studio Online."
+    pageTitle="Eseguire test di carico dell'applicazione usando Visual Studio Team Services | Microsoft Azure"
+    description="Informazioni su come eseguire test di stress delle applicazioni Azure Service Fabric usando Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,7 +16,7 @@
     ms.date="10/28/2015"
     ms.author="cawa" />
 
-# Eseguire test di carico dell'applicazione usando Visual Studio Online
+# Eseguire test di carico dell'applicazione usando Visual Studio Team Services
 
 Questo articolo illustra come usare le funzionalità di test di carico di Visual Studio per eseguire test di stress di un'applicazione. Usa un back-end del servizio con stato dell'infrastruttura di servizi e un front-end Web del servizio senza stato. L'applicazione di esempio usata in questo argomento è un simulatore dei percorsi di volo degli aeroplani. È necessario fornire l'ID dell'aereo, la posizione di partenza e quella di arrivo. Il back-end dell'applicazione elabora le richieste e il front-end consente di visualizzare su una mappa l'aereo che corrisponde ai criteri inseriti.
 
@@ -27,7 +27,7 @@ Il diagramma seguente illustra l'applicazione dell'infrastruttura di servizi che
 ## Prerequisiti
 Prima di iniziare, è necessario seguire questa procedura.
 
-- Ottenere un account di Visual Studio Online (VSO). È possibile ottenerne uno gratuitamente visitando [Visual Studio Online](https://www.visualstudio.com).
+- Ottenere un account di Visual Studio Team Services (VSTS). È possibile ottenerne uno gratuitamente visitando [Visual Studio Team Services](https://www.visualstudio.com).
 - Ottenere e installare Visual Studio 2013 o Visual Studio 2015. Questo articolo usa Visual Studio 2015 Enterprise Edition, ma Visual Studio 2013 e altre edizioni dovrebbero funzionare in modo simile.
 - Distribuire l'applicazione in un ambiente di gestione temporanea. Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni in un cluster remoto usando Visual Studio](service-fabric-publish-app-remote-cluster.md).
 - Comprendere il modello d'uso dell'applicazione. Queste informazioni vengono usate per simulare il modello di carico.
@@ -94,13 +94,13 @@ Un progetto di test di carico è costituito da uno o più scenari descritti dal 
 1. Nella sezione **Impostazioni di esecuzione** specificare la durata del test di carico.
     >[AZURE.NOTE]L'opzione **Iterazioni test** è disponibile solo quando si esegue il test di carico in locale usando Visual Studio.
 
-1. Nella sezione **Percorso** di **Impostazioni di esecuzione** specificare il percorso in cui vengono generate richieste di test di carico. La procedura guidata potrebbe richiedere di eseguire l'accesso all'account di Visual Studio Online. Accedere usando l'account di Visual Studio Online e quindi scegliere una posizione geografica. Al termine, fare clic sul pulsante **Fine**.
+1. Nella sezione **Percorso** di **Impostazioni di esecuzione** specificare il percorso in cui vengono generate richieste di test di carico. La procedura guidata potrebbe richiedere di eseguire l'accesso all'account di Team Services. Accedere usando l'account di Team Services, quindi scegliere una posizione geografica. Al termine, fare clic sul pulsante **Fine**.
 
 1. Dopo aver creato il test di carico, aprire il progetto con estensione loadtest e scegliere l'impostazione di esecuzione corrente, ad esempio **Impostazioni di esecuzione** > **Impostazioni di esecuzione1 [Attivo]**. Verranno visualizzate le impostazioni di esecuzione nella finestra **Proprietà**.
 
-1. Nella sezione **Risultati** della finestra delle proprietà **Impostazioni di esecuzione** il valore predefinito per l'impostazione **Intervallo archiviazione dettagli** dovrebbe essere **Nessuno**. Per ottenere altre informazioni sul risultato del test di carico, modificare questo valore impostando **Tutti i singoli dettagli**. Per altre informazioni su come connettersi a Visual Studio Online ed eseguire un test di carico, vedere la pagina relativa ai [test di carico](https://www.visualstudio.com/load-testing.aspx).
+1. Nella sezione **Risultati** della finestra delle proprietà **Impostazioni di esecuzione** il valore predefinito per l'impostazione **Intervallo archiviazione dettagli** dovrebbe essere **Nessuno**. Per ottenere altre informazioni sul risultato del test di carico, modificare questo valore impostando **Tutti i singoli dettagli**. Per altre informazioni su come connettersi a Visual Studio Team Services ed eseguire un test di carico, vedere la pagina relativa ai [test di carico](https://www.visualstudio.com/load-testing.aspx).
 
-### Eseguire test di carico usando Visual Studio Online
+### Eseguire test di carico usando Visual Studio Team Services
 
 Scegliere il comando **Esegui test di carico** per avviare l'esecuzione del test.
 
@@ -124,7 +124,7 @@ Per altre informazioni sulla visualizzazione dei risultati del test di carico, v
 
 ## Automatizzare il test di carico
 
-Il test di carico di Visual Studio Online fornisce le API che consentono di gestire i test di carico e analizzare i risultati in un account di Visual Studio Online. Per altre informazioni, vedere l'articolo relativo alle [API REST dei test di carico nel cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx).
+Il test di carico di Visual Studio Team Services fornisce le API che consentono di gestire i test di carico e analizzare i risultati in un account di Visual Studio Team Services. Per altre informazioni, vedere l'articolo relativo alle [API REST dei test di carico nel cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx).
 
 ## Passaggi successivi
 - [Monitoraggio e diagnosi dei servizi in una configurazione di sviluppo con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -140,4 +140,4 @@ Il test di carico di Visual Studio Online fornisce le API che consentono di gest
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

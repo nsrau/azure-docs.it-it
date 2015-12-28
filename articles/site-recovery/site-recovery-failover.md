@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Failover in Site Recovery" 
+	pageTitle="Failover in Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
@@ -250,4 +250,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

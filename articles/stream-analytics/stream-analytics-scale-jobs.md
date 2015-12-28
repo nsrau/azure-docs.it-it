@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati #
@@ -61,7 +61,7 @@ La query precedente include due passaggi.
 
 Il partizionamento di un passaggio richiede le condizioni seguenti:
 
-- L'origine di input deve essere partizionata. Per ulteriori informazioni, vedere [Guida per sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md) e [Guida alla programmazione di Hub eventi](../azure-event-hubs-developer-guide.md).
+- L'origine di input deve essere partizionata. Per ulteriori informazioni, vedere [Guida per sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md) e [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
 - L'istruzione SELECT della query deve leggere da un'origine di input partizionata.
 - Nella query all’interno del passaggio deve essere presente la parola chiave **Partition By**
 
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

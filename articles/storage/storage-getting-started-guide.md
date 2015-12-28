@@ -101,6 +101,7 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 * [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
 * [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
 * [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
+* [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 * [Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Libreria client di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -108,4 +109,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

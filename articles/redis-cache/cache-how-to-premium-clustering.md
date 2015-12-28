@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare il clustering Redis per una Cache Redis di Azure Premium
@@ -36,7 +36,7 @@ Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-ca
 In Azure, il cluster Redis viene offerto nel modello primario/replica, in cui ogni partizione dispone di una coppia primario/di replica con la replica, in cui la replica viene gestita dal servizio Cache Redis di Azure.
 
 ## Clustering
-Le funzionalità di clustering vengono configurate nel pannello **Nuova cache Redis** durante la creazione della cache. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati e archiviazione**>**Cache Redis**.
+Le funzionalità di clustering vengono abilitate nel pannello **Nuova cache Redis** durante la creazione della cache. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati e archiviazione**>**Cache Redis**.
 
 ![Creare una Cache Redis][redis-cache-new-cache-menu]
 
@@ -78,6 +78,16 @@ Una volta creata la cache è possibile connettersi alla cache e usarla come una 
 	    }
 	}
 
+## Aggiungere o rimuovere partizioni da una cache premium in esecuzione
+
+Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** dal pannello **Impostazioni** per aggiungere o rimuovere partizioni da una cache premium in esecuzione con il clustering abilitato.
+
+>[AZURE.NOTE]Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
+
+![Dimensione del cluster Redis][redis-cache-redis-cluster-size]
+
+Per modificare il numero di partizioni, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
+
 ## Domande frequenti sul clustering
 
 Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul clustering di Cache Redis di Azure.
@@ -88,13 +98,13 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 -	Se si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), sarà necessario usare la versione 1.0.481 o successiva. Connettersi alla cache usando gli stessi [endpoint, porte e chiavi](cache-configure.md#properties) usati per la connessione a una cache senza clustering abilitato. L'unica differenza consiste nel fatto che tutte le operazioni di lettura e scrittura devono essere eseguite nel database 0.
 	-	Altri client possono avere requisiti diversi. Vedere [Tutti i client Redis supportano il clustering?](#do-all-redis-clients-support-clustering).
 -	Se l'applicazione usa più operazioni chiave raggruppate in un singolo comando, tutte le chiavi devono trovarsi nella stessa partizione. Per ottenere questo risultato, vedere [Come vengono distribuite le chiavi in un cluster?](#how-are-keys-distributed-in-a-cluster).
--	Se si usa il provider di stato della sessione ASP.NET Redis, sarà necessario usare la versione 2.0.0 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e il provider di caching di output?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
+-	Se si usa il provider di stato della sessione ASP.NET Redis, sarà necessario usare la versione 2.0.0 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e i provider di output caching?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
 
 ## Come vengono distribuite le chiavi in un cluster?
 
 In base alla documentazione relativa al [modello di distribuzione delle chiavi](http://redis.io/topics/cluster-spec#keys-distribution-model) Redis, lo spazio della chiave viene suddiviso in 16384 slot. Viene eseguito l'hashing di ogni chiave e le chiavi vengono assegnate a uno di questi slot, che vengono distribuiti in tutti i nodi del cluster. È possibile configurare la parte della chiave sottoposta a hashing, per assicurare che più chiavi vengano inserite nella stessa partizione mediante i tag hash.
 
--	Chiavi con tag hash: se una parte della chiave è racchiusa tra `{` e `}`, solo tale parte della chiave verrà sottoposta a hashing allo scopo di determinare lo slot hash di una chiave. Ad esempio, le tre chiavi seguenti, `{key}1`, `{key}2` e `{key}3`, si troveranno nella stessa partizione poiché solo la parte `key` del nome viene sottoposta a hashing. Per un elenco completo di specifiche dei tag hash per le chiavi, vedere la pagina relativa ai [tag hash per le chiavi](http://redis.io/topics/cluster-spec#keys-hash-tags).
+-	Chiavi con tag hash: se una parte della chiave è racchiusa tra `{` e `}`, solo tale parte della chiave verrà sottoposta a hashing allo scopo di determinare lo slot hash di una chiave. Ad esempio, le 3 chiavi seguenti, `{key}1`, `{key}2` e `{key}3`, si troveranno nella stessa partizione poiché solo la parte `key` del nome viene sottoposta a hashing. Per un elenco completo di specifiche dei tag hash per le chiavi, vedere la pagina relativa ai [tag hash per le chiavi](http://redis.io/topics/cluster-spec#keys-hash-tags).
 -	Chiavi senza tag hash: l'intero nome della chiave viene usato per l'hashing. Si otterrà una distribuzione statisticamente uniforme nelle partizioni della cache.
 
 Per prestazioni e velocità effettiva ottimali, è consigliabile distribuire le chiavi in modo uniforme. Se si usano chiavi con un tag hash, l'applicazione dovrà assicurare che le chiavi vengano distribuite in modo uniforme.
@@ -117,7 +127,7 @@ Non tutti i client supportano attualmente il clustering Redis. StackExchange.Red
 
 ## È possibile connettersi direttamente a singole partizioni della cache?
 
-Questa operazione non è supportata ufficialmente. Detto questo, ogni partizione è costituita da una coppia di cache primaria/di replica nota nel suo complesso come un'istanza della cache. È possibile connettersi tramite l'utilità cli redis in queste istanze di cache nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub. Questa versione implementa il supporto di base quando avviata con il passaggio `-c`. Per ulteriori informazioni vedere [Giocare con cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
+Questa operazione non è supportata ufficialmente. Detto questo, ogni partizione è costituita da una coppia di cache primaria/di replica nota nel suo complesso come un'istanza della cache. È possibile connettersi tramite l'utilità redis-cli in queste istanze di cache nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub. Questa versione implementa il supporto di base quando avviata con il passaggio `-c`. Per ulteriori informazioni vedere [Giocare con cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Per non-ssl usare i comandi seguenti.
 
@@ -131,7 +141,7 @@ Per ssl, sostituire `1300N` con `1500N`.
 
 ## È possibile configurare il clustering per una cache creata in precedenza?
 
-In questo momento è possibile solo abilitare e configurare il clustering durante la creazione di una cache.
+In questo momento è possibile solo abilitare il clustering durante la creazione di una cache. Dopo aver creato la cache, è possibile modificare il numero di partizioni ma non è possibile aggiungere il clustering a una cache premium o rimuovere il clustering da una cache premium. Una cache premium con il clustering abilitato e una sola partizione è diversa da una cache premium delle stesse dimensioni senza cluster abilitato.
 
 ## È possibile configurare il clustering per una cache Basic o Standard?
 
@@ -166,4 +176,6 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1210_2015-->
+[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!---HONumber=AcomDC_1217_2015-->

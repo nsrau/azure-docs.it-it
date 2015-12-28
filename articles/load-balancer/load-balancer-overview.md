@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -26,6 +26,38 @@ Il servizio può essere configurato per:
 - Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. In questo caso, si parla di [bilanciamento del carico interno](load-balancer-internal-overview.md).
 - 	Inoltrare il traffico esterno a una specifica istanza di macchina virtuale
 
+## Informazioni sul servizio di bilanciamento del carico di Azure in Azure classico e Gestione risorse di Azure (ARM)
+
+Tutte le risorse nel cloud richiedono un indirizzo IP pubblico per poter essere raggiungibili da Internet. L'infrastruttura cloud in Microsoft Azure utilizzerà gli indirizzi IP non instradabili all'interno delle risorse e utilizzerà il processo NAT (Network Address Translation) con indirizzi IP pubblici per comunicare con Internet.
+
+Esistono 2 modelli di distribuzione in Microsoft Azure con le rispettive implementazioni del servizio di bilanciamento del carico:
+
+ 
+### Azure classico
+
+Azure classico è il primo modello di distribuzione implementato in Microsoft Azure. In questo modello vengono assegnati un indirizzo IP pubblico e un nome di dominio completo a un servizio cloud e le macchine virtuali distribuite all'interno di un limite del servizio cloud possono essere raggruppate per l'utilizzo di un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico eseguirà la conversione delle porte e bilancerà il traffico di rete, sfruttando l'indirizzo IP pubblico per il servizio cloud.
+
+In un modello di distribuzione classico, la conversione delle porte viene eseguita tramite gli endpoint, che costituiscono una relazione uno-a-uno tra la porta pubblica assegnata dell'indirizzo IP pubblico e la porta locale assegnata per inviare traffico a una macchina virtuale specifica.
+
+Il bilanciamento del carico avviene tramite gli endpoint impostati del servizio di bilanciamento del carico. Questi endpoint costituiscono una relazione uno-a molti tra l'indirizzo IP pubblico e le porte locali assegnate a tutte le macchine virtuali nel set che risponderanno per il traffico di rete con carico bilanciato.
+
+L'etichetta del dominio per l'indirizzo IP pubblico utilizzato da un servizio di bilanciamento del carico in questo modello di distribuzione potrebbe essere `<cloud service name>.cloudapp.net`.
+
+Questa è una rappresentazione grafica di un servizio di bilanciamento del carico in un modello di distribuzione classica: ![bilanciamento del carico basato su hash](./media/load-balancer-overview/asm-lb.png)
+
+### Gestione risorse di Azure
+ 
+Il concetto di bilanciamento del carico cambia in Gestione risorse di Azure (ARM) perché non è necessario un servizio cloud per creare un servizio di bilanciamento del carico.
+
+In Gestione risorse di AZURE, un indirizzo IP pubblico è la propria risorsa e può essere associato a un'etichetta di dominio o a un nome DNS. L'indirizzo IP pubblico, in questo caso, è associato alla risorsa del servizio di bilanciamento del carico in modo che le regole del servizio di bilanciamento del carico e le regole NAT in ingresso utilizzino l'indirizzo IP pubblico come endpoint Internet per le risorse che ricevono il traffico di rete con carico bilanciato.
+
+Una risorsa di interfaccia di rete (NIC) contiene la configurazione degli indirizzi IP (IP pubblico o privato) per una macchina virtuale. Quando un’interfaccia di rete viene aggiunta a un pool di indirizzi IP back-end del servizio di bilanciamento di carico, il servizio di bilanciamento del carico inizierà a inviare il traffico di rete con carico bilanciato sulla base delle regole di bilanciamento del carico create.
+
+Un set di disponibilità è il metodo di raggruppamento utilizzato per aggiungere le macchine virtuali al servizio di bilanciamento del carico. Il set di disponibilità garantisce che le macchine virtuali non risiedano nello stesso hardware fisico e, in caso di eventuali errori correlati all'infrastruttura cloud fisica, verifica che il del servizio di bilanciamento del carico abbia sempre una macchina virtuale che riceve il traffico di rete con carico bilanciato.
+
+Questa è una rappresentazione grafica di un servizio di bilanciamento del carico in Gestione risorse di Azure (ARM):
+
+![bilanciamento del carico basato su hash](./media/load-balancer-overview/arm-lb.png)
 
 ## Funzionalità del bilanciamento del carico
 
@@ -76,8 +108,6 @@ Tutto il traffico in uscita proveniente dal servizio e destinato a Internet vien
 
 La configurazione di bilanciamento del carico di Azure supporta il processo NAT di tipo full cone per UDP. Con questo tipo di processo, la porta consente le connessioni in ingresso da qualsiasi host esterno (in risposta a una richiesta in uscita).
 
-![SNAT](./media/load-balancer-overview/load-balancer-snat.png)
-
 
 >[AZURE.NOTE]Si noti che per ogni nuova connessione in uscita avviata da una macchina virtuale, viene allocata anche una porta in uscita dal bilanciamento del carico di Azure. L'host esterno vedrà il traffico in arrivo come porta allocata VIP. Se gli scenari richiedono un numero elevato di connessioni in uscita, è consigliabile che le macchine virtuali usino indirizzi IP pubblici a livello di istanza, in modo che sia disponibile un IP in uscita dedicato per il processo SNAT (Source Network Address Translation). Ciò consente di ridurre il rischio di esaurimento delle porte.
 >
@@ -100,4 +130,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

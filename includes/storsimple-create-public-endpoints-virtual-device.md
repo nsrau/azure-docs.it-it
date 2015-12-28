@@ -1,21 +1,23 @@
-#### To create public endpoints on the virtual device
+#### Per creare endpoint pubblici nel dispositivo virtuale
 
-1. Sign in to the Management Portal.
+1. Accedere al portale di gestione.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale che viene utilizzata come dispositivo virtuale.
 
-- Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
+- Fare clic su **Endpoint**. Nella pagina Endpoint sono elencati tutti gli endpoint disponibili per la macchina virtuale.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo Aggiungi endpoint. Fare clic sulla freccia per continuare.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- Nel campo **Nome** digitare il nome seguente per l'endpoint: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- Per il **protocollo**, specificare **TCP**.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- Per la **porta pubblica**, digitare i numeri di porta che si desidera utilizzare per la connessione.
 
-- For the **Private Port**, type **5986**.
+- Specificare **5986** per la **porta privata**.
 
-- Click the check mark to create the endpoint.
+- Fare clic sul segno di spunta per creare l'endpoint.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+Dopo aver creato l'endpoint, è possibile visualizzarne i dettagli e determinare l'indirizzo IP virtuale pubblico (VIP, Virtual Private Network). Registrare tale indirizzo.
+
+<!---HONumber=AcomDC_1217_2015-->

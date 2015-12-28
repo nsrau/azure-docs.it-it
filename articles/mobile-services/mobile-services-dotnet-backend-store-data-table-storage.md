@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/11/2015"
 	ms.author="glenga"/>
 
 # Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle
@@ -159,4 +159,4 @@ Vista la semplicit√† dell'uso dell'archiviazione tabelle con il back-end .NET, √
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,19 +1,21 @@
-#### To restore your physical device to the StorSimple virtual device
+#### Ripristinare il dispositivo fisico per il dispositivo virtuale StorSimple
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Verificare che il contenitore del volume di cui si desidera eseguire il failover sia associato alle snapshot cloud.
 
-2. Open the **Device** page, and then click the **Volume Containers** tab.
+2. Nella pagina **Dispositivo**, fare clic sulla scheda **Contenitori di volumi**.
 
-3. Select a volume container that you would like to fail over to the virtual device. Click the volume container to display the list of volumes within the container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+3. Selezionare un contenitore del volume di cui si desidera eseguire il failover a un dispositivo virtuale. Fare clic su contenitore del volume per visualizzare l'elenco dei volumi presenti in questo contenitore. Selezionare un volume e fare clic su **Offline** per passare il volume offline. Ripetere questo processo per tutti i volumi nel contenitore di volumi.
 
-4. Repeat the previous step for all the volume containers you want to fail over to the virtual device.
+4. Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover al dispositivo virtuale.
 
-5. On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the **Device Failover** wizard.
+5. Nella pagina **Dispositivo**, selezionare il dispositivo di cui eseguire il failover, quindi fare clic su **Failover** per aprire la procedura guidata **Failover del dispositivo**.
 
-6. In **Choose volume container to failover**, select the volume containers you would like to fail over. To be displayed in this list, the volume container must contain a cloud snapshot and be offline. If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.
+6. In **Scegli contenitore del volume di cui eseguire il failover**, selezionare i contenitori di volumi per i quali si desidera eseguire il failover. Affinché sia visualizzato in questo elenco, il contenitore del volume deve contenere una snapshot cloud e deve essere offline. Se per errore non viene visualizzato un contenitore del volume, annullare la procedura guidata e verificare che sia offline.
 
-7. On the next page, in **Choose a target device for the volumes** in the selected containers, select the virtual device from the drop-down list of available devices. Only the devices that have the available capacity are displayed on the list. 
+7. Nella pagina successiva, in **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare il dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco.
 
-8. Review all the failover settings on the **Confirm failover** page. If they are correct, click the check icon.
+8. Controllare tutte le impostazioni di failover nella pagina **Conferma failover**. Se sono corrette, fare clic sull'icona del segno di spunta.
 
-The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
+A questo punto, viene avviato il processo di failover. Al termine del processo di failover, accedere alla pagina Dispositivi e selezionare il dispositivo virtuale che è stato utilizzato come destinazione del processo di failover. Andare alla pagina Contenitori di volumi. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
+
+<!---HONumber=AcomDC_1217_2015-->

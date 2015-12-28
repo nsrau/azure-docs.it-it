@@ -24,6 +24,10 @@
 
 Questa guida descrive come gestire i set di record e i record per la zona DNS.
 
+>[AZURE.NOTE]DNS di Azure è un servizio solo di Gestione risorse di Azure. Non include un’API ASM. È pertanto necessario garantire che l’interfaccia della riga di comando di Azure sia configurata per utilizzare la modalità di gestione risorse, utilizzando il comando 'azure config mode arm'.
+
+>Se viene visualizzato "errore: 'dns' non è un comando di azure" è probabilmente perché si sta utilizzando l’interfaccia della riga di comando di in modalità ASM, non in modalità gestione risorse.
+
 È importante comprendere la differenza tra i set di record DNS e i singoli record DNS. Un set di record è la raccolta di record con lo stesso nome e tipo in una zona. Per altre informazioni, vedere [Informazioni sui set di record e sui record](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records).
 
 ## Creare un set di record
@@ -50,7 +54,7 @@ DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki
 >I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
 ## Ottenere un set di record
-Per recuperare un set di record esistente, usare `azure network dns record-set show`, specificando gruppo di risorse, nome relativo del set di record e tipo di record:
+Per recuperare un set di record esistente, usare `azure network dns record-set show`, specificando gruppo di risorse, nome di zona, nome relativo del set di record e tipo di record:
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
@@ -75,7 +79,7 @@ In entrambi i casi si specificherà il nome del gruppo di risorse e il nome di z
 
 ## Aggiungere un record a un set di record
 
-I record vengono aggiunti al set di record utilizzando il `azure network dns record-set add-record`.
+I record vengono aggiunti ai set di record utilizzando il `azure network dns record-set add-record`.
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Ad esempio, quando si usa un set di record di tipo "A" sarà possibile specificare solo i record con il parametro "-a `<IPv4 address>`".
 
@@ -239,4 +243,4 @@ L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di c
 [Delegare un dominio a DNS di Azure](dns-domain-delegation.md)<BR> [Gestire le zone DNS](dns-operations-dnszones-cli.md)<BR> [Automatizzare operazioni usando .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

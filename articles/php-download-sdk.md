@@ -2,21 +2,21 @@
 	pageTitle="Scaricare Azure SDK per PHP"
 	description="Informazioni su come scaricare e installare Azure SDK per PHP."
 	documentationCenter="php"
-	services=""
+	services="app-service\web"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
-#Scaricare Azure SDK per PHP
+#Download di Azure SDK per PHP
 
 ## Panoramica
 
@@ -27,7 +27,7 @@ Azure SDK per PHP include componenti che consentono di sviluppare, distribuire e
 * **Azure PowerShell (solo Windows)**. Questo insieme di cmdlet di PowerShell consente la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali.
 * **Emulatori di Azure (solo Windows)**. Gli emulatori di calcolo e archiviazione sono emulatori locali di servizi cloud e di gestione dati che consentono di testare un'applicazione in locale. Gli emulatori di Azure funzionano solo su Windows.
 
-Nella sezione seguente viene indicato come eseguire il download e l'installazione dei componenti sopra descritti.
+Le sezioni seguenti illustrano come eseguire il download e l'installazione dei componenti sopra descritti.
 
 Le istruzioni fornite in questo argomento presuppongono che [PHP][install-php] sia installato nel computer in uso.
 
@@ -37,7 +37,7 @@ Le istruzioni fornite in questo argomento presuppongono che [PHP][install-php] s
 
 Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Possono essere installate tramite Composer, gli strumenti di gestione dei pacchetti PEAR oppure manualmente.
 
-Per informazioni su come utilizzare le librerie client PHP per Azure, vedere [Come utilizzare il servizio BLOB][blob-service], [Come utilizzare il servizio tabelle][table-service] e [Come utilizzare il servizio di accodamento][queue-service].
+Per informazioni su come usare le librerie client PHP per Azure, vedere [Come usare il servizio BLOB][blob-service], [Come usare il servizio tabelle][table-service] e [Come usare il servizio di accodamento][queue-service].
 
 ###Installazione tramite Composer
 
@@ -87,9 +87,9 @@ Al termine dell'installazione, è possibile fare riferimento alle librerie di cl
 
 Per scaricare e installare manualmente le librerie client PHP per Azure, attenersi alla procedura seguente:
 
-1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork dell'archivio, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
+1. Scaricare un archivio ZIP contenente le librerie da [GitHub][php-sdk-github]. In alternativa, dopo il fork del repository, clonare quest'ultimo nel computer locale. Per quest'ultima opzione è necessario un account GitHub e un'installazione locale di Git.
 
-	> [AZURE.NOTE]Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) e [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti utilizzando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE]Le librerie client PHP per Azure hanno dipendenze dai pacchetti PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) e [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Il modo consigliato per risolvere queste dipendenze è installare tali pacchetti usando [PEAR package manager](http://pear.php.net/manual/en/installation.php).
 
 2. Copiare la directory `WindowsAzure` dell'archivio scaricato nella struttura di directory dell'applicazione e fare riferimento alle classi dall'applicazione.
 
@@ -99,7 +99,7 @@ Azure PowerShell è un insieme di cmdlet di PowerShell per la distribuzione e la
 
 Il metodo consigliato per installare Azure PowerShell e gli emulatori di Azure è tramite l'[Installazione guidata piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
 
-Per informazioni sull'utilizzo di Azure PowerShell, vedere [Come utilizzare Azure PowerShell][powershell-tools].
+Per informazioni sull'uso di Azure PowerShell, vedere [Come usare Azure PowerShell][powershell-tools].
 
 ##Interfaccia della riga di comando di Azure
 
@@ -130,4 +130,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

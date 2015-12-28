@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/29/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Panoramica di Rete virtuale
@@ -31,13 +31,15 @@ La stessa rete può essere ospitata in Azure come illustrato nella figura seguen
 
 Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'accesso dalla propria VNet a Internet pubblico senza la necessità di alcuna configurazione. I firewall possono essere sostituiti da gruppi di sicurezza di rete (NSG) applicati a ogni singola subnet. I servizi di bilanciamento del carico fisici vengono sostituiti da servizi di bilanciamento del carico Internet e interni in Azure.
 
+>[AZURE.NOTE]Esistono due diverse modalità di distribuzione in Azure: classica (nota anche come Gestione dei servizi) e Gestione risorse di Azure. Le reti virtuali classiche possono essere aggiunte a un gruppo di affinità o create come reti virtuali regionali. Se si ha disposizione una rete virtuale in un gruppo di affinità, si consiglia di [eseguirne la migrazione a una rete virtuale regionale](./virtual-networks-migrate-to-regional-vnet.md).
+
 ## Vantaggi della rete virtuale
 
 - **Isolamento**. Le reti virtuali sono completamente isolate una dall'altra. In questo modo è possibile creare reti non contigue per la distribuzione, il test e la produzione che usano gli stessi blocchi di indirizzi CIDR.
 
 - **Accesso a Internet pubblico**. Tutte le istanze del ruolo PaaS e delle macchine virtuali IaaS in una rete virtuale possono accedere a Internet pubblico per impostazione predefinita. È possibile controllare l'accesso usando gruppi di sicurezza di rete (NSG).
 
-- **Accesso alle macchine virtuali nella rete virtuale**. Le istanze del ruolo PaaS e le VM IaaS possono essere avviate nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati, anche se sono in subnet diverse, senza che sia necessario configurare un gateway o usare indirizzi IP pubblici.
+- **Accesso alle macchine virtuali all'interno della rete virtuale**. Le istanze del ruolo PaaS e le VM IaaS possono essere avviate nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati, anche se sono in subnet diverse, senza che sia necessario configurare un gateway o usare indirizzi IP pubblici.
 
 - **Risoluzione dei nomi**. Azure offre una risoluzione dei nomi interna per le istanze del ruolo PaaS e delle macchine virtuali IaaS distribuiti nella propria rete virtuale. È possibile anche distribuire i propri server DNS e configurare la rete virtuale per usarli.
 
@@ -46,10 +48,6 @@ Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'
 - **Connettività**. Le reti virtuali possono essere connesse tra loro e anche al data center locale usando una connessione VPN da sito a sito o una connessione ExpressRoute. Per altre informazioni sui gateway VPN, visitare [Informazioni sui gateway VPN](./vpn-gateway-about-vpngateways.md). Per altre informazioni su ExpressRoute, visitare [Panoramica tecnica relativa a ExpressRoute](./expressroute-introduction.md).
 
     >[AZURE.NOTE]Verificare di aver creato una nuova rete virtuale prima di distribuire eventuali istanze del ruolo PaaS o delle macchine virtuali IaaS nell'ambiente Azure. Le macchine virtuali basate su ARM richiedono una rete virtuale e, se non si specifica una rete virtuale esistente, Azure crea una rete virtuale predefinita che potrebbe presentare un conflitto dei blocchi di indirizzi CIDR con la propria rete locale, rendendo impossibile la connessione tra la propria rete virtuale e la propria rete locale.
-
-## Modalità di distribuzione
-
-    >[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md). 
     
 ## Subnet
 
@@ -58,7 +56,7 @@ Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile su
 ## Indirizzi IP
 
 
-Ci sono due tipi di indirizzi IP assegnati alle risorse in Azure: *pubblici* e *privati*. Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e altri servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/) e [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Gli indirizzi IP privati consentono la comunicazione tra risorse in una rete virtuale, oltre che con quelle connesse tramite una VPN, senza usare indirizzi IP instradabili tramite Internet.
+Esistono due tipi di indirizzi IP assegnati alle risorse in Azure: *pubblici* e *privati*. Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e altri servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/) e [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Gli indirizzi IP privati consentono la comunicazione tra risorse in una rete virtuale, oltre che con quelle connesse tramite una VPN, senza usare indirizzi IP instradabili tramite Internet.
 
 Per altre informazioni sugli indirizzi IP in Azure, visitare [Indirizzi IP in una rete virtuale](virtual-network-ip-addresses-arm.md).
 
@@ -100,4 +98,4 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 - [Riservare un indirizzo IP pubblico](../virtual-networks-reserved-public-ip.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

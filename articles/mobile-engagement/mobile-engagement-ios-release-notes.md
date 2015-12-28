@@ -18,6 +18,10 @@
 
 #Note sulla versione
 
+##3\.2.1 (12/11/2015)
+
+-   Correzione del ritardo durante l’attivazione di una nuova istanza dell’app tramite notifica con collegamenti diretti 
+
 ##3\.2.0 (10/08/2015)
 
 -   Abilitato Bitcode nel SDK per utilizzarlo con **Xcode 7**.
@@ -54,4 +58,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

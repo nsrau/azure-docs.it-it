@@ -306,7 +306,7 @@ Nota: occorrono circa 2 ore dal completamento della distribuzione perché la pip
 
 • Salvare in locale
 
-**Configurare i report di Power BI** • Aprire il file di progettazione "VehicleTelemetryAnalytics - Desktop Report.pbix" con Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop [qui](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configurare i report di Power BI** • Aprire il file di progettazione "VehicleTelemetryAnalytics - Desktop Report.pbix" con Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop da [Installazione Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 
 • Fare clic su **Modifica query**.
 
@@ -390,4 +390,4 @@ Aggiungere grafici al dashboard esistente **Vehicle Telemetry Analytics Dashboar
 
 La procedura è stata completata. Sono stati creati il report e il dashboard per ottenere in tempo reale informazioni dettagliate in batch e predittive sullo stato di integrità dei veicoli e sulle abitudini di guida.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

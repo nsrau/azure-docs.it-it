@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Actors nell'infrastruttura di servizi | Microsoft Azure"
-   description="Descrive come i Reliable Actors usano le funzionalità della piattaforma dell'infrastruttura dei servizi trattando concetti dal punto di vista degli sviluppatori attori."
+   description="Descrive come i Reliable Actors usano le funzionalità della piattaforma Service Fabric trattando concetti dal punto di vista degli sviluppatori attori."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,7 +18,7 @@
 
 # Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors
 
-Gli attori usano il modello di applicazione di Service Fabric per gestire il ciclo di vita dell'applicazione. Ogni tipo di attore viene mappato a un [tipo di servizio](service-fabric-application-model.md#describe-a-service) di infrastruttura di servizi. Il codice attore viene [incluso in un pacchetto](service-fabric-application-model.md#package-an-application) come applicazione di Service Fabric e [distribuito](service-fabric-deploy-remove-applications.md#deploy-an-application) sul cluster.
+Gli attori usano il modello di applicazione Azure Service Fabric per gestire il ciclo di vita dell'applicazione. Ogni tipo di attore viene mappato a un [tipo di servizio](service-fabric-application-model.md#describe-a-service) di Service Fabric. Il codice attore viene [incluso in un pacchetto](service-fabric-application-model.md#package-an-application) come applicazione di Service Fabric e [distribuito](service-fabric-deploy-remove-applications.md#deploy-an-application) sul cluster.
 
 ## Concetto di modello dell'applicazione di esempio per gli attori
 
@@ -26,7 +26,7 @@ Per illustrare alcuni dei concetti precedenti, verrà esaminato l'esempio di un 
 
 Il manifesto dell'applicazione, il manifesto del servizio e il file di configurazione Settings.xml sono inclusi nel progetto per il servizio attore durante la creazione della soluzione in Visual Studio, come illustrato nella schermata seguente.
 
-![][1]
+![Progetto creato tramite Visual Studio][1]
 
 È possibile individuare il tipo e la versione dell'applicazione in cui l'attore è contenuto esaminando il manifesto dell'applicazione incluso nel progetto per il servizio attore. Il frammento di codice di un manifesto dell'applicazione riportato di seguito ne è un esempio.
 
@@ -49,7 +49,7 @@ Quando il pacchetto dell'applicazione viene creato usando Visual Studio, i log n
     -------- Package started: Project: VoiceMailBoxApplication, Configuration: Debug x64 ------
     VoiceMailBoxApplication -> C:\samples\Samples\Actors\VS2015\VoiceMailBox\VoiceMailBoxApplication\pkg\Debug
 
-Di seguito è riportato un elenco parziale del percorso precedente (l'elenco completo non è stato riportato per brevità):
+Di seguito è riportato un elenco parziale del percorso precedente (l'elenco completo non è stato riportato per brevità).
 
     C:\samples\Samples\Actors\VS2015\VoiceMailBox\VoiceMailBoxApplication\pkg\Debug>tree /f
     Folder PATH listing
@@ -95,7 +95,7 @@ Di seguito è riportato un elenco parziale del percorso precedente (l'elenco com
             └───it-IT
                     System.Fabric.Common.Internal.Strings.resources.dll
 
-L'elenco precedente mostra gli assembly che implementano l'inclusione dell'attore VoicemailBox nel pacchetto di codice all'interno del pacchetto del servizio nel pacchetto dell'applicazione.
+L'elenco precedente mostra gli assembly che implementano l'attore VoicemailBox incluso nel pacchetto di codice all'interno del pacchetto del servizio nel pacchetto dell'applicazione.
 
 Anche la successiva gestione dell'applicazione, ad esempio gli aggiornamenti e l'eventuale eliminazione, viene eseguita tramite meccanismi di gestione dell'applicazione di Service Fabric. Per altre informazioni, vedere gli argomenti relativi al [modello di applicazione](service-fabric-application-model.md), alla [distribuzione e rimozione dell'applicazione](service-fabric-deploy-remove-applications.md) e all'[aggiornamento dell'applicazione](service-fabric-application-upgrade.md).
 
@@ -105,7 +105,7 @@ Gli amministratori del cluster possono creare uno o più servizi attore per ogni
 > [AZURE.NOTE]Per i servizi attore senza stato il numero di [istanze](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) deve essere pari a 1. Non è supportata la presenza di più istanze del servizio attore senza stato in una partizione. Di conseguenza, i servizi attore senza stato non dispongono dell'opzione per incrementare il numero di istanze per ottenere la scalabilità. Devono usare le opzioni di scalabilità descritte nell'[articolo relativo alla scalabilità](service-fabric-concepts-scalability.md).
 
 ## Concetti relativi alla partizione di Service Fabric per gli attori
-L'ID attore di un attore viene mappato a una partizione di un servizio attore. L'attore viene creato all'interno della partizione a cui è mappato il relativo ID attore. Quando viene creato un attore, il runtime di Actors scrive un [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) che indica in quale partizione è stato creato l'attore. Di seguito è riportato un esempio di questo evento, che indica che un attore con ID `-5349766044453424161` è stato creato all'interno della partizione `b6afef61-be9a-4492-8358-8f473e5d2487` del servizio `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` nell'applicazione `fabric:/VoicemailBoxAdvancedApplication`.
+L'ID di un attore viene mappato a una partizione di un servizio attore. L'attore viene creato all'interno della partizione a cui è mappato il relativo ID attore. Quando viene creato un attore, il runtime di Actors scrive un [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) che indica in quale partizione è stato creato l'attore. Di seguito è riportato un esempio di questo evento, che indica che un attore con ID `-5349766044453424161` è stato creato all'interno della partizione `b6afef61-be9a-4492-8358-8f473e5d2487` del servizio `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` nell'applicazione `fabric:/VoicemailBoxAdvancedApplication`.
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -124,7 +124,7 @@ L'ID attore di un attore viene mappato a una partizione di un servizio attore. L
       }
     }
 
-Un altro attore con ID `-4952641569324299627` è stato creato all'interno di una partizione `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` diversa dello stesso servizio, come indicato nell'evento seguente.
+Un altro attore con ID `-4952641569324299627` è stato creato all'interno di una partizione (`5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`) diversa dello stesso servizio, come indicato nell'evento seguente.
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -143,13 +143,13 @@ Un altro attore con ID `-4952641569324299627` è stato creato all'interno di una
       }
     }
 
-*Nota:* alcuni campi degli eventi precedenti sono stati omessi per brevità.
+> [AZURE.NOTE]Alcuni campi degli eventi precedenti sono stati omessi per brevità.
 
 È possibile usare l'ID partizione per ottenere altre informazioni sulla partizione. È ad esempio possibile usare lo strumento [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) per visualizzare informazioni relative alla partizione, nonché al servizio e all'applicazione a cui appartiene la partizione. La schermata seguente mostra le informazioni relative alla partizione `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, che includeva l'attore con ID `-4952641569324299627` nell'esempio precedente.
 
-![][3]
+![Informazioni su una partizione in Service Fabric Explorer][3]
 
-Gli attori possono ottenere l'ID partizione, il nome del servizio, il nome dell'applicazione e altre informazioni specifiche sulla piattaforma Service Fabric a livello di codice tramite l'oggetto `Host.ActivationContext` e l'oggetto `Host.StatelessServiceInitialization` o tramite i membri `Host.StatefulServiceInitializationParameters` della classe base da cui deriva il tipo di attore, come illustrato dal frammento di codice seguente:
+Gli attori possono ottenere l'ID partizione, il nome del servizio, il nome dell'applicazione e altre informazioni specifiche sulla piattaforma Service Fabric a livello di codice tramite l'oggetto `Host.ActivationContext` e l'oggetto `Host.StatelessServiceInitialization` o tramite i membri `Host.StatefulServiceInitializationParameters` della classe base da cui deriva il tipo di attore, come illustrato dal frammento di codice seguente.
 
 ```csharp
 public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
@@ -196,23 +196,23 @@ Quando viene creato un attore senza stato, il runtime di Actors scrive un [event
       }
     }
 
-*Nota:* alcuni campi dell'evento precedente sono stati omessi per brevità.
+> [AZURE.NOTE]Alcuni campi dell'evento precedente sono stati omessi per brevità.
 
 ### Concetti relativi alla partizione di Service Fabric per gli attori con stato
-Gli attori con stato vengono creati all'interno di una partizione del servizio di Service Fabric con stato. L'ID attore determina in quale partizione viene creato l'attore. Ogni partizione del servizio può disporre di una o più [repliche](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) posizionate in diversi nodi del cluster. La presenza di più repliche garantisce affidabilità per lo stato dell'attore. Il gestore delle risorse consente di ottimizzare il posizionamento in base ai domini di errore e di aggiornamento disponibili nel cluster. Due repliche della stessa partizione non vengono mai posizionate nello stesso nodo. Gli attori vengono sempre creati nella replica primaria della partizione a cui è mappato l'ID attore.
+Gli attori con stato vengono creati all'interno di una partizione del servizio di Service Fabric con stato. L'ID attore determina in quale partizione viene creato l'attore. Ogni partizione del servizio può disporre di una o più [repliche](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) posizionate in diversi nodi del cluster. La presenza di più repliche garantisce affidabilità per lo stato dell'attore. Gestione risorse di Azure consente di ottimizzare il posizionamento in base ai domini di errore e di aggiornamento disponibili nel cluster. Due repliche della stessa partizione non vengono mai posizionate nello stesso nodo. Gli attori vengono sempre creati nella replica primaria della partizione a cui è mappato l'ID attore.
 
 > [AZURE.TIP]Il runtime di Fabric Actors emette alcuni [eventi relativi alle repliche di attori con stato](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
 Tenere presente che nell'[esempio di VoiceMailBoxActor riportato in precedenza](#service-fabric-partition-concepts-for-actors) l'attore con ID `-4952641569324299627` è stato creato all'interno della partizione `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. L'evento EventSource di quell'esempio indica anche che l'attore è stato creato nella replica `130745418574851853` di tale partizione. Questa era la replica primaria della partizione al momento della creazione dell'attore, come confermato dalla schermata seguente di Service Fabric Explorer.
 
-![][4]
+![Replica primaria in Service Fabric Explorer][4]
 
 ## Scelta del provider di stato degli attori
 Nel runtime di Actors sono inclusi alcuni provider di stato degli attori predefiniti. Per scegliere un provider di stato appropriato per un servizio attore, è necessario comprendere in che modo i provider di stato usano le funzionalità della piattaforma Service Fabric sottostante per rendere lo stato dell'attore estremamente disponibile.
 
-Per impostazione predefinita, un attore con stato usa il provider di stato basato sull'archivio chiave-valore distribuito che viene fornito dalla piattaforma Service Fabric. Lo stato viene salvato in modo permanente sul disco locale del nodo che ospita la [replica](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) primaria, nonché replicato e salvato in modo permanente sui dischi locali dei nodi che ospitano le repliche secondarie. Il salvataggio dello stato è completato solo quando un quorum di repliche ha eseguito il commit dello stato nei dischi locali. L'archivio chiave-valore dispone di funzionalità avanzate che consentono di rilevare le incoerenze, ad esempio uno stato False, e di correggerle automaticamente.
+Per impostazione predefinita, un attore con stato usa il provider di stato basato sull'archivio chiave-valore distribuito che viene fornito dalla piattaforma Service Fabric. Lo stato viene salvato in modo permanente sul disco locale del nodo che ospita la [replica](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) primaria. Lo stato viene anche replicato e salvato in modo permanente sui dischi locali dei nodi che ospitano le repliche secondarie. Il salvataggio dello stato è completato solo quando un quorum di repliche ha eseguito il commit dello stato nei rispettivi dischi locali. L'archivio chiave-valore dispone di funzionalità avanzate che consentono di rilevare le incoerenze, ad esempio uno stato False, e di correggerle automaticamente.
 
-Il runtime di Actors include anche un oggetto `VolatileActorStateProvider`. Questo provider di stato replica lo stato in repliche, ma lo stato rimane in memoria nella replica. Se una replica si arresta e poi torna disponibile, il relativo stato viene ricompilato dall'altra replica. Tuttavia, se tutte le repliche (le copie dello stato) si arrestano contemporaneamente, i dati relativi allo stato andranno persi. Questo provider di stato è quindi adatto alle applicazioni in cui i dati non andranno persi anche in caso di errore di alcune repliche e in caso di failover pianificati come gli aggiornamenti. In caso di perdita di tutte le repliche (copie) è necessario ricreare i dati tramite meccanismi esterni a Service Fabric. È possibile configurare l'attore con stato per l'uso di un provider di stato volatile aggiungendo l'attributo `VolatileActorStateProvider` alla classe attore o un attributo a livello di assembly.
+Il runtime di Actors include anche un oggetto `VolatileActorStateProvider`. Questo provider di stato replica lo stato in repliche (copie dello stato), ma lo stato rimane in memoria in ogni replica. Se una replica si arresta e poi torna disponibile, il relativo stato viene ricompilato dall'altra replica. Tuttavia, se tutte le repliche si arrestano contemporaneamente, i dati relativi allo stato andranno persi. Questo provider di stato è quindi adatto alle applicazioni in cui i dati non andranno persi anche in caso di errore di alcune repliche e in caso di failover pianificati come gli aggiornamenti. In caso di perdita di tutte le repliche è necessario ricreare i dati tramite meccanismi esterni a Service Fabric. È possibile configurare l'attore con stato per l'uso di un provider di stato volatile aggiungendo l'attributo `VolatileActorStateProvider` alla classe attore o un attributo a livello di assembly.
 
 Il frammento di codice seguente illustra come modificare tutti gli attori nell'assembly che non dispone di un attributo del provider di stato esplicito per l'uso dell'oggetto `VolatileActorStateProvider`.
 
@@ -242,4 +242,4 @@ Si noti che per modificare il provider di stato è necessario ricreare il serviz
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

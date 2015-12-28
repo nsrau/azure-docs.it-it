@@ -212,6 +212,7 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 - [Riferimento all'SDK del client di archiviazione di Azure]
 - [API REST di Archiviazione di Azure]
 - [Blog del team di Archiviazione di Azure]
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
@@ -222,4 +223,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

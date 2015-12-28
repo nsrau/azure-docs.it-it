@@ -37,7 +37,7 @@ Suggerimenti: - Se non è possibile ricevere messaggi SMS con il telefono in uso
 **Nota:** è possibile modificare il numero di telefono preferito in un secondo momento aggiornando [le informazioni del profilo](https://account.windowsazure.com/Profile).
 
 ## L'utente ha verificato se il metodo di pagamento indicato durante la procedura di iscrizione è supportato per le attivazioni o i pagamenti di Azure?
-- Le carte di credito/debito prepagate virtuali e non virtuali non sono accettate.
+- Le carte di credito/debito virtuali e prepagate non sono accettate.
 - I fornitori di carte di credito/debito accettati variano in base al paese dell'account.
 
 Suggerimenti: - Non usare una carta di credito/debito virtuale o prepagata. - Se il pagamento o l'attivazione non riesce, provare a usare una carta di credito valida e supportata alternativa. - Assicurarsi che la carta di credito sia attiva e che la banca non blocchi le transazioni online per motivi di sicurezza.
@@ -60,4 +60,4 @@ Suggerimenti: - Se è già stata attivata una sottoscrizione di Azure in passato
 ## I problemi di iscrizione non sono stati risolti?
 Se i problemi di iscrizione non sono stati risolti o se l'errore riscontrato non è descritto in questo articolo, [contattare il supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per richiedere assistenza.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

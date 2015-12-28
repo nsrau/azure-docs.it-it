@@ -86,7 +86,7 @@ Provisioned ed Enabled sono gli unici stati che consentono di usare il circuito.
 
 Lo stato del circuito ExpressRoute sarà il seguente nel momento in cui si esegue il cmdlet di PowerShell per eliminare il circuito ExpressRoute.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 È necessario contattare il provider di connettività per eseguire il deprovisioning del circuito ExpressRoute. **Importante:** Microsoft continuerà ad applicare l'addebito per il circuito finché non si esegue il cmdlet di PowerShell per il deprovisioning.
@@ -121,4 +121,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

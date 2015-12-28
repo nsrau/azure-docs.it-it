@@ -351,9 +351,9 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 - [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analisi dell'archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Come monitorare un account di archiviazione](storage-monitor-storage-account.md)
-- [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

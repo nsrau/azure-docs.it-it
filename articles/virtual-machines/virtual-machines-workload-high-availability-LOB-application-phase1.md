@@ -66,10 +66,10 @@ Elemento | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 Per i due server DNS locali da usare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare la Tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
-Elemento | Nome descrittivo per il server DNS | Indirizzo IP del server DNS 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+Elemento | Indirizzo IP del server DNS 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **Tabella D: Server DNS locali**
 
@@ -85,13 +85,24 @@ Elemento | Spazio degli indirizzi della rete virtuale
 
 **Tabella L: Prefissi degli indirizzi per la rete locale**
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire tutte le istanze di "-AzureRM" con "-Azure" e aggiungere il comando **Switch-AzureMode AzureResourceManager** prima di eseguire i comandi. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+In primo luogo, avviare un prompt di Azure PowerShell.
 
-Aprire un prompt dei comandi di Azure PowerShell.
+> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
-A questo punto, creare un nuovo gruppo di risorse per l'applicazione line-of-business.
+Innanzitutto, avviare un prompt di Azure PowerShell e accedere al proprio account.
 
-Per determinare un nome di gruppo di risorse univoco, usare il comando seguente per elencare i gruppi di risorse esistenti.
+	Login-AzureRMAccount
+
+Ottenere il nome della sottoscrizione usando il comando seguente.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Impostare la sottoscrizione di Azure. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+A questo punto, creare un nuovo gruppo di risorse per l'applicazione line-of-business. Per determinare un nome di gruppo di risorse univoco, usare il comando seguente per elencare i gruppi di risorse esistenti.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@ Questi nomi saranno necessari quando si creano le macchine virtuali nelle fasi 2
 
 Per ogni account di archiviazione è necessario selezionare un nome univoco globale che contenga solo lettere minuscole e numeri. È possibile usare il comando seguente per elencare gli account di archiviazione esistenti.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Per creare il primo account di archiviazione, eseguire i comandi seguenti.
 
@@ -176,7 +187,7 @@ Per configurare il dispositivo VPN locale, è necessario quanto segue:
 - L'indirizzo IPv4 pubblico del gateway VPN di Azure per la rete virtuale (visualizzato dopo aver eseguito il comando **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
 - La chiave precondivisa IPSec per la connessione VPN da sito a sito (Tabella V - Elemento 8 - colonna Valore)
 
-A questo punto, verificare che lo spazio degli indirizzi della rete virtuale sia raggiungibile da una rete locale. Ciò avviene di solito aggiungendo una route corrispondente allo spazio di indirizzi di rete virtuale al dispositivo VPN e annunciando quindi tale route al resto dell'infrastruttura di della rete dell'organizzazione. Collaborare con il reparto IT per stabilire come fare.
+Successivamente, verificare che lo spazio degli indirizzi della rete virtuale sia raggiungibile da una rete locale. Ciò avviene di solito aggiungendo una route corrispondente allo spazio di indirizzi di rete virtuale al dispositivo VPN e annunciando quindi tale route al resto dell'infrastruttura di della rete dell'organizzazione. Collaborare con il reparto IT per stabilire come fare.
 
 A questo punto, definire i nomi di tre set di disponibilità. Compilare la Tabella A.
 
@@ -207,18 +218,6 @@ Questa è la configurazione risultante dal corretto completamento di questa fase
 
 ## Passaggio successivo
 
-Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: Configurare di controller di dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+- Seguire la [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) per continuare con la configurazione di questo carico di lavoro.
 
-## Risorse aggiuntive
-
-[Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664)
-
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

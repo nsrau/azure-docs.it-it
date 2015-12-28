@@ -78,7 +78,9 @@ Ecco altre istruzioni per la risoluzione dei problemi specifiche per le piattafo
 
 	- Assicurarsi che i certificati siano validi e non siano scaduti per le notifiche push iOS. 
 	- Assicurarsi che un certificato di *produzione* sia configurato correttamente nell'app Mobile Engagement. 
+	- Assicurarsi di eseguire il test su un *dispositivo fisico reale.* Il simulatore iOS non è in grado di elaborare i messaggi push.
 	- Assicurarsi che l'identificatore del bundle sia configurato correttamente nell'app per dispositivi mobili. Le istruzioni sono disponibili [qui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
+	- Durante il test, utilizzare la distribuzione "Ad Hoc" nel profilo di provisioning per dispositivi mobili. Non sarà possibile ricevere una notifica se l'applicazione viene compilata con "Debug"
 
 2. **Android**
 
@@ -118,4 +120,4 @@ Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzi
 	- Versione di Mobile Engagement SDK (ad esempio Android SDK v2.1.0)
 	- Dettagli dell'errore con messaggio di errore esatto e scenario
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="Informazioni sulle procedure per la configurazione di servizi cloud e dell'account di archiviazione e per la configurazione dell'applicazione Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio, vedere [Pubblicazione di un servizio Cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

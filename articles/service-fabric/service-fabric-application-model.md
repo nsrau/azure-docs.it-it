@@ -3,7 +3,7 @@
    description="Come modellare e descrivere le applicazioni e servizi in infrastruttura di servizi."
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/02/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"   
+   ms.author="seanmck"/>
 
 # Modellare un'applicazione in Service Fabric
 
@@ -248,4 +248,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

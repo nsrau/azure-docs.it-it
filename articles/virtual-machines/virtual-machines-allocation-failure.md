@@ -23,7 +23,7 @@
 
 Quando si crea una macchina virtuale, si riavviano VM arrestate (deallocate) e si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. Inoltre, è possibile inviare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto tecnico** sul sito [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/).
 
 Nella sezione "Risoluzione dei problemi più comuni relativi ad errori di allocazione" vengono elencati i passaggi per risolvere i problemi comuni. La sezione "Risoluzione dei problemi relativi a scenari di errore di allocazione specifica" fornisce passaggi per la risoluzione dei problemi per messaggio di errore specifico. Prima di iniziare, ecco alcune informazioni di base per comprendere il funzionamento di allocazione e il motivo per cui si verifica un errore di allocazione.
 
@@ -32,25 +32,29 @@ Nella sezione "Risoluzione dei problemi più comuni relativi ad errori di alloca
 I server nei data center di Azure sono partizionati in cluster. In genere, viene eseguita una richiesta di allocazione in più cluster, ma è possibile che determinati vincoli nella richiesta di allocazione impongano alla piattaforma Azure di eseguire la richiesta in un solo cluster. In questo articolo si farà riferimento a questa operazione con il termine "bloccata su un cluster". Il diagramma 1 seguente illustra un'allocazione normale eseguita in più cluster. Il diagramma 2 illustra un'allocazione bloccata sul Cluster 2, perché è quello che ospita il servizio cloud CS\_1 o il set di disponibilità. ![Diagramma di allocazione](./media/virtual-machines-allocation-failure/Allocation1.png)
 
 ### Perché si verifica un errore di allocazione
-Quando una richiesta di allocazione è bloccata su un cluster, la probabilità di non riuscire a trovare risorse disponibili è più alta, perché il pool di risorse disponibili è più ridotto. Inoltre, se la richiesta di allocazione è bloccata su un cluster, ma il tipo di risorsa richiesto non è supportato da quel cluster, la richiesta non riuscirà anche se nel cluster ci sono risorse disponibili. Il diagramma 3 seguente illustra un'allocazione bloccata non riuscita perché nel solo cluster candidato non ci sono risorse disponibili. Il diagramma 4 illustra un'allocazione bloccata non riuscita perché il solo cluster candidato non supporta le dimensioni della VM richieste, anche se nel cluster ci sono risorse disponibili. ![Errore di allocazione bloccata](./media/virtual-machines-allocation-failure/Allocation2.png)
+Quando una richiesta di allocazione è bloccata su un cluster, la probabilità di non riuscire a trovare risorse disponibili è più alta, perché il pool di risorse disponibili è più ridotto. Inoltre, se la richiesta di allocazione è bloccata su un cluster, ma il tipo di risorsa richiesto non è supportato da quel cluster, la richiesta non riuscirà anche se nel cluster ci sono risorse disponibili. Il diagramma 3 seguente illustra un'allocazione bloccata non riuscita perché nel solo cluster candidato non ci sono risorse disponibili. Il diagramma 4 illustra un'allocazione bloccata non riuscita perché il solo cluster candidato non supporta le dimensioni della VM richieste, anche se nel cluster ci sono risorse disponibili.
 
-## Risoluzione dei problemi relativi a errori di allocazione nel modello di distribuzione classica
+![Errore di allocazione bloccata](./media/virtual-machines-allocation-failure/Allocation2.png)
 
-Questi passaggi di base possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali.
-
-- Ridimensionare la VM con una dimensione diversa della VM.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Impostazioni > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
-
-- Eliminare tutte le VM dal servizio cloud e ricrearle.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Elimina >. Fare quindi clic su Nuovo > Calcolo > [immagine di macchina virtuale]
-
-## Risoluzione dei problemi relativi a errori di allocazione nel modello di distribuzione di Gestione risorse
+## Passaggi per la risoluzione dei problemi generali
+### Risoluzione dei problemi relativi a errori di allocazione nel modello di distribuzione classica
 
 Questi passaggi di base possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali.
 
-- Arrestare, ovvero deallocare, tutte le VM nello stesso set di disponibilità, quindi riavviarle.<br> Per arrestare: fare clic su Gruppi di risorse > gruppo di risorse personale > Risorse > set di disponibilità personale > Macchine virtuali > macchina virtuale personale > Arresta
+- Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br> Fare clic su Esplora tutto > Macchine virtuali (classiche) > macchina virtuale personale > Impostazioni > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+
+- Eliminare tutte le macchine virtuali dal servizio cloud e ricrearle.<br> Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale personale > Elimina >. Fare quindi clic su Nuovo > Calcolo > [immagine di macchina virtuale]
+
+### Risoluzione dei problemi relativi a errori di allocazione nel modello di distribuzione di Gestione risorse
+
+Questi passaggi di base possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali.
+
+- Arrestare, ovvero deallocare, tutte le macchine virtuali nello stesso set di disponibilità, quindi riavviarle.<br> Per arrestare: fare clic su Gruppi di risorse > gruppo di risorse personale > Risorse > set di disponibilità personale > Macchine virtuali > macchina virtuale personale > Arresta
 
 	Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su Avvia.
 
-## Risoluzione dei problemi relativi a scenari con errori di allocazione nel modello di distribuzione classica
+## Procedura di risoluzione dei problemi dettagliata
+### Risoluzione dei problemi relativi a scenari con errori di allocazione nel modello di distribuzione classica
 Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione bloccata. Verrà esaminato ogni scenario più avanti in questo articolo.
 
 - Ridimensionamento di una VM o aggiunta di altre VM o istanze del ruolo a un servizio cloud esistente
@@ -70,7 +74,7 @@ Il diagramma 5 seguente illustra la tassonomia degli scenari di allocazione (blo
 
 > [AZURE.NOTE]L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere l'[Appendice](#appendix).
 
-### Scenario di allocazione: ridimensionamento di una VM o aggiunta di altre VM o istanze del ruolo a un servizio cloud esistente
+#### Scenario di allocazione: ridimensionamento di una VM o aggiunta di altre VM o istanze del ruolo a un servizio cloud esistente
 **Errore**
 
 Upgrade\_VMSizeNotSupported* o GeneralError*
@@ -85,7 +89,7 @@ Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM div
 
 Se l'errore è GeneralError*, è probabile che il tipo di risorsa (ad esempio dimensioni della VM specifiche) sia supportato dal cluster, ma che al momento non ci siano risorse disponibili nel cluster. Come detto sopra, provare ad aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo IP virtuale diverso) e usare la rete virtuale dell'area per connettere i servizi cloud.
 
-### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione parziale
+#### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione parziale
 
 **Errore**
 
@@ -93,26 +97,26 @@ GeneralError*
 
 **Causa del blocco su un cluster**
 
-Deallocazione **parziale** significa che una o più VM in un servizio cloud sono state arrestate (deallocate), ma **non tutte**. Quando si arresta (dealloca) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Il riavvio di VM in un servizio cloud parzialmente deallocato equivale all'aggiunta di VM a un servizio cloud esistente e la richiesta di allocazione deve essere eseguita nel cluster originale che ospita il servizio cloud esistente. La creazione di un servizio cloud diverso consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
+Deallocazione **parziale** significa che una o più macchine virtuali in un servizio cloud sono state arrestate (deallocate), ma **non tutte**. Quando si arresta (dealloca) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Il riavvio di VM in un servizio cloud parzialmente deallocato equivale all'aggiunta di VM a un servizio cloud esistente e la richiesta di allocazione deve essere eseguita nel cluster originale che ospita il servizio cloud esistente. La creazione di un servizio cloud diverso consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
 
 **Soluzione alternativa**
 
 Se è accettabile usare un indirizzo IP virtuale diverso, eliminare le VM arrestate (deallocate), mantenendo però i dischi associati, e riaggiungere le VM tramite un servizio cloud diverso. Usare la rete virtuale dell'area per connettere i servizi cloud: 1. Se il servizio cloud esistente usa una rete virtuale dell'area, è sufficiente aggiungere il nuovo servizio cloud alla stessa rete virtuale. 2. Se il servizio cloud esistente non usa la rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud e quindi [connettere la rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Ricevere altre informazioni sulla [Rete virtuale dell'area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione completa
+#### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione completa
 **Errore**
 
 GeneralError*
 
 **Causa del blocco su un cluster**
 
-Deallocazione **completa** significa che sono state arrestate (deallocate) **tutte** le VM di un servizio cloud. Al momento, le richieste di allocazione per il riavvio di queste VM devono essere eseguite nel cluster originale che ospita il servizio cloud. La creazione di un nuovo servizio cloud consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
+Deallocazione **completa** significa che sono state arrestate (deallocate) **tutte** le macchine virtuali di un servizio cloud. Al momento, le richieste di allocazione per il riavvio di queste VM devono essere eseguite nel cluster originale che ospita il servizio cloud. La creazione di un nuovo servizio cloud consente alla piattaforma Azure di trovare un altro cluster con risorse disponibili o che supporti le dimensioni della VM richieste.
 
 **Soluzione alternativa**
 
 Se è accettabile usare un indirizzo IP virtuale diverso, eliminare le VM arrestate (deallocate) originali, mantenendo però i dischi associati, ed eliminare il servizio cloud corrispondente. Le risorse di calcolo associate sono già state rilasciate quando sono state arrestate (deallocate) le VM. Creare un nuovo servizio cloud per riaggiungere le VM.
 
-### Scenario di allocazione: distribuzioni di staging/produzione, solo PaaS (Platform-as-a-Service)
+#### Scenario di allocazione: distribuzioni di staging/produzione, solo PaaS (Platform-as-a-Service)
 **Errore**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -125,7 +129,7 @@ Le distribuzione di staging e di produzione di un servizio cloud sono ospitate n
 
 Se è accettabile, eliminare la prima distribuzione e il servizio cloud originale e ridistribuire il servizio cloud. Questa azione potrebbe inserire la prima distribuzione in un cluster con risorse disponibili sufficienti per entrambe le distribuzioni o in un cluster che supporta le dimensioni della VM richieste.
 
-### Scenario di allocazione: gruppo di affinità - prossimità di VM/servizi
+#### Scenario di allocazione: gruppo di affinità - prossimità di VM/servizi
 **Errore**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -138,7 +142,7 @@ Qualsiasi risorsa di calcolo assegnata a un gruppo di affinità è associata a u
 
 Se non è necessario, non usare un gruppo di affinità o non tentare di raggruppare le risorse di calcolo in più gruppi di affinità.
 
-### Scenario di allocazione: rete virtuale basata su gruppi di affinità
+#### Scenario di allocazione: rete virtuale basata su gruppi di affinità
 **Errore**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -153,18 +157,18 @@ Se il gruppo di affinità non è necessario, creare una nuova rete virtuale dell
 
 In alternativa, è possibile [eseguire la migrazione della rete virtuale basata su gruppi di affinità alla rete virtuale dell'area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) e quindi provare a riaggiungere le risorse desiderate.
 
-## Risoluzione dei problemi relativi a scenari con errori di allocazione nel modello di distribuzione di Gestione risorse di Azure
+### Risoluzione dei problemi relativi a scenari con errori di allocazione nel modello di distribuzione di Gestione risorse di Azure
 Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione bloccata. Verrà esaminato ogni scenario più avanti in questo articolo.
 
 - Ridimensionamento di una VM o aggiunta di altre VM o istanze del ruolo a un servizio cloud esistente
-- Riavvio di VM arrestate (deallocate) - deallocazione **parziale**
-- Riavvio di VM arrestate (deallocate) - deallocazione **completa**
+- Riavvio di macchine virtuali arrestate (deallocate) - deallocazione **parziale**
+- Riavvio di macchine virtuali arrestate (deallocate) - deallocazione **completa**
 
 Quando viene visualizzato un errore di allocazione, vedere se è applicabile uno degli scenari descritti. Usare l'errore di allocazione restituito dalla piattaforma Azure per identificare lo scenario corrispondente. Se la richiesta è bloccata su un cluster esistente, provare a rimuovere alcuni dei vincoli di blocco per rendere la richiesta eseguibile su più cluster, aumentando di conseguenza la possibilità che l'allocazione riesca.
 
 In generale, purché l'errore non indichi che "le dimensioni della VM richieste non sono supportate", è sempre possibile riprovare in un momento successivo perché nel cluster potrebbero liberarsi risorse sufficienti per soddisfare la richiesta. Se il problema sono le dimensioni richieste per la VM non supportate, vedere di seguito le soluzioni alternative.
 
-### Scenario di allocazione: ridimensionamento di una VM o aggiunta di altre VM a un set di disponibilità esistente
+#### Scenario di allocazione: ridimensionamento di una VM o aggiunta di altre VM a un set di disponibilità esistente
 **Errore**
 
 Upgrade\_VMSizeNotSupported* o GeneralError*
@@ -179,27 +183,27 @@ Se l'errore è Upgrade\_VMSizeNotSupported*, provare con dimensioni della VM div
 
 Se l'errore è GeneralError*, è probabile che il tipo di risorsa (ad esempio dimensioni della VM specifiche) sia supportato dal cluster, che al momento non ci siano risorse disponibili nel cluster. Se la VM può far parte di un set di disponibilità diverso, creare una nuova VM in un altro set di disponibilità nella stessa area. La nuova VM può quindi essere aggiunta alla stessa rete virtuale.
 
-### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione parziale
+#### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione parziale
 **Errore**
 
 GeneralError*
 
 **Causa del blocco su un cluster**
 
-Deallocazione **parziale** significa che una o più VM in un set di disponibilità sono state arrestate (deallocate), ma **non tutte**. Quando si arresta (dealloca) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Il riavvio di VM in un set di disponibilità parzialmente deallocato equivale all'aggiunta di VM a un set di disponibilità esistente e la richiesta di allocazione deve essere eseguita nel cluster originale che ospita il set di disponibilità esistente.
+Deallocazione **parziale** significa che una o più macchine virtuali in un set di disponibilità sono state arrestate (deallocate), ma **non tutte**. Quando si arresta (dealloca) una VM, vengono rilasciate le risorse associate. Il riavvio della VM arrestata (deallocata) è quindi una nuova richiesta di allocazione. Il riavvio di VM in un set di disponibilità parzialmente deallocato equivale all'aggiunta di VM a un set di disponibilità esistente e la richiesta di allocazione deve essere eseguita nel cluster originale che ospita il set di disponibilità esistente.
 
 **Soluzione alternativa**
 
 Provare ad arrestare tutte le VM nel set di disponibilità prima di riavviare la prima. In questo modo si assicura che venga eseguito un nuovo tentativo di allocazione e sia possibile selezionare un nuovo cluster con capacità disponibile.
 
-### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione completa
+#### Scenario di allocazione: riavvio di VM arrestate (deallocate) - deallocazione completa
 **Errore**
 
 GeneralError*
 
 **Causa del blocco su un cluster**
 
-Deallocazione **completa** significa che sono state arrestate (deallocate) **tutte** le VM in un set di disponibilità. La richiesta di allocazione per il riavvio di queste VM sarà eseguita in tutti i cluster che supportano le dimensioni desiderate.
+Deallocazione **completa** significa che sono state arrestate (deallocate) **tutte** le macchine virtuali in un set di disponibilità. La richiesta di allocazione per il riavvio di queste VM sarà eseguita in tutti i cluster che supportano le dimensioni desiderate.
 
 **Soluzione alternativa**
 
@@ -223,9 +227,4 @@ Non è possibile eseguire l'aggiornamento della distribuzione. È possibile che 
 
 Si è verificato un errore interno del server. Ripetere la richiesta." o "Non è stato possibile produrre un'allocazione per il servizio.
 
-## Risorse aggiuntive
-### Contattare il supporto tecnico di Azure
-
-Se questo articolo non ha consentito di risolvere il problema di Azure, esplorare i forum di Azure su [MSDN e overflow dello stack](http://azure.microsoft.com/support/forums/). È anche possibile registrare una richiesta di supporto per Azure relativa al problema. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@ Il bilanciamento del carico interno rappresenta un miglioramento della sicurezza
 			
 L'infrastruttura limita l'accessibilità e crea un limite di attendibilità tra gli indirizzi IP virtuali con carico bilanciato per un servizio cloud o una rete virtuale, senza esposizione diretta a un endpoint Internet. Ciò consente di eseguire le applicazioni line-of-business interne in Azure e di accedervi nel cloud o dall'ambiente locale.
 
-## Scenari di bilanciamento del carico interno
+## Scenari per il servizio di bilanciamento del carico interno
 
 È possibile usare il bilanciamento del carico interno in molte nuove configurazioni, tra cui quelle descritte di seguito.
 
@@ -92,4 +92,4 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

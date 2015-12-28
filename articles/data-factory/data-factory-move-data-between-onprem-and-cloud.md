@@ -73,7 +73,7 @@ Questi messaggi di errore vengono generati a causa di una configurazione non cor
 Gli unici due firewall a cui può essere attribuita la responsabilità di tali errori sono il firewall aziendale in esecuzione sul router centrale dell'organizzazione e Windows Firewall, configurato come servizio daemon sul computer locale in cui è installato il gateway. Di seguito si riportano alcune considerazioni:
 
 - Non è necessario modificare i criteri in ingresso per il firewall aziendale.
-- Sia nel firewall aziendale che in Windows Firewall è necessario creare una regola in uscita per abilitare le porte TCP 80 e 443 e le porte TCP da 9305 a 9354. Queste porte vengono usate dal bus di servizio di Microsoft Azure per stabilire connessioni tra i servizi cloud e il Gateway di gestione dati.
+- Sia nel firewall aziendale che in Windows Firewall è necessario creare una regola in uscita per abilitare le porte TCP 80 e 443 e le porte TCP da 9350 a 9354. Queste porte vengono usate dal bus di servizio di Microsoft Azure per stabilire connessioni tra i servizi cloud e il Gateway di gestione dati.
 
 Il programma di installazione del pacchetto con estensione msi configura automaticamente le regole di Windows Firewall per le porte in ingresso nel computer del gateway (vedere la sezione precedente in cui sono riportate considerazioni sulle porte e sulla sicurezza).
 
@@ -385,7 +385,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
 	- Nella sezione **transformation** **SqlSource** è specificato come **tipo di origine** e **BlobSink** come **tipo di sink**.
-	- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
@@ -514,15 +514,10 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 7.	Nel pannello **Credenziali** fare clic su **Fare clic qui per impostare le credenziali**.
 8.	Nella finestra di dialogo **Impostazione credenziali** seguire questa procedura:
 
-	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Selezionare l'**autenticazione** che sarà usata dal servizio Data Factory per connettersi al database. 
-	2.	Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 
-	3.	Per l'impostazione **PASSWORD** immettere la password dell'utente.  
-	4.	Fare clic su **OK** per chiudere la finestra di dialogo. 
+	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selezionare l'**autenticazione** che sarà usata dal servizio Data Factory per connettersi al database. 2. Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 3. Per l'impostazione **PASSWORD** immettere la password dell'utente. 4. Fare clic su **OK** per chiudere la finestra di dialogo. 
 4. Fare clic su **OK** per chiudere il pannello **Credenziali**. 
 5. Fare clic su **OK** nel pannello **Nuovo archivio dati**. 	
-6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online.
-	![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online. ![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
 
@@ -594,8 +589,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 ## Flusso di dati per la copia mediante il Gateway di gestione dati
 Quando si usa un'attività di copia in una pipeline di dati per inserire dati locali nel cloud ai fini di una successiva elaborazione o per esportare nuovamente i dati memorizzati nel cloud in un archivio dati locale, l'attività di copia usa un gateway per trasferire i dati dall'origine dati locale nel cloud e viceversa.
 
-Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati:
-![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati: ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Lo sviluppatore di dati crea un nuovo gateway per una data factory di Azure usando il [portale di Azure classico](http://portal.azure.com) o un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Tramite il pannello "Servizi collegati" viene definito un nuovo servizio collegato per un archivio dati locale all'interno del gateway. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione Impostazione credenziali per specificare i tipi di autenticazione e le credenziali come illustrato nella procedura dettagliata. La finestra di dialogo dell'applicazione Impostazione credenziali comunicherà con l'archivio dati per eseguire il test della connessione e con il gateway per salvare le credenziali.
@@ -618,4 +612,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 	- 	Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP del computer del gateway** agli **indirizzi IP consentiti**.
 5.	Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

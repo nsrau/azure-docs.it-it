@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume
+
+[AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
 ## Panoramica
 
@@ -43,8 +45,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
   1. Identificare un dispositivo di destinazione. Si tratta del percorso in cui verrà creato il clone. È possibile scegliere lo stesso dispositivo o specificare un altro dispositivo. Se si sceglie un volume associato ad altri provider di servizi cloud (non Azure), nell'elenco a discesa per il dispositivo di destinazione verranno visualizzati solo i dispositivi fisici. Non è possibile clonare un volume associato con altri provider di servizi cloud in un dispositivo virtuale.
 
-        >  [AZURE.NOTE] Assicurarsi che la capacità richiesta per il clone sia inferiore a quella disponibile nel dispositivo di destinazione.
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
   3. Fare clic sull'icona di freccia ![icona a forma di freccia](./media/storsimple-clone-volume/HCS_ArrowIcon.png) per passare alla pagina successiva.
 
@@ -95,4 +96,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

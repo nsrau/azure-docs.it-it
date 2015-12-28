@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Novità
@@ -26,7 +26,7 @@ Se si ha familiarità con il servizio Azure AD disponibile a livello generale o 
 ## Account Microsoft e Azure AD
 Modello app 2.0 consente agli sviluppatori di scrivere app che supportano l'accesso da account Microsoft e Azure AD mediante un unico endpoint. In questo modo, è possibile scrivere l'app senza tenere conto dell'account usato per l'accesso. Ossia, l'app non contiene informazioni riguardo al tipo di account con cui accede l'utente. Ovviamente, è *possibile* inserire nell'app informazioni sul tipo di account usato in una determinata sessione, ma si tratta di una procedura facoltativa.
 
-Se, ad esempio, l'app chiama l'[API REST di Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), per gli utenti aziendali saranno disponibili funzionalità e dati aggiuntivi, quali i siti di SharePoint o i dati di Directory. Per numerose azioni, ad esempio la [ lettura di un messaggio di posta elettronica dell'utente](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), il codice può tuttavia essere scritto esattamente nello stesso modo per gli account Microsoft e quelli Azure AD.
+Se, ad esempio, l'app chiama l'[API REST di Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), per gli utenti aziendali saranno disponibili funzionalità e dati aggiuntivi, quali i siti di SharePoint o i dati di Directory. Per numerose azioni, ad esempio la [ lettura di un messaggio di posta elettronica dell'utente](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), il codice può tuttavia essere scritto esattamente nello stesso modo per gli account Microsoft e quelli Azure AD.
 
 L'integrazione dell'app con account Microsoft e Azure AD è ora un processo semplice. È possibile usare un unico set di endpoint, un'unica libreria e un'unica registrazione dell'app per accedere ai vantaggi di livello consumer e aziendale. Per altre informazioni sull'anteprima di Modello app 2.0, consultare la [panoramica](active-directory-appmodel-v2-overview.md).
 
@@ -121,4 +121,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token di Model
 ## Limitazioni della versione di anteprima
 È necessario tenere presenti alcune restrizioni quando si crea un'app con l'anteprima pubblica di Modello app 2.0. Fare riferimento al documento sulle [limitazioni di Modello app 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

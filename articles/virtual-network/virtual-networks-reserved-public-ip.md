@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Panoramica degli indirizzi IP riservati
@@ -41,7 +41,7 @@ Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizz
 
 Prima di poter usare gli indirizzi IP riservati, è necessario aggiungerli alla propria sottoscrizione. Per creare un indirizzo IP riservato dal pool di indirizzi IP pubblici disponibili nella località (location) *Central US*, eseguire il comando PowerShell seguente:
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 Si noti tuttavia che non è possibile specificare quale indirizzo IP riservare. Per visualizzare gli indirizzi IP riservati nella propria sottoscrizione, eseguire il comando PowerShell seguente e osservare i valori per *ReservedIPName* e *Address*:
 
@@ -67,7 +67,7 @@ Dopo essere stato riservato, un indirizzo IP rimane associato alla sottoscrizion
 ## Come associare un indirizzo IP riservato a un nuovo servizio cloud
 Lo script seguente crea un nuovo indirizzo IP riservato e quindi lo associa a un nuovo servizio cloud denominato *TestService*.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 - Controllare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

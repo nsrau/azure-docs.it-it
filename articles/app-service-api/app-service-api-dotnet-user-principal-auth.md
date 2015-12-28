@@ -28,7 +28,7 @@ Questa esercitazione illustra come usare le funzionalità di autenticazione e au
  
 ## Autenticazione e autorizzazione nel servizio app
 
-Per un'introduzione alle funzionalità di autenticazione usate in questa esercitazione, vedere l'esercitazione precedente della serie, relativa ad [autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
+Per un'introduzione alle funzionalità di autenticazione usate in questa esercitazione, vedere l'esercitazione precedente della serie, relativa ad [autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-authentication.md).
 
 ## Come seguire questa esercitazione
 
@@ -268,4 +268,4 @@ A questo punto, il front-end può chiamare l'API per conto di un utente autentic
 
 In questa esercitazione è stata usata la funzionalità di autenticazione/autorizzazione del servizio app per limitare l'accesso a un'app per le API in modo che possa essere chiamata solo agli utenti autenticati. Nell'esercitazione successiva della serie si apprenderà come [limitare l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

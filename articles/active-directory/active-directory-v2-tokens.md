@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Riferimento al token
@@ -163,4 +163,4 @@ Di seguito vengono fornite informazioni sulla durata dei token utili per gli ute
 | Codici di autorizzazione (account aziendali o dell'istituto di istruzione) | 10 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. |
 | Codici di autorizzazione (account personali) | 5 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. I codici di autorizzazione emessi per conto degli account personali sono anche adatti a un uso occasionale. |
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

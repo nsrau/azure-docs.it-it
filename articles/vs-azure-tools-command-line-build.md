@@ -3,9 +3,9 @@
    description="Compilazione da riga di comando per Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Compilazione da riga di comando per Azure
 
@@ -62,4 +62,4 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

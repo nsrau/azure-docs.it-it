@@ -3,9 +3,9 @@
 	description="Informazioni su come abilitare il debug remoto quando si usa la distribuzione continua per la pubblicazione in Azure."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 # Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure
 
 Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtuali, quando si usa la [distribuzione continua](cloud-services-dotnet-continuous-delivery.md) per la pubblicazione in Azure, eseguire la procedura seguente.
@@ -90,4 +90,4 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

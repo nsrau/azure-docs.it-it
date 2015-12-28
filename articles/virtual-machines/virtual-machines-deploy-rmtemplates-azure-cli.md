@@ -19,7 +19,15 @@
 
 # Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
+> [AZURE.SELECTOR]
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
+
+
+Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
 
@@ -37,7 +45,7 @@ Questo articolo illustra come usare i modelli di Gestione risorse e l'interfacci
 
 ## Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non si dispone dell'interfaccia della riga di comando di Azure, è necessario [installarla](xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](xplat-cli-install.md).
 
 ### Aggiornare la versione dell'interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 
@@ -767,7 +775,7 @@ Seguire queste procedure per distribuire un'applicazione per più macchine virtu
 
 ### Passaggio 1: esaminare il file JSON per il modello
 
-Di seguito il contenuto del file JSON per il modello. Se si desidera la versione più recente, si trova [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene utilizzato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile utilizzare lo switch `--template-file` per passare a una versione locale.
+Di seguito il contenuto del file JSON per il modello. Se si desidera che la versione più recente, si trova [nel repository Github per i modelli](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene utilizzato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile utilizzare lo switch `--template-file` per passare a una versione locale.
 
 
     {
@@ -1183,7 +1191,7 @@ Tenere presente che in un gruppo di risorse è possibile eseguire una nuova dist
 
 Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per visualizzare i log di distribuzione per un gruppo è `azure group log show <groupname>` e offre numerose informazioni utili per comprendere il motivo per cui si è verificato, o non si è verificato, un evento. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni o ad altri errori, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
 
-Per errori specifici, è possibile usare strumenti quali **jq** per eseguire query in modo più preciso, ad esempio per individuare i singoli errori che è necessario correggere. L'esempio seguente usa **jq** per analizzare un log di distribuzione per **lbgroup**, per trovare eventuali errori.
+Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** per eseguire query in modo più preciso, ad esempio individuare i singoli errori che è necessario correggere. L'esempio seguente usa **jq** per analizzare un log di distribuzione per **lbgroup**, per trovare eventuali errori.
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
@@ -1297,8 +1305,8 @@ Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o i
 
 ## Passaggi successivi
 
-Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
+Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
 Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

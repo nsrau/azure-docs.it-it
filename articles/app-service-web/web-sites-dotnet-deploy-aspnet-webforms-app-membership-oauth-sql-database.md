@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="erikre"/>
 
 
@@ -218,7 +218,7 @@ Creare innanzitutto un semplice modello di dati usando il codice. Questo modello
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Modelli* e quindi scegliere **Aggiungi** -> **Classe**. ![Seleziona classe](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png) La finestra di dialogo **Aggiungi nuovo elemento** viene visualizzata.  
 
-2. Assegnare alla nuova classe il nome *Contacts.cs*. ![Finestra di dialogo Aggiungi nuovo elemento](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
+2. Assegnare alla nuova classe il nome *Contacts.cs* e fare clic su **Aggiungi**. ![Finestra di dialogo Aggiungi nuovo elemento](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. Sostituire il codice predefinito con il codice seguente:  
 
 		using System.ComponentModel.DataAnnotations;
@@ -348,7 +348,7 @@ Il comando `update-database` esegue la prima migrazione in modo da creare il dat
 ###Eseguire l'applicazione in locale e visualizzare i dati 
 Eseguire l'applicazione adesso per verificare se i contatti vengono visualizzati.
 
-1. Innanzitutto, compilare il progetto (**Ctrl+Shift+B**).  
+1. Innanzitutto, compilare il progetto (**CTRL+MAIUSC+B**).  
 2. Premere **Ctrl+F5** per eseguire l'applicazione. Si aprirà il browser e verrà visualizzata la pagina *Default.aspx*.
 3. Selezionare il collegamento **Contact Demo** nella parte superiore della pagina per visualizzare la pagina *Contact List*. ![Pagina elenco contatti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms17.png)  
 
@@ -389,8 +389,8 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 
 3. Passare a [Google Developers Console](https://console.developers.google.com/). Sarà necessario eseguire l'accesso con l'account di posta elettronica per sviluppatori di Google (gmail.com). Se non si dispone di un account Google, selezionare il collegamento **Crea un account**. Verrà quindi visualizzata la pagina **Google Developers Console**. ![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)
 
-4. Fare clic sul pulsante **Create Project** e immettere un nome e un ID per il progetto (è possibile usare i valori predefiniti). Fare quindi clic sulla casella di controllo **agreement** e quindi sul pulsante **Create** ![Google - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) Entro pochi secondi verrà creato il nuovo progetto e la pagina del nuovo progetto verrà visualizzata nel browser.
-5. Nella scheda sinistra, fare clic su **APIs & auth** e quindi su **Credentials**.
+4. Fare clic su **Select a project** > **Create Project** e immettere un nome e un ID per il progetto (è possibile usare i valori predefiniti). Fare quindi clic sulla casella di controllo **agreement** e quindi sul pulsante **Create** ![Google - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) Entro pochi secondi verrà creato il nuovo progetto e la pagina del nuovo progetto verrà visualizzata nel browser.
+5. Nel menu a discesa **Google Developers Console**, fare clic su **API Manager**, quindi fare clic su **Credentials**.
 6. Fare clic su **Create New Client ID** in **OAuth**. Verrà visualizzata la finestra di dialogo **Create Client ID**. ![Google - creare ID Client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Nella finestra di dialogo **Create Client ID** per il tipo di applicazione mantenere l'impostazione predefinita **Web application**.  
 8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione ****https://localhost:44300/** a meno che non siano stati creati altri progetti SSL). Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL da tenere in considerazione per localhost e produzione.
@@ -401,7 +401,7 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 
 	Questo valore è l'URI che verrà usato da ASP.NET OAuth per comunicare con il server OAuth di Google. Immettere l'URL SSL usato in precedenza (***https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).
  
-10. Fare clic sul pulsante **Create Client ID**.
+10. Selezionare il pulsante **Create**.
 11. In Visual Studio aggiornare il metodo `UseGoogleAuthentication` della pagina *Startup.Auth.cs* copiando e incollando i valori di **AppId** e **AppSecret** nel metodo. I valori di **AppIdd** e **AppSecret** mostrati di seguito sono valori di esempio non funzionanti.  
 
 		using System;
@@ -638,7 +638,7 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 ###Pubblicare l'applicazione 
 1. In Visual Studio compilare il progetto (**CTRL+MAIUSC+B**).
 2. Fare clic con il pulsante destro del mouse in **Esplora soluzioni**, quindi scegliere **Pubblica**. ![Opzione di menu per la pubblicazione](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. Nella scheda **Profilo** selezionare **App Web di Azure** come destinazione di pubblicazione, se questa non è già selezionata. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
+3. Nella scheda **Profilo** selezionare **Servizio app di Azure** come destinazione di pubblicazione, se questa non è già selezionata. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. Se l'accesso non è ancora stato eseguito, fare clic su **Accedi**.
 5. Selezionare il sito Web esistente creato in precedenza in questa esercitazione nella casella di riepilogo a discesa **Siti Web esistenti** e fare clic sul pulsante **OK**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms25.png) Se viene richiesto di salvare le modifiche apportate al profilo, scegliere **Sì**.
 6. Fare clic sulla scheda **Impostazioni**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
@@ -701,4 +701,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

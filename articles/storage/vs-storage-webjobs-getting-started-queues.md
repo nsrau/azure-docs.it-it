@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Introduzione all'archiviazione di accodamento e ai servizi relativi a Visual Studio (progetti WebJob) | Microsoft Azure"
 	description="Informazioni su come iniziare a usare il servizio di archiviazione di accodamento di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
 ## Panoramica
 
-Questo articolo descrive come iniziare a usare l'archiviazione di accodamento di Azure in un progetto Webjob di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, vengono installati i pacchetti NuGet di archiviazione di Azure appropriati, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
+Questo articolo descrive come iniziare a usare l'archiviazione code di Azure in un progetto proceso Web di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, vengono installati i pacchetti NuGet di archiviazione di Azure appropriati, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
 
 Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione di accodamento di Azure.
 
@@ -123,7 +114,7 @@ Con l'aggiunta di parametri alla firma del metodo, è possibile ottenere le prop
 * **string** popReceipt
 * **int** dequeueCount
 
-Se si vuole lavorare direttamente con l'API del servizio di archiviazione di Azure, è anche possibile aggiungere un parametro **CloudStorageAccount**.
+Per lavorare direttamente con l'API del servizio di archiviazione di Azure, è anche possibile aggiungere un parametro **CloudStorageAccount**.
 
 Nell'esempio seguente tutti questi metadati vengono scritti in un log applicazione INFO. Nell'esempio, gli attributi logMessage e queueTrigger includono il contenuto del messaggio in coda.
 
@@ -274,7 +265,7 @@ Gli attributi **Blob** e **Table** consentono di leggere e scrivere BLOB e tabel
 
 Per un messaggio in coda che contiene una stringa, **queueTrigger** è un segnaposto che è possibile usare nel parametro **blobPath** dell'attributo **Blob** che include il contenuto del messaggio.
 
-L'esempio seguente usa oggetti **Stream** per leggere e scrivere i BLOB. Il messaggio di coda è il nome di un BLOB presente nel contenitore textblobs. Una copia del BLOB con "-new" aggiunto al nome viene creata nello stesso contenitore.
+Nell'esempio seguente vengono utilizzati oggetti **Stream** per leggere e scrivere i BLOB. Il messaggio di coda è il nome di un BLOB presente nel contenitore textblobs. Una copia del BLOB con "-new" aggiunto al nome viene creata nello stesso contenitore.
 
 		public static void ProcessQueueMessage(
 		    [QueueTrigger("blobcopyqueue")] string blobName,
@@ -288,7 +279,7 @@ Il costruttore dell'attributo **Blob** usa un parametro **blobPath** che specifi
 
 Quando l'attributo decora un oggetto **Stream**, un altro parametro del costruttore specifica la modalità **FileAccess** come lettura, scrittura o lettura/scrittura.
 
-L'esempio seguente usa un oggetto **CloudBlockBlob** per eliminare un BLOB. Il messaggio di coda è il nome del BLOB.
+Nell'esempio seguente viene utilizzato un oggetto **CloudBlockBlob** per eliminare un BLOB. Il messaggio di coda è il nome del BLOB.
 
 		public static void DeleteBlob(
 		    [QueueTrigger("deleteblobqueue")] string blobName,
@@ -299,7 +290,7 @@ L'esempio seguente usa un oggetto **CloudBlockBlob** per eliminare un BLOB. Il m
 
 ### Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-Per un oggetto POCO archiviati nel formato JSON nel messaggio della coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro **blobPath** dell'attributo **Queue**. È anche possibile usare [nomi di proprietà dei metadati di coda](#get-queue-or-queue-message-metadata) come segnaposto.
+Per un oggetto POCO archiviato nel formato JSON nel messaggio della coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro **blobPath** dell'attributo **Queue**. È anche possibile usare [nomi di proprietà dei metadati di coda](#get-queue-or-queue-message-metadata) come segnaposto.
 
 Il seguente esempio copia un BLOB in un nuovo BLOB con un'estensione diversa. Il messaggio di coda è un oggetto **BlobInformation** che include le proprietà **BlobName** e **BlobNameWithoutExtension**. I nomi delle proprietà vengono usati come segnaposto nel percorso BLOB per gli attributi **Blob**.
 
@@ -440,7 +431,7 @@ L'esempio seguente illustra come configurare queste impostazioni:
 
 A volte si desidera specificare un nome di coda, un nome di BLOB o un contenitore oppure un nome di tabella nel codice anziché impostarlo come hardcoded. È ad esempio possibile specificare il nome della coda per **QueueTrigger** in una variabile di ambiente o in un file di configurazione.
 
-A tale scopo, passare un oggetto **NameResolver** al tipo **JobHostConfiguration**. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri del costruttore dell'attributo di SDK e il codice **NameResolver** specifica i valori effettivi da usare in sostituzione di questi segnaposto.
+A tale scopo, passare un oggetto **NameResolver** al tipo **JobHostConfiguration**. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri del costruttore dell'attributo di SDK processi Web e il codice **NameResolver** specifica i valori effettivi da usare in sostituzione di questi segnaposto.
 
 Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'ambiente di test e una coda denominata logqueueprod nell'ambiente di produzione. Invece di un nome di coda hardcoded, è preferibile specificare il nome di una voce nella raccolta **appSettings** caratterizzata dal nome della coda effettivo. Se la chiave **appSettings** è logqueue, la funzione potrebbe essere simile all'esempio seguente.
 
@@ -449,7 +440,7 @@ Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'am
 		    Console.WriteLine(logMessage);
 		}
 
-La classe **NameResolver** potrebbe quindi ottenere il nome della coda dalla raccolta **appSetting**s, come illustrato nell'esempio seguente:
+La classe **NameResolver** potrebbe quindi ottenere il nome della coda dalla raccolta **appSettings**, come illustrato nell'esempio seguente:
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -552,4 +543,4 @@ In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspet
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

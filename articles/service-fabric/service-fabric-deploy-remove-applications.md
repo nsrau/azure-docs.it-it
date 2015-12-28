@@ -3,7 +3,7 @@
    description="Come distribuire e rimuovere applicazioni in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # Distribuire un'applicazione
 
@@ -24,7 +24,7 @@ Dopo aver creato un [pacchetto di un tipo di applicazione][10], è possibile dis
 2. Registrazione del tipo di applicazione
 3. Creazione dell'istanza dell'applicazione
 
->[AZURE.NOTE]Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi descritti di seguito vengono gestiti automaticamente tramite gli script di PowerShell presenti nella cartella Scripts del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio.
+>[AZURE.NOTE]Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi descritti di seguito vengono gestiti automaticamente tramite uno script di PowerShell presente nella cartella Scripts del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio.
 
 ## Caricare il pacchetto applicazione
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Introduzione all'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-[Eseguire la diagnosi e la risoluzione dei problemi di un servizio di Service Fabric](service-fabric-diagnose-monitor-your-service-index.md)
+[Eseguire la diagnosi e la risoluzione dei problemi di un servizio di Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Modellare un'applicazione in Service Fabric](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione delle code di Azure e ai servizi relativi a Visual Studio
 
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## Panoramica
 
-In questo articolo viene descritto come iniziare a utilizzare l'archiviazione delle code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
+In questo articolo viene descritto come iniziare a utilizzare l'archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
 
 Verrà mostrato come creare e accedere a una coda nell'account di archiviazione di Azure. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C#, viene utilizzata la [libreria del client di archiviazione di Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
 
@@ -61,7 +52,7 @@ Per accedere alle code nei progetti ASP.NET, è necessario includere gli element
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
+**NOTA** utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
 
 ## Creare una coda in codice
 
@@ -179,4 +170,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Del
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

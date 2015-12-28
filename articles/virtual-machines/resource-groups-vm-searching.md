@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 
-Questo articolo descrive come individuare e selezionare le immagini di macchina virtuale, utilizzando un'installazione recente di Azure PowerShell o Azure CLI. Come prerequisito, è necessario modificare la modalità di gestione delle risorse. Con l'interfaccia della riga di comando di Azure, immettere tale modalità digitando `azure config mode arm`. Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+
 
 ## Tabella delle immagini di uso comune
 
@@ -51,6 +51,8 @@ Questo articolo descrive come individuare e selezionare le immagini di macchina 
 
 
 ## Interfaccia della riga di comando di Azure
+
+> [AZURE.NOTE]Questo articolo descrive come individuare e selezionare le immagini di macchina virtuale, utilizzando un'installazione recente di Azure PowerShell o Azure CLI. Come prerequisito, è necessario modificare la modalità di gestione delle risorse. Con l'interfaccia della riga di comando di Azure, immettere tale modalità digitando `azure config mode arm`.
 
 Il modo più semplice e rapido per individuare un'immagine da usare con `azure vm quick-create` o per creare un file dei modelli di gruppi di risorse consiste nel chiamare il comando `azure vm image list` e passare il percorso, il nome dell'editore (non distingue tra maiuscole e minuscole) e, se è nota, un'offerta. Contrariamente a molti elenchi, solitamente lunghi, l'elenco seguente rappresenta un breve esempio, in cui si sa che "Canonical" è un editore per l'offerta "UbuntuServer".
 
@@ -149,6 +151,11 @@ Questo video illustra i passaggi precedenti usando l'interfaccia della riga di c
 
 ## PowerShell
 
+Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+
+> [AZURE.NOTE]Nelle versioni superiori a 1.0 dei moduli Azure PowerShell, il cmdlet `Switch-AzureMode` è stato rimosso. Con la suddetta versione e versioni più recenti, sostituire i seguenti comandi con la parte `Azure` sostituita con `AzureRm`. Se si utilizzano moduli di Azure PowerShell con versione inferiore a 1.0, si utilizzeranno i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`.
+
+
 Quando si crea una nuova macchina virtuale con Gestione risorse di Azure, in alcuni casi è necessario specificare un'immagine combinando le seguenti proprietà dell'immagine:
 
 - Editore
@@ -244,4 +251,4 @@ Questo video illustra i passaggi precedenti usando PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

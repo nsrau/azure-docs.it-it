@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #Creare route definite dall'utente nell'interfaccia della riga di comando di Azure
@@ -191,4 +191,4 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

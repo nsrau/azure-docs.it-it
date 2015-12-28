@@ -3,7 +3,7 @@
 	description="Azioni rapide per copiare, spostare ed eseguire la migrazione di dati e database nel database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Spostare database tra server, tra sottoscrizioni e all'interno e all'esterno di Azure
 ##Per spostare un database in un server diverso nella stessa sottoscrizione
@@ -29,4 +29,4 @@
 ## Per creare una copia di un database da usare all'esterno di Azure
 - [Esportare un file BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

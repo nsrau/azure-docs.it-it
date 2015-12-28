@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # Servizi collegati di calcolo
@@ -49,7 +49,8 @@ Tenere presente i seguenti punti **importanti**sul servizio collegato HDInsight 
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ version | Versione del cluster HDInsight Il valore predefinito è 3.1 per cluste
 linkedServiceName | L'archivio BLOB che il cluster su richiesta deve utilizzare per l'archiviazione e l'elaborazione dei dati. | Sì
 additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight in modo che il servizio Data Factory possa registrarli per conto dell'utente. | No
 osType | Tipo di sistema operativo. I valori consentiti sono: Windows (impostazione predefinita) e Linux | No
+hcatalogLinkedServiceName | Il nome del servizio collegato di Azure SQL che fa riferimento al database HCatalog. Verrà creato il cluster HDInsight su richiesta utilizzando il database SQL di Azure come metastore. | No
 
 ### Proprietà avanzate
 
@@ -103,14 +105,15 @@ yarnConfiguration | Specifica i parametri di configurazione Yarn (yarn-site.xml)
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
@@ -130,7 +133,7 @@ dataNodeSize | Specifica le dimensioni del nodo dei dati. Il valore predefinito 
 zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è: piccole. | No
  
 #### Specificare le dimensioni dei nodi
-Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **cmdlet e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
+Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
 
 Se si desidera creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario specificare **Standard\_D4** come valore per le proprietà headNodeSize e dataNodeSize.
 
@@ -190,8 +193,8 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
 
 
 - [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-- Cmdlet [New AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Azure Batch (o)[Portale di Azure classico](../batch/batch-account-create-portal.md)per creare l'account Azure Batch tramite il portale di Azure classico. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-- Cmdlet [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Batch di Azure.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Batch di Azure (o)[Portale di Azure classico](../batch/batch-account-create-portal.md)per creare l'account Batch di Azure tramite il portale di Azure classico. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare l’argomento [Utilizzo di Azure PowerShell per gestire l'account Batch di Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+- Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Azure Batch.
 
 ### Esempio
 
@@ -208,14 +211,14 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
 	  }
 	}
 
-Aggiungere "**.<region name**" al nome dell'account di batch per la proprietà **accountName**. Esempio:
+Aggiungere "**.<region name**" al nome dell'account Batch per la proprietà **accountName**. Esempio:
 
 			"accountName": "mybatchaccount.eastus"
 
 Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### Proprietà
 
@@ -279,7 +282,7 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-Tipo | La proprietà tipo deve essere impostata su **AzureDataLakeAnalytics**. | Sì
+Tipo | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì
 accountName | Nome dell'account di Azure Data Lake Analytics. | Sì
 dataLakeAnalyticsUri | URI di Azure Data Lake Analytics. | No
 autorizzazione | Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. | Sì
@@ -290,6 +293,6 @@ sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di se
 
 ## Servizio collegato di Azure SQL
 
-Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

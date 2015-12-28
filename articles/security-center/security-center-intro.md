@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Introduzione al Centro sicurezza di Azure
@@ -112,7 +112,7 @@ Per iniziare a usare Centro sicurezza di Azure, è necessario avere una sottoscr
 Questo documento ha illustrato il Centro sicurezza di Azure, le funzionalità principali e come iniziare a usarlo. Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): come configurare i criteri di sicurezza
-- [Implementazione dei suggerimenti relativi alla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): in che modo i suggerimenti facilitano la protezione delle risorse di Azure
+- [Gestione dei suggerimenti relativi alla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): in che modo i suggerimenti facilitano la protezione delle risorse di Azure
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): come gestire e rispondere agli avvisi di sicurezza
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
@@ -126,4 +126,4 @@ Questo documento ha illustrato il Centro sicurezza di Azure, le funzionalità pr
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

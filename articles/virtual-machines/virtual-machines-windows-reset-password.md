@@ -108,10 +108,10 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 ## Risorse aggiuntive
 
-[Estensioni VM e funzionalità di Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Estensioni VM e funzionalità di Azure](virtual-machines-extensions-features.md)
 
 [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Informazioni sulla protezione da sito ad Azure" 
+	pageTitle="Informazioni sulla replica Hyper-V con Azure Site Recovery | Microsoft Azure" 
 	description="Questo articolo descrive i concetti tecnici che aiutano a installare, configurare e gestire Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Informazioni sulla protezione da sito Hyper-V o VMM ad Azure
+# Informazioni sulla replica Hyper-V con Azure Site Recovery
 
 Questo articolo descrive i concetti tecnici che aiutano a configurare e gestire la protezione da sito Hyper-V o VMM ad Azure con Azure Site Recovery.
 
@@ -79,4 +79,4 @@ Quando si verificano errori di replica, viene applicata una logica di retry pred
 - [Contattare il supporto Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Errori comuni del ripristino automatico di sistema e relative soluzioni](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

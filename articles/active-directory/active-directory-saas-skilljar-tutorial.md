@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/10/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come integrare Skilljar con Azure Active Directory
 
 - È possibile controllare in Azure AD chi può accedere a Skilljar
 - È possibile abilitare gli utenti per l'accesso automatico a Skilljar (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Skilljar in Azure AD, è necessario aggiungere
 
 **Per aggiungere Skilljar dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Skilljar in Azure AD, è necessario aggiungere
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Skilljar**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Skilljar** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Skilljar** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Skilljar con un utente test di nome "Britta Simon".
@@ -75,21 +75,21 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Skilljar, è 
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Skilljar](#creating-a-Skilljar-test-user)** - per avere una controparte di Britta Simon in Skilljar collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Skilljar](#creating-a-skilljar-test-user)** - per avere una controparte di Britta Simon in Skilljar collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione Skilljar.
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Skilljar.
 
 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Skilljar, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Skilljar** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nel portale di Azure classico, nella pagina di integrazione dell'applicazione **Skilljar** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Box** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_03.png) <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano Skilljar** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_03.png) <br>
 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_04.png) <br>
 
@@ -111,7 +111,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Skilljar tramite posta elettronica, inserendo il valore **Formato identificatore nome** dal passaggio precedente e allegare il file di metadati scaricato.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
@@ -119,15 +119,15 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco di utenti, selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco utenti, selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure classico**, nel riquadro di spostamento sinistro fare clic su **Active Directory**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_04.png) <br>
 
@@ -135,7 +135,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    b. Nella **casella di testo** Nome utente digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
@@ -147,15 +147,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo**, selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
     
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_08.png) <br>
 
-    a. Prendere nota del valore visualizzato in **Nuova password**.
+    a. Prendere nota del valore in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -176,13 +176,13 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 **Per assegnare Britta Simon a Skilljar, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni, selezionare **Skilljar**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_50.png) <br>
+2. Nell'elenco applicazioni, selezionare **Skilljar**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_50.png) <br>
 
 1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
-1. Nell'elenco di utenti, selezionare **Britta Simon**.
+1. Nell'elenco utenti, selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
@@ -217,4 +217,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

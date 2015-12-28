@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Protezione dei dati presenti in Archivio Data Lake di Azure
@@ -159,9 +159,10 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 ## Vedere anche
 
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
-- [Usare Analisi Data Lake di Azure con Archivio Data Lake](data-lake-analytics-get-started-portal.md)
+- [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+- [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

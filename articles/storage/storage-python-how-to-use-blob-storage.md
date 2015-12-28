@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # Come usare l'archiviazione BLOB di Azure da Python
@@ -106,7 +106,8 @@ Per eliminare un BLOB, infine, chiamare **delete\_blob**.
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   [Blog del team di Archiviazione di Azure][]
+- [Blog del team di Archiviazione di Azure][]
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
 
@@ -114,4 +115,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

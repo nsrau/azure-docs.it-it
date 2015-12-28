@@ -56,8 +56,7 @@ Creare il gruppo di risorse che conterrà il server. È possibile modificare il 
 
 Per un elenco delle posizioni dei server dei database SQL di Azure validi, eseguire i cmdlet seguenti:
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 Se si dispone già di un gruppo di risorse, è possibile proseguire per creare un server oppure è possibile modificare ed eseguire il comando seguente per creare un nuovo gruppo di risorse:
 
@@ -128,4 +127,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 
 - [Cmdlet del database SQL di Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

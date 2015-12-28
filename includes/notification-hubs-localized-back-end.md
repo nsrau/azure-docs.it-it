@@ -1,6 +1,6 @@
 
 
-Nell'app back-end è ora necessario passare all'invio di notifiche modello anziché di payload nativi. In questo modo il codice back-end verrà semplificato, in quanto non è necessario inviare più payload per diverse piattaforme.
+
 
 Quando si inviano notifiche modello, è necessario solo fornire un set di proprietà. In questo caso verrà inviato il set di proprietà contenente la versione localizzata delle notizie correnti, ad esempio:
 
@@ -11,31 +11,54 @@ Quando si inviano notifiche modello, è necessario solo fornire un set di propri
 	}
 
 
-In questa sezione viene illustrato come inviare notifiche in due modi diversi:
-
-- Da un'app console
-- Da uno script di Servizi mobili
+In questa sezione viene illustrato come inviare notifiche tramite un’app console
 
 Il codice incluso trasmette le notifiche sia Windows Store che a dispositivi iOS, poiché il back-end è in grado di trasmettere a qualsiasi dispositivo supportato.
 
 
+### Per inviare notifiche tramite un'app console C# 
 
-## Per inviare notifiche tramite un'app console C# ##
+Modificare il metodo `SendTemplateNotificationAsync` nell'app console creata in precedenza con il codice seguente. Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
-Il metodo *SendNotificationAsync* verrà modificato con l'invio di una singola notifica modello.
+        private static async void SendTemplateNotificationAsync()
+        {
+            // Define the notification hub.
+            NotificationHubClient hub = 
+				NotificationHubClient.CreateClientFromConnectionString(
+					"<connection string with full access>", "<hub name>");
 
-	var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
-    var notification = new Dictionary<string, string>() {
-							{"News_English", "World News in English!"},
-                            {"News_French", "World News in French!"},
-                            {"News_Mandarin", "World News in Mandarin!"}};
-    await hub.SendTemplateNotificationAsync(notification, "World");
+            // Sending the notification as a template notification. All template registrations that contain 
+			// "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+			// This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
-Si noti che questa semplice chiamata distribuirà la notizia localizzata corretta a **tutti** i dispositivi, indipendentemente dalla piattaforma, in quanto l'Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
+            // Create an array of breaking news categories.
+            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+            var locales = new string[] { "English", "French", "Mandarin" };
 
-### Servizi mobili
+            foreach (var category in categories)
+            {
+                templateParams["messageParam"] = "Breaking " + category + " News!";
 
-Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con il codice seguente:
+                // Sending localized News for each tag too...
+                foreach( var locale in locales)
+                {
+                    string key = "News_" + locale;
+
+					// Your real localized news content would go here.
+                    templateParams[key] = "Breaking " + category + " News in " + locale + "!";
+                }
+
+                await hub.SendTemplateNotificationAsync(templateParams, category);
+            }
+        }
+
+
+Si noti che questa semplice chiamata distribuirà la notizia localizzata a **tutti** i dispositivi, indipendentemente dalla piattaforma, in quanto l'Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
+
+### Invio della notifica con Servizi mobili
+
+Nell'utilità di pianificazione di Servizi mobili, è possibile utilizzare lo script seguente:
 
 	var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
@@ -50,6 +73,5 @@ Nell'utilità di pianificazione di Servizi mobili, sovrascrivere lo script con i
 		}
 	});
 	
-Si noti come in questo caso non sia necessario inviare più notifiche per impostazioni locali e piattaforme diverse.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

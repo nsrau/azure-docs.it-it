@@ -32,7 +32,7 @@ I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necess
 
 ##Incorporare l'SDK di Engagement nel progetto iOS
 
-Aggiungere l'SDK di Engagement nel progetto iOS: in Xcode fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **"Add files to ..."** e infine selezionare la cartella `EngagementSDK`.
+Scaricare l’SDK per iOS da [qui](http://aka.ms/qk2rnj). Aggiungere l'SDK di Engagement nel progetto iOS: in Xcode fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **"Add files to ..."** e infine selezionare la cartella `EngagementSDK`.
 
 Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi selezionare la destinazione corretta. Aprire quindi la scheda **"Build phases"** e aggiungere i framework seguenti dal menu **"Link Binary With Libraries"**:
 
@@ -207,4 +207,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

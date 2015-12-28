@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Che cos'è un gruppo di sicurezza di rete
@@ -248,4 +248,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 - [Distribuire gruppi di sicurezza di rete in Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 - [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Requisiti di sistema StorSimple | Microsoft Azure" 
-   description="Descrizione dei requisiti di sistema e delle procedure consigliate per il software, la disponibilità elevata e le funzionalità di rete in una soluzione StorSimple di Azure." 
+   description="Descrive i requisiti relativi a software, rete e alta disponibilità e le procedure consigliate per una soluzione Microsoft Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/30/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
 
 ## Panoramica
 
-Benvenuti in Microsoft Azure StorSimple. Questo articolo descrive i requisiti di sistema importanti e le procedure consigliate per il dispositivo StorSimple e per i client di archiviazione che accedono al dispositivo. Prima di distribuire il sistema Azure StorSimple è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
+Benvenuti in Microsoft Azure StorSimple. Questo articolo descrive i requisiti di sistema importanti e le procedure consigliate per il dispositivo StorSimple e per i client di archiviazione che accedono al dispositivo. Prima di distribuire il sistema StorSimple è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
 
 I requisiti di sistema includono:
 
@@ -60,7 +60,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 |TCP 443 (HTTPS)<sup>3</sup>| In uscita | WAN | Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li></ul>|
 |UDP 53 (DNS) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
 | UDP 123 (NTP) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
-| TCP 9354 | In uscita | WAN | In alcuni casi; vedere le note. |La porta in uscita viene usata dal servizio StorSimple per comunicare con il servizio StorSimple Manager. Questa porta è necessaria se la rete corrente non supporta l'uso di HTTP 1.1 per connettersi a Internet, ad esempio quando si usa un server proxy basato su HTTP 1.0.<br> Se ci si connette tramite un server proxy, fare riferimento ai [requisiti del bus di servizio](https://msdn.microsoft.com/library/azure/ee706729.aspx) per informazioni dettagliate. |
+| TCP 9354 | In uscita | WAN | Sì |La porta in uscita viene usata dal servizio StorSimple per comunicare con il servizio StorSimple Manager. |
 | 3260 (iSCSI) | In ingresso | LAN | No | Questa porta viene usata per accedere ai dati tramite iSCSI.|
 | 5985 | In ingresso | LAN | No | La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
 | 5986 | In ingresso | LAN | No | Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
@@ -73,19 +73,72 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 > [AZURE.IMPORTANT]Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
 
-### Routing delle porte
+### Metrica di routing
 
-Il routing delle porte varia in base alla versione del software in esecuzione nel dispositivo StorSimple.
+Una metrica di routing è associata alle interfacce e al gateway che instrada i dati alle reti specificate. La metrica di routing è usata dal protocollo di routing per calcolare il percorso migliore per una determinata destinazione, se apprende dell'esistenza di più percorsi per la stessa destinazione. Minore è la metrica di routing, maggiore è la preferenza.
 
-- Se il dispositivo esegue una versione del software precedente Update 1, ad esempio GA, 0.1, 0.2 o 0.3, il routing delle porte viene stabilito in base al criterio di priorità seguente:
+Nel contesto di StorSimple, se sono configurate più interfacce di rete e gateway per il traffico del canale, le metriche di routing entreranno in gioco per determinare l'ordine relativo in cui le interfacce verranno usate. Le metriche di routing non possono essere modificate dall'utente. È tuttavia possibile usare il cmdlet `Get-HcsRoutingTable` per stampare la tabella di routing (e le metriche) sul dispositivo StorSimple. Altre informazioni sul [cmdlet Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
 
-     Ultima interfaccia di rete 10 GbE configurata > Altra interfaccia di rete 10 GbE > Ultima interfaccia di rete 1 GbE configurata > Altra interfaccia di rete 1 GbE
+Gli algoritmi delle metriche di routing sono diversi a seconda della versione del software in esecuzione sul dispositivo StorSimple.
 
-- Se il dispositivo esegue Update 1, il routing delle porte viene stabilito in base al criterio di priorità seguente:
+**Versioni precedenti all'aggiornamento 1**
 
-     DATA 0 > Ultima interfaccia di rete 10 GbE configurata > Altra interfaccia di rete 10 GbE > Ultima interfaccia di rete 1 GbE configurata > Altra interfaccia di rete 1 GbE
+Comprendono le versioni software precedenti all'aggiornamento 1, ad esempio la versione GA, 0.1, 0.2 o 0.3. L'ordine basato sulle metriche di routing è il seguente:
 
-    In Update 1 la metrica di routing assegna a DATA 0 la massima priorità. Pertanto, tutto il traffico cloud viene indirizzato tramite DATA 0. Tenere presente questo criterio se sono presenti più interfacce di rete abilitate per il cloud nel dispositivo StorSimple.
+   *Ultima interfaccia di rete 10 GbE configurata > Altra interfaccia di rete 10 GbE > Ultima interfaccia di rete 1 GbE configurata > Altra interfaccia di rete 1 GbE*
+
+
+**Versioni a partire dall'aggiornamento 1 e precedenti all'aggiornamento 2**
+
+Sono comprese le versioni software come 1, 1.1 e 1.2. L'ordine in base alle metriche di routing viene deciso come segue:
+
+   *DATA 0 > Ultima interfaccia di rete 10 GbE configurata > Altra interfaccia di rete 10 GbE > Ultima interfaccia di rete 1 GbE configurata > Altra interfaccia di rete 1 GbE*
+
+   In Update 1 la metrica di routing assegna a DATA 0 la massima priorità. Pertanto, tutto il traffico cloud viene indirizzato tramite DATA 0. Tenere presente questo criterio se sono presenti più interfacce di rete abilitate per il cloud nel dispositivo StorSimple.
+
+
+**Versioni a partire dall'aggiornamento 2**
+
+L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metriche di routing sono cambiate. Il comportamento può essere spiegato come segue.
+
+- È stato assegnato un set di valori predefiniti alle interfacce di rete. 	
+		
+- Si consideri la tabella di esempio seguente con valori (di esempio) assegnati alle varie interfacce di rete quando sono abilitate per il cloud o disabilitate per il cloud, ma con un gateway configurato.
+
+		
+	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
+	|-----|---------------|---------------------------|
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+
+
+- L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
+	 
+	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+
+	Questo può essere spiegato dall'esempio seguente.
+
+	Si consideri un dispositivo StorSimple con due interfacce di rete abilitate per il cloud, Data 0 e Data 5. Le interfacce da Data 1 a Data 4 sono disabilitate per il cloud ma dispongono di un gateway configurato. L'ordine in cui verrà instradato il traffico per questo dispositivo sarà:
+
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	
+	*in cui i numeri tra parentesi indicano le rispettive metriche di routing.*
+	
+	Se Data 0 restituisce un errore, il traffico cloud verrà instradato tramite Data 5. Poiché un gateway è configurato su tutte le altre reti, se sia Data 0 che Data 5 restituiscono un errore il traffico cloud verrà instradato tramite Data 1.
+ 
+
+- Se un'interfaccia di rete abilitata per il cloud restituisce un errore, vengono eseguiti 3 tentativi con un ritardo di 30 secondi per connettersi all'interfaccia. Se tutti i tentativi hanno esito negativo, il traffico viene instradato alla successiva interfaccia abilitata per il cloud disponibile, come determinato dalla tabella di routing. Se tutte le interfacce di rete abilitate per il cloud restituiscono un errore, il dispositivo eseguirà il failover a un altro controller (in questo caso non verrà eseguito nessun riavvio).
+	
+- Se si verifica un errore VIP per un'interfaccia di rete abilitata per iSCSI, verranno eseguiti 3 tentativi con un ritardo di 2 secondi. Questo comportamento è analogo alle versioni precedenti. Se tutte le interfacce di rete iSCSI restituiscono un errore, si verificherà un failover del controller (accompagnato da un riavvio).
+
+
+- Viene anche generato un avviso sul dispositivo StorSimple quando si verifica un errore VIP. Per altre informazioni, vedere l'articolo relativo all'[avviso per errore VIP](storsimple-manage-alerts.md).
+	
+- Per quanto riguarda i tentativi, iSCSI avrà la precedenza sul cloud.
+
+	Si consideri l'esempio seguente: un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
+		
+	Se Data 1 restituisce un errore, poiché è l'ultima interfaccia di rete iSCSI si verificherà un failover del controller a Data 1 sull'altro controller.
+
 
 ### Procedure di rete consigliate
 
@@ -102,9 +155,9 @@ Oltre ai requisiti di rete sopra illustrati, per ottenere prestazioni ottimali n
 
 ## Requisiti di disponibilità elevata per StorSimple
 
-La piattaforma hardware inclusa nella soluzione StorSimple offre funzionalità di disponibilità e affidabilità e costituisce la base per un'infrastruttura di archiviazione con disponibilità elevata e a tolleranza di errore nel data center. Tuttavia, esistono requisiti e procedure consigliate da seguire per avere la certezza che la soluzione StorSimple di Azure sia sempre disponibile. Prima di distribuire StorSimple di Azure, esaminare attentamente i requisiti e le procedure consigliate seguenti per il dispositivo StorSimple e i computer host connessi.
+La piattaforma hardware inclusa nella soluzione StorSimple offre funzionalità di disponibilità e affidabilità e costituisce la base per un'infrastruttura di archiviazione con disponibilità elevata e a tolleranza di errore nel data center. Tuttavia, esistono requisiti e procedure consigliate da seguire per avere la certezza che la soluzione StorSimple sia sempre disponibile. Prima di distribuire StorSimple, esaminare attentamente i requisiti e le procedure consigliate seguenti per il dispositivo StorSimple e i computer host connessi.
 
-Per altre informazioni sul monitoraggio e il mantenimento dei componenti hardware del dispositivo StorSimple, vedere [Usare il servizio StorSimple Manager per monitorare i componenti hardware e lo stato](storsimple-monitor-hardware-status.md) e [Sostituzione di componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+Per altre informazioni sul monitoraggio e il mantenimento dei componenti hardware del dispositivo StorSimple, vedere [Utilizzare il servizio StorSimple Manager per monitorare le componenti hardware e lo stato](storsimple-monitor-hardware-status.md) e [Sostituzione di componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ### Procedure e requisiti di disponibilità elevata per il dispositivo StorSimple
 
@@ -117,7 +170,7 @@ I dispositivi StorSimple includono moduli di alimentazione e raffreddamento (PCM
 - Collegare i PCM a fonti di alimentazione differenti per garantire la disponibilità in caso di interruzione dell'alimentazione.
 - In caso di errore di un PCM, richiedere immediatamente una sostituzione.
 - Rimuovere un PCM non funzionante solo quando il modulo sostitutivo è disponibile e si è pronti a effettuare l'installazione.
-- Non rimuovere tutti e due i PCM contemporaneamente. Il modulo PCM include il modulo batteria di backup. La rimozione di entrambi i PCM comporterà un arresto non protetto dalla batteria e lo stato del dispositivo non verrà salvato. Per altre informazioni sulla batteria, vedere [Mantenere il modulo della batteria di backup](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Non rimuovere tutti e due i PCM contemporaneamente. Il modulo PCM include il modulo batteria di backup. La rimozione di entrambi i PCM comporterà un arresto non protetto dalla batteria e lo stato del dispositivo non verrà salvato. Per altre informazioni sulla batteria, vedere l'articolo relativo alla [manutenzione del modulo della batteria di backup](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Moduli controller
 
@@ -181,7 +234,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 
 - Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio StorSimple Manager mediante l'accesso a **Manutenzione** - **Stato hardware**.
+- Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio StorSimple Manager accedendo a **Manutenzione** - **Stato hardware**.
 
 - Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 
@@ -203,4 +256,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

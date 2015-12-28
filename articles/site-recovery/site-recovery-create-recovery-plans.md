@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creazione dei piani di ripristino" 
+	pageTitle="Creare piani di ripristino | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server locali in Azure o in un data center secondario." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Creazione dei piani di ripristino
+# Creare piani di ripristino
 
 Il servizio Site Recovery fornisce un'efficace soluzione di ripristino di emergenza e continuità aziendale che consente di proteggere le macchine virtuali e i server fisici locali orchestrando e automatizzando la replica e il failover in Azure o in un centro dati locale secondario. Per un'introduzione agli scenari di distribuzione di Site Recovery, leggere [Panoramica di Site Recovery](site-recovery-overview.md).
 
@@ -53,8 +53,8 @@ Creare un piano di ripristino come segue:
 	- Se si esegue la replica da un server VMM in un altro server VMM, selezionare VMM nell'opzione relativa al **tipo di origine**, nonché il server VMM di origine e destinazione. Fare clic su **Hyper-V** per visualizzare i cloud configurati per l'utilizzo di Replica Hyper-V. 
 	- Se si esegue la replica da un server VMM in un altro server VMM basato su SAN, selezionare VMM nell'opzione relativa al **tipo di origine**, nonché il server VMM di origine e destinazione. Fare clic su **SAN** per visualizzare solo i cloud configurati per la replica SAN.
 	- Se si esegue la replica da VMM in Azure selezionare VMM in **tipo di origine**. Selezionare il server VMM di origine e **Azure** come destinazione.
-	- Se si esegue la replica da un sito di Hyper-V, selezionare sito Hyper-V nel tipo di origine. Selezionare il sito come origine e **Azure** come destinazione.
-	- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
+	- Se si esegue la replica da un sito di Hyper-V, selezionare sito Hyper-V nel tipo di origine. Selezionare il sito come origine e * * Azure * * come destinazione.
+- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
 
 2\. Nella **relativa opzione** selezionare le macchine virtuali (o il gruppo di replica) che si desidera aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
 
@@ -63,7 +63,7 @@ Creare un piano di ripristino come segue:
 Dopo aver aggiunto macchine virtuali protette o gruppi di replica al gruppo del piano di ripristino predefinito e dopo aver creato il piano, è possibile personalizzarlo:
 
 - **Aggiungere nuovi gruppi**: è possibile aggiungere gruppi di piano di ripristino aggiuntivi. I gruppi vengono numerati nell'ordine in cui vengono aggiunti. È possibile aggiungere fino a sette gruppi. È possibile aggiungere più computer o gruppi di replica a questi nuovi gruppi. Si noti che una macchina virtuale o un gruppo di replica può essere incluso solo in un gruppo del piano di ripristino.
-- **Aggiungere uno script**, è possibile aggiungere script prima o dopo un ripristino del gruppo di pianificazione. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
+- *** * Aggiungere uno script * *, è possibile aggiungere script prima o dopo un ripristino del gruppo di pianificazione. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
 - **Aggiungere un'azione manuale**: è possibile aggiungere azioni manuali da eseguire prima o dopo un gruppo del piano di ripristino. Quando viene eseguito, il piano di ripristino si interrompe nel punto in cui è stata inserita l'azione manuale e in una finestra di dialogo viene richiesto di specificare il completamento dell'azione.
 
 ### Estendere i piani di ripristino con gli script
@@ -124,4 +124,4 @@ Creare lo script come segue:
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

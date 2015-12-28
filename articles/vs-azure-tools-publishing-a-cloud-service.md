@@ -3,9 +3,9 @@
    description="Informazioni su come pubblicare progetti di servizi cloud di Azure tramite Visual Studio.."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/04/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Pubblicazione di un servizio cloud con gli strumenti di Azure
 
@@ -173,4 +173,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

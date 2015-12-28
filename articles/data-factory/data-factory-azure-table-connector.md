@@ -317,8 +317,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",
@@ -504,4 +503,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

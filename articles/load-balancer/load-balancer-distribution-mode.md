@@ -40,14 +40,14 @@ Per le macchine virtuali, è possibile usare PowerShell per modificare le impost
  
 Aggiungere un endpoint di Azure a una macchina virtuale e impostare la modalità di distribuzione del servizio di bilanciamento del carico
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM
+	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
 >[AZURE.NOTE]LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple.
 
 
 Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -74,7 +74,7 @@ Se l'elemento LoadBalancerDistribution non viene specificato, il bilanciamento d
 
 Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare la modalità di distribuzione sul set di endpoint con carico bilanciato:
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+	Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### Configurazione del servizio cloud per modificare la modalità di distribuzione
 
@@ -99,7 +99,7 @@ Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è nece
 
 ## Esempio di API
 
-È possibile configurare la distribuzione del bilanciamento del carico usando l'API di gestione servizi. Assicurarsi di aggiungere l'intestazione x-ms-version, impostandola sulla versione 2014-09-01 o successiva.
+È possibile configurare la distribuzione del servizio di bilanciamento del carico usando l'API di gestione servizi. Assicurarsi di aggiungere l'intestazione `x-ms-version`, impostandola sulla versione `2014-09-01` o successiva.
  
 Aggiornare la configurazione del set con carico bilanciato specificato in una distribuzione
 
@@ -149,4 +149,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Definizione e gestione dello stato"
+   pageTitle="Definizione e gestione dello stato | Microsoft Azure"
    description="Come definire e gestire lo stato di un servizio in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -21,9 +21,9 @@ Per **stato del servizio** si intendono i dati di cui il servizio necessita per 
 
 Si consideri ad esempio un semplice servizio calcolatrice. Questo servizio accetta due numeri per restituirne la somma. Si tratta di un servizio puramente senza stato, senza dati associati.
 
-Si consideri ora la stessa calcolatrice, che però oltre al calcolo della somma dispone anche di un metodo per restituire l'ultima somma calcolata. In questo modo ora il servizio è con stato, ovvero contiene uno stato in cui scrive (quando calcola una nuova somma) e da cui legge (quando restituisce l'ultima somma calcolata).
+Si consideri ora la stessa calcolatrice, che però oltre al calcolo della somma dispone anche di un metodo per restituire l'ultima somma calcolata. In questo modo ora il servizio è con stato, ovvero contiene uno stato a cui scrive (quando calcola una nuova somma) e da cui legge (quando restituisce l'ultima somma calcolata).
 
-In Service Fabric il primo servizio è denominato servizio senza stato. Il secondo invece è denominato servizio con stato
+In Service Fabric di Azure il primo servizio è denominato servizio senza stato. Il secondo invece è denominato servizio con stato.
 
 ## Archiviazione dello stato del servizio
 Lo stato può essere archiviato all'esterno oppure condividere la posizione con il codice che modifica lo stato. Nel primo caso viene usato in genere un database o un archivio esterno. Nell'esempio della calcolatrice è possibile usare un database SQL in cui il risultato corrente viene archiviato in una tabella. Ogni richiesta di calcolo della somma comporta un aggiornamento della riga corrispondente.
@@ -32,13 +32,12 @@ Lo stato può anche condividere la posizione con il codice che lo modifica. I se
 
 ## Passaggi successivi
 
-Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
+Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
 
 - [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
 
 - [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
 
 - [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # Creazione di un'app Web .NET MVC in Servizio app di Azure con l'autenticazione ADFS
@@ -119,7 +119,7 @@ In questo scenario si pubblicherà l'applicazione in un'app Web nelle app Web di
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Selezionare **App Web di Microsoft Azure**.
+2. Selezionare **Servizio app di Microsoft Azure**.
 3. Se non è stato effettuato l'accesso ad Azure, fare clic su **Accedi** e usare l'account Microsoft relativo alla sottoscrizione di Azure.
 4. Dopo l'accesso, fare clic su **Nuovo** per creare una nuova app Web.
 5. Compilare tutti i campi obbligatori. Poiché la connessione ai dati locali avverrà in un secondo tempo, non si procederà alla creazione di un database per questa app Web.
@@ -343,4 +343,4 @@ App Web del servizio app di Azure supporta l'accesso ai database locali mediante
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->
