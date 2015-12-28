@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementazione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
+   pageTitle="Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Microsoft Azure"
    description="Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Implementazione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
+# Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 
 Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure.
 
@@ -25,10 +25,12 @@ Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza 
 ## Informazioni sul Centro sicurezza PC di Azure
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-##Che cos'è una raccomandazione di sicurezza?
-Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, crea delle raccomandazioni, che illustrano in dettaglio la procedura di configurazione dei controlli necessari.
+## Informazioni sulle raccomandazioni di sicurezza
+Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, crea delle raccomandazioni, Tali suggerimenti illustrano in dettaglio il processo di configurazione dei controlli necessari.
 
-## Configurazione delle raccomandazioni
+## Implementare le raccomandazioni di sicurezza
+
+### Configurazione delle raccomandazioni
 
 In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) si impara a:
 
@@ -36,13 +38,9 @@ In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](securit
 - Attivare la raccolta dei dati
 - Scegliere le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza
 
-Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della linea di base, anti-malware, [elenchi di controllo di accesso per gli endpoint](virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](virtual-networks-nsg.md) su subnet e interfacce di rete, controllo del Database SQL, Transparent Data Encryption per il Database SQL e Web Application Firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
+Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della linea di base, anti-malware, [ACL per gli endpoint](virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](virtual-networks-nsg.md) su subnet e interfacce di rete, controllo del Database SQL, Transparent Data Encryption per il Database SQL e Web Application Firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
 
-La sezione **Mostra raccomandazioni per** del pannello **Criterio di sicurezza** presenta un elenco di raccomandazioni che è possibile attivare per le risorse incluse nella sottoscrizione specificata.
-
-![][1]
-
-## Monitoraggio delle raccomandazioni
+### Monitoraggio delle raccomandazioni
 
 Dopo aver impostato un criterio di sicurezza, il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse per identificare potenziali vulnerabilità. Il riquadro **Raccomandazioni** del pannello **Centro sicurezza PC** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza di Azure.
 
@@ -62,7 +60,7 @@ Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga
 - **STATO**: stato attuale della raccomandazione:
   - **Aperta**: non ancora presa in esame
   - **In corso**: la raccomandazione è stata applicata alle risorse specificate e non è richiesta alcuna azione da parte dell'utente
-  - **Risolta**: la raccomandazione è già stata completata (quando lo stato è impostato su Risolta, la riga risulta disabilitata)
+  - **Risolta**: la raccomandazione è già stata completata (quando lo stato è impostato su Risolta, la riga è di colore grigio)
 - **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
   - **Elevata**: esiste una vulnerabilità associata a una risorsa significativa (applicazione, macchina virtuale, gruppo di sicurezza di rete), che richiede attenzione
   - **Media**: sono necessari passaggi aggiuntivi (o non critici) per completare un processo o eliminare una vulnerabilità
@@ -86,10 +84,10 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | Abilitare Transparent Data Encryption sui database SQL | Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure). |
 | Distribuire l'agente di macchine virtuali | Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter eseguire il provisioning dei servizi di analisi delle patch, analisi della linea di base e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali. |
 
-## Applicazione delle raccomandazioni
+### Applicazione delle raccomandazioni
 Dopo aver esaminato tutte le raccomandazioni, è possibile decidere quale applicare per prima. Si consiglia di usare il livello di gravità come parametro principale per scegliere le raccomandazioni da applicare per prime. Prendendo come esempio la raccomandazione sul servizio antimalware, viene illustrata di seguito la procedura da seguire per applicare le raccomandazioni:
 
-1. Nel pannello **Raccomandazioni** selezionare **Abilitare il servizio antimalware**. ![][5]
+1. Nel pannello **Raccomandazioni** selezionare **Abilitare antimalware**. ![][5]
 
 2. Nel pannello **Installa antimalware** selezionare una delle macchine virtuali senza antimalware abilitato incluse nell'elenco e fare clic su **Installa antimalware**.
 3. Viene visualizzato il pannello **Nuova risorsa**, che consente di selezionare la soluzione antimalware da usare. Selezionare **Microsoft Antimalware**.
@@ -98,7 +96,7 @@ Dopo aver esaminato tutte le raccomandazioni, è possibile decidere quale applic
 
 [Microsoft Antimalware](azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
 
-## Distribuire soluzioni integrate di aziende partner
+### Distribuire soluzioni raccomandate di aziende partner
 
 Una raccomandazione potrebbe essere quella di distribuire una soluzione di sicurezza integrata di un partner Microsoft. Di seguito viene illustrata una procedura di esempio:
 
@@ -107,10 +105,10 @@ Una raccomandazione potrebbe essere quella di distribuire una soluzione di sicur
 3. Selezionare un'applicazione Web: viene visualizzato il pannello **Aggiungere un Web Application Firewall**.
 4. Selezionare **Barracuda Web Application Firewall**. Viene visualizzato un pannello contenente informazioni su **Barracuda Web Application Firewall**.
 5. Nel pannello informativo fare clic su **Crea**. Viene visualizzato il pannello **Nuovo Web Application Firewall**, in cui è possibile eseguire la procedura di **Configurazione macchina virtuale** e fornire i dati richiesti in **Informazioni WAF**.
-6. Selezionare **Configurazione macchina virtuale**. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che eseguirà il Web Application Firewall. ![][8]
+6. Selezionare **Configurazione macchina virtuale**. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che eseguirà il WAF. ![][8]
 7. Tornare al pannello **Nuovo Web Application Firewall** e selezionare **Informazioni WAF**. Nel pannello **Informazioni WAF** è possibile configurare il Web Application Firewall. Il passaggio 6 consente di configurare la macchina virtuale che eseguirà il firewall, mentre con il passaggio 7 si esegue il provisioning del firewall.
 
-8. Tornare al pannello **Raccomandazioni**. Dopo la creazione del Web Application Firewall è stata aggiunta una nuova voce: **Finalizzare la configurazione del Web Application Firewall**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione del WAF all'interno della rete virtuale di Azure in modo che possa proteggere l'applicazione. ![][9]
+8. Tornare al pannello **Raccomandazioni**. Dopo la creazione del WAF è stata aggiunta una nuova voce: **Finalizzare la configurazione del Web Application Firewall**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione del WAF all'interno della rete virtuale di Azure in modo che possa proteggere l'applicazione. ![][9]
 
 9. Selezionare **Finalizzare la configurazione del Web Application Firewall**. Viene visualizzato un nuovo pannello, in cui è presente un'applicazione Web per la quale è necessario reindirizzare il traffico.
 10. Selezionare l'applicazione Web. Viene visualizzato un pannello in cui è possibile eseguire la procedura per finalizzare la configurazione del Web Application Firewall. Completare la procedura e fare clic su **Limita il traffico**. Il Centro sicurezza di Azure eseguirà automaticamente le operazioni di connessione. ![][10]
@@ -120,14 +118,13 @@ I log generati dal WAF sono ora completamente integrati. Il Centro sicurezza di 
 ## Passaggi successivi
 Questo documento ha affrontato il tema delle raccomandazioni relative alla sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): come configurare i criteri di sicurezza
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): come gestire e rispondere agli avvisi di sicurezza
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
 <!--Image references-->
-[1]: ./media/security-center-recommendations/show-recommendations-for.png
 [2]: ./media/security-center-recommendations/recommendations-tile.png
 [3]: ./media/security-center-recommendations/filter-recommendations.png
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
@@ -138,4 +135,4 @@ Questo documento ha affrontato il tema delle raccomandazioni relative alla sicur
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

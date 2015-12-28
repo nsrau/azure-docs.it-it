@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -26,19 +26,21 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 
 -	[Criteri di limitazione dell'accesso][]
 	-	[check-header][]\: impone l'esistenza e/o il valore di un'intestazione HTTP.
-	-	[rate-limit][]\: per impedire picchi di utilizzo delle API, limita le chiamate e/o la percentuale di consumo della larghezza di banda.
+	-	[Limita frequenza delle chiamate per sottoscrizione][]\: impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate, per ogni sottoscrizione.
+	-	[Limita frequenza delle chiamate per chiave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey): impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.
 	-	[ip-filter][]\: filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.
-	-	[quota][]\: consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda.
+	-	[Imposta quota di utilizzo per sottoscrizione][]\: consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.
+	-	[Imposta quota di utilizzo per chiave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey): consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.
 	-	[validate-JWT][]\: impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.
 -	[Criteri avanzati][]
 	-	[choose][]\: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
-	-	[Inoltro richiesta][] - Inoltra la richiesta al servizio back-end.
-	-	[Registro a Hub eventi][] -invia messaggi nel formato specificato a una destinazione del messaggio definita da un’entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) .
-	-	[Restituzione della risposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.
-	-	[Invio richiesta unidirezionale](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - invia una richiesta all'URL specificato senza attendere una risposta.
-	-	[Invio richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - invia una richiesta all'URL specificato.
-	-	[Impostazione metodo di richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - consente di modificare il metodo HTTP per una richiesta.
-	-	[Impostazione codice di stato](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - modifica il codice di stato HTTP per il valore specificato.
+	-	[Inoltra richiesta][]\: inoltra la richiesta al servizio back-end.
+	-	[Registra a Hub eventi][]\: invia messaggi nel formato specificato a una destinazione del messaggio definita da un’entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) .
+	-	[Restituisci risposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.
+	-	[Invia richiesta unidirezionale](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): invia una richiesta all'URL specificato senza attendere una risposta.
+	-	[Invia richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): invia una richiesta all'URL specificato.
+	-	[Imposta metodo di richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.
+	-	[Imposta stato](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): modifica il codice di stato HTTP per il valore specificato.
 	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
@@ -46,6 +48,8 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 -	[Criteri di memorizzazione nella cache][] 
 	-	[Recupera dalla cache][]\: esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.
 	-	[cache-lookup][]\: memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.
+	-	[Recupera valore dalla cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupera un elemento memorizzato nella cache per chiave.
+	-	[Archivia valore nella cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): archivia un elemento nella cache per chiave.
 -	[Criteri tra domini][] 
 	-	[Permetti chiamate tra i domini][]\: rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 	-	[CORS][]\: aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
@@ -69,9 +73,9 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
 [Criteri di limitazione dell'accesso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [check-header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[rate-limit]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[Limita frequenza delle chiamate per sottoscrizione]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [ip-filter]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[quota]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[Imposta quota di utilizzo per sottoscrizione]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [validate-JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [Criteri avanzati]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -79,8 +83,8 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 [set-variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [espressioni]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
-[Inoltro richiesta]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
-[Registro a Hub eventi]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
+[Inoltra richiesta]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Registra a Hub eventi]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Criteri di autenticazione]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [authentication-basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -114,4 +118,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

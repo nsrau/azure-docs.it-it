@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configurare un metodo di routing del traffico delle prestazioni
@@ -39,7 +39,7 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-[Gestione traffico di Azure](../traffic-manmager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -51,4 +51,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

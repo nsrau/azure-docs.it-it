@@ -27,11 +27,9 @@ Il portale viene eseguito correttamente nei moderni PC, Mac e tablet. I telefoni
 Sono supportate le versioni più recenti dei browser seguenti:
 
 - Edge (versione più recente)
-- Internet Explorer (11 e versioni successive)
-- Safari (7 e versioni successive)
+- Internet Explorer 11
+- Safari (versione più recente, solo Mac)
 - Chrome (versione più recente)
 - Firefox (versione più recente)
 
-*Safari 6 e le versioni precedenti non sono supportati. Se si utilizza OS X, è possibile utilizzare Chrome o Firefox oppure effettuare l'aggiornamento a OS X Mavericks per ottenere Safari 7.*
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

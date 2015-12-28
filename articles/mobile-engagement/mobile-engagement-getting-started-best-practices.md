@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="12/11/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Guida introduttiva con procedure consigliate
@@ -284,7 +284,7 @@ Azure Mobile Engagement identifica gli utenti generando un identificatore univoc
 
 Una sessione è un'istanza dell'app eseguita da un utente. La sessione dura dal momento in cui l'utente avvia l'app al momento in cui la arresta.
 
-Un'attività è un raggruppamento logico di un set di elementi dell'app durante una sessione. Di solito si tratta di una particolare schermata dell'app, ma può essere qualsiasi cosa definita dalla logica dell'applicazione. Come minimo è consigliabile contrassegnare ogni schermata o attività per l'app. Questo permetterà di comprendere il percorso dell'utente.
+Un'attività è un raggruppamento logico di un set di elementi eseguibili dall'app durante una sessione. Di solito si tratta di una particolare schermata dell'app, ma può essere qualsiasi cosa definita dalla logica dell'applicazione. Come minimo è consigliabile contrassegnare ogni schermata o attività per l'app. Questo permetterà di comprendere il percorso dell'utente.
 
 
 ###### Eventi
@@ -404,4 +404,4 @@ Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -22,7 +22,7 @@
 
 In passato, gli sviluppatori di app che intendevano supportare sia gli account Microsoft che Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati. Modello app 2.0 permette concedere l'accesso agli utenti con entrambi i tipi di account. Grazie a una semplice integrazione è possibile raggiungere un pubblico costituito da milioni di utenti, sia con account personali che con account aziendali o dell'istituto di istruzione.
 
-L'app può anche utilizzare un [set di API REST per Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account. Al momento, queste API includono le API per la posta, i contatti e i calendari di Outlook. Nel prossimo futuro verranno aggiunti altri servizi.
+L'app può anche utilizzare un [set di API REST per Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account. Al momento, queste API includono le API per la posta, i contatti e i calendari di Outlook. Nel prossimo futuro verranno aggiunti altri servizi.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -49,7 +49,7 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - Per inviare i commenti e i suggerimenti sulla versione di anteprima, è possibile usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory). Specificare "AppModelv2:" nel titolo del post per permetterci di individuarlo.
 - [Riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md)
 - [Riferimento al token di Modello app 2.0](active-directory-v2-tokens.md)
-- [Riferimento all'API REST di Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Riferimento all'API REST di Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Ambiti e consenso nell'endpoint versione 2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

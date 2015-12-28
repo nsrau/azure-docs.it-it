@@ -20,7 +20,6 @@
 # Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
- 
 
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono creati i server Web in cui caricare l'applicazione line-of-business.
 
@@ -30,11 +29,21 @@ In questa fase della distribuzione di un'applicazione line-of-business a disponi
 
 Sono due le macchine virtuali del server Web in cui distribuire le applicazioni ASP.NET o applicazioni meno recenti che possono essere ospitate in Internet Information Services (IIS) 8 in Windows Server 2012 R2.
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire tutte le istanze di "-AzureRM" con "-Azure" e aggiungere il comando **Switch-AzureMode AzureResourceManager** prima di eseguire i comandi. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
-
 Innanzitutto, è necessario configurare il bilanciamento del carico interno in modo che Azure distribuisca in modo uniforme tra i due server Web il traffico dei client destinato all'applicazione line-of-business. A tale scopo è necessario specificare un'istanza del servizio di bilanciamento del carico interno con un nome e un proprio indirizzo IP, assegnato dallo spazio degli indirizzi di subnet assegnato alla rete virtuale di Azure.
 
-Compilare le variabili ed eseguire il set di comandi seguente:
+> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+
+Specificare i valori per le variabili, rimuovendo i caratteri < and >. Nei set di comandi di Azure PowerShell seguenti vengono utilizzati i valori delle tabelle seguenti:
+
+- Tabella M, per le macchine virtuali
+- Tabella V, per le impostazioni di rete virtuale
+- Tabella S, per la subnet
+- Tabella ST, per gli account di archiviazione
+- Tabella A, per i set di disponibilità
+
+È importante ricordare che la Tabella M è stata definita nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e le Tabelle V, S, ST e A sono state definite nella [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+Una volta specificati tutti i valori appropriati, eseguire il blocco risultante al prompt dei comandi di Azure PowerShell.
 
 	# Set up key variables
 	$rgName="<resource group name>"
@@ -53,15 +62,7 @@ Compilare le variabili ed eseguire il set di comandi seguente:
 
 A questo punto, aggiungere un record di indirizzo DNS all'infrastruttura DNS interna dell'organizzazione per risolvere il nome di dominio completo dell'applicazione line-of-business (ad esempio lobapp.corp.contoso.com) all'indirizzo IP assegnato all'istanza del servizio di bilanciamento del carico interno (valore di $privIP nel blocco di comandi di Azure PowerShell precedente).
 
-A questo punto, usare il blocco di comandi di PowerShell seguente per creare le macchine virtuali per i due server Web. Si noti che in questo set di comandi di PowerShell vengono usati i valori delle tabelle seguenti:
-
-- Tabella M, per le macchine virtuali
-- Tabella V, per le impostazioni di rete virtuale
-- Tabella S, per la subnet
-- Tabella ST, per gli account di archiviazione
-- Tabella A, per i set di disponibilità
-
-È importante ricordare che la Tabella M è stata definita nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e le Tabelle V, S, ST e A sono state definite nella [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+A questo punto, usare il blocco di comandi di PowerShell seguente per creare le macchine virtuali per i due server Web.
 
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
@@ -99,7 +100,7 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vmSize="<Table M – Item 7 - Minimum size column>"
 	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
 	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -148,18 +149,6 @@ Questo diagramma illustra la configurazione ottenuta al termine di questa fase.
 
 ## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, passare a [Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+- Seguire la [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) per completare la configurazione di questo carico di lavoro.
 
-## Risorse aggiuntive
-
-[Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664)
-
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

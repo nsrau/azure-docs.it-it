@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Eventi di Reliable Actors"
+   pageTitle="Eventi di Reliable Actors | Microsoft Azure"
    description="Introduzione agli eventi per Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,11 +18,11 @@
 
 
 # Eventi relativi agli attori
-Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono stati progettati per la comunicazione tra attore e client e NON è consigliabile usarli per la comunicazione tra attori.
+Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono stati progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.
 
 I frammenti di codice seguenti mostrano come usare eventi relativi agli attori nella propria applicazione.
 
-Definire un'interfaccia che descriva gli eventi pubblicati dall'attore. Tale interfaccia deve derivare dall'interfaccia `IActorEvents`. Gli argomenti dei metodi devono essere [serializzabili in base al contratto dati](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). I metodi devono restituire void in quanto le notifiche degli eventi sono unidirezionali e sono il più accurate possibile.
+Definire un'interfaccia che descriva gli eventi pubblicati dall'attore. Tale interfaccia deve derivare dall'interfaccia `IActorEvents`. Gli argomenti dei metodi devono essere [serializzabili in base al contratto dati](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). I metodi devono restituire void, in quanto le notifiche degli eventi sono unidirezionali e sono il più accurate possibile.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -63,13 +63,13 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione usa l'`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
+In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione usare l'`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
 
-Nell'attore pubblicare semplicemente gli eventi man mano che si verificano. Se vi sono sottoscrittori che hanno sottoscritto l'evento, il runtime di Actors invierà loro la notifica.
+Nell'attore pubblicare semplicemente gli eventi man mano che si verificano. Se vi sono sottoscrittori dell'evento, il runtime di Actors invierà loro la notifica.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

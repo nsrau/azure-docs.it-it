@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ambiente di test di configurazione di base con Gestione risorse di Azure
@@ -56,9 +56,22 @@ Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizi
 
 ## Fase 1: creare la rete virtuale
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire tutte le istanze di "-AzureRM" con "-Azure" e aggiungere il comando **Switch-AzureMode AzureResourceManager** prima di eseguire i comandi. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+In primo luogo, avviare un prompt di Azure PowerShell.
 
-Innanzitutto, aprire un prompt dei comandi di Azure PowerShell.
+> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+
+Accedere al proprio account.
+
+	Login-AzureRMAccount
+
+Ottenere il nome della sottoscrizione usando il comando seguente.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Impostare la sottoscrizione di Azure. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Successivamente, creare un nuovo gruppo di risorse per il testing della configurazione di Base. Per determinare un nome di gruppo di risorse univoco, usare il comando seguente per elencare i gruppi di risorse esistenti.
 
@@ -72,7 +85,7 @@ Creare il nuovo gruppo di risorse con questi comandi. Sostituire tutti gli eleme
 
 Le macchine virtuali basate su Gestione risorse richiedono un account di archiviazione basato su Gestione risorse. Per l'account di archiviazione è necessario selezionare un nome univoco globale che contenga solo lettere minuscole e numeri. È possibile usare il comando seguente per elencare gli account di archiviazione esistenti.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Creare un nuovo account di archiviazione per il nuovo ambiente di test usando i comandi seguenti.
 
@@ -118,8 +131,8 @@ Innanzitutto, specificare il nome del gruppo di risorse, il percorso Azure e il 
 
 Successivamente, connettersi alla macchina virtuale DC1.
 
-1.	Nel portale di Azure, fare clic su **Sfoglia tutto** nel riquadro sinistro, fare clic su **Macchine virtuali** nell’elenco **Sfoglia** e quindi scegliere la macchina virtuale **DC1**.  
-2.	Nel riquadro**DC1**, fare clic su**Connetti**.
+1.	Nel portale di Azure fare clic su **Macchine virtuali** e quindi sulla macchina virtuale **DC1**.  
+2.	Nel riquadro **DC1**, fare clic su **Connetti**.
 3.	Quando richiesto, aprire il file DC1.rdp scaricato.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
@@ -147,8 +160,8 @@ Configurare quindi DC1 come controller di dominio e server DNS per il dominio co
 
 Dopo il riavvio di DC1, riconnettersi alla macchina virtuale DC1.
 
-1.	Nel portale di Azure, fare clic su Sfoglia tutto nel riquadro sinistro, fare clic su Macchine virtuali nell’elenco Sfoglia e quindi scegliere la macchina virtuale DC1.
-2.	Nel riquadro DC1, fare clic su Connetti.
+1.	Nel portale di Azure fare clic su **Macchine virtuali** e quindi sulla macchina virtuale **DC1**.
+2.	Nel riquadro **DC1**, fare clic su **Connetti**.
 3.	Quando viene richiesto di aprire DC1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Alla richiesta di credenziali, usare le seguenti:
@@ -276,11 +289,9 @@ Questa sarà la configurazione finale.
 
 La configurazione di base in Azure è ora pronta per lo sviluppo di applicazioni e il test o per ambienti di test aggiuntivi.
 
-## Risorse aggiuntive
+## Passaggio successivo
 
-[Ambienti di test basati su cloud ibrido](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Ambiente di test di configurazione di base](virtual-machines-base-configuration-test-environment.md)
+- Usare come base per creare [l'ambiente di test cloud ibrido simulato](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Riduzione dei costi di macchine virtuali in ambiente di test in Azure
@@ -310,4 +321,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

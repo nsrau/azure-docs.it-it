@@ -70,4 +70,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 <!-- URLs. -->
 [creazione di un'app per dispositivi mobili]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->

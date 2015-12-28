@@ -32,7 +32,7 @@ La soluzione usa due origini dati diverse:
 - **set di dati di diagnostica e segnali del veicolo simulati** e 
 - **catalogo dei veicoli**
 
-Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo. Questo genera informazioni di diagnostica e segnali corrispondenti allo stato del veicolo e allo stile di guida in un determinato momento. Fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=717075) per scaricare la **soluzione Vehicle Telematics Simulator di Visual Studio** ed eseguire le personalizzazioni necessarie. Il catalogo dei veicoli contiene un set di dati di riferimento con il numero identificativo del veicolo (NIV) per il mapping del modello.
+Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo. Il simulatore genera informazioni di diagnostica e segnali corrispondenti allo stato del veicolo e allo schema di guida in un determinato momento. Fare clic su [Vehicle Telematics Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) per scaricare la **soluzione Vehicle Telematics Simulator di Visual Studio** ed eseguire le personalizzazioni necessarie. Il catalogo dei veicoli contiene un set di dati di riferimento con il numero identificativo del veicolo (NIV) per il mapping del modello.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -130,7 +130,7 @@ Il processo di Analisi di flusso inserisce i dati dall'Hub eventi, crea un join 
 *Figura 7: Query del processo di Analisi di flusso per l'inserimento di dati*
 
 ### Analisi batch
-Viene anche generato un volume aggiuntivo di set di dati di diagnostica e segnali del veicolo simulati per rendere più completa l'analisi batch. Questo è necessario per garantire un volume di dati rappresentativo per l'elaborazione batch. A questo scopo, viene usata una pipeline denominata "PrepareSampleDataPipeline" nel flusso di lavoro di Data factory di Azure per generare un set di dati di diagnostica e segnali del veicolo simulati equivalente a un anno. Fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=717077) per scaricare la soluzione di Visual Studio per l'attività .Net personalizzata di Data factory ed eseguire le personalizzazioni necessarie.
+Viene anche generato un volume aggiuntivo di set di dati di diagnostica e segnali del veicolo simulati per rendere più completa l'analisi batch. Questo è necessario per garantire un volume di dati rappresentativo per l'elaborazione batch. A questo scopo, viene usata una pipeline denominata "PrepareSampleDataPipeline" nel flusso di lavoro di Data factory di Azure per generare un set di dati di diagnostica e segnali del veicolo simulati equivalente a un anno. Fare clic su [Attività personalizzata di Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) per scaricare la soluzione di Visual Studio per l'attività .Net personalizzata di Data factory ed eseguire le personalizzazioni necessarie.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -360,7 +360,7 @@ Figura 15: Query di Analisi di flusso per l'elaborazione in tempo reale
 
 Tutte le medie vengono calcolate in una finestra a cascata di 3 secondi. In questo caso viene usata la finestra a cascata perché sono necessari intervalli di tempo contigui e non sovrapposti.
 
-Per altre informazioni sulle funzionalità delle finestre in Analisi di flusso di Azure, fare clic [qui](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Per altre informazioni sulle funzionalità delle finestre in Analisi di flusso di Azure, fare clic su [Finestre (Analisi di flusso di Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Stima in tempo reale**
 
@@ -375,7 +375,7 @@ Nella soluzione è inclusa un'applicazione per la messa in funzione del modello 
 
 Questo modello è anche applicabile a scenari di integrazione di un'applicazione line-of-business con il flusso di analisi in tempo reale per avvisi, notifiche, messaggistica immediata e così via.
 
-Fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=717078) per scaricare la soluzione RealtimeDashboardApp di Visual Studio per le personalizzazioni.
+Fare clic su [Download di RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) per scaricare la soluzione RealtimeDashboardApp di Visual Studio per le personalizzazioni.
 
 ****Per eseguire l'applicazione dashboard in tempo reale**
 
@@ -696,4 +696,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

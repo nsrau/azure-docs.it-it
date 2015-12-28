@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/24/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 È possibile usare l'abbonamento esistente a Office 365 in Azure RemoteApp per condividere app di Office dal cloud. Di seguito sono disponibili informazioni sulle opzioni per Office 365 con Azure RemoteApp, inclusi collegamenti ad articoli relativi a Office 365 che consentono di sfruttare al meglio la sottoscrizione.
 
+## Utilizzo di account di Office 365 per Azure RemoteApp
+Leggere il nuovo articolo di Peter per tutte le informazioni: [Come usare Azure RemoteApp con gli account utente di Office 365](remoteapp-o365user.md)
+
 ## Possibilità di usare l'abbonamento a Office 365 per eseguire applicazioni di Office in Azure RemoteApp
 
 È possibile usarlo. L'uso dell'abbonamento a Office 365, in effetti, è l'unico modo per portare le applicazioni di Office in Azure RemoteApp.
@@ -29,7 +32,7 @@
 (Nota: se la distribuzione RemoteApp di Azure viene fornita a un partner di hosting, questi potrebbe essere in grado di fornire licenze di Office in base a un [Service Provider Licensing Agreement](http://www.microsoft.com/it-IT/Licensing/licensing-programs/spla-program.aspx))
 
 
-Uno dei vantaggi dell'abbonamento a Office 365 consiste nel fatto che consente di usare la stessa licenza utente su molte piattaforme diverse e molti ambienti diversi, incluso il cloud di Azure. Quando si usano le applicazioni di Office in Azure RemoteApp, non è necessario acquistare licenze aggiuntive o configurare le licenze esistenti in modo particolare. È sufficiente avere un abbonamento a Office 365 che include [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
+Uno dei vantaggi dell'abbonamento a Office 365 consiste nel fatto che consente di usare la stessa licenza utente su molte piattaforme diverse e molti ambienti diversi, incluso il cloud di Azure. Quando si usano le applicazioni di Office in Azure RemoteApp, non è necessario acquistare licenze aggiuntive o configurare le licenze esistenti in modo particolare. È sufficiente avere una sottoscrizione a Office 365 che include [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
 Office 365 ProPlus consente l'[attivazione di computer condivisi](https://technet.microsoft.com/library/Dn782860.aspx). Questa funzionalità consente l'attivazione temporanea basata sull'utente per Office in ambienti cloud e virtuali quali Azure RemoteApp e Servizi Desktop remoto.
 
@@ -57,7 +60,7 @@ Se non si prevede di usarli, non è necessario ottenere la licenza per questi pr
 
 Dopo avere ottenuto informazioni dettagliate sulle licenze per Office 365, è possibile iniziare a usarlo con facilità in Azure RemoteApp:
 
-Quando si crea la raccolta di Azure RemoteApp, usare l'immagine di **Office 365 ProPlus (abbonamento necessario)**.
+Quando si crea la raccolta di Azure RemoteApp, usare l'immagine di **Office 365 ProPlus (sottoscrizione necessaria)**.
 
 ![Immagine di Azure RemoteApp con Office 365 Pro Plus](./media/remoteapp-officesubscription/remoteapp-officeimage.png)
 
@@ -120,4 +123,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

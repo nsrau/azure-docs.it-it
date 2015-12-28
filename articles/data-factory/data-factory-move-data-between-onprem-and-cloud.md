@@ -73,7 +73,7 @@ Questi messaggi di errore vengono generati a causa di una configurazione non cor
 Gli unici due firewall a cui può essere attribuita la responsabilità di tali errori sono il firewall aziendale in esecuzione sul router centrale dell'organizzazione e Windows Firewall, configurato come servizio daemon sul computer locale in cui è installato il gateway. Di seguito si riportano alcune considerazioni:
 
 - Non è necessario modificare i criteri in ingresso per il firewall aziendale.
-- Sia nel firewall aziendale che in Windows Firewall è necessario creare una regola in uscita per abilitare le porte TCP 80 e 443 e le porte TCP da 9305 a 9354. Queste porte vengono usate dal bus di servizio di Microsoft Azure per stabilire connessioni tra i servizi cloud e il Gateway di gestione dati.
+- Sia nel firewall aziendale che in Windows Firewall è necessario creare una regola in uscita per abilitare le porte TCP 80 e 443 e le porte TCP da 9350 a 9354. Queste porte vengono usate dal bus di servizio di Microsoft Azure per stabilire connessioni tra i servizi cloud e il Gateway di gestione dati.
 
 Il programma di installazione del pacchetto con estensione msi configura automaticamente le regole di Windows Firewall per le porte in ingresso nel computer del gateway (vedere la sezione precedente in cui sono riportate considerazioni sulle porte e sulla sicurezza).
 
@@ -618,4 +618,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 	- 	Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP del computer del gateway** agli **indirizzi IP consentiti**.
 5.	Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

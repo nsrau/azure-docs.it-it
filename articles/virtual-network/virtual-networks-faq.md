@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/19/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Domande frequenti su Rete virtuale
@@ -23,4 +23,4 @@
 
 Per le domande frequenti più recenti sulle reti virtuali VPN, vedere le [domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

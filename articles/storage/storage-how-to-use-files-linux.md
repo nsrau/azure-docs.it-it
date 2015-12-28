@@ -120,6 +120,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 
 - [Archiviazione di file in Azure: un file system SMB nel cloud senza problemi per Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Come usare l'archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
 ### Strumenti di supporto per l'archiviazione file
 
@@ -137,4 +138,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

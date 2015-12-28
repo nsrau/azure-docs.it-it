@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Eseguire la migrazione di macchine virtuali IaaS da un’area di Azure a un’altra"
+	pageTitle="Eseguire la migrazione di macchine virtuali IaaS di Azure da un’area di Azure a un’altra con Site Recovery | Microsoft Azure"
 	description="Utilizzare Site Recovery per la migrazione di macchine virtuali IaaS di Azure da un’area di Azure a un’altra."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure
+#  Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure con Site Recovery
 
 
 ## Panoramica
@@ -69,4 +69,4 @@ Di seguito sono riportati i prerequisiti necessari per iniziare:
 
 Inviare commenti o domande nel [forum di Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usare Application Insights con Diagnostica di Azure per risolvere i problemi del servizio cloud | Microsoft Azure"
+   pageTitle="Risoluzione dei problemi di Servizi Cloud tramite Application Insights | Microsoft Azure"
    description="Informazioni su come risolvere i problemi relativi al servizio cloud mediante Application Insights per elaborare i dati del servizio Diagnostica di Azure."
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# Usare Application Insights con Diagnostica di Azure per risolvere i problemi del servizio cloud
+# Risoluzione dei problemi di Servizi Cloud tramite Application Insights
 
 Con [Azure SDK 2.8](https://azure.microsoft.com/downloads/) e l'estensione Diagnostica di Azure 1.5 è ora possibile inviare i dati del servizio Diagnostica di Azure per il servizio cloud direttamente ad Application Insights. I vari tipi di log raccolti da Diagnostica di Azure, tra cui log applicazioni, registri eventi di Windows, log ETW e contatori delle prestazioni possono ora essere inviati ad Application Insights e visualizzati nell'interfaccia utente del portale di Application Insights. Quando vengono usati con Application Insights SDK, è possibile ottenere informazioni dettagliate sulle metriche e i log provenienti dall'applicazione, nonché dai dati del livello di sistema e dell'infrastruttura provenienti da Diagnostica di Azure.
   
@@ -78,4 +78,4 @@ Per visualizzare i dati del servizio Diagnostica di Azure in Application Insight
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

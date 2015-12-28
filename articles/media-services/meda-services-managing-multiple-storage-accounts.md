@@ -19,11 +19,12 @@
 
 #Gestione di asset di Servizi multimediali su più account di archiviazione
 
-A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti: Bilanciamento del carico degli asset tra più account di archiviazione.
+A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
 
-Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione).
+- Bilanciamento del carico degli asset tra più account di archiviazione.
+- Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
 
-Questo argomento illustra come collegare più account di archiviazione a un account di Servizi multimediali mediante l'[API REST di gestione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali.
+Questo argomento illustra come collegare più account di archiviazione a un account di Servizi multimediali mediante l'API REST di gestione dei servizi di Azure. Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali.
 
 ##Considerazioni
 
@@ -39,7 +40,7 @@ Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante 
 
 ##Per collegare un account di archiviazione con l'API REST di gestione dei servizi di Azure
 
-Attualmente, l'[API REST di gestione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx) costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: utilizzare l'API REST di gestione dei servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Nello stesso argomento è riportato anche il codice relativo al metodo **ListStorageAccountDetails**, che consente di elencare tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
+Attualmente, l'[API REST di gestione dei servizi di Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx) costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: utilizzare l'API REST di gestione dei servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Nello stesso argomento è riportato anche il codice relativo al metodo **ListStorageAccountDetails**, che consente di elencare tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
 
 
 ##Per gestire asset di Servizi multimediali su più account di archiviazione
@@ -258,4 +259,4 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

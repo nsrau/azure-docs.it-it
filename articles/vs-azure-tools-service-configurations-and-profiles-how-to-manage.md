@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Come gestire le configurazioni e i profili dei servizi"
+   pageTitle="Come gestire le configurazioni e i profili dei servizi | Microsoft Azure"
    description="Informazioni su come usare i file di configurazione del servizio e di configurazione dei profili che archiviano le impostazioni per gli ambienti di distribuzione e le impostazioni di pubblicazione per i servizi cloud."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Come gestire le configurazioni e i profili dei servizi
 
@@ -131,4 +131,4 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 
 Per informazioni sulla configurazione di altre parti del progetto Azure da Visual Studio, vedere [Configurazione di un progetto Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

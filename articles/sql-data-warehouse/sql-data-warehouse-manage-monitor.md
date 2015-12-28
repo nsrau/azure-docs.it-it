@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -131,7 +131,7 @@ Controllare la colonna *operation\_type* dell'istruzione di query con esecuzione
 
 ### PASSAGGIO 4a: individuare lo stato di esecuzione di un'istruzione SQL
 
-Utilizzare l'ID richiesta e l'indice dell'istruzione per recuperare informazioni sulla distribuzione di query di SQL Server come parte dell'istruzione SQL nella query. Salvare l'ID nodo e lo SPID.
+Utilizzare l'ID richiesta e l'indice dell'istruzione per recuperare informazioni sulla distribuzione di query di SQL Server come parte dell'istruzione SQL nella query. Salvare l'ID di distribuzione e lo SPID.
 
 ```
 
@@ -149,7 +149,7 @@ Utilizzare la query seguente per recuperare il piano di esecuzione di SQL Server
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ Per ulteriori suggerimenti sulla gestione di SQL Data Warehouse, vedere [panoram
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

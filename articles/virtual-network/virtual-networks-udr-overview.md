@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Route e inoltro IP, definito dall'utente
@@ -90,4 +90,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Informazioni su come [creare route nel modello di distribuzione di Gestione risorse](../virtual-network-create-udr-arm-template) e associarle alle subnet. 
 - Informazioni su come [creare route nel modello di distribuzione classica](../virtual-network-create-udr-classic-ps) e associarle a subnet.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

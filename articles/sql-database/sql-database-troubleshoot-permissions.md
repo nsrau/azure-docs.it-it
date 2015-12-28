@@ -3,7 +3,7 @@
 	description="Azioni rapide per risolvere problemi comuni relativi ad autorizzazioni, accesso, utenti e account di accesso"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 #Risoluzione dei problemi comuni relativi alle autorizzazioni e all'accesso per il database SQL di Azure
 Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere l'accesso a un database SQL di Azure. Per altre informazioni, vedere:
@@ -37,4 +37,4 @@ Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere 
 ## Per creare altri account di accesso per utenti con privilegi elevati nel database master virtuale
 -Usare l'istruzione [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e vedere la sezione Gestione degli account di accesso di [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md) per altri dettagli.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

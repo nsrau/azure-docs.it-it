@@ -19,6 +19,17 @@
 
 # Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 Questi passaggi mostrano come costruire un set di comandi di Azure PowerShell per la creazione e la configurazione di una macchina virtuale di Azure. È possibile usare questo processo modulare per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente. Può essere inoltre usato per creare più set di comandi che consentono di realizzare rapidamente un ambiente di sviluppo/test personalizzato o un ambiente IT professionale.
@@ -120,7 +131,7 @@ Usare il comando seguente per elencare i set di disponibilità esistenti.
 
 ### Regole NAT
 
-Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Le macchine virtuali create con il modello di distribuzione di Gestione risorse richiedono una rete virtuale di Gestione risorse. Se necessario, creare una nuova rete virtuale basata su Gestione risorse con almeno una subnet per la nuova macchina virtuale. Di seguito è riportato un esempio di una nuova rete virtuale denominata **TestNet** con due subnet denominate **frontendSubnet** e **backendSubnet**.
 
@@ -203,7 +214,7 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 - Il numero di indice della regola NAT in entrata da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza di bilanciamento del carico con le regole NAT in entrata, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole NAT in entrata, vedere l'argomento relativo alla [creazione di un servizio di bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
@@ -223,7 +234,7 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il nome di un'istanza del servizio di bilanciamento carico creato in precedenza che dispone di una regola per il traffico con carico bilanciato.
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere l'argomento relativo alla [creazione di un servizio di bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
@@ -384,4 +395,4 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

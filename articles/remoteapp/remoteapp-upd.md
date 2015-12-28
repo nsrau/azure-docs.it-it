@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Dati del profilo utente in Azure RemoteApp | Microsoft Azure"
-	description="Informazioni su come i dati utente vengono archiviati e consultati in Azure RemoteApp"
+    pageTitle="Come usare Azure RemoteApp con gli account utente di Office 365 | Microsoft Azure"
+	description="Informazioni su come usare Azure RemoteApp con gli account utente di Office 365"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # Azure RemoteApp come salva dati e impostazioni?
 
@@ -139,4 +137,4 @@ No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sess
 
 No, tale opzione non è supportata da Azure RemoteApp.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,20 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure
-Informazioni su come configurare i criteri di sicurezza nel Centro sicurezza di Azure mediante questa procedura dettagliata.
+Questo documento consente di configurare i criteri di sicurezza nel Centro protezione Azure mostrando i passaggi necessari per eseguire questa attività.
 
 > [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
-##Quando è consigliabile utilizzare criteri di sicurezza?
+## Che cos'è il Centro sicurezza di Azure?
+Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+
+##Informazioni sui criteri di sicurezza
 I criteri di sicurezza definiscono il set di controlli consigliato per le risorse all'interno della sottoscrizione specificata. Nel Centro sicurezza di Azure, è possibile definire i criteri per le sottoscrizioni di Azure in base alle esigenze di sicurezza della società e al tipo di applicazione o al livello di riservatezza dei dati in ciascuna sottoscrizione.
  
 Ad esempio, le risorse utilizzate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. In modo analogo, le applicazioni con dati regolamentati come le informazioni personali possono richiedere un maggiore livello di sicurezza. I criteri di protezione abilitati nel Centro sicurezza di Azure determineranno i suggerimenti per la sicurezza e il monitoraggio per identificare le potenziali vulnerabilità e attenuare le minacce.
 
-####Configurazione dei criteri di sicurezza
+##Impostare i criteri di sicurezza
 
 I criteri di sicurezza vengono configurati per ciascuna sottoscrizione. Per modificare i criteri di sicurezza, è necessario essere proprietario o collaboratore di tale sottoscrizione. Attenersi ai passaggi seguenti per configurare i criteri di sicurezza nel Centro sicurezza di Azure:
 
@@ -62,7 +65,7 @@ I criteri di sicurezza vengono configurati per ciascuna sottoscrizione. Per modi
     | Criterio | Stato Attivo |
 |----- |-----|
 | System Updates | Recupera un elenco di aggiornamenti disponibili da Windows Update o WSUS, a seconda di quale servizio è configurato per tale macchina virtuale, ogni 12 ore e suggerisce gli aggiornamenti mancanti da installare nelle macchine virtuali di Windows. |
-| Regole delle baseline | Analizza tutte le macchine virtuali supportate ogni 12 ore per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. |
+| Regole delle baseline | Analizza tutte le macchine virtuali supportate ogni 12 ore per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle line di base consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. |
 | Antimalware | Suggerisce l'antimalware di cui eseguire il provisioning per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Elenco di controllo di accesso sugli endpoint | Suggerisce la configurazione di un [elenco di controlli di accesso](virtual-machines-set-up-endpoints.md) (ACL) per limitare l'accesso agli endpoint di una macchina virtuale classica. Di solito, viene utilizzato per garantire che solo gli utenti connessi alla rete aziendale possano accedere alle macchine virtuali. |
 | Gruppi di sicurezza di rete nelle subnet e nell'interfaccia di rete | Suggerisce la configurazione di [gruppi di sicurezza di rete](virtual-networks-nsg.md) (NSG) per controllare il traffico in ingresso e in uscita rispetto alle subnet e alle interfacce di rete per le macchine virtuali di Gestione risorse. Gli NSG configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un NSG, le regole di sicurezza in ingresso vengono valutate per identificare le regole che consentono qualsiasi tipo di traffico in ingresso. |
@@ -72,14 +75,14 @@ I criteri di sicurezza vengono configurati per ciascuna sottoscrizione. Per modi
 
 10. Dopo aver completato la configurazione di tutte le opzioni, fare clic su **Salva** per confermare le modifiche.
 
-> [AZURE.NOTE]Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si desidera abilitare subito la raccolta di dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni relative allo stato e ai suggerimenti. È inoltre possibile abilitarla per la sottoscrizione o solo per una VM selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle VM supportate.
+> [AZURE.NOTE]Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si desidera abilitare subito la raccolta di dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni relative allo stato e ai suggerimenti. È inoltre possibile abilitarla per la sottoscrizione o solo per una VM selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
 
 ## Passaggi successivi
 In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

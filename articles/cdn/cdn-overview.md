@@ -49,8 +49,9 @@ Il livello della rete CDN Standard comprende le seguenti caratteristiche:
 - Bilanciamento del carico
 - Protezione DDOS
 - [Eliminazione veloce](cdn-purge-endpoint.md)
+- [Gestione tramite l'API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Funzionalità Premium
 
 Il livello Premium della rete CDN comprende tutte le funzionalità del livello Standard oltre alle funzionalità aggiuntive seguenti:
@@ -59,4 +60,4 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
 - [Statistiche in tempo reale](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

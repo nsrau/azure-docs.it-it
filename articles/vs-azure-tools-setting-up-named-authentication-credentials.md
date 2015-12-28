@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Configurazione delle credenziali per l'autenticazione denominate"
+   pageTitle="Configurazione delle credenziali per l'autenticazione denominate | Microsoft Azure"
    description="Informazioni su come fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/02/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configurazione delle credenziali per l'autenticazione denominate
 
@@ -71,4 +71,4 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     1. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

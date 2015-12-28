@@ -98,7 +98,7 @@ Durante la replica regolare, i dati vengono replicati nell'archiviazione di Azur
 
 Sì. Quando si usa Site Recovery per gestire la replica e il failover nelle succursali, si ottiene una gestione unificata e vengono visualizzati tutti i carichi di lavoro delle succursali in una posizione centrale. È possibile eseguire facilmente i failover e amministrare il ripristino di emergenza di tutte le succursali senza abbandonare la sede centrale.
 
-### È disponibile un SDK che consenta di automatizzare il flusso di lavoro di Azure Site Recovery?
+### È disponibile un SDK che consenta di automatizzare il flusso di lavoro di Site Recovery?
 
 Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. Altre informazioni in [Distribuire Site Recovery con PowerShell](site-recovery-deploy-with-powershell.md).
 
@@ -223,4 +223,4 @@ Sì, è possibile replicare macchine virtuali Hyper-V e Azure o tra siti del pro
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

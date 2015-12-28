@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi
@@ -24,9 +24,9 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 
 Prima di iniziare, è necessario disporre di quanto segue:
 
-- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di prova gratuita].
+- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di prova gratuita][].
 
-- Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell]
+- Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
 
 - Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
@@ -253,14 +253,16 @@ Per creare una coda o un argomento, eseguire una verifica dello spazio dei nomi 
 
 ## Passaggi successivi
 
-Questo articolo fornisce una descrizione di base per il provisioning delle entità del bus di servizio tramite PowerShell. Anche se è disponibile un numero limitato di cmdlet di PowerShell per la gestione delle entità di messaggistica del bus di servizio, facendo riferimento all'assembly Microsoft.ServiceBus.dll, praticamente qualsiasi operazione che è possibile eseguire usando le librerie client di .NET può essere eseguita in uno script di PowerShell.
+Questo articolo ha fornito una descrizione di base per il provisioning delle entità del bus di servizio tramite PowerShell. Anche se è disponibile un numero limitato di cmdlet di PowerShell per la gestione delle entità di messaggistica del bus di servizio, facendo riferimento all'assembly Microsoft.ServiceBus.dll, praticamente qualsiasi operazione che è possibile eseguire usando le librerie client di .NET può essere eseguita in uno script di PowerShell.
 
 Esempi più dettagliati sono disponibili sui post di blog seguenti:
 
 - [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Sono disponibili per il download anche alcuni script predefiniti: [Script di PowerShell per il bus di servizio](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Sono disponibili per il download anche alcuni script predefiniti:
+
+- [Script PowerShell del bus di servizio](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET per il bus di servizio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API .NET per il bus di servizio]: https://msdn.microsoft.com/it-IT/library/azure/mt419900.aspx
 [Come installare e configurare Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

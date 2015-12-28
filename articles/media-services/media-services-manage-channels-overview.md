@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="11/03/2015"  
+	ms.date="12/15/2015"  
 	ms.author="juliako"/>
 
 #Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali
@@ -208,7 +208,7 @@ In esecuzione|Pronto (nessun programma in esecuzione)<p>o<p>Streaming (almeno un
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
-###Sottotitoli codificati e inserimento di annunci 
+##<a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci 
 
 La seguente tabella illustra i sottotitoli codificati supportati e gli standard per l'inserimento di annunci.
 
@@ -269,4 +269,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

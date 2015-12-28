@@ -18,7 +18,7 @@
 
 # Guida introduttiva per l'API Recommendations di Machine Learning
 
-Questo documento descrive come configurare il servizio o l'applicazione per l'uso di Recommendations di Microsoft Azure Machine Learning.
+Questo documento descrive come configurare il servizio o l'applicazione per l'uso di Recommendations di Microsoft Azure Machine Learning. È possibile trovare ulteriori informazioni sull'API Recommendations nella [raccolta](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@ Per usare Recommendations di Azure Machine Learning, è necessario eseguire le o
 * Compilare un modello di raccomandazione: si tratta di un'operazione asincrona in cui il sistema di raccomandazione accetta tutti i dati di utilizzo e crea un modello di raccomandazione. Questa operazione può richiedere diversi minuti o diverse ore a seconda delle dimensioni dei dati e dei parametri di configurazione della build. Quando si attiva la compilazione, si ottiene un ID compilazione. Usarlo per verificare se il processo di compilazione è terminato prima di iniziare a usare raccomandazioni.
 * Utilizzare le raccomandazioni: ottenere raccomandazioni per un elemento o un elenco di elementi specifico.
 
-Tutti i passaggi precedenti vengono eseguiti tramite l'API Recommendations di Machine Learning.
+Tutti i passaggi precedenti vengono eseguiti tramite l'API Recommendations di Machine Learning. È possibile scaricare un'applicazione di esempio che implementa anche ognuna delle seguenti operazioni dalla [raccolta](http://1drv.ms/1xeO2F3)
 
 ##Limitazioni
 
@@ -47,24 +47,23 @@ Tutti i passaggi precedenti vengono eseguiti tramite l'API Recommendations di Ma
 ##Integrazione
 
 ###Autenticazione
-Microsoft Azure Marketplace supporta il metodo di autenticazione di base o OAuth.
+Microsoft Azure Marketplace supporta il metodo di autenticazione di base o OAuth. È possibile trovare facilmente le chiavi dell'account, passando alle chiavi nel marketplace in [Impostazioni account](https://datamarket.azure.com/account/keys).
 ####Autenticazione di base
 Aggiungere l'intestazione dell'autorizzazione:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Convertire in Base64 (C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Convertire in Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-La chiave dell'account viene ottenuta [qui](https://datamarket.azure.com/account/keys).
 
 
 
@@ -86,7 +85,7 @@ Creazione di una richiesta "crea modello":
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelName	|	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri |
 |	apiVersion		| 1.0 |
@@ -137,9 +136,9 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole)  |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
@@ -186,7 +185,7 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -237,7 +236,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion		| 1\.0 |
 |||
@@ -326,7 +325,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
@@ -402,7 +401,7 @@ XML OData
 
 
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId			|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 |	onlyLastBuild	|	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente.	|
@@ -477,7 +476,7 @@ XML OData
 
 
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni.<br>Lunghezza massima: 1024 caratteri |
@@ -659,7 +658,7 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nome parametro	|	Valori validi						|
+|	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
 | apiVersion | 1\.0 |
@@ -685,4 +684,4 @@ XML OData
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

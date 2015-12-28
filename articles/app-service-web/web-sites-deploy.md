@@ -40,7 +40,7 @@ Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di
 
 * [Automatizzare la distribuzione con MSBuild](#msbuild)
 * [Copiare i file con strumenti e script FTP](#ftp)
-* [Automatizzare la distribuzione con Windows PowerShell(#powershell)
+* [Automatizzare la distribuzione con Windows PowerShell](#powershell)
 * [Automatizzare la distribuzione con API di gestione .NET](#api)
 * [Distribuire dall'interfaccia della riga di comando di Azure](#cli)
 * [Distribuire dalla riga di comando di distribuzione Web](#webdeploy)
@@ -52,7 +52,7 @@ Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di
 
 Un'altra opzione di distribuzione consiste nell'utilizzare un servizio basato su cloud, ad esempio [Distribuzione Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy). Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni ASP.NET in Siti Web di Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Recapito continuo mediante Visual Studio Team Services
+##<a name="vsts"></a>Recapito continuo mediante Visual Studio Team Services
 
 [Visual Studio Team Services](http://www.visualstudio.com/) (in precedenza Team Foundation Service) è la soluzione Microsoft basata sul cloud per il controllo del codice sorgente e la collaborazione con il team. Il servizio è gratuito per un team composto da un massimo di cinque sviluppatori. È possibile eseguire il recapito continuo a un'app Web del servizio app e il repository può utilizzare sia [Git che TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
@@ -204,4 +204,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

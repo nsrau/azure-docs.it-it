@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # Code, argomenti e sottoscrizioni del bus di servizio
@@ -146,7 +146,7 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 
 In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. A questo scopo, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita tramite l'uso di filtri della sottoscrizione. Queste modifiche sono chiamate *azioni di filtro*. Quando viene creata una sottoscrizione, è possibile specificare un'espressione di filtro che agisce sulle proprietà del messaggio, sulle proprietà del sistema, ad esempio **Label** e sulle proprietà dell'applicazione, come ad esempio la proprietà **StoreName**, illustrata in precedenza. In questo caso l'espressione di filtro SQL è facoltativa. Senza un'espressione di filtro SQL, qualsiasi azione di filtro definita in una sottoscrizione verrà eseguita in tutti i messaggi di quella sottoscrizione.
 
-Facendo riferimento all'esempio precedente, per filtrare solo i messaggi provenienti da Store1, è necessario creare la sottoscrizione Dashboard come indicato nella procedura seguente:
+Facendo riferimento all'esempio precedente, per filtrare solo i messaggi provenienti da **Store1**, è necessario creare la sottoscrizione Dashboard come indicato nella procedura seguente:
 
 ```
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
@@ -167,8 +167,9 @@ Gli hub eventi sono un costrutto di streaming dei messaggi e, nonostante possano
 Per altri esempi e informazioni sull'utilizzo delle entità di messaggistica negoziata del bus di servizio, vedere gli argomenti avanzati seguenti:
 
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-- [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](https://msdn.microsoft.com/library/azure/hh367512.aspx)
-- [Guida alla programmazione di Hub eventi](../event-hubs-programming-guide.md)
+- [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md)
+- [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
+- [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 - [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

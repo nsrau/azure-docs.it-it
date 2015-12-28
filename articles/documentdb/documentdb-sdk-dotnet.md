@@ -30,6 +30,13 @@
 
 ## Note sulla versione
 
+### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
+  - Supporto LINQ espanso tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.
+    - Operatore Take per abilitare il comportamento SELECT TOP in LINQ
+    - Operatore CompareTo per abilitare i confronti di intervallo di stringa
+    - Operatori Conditional (?) e Coalesce (??)
+  - **[Corretto]** ArgumentOutOfRangeException durante l'unione di proiezione del modello con Where-In nella query linq. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corretto]** Se Select non è l'ultima espressione il provider LINQ presuppone che non ci sia alcuna proiezione e produce SELECT * in modo non corretto. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
@@ -37,7 +44,7 @@
  - Implementazione di Upsert, aggiunti metodi UpsertXXXAsync
  - Miglioramenti delle prestazioni per tutte le richieste
  - Supporto del provider LINQ per metodi condizionali, coalesce e CompareTo per le stringhe
- - **[Corretto]** Provider LINQ --> Implementa il metodo Contains nell'elenco per generare lo stesso codice SQL generato in IEnumerable e nella matrice
+ - **[Corretto]** Provider LINQ --> Implementa il metodo Contains nell'elenco per generare lo stesso codice SQL generato in IEnumerable e Matrice
  - **[Corretto]** BackoffRetryUtility usa nuovamente lo stesso HttpRequestMessage anziché crearne uno nuovo in un tentativo successivo
  - **[Obsoleto]** UriFactory.CreateCollection --> Ora deve usare UriFactory.CreateDocumentCollection
  
@@ -92,7 +99,7 @@ Tra l'anteprima e la disponibilità generale è stata apportata una modifica al 
 - [Obsoleto] Anteprima di SDK
 
 ## Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
+Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK in modo da agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
@@ -105,6 +112,7 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
+| [1\.5.2](#1.5.2) | 14 dicembre 2015 |---
 | [1\.5.1](#1.5.1) | 23 novembre 2015 |---
 | [1\.5.0](#1.5.0) | 05 ottobre 2015 |---
 | [1\.4.1](#1.4.1) | 25 agosto 2015 |---
@@ -114,8 +122,8 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 | [1\.1.0](#1.1.0) | 30 aprile 2015 |---
 | [1\.0.0](#1.0.0) | 08 aprile 2015 |---
 | [0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016
-| [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016
-| [0\.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016
+| [.0.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016
+| [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 | 29 febbraio 2016
 | [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
@@ -125,5 +133,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1217_2015-->

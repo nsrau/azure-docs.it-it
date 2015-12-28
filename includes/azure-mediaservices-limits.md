@@ -1,11 +1,11 @@
 Risorsa|Limite predefinito|Limite massimo
 ---|---|---
 Account di Servizi multimediali di Azure in una singola sottoscrizione||25
-Asset per ogni account di Servizi multimediali di Azure||1\.000.000
+Asset per ogni account di Servizi multimediali di Azure||1\.000.000<sup>1</sup>
 Attività concatenate per processo||30
 Asset per attività||50
 Asset per processo||100
-Processi per ogni account di Servizi multimediali di Azure ||50,000<sup>2</sup>
+Processi per ogni account di Servizi multimediali di Azure ||50\.000<sup>2</sup>
 Localizzatori univoci associati a un asset contemporaneamente||5<sup>4</sup>
 Canali live per ogni account AMS </p></td>|5</p></td>|N/D<sup>1</sup>
 Programmi con stato arrestato per canale </p></td>|50</p></td>|N/D<sup>1</sup>
@@ -25,4 +25,4 @@ Account di archiviazione | |1\.000<sup>5</sup>
 
 <sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

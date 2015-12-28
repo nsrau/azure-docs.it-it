@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurazione di PHP nelle app Web di Servizio app di Azure"
+	pageTitle="Configurazione di PHP nelle app Web del servizio app di Azure | Microsoft Azure"
 	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.";"
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Configurazione di PHP nelle app Web di Servizio app di Azure
@@ -45,27 +45,34 @@ Sono inoltre disponibili PHP 5.5 e PHP 5.6, che però non sono abilitate per imp
 
 ### Azure PowerShell (solo Windows).
 
-1. Aprire Windows PowerShell ISE.
-2. Digitare `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`e premere INVIO.
-3. La versione di PHP è ora impostata.
+1. Aprire Azure PowerShell e accedere al proprio account:
 
-	![Impostazione della versione PHP con Azure PowerShell][SETPHPVERPS]
-4. È possibile confermare le impostazioni digitando `Get-AzureWebiste -Name <site-name>` e premere INVIO.
+        PS C:\> Login-AzureRmAccount
 
-	![Verifica della versione PHP con Azure PowerShell][GETPHPVERPS]
+2. Impostare la versione PHP per l'app Web.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. La versione di PHP è ora impostata. È possibile verificare queste impostazioni:
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Interfaccia della riga di comando di Azure (Linux, Mac, Windows)
 
 Per usare l'interfaccia della riga di comando di Azure, è necessario che **Node.js** sia installato nel computer.
 
-1. Aprire il terminale.
-2. Digitare `azure site set --php-version [5.4 | 5.5] [site-name]`e premere INVIO.
-3. La versione di PHP è ora impostata.
+1. Aprire il terminale e accedere al proprio account.
 
-	![Impostazione della versione PHP con interfaccia della riga di comando di Azure][SETPHPVERCLI]
-4. È possibile confermare le impostazioni digitando `azure site show [site-name]` e premere INVIO.
+        azure login
 
-	![Verifica della versione PHP con interfaccia della riga di comando di Azure][GETPHPVERCLI]
+2. Impostare la versione PHP per l'app Web.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. La versione di PHP è ora impostata. È possibile verificare queste impostazioni:
+
+        azure site show {site-name}
+
 
 ## Modificare la configurazione PHP incorporata
 
@@ -157,10 +164,10 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo ()]: http://php.net/manual/en/function.phpinfo.php
@@ -181,4 +188,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

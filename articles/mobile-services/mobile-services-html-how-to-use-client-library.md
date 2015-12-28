@@ -66,7 +66,7 @@ Il codice seguente illustra come filtrare i dati includendo una clausola `where`
 	    alert("Error: " + err);
 	});
 
-Aggiungendo una chiamata alla funzione `where` sull'oggetto Query e passando un oggetto come parametro, si specifica che Servizi mobili dovrà restituire solo le righe la cui colonna `complete` contiene il valore `false`. Nell'URI della richiesta riportato di seguito si noterà inoltre che viene modificata la stringa di query stessa:
+Eseguendo una chiamata alla funzione `where` sull'oggetto Query e passando un oggetto come parametro, si specifica che Servizi mobili dovrà restituire solo le righe la cui colonna `complete` contiene il valore `false`. Nell'URI della richiesta riportato di seguito si noterà inoltre che viene modificata la stringa di query stessa:
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -504,8 +504,7 @@ Nell'esempio seguente viene illustrato come utilizzare il Live SDK con APIs WinJ
 	// Start the sign-in process.
 	authenticate();
 
-Questo codice inizializza il client Live Connect, invia una nuova richiesta di accesso all'account Microsoft, invia il token di autenticazione restituito a Servizi mobili e quindi visualizza informazioni sull'utente connesso. L'app non viene avviata fino a che l'autenticazione non ha esito positivo.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+Questo codice inizializza il client Live Connect, invia una nuova richiesta di accesso all'account Microsoft, invia il token di autenticazione restituito a Servizi mobili e quindi visualizza informazioni sull'utente connesso. L'app non viene avviata fino a che l'autenticazione non ha esito positivo. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

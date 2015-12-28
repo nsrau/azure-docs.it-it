@@ -18,16 +18,16 @@
 
 # Esempio di ciclo di vita di un'applicazione basata su REST
 
-In questo esempio viene illustrato il ciclo di vita dell'applicazione di Infrastruttura di servizi tramite le chiamate API REST. Per ulteriori informazioni sul ciclo di vita dell'applicazione di Infrastruttura di servizi, vedere [Ciclo di vita dell'applicazione di Infrastruttura di servizi](service-fabric-application-lifecycle.md).
+In questo esempio viene illustrato il ciclo di vita dell'applicazione di Infrastruttura di servizi tramite le chiamate API REST. Per ulteriori informazioni sul ciclo di vita dell'applicazione Service Fabric, vedere [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md).
 
 Questo esempio esegue le operazioni seguenti:
 
-* Fornisce l'esempio WordCount 1.0.0 dal pacchetto dell'applicazione WordCount in ImageStore.
+* Fornisce l'esempio **WordCount 1.0.0** dal pacchetto dell'applicazione WordCount nell’archivio immagini.
 * Consente di visualizzare l'elenco dei tipi di applicazioni, ad esempio WordCount 1.0.0.
-* Consente di creare l'applicazione WordCount come fabric:/WordCount.
+* Consente di creare l'applicazione WordCount come **fabric:/WordCount**.
 * Consente di visualizzare l'elenco delle applicazioni, ad esempio fabric:/WordCount versione 1.0.0.
-* Fornisce la versione 1.1.0 dell'esempio WordCount dal pacchetto dell'applicazione WordCountUpgrade in ImageStore.
-* Consente di visualizzare l'elenco dei tipi di applicazioni, ad esempio WordCount 1.0.0 e WordCount 1.1.0.
+* Fornisce la versione 1.1.0 dell'esempio WordCount dal pacchetto dell'applicazione **WordCountUpgrade** nell’archivio immagini.
+* Consente di visualizzare l'elenco dei tipi di applicazioni, ad esempio WordCount 1.0.0 e **WordCount 1.1.0**.
 * Aggiorna l'applicazione WordCount alla versione 1.1.0.
 * Consente di visualizzare l'elenco delle applicazioni, ad esempio WordCount versione 1.1.0, ma non più WordCount versione 1.0.0.
 * Elimina l'applicazione WordCount.
@@ -40,21 +40,21 @@ Questo esempio esegue le operazioni seguenti:
 
 ## Prerequisiti
 
-Questo esempio usa l'[esempio WordCount](http://aka.ms/servicefabricsamples) (presente negli esempi della guida introduttiva). L'esempio WordCount deve essere creato e quindi due pacchetti di applicazioni devono essere copiati in ImageStore.
+Questo esempio usa l'[esempio WordCount](http://aka.ms/servicefabricsamples) (presente negli esempi della **guida introduttiva**). L'esempio WordCount deve essere dapprima creato, quindi due pacchetti di applicazioni devono essere copiati nell’archivio immagini.
 
 |Cartella|Descrizione|
 |------|-----------|
-|WordCount|L'applicazione dell'esempio WordCount. ApplicationManifest.xml contiene ApplicationTypeVersion="1.0.0".|
-|WordCountUpgrade|L'applicazione dell'esempio WordCount. Il file ApplicationManifest.xml deve essere modificato in ApplicationTypeVersion="1.1.0" per consentire l'aggiornamento dell'applicazione.|
+|WordCount|L'applicazione dell'esempio WordCount. Il file **ApplicationManifest.xml** contiene **ApplicationTypeVersion="1.0.0"**.|
+|WordCountUpgrade|L'applicazione dell'esempio WordCount. Il file ApplicationManifest.xml deve essere modificato in **ApplicationTypeVersion="1.1.0"** per consentire l'aggiornamento dell'applicazione.|
 
-Per creare i pacchetti di applicazioni e copiarli in ImageStore, procedere come segue:
+Per creare i pacchetti di applicazioni e copiarli nell’archivio immagini, procedere come segue:
 
-1. Copiare C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug in C:\\Temp\\WordCount. In questo modo viene creato il pacchetto dell'applicazione WordCount.
-2. Copiare C:\\Temp\\WordCount in C:\\Temp\\WordCountUpgrade. In questo modo viene creato il pacchetto dell'applicazione WordCountUpgrade.
-3. Aprire C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml in un editor di testo.
-4. Nell'elemento ApplicationManifest, modificare l'attributo ApplicationTypeVersion in "1.1.0". In questo modo viene aggiornato il numero di versione dell'applicazione.
+1. Copiare **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** in **C:\\Temp\\WordCount**. In questo modo viene creato il pacchetto dell'applicazione WordCount.
+2. Copiare C:\\Temp\\WordCount in **C:\\Temp\\WordCountUpgrade**. In questo modo viene creato il pacchetto dell'**applicazione WordCountUpgrade**.
+3. Aprire **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** in un editor di testo.
+4. Nell'elemento **ApplicationManifest**, modificare l'attributo **ApplicationTypeVersion** in **"1.1.0"**. In questo modo viene aggiornato il numero di versione dell'applicazione.
 5. Salvare il file ApplicationManifest.xml modificato.
-6. Eseguire il seguente script PowerShell come amministratore per copiare le applicazioni in ImageStore:
+6. Eseguire il seguente script PowerShell come amministratore per copiare le applicazioni nell’archivio immagini:
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -71,7 +71,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWor
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
 ```
 
-Al termine dello script di PowerShell, quest'applicazione sarà pronta per l'esecuzione.
+Al termine dello script di PowerShell, quest'applicazione è pronta per l'esecuzione.
 
 ## Esempio
 
@@ -707,6 +707,6 @@ namespace ServiceFabricRestCaller
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-[Ciclo di vita dell'applicazione di Infrastruttura di servizi](service-fabric-application-lifecycle.md)
+[Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

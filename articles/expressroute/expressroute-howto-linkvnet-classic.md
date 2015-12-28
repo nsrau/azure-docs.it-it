@@ -16,10 +16,11 @@
    ms.date="11/02/2015"
    ms.author="cherylmc" />
 
-# Collegamento di reti virtuali a circuiti ExpressRoute
+# Collegamento della rete virtuale a circuiti ExpressRoute
 
 > [AZURE.SELECTOR]
 - [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)  
 - [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
 Questo articolo fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Questo articolo si applica alle reti virtuali distribuite mediante il modello di distribuzione classico. Se si desidera collegare una rete virtuale che è stata distribuita utilizzando il metodo di distribuzione di gestione risorse di Azure, è possibile farlo utilizzando un modello. Vedere la scheda precedente per passare al modello.
@@ -149,4 +150,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

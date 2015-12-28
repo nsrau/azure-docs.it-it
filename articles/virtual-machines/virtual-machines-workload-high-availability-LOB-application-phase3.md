@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
-
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono configurati i due computer che eseguono SQL Server e il computer del nodo di maggioranza cluster, che vengono quindi combinati in un cluster Windows Server.
 
 È necessario completare questa fase prima di passare alla [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire tutte le istanze di "-AzureRM" con "-Azure" e aggiungere il comando **Switch-AzureMode AzureResourceManager** prima di eseguire i comandi. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]In queste istruzioni viene usata un'immagine di SQL Server della raccolta immagini di Azure e vengono addebitati i costi per l'utilizzo della licenza di SQL Server. È inoltre possibile creare macchine virtuali in Azure e installare licenze di SQL Server, ma è necessario disporre di Software Assurance e della mobilità delle licenze per utilizzare la licenza di SQL Server in una macchina virtuale, compresa una macchina virtuale di Azure. Per ulteriori informazioni sull'installazione di SQL Server in una macchina virtuale, vedere [Installazione per SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Creare le macchine virtuali del cluster SQL Server in Azure
 
@@ -41,6 +40,8 @@ Usare il seguente blocco di comandi di PowerShell per creare le macchine virtual
 - Tabella A, per i set di disponibilità
 
 È importante ricordare che la Tabella M è stata definita nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e le Tabelle V, S, ST e A sono state definite nella [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
@@ -217,7 +218,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 4.	Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 5.	Nella pagina **Selezione server** digitare il nome del computer SQL Server primario, fare clic su **Aggiungi**, quindi scegliere **Avanti**.
 6.	Nella pagina **Avviso di convalida** fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster.**, quindi fare clic su **Avanti**.
-7.	Nella casella di testo **Nome cluster** della pagina **Punto di accesso per l'amministrazione del cluster**, digitare il nome del cluster, quindi fare clic su **Avanti**.
+7.	ìNella casella di testo **Nome cluster** della pagina **Punto di accesso per l'amministrazione del cluster**, digitare il nome del cluster, quindi fare clic su **Avanti**.
 8.	Nella pagina di **Conferma**, fare clic su **Avanti** per iniziare la creazione del cluster. 
 9.	Nella pagina **Riepilogo** fare clic su **Fine**.
 10.	Nel riquadro sinistro fare clic sul nuovo cluster. Nella sezione **Risorse principali del cluster** del riquadro del contenuto, aprire il nome del cluster del server. La risorsa **Indirizzo IP** verrà visualizzata nello stato **Non riuscito**. Non è possibile connettere la risorsa indirizzo IP perché al cluster è assegnato lo stesso indirizzo IP della macchina. Il risultato è un indirizzo duplicato. 
@@ -256,18 +257,6 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 ## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, passare a [Fase 4: Configurare i server Web](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+- Seguire la [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md) per continuare con la configurazione di questo carico di lavoro.
 
-## Risorse aggiuntive
-
-[Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664)
-
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

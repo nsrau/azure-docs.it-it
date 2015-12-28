@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Panoramica
 
@@ -42,7 +31,7 @@ Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle fu
 
 Per aggiungere entità a una tabella, utilizzare l’attributo **Tabella** con un parametro **ICollector<T>** o **IAsyncCollector<T>** dove **T** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
 
-L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *In entrata*.
+L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *Ingresso*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -59,7 +48,7 @@ L’esempio di codice seguente aggiunge le entità **Persona** a una tabella den
 		    }
 		}
 
-In genere il tipo che si utilizza con **ICollector** deriva da **TableEntity** o implementa **ITableEntity**, ma non è necessario. Una delle seguenti classi **Persona** usa il codice illustrato nel precedente metodo **In entrata**.
+In genere il tipo che si utilizza con **ICollector** deriva da **TableEntity** o implementa **ITableEntity**, ma non è necessario. Una delle seguenti classi **Persona** usa il codice illustrato nel precedente metodo **Ingresso**.
 
 		public class Person : TableEntity
 		{
@@ -93,7 +82,7 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 
 Per leggere una tabella, utilizzare l’attributo **Tabella** con un parametro **IQueryable<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
-Il seguente esempio di codice legge e registra tutte le righe dalla tabella **In entrata**:
+Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso**:
 
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -137,7 +126,7 @@ La classe **Persona** in questo esempio non deve implementare **ITableEntity**.
 
 È possibile usare l'attributo **Tabella** anche con un oggetto **CloudTable** per una maggiore flessibilità nell'uso di una tabella.
 
-Il seguente esempio di codice usa un oggetto **CloudTable** per aggiungere una singola entità alla tabella *In entrata*.
+Il seguente esempio di codice usa un oggetto **CloudTable** per aggiungere una singola entità alla tabella *Ingresso*.
 
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
@@ -165,4 +154,4 @@ Per informazioni su come gestire l'elaborazione di tabelle attivata da un messag
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

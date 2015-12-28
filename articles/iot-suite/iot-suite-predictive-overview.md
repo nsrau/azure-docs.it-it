@@ -35,7 +35,7 @@ Prevedendo il momento in cui sarà necessaria la manutenzione, Fabrikam può ott
 
 Per comprendere come la [Suite IoT di Azure][lnk_iot_suite] fornisce ai clienti le funzionalità necessarie a realizzare il potenziale della manutenzione predittiva, consultare questa [infografica][lnk_infographic].
 
-Per visualizzare queste funzionalità partendo dai dati di telemetria del dispositivo raccolti tramite i servizi della Suite IoT e presentarli agli utenti in un'applicazione Web, la soluzione sfrutta un modello esistente di Azure Machine Learning disponibile come template. Microsoft ha creato un modello di regressione e pubblicato il template completo, dati<sup>[1]</sup> e istruzioni dettagliate [qui][lnk_regression_model].
+Per visualizzare queste funzionalità partendo dai dati di telemetria del dispositivo raccolti tramite i servizi della Suite IoT e presentarli agli utenti in un'applicazione Web, la soluzione sfrutta un modello esistente di Azure Machine Learning disponibile come template. Microsoft ha creato un [modello di regressione][lnk_regression_model] e pubblicato il template completo, i dati<sup>[1]</sup> e le istruzioni dettagliate.
 
 La soluzione preconfigurata di manutenzione predittiva di Azure IoT utilizza il modello di regressione creato da questo template; viene distribuita nella sottoscrizione di Azure e viene esposta tramite un'API pubblicata. La soluzione include un subset di dati di test che rappresenta 4 (su un totale di 100) motori e 4 (su un totale di 21) flussi di dati dei sensori che forniscono un risultato esatto dal modello addestrato.
 
@@ -55,4 +55,4 @@ Esaminare una [procedura dettagliata][lnk-predictive-walkthrough] della soluzion
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -55,7 +55,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-- [Testare un servizio di Service Fabric](service-fabric-test-your-service-index.md)
+- [Testare un servizio di Service Fabric](service-fabric-testability-overview.md)
 - [Gestire le applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 <!--Image references-->
@@ -64,6 +64,5 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

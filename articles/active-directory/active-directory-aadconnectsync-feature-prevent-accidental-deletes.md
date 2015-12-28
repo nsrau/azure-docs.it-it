@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
@@ -25,7 +25,7 @@ Il valore predefinito di 500 oggetti può essere modificato con PowerShell utili
 
 Con questa funzionalità abilitata, in caso di un numero eccessivo di eliminazioni da esportare ad Azure AD, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
 
-![Messaggio email di eliminazione accidentale](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+![Salve. Al momento il servizio di sincronizzazione delle identità ha rilevato che il numero di eliminazioni ha superato la soglia configurata per fabrikam.com. 1234 oggetti in totale sono stati inviati per l'eliminazione in questa esecuzione della sincronizzazione delle identità. La soglia di eliminazione configurata è stata raggiunta o superata di 500 oggetti. È necessario confermare l’elaborazione di queste eliminazioni prima di continuare. Vedere la sezione su come impedire eliminazioni accidentali per ulteriori informazioni sull'errore elencato nel messaggio di posta elettronica.](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventuali azioni correttive. Per visualizzare gli oggetti che devono essere eliminati, procedere come segue:
 
@@ -48,4 +48,4 @@ Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Conn
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

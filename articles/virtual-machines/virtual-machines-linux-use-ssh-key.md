@@ -161,7 +161,7 @@ Nell'esempio seguente viene illustrato come utilizzare il formato **ssh-rsa** co
 
 ## Connettersi alla macchina virtuale
 
-Il comando **ssh** accetta un nome utente con cui accedere, l'indirizzo di rete del computer, e la porta con cui connettersi all'indirizzo -- nonché molte altre varianti speciali. (Per ulteriori informazioni su **ssh**, è possibile iniziare [qui](https://en.wikipedia.org/wiki/Secure_Shell))
+Il comando **ssh** accetta un nome utente con cui accedere, l'indirizzo di rete del computer, e la porta con cui connettersi all'indirizzo -- nonché molte altre varianti speciali. (Per ulteriori informazioni su **ssh**, è possibile iniziare con questo [articolo su Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell))
 
 Un uso tipico con la distribuzione di Gestione risorse potrebbe essere simile al seguente, se è stato specificato semplicemente un sotto-dominio e un percorso di distribuzione:
 
@@ -298,4 +298,4 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
  
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

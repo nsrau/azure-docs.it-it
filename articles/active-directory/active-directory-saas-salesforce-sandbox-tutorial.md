@@ -68,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura URL app](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configura URL app")
 
-4. Se l'accesso Single Sign-On è già stato configurato per un'altra istanza di Salesforce Sandbox nella directory, sarà necessario configurare anche **URL autorità di certificazione** in modo che abbia lo stesso valore di **URL di accesso**. Per trovare il campo **URL autorità di certificazione**, selezionare la casella di controllo **Impostazioni avanzate** nella pagina **Configura URL app** della finestra di dialogo.
+4. Se l'accesso Single Sign-On è già stato configurato per un'altra istanza di Salesforce Sandbox nella directory, sarà necessario configurare anche l’**Identificatore** in modo che abbia lo stesso valore di **URL di accesso**. Per trovare il campo **Identificatore**, selezionare la casella di controllo **Impostazioni avanzate** nella pagina **Configura URL app** della finestra di dialogo.
 
 4.  Nella pagina **Configura accesso Single Sign-On in Salesforce Sandbox** fare clic su **Scarica certificato** e quindi salvare il file di certificato nel computer.
 
@@ -190,4 +190,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 
 ## Panoramica
 
-Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple in caso di emergenza. Un failover consentirà di migrare i dati da un dispositivo di origine nel centro dati a un altro dispositivo fisico o virtuale che si trova nella stessa o in un’altra area geografica. Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene avviato dalla pagina Dispositivi. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple in caso di emergenza. Un failover consentirà di migrare i dati da un dispositivo di origine nel centro dati a un altro dispositivo fisico o virtuale che si trova nella stessa o in un’altra area geografica.
+
+Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene avviato dalla pagina Dispositivi. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
 
 ![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisici e virtuali StorSimple in tutte le versioni del software.
+
+
 
 ## Ripristino di emergenza (DR) e failover del dispositivo
 
@@ -40,6 +46,18 @@ Per qualsiasi tipo di failover del dispositivo, tenere presente quanto segue:
 - Per il ripristino di emergenza è necessario che tutti i volumi all'interno dei contenitori di volumi siano offline e che i contenitori di volumi siano associati a uno snapshot nel cloud. 
 - I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi con spazio sufficiente ad accogliere i contenitori di volumi selezionati. 
 - I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non saranno disponibili come dispositivi di destinazione.
+
+#### Failover del dispositivo in tutte le versioni del software
+
+Un servizio StorSimple Manager in una distribuzione potrebbe avere più dispositivi, fisici e virtuali, che eseguono diverse versioni del software. In base alla versione del software, i tipi di volume nei dispositivi possono essere diversi. Ad esempio, un dispositivo che esegue l’Aggiornamento 2 o versione successiva avrebbe volumi aggiunti in locale e a livelli (con archiviazione in un sottoinsieme a livelli). Un dispositivo che esegue un pre-aggiornamento 2 d'altra parte può avere volumi di archiviazione a livelli.
+
+Utilizzare la seguente tabella per determinare se è possibile eseguire il failover a un altro dispositivo che esegue una versione diversa del software e il comportamento dei tipi di volume durante il ripristino di emergenza.
+
+| Failover da | Consentito per il dispositivo fisico | Consentito per il dispositivo virtuale |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Aggiornamento 2 a pre-aggiornamento 1 (versione, 0.1, 0.2, 0.3) | No | No |
+| Aggiornamento 2 a Aggiornamento 1 (1, 1.1, 1.2) | Sì <br></br>se utilizza volumi aggiunti localmente o a livelli o una combinazione dei due, il failover dei volumi viene sempre eseguito come un volume a livelli. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
+| Aggiornamento 2 a Aggiornamento 2 (versione successiva) | Sì<br></br>se utilizza volumi aggiunti in locale o a livelli o una combinazione dei due, il failover viene sempre eseguito come il tipo di volume iniziale: volume a livelli come volume a livelli e volume aggiunto localmente come volume aggiunto localmente. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
 
 ## Failover su un altro dispositivo fisico
 
@@ -95,10 +113,8 @@ Se si dispone di un solo dispositivo ed è necessario eseguire un failover, eseg
 
 ## Failover su un dispositivo virtuale StorSimple
 
-Prima di eseguire questa procedura, è necessario disporre di un dispositivo StorSimple virtuale creato e configurato.
+Prima di eseguire questa procedura, è necessario disporre di un dispositivo StorSimple virtuale creato e configurato. Se esegue l'Aggiornamento 2, considerare l'utilizzo di un dispositivo virtuale 8020 per il ripristino di emergenza che dispone di 64 TB e utilizza l'archiviazione Premium.
  
->[AZURE.NOTE]**In questa versione, la quantità di risorse di archiviazione supportate nel dispositivo virtuale StorSimple è 30 TB.**
-
 Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo virtuale StorSimple di destinazione.
 
 1. Verificare che il contenitore del volume di cui si desidera eseguire il failover sia associato alle snapshot cloud.
@@ -119,7 +135,6 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 	
-	>[AZURE.NOTE]**Se il dispositivo fisico esegue l'aggiornamento 1, è possibile eseguire il failover solo su un dispositivo virtuale che esegue l'aggiornamento 1. Se il dispositivo virtuale di destinazione esegue una versione precedente del software, verrà visualizzato un errore per segnalare che il software del dispositivo di destinazione deve essere aggiornato.**
 
 1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -131,7 +146,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 ![Video disponibile](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico di cui si è eseguito il failover in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Ripristino di emergenza di continuità aziendale (BCDR)
 
@@ -147,7 +162,7 @@ Dopo aver eseguito il failover, potrebbe essere necessario:
 - [Disattivare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

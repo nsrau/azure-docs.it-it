@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Piattaforme di analisi: confronto tra Apache Storm e Analisi di flusso | Microsoft Azure"
-	description="Informazioni utili per scegliere una piattaforma di analisi cloud: confronto tra Apache Storm e Analisi di flusso. Comprendere le funzionalità e le differenze."
+	description="Informazioni utili per scegliere una piattaforma di analisi cloud tramite confronto tra Apache Storm e Analisi di flusso. Comprendere le funzionalità e le differenze."
 	keywords="piattaforma di analisi, piattaforme di analisi, piattaforma di analisi cloud, confronto con Storm"
 	services="stream-analytics"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
 
-Informazioni utili per scegliere una piattaforma di analisi cloud: confronto tra Apache Storm e Analisi di flusso di Azure. Comprendere le proposte di valore di Analisi di flusso e Apache Storm come servizio gestito in Azure HDInsight, per poter scegliere la soluzione ideale per i casi d'uso aziendali.
+Informazioni utili per scegliere una piattaforma di analisi cloud tramite confronto tra Apache Storm e Analisi di flusso di Azure. Comprendere le proposte di valore di Analisi di flusso e Apache Storm come servizio gestito in Azure HDInsight, per poter scegliere la soluzione ideale per i casi d'uso aziendali.
 
 Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tuttavia si differenziano per alcune importanti funzionalità specifiche. Di seguito sono riportate sia le funzionalità che le limitazioni di questi servizi, per facilitare la scelta della soluzione più adatta per il raggiungimento dei propri obiettivi.
 
@@ -588,4 +588,4 @@ Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tut
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

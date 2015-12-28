@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
-Quando si crea un nuovo account di Servizi multimediali di Azure, viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali.
+Quando si crea un nuovo account di Servizi multimediali di Azure, viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile [aggiungere più di un account di archiviazione](meda-services-managing-multiple-storage-accounts.md) all'account di Servizi multimediali.
 
 Quando viene creato un nuovo account di archiviazione, Azure genera due chiavi di accesso a 512 bit alle risorse di archiviazione, che consentono di autenticare l'accesso all'account di archiviazione. Per mantenere le connessioni di archiviazione più sicure, si consiglia di rigenerare e far ruotare periodicamente la chiave di accesso alle risorse di archiviazione. Per non perdere mai la connessione all'account di archiviazione, vengono fornite due chiavi di accesso (primaria e secondaria), in modo da poter usare la prima mentre si rigenera la seconda. Questa procedura viene anche denominata "rollover delle chiavi di accesso".
 
-Servizi multimediali presenta una dipendenza da una delle chiavi di archiviazione (primaria o secondaria). In particolare, a dipendere dalla chiave di accesso sono i localizzatori usati per trasmettere in streaming o scaricare gli asset. Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione, quindi, è necessario aggiornare anche i localizzatori, in modo da evitare qualsiasi interruzione del servizio di streaming.
+Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario assicurarsi di comunicare a Servizi multimediali la chiave da utilizzare, seguendo i passaggi descritti in questo argomento. Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione, inoltre, è necessario assicurarsi di aggiornare i localizzatori, in modo da evitare qualsiasi interruzione nel servizio di streaming (il passaggio viene descritto in questo argomento).
 
->[AZURE.NOTE]Dopo aver rigenerato una chiave di archiviazione, è necessario sincronizzare l'aggiornamento con Servizi multimediali.
-
-Questo argomento descrive le procedure da eseguire per effettuare il rollover delle chiavi di archiviazione e aggiornare Servizi multimediali per l'uso della chiave di archiviazione appropriata. Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione.
-
->[AZURE.NOTE]Prima di eseguire la procedura descritta in questo argomento su un account di produzione, effettuarne il test in un account di pre-produzione.
+>[AZURE.NOTE]Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione.
+>
+>Prima di eseguire la procedura descritta in questo argomento su un account di produzione, effettuarne il test in un account di pre-produzione.
 
 
 ## Passaggio 1: Rigenerare la chiave di accesso alle risorse di archiviazione secondaria
@@ -79,13 +77,15 @@ Il seguente esempio di codice mostra come creare la richiesta https://endpoint/<
 		    }
 		}
 
-Aggiornare quindi i localizzatori esistenti (che presentano una dipendenza dalla chiave di archiviazione precedente).
+Dopo questo passaggio, aggiornare i localizzatori esistenti (che presentano una dipendenza dalla chiave di archiviazione precedente), come illustrato nel seguente passaggio.
 
 >[AZURE.NOTE]Attendere 30 minuti prima di eseguire qualsiasi operazione con Servizi multimediali (ad esempio, creare nuovi localizzatori), in modo da evitare qualsiasi interferenza con i processi in corso.
 
 ##Passaggio 3: Aggiornare i localizzatori 
 
-Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione e mantengano l’URL esistente.
+>[AZURE.NOTE]Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione è necessario aggiornare anche i localizzatori, in modo da evitare qualsiasi interruzione del servizio di streaming.
+
+Attendere almeno 30 minuti dopo la sincronizzazione della nuova chiave di archiviazione con AMS, poi è possibile ricreare i localizzatori OnDemand in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione specificata e mantengano l’URL esistente.
 
 Si noti che, quando si aggiorna (o si ricrea) un localizzatore SAS, l’URL cambierà sempre.
 
@@ -134,7 +134,7 @@ Rigenerare la chiave di accesso alle risorse di archiviazione primaria. Per info
 
 ##Passaggio 6: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione primaria
 	
-Usare la stessa procedura descritta nel [Passaggio 2](media-services-roll-storage-access-keys.md#step2), questa volta sincronizzando con l'account di Servizi multimediali la nuova chiave di accesso alle risorse di archiviazione primaria.
+Usare la stessa procedura descritta nel [passaggio 2](media-services-roll-storage-access-keys.md#step2), questa volta sincronizzando con l'account di Servizi multimediali la nuova chiave di accesso alle risorse di archiviazione primaria.
 
 >[AZURE.NOTE]Attendere 30 minuti prima di eseguire qualsiasi operazione con Servizi multimediali (ad esempio, creare nuovi localizzatori), in modo da evitare qualsiasi interferenza con i processi in corso.
 
@@ -159,4 +159,4 @@ Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

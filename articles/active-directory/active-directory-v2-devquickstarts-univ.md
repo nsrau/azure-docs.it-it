@@ -11,15 +11,15 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.topic="article"
-  ms.tgt_pltfrm="mobile-windows-store"
+	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
-  # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app universale di Windows
+  #Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app universale di Windows
 
   L'esercitazione introduttiva per app universali di Windows non è ancora disponibile... Riprovare più tardi e cercare gli aggiornamenti da @AzureAD su Twitter.
 
   >[AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1217_2015-->

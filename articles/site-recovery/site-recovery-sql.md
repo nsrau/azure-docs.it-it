@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ripristino di emergenza con SQL Server e Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino di SQL Server in un sito locale secondario o in Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Ripristino di emergenza con SQL Server e Azure Site Recovery 
+# Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery 
 
 Site Recovery è un servizio di Azure che favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino di macchine virtuali e server fisici. Site Recovery supporta una serie di meccanismi di replica per la protezione, la replica e il failover coerenti delle macchine in Azure o in un centro dati secondario. Per una panoramica di tutti gli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
@@ -374,4 +374,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

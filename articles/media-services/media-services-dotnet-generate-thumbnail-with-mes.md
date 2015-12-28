@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 Si applicano le considerazioni seguenti:
 
 - L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
-- Gli elementi Jpg/Png/BmpVideo hanno gli attributi inizio, passaggio e intervallo della stringa - questi possono essere interpretati come:
+- Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
 
 	- Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
 	- Relativi alla durata di origine se espressi con il suffisso %, ad esempio. "Start": "15%", OPPURE
@@ -383,4 +383,4 @@ Si applicano le considerazioni seguenti:
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

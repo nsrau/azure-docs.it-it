@@ -131,7 +131,7 @@ CoreOS è una distribuzione di piccole dimensioni, ottimizzata per la pura scala
 13. [Nozioni di base: RAID](virtual-machines-linux-configure-raid.md)
 14. [Nozioni di base: Acquisizione di una VM Linux per creare un modello](virtual-machines-linux-capture-image.md)
 15. [Nozioni di base: Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Nozioni di base: Estensioni VM e funzionalità di Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [Nozioni di base: Estensioni VM e funzionalità di Azure](virtual-machines-extensions-features.md)
 17. [Nozioni di base: Inserimento di dati personalizzati in una macchina virtuale per l’uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blog sulle nozioni di base: Linux a disponibilità elevata in Azure in 12 passaggi](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blog sulle nozioni di base: Automatizzare il provisioning di Linux in Azure con l’interfaccia della riga di comando di Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -311,4 +311,4 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/15/2015"
 	ms.author="robb"/>
 
 
@@ -61,6 +61,8 @@ Se si usano i modelli disponibili in Visual Studio, la configurazione del listen
 		</trace>
 	</system.diagnostics>
 	```
+	>[AZURE.IMPORTANT]Accertarsi di avere un riferimento progetto all'assembly Microsoft.WindowsAzure.Diagnostics. Aggiornare il numero di versione nel file xml precedente in base alla versione dell'assembly di riferimento Microsoft.WindowsAzure.Diagnostics.
+	
 3. Salvare il file di configurazione.
 
 Per altre informazioni sui listener, vedere l'articolo sui [listener di traccia](https://msdn.microsoft.com/library/4y5y10s7.aspx).
@@ -77,4 +79,4 @@ Dopo aver completato i passaggi necessari per aggiungere il listener, è possibi
 3. Aggiungere istruzioni di traccia nei punti in cui si desidera acquisire informazioni sullo stato dell'applicazione. È possibile usare vari metodi per formattare l'output dell'istruzione di traccia. Per altre informazioni, vedere la [procedura per aggiungere istruzioni di traccia al codice dell'applicazione](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Salvare il file di origine.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

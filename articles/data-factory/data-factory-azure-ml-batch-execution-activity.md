@@ -59,7 +59,9 @@ Per altre informazioni, vedere la sezione [Aggiornamento dei modelli di Azure ML
 
 
 ### Scenario: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti nell'archiviazione BLOB di Azure
-Il questo scenario il servizio Web Azure Machine Learning esegue stime usando dati provenienti da un file dell'archiviazione BLOB di Azure e archivia i risultati nell'archiviazione BLOB. Lo snippet JSON seguente definisce una pipeline di Data factory di Azure con un'attività AzureMLBatchExecution. L'attività include il set di dati **DecisionTreeInputBlob** come input e il set di dati **DecisionTreeResultBlob** come output. Il set di dati **DecisionTreeInputBlob** viene passato come input al servizio Web tramite la proprietà JSON **webServiceInput**, mentre il set di dati **DecisionTreeResultBlob** viene passato come output al servizio Web tramite la proprietà JSON **webServiceOutputs**. È possibile passare come input e output del servizio Web solo i set di dati che sono input e output per l'attività.
+Il questo scenario il servizio Web Azure Machine Learning esegue stime usando dati provenienti da un file dell'archiviazione BLOB di Azure e archivia i risultati nell'archiviazione BLOB. Lo snippet JSON seguente definisce una pipeline di Data factory di Azure con un'attività AzureMLBatchExecution. L'attività include il set di dati **DecisionTreeInputBlob** come input e il set di dati **DecisionTreeResultBlob** come output. Il set di dati **DecisionTreeInputBlob** viene passato come input al servizio Web tramite la proprietà JSON **webServiceInput**, mentre il set di dati **DecisionTreeResultBlob** viene passato come output al servizio Web tramite la proprietà JSON **webServiceOutputs**.
+
+> [AZURE.NOTE]I set di dati a cui fanno riferimento le proprietà **webServiceInput** e **webServiceOutputs** (in **typeProperties**) devono essere inclusi anche negli **input** e **output** dell'attività.
 
 
 	{
@@ -111,7 +113,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 È consigliabile eseguire l'esercitazione [Creare la prima pipeline con Data factory di Azure][adf-build-1st-pipeline] prima di esaminare questo esempio e usare l'editor di Data factory per creare elementi di Data factory (servizi collegati, set di dati e pipeline) nell'esempio.
  
 
-1. Creare un **servizio collegato** per **Archiviazione Azure**. Se i file di input e output si trovano in account di archiviazione diversi, sarà necessario disporre di due servizi collegati. Di seguito è fornito un esempio JSON:
+1. Creare un **servizio collegato** per **Archiviazione di Azure**. Se i file di input e output si trovano in account di archiviazione diversi, sarà necessario disporre di due servizi collegati. Di seguito è fornito un esempio JSON:
 
 		{
 		  "name": "StorageLinkedService",
@@ -258,7 +260,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 		  }
 		}
 
-	Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica un valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 ore**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+	Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 ore**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 	> [AZURE.NOTE]La specifica dell'input per l'attività AzureMLBatchExecution è opzionale.
 
@@ -350,8 +352,97 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
 Nell'esempio JSON precedente:
 
 - Il servizio Web Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.  
-- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica un valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 ore**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
- 
+- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 ore**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+
+### Altri scenari
+
+#### Servizio Web non richiede un input
+
+I servizi Web per l'esecuzione batch di Azure ML possono essere usati per eseguire flussi di lavoro, ad esempio script R o Python, che possono non richiedere alcun input. In alternativa, l'esperimento può essere configurato con un modulo Reader che non espone proprietà GlobalParameters. In tal caso l'attività AzureMLBatchExecution verrà configurata come segue:
+
+	{
+        "name": "scoring service",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "myBlob"
+            }
+        ],
+        "typeProperties": {
+            "webServiceOutputs": {
+                "output1": "myBlob"
+            }              
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+   
+
+#### Servizio Web non richiede un input/output
+Il servizio Web per l'esecuzione batch di Azure ML può non disporre di alcun output del servizio Web configurato. In questo esempio non sono disponibili input o output del servizio Web, né alcuna proprietà GlobalParameters configurata. Si noti che è ancora presente un output configurato nell'attività, ma non viene fornito come webServiceOutput.
+
+	{
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "placeholderOutputDataset"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+
+#### Il servizio Web usa moduli Reader e Writer e l'attività viene eseguita solo quando le altre attività hanno avuto esito positivo
+
+I moduli Reader e Writer del servizio Web di Azure ML possono essere configurati per l'esecuzione con o senza proprietà GlobalParameters. È possibile comunque incorporare le chiamate di servizio in una pipeline di elaborazione che usa le dipendenze del set di dati per richiamare il servizio solo al termine dell'elaborazione upstream e quindi per attivare un'altra azione dopo il completamento dell'esecuzione batch. In tal caso è possibile esprimere le dipendenze tramite gli input e gli output dell'attività, senza denominarli input o output del servizio Web.
+
+	{
+	    "name": "retraining",
+	    "type": "AzureMLBatchExecution",
+	    "inputs": [
+	        {
+	            "name": "upstreamData1"
+	        },
+	        {
+	            "name": "upstreamData2"
+	        }
+	    ],
+	    "outputs": [
+	        {
+	            "name": "downstreamData"
+	        }
+	    ],
+	    "typeProperties": {
+	     },
+	    "linkedServiceName": "mlEndpoint",
+	    "policy": {
+	        "concurrency": 1,
+	        "executionPriorityOrder": "NewestFirst",
+	        "retry": 1,
+	        "timeout": "02:00:00"
+	    }
+	},
+
+Le **informazioni chiave** sono:
+
+-   Se l'endpoint dell'esperimento usa la proprietà webServiceInput, questa è rappresentata da un set di dati del BLOB ed è inclusa negli input dell'attività, nonché nella proprietà webServiceInput. In caso contrario, la proprietà webServiceInput viene omessa. 
+-   Se l'endpoint dell'esperimento usa le proprietà webServiceOutputs, queste sono rappresentate da un set di dati del BLOB e sono incluse negli output dell'attività nonché nella proprietà webServicepOutputs (mappata in base al nome di ogni output presente nell'esperimento). In caso contrario, la proprietà webServiceOutputs viene omessa.
+-   Se l'endpoint dell'esperimento espone le proprietà globalParameters, vengono assegnate alla proprietà globalParameters dell'attività come coppie chiave-valore. In caso contrario, la proprietà globalParameters viene omessa. Le chiavi distinguono tra maiuscole e minuscole. Le [funzioni di Data factory di Azure](data-factory-scheduling-and-execution.md#data-factory-functions-reference) possono essere usate nei valori. 
+- Nelle proprietà di input e output delle dell'attività possono essere inclusi set di dati aggiuntivi, senza che vi si faccia riferimento nella sezione typeProperties dell'attività. Questi set di dati regoleranno l'esecuzione tramite le dipendenze delle sezioni, ma in caso contrario vengono ignorati dall'attività AzureMLBatchExecution. 
+
 
 ## Aggiornamento dei modelli di Azure ML con Attività della risorsa di aggiornamento
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello ML di cui è stato ripetuto il training. Questa è la procedura tipica per abilitare la ripetizione del training e l'aggiornamento dei modelli di Azure ML tramite i servizi Web:
@@ -364,7 +455,7 @@ La tabella seguente descrive i servizi Web usati in questo esempio. Per altre in
 | Tipo di servizio Web | description 
 | :------------------ | :---------- 
 | **Training del servizio Web** | Riceve i dati di training e genera i modelli con training. L'output della ripetizione del training è un file con estensione ilearner in un archivio BLOB di Azure. L'**endpoint predefinito** viene creato automaticamente quando si pubblica l'esperimento di training come servizio Web. È possibile creare più endpoint, ma l'esempio usa solo quello predefinito. |
-| **Servizio Web di assegnazione dei punteggi** | Riceve esempi di dati senza etichetta ed esegue stime. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. Sarà necessario creare il secondo **endpoint aggiornabile e non predefinito** tramite il [portale di Azure classico](https://manage.windowsazure.com). È possibile creare più endpoint, ma questo esempio usa solo quello aggiornabile non predefinito. Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md).       
+| **Servizio Web di assegnazione dei punteggi** | Riceve esempi di dati senza etichetta ed esegue stime. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. Sarà necessario creare il secondo **endpoint aggiornabile e non predefinito** tramite il [portale di Azure classico](https://manage.windowsazure.com). È possibile creare più endpoint, ma questo esempio usa solo quello aggiornabile non predefinito. Per la procedura, vedere l'articolo sulla [creazione di endpoint](../machine-learning/machine-learning-create-endpoint.md).       
  
 L'immagine seguente illustra la relazione tra gli endpoint di training e di assegnazione dei punteggi in Azure ML.
 
@@ -471,10 +562,10 @@ Il frammento di codice JSON seguente definisce un servizio collegato di Azure Ma
 
 In **Azure ML Studio** eseguire queste operazioni per ottenere i valori per **mlEndpoint** e **apiKey**:
 
-1. Fare clic su **WEB SERVICES** nel menu a sinistra.
-2. Fare clic su **training web service** nell'elenco di servizi Web. 
-3. Fare clic su copy accanto alla casella di testo **API key** per copiare la chiave API negli Appunti. Incollare la chiave nell'editor JSON di Data factory.
-4. In **Azure ML studio** fare clic sul collegamento **BATCH EXECUTION**, copiare il valore di **Request URI** dalla sezione **Request** e incollarlo nell'editor JSON di Data factory.   
+1. Fare clic su **SERVIZI WEB** nel menu a sinistra.
+2. Fare clic su **servizio Web di training** nell'elenco dei servizi Web. 
+3. Fare clic su Copia accanto alla casella di testo **chiave API** per copiare la chiave API negli Appunti. Incollare la chiave nell'editor JSON di Data factory.
+4. In **Azure ML Studio** fare clic sul collegamento **ESECUZIONE BATCH**, copiare il valore di **URI della richiesta** dalla sezione **Richiesta** e incollarlo nell'editor JSON di Data factory.   
 
 
 #### Servizio collegato per l'endpoint di assegnazione dei punteggi aggiornabile di Azure ML:
@@ -493,9 +584,9 @@ Il frammento di codice JSON seguente definisce un servizio collegato di Azure Ma
 	}
 
 
-Prima di creare e distribuire un servizio collegato di Azure ML, seguire la procedura descritta nell'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md) per creare un secondo endpoint, aggiornabile e non predefinito, per il servizio Web di assegnazione dei punteggi.
+Prima di creare e distribuire un servizio collegato di Azure ML, seguire la procedura descritta nell'articolo [Creazione di endpoint](../machine-learning/machine-learning-create-endpoint.md) per creare un secondo endpoint, aggiornabile e non predefinito, per il servizio Web di assegnazione dei punteggi.
 
-Dopo avere creato l'endpoint aggiornabile e non predefinito, fare clic su **BATCH EXECUTION** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint** e fare clic sul collegamento **UPDATE RESOURCE** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
+Dopo avere creato l'endpoint aggiornabile e non predefinito, fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint** e fare clic sul collegamento **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
 
 ![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
@@ -583,30 +674,88 @@ La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateRe
 	                "name": "AzureML Update Resource",
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
-	        ]
+	        ],
+	    	"start": "2015-02-13T00:00:00Z",
+	   		"end": "2015-02-14T00:00:00Z"
 	    }
 	}
 
 
+### Moduli Reader e Writer
+
+Uno scenario comune per l'uso dei parametri del servizio Web è costituito dai reader e dai writer SQL di Azure. Il modulo reader viene usato per caricare dati in un esperimento da servizi di gestione dati esterni ad Azure Machine Learning Studio e il modulo writer consente di salvare i dati degli esperimenti in servizi di gestione dati esterni ad Azure Machine Learning Studio.
+
+Per informazioni dettagliate sui moduli reader/writer di BLOB di Azure/SQL di Azure, vedere gli argomenti [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) in MSDN Library. L'esempio della sezione precedente usa un reader e un writer di BLOB di Azure. Questa sezione illustra l'uso di un reader e un writer SQL di Azure.
 
 
 ## Domande frequenti
-
-**D:** Sto usando l'attività AzureMLBatchScoring. Dovrei passare all'attività AzureMLBatchExecution Activity?
-
-**R:** Sì. Se si sta usando l'attività AzureMLBatchScoring per l'integrazione con Azure Machine Learning, si consiglia di passare alla più recente attività AzureMLBatchExecution. L'attività AzureMLBatchScoring è deprecata e verrà rimossa in una versione futura.
-
-L'attività AzureMLBatchExecution è stata introdotta nella versione di Azure SDK e Azure PowerShell di agosto 2015.
-
-L'attività AzureMLBatchExecution non richiede un input (se non sono necessarie dipendenze di input). Questo consente anche di indicare esplicitamente se si desidera usare o meno l'input e l'output del servizio Web. Se si sceglie di usare l'input e l'output del servizio Web, è possibile specificare i pertinenti set di dati del BLOB di Azure da usare. È inoltre possibile specificare chiaramente i valori dei parametri del servizio Web forniti da tale servizio.
-
-Se si vuole continuare a usare l'attività AzureMLBatchScoring, vedere l'articolo [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](data-factory-create-predictive-pipelines.md) per informazioni dettagliate.
-
 
 **D:** Ho più file generati dalle pipeline di Big Data. Posso usare l'attività AzureMLBatchExecution per lavorare con tali file?
 
 **R:** Sì. Per informazioni dettagliate, vedere la sezione **Uso di un modulo Reader per leggere dati da più file del BLOB di Azure**.
 
+## Attività di assegnazione dei punteggi di batch di Azure ML
+Se si sta usando l'attività **AzureMLBatchScoring** per l'integrazione con Azure Machine Learning, si consiglia di passare alla più recente attività **AzureMLBatchExecution**.
+
+L'attività AzureMLBatchExecution è stata introdotta nella versione di Azure SDK e Azure PowerShell di agosto 2015.
+
+Se si vuole continuare a usare l'attività AzureMLBatchScoring, continuare a leggere questa sezione.
+
+### Attività di assegnazione dei punteggi di batch di Azure ML che usa Archiviazione di Azure per l'input/output 
+
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "ScoringInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "ScoringResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
+
+### Parametri del servizio Web
+Aggiungere una sezione **typeProperties** alla sezione **AzureMLBatchScoringActivity** nel file JSON della pipeline per specificare i valori per i parametri del servizio Web in tale sezione, come illustrato nell'esempio seguente:
+
+	"typeProperties": {
+		"webServiceParameters": {
+			"Param 1": "Value 1",
+			"Param 2": "Value 2"
+		}
+	}
+
+
+È anche possibile usare le [funzioni di Data factory](https://msdn.microsoft.com/library/dn835056.aspx) per passare i valori per i parametri del servizio Web, come illustrato nell'esempio seguente:
+
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	}
+  	}
+ 
+> [AZURE.NOTE]I parametri del servizio Web applicano la distinzione tra maiuscole e minuscole. È quindi necessario assicurarsi che i nomi specificati nel file JSON dell'attività corrispondano ai nomi esposti dal servizio Web.
 
 ## Vedere anche
 
@@ -623,4 +772,4 @@ Se si vuole continuare a usare l'attività AzureMLBatchScoring, vedere l'articol
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

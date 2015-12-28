@@ -350,6 +350,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
 - [Libreria iOS di Archiviazione di Azure]
 - [API REST di Archiviazione di Azure]
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Blog del team di Archiviazione di Azure]
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](http://feedback.azure.com/forums/217298-storage).
@@ -358,4 +359,4 @@ In caso di domande su questa libreria, è possibile pubblicare un post nel [foru
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

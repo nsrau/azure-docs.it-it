@@ -109,7 +109,7 @@ La procedura di configurazione prevede la personalizzazione degli **Attributi to
 
 3. Nella pagina **Configurare le impostazioni dell'app** del portale di Azure, seguire questa procedura: <br><br>![Accesso Single Sign-On di Azure AD][8] <br>
  
-    a. Nella casella di testo **Autorità di certificazione** digitare l'URL usato dagli utenti per accedere all'applicazione Litmos, ad esempio **https://azureapptest.litmos.com/account/Login*).
+    a. Nella casella di testo **Identificatore** digitare l'URL usato dagli utenti per accedere all'applicazione Litmos, ad esempio **https://azureapptest.litmos.com/account/Login*).
      
     b. Nella casella di testo **URL di risposta** incollare il valore copiato dall'applicazione Litmos nel passaggio precedente.
 
@@ -297,4 +297,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

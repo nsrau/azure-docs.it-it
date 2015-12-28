@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Documentazione relativa all'API Recommendations di Azure Machine Learning
@@ -26,34 +26,22 @@ Questo documento illustra le API Recommendations di Microsoft Azure Machine Lear
 ##1\. Panoramica generale
 Questo è un documento di riferimento dell'API. È consigliabile iniziare con il documento "Guida introduttiva per l'API Recommendations di Machine Learning".
 
-L'API Recommendations di Azure Machine Learning può essere suddivisa in dieci gruppi logici:
+L'API Recommendations di Azure Machine Learning può essere suddivisa nei seguenti gruppi logici:
 
-1.	<ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello (ad esempio, creare, aggiornare ed eliminare un modello).
-2.	<ins>Modello Advanced</ins>: API che consentono di eseguire analisi avanzate sui dati del modello.
-3.	<ins>Modello Business Rules</ins>: API che consentono di gestire regole di business sui risultati delle raccomandazioni relative al modello.
-4.	<ins>Catalog</ins>: API che consentono di eseguire operazioni di base sul catalogo di un modello. Un catalogo contiene informazioni sui metadati relativi agli elementi dei dati di utilizzo.
-5.	<ins>Feature</ins>: API che consentono di ottenere approfondimenti sull'elemento nel catalogo e su come usare queste informazioni per creare raccomandazioni migliori.
-6.	<ins>Usage Data</ins>: API che consentono di eseguire operazioni di base sui dati di utilizzo del modello. Nel form di base i dati di utilizzo sono costituiti da righe che includono coppie di &#60;userId&#62;,&#60;itemId&#62;.
-7.	<ins>Build</ins>: API che consentono di attivare la compilazione di un modello e di eseguire operazioni di base associate alla compilazione. È possibile attivare la compilazione di un modello solo se sono disponibili dati di utilizzo rilevanti.
-8.	<ins>Recommendation</ins>: API che consentono di usare raccomandazioni al termine della compilazione di un modello.
-9.	<ins>User Data</ins>: API che consentono di recuperare informazioni su dati di utilizzo utente.
-10.	<ins>Notifications</ins>: API che consentono di ricevere notifiche per i problemi correlati alle operazioni dell'API. Ad esempio, se i dati di utilizzo vengono segnalati mediante acquisizione dei dati e la maggior parte degli eventi di elaborazione non riesce, viene generata una notifica di errore.
+- <ins>Limitazioni</ins>: limitazioni dell'API Recommendations.
+- <ins>Informazioni generali</ins>: informazioni su autenticazione, URI del servizio e controllo delle versioni.
+- <ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello (ad esempio, creare, aggiornare ed eliminare un modello).
+- <ins>Modello Advanced</ins>: API che consentono di eseguire analisi avanzate sui dati del modello.
+- <ins>Modello Business Rules</ins>: API che consentono di gestire regole di business sui risultati delle raccomandazioni relative al modello.
+- <ins>Catalog</ins>: API che consentono di eseguire operazioni di base sul catalogo di un modello. Un catalogo contiene informazioni sui metadati relativi agli elementi dei dati di utilizzo.
+- <ins>Feature</ins>: API che consentono di ottenere approfondimenti sull'elemento nel catalogo e su come usare queste informazioni per creare raccomandazioni migliori.
+- <ins>Usage Data</ins>: API che consentono di eseguire operazioni di base sui dati di utilizzo del modello. Nel form di base i dati di utilizzo sono costituiti da righe che includono coppie di &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Build</ins>: API che consentono di attivare la compilazione di un modello e di eseguire operazioni di base associate alla compilazione. È possibile attivare la compilazione di un modello solo se sono disponibili dati di utilizzo rilevanti.
+- <ins>Recommendation</ins>: API che consentono di usare raccomandazioni al termine della compilazione di un modello.
+- <ins>User Data</ins>: API che consentono di recuperare informazioni su dati di utilizzo utente.
+- <ins>Notifications</ins>: API che consentono di ricevere notifiche per i problemi correlati alle operazioni dell'API. Ad esempio, se i dati di utilizzo vengono segnalati mediante acquisizione dei dati e la maggior parte degli eventi di elaborazione non riesce, viene generata una notifica di errore.
 
-##2\. Argomenti avanzati
-
-###2\.1. Qualità delle raccomandazioni
-
-La creazione di un modello di raccomandazione è in genere sufficiente per consentire al sistema di fornire raccomandazioni. La qualità delle raccomandazioni varia tuttavia in base ai dati di utilizzo elaborati e alla copertura del catalogo. Ad esempio, se sono disponibili molti elementi ignoti, ovvero elementi senza utilizzo significativo, il sistema avrà difficoltà a fornire una raccomandazione per tale elemento o a usarlo come elemento raccomandato. Per risolvere il problema degli elementi ignori, il sistema consente l'uso di metadati degli elementi per migliorare la qualità delle raccomandazioni. Questi metadati sono definiti funzionalità. L'autore di un libro o l'attore di un film è un esempio tipico di funzionalità. Le funzionalità vengono fornire tramite il catalogo sotto forma di stringhe chiave/valore. Per il formato completo del file di catalogo, vedere la sezione [Importare i dati del catalogo](#81-import-catalog-data). La sezione seguente illustra l'utilizzo delle funzionalità per migliorare il modello di raccomandazione.
-
-###2\.2. Compilazione della classifica
-
-Le funzionalità possono migliorare il modello di raccomandazione, ma ciò richiede l'uso di funzionalità significative. A questo scopo è stata introdotta una nuova compilazione per la definizione della classifica, che consente di classificare l'utilità delle funzionalità. Una funzionalità significativa presenta un punteggio di classificazione minimo pari a 2. Dopo avere individuato le funzionalità significative, attivare una compilazione di raccomandazione con l'elenco, o sottoelenco, delle funzionalità significative. È possibile usare queste funzionalità per il miglioramento sia degli elementi noti che di quelli ignoti. Per usarle per gli elementi noti è necessario configurare il parametro di compilazione `UseFeatureInModel`. Per usarle per gli elementi ignoti è necessario abilitare il parametro di compilazione `AllowColdItemPlacement`. Nota: non è possibile abilitare `AllowColdItemPlacement` se non si abilita anche `UseFeatureInModel`.
-
-###2\.3. Motivazione delle raccomandazioni
-
-La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle funzionalità. In effetti, il motore di raccomandazioni di Azure Machine Learning è in grado di usare le funzionalità per fornire una spiegazione (o motivazione) della raccomandazione, favorendo un livello di confidenza maggiore nell'elemento raccomandato da parte del consumer di raccomandazioni. Per abilitare le motivazioni, è necessario configurare i parametri `AllowFeatureCorrelation` e `ReasoningFeatureList` prima di richiedere una compilazione di raccomandazioni.
-
-##3\. Limitazioni
+##2\. Limitazioni
 
 - Il numero massimo di modelli per ogni sottoscrizione è 10.
 - Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
@@ -61,21 +49,36 @@ La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle fun
 - Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
 - Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di ~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
 
-##4\. API: informazioni generali
+##3\. API: informazioni generali
 
-###4\.1. Autenticazione
+###3\.1. Autenticazione
 Seguire le linee guida di Microsoft Azure Marketplace relative all'autenticazione. Marketplace supporta il metodo di autenticazione di base o OAuth.
 
-###4\.2. URI del servizio
+###3\.2. URI del servizio
 L'URI radice del servizio per ogni API Recommendations di Azure Machine Learning è disponibile [qui](https://api.datamarket.azure.com/amla/recommendations/v3/).
 
 L'URI del servizio completo è espresso usando elementi della specifica OData.
 
-###4\.3. Versione dell'API
+###3\.3. Versione dell'API
 Ogni chiamata API terminerà con un parametro di query denominato apiVersion che dovrà essere impostato su 1.0.
 
-###4\.4. Gli ID fanno distinzione tra maiuscole e minuscole
+###3\.4. Gli ID fanno distinzione tra maiuscole e minuscole
 Gli ID restituiti da una delle API fanno distinzione tra maiuscole e minuscole e devono essere usati esattamente come sono, quando vengono passati come parametri nelle chiamate API successive. Ad esempio, per gli ID dei modelli e del catalogo viene fatta distinzione tra maiuscole e minuscole.
+
+##4\. Qualità delle raccomandazioni ed elementi ignoti
+
+###4\.1. Qualità delle raccomandazioni
+
+La creazione di un modello di raccomandazione è in genere sufficiente per consentire al sistema di fornire raccomandazioni. La qualità delle raccomandazioni varia tuttavia in base ai dati di utilizzo elaborati e alla copertura del catalogo. Ad esempio, se sono disponibili molti elementi ignoti, ovvero elementi senza utilizzo significativo, il sistema avrà difficoltà a fornire una raccomandazione per tale elemento o a usarlo come elemento raccomandato. Per risolvere il problema degli elementi ignori, il sistema consente l'uso di metadati degli elementi per migliorare la qualità delle raccomandazioni. Questi metadati sono definiti funzionalità. L'autore di un libro o l'attore di un film è un esempio tipico di funzionalità. Le funzionalità vengono fornire tramite il catalogo sotto forma di stringhe chiave/valore. Per il formato completo del file di catalogo, vedere la sezione [Importare i dati del catalogo](#81-import-catalog-data).
+
+###4\.2. Compilazione della classifica
+
+Le funzionalità possono migliorare il modello di raccomandazione, ma ciò richiede l'uso di funzionalità significative. A questo scopo è stata introdotta una nuova compilazione per la definizione della classifica, che consente di classificare l'utilità delle funzionalità. Una funzionalità significativa presenta un punteggio di classificazione minimo pari a 2. Dopo avere individuato le funzionalità significative, attivare una compilazione di raccomandazione con l'elenco, o sottoelenco, delle funzionalità significative. È possibile usare queste funzionalità per il miglioramento sia degli elementi noti che di quelli ignoti. Per usarle per gli elementi noti è necessario configurare il parametro di compilazione `UseFeatureInModel`. Per usarle per gli elementi ignoti è necessario abilitare il parametro di compilazione `AllowColdItemPlacement`. Nota: non è possibile abilitare `AllowColdItemPlacement` se non si abilita anche `UseFeatureInModel`.
+
+###4\.3. Motivazione delle raccomandazioni
+
+La motivazione delle raccomandazioni è un altro aspetto dell'utilizzo delle funzionalità. In effetti, il motore di raccomandazioni di Azure Machine Learning è in grado di usare le funzionalità per fornire una spiegazione (o motivazione) della raccomandazione, favorendo un livello di confidenza maggiore nell'elemento raccomandato da parte del consumer di raccomandazioni. Per abilitare le motivazioni, è necessario configurare i parametri `AllowFeatureCorrelation` e `ReasoningFeatureList` prima di richiedere una compilazione di raccomandazioni.
+
 
 ##5\. Modello Basic
 
@@ -792,8 +795,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7\. Modello Business Rules
-Questi sono i tipi di regole supportati: - <strong>BlockList</strong>: Blocklist consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni.. - <strong>FeatureBlockList</strong>: FeatureBlockList consente di bloccare gli elementi in base ai valori delle relative funzionalità. - <strong>Upsale</strong>: Upsale consente di imporre gli elementi da restituire nei risultati delle raccomandazioni. - <strong>WhiteList</strong>: WhiteList consente di suggerire solo raccomandazioni da un elenco di elementi. - <strong>FeatureWhiteList</strong>: FeatureWhiteList raccomandare solo elementi con valori di funzionalità specifici. - <strong>PerSeedBlockList</strong>: PerSeedBlockList consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
+Questi sono i tipi di regole supportati: - <strong>BlockList</strong>: Blocklist consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni.. - <strong>FeatureBlockList</strong>: FeatureBlockList consente di bloccare gli elementi in base ai valori delle relative funzionalità. - <strong>Upsale</strong>: Upsale consente di imporre gli elementi da restituire nei risultati delle raccomandazioni. - <strong>WhiteList</strong>: WhiteList consente di suggerire solo raccomandazioni da un elenco di elementi. - <strong>FeatureWhiteList</strong>: FeatureWhiteList consente di raccomandare solo elementi con valori di funzionalità specifici. - <strong>PerSeedBlockList</strong>: PerSeedBlockList consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
 
 
 ###7\.1. Ottenere le regole del modello
@@ -866,9 +872,8 @@ XML OData
 |	apiVersion | 1\.0 |
 ||| 
 | Corpo della richiesta | 
-<ins>Ogni volta che si forniscono gli ID degli elementi per le regole di business, assicurarsi di usare l'Id esterno dell'elemento (lo stesso Id utilizzato nel file di catalogo)</ins><br> 
-<ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
-
+<ins>Ogni volta che si forniscono gli ID degli elementi per le regole di business, assicurarsi di utilizzare l'Id esterno dell'elemento (lo stesso Id utilizzato nel file di catalogo)</ins><br> 
+<ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Risposta**:
 
@@ -1176,10 +1181,10 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_). <br>Lunghezza massima: 50 caratteri | 
-| apiVersion | 1.0 | 
-||| 
-| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Lineetta& #41;<br> Lunghezza massima consentita: 255 </td><td>Identificatore univoco dell'utente.</td></tr><tr><td>Id elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [& #95;] &#40;Carattere di sottolineatura&41;, [-] &#40;Lineetta&#41;<br> Lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: aaaa/MM/ggTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No; se fornito, è necessario inserire anche la data</td><td>Uno dei seguenti:<br>• Fare clic su<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-c 414-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-c 414-bb38-be9cf461c347</pre> |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 caratteri |
+| apiVersion | 1.0 |
+|||
+| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id utente</td><td>Sì</td><td>[A-z], [a-z], [0-9], [_] & #40; Carattere di sottolineatura & #41; [-] & #40; Lineetta & #41;<br> La lunghezza massima consentita: 255 </td><td>Identificatore univoco dell'utente.</td></tr><tr><td>Id elemento</td><td>Sì</td><td>[A-z], [a-z], [0-9], [& #95;] & #40; Carattere di sottolineatura & #41; [-] & #40; Lineetta & #41;<br> La lunghezza massima consentita: 50</td><td>Identificatore univoco di un elemento.</td></tr><tr><td>Ora</td><td>No</td><td>Data nel formato: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati.</td></tr><tr><td>Evento</td><td>No; se fornito, deve inserire anche la data</td><td>Uno dei seguenti:<br>• Fare clic su<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Dimensione massima del file: 200MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -1792,7 +1797,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |FbtSupportThreshold | Indica il livello conservativo del modello. Numero di co-occorrenze di elementi da considerare per la creazione del modello.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | Limita il numero di elementi in un set frequente.| Integer | 2-3 (2) |
 |FbtMinimalScore | Punteggio minimo che un set frequente deve avere per essere incluso nei risultati restituiti. Più alto è il valore, migliori saranno i risultati.| Double | 0 e superiore (0) |
-|FbtSimilarityFunction | Definisce la funzione di somiglianza da usare per la compilazione. | String | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | Definisce la funzione di somiglianza da usare per la compilazione. L’accuratezza favorisce la serendipità, la co-occorrenza favorisce la prevedibilità e Jaccard è un interessante compromesso tra i due. | Stringa | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2. Attivare una compilazione di raccomandazioni
@@ -2696,7 +2701,7 @@ Note: 1. Non esiste alcuna raccomandazione utente per la compilazione FBT. 2. Se
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -2935,4 +2940,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

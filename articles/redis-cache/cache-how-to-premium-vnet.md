@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/14/2015" 
 	ms.author="sdanie"/>
 
 # Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
@@ -53,7 +53,7 @@ Fare clic su Subnet per selezionare la subnet desiderata.
 
 ![Rete virtuale][redis-cache-vnet-ip]
 
-Digitare il valore desiderato per **Indirizzo IP statico** e fare clic su **OK** per salvare la configurazione della rete virtuale. Se l'indirizzo IP statico selezionato è già in uso, viene visualizzato un messaggio di errore.
+Il campo **indirizzo IP statico** è facoltativo. Se non sono specificati indirizzi qui, ne verrà scelto uno dalla subnet selezionata. Se si desidera un IP statico specifico, digitare l’**Indirizzo IP statico** e fare clic su **OK** per salvare la configurazione della rete virtuale. Se l'indirizzo IP statico selezionato è già in uso, viene visualizzato un messaggio di errore.
 
 Dopo la creazione della cache, potranno accedervi solo i client all'interno di stessa rete virtuale.
 
@@ -117,4 +117,4 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

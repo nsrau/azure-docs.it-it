@@ -20,9 +20,11 @@
 # Gestire le macchine virtuali usando Gestione risorse di Azure e PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 L'uso dei modelli di Azure PowerShell e Gestione risorse offre numerosi vantaggi e grande flessibilità nella gestione delle risorse in Microsoft Azure. È possibile usare le attività disponibili in questo articolo per creare e gestire le risorse delle macchine virtuali.
 
@@ -67,7 +69,7 @@ Nel comando seguente sostituire *resource group name* con il nome del nuovo grup
 
 ## <a id="windowsvm"></a>ATTIVITÀ: Creare una macchina virtuale
 
-Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere l'articolo relativo alla [distribuzione di una semplice macchina virtuale di Windows negli Stati Uniti occidentali](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere l'articolo relativo alla [Distribuire una semplice macchina virtuale di Windows negli Stati Uniti occidentali](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
@@ -376,4 +378,4 @@ Il video seguente illustra l'esecuzione di questa attività:
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

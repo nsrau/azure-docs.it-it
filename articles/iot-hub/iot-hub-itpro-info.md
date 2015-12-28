@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # Configurazione e gestione dell'accesso all'hub IoT
@@ -42,11 +42,11 @@ L'accesso ad altri endpoint di gestione in un hub IoT viene controllato anche tr
 Questo articolo contiene informazioni specifiche per i professionisti dell’IT e gli sviluppatori che eseguono la configurazione dei propri ambienti di sviluppo e test. Seguire i collegamenti seguenti per ulteriori informazioni sul servizio hub IoT Azure:
 
 - [Che cos'è l’hub IoT Azure?][lnk-iothub]
-- La sezione ["Protezione" nella Guida per sviluppatori di hub IoT Azure][lnk-devguide] fornisce informazioni aggiuntive sui token e sul sistema di autorizzazioni nell'hub IoT.
+- La [sezione sulla protezione nella Guida per sviluppatori di hub IoT Azure][lnk-devguide] fornisce informazioni aggiuntive sui token e sul sistema di autorizzazioni nell'hub IoT.
 - [Gestire l’hub IoT tramite il portale Azure][lnk-manage-portal] descrive come utilizzare il portale di Azure per gestire l'hub IoT.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

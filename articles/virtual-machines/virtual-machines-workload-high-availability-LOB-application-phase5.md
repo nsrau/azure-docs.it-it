@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
-
 In questa fase finale della distribuzione di un'applicazione line-of-business a disponibilità elevata nei servizi di infrastruttura di Azure si crea un nuovo gruppo di disponibilità AlwaysOn di SQL Server e quindi si aggiungono i database dell'applicazione.
 
 Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
@@ -72,7 +71,7 @@ Usare questi passaggi per il ripristino del database.
 4.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Ripristina database**.
 5.	Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante dei puntini di sospensione (...)
 6.	In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
-7.	In **Percorso del file di Backup**, digitare **\[machineName]\\backup**, premere **Invio**, selezionare **[databaseName].bak**, e poi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
+7.	In **Percorso del file di Backup**, digitare **\\[machineName]\\backup**, premere **Invio**, selezionare **[databaseName].bak**, e poi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
 8.	In **Selezione pagina**, fare clic su **Opzioni**. Nella sezione **Opzioni di ripristino** in **Stato di recupero**, selezionare **RESTORE WITH NORECOVERY**, quindi fare clic su **OK**. 
 9.	Quando richiesto, fare clic su **OK**.
 
@@ -116,16 +115,8 @@ Facoltativamente, è possibile creare una configurazione del listener per il gru
 
 Dopo la configurazione del listener, è necessario configurare tutte le macchine virtuali del server Web in modo che usino il listener, invece del nome del primo server SQL nel cluster. Invece di usare un nuovo nome DNS e il record per il mapping all'indirizzo IP virtuale dell'istanza del servizio di bilanciamento del carico interno, configurare le macchine virtuali del server Web in modo da usare un alias SQL. Per informazioni dettagliate e procedure, vedere [Alias SQL per SharePoint](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx).
 
-## Risorse aggiuntive
+## Passaggio successivo
 
-[Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Vedere queste [linee guida](virtual-machines-infrastructure-services-implementation-guidelines.md) se si distribuisce il proprio carico di lavoro IT in Azure.
 
-[Progetti dell'architettura per applicazioni line-of-business](http://msdn.microsoft.com/dn630664)
-
-[Configurare un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

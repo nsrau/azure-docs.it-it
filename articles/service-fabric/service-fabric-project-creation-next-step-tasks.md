@@ -72,8 +72,8 @@ Service Fabric Explorer offre un modo semplice per la visualizzazione del cluste
 ### Effettuare il versioning e aggiornare i servizi
 Infrastruttura di servizi consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere l'articolo relativo all'[esecuzione del versioning e dell'aggiornamento dei servizi][app-upgrade-tutorial].
 
-### Configurare l'integrazione continua con Visual Studio Online
-Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere l'articolo relativo alla [configurazione dell'integrazione continua con Visual Studio Online][ci-with-vso].
+### Configurare l'integrazione continua con Visual Studio Team Services
+Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere l'articolo relativo alla [configurazione dell'integrazione continua con Visual Studio Team Services][ci-with-vso].
 
 
 <!-- Links -->
@@ -85,4 +85,4 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

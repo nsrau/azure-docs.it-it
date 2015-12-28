@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/09/2015"
 	ms.author="klam"/>
 
 # Uso dei modelli di app per la logica
@@ -44,4 +44,4 @@ Vengono forniti semplici modelli che si integrano con le applicazioni di social 
 Dopo aver selezionato uno dei modelli, completare la distribuzione seguendo la stessa procedura usata per le app per la logica create in modo autonomo. La procedura dettagliata è disponibile nell'articolo [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

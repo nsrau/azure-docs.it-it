@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 L'estensione Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale Windows basata su Azure. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Gestione risorse di Azure. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](virtual-machines-extensions-authoring-templates.md). Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.
   
@@ -119,7 +119,9 @@ L'esempio seguente illustra il codice XML di configurazione di diagnostica che r
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-Il nodo XML della definizione Metrics nella configurazione precedente è un elemento di configurazione importante, perché definisce il modo in cui i contatori delle prestazioni specificati in precedenza nel codice XML nel nodo *PerformanceCounter* verranno aggregati e archiviati. Queste metriche sono alla base di grafici e avvisi del portale di Azure. È quindi importante includerle nella configurazione, se si vogliono visualizzare i dati di monitoraggio nel portale.
+Il nodo XML della definizione Metrics nella configurazione precedente è un elemento di configurazione importante, perché definisce il modo in cui i contatori delle prestazioni specificati in precedenza nel codice XML nel nodo *PerformanceCounter* verranno aggregati e archiviati.
+
+> [AZURE.IMPORTANT]Queste metriche guidano i grafici di monitoraggio e gli avvisi nel portale di Azure. Il nodo **Metriche** con il *resourceID* e **MetricAggregation** deve essere incluso nella configurazione di diagnostica per la macchina virtuale se si desidera visualizzare la macchina virtuale monitorare i dati nel portale di Azure.
 
 L'esempio seguente illustra il codice XML per le definizioni delle metriche:
 
@@ -130,26 +132,27 @@ L'esempio seguente illustra il codice XML per le definizioni delle metriche:
 
 L'attributo *resourceID* identifica in modo univoco la macchina virtuale nella sottoscrizione. Assicurarsi di usare le funzioni subscription() e resourceGroup(), in modo che il modello aggiorni automaticamente questi valori in base alla sottoscrizione e al gruppo di risorse in cui si effettua la distribuzione.
 
-Se si creano più macchine virtuali in un ciclo, sarà necessario popolare il valore *resourceID* con una funzione copyIndex(), in modo da distinguere correttamente ogni singola VM. Il valore *xmlCfg* può essere aggiornato per supportare questa operazione, in modo analogo al seguente:
+Se si creano più macchine virtuali in un ciclo, sarà necessario popolare il valore *resourceID* con una funzione copyIndex(), in modo da distinguere correttamente ogni singola macchina virtuale. Il valore *xmlCfg* può essere aggiornato per supportare questa operazione, in modo analogo al seguente:
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 Il valore MetricAggregation impostato su *PT1H* e *PT1M* indica un'aggregazione pari a un minuto e un'aggregazione pari a un'ora.
+
+## Tabelle WADMetrics nell'archiviazione
 
 La configurazione precedente relativa a Metrics consentirà di generare tabelle nell'account di archiviazione di diagnostica con le convenzioni di denominazione seguenti:
 
 - **WADMetrics**: prefisso standard per tutte le tabelle WADMetrics
-- **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati per un periodo pari a un'ora o 1 minuto.
+- **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati per un periodo pari a un'ora o un minuto
 - **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui la tabella ha iniziato a raccogliere i dati.
-- **V2S**: costante di tipo stringa.
+- **V2S**: costante di tipo stringa
 - **yyyymmdd**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati.
 
 Esempio: *WADMetricsPT1HP10DV2S20151108* includerà i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 nov 2015
 
 Ogni tabella WADMetrics includerà le colonne seguenti:
 
-- **PartitionKey**: il valore partitionkey viene costruito in base al valore *resourceID* per identificare in modo univoco la risorsa della VM, ad esempio: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+- **PartitionKey**: il valore partitionkey viene costruito in base al valore *resourceID* per identificare in modo univoco la risorsa della macchina virtuale, ad esempio: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
 - **RowKey**: usa il formato <Descending time tick>:<Performance Counter Name>. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Ad esempio, se il periodo di campionamento è iniziato il 10 nov 2015 alle 00:00Hrs UTC, il calcolo sarà il seguente: DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks). Per il contatore delle prestazioni dei byte disponibile della memoria, la riga avrà un aspetto analogo al seguente: 2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
 - **CounterName**: nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
 - **Maximum**: valore massimo del contatore delle prestazioni nel periodo di aggregazione.
@@ -165,4 +168,4 @@ Ogni tabella WADMetrics includerà le colonne seguenti:
 - Distribuire il modello di Gestione risorse mediante [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) o la [riga di comando di Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 - Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

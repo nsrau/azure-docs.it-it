@@ -4,7 +4,7 @@
 
 Per poter usare [EventProcessorHost], è necessario avere un [account di Archiviazione di Azure]\:
 
-1. Accedere al [portale di Azure classico][] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure classico] e fare clic su **NUOVO** nella parte inferiore della schermata.
 
 2. Fare clic su **Servizi dati**, quindi su **Archiviazione** e infine su **Creazione rapida** e digitare un nome per l'account di archiviazione. Selezionare l'area desiderata e quindi fare clic su **Crea account di archiviazione**.
 
@@ -42,10 +42,9 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 
 	Sostituire quindi il corpo della classe con il codice seguente:
 
-	```
-    class SimpleEventProcessor : IEventProcessor
-	{
-	    Stopwatch checkpointStopWatch;
+	``` class SimpleEventProcessor : IEventProcessor
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -74,19 +73,18 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 	                context.Lease.PartitionId, data));
 	        }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
+	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
 	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	}
-    ````
+	} ````
 
 	Questa classe verrà chiamata da **EventProcessorHost** per elaborare eventi ricevuti dall'hub eventi. Si noti che la classe `SimpleEventProcessor` usa un cronometro per chiamare periodicamente il metodo checkpoint sul contesto di **EventProcessorHost**. Questo assicura che, se il ricevitore viene riavviato, non perderà più di cinque minuti di lavoro di elaborazione.
 
-9. All'inizio della classe **Program** aggiungere le istruzioni `using` seguenti:
+9. Nella classe **Program** aggiungere le istruzioni `using` seguenti all’inizio del file:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
@@ -94,7 +92,7 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 	using System.Threading.Tasks;
 	```
 
-	Modificare quindi il metodo **Main** nella classe **Program** come illustrato di seguito, sostituendo il nome dell'hub eventi, la stringa di connessione, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti:
+	Modificare quindo il metodo `Main` nella classe `Program` come segue, sostituendo il nome dell'hub eventi, la stringa di connessione, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti:
 
     ```
 	static void Main(string[] args)
@@ -133,4 +131,4 @@ Per poter usare [EventProcessorHost], è necessario avere un [account di Archivi
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
