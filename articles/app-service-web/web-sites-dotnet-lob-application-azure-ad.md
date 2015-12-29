@@ -200,14 +200,14 @@ In questa parte dell'esercitazione si apprenderà come implementare le funzional
 
 6.	Aprire DAL\\RoleClaimContext.cs e aggiungere il codice evidenziato:
 	<pre class="prettyprint">
-public class RoleClaimContext : DbContext
-{
+	public class RoleClaimContext : DbContext
+	{
     public RoleClaimContext() : base("RoleClaimContext") { }
 
     public DbSet&lt;Task> Tasks { get; set; }
     <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
     public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-}</pre>
+	}</pre>
 
 7.	Compilare il progetto per rendere accessibile il nuovo modello alla logica di scaffolding in Visual Studio.
 
@@ -223,11 +223,11 @@ public class RoleClaimContext : DbContext
 
 11. Aggiungere gli effetti [Authorize] evidenziati alle azioni corrispondenti seguenti.
 	<pre class="prettyprint">
-...
+	...
 
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -284,7 +284,7 @@ public class WorkItemsController : Controller
 		
 14.	In Views\\WorkItems\\Create.cshtml (un elemento sottoposto automaticamente a scaffolding) individuare il metodo helper `Html.BeginForm` e modificarlo come indicato di seguito:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
+	{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -366,7 +366,7 @@ L'operazione è terminata.
 
 Dopo aver configurato le autorizzazioni e le funzionalità line-of-business per le diverse azioni del controller WorkItems, è possibile provare ad accedere come utente di diversi ruoli applicazione per verificare il comportamento dell'applicazione.
 
-![](./media/web-sites-dotnet-lob-application-azure-ad/11-edit-unauthorized.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/11-edit-unauthorized.png)
 
 <a name="bkmk_resources"></a>
 ## Altre risorse
@@ -387,4 +387,4 @@ Dopo aver configurato le autorizzazioni e le funzionalità line-of-business per 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
