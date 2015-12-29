@@ -146,7 +146,7 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 
 || Immagine di macchina virtuale | Servizio per sviluppatori | Servizio dati | Modello di soluzione |
 |----|----|----|----|----|
-| **Passaggio 3. Eseguire il push dell'offerta in gestione temporanea** | [Testare l'offerta della VM in gestione temporanea](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per sviluppatori in gestione temporanea | Testare l'offerta del servizio dati in gestione temporanea | [Testare il modello di soluzione in gestione temporanea](marketplace-publishing-solution-template-test-in-staging.md)
+| **Passaggio 3. Eseguire il push dell'offerta in gestione temporanea** | [Testare l'offerta della VM in gestione temporanea](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per sviluppatori in gestione temporanea | [Testare l'offerta del servizio dati in gestione temporanea](marketplace-publishing-data-service-test-in-staging.md) | [Testare il modello di soluzione in gestione temporanea](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
