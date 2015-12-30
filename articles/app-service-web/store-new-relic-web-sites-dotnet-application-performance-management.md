@@ -166,7 +166,7 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -180,4 +180,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
