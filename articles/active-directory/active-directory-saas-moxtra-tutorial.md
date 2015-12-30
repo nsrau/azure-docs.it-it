@@ -165,7 +165,7 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
     | ---            | ---             |
     | firstname | givenname |
     | lastname | surname |
-    | idpid | *<l’ **ID entità** dalla pagina **Configura accesso single sign-on in Moxtra** nel portale di Azure > * |
+    | idpid | *\<l’ **ID entità** dalla pagina **Configura accesso single sign-on in Moxtra** nel portale di Azure \> * |
 
  
     a. Fare clic su aggiungi attributo utente <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
