@@ -21,7 +21,7 @@
 
 In questo articolo viene illustrato come iniziare a utilizzare Docker e [Compose](http://github.com/docker/compose) per definire ed eseguire un'applicazione complessa in una macchina virtuale Linux in Azure. Con Compose (il successore di *Fig*), si utilizza un file di testo semplice per definire un'applicazione costituita da più contenitori Docker. Quindi si avvia l'applicazione con un unico comando che esegue le operazioni necessarie per l'esecuzione dell’applicazione nella macchina virtuale. Ad esempio, in questo articolo viene illustrato come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end, ma è anche possibile utilizzare Compose per configurare applicazioni più complesse.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modello Gestione risorse](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Se non si ha familiarità con Docker e i contenitori, vedere le [informazioni di livello elevato su Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -49,10 +49,7 @@ Per verificare l'installazione di Compose, eseguire i comandi indicati di seguit
 $ docker-compose --version
 ```
 
-L'output sarà simile a
-```
-docker-compose 1.3.2
-```
+L'output sarà simile a `docker-compose 1.4.1`.
 
 
 ## Passaggio 3: creare un file di configurazione docker-compose.yml
@@ -76,16 +73,16 @@ db:
 
 ```
 
-## Passaggio 4: Start the containers with Compose
+## Passaggio 4: Avviare i contenitori mediante Compose
 
-In the working directory on your VM, simply run the following command.
+Nella directory di lavoro della macchina virtuale, eseguire il comando seguente.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. L'output sarà simile a:
+Questa operazione consente di avviare i contenitori Docker specificati in `docker-compose.yml`. Verrà visualizzato un output simile al seguente:
 
 ```
 Creating wordpress_db_1...
