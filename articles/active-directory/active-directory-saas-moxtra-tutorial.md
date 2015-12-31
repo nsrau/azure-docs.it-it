@@ -62,16 +62,17 @@ Per configurare l'integrazione di Moxtra in Azure AD, è necessario aggiungere M
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
-<br><br>![Applicazioni][2]<br>
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
-<br><br> ![Applicazioni][3]<br>
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
-<br><br>![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **Moxtra**.
-<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br>
+![Applicazioni][2]<br>
+4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> 
+![Applicazioni][3]<br>
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.<br><br>
+![Applicazioni][4]<br>
+6. Nella casella di ricerca digitare **Moxtra**.<br><br>
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. Nel riquadro dei risultati selezionare **Moxtra** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 <br><br>
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Moxtra con un utente test di nome "Britta Simon".
@@ -83,7 +84,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Moxtra, è ne
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Moxtra](#creating-a-moxtra-test-user)** - per avere una controparte di Britta Simon in Moxtra collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Moxtra](#creating-a-moxtra-test-user)**: per avere una controparte di Britta Simon in Moxtra collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -107,7 +108,7 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png)<br>
 
-    a. Nella casella di testo **URL Sign On**, digitare il seguente URL: ****https://www.moxtra.com/service/#login**.
+    a. Nella casella di testo **URL Sign On**, digitare il seguente URL: **https://www.moxtra.com/service/#login**.
 
     b. Fare clic su **Avanti**.
  
@@ -165,7 +166,7 @@ L'applicazione Moxtra prevede un formato specifico per le asserzioni SAML. È qu
     | ---            | ---             |
     | firstname | givenname |
     | lastname | surname |
-    | idpid | *\<l’ **ID entità** dalla pagina **Configura accesso single sign-on in Moxtra** nel portale di Azure \> * |
+    | idpid | *\<l’ **ID entità** dalla pagina **Configura accesso single sign-on in Moxtra** nel portale di Azure \>* |
 
  
     a. Fare clic su aggiungi attributo utente <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
