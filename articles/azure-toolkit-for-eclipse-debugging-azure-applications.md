@@ -35,6 +35,7 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
 1. Compilare il progetto per il test nell'emulatore: in Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyAzureProject**, scegliere **Properties**, fare clic su **Azure** e impostare **Build for** su **Deployment to cloud**.
 1. Ricompilare il progetto: scegliere **Project** dal menu di Eclipse, quindi fare cli su **Build All**.
 1. Distribuire l'applicazione in *gestione temporanea* in Azure.
+
     >[AZURE.IMPORTANT]Come indicato in precedenza, è consigliabile eseguire il debug nell'emulatore di calcolo nella maggior parte dei casi, quindi eseguire il debug nell'ambiente di gestione temporanea solo se è necessario debug aggiuntivo. È consigliabile non eseguire il debug nell'ambiente di produzione.
 1. Quando la distribuzione è pronta in Azure, ottenerne il nome DNS dal [portale di gestione di Azure][]. Il nome DNS di una distribuzione di gestione temporanea ha il formato http://*&lt;guid&gt;*.cloudapp.net, dove *&lt;guid&gt;* è un valore GUID assegnato da Azure.
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **WorkerRole1**, scegliere **Azure** e quindi fare clic su **Debugging**.
@@ -42,6 +43,7 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use** usare **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
+
         >[AZURE.IMPORTANT]L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
@@ -131,4 +133,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
