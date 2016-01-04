@@ -107,13 +107,17 @@ Nella tabella seguente vengono confrontate le funzionalità delle API gestite da
 
 ## Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**: ![][17]
-2. In Gestisci API, selezionare **Aggiungi**: ![][18]  
+1. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**: 
+![][17]  
+2. In Gestisci API, selezionare **Aggiungi**:
+![][18]  
 3. In **Aggiungi API**, immettere le proprietà dell'API:  
 
 	- In **Nome**, immettere un nome per l'API. Tenere presente che il nome immesso viene compreso nell'URL di runtime dell'API. Il nome deve essere significativo e univoco all'interno dell'organizzazione.
-	- In **Origine**, selezionare **Da API disponibili**: ![][19]
-4. Selezionare **API** e quindi scegliere l'API da registrare: ![][20]
+	- In **Origine**, selezionare **Da API disponibili**: 
+	![][19]
+4. Selezionare **API** e quindi scegliere l'API da registrare: 
+![][20]
 5. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
 6. Selezionare **AGGIUNGI** per completare questi passaggi.
 
@@ -151,4 +155,4 @@ In questo argomento si è visto come registrare un'istanza personalizzata delle 
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

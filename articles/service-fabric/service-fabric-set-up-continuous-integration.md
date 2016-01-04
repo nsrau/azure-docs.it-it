@@ -39,6 +39,7 @@ Prima di poter configurare il computer di compilazione, è necessario creare una
 
 1.	Installare Azure PowerShell.
     - Installare PowerShellGet. A questo scopo, installare [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), che include PowerShellGet.
+
     >[AZURE.NOTE]Se si esegue Windows 10 con gli aggiornamenti più recenti, è possibile ignorare questo passaggio.
 
 1.	Installare e aggiornare il modulo AzureRM.
@@ -339,4 +340,4 @@ Le istruzioni precedenti creano un nuovo cluster per ogni compilazione e lo rimu
 
 Per altre informazioni sull'integrazione continua con le applicazioni dell'infrastruttura di servizi, vedere gli articoli seguenti. - [Home page di documentazione sulla compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -80,9 +80,10 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 
 ### SDK del server di *Servizi* mobili
 
-| Piattaforma server | Versione | Intestazione della versione accettata |
+| Piattaforma server | Versione                                                                                                        | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****Nessuna intestazione di versione ** | | Node.js | (presto disponibile) | **Nessuna intestazione di versione** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione ** |
+| Node.js          | (presto disponibile)                        | **Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->
 
@@ -140,4 +141,4 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
