@@ -21,7 +21,9 @@
 
 > *Kate Baroni* e *Ben Boatman* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. In questo articolo descrivono la propria esperienza durante la migrazione di una suite esistente per l'analisi di regressione a una soluzione basata sul cloud tramite Azure Machine Learning.
 
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
 
 ## Obiettivo
 
@@ -157,4 +159,4 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

@@ -133,7 +133,9 @@ I collaboratori possono gestire tutto ad eccezione degli accessi.
 | **Actions** ||
 | ------- | ------ |
 | * | È in grado di creare e gestire ogni tipo di risorsa |
-| ****Non azioni | | | Microsoft.Authorization/*/Write | Impossibile creare ruoli e assegnazioni di ruoli | | Microsoft.Authorization/*/Delete | Impossibile eliminare ruoli e assegnazioni di ruoli |
+| ****Non azioni | |
+| Microsoft.Authorization/*/Write | Impossibile creare ruoli e assegnazioni di ruoli |
+| Microsoft.Authorization/*/Delete | Impossibile eliminare ruoli e assegnazioni di ruoli |
 
 ### Collaboratore Data Factory
 È in grado gestire le Data factory

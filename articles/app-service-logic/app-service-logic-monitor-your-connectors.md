@@ -112,14 +112,19 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 > 
 > ![][host]
 > 
-> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata.
+> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata. 
+
 
 
 >[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
+
 ## Altre informazioni
 
-[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/> [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/>
+[Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)<br/>
+[Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

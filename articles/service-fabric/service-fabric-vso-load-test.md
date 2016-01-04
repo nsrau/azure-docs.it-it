@@ -92,7 +92,9 @@ Un progetto di test di carico è costituito da uno o più scenari descritti dal 
 1. Nella sezione **Combinazione di test** fare clic sul pulsante **Aggiungi** e quindi selezionare il test da includere nel test di carico. È possibile usare la colonna **Distribuzione** per specificare la percentuale di test totali da eseguire per ogni test.
 
 1. Nella sezione **Impostazioni di esecuzione** specificare la durata del test di carico.
+
     >[AZURE.NOTE]L'opzione **Iterazioni test** è disponibile solo quando si esegue il test di carico in locale usando Visual Studio.
+
 
 1. Nella sezione **Percorso** di **Impostazioni di esecuzione** specificare il percorso in cui vengono generate richieste di test di carico. La procedura guidata potrebbe richiedere di eseguire l'accesso all'account di Team Services. Accedere usando l'account di Team Services, quindi scegliere una posizione geografica. Al termine, fare clic sul pulsante **Fine**.
 

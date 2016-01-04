@@ -112,7 +112,11 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versione IKE | IKEv1 | IKEv2 |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
-| Fase 2 Associazione di sicurezza (SA) durata (tempo) | 3,600 secondi | - | | Fase 2 Associazione di sicurezza (SA) durata (produttività) | 102,400,000 KB | - | | Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (di seguito) | | Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1) | | Dead Peer Detection | Non supportato | Supportato |
+| Fase 2 Associazione di sicurezza (SA) durata (tempo) | 3,600 secondi | - |
+| Fase 2 Associazione di sicurezza (SA) durata (produttività) | 102,400,000 KB | - |
+| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (di seguito) |
+| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1) |
+| Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
 
@@ -136,7 +140,8 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 14 | AH MD5 con ESP DES Null HMAC, nessuna durata proposta | AH MD5 con ESP DES MD5, nessuna durata |
 | 15 | AH SHA1 con ESP DES SHA1, nessuna durata | ESP SHA, nessuna durata |
 | 16 | AH MD5 con ESP DES MD5, nessuna durata | ESP MD5, nessuna durata |
-| 17 | - | AH SHA, nessuna durata | | 18 | - | AH MD5, nessuna durata |
+| 17 | - | AH SHA, nessuna durata |
+| 18 | - | AH MD5, nessuna durata |
 
 
 - È possibile specificare la crittografia NULL ESP IPsec con gateway VPN basato su route e con prestazioni elevate. È destinata a connessioni tra reti virtuali all’interno delle reti di Azure. 
