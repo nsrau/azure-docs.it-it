@@ -282,7 +282,7 @@ app.get('/logout', function(req, res){
     - La route `/logout`  chiamerà logout.ejs (e la route) che consente di cancellare i cookie e restituisce quindi l'utente a index.ejs.
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- Per l'ultima parte di `app.js`, aggiungere il metodo EnsureAuthenticated usato precedentemente in `/account`.
 
 ```JavaScript
 

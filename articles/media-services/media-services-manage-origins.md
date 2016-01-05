@@ -68,9 +68,11 @@ Per modificare il numero di unità di streaming tramite il portale, seguire ques
 	L'allocazione di nuove unità di streaming richiede circa 20 minuti.
 
 	 
-	>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming on demand venga disabilitato per un periodo che può durare fino a un'ora.
+>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming on demand venga disabilitato per un periodo che può durare fino a un'ora.
 
-	>[AZURE.NOTE]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+</br>
+
+>[AZURE.NOTE]Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configurare l'endpoint di streaming
 
@@ -150,4 +152,4 @@ Per altre informazioni, vedere [Annuncio dell'integrazione di Servizi multimedia
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

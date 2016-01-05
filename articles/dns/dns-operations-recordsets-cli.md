@@ -49,7 +49,7 @@ DNS di Azure supporta i seguenti tipi di record: A, AAAA, CNAME, MX, NS, SOA, SR
 
 DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly).
 
->[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
+>[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
 
 >I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
@@ -243,4 +243,4 @@ L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di c
 [Delegare un dominio a DNS di Azure](dns-domain-delegation.md)<BR> [Gestire le zone DNS](dns-operations-dnszones-cli.md)<BR> [Automatizzare operazioni usando .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

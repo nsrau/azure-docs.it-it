@@ -200,14 +200,14 @@ In questa parte dell'esercitazione si apprenderà come implementare le funzional
 
 6.	Aprire DAL\\RoleClaimContext.cs e aggiungere il codice evidenziato:
 	<pre class="prettyprint">
-	public class RoleClaimContext : DbContext
-	{
-    public RoleClaimContext() : base("RoleClaimContext") { }
+    public class RoleClaimContext : DbContext
+    {
+        public RoleClaimContext() : base("RoleClaimContext") { }
 
     public DbSet&lt;Task> Tasks { get; set; }
     <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
     public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-	}</pre>
+    }</pre>
 
 7.	Compilare il progetto per rendere accessibile il nuovo modello alla logica di scaffolding in Visual Studio.
 
@@ -219,16 +219,16 @@ In questa parte dell'esercitazione si apprenderà come implementare le funzional
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
 
-9.	Aprire Controllers\\WorkItemsController.cs
+9.	Aprire Controllers\WorkItemsController.cs
 
 11. Aggiungere gli effetti [Authorize] evidenziati alle azioni corrispondenti seguenti.
 	<pre class="prettyprint">
 	...
 
-	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-	public class WorkItemsController : Controller
-	{
-	...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
     public ActionResult Create()
@@ -254,6 +254,7 @@ In questa parte dell'esercitazione si apprenderà come implementare le funzional
     public async Task&lt;ActionResult> DeleteConfirmed(int id)
     ...
 	}</pre>
+
 	Poiché i mapping dei ruoli vengono gestiti nell'interfaccia utente del portale di Azure classico, è sufficiente assicurarsi che ogni azione autorizzi i ruoli corretti.
 
 	> [AZURE.NOTE] Si potrebbe osservare l'effetto <code>[ValidateAntiForgeryToken]</code> su alcune azioni. A causa del comportamento descritto da [Brock Allen](https://twitter.com/BrockLAllen) in [MVC 4, AntiForgeryToken e attestazioni](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), la convalida del token antifalsificazione POST HTTP potrebbe avere esito negativo in quanto:
@@ -284,7 +285,7 @@ In questa parte dell'esercitazione si apprenderà come implementare le funzional
 		
 14.	In Views\\WorkItems\\Create.cshtml (un elemento sottoposto automaticamente a scaffolding) individuare il metodo helper `Html.BeginForm` e modificarlo come indicato di seguito:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
+{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -387,4 +388,4 @@ Dopo aver configurato le autorizzazioni e le funzionalità line-of-business per 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->
