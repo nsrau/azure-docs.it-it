@@ -120,7 +120,9 @@
 	
 	![StorSimple registrare il dispositivo 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. >> NON utilizzare Ctrl + C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
+      >[AZURE.IMPORTANT]Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo.
+      > 
+      > NON utilizzare Ctrl + C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
 
 16. Uscire dalla console seriale.
 

@@ -88,12 +88,12 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
 3. Invio delle successive chiamate API al nuovo URL. 
 	
-		Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
+	Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Recupero di un token di accesso
 
