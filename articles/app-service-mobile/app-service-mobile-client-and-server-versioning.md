@@ -82,7 +82,7 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 
 | Piattaforma server | Versione                                                                                                        | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione ** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
 | Node.js          | (presto disponibile)                        | **Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->
