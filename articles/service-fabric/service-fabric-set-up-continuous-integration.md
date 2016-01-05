@@ -343,4 +343,4 @@ Per altre informazioni sull'integrazione continua con le applicazioni dell'infra
 - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
