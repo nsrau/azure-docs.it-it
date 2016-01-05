@@ -35,7 +35,7 @@ La parte restante dell'articolo descrive come configurare ElasticSearch in Azure
 Il modo più semplice per configurare il servizio ElasticSearch in Azure consiste nell'usare [**modelli ARM di Azure**](../resource-group-overview.md). Un [modello ARM di avvio rapido per ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) è disponibile dal repository di modelli di avvio rapido di Azure. Questo modello usa account di archiviazione distinti per unità di scala (gruppi di nodi) e può effettuare il provisioning di nodi client e server distinti con configurazioni diverse e un numero variabile di dischi dati collegati.
 
 Questo articolo userà un altro modello denominato **ES MultiNode** dal [ramo ELK di Microsoft Patterns & Practices](https://github.com/mspnp/semantic-logging/tree/elk/). Questo modello è più semplice da usare e crea un cluster ElasticSearch protetto dall'autenticazione di base HTTP per impostazione predefinita. Prima di procedere, scaricare il [repository "elk" Microsoft P & P](https://github.com/mspnp/semantic-logging/tree/elk/) da GitHub nel computer locale, clonando il repository o scaricando un file ZIP. Il modello ES-MultiNode si trova nella cartella con lo stesso nome.
->[AZURE.NOTE]Il modello ES-MultiNode e gli script associati supportano attualmente ElasticSearch versione 1.7. Il supporto per ElasticSearch 2.0 verrà aggiunta in una data successiva.
+>[AZURE.NOTE] Il modello ES-MultiNode e gli script associati supportano attualmente ElasticSearch versione 1.7. Il supporto per ElasticSearch 2.0 verrà aggiunta in una data successiva.
 
 ### Preparazione di un computer per l'esecuzione degli script di installazione di ElasticSearch
 Il modo più semplice per usare il modello ES-MultiNode consiste nell'eseguire uno script di PowerShell fornito denominato `CreateElasticSearchCluster`. Per usare questo script è necessario installare i moduli di Azure PowerShell e uno strumento denominato openssl. Quest'ultimo è necessario per la creazione di una chiave SSH che può essere usata per amministrare il cluster ElasticSearch in modalità remota.
@@ -246,4 +246,4 @@ I valori di `serviceUri`, `userName` e `password` corrispondono rispettivamente 
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -89,7 +89,7 @@ Restituirà una risposta come la seguente:
 
 **Richiesta di esempio**
 
-Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "It was a wonderful hotel to stay at, with unique decor and friendly staff":
+Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "Ottimo hotel in cui alloggiare: splendidi arredi e personale amichevole":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff

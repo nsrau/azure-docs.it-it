@@ -388,7 +388,9 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 	|Port|Tipo|Descrizione|
 |---|---|---|
-|**80**|TCP|Accesso remoto al server di report (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
+|**80**|TCP|Accesso remoto al server di report (*).| 
+|**1433**|TCP|SQL Server Management Studio (*).|
+|**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
 |**2382**|TCP|Browser SQL Server.|
 |**2383**|TCP|Istanza predefinita di SQL Server Analysis Services e cluster delle istanze denominate.|
 |**Definito dall'utente**|TCP|Creare una porta statica dell’istanza Analysis Services per un numero di porta e sbloccare il numero di porta nel firewall.|
@@ -431,4 +433,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -40,7 +40,7 @@ Prima di poter configurare il computer di compilazione, è necessario creare una
 1.	Installare Azure PowerShell.
     - Installare PowerShellGet. A questo scopo, installare [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), che include PowerShellGet.
 
-    >[AZURE.NOTE] Se si esegue Windows 10 con gli aggiornamenti più recenti, è possibile ignorare questo passaggio.
+    >[AZURE.NOTE]Se si esegue Windows 10 con gli aggiornamenti più recenti, è possibile ignorare questo passaggio.
 
 1.	Installare e aggiornare il modulo AzureRM.
     1.  Se è installata una versione precedente di Azure PowerShell, rimuoverla. Fare clic con il pulsante destro del mouse sul pulsante Start e scegliere "Installazione applicazioni". Cercare "Azure PowerShell" e disinstallarlo.
@@ -138,7 +138,7 @@ Installare [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fa
     ```
 
 3.	Se NuGet.config non è già presente, crearlo con il contenuto seguente. Sostituire`<path to service fabric SDK>` con il percorso di Service Fabric SDK nel computer di compilazione.
->[AZURE.NOTE] Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE]Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
@@ -193,8 +193,8 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente *
 ### Registrare l'agente di compilazione
 
 1.	Scaricare agent.zip. A tale scopo, seguire questa procedura:
-    1.	Accedere al progetto team, ad esempio ****https://[your-VSTS-account-name].visualstudio.com**.
-1.	Fare clic sull'icona a forma di "ingranaggio" nell'angolo in alto a destra della schermata.
+    1.	Accedere al progetto team, ad esempio **https://[your-VSTS-account-name].visualstudio.com**.
+    1.	Fare clic sull'icona a forma di "ingranaggio" nell'angolo in alto a destra della schermata.
     1.	Nel Pannello di controllo scegliere la scheda **Pool di agenti**.
     1.	Scegliere **Scarica agente** per scaricare il file agent.zip.
     1.	Copiare agent.zip nel computer di compilazione creato in precedenza.
@@ -343,4 +343,4 @@ Per altre informazioni sull'integrazione continua con le applicazioni dell'infra
 - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->
