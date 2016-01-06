@@ -85,15 +85,14 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 	>[AZURE.NOTE]
 	> Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 	> 
-	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
-3. Invio delle successive chiamate API al nuovo URL. 
+	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.3. Invio delle successive chiamate API al nuovo URL. 
 	
-	Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
+		Se, ad esempio, dopo aver tentato la connessione si ottiene la seguente risposta:
 		
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+			HTTP/1.1 301 Moved Permanently
+			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
+		Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Recupero di un token di accesso
 
@@ -1211,4 +1210,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 <!-- URLs. -->
   [portale di Azure classico]: http://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

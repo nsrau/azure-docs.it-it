@@ -26,9 +26,9 @@ La procedura seguente illustra come configurare l'autenticazione della password 
 3. Creare una nuova applicazione Azure Active Directory mediante il comando seguente, sostituendo i segnaposto:
 
     - **{Display name}:** un nome visualizzato per l'applicazione, come ad esempio **MySampleApp**
-    - **{Home page URL}:** l'URL della home page dell'app, come ad esempio ****http://mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
-- **{Application identifier}::** un identificatore univoco, come ad esempio ****http://mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
-- **{Password}:** una password da utilizzare per l'autenticazione con l'app.
+    - **{Home page URL}:** l'URL della home page dell'app, come ad esempio **http://mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
+    - **{Application identifier}::** un identificatore univoco, come ad esempio **http://mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
+    - **{Password}:** una password da utilizzare per l'autenticazione con l'app.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
@@ -58,4 +58,4 @@ A questo punto è terminata la creazione dell'applicazione Azure AD che consenti
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
