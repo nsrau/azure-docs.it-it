@@ -108,7 +108,12 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 		
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
@@ -135,7 +140,8 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 	
 - Per quanto riguarda i tentativi, iSCSI avrà la precedenza sul cloud.
 
-	Si consideri l'esempio seguente: un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
+	Si consideri l'esempio seguente:
+	un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
 		
 	Se Data 1 restituisce un errore, poiché è l'ultima interfaccia di rete iSCSI si verificherà un failover del controller a Data 1 sull'altro controller.
 
@@ -218,7 +224,8 @@ I dispositivi StorSimple includono unità SSD (Solid State Drive, unità a stato
 
 - In caso di errore di un'unità SSD o HDD o se è necessaria la sostituzione, assicurarsi di rimuovere solo l'unità SSD o HDD che richiede la sostituzione.
 
-- Non rimuovere più di un'unità SSD o HDD dal sistema in qualsiasi momento. Un errore di due o più dischi di un determinato tipo (HDD, SSD) o più errori consecutivi in un breve intervallo di tempo possono provocare un problema di funzionamento del sistema e una potenziale perdita di dati. In questo caso, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
+- Non rimuovere più di un'unità SSD o HDD dal sistema in qualsiasi momento.
+Un errore di due o più dischi di un determinato tipo (HDD, SSD) o più errori consecutivi in un breve intervallo di tempo possono provocare un problema di funzionamento del sistema e una potenziale perdita di dati. In questo caso, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
 
 - Durante la sostituzione, monitorare **Stato hardware** nella pagina **Manutenzione** delle unità SSD e HDD. Un segno di spunta verde indica che i dischi funzionano correttamente, mentre un punto esclamativo rosso indica un problema di funzionamento di un'unità SSD o HDD.
 

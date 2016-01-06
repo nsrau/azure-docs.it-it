@@ -15,7 +15,10 @@ Una regola di sicurezza è una risorsa figlio di un gruppo di sicurezza di rete 
 |Proprietà|Descrizione|Valori di esempio|
 |---|---|---|
 |**description**|Descrizione della regola|Consentire il traffico in ingresso per tutte le macchine virtuali nella subnet X|
-|**protocol**|Protocollo per la regola|TCP, UDP o *| |**sourcePortRange**|Intervallo di porte di origine per la regola|80, 100-200, *| |**destinationPortRange**|Intervallo di porte di destinazione per la regola|80, 100-200, *| |**sourceAddressPrefix**|Prefisso dell'indirizzo di origine per la regola|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**protocol**|Protocollo per la regola|TCP, UDP o *|
+|**sourcePortRange**|Intervallo di porte di origine per la regola|80, 100-200, *|
+|**destinationPortRange**|Intervallo di porte di destinazione per la regola|80, 100-200, *|
+|**sourceAddressPrefix**|Prefisso dell'indirizzo di origine per la regola|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|Prefisso dell'indirizzo di destinazione per la regola|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**direction**|Direzione del traffico per la regola|in ingresso o in uscita|
 |**priority**|Priorità per la regola. Le regole vengono controllate nell'ordine di priorità. Una volta che viene applicata una regola, non viene verificata la corrispondenza di altre regole.|10, 100, 65000|
