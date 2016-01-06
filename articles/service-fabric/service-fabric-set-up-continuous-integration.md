@@ -138,7 +138,9 @@ Installare [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fa
     ```
 
 3.	Se NuGet.config non è già presente, crearlo con il contenuto seguente. Sostituire`<path to service fabric SDK>` con il percorso di Service Fabric SDK nel computer di compilazione.
->[AZURE.NOTE]Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
+>[AZURE.NOTE] Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
 
     NuGet.config:
 
@@ -343,4 +345,4 @@ Per altre informazioni sull'integrazione continua con le applicazioni dell'infra
 - [Distribuire un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Creare e configurare una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!------HONumber=AcomDC_1217_2015-->
+<!-------HONumber=AcomDC_1217_2015-->

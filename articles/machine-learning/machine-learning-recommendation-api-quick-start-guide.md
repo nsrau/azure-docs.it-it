@@ -295,7 +295,23 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
   		</EventData>
 		</Event>
 
-- Esempio di evento "Purchase": <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Esempio di evento "Purchase":
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name>
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+		</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - Esempio di invio di due eventi, "Click" e "AddShopCart":
 
@@ -428,9 +444,19 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
 - `feed/entry/content/properties/ProgressStep`: dettagli relativi alla fase corrente di una compilazione in corso.
 
-Stati di compilazione validi: - Created: la voce della richiesta di compilazione è stata creata. - Queued: la richiesta di compilazione è stata creata ed è in coda. - Building: il processo di compilazione è in corso. - Success: la compilazione è stata completata. - Error: la compilazione è terminata con un errore. - Cancelled: la compilazione è stata annullata. - Cancelling: è in corso l'annullamento della compilazione.
+Stati di compilazione validi:
+ - Created: la voce della richiesta di compilazione è stata creata.
+ - Queued: la richiesta di compilazione è stata creata ed è in coda.
+ - Building: il processo di compilazione è in corso.
+ - Success: la compilazione è stata completata.
+ - Error: la compilazione è terminata con un errore.
+ - Cancelled: la compilazione è stata annullata.
+ - Cancelling: è in corso l'annullamento della compilazione.
 
-Valori validi per il tipo di compilazione: - Rank: compilazione della classifica. Per informazioni dettagliate sulla compilazione della classifica, fare riferimento al documento "Documentazione relativa all'API Recommendations di Machine Learning". - Recommendation: compilazione di raccomandazioni. - Fbt: compilazione Frequently Bought Together (spesso acquistati insieme).
+Valori validi per il tipo di compilazione:
+ - Rank: compilazione della classifica. Per informazioni dettagliate sulla compilazione della classifica, fare riferimento al documento "Documentazione relativa all'API Recommendations di Machine Learning".
+ - Recommendation: compilazione di raccomandazioni.
+ - Fbt: compilazione Frequently Bought Together (spesso acquistati insieme).
 
 XML OData
 
@@ -649,7 +675,8 @@ La risposta di esempio seguente include 10 elementi consigliati:
 	</feed>
 
 ###Aggiornare il modello
-È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. *ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
+È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. 
+*ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
 
 Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
@@ -681,7 +708,10 @@ XML OData
 	</feed>
 
 ##Note legali
-Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
+Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso.
+Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.
+Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft.
+È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
