@@ -47,7 +47,8 @@ Per comprendere i concetti di controllo di accesso in base ai ruoli, vengono rip
 
 | Ruolo | Azioni consentite |
 | ------- | ----------------- |
-| Lettore | **/read (Leggere qualsiasi elemento) | | Proprietario | * (Leggere/scrivere qualsiasi elemento) |
+| Lettore | **/read (Leggere qualsiasi elemento) |
+| Proprietario | * (Leggere/scrivere qualsiasi elemento) |
 
 Per assegnare il ruolo **Lettore** all’**Utente A** per il gruppo di risorse denominato **ExampleGroup** e il ruolo **Proprietario** all’**Utente B** per l'intera sottoscrizione, verrà assegnato quanto segue:
 
@@ -280,4 +281,4 @@ Creare l'assegnazione dei ruoli.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

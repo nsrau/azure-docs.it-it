@@ -26,7 +26,14 @@
 
 ##DocumentDB Node.js SDK
 
-<table> <tr><td>**Download**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr> <tr><td>**Collaborazione**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr> <tr><td>**Documentazione**</td><td>[Documentazione di riferimento di Node.js SDK](http://azure.github.io/azure-documentdb-node/)</td></tr> <tr><td>**Esempi**</td><td>[Esempi di codice di Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr> <tr><td>**Introduzione**</td><td>[Introduzione a Node.js SDK](documentdb-nodejs-get-started.md)</td></tr> <tr><td>**Piattaforma attualmente supportata**</td><td>[Node.js 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr> </table></br>
+<table>
+<tr><td>**Download**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Collaborazione**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Documentazione**</td><td>[Documentazione di riferimento di Node.js SDK](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Esempi**</td><td>[Esempi di codice di Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introduzione**</td><td>[Introduzione a Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Piattaforma attualmente supportata**</td><td>[Node.js 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+</table></br>
 
 ## Note sulla versione
 
@@ -114,4 +121,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

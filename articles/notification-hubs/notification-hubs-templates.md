@@ -98,7 +98,11 @@ Il modello per la previsione di un giorno in gradi Celsius è il seguente:
 Il messaggio inviato all'Hub di notifica contiene tutte le proprietà seguenti:
 
 
-<table border="1"> <tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr> <tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr> <tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr> </table><br/>
+<table border="1">
+<tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr>
+<tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr>
+<tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr>
+</table><br/>
 
 
 Utilizzando questo modello, il back-end invia solo un unico messaggio senza dover memorizzare opzioni di personalizzazione specifiche per gli utenti dell'app. Nell'immagine seguente viene illustrato tale scenario:
@@ -153,4 +157,4 @@ Come spiegato in precedenza, quando si utilizza la concatenazione, le espression
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

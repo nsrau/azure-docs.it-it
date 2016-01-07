@@ -34,7 +34,8 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: **https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: **https://microsoft.sharepoint.com/teams/wabstest*.
+URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 
 5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente: ![][1]
 
@@ -51,7 +52,8 @@ A questo punto è possibile creare un'app per la logica nello stesso gruppo di r
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*. Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>** Nota** L'autenticazione anonima non è supportata.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>** Nota** L'autenticazione anonima non è supportata.
 User Name | No | Immettere un nome utente valido per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
 Password | No | Immettere una password valida per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
@@ -472,4 +474,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
