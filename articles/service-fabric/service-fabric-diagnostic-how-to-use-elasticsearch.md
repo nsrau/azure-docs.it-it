@@ -24,9 +24,11 @@ ETW viene usato dal runtime dell'infrastruttura di servizi per l'origine delle i
 
 Per visualizzare le tracce in ElasticSearch, queste devono essere acquisite nei nodi del cluster dell'infrastruttura di servizi in tempo reale, mentre è in esecuzione l'applicazione, e inviati all'endpoint ElasticSearch. Per l'acquisizione di tracce sono disponibili due opzioni principali:
 
-+ **Acquisizione di tracce in-process** L'applicazione, o più precisamente il processo del servizio, è responsabile dell'invio di dati di diagnostica all'archivio di traccia (ElasticSearch).
++ **Acquisizione di tracce in-process**  
+L'applicazione, o più precisamente il processo del servizio, è responsabile dell'invio di dati di diagnostica all'archivio di traccia (ElasticSearch).
 
-+ **Acquisizione di tracce out-of-process** Un agente separato acquisisce le tracce da processi di servizio e le invia all'archivio di traccia.
++ **Acquisizione di tracce out-of-process**  
+Un agente separato acquisisce le tracce da processi di servizio e le invia all'archivio di traccia.
 
 La parte restante dell'articolo descrive come configurare ElasticSearch in Azure, illustra i vantaggi e gli svantaggi di entrambe le opzioni di acquisizione e spiega come configurare un servizio dell'infrastruttura per inviare dati a ElasticSearch.
 
@@ -34,16 +36,18 @@ La parte restante dell'articolo descrive come configurare ElasticSearch in Azure
 ## Configurazione di Elasticsearch in Azure
 Il modo più semplice per configurare il servizio ElasticSearch in Azure consiste nell'usare [**modelli ARM di Azure**](../resource-group-overview.md). Un [modello ARM di avvio rapido per ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) è disponibile dal repository di modelli di avvio rapido di Azure. Questo modello usa account di archiviazione distinti per unità di scala (gruppi di nodi) e può effettuare il provisioning di nodi client e server distinti con configurazioni diverse e un numero variabile di dischi dati collegati.
 
-Questo articolo userà un altro modello denominato **ES MultiNode** dal [ramo ELK di Microsoft Patterns & Practices](https://github.com/mspnp/semantic-logging/tree/elk/). Questo modello è più semplice da usare e crea un cluster ElasticSearch protetto dall'autenticazione di base HTTP per impostazione predefinita. Prima di procedere, scaricare il [repository "elk" Microsoft P & P](https://github.com/mspnp/semantic-logging/tree/elk/) da GitHub nel computer locale, clonando il repository o scaricando un file ZIP. Il modello ES-MultiNode si trova nella cartella con lo stesso nome.
->[AZURE.NOTE] Il modello ES-MultiNode e gli script associati supportano attualmente ElasticSearch versione 1.7. Il supporto per ElasticSearch 2.0 verrà aggiunta in una data successiva.
+Questo articolo userà un altro modello denominato **ES MultiNode** dal [ramo ELK di Microsoft Patterns & Practices](https://github.com/mspnp/semantic-logging/tree/elk/). Questo modello è più semplice da usare e crea un cluster ElasticSearch protetto dall'autenticazione di base HTTP per impostazione predefinita. Prima di procedere, scaricare il [repository "elk" Microsoft P & P](https://github.com/mspnp/semantic-logging/tree/elk/) da GitHub nel computer locale, clonando il repository o scaricando un file ZIP. Il modello ES-MultiNode si trova nella cartella con lo stesso nome.  
+
+>[AZURE.NOTE] Il modello ES-MultiNode e gli script associati supportano attualmente ElasticSearch versione 1.7. Il supporto per ElasticSearch 2.0 verrà aggiunta in una data successiva.  
 
 ### Preparazione di un computer per l'esecuzione degli script di installazione di ElasticSearch
 Il modo più semplice per usare il modello ES-MultiNode consiste nell'eseguire uno script di PowerShell fornito denominato `CreateElasticSearchCluster`. Per usare questo script è necessario installare i moduli di Azure PowerShell e uno strumento denominato openssl. Quest'ultimo è necessario per la creazione di una chiave SSH che può essere usata per amministrare il cluster ElasticSearch in modalità remota.
 
 Nota: lo script `CreateElasticSearchCluster` è progettato per semplificare l'uso del modello ES-MultiNode da un computer Windows. È possibile usare il modello in un computer non Windows, ma questo scenario non rientra nell'ambito di questo articolo.
 
-1. Se non è già stato installato, installare i [**moduli di Azure PowerSell**](http://go.microsoft.com/fwlink/p/?linkid=320376). Quando richiesto, fare clic su Esegui, quindi su Installa.
->[AZURE.NOTE]Con la versione di Azure PowerShell 1.0, Azure PowerShell è sottoposto a una modifica sostanziale. CreateElasticSearchCluster è progettato attualmente per funzionare con Azure PowerShell 0.9.8 e non supporta Azure PowerShell 1.0 Preview. In una data successiva verrà fornito uno script compatibile con Azure PowerShell 1.0.
+1. Se non è già stato installato, installare i [**moduli di Azure PowerSell**](http://go.microsoft.com/fwlink/p/?linkid=320376). Quando richiesto, fare clic su Esegui, quindi su Installa.  
+
+>[AZURE.NOTE] Con la versione di Azure PowerShell 1.0, Azure PowerShell è sottoposto a una modifica sostanziale. CreateElasticSearchCluster è progettato attualmente per funzionare con Azure PowerShell 0.9.8 e non supporta Azure PowerShell 1.0 Preview. In una data successiva verrà fornito uno script compatibile con Azure PowerShell 1.0.  
 
 2. Lo strumento **openssl** è incluso nella distribuzione di [**Git per Windows**](http://www.git-scm.com/downloads). Se non è già stato fatto, installare [Git per Windows](http://www.git-scm.com/downloads), accettando le opzioni di installazione predefinite.
 
@@ -78,7 +82,7 @@ A questo punto è possibile eseguire lo script. Eseguire questo comando: ```powe
 CreateElasticSearchCluster -ResourceGroupName <es-group-name>
 ``` dove `<es-group-name>` è il nome del gruppo di risorse di Azure che conterrà tutte le risorse cluster.
 
->[AZURE.NOTE]Se il cmdlet Test-AzureResourceGroup restituisce un messaggio NullReferenceException, si è dimenticato di accedere ad Azure (`Add-AzureAccount`).
+>[AZURE.NOTE] Se il cmdlet Test-AzureResourceGroup restituisce un messaggio NullReferenceException, si è dimenticato di accedere ad Azure (`Add-AzureAccount`).
 
 Se viene restituito un errore dell'esecuzione dello script e si stabilisce che l'errore è stato causato da un valore di parametro del modello errato, correggere il file dei parametri ed eseguire di nuovo lo script con il nome di un gruppo di risorse diverso. È anche possibile riutilizzare lo stesso nome di gruppo di risorse e impostare lo script di pulizia quello precedente aggiungendo il parametro `-RemoveExistingResourceGroup` alla chiamata allo script.
 
