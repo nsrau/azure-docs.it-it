@@ -37,12 +37,12 @@ Aggiungere l'SDK di Engagement nel progetto iOS: in Xcode fare clic con il pulsa
 
 Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi selezionare la destinazione corretta. Aprire quindi la scheda **"Build phases"** e aggiungere i framework seguenti dal menu **"Link Binary With Libraries"**:
 
-> -   `AdSupport.framework` : impostare il collegamento come `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+ -   `AdSupport.framework` : impostare il collegamento come `Optional`
+ -   `SystemConfiguration.framework`
+ -   `CoreTelephony.framework`
+ -   `CFNetwork.framework`
+ -   `CoreLocation.framework`
+ -   `libxml2.dylib`
 
 > [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
@@ -209,4 +209,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
