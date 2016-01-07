@@ -433,4 +433,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

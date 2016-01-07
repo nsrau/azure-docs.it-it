@@ -44,6 +44,7 @@ Creare innanzitutto un progetto Java.
 * Fare clic su **Finish**.
 * Nella visualizzazione Project Explorer di Eclipse espandere **MyHelloWorld**. Fare clic con il pulsante destro del mouse su **WebContent**, scegliere **New** e quindi fare clic su **JSP File**.
 * Nella finestra di dialogo **New JSP File** denominare il file **index.jsp**. Mantenere il nome **MyHelloWorld/WebContent** per la cartella padre, come illustrato di seguito:
+
     ![][ic659262]
 * Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** selezionare **New JSP File (html)** e fare clic su **Finish**.
 * Quando in Eclipse viene aperto il file index.jsp, aggiungere il testo in modo da visualizzare **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato risulterà simile al seguente:
@@ -70,6 +71,7 @@ Quando un'applicazione Web Java è pronta per il test, è possibile usare la sco
         1. Fare clic su **Import from PUBLISH-SETTINGS file**.
         1. Nella finestra di dialogo **Import Subscription Information** fare clic su **Download PUBLISH-SETTINGS File**. Se non ci si è ancora connessi al proprio account Azure, verrà richiesto di farlo. Quindi verrà richiesto di salvare un file di impostazioni di pubblicazione di Azure. Salvarlo nel computer locale.
         1. Sempre nella finestra di dialogo **Import Subscription Information** fare clic sul pulsante **Browse**, selezionare il file di impostazioni di pubblicazione salvato in locale nel passaggio precedente e quindi fare clic su **Open**. La schermata dovrebbe essere simile alla seguente:
+
             ![][ic644267]
         1. Fare clic su **OK**.
     1. Per **Subscription** selezionare la sottoscrizione che si desidera usare per la distribuzione.
@@ -140,6 +142,7 @@ Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedur
 
 1. Esaminare l'output dell'interfaccia utente dell'emulatore di calcolo per determinare se sono presenti errori nel progetto. In base al contenuto della distribuzione, l'avvio completo dell'applicazione all'interno dell'emulatore di calcolo potrebbe richiedere alcuni minuti.
 1. Avviare il browser e usare l'URL `http://localhost:8080/MyHelloWorld` come indirizzo (per la parte `MyHelloWorld` dell'URL viene fatta distinzione tra maiuscole e minuscole). L'applicazione MyHelloWorld (output di index.jsp) dovrebbe essere visualizzata in modo simile all'immagine seguente:
+
     ![][ic589579]
 
 Quando si è pronti per arrestare l'esecuzione dell'applicazione nell'emulatore di calcolo, nella barra degli strumenti di Eclipse fare clic sul pulsante **Reset Azure Emulator**, ![][ic710880].
@@ -193,4 +196,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

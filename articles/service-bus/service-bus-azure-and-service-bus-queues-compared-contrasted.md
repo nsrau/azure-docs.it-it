@@ -204,7 +204,8 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Protocollo di gestione|**REST su HTTP/HTTPS**|**REST su HTTPS**|
-|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**| |API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
+|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**|
+|API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
 |C++ nativo|**Sì**|**No**|
 |API Java|**Sì**|**Sì**|
 |API PHP|**Sì**|**Sì**|
@@ -314,4 +315,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 [portale di Azure classico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

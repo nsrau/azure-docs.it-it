@@ -23,19 +23,25 @@
 
 1. Nel [portale di Azure](https://portal.azure.com) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
 
-2. Selezionare **Sfoglia** nella barra delle applicazioni: ![][1]
+2. Selezionare **Sfoglia** nella barra delle applicazioni:  
+![][1]
 
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*: ![][2]
+3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*:  
+![][2]
 
-4. In **PowerApps** selezionare **Gestione API**: ![Sfogliare le API registrate][3]
+4. In **PowerApps** selezionare **Gestione API**:  
+![Sfogliare le API registrate][3]
 
-5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API: ![Add API][4]
+5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API:  
+![Add API][4]
 
 6. Immettere un **nome** descrittivo per l'API.
 
-7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Dynamics CRM Online**: ![Selezionare API di Dynamics CRM Online][5]
+7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Dynamics CRM Online**:  
+![Selezionare API di Dynamics CRM Online][5]
 
-8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**: ![Configurare le impostazioni dell’API di Dynamics CRM Online][6]
+8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**:  
+![Configurare le impostazioni dell’API di Dynamics CRM Online][6]
 
 9. Immettere l’**Id client** e la **Chiave app** dell'applicazione di Dynamics CRM Online Azure Active Directory (ADD). Se non è disponibile, vedere la sezione "Registrare un'app di ADD per l'utilizzo con PowerApps" in questo argomento per creare i valori ID e segreto necessari.
 
@@ -53,9 +59,11 @@ Al termine, verrà aggiunta una nuova API di Dynamics CRM Online all'ambiente de
 
 	> [AZURE.NOTE]Questo consente di aprire Active Directory nel portale di Azure classico.
 
-3. Selezionare il nome tenant dell'organizzazione: ![Avviare Azure Active Directory][7]
+3. Selezionare il nome tenant dell'organizzazione:  
+![Avviare Azure Active Directory][7]
 
-4. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**: ![Applicazioni tenant ADD][8]
+4. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**:  
+![Applicazioni tenant ADD][8]
 
 5. In **Aggiungi applicazione**:
 
@@ -69,9 +77,11 @@ Al termine, verrà aggiunta una nuova API di Dynamics CRM Online all'ambiente de
 
 	![Aggiungere l'applicazione ADD - proprietà app][10]
 
-7. Al termine, si verrà reindirizzati alla nuova app ADD. Selezionare **Configura**: ![App ADD Contoso][11]
+7. Al termine, si verrà reindirizzati alla nuova app ADD. Selezionare **Configura**:  
+![App ADD Contoso][11]
 
-8. Impostare l’**URL di risposta** nella sezione _OAuth 2_ sull'URL di reindirizzamento ricevuto quando è stata aggiunta la nuova API di Dynamics CRM Online nel portale di Azure (in questo argomento): ![Configurare l'applicazione ADD Contoso][12]
+8. Impostare l’**URL di risposta** nella sezione _OAuth 2_ sull'URL di reindirizzamento ricevuto quando è stata aggiunta la nuova API di Dynamics CRM Online nel portale di Azure (in questo argomento):  
+![Configurare l'applicazione ADD Contoso][12]
 
 9. Selezionare **Salva**.
 
@@ -97,4 +107,4 @@ In questo argomento, è stata aggiunta l'API di Dynamics CRM Online alla PowersA
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

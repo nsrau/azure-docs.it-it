@@ -21,7 +21,10 @@ Questo articolo descrive i vantaggi dei contatori delle prestazioni e come inser
 
 I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET possono anche essere usati per raccogliere dati e per determinare l'integrità delle macchine virtuali, dei ruoli di lavoro e dei ruoli Web di Azure. È anche possibile creare e usare contatori delle prestazioni personalizzati.
 
-È possibile esaminare i dati dei contatori delle prestazioni 1. Direttamente nell'host applicazione con lo strumento Performance Monitor accessibile da Desktop remoto 2. Con System Center Operations Manager con Azure Management Pack 3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).
+È possibile esaminare i dati dei contatori delle prestazioni 
+1. Direttamente nell'host applicazione con lo strumento Performance Monitor accessibile da Desktop remoto 
+2. Con System Center Operations Manager con Azure Management Pack 
+3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).
 
 Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di Azure classico](http://manage.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -53,7 +56,16 @@ Azure fornisce un subset dei contatori delle prestazioni disponibili per Windows
 |ASP.NET v4.0.30319 |Richieste respinte |Contatori delle prestazioni per ASP.NET|
 |Memoria |MByte disponibili |Contatori delle prestazioni di memoria|
 |Memoria |Byte vincolati |Contatori delle prestazioni di memoria|
-|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET| |TCPv4 |Errori di connessione |Oggetto TCP| |TCPv4 |Connessioni stabilite |Oggetto TCP| |TCPv4 |Connessioni ripristinate |Oggetto TCP| |TCPv4 |Segmenti inviati/sec |Oggetto TCP| |Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete| |Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
+|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET|
+|TCPv4 |Errori di connessione |Oggetto TCP|
+|TCPv4 |Connessioni stabilite |Oggetto TCP|
+|TCPv4 |Connessioni ripristinate |Oggetto TCP|
+|TCPv4 |Segmenti inviati/sec |Oggetto TCP|
+|Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete|
+|Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
 
 ## Creare e aggiungere contatori delle prestazioni personalizzati all'applicazione
 
@@ -313,4 +325,4 @@ A questo punto, dopo aver appreso le nozioni di base della raccolta dei contator
 
 [Come monitorare i servizi cloud](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
