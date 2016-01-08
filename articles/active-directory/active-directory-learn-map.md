@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Altre informazioni su Azure AD"
-	description="Una mappa di apprendimento per il contenuto impostato di Windows Azure."
+	description="Una mappa di apprendimento per il contenuto impostato di Microsoft Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"

@@ -31,7 +31,7 @@ Se si desidera connettere il tenant di Azure AD e gli ambienti di Active Directo
 Nota - la sincronizzazione delle Directory è necessaria per le raccolte ibride.
 
 ### Assicurarsi che il "@domain.com" corrisponda
-Prima di iniziare, assicurarsi che il nome UPN per la foresta locale corrisponda al suffisso del dominio di Windows Azure.
+Prima di iniziare, assicurarsi che il nome UPN per la foresta locale corrisponda al suffisso del dominio di Microsoft Azure.
 
 Dopo aver impostato il suffisso del dominio UPN in Azure AD, tutti gli utenti che accedono in Azure RemoteApp accederanno come "utente @<the suffix you set up>". Assicurarsi che gli utenti possano inoltre accedere con lo stesso user@suffix nel dominio locale. In alcuni casi è possibile impostare un nome di dominio in Azure AD quando si specifica un suffisso di dominio diverso per l'utente locale. In questo caso, gli utenti non potranno connettersi a nessun computer appartenente a un dominio o a risorse tramite Azure RemoteApp.
 

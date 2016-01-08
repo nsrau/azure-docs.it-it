@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
-	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Windows Azure per distribuire più risorse come un gruppo di risorse."
+	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Microsoft Azure per distribuire più risorse come un gruppo di risorse."
 	editor=""
 	manager="timlt"
 	documentationCenter=""

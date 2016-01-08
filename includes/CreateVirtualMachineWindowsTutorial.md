@@ -1,6 +1,6 @@
 # Creazione di una macchina virtuale che esegue Windows Server #
 
-Questa esercitazione illustra come creare una macchina virtuale di Azure che esegue Windows Server usando la Raccolta immagini presente nel portale di gestione di Windows Azure. Nella Raccolta immagini è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, sistemi operativi basati su Linux e di applicazioni.
+Questa esercitazione illustra come creare una macchina virtuale di Azure che esegue Windows Server usando la Raccolta immagini presente nel portale di gestione di Microsoft Azure. Nella Raccolta immagini è disponibile un'ampia gamma di immagini, ad esempio immagini di sistemi operativi Windows, sistemi operativi basati su Linux e di applicazioni.
 
 > [AZURE.NOTE]Per completare questa esercitazione, non è necessario essere esperti di macchine virtuali di Azure. È invece richiesto un account di Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni, vedere [Creazione di un account Azure](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 

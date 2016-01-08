@@ -72,7 +72,7 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 
 [Ambienti di test basati su cloud ibrido di Azure][]
 
-[Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure][]
+[Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Microsoft Azure][]
 
 <!-- LINKS -->
 [Panoramica]: ../resource-group-overview.md
@@ -80,7 +80,7 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
 [Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 
-[Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Windows Azure]: xplat-cli-azure-manage-vm-asm-arm.md
+[Equivalente di gestione delle risorse e i comandi di Gestione servizio per le operazioni di macchina virtuale con CLI per Mac, Linux e Microsoft Azure]: xplat-cli-azure-manage-vm-asm-arm.md
 [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux]: virtual-machines-ps-create-preconfigure-linux-vms.md
