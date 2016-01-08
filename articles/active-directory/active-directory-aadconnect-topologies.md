@@ -40,7 +40,7 @@ Legenda per le immagini del documento:
 
 La topologia più comune è costituita da una singola foresta locale, con uno o più domini, e una singola directory di Azure AD, definita anche tenant. L'autenticazione di Azure AD viene eseguita mediante la sincronizzazione delle password. Questa è la topologia supportata dall'installazione rapida di Azure AD Connect.
 
-### Foresta singola, più server di sincronizzazione a una directory di Windows Azure
+### Foresta singola, più server di sincronizzazione a una directory di Microsoft Azure
 ![SingleForestFilteredUnsupported](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
 Non è supportato lo scenario che prevede più server di sincronizzazione di Azure AD Connect connessi alla stessa directory di Azure AD, anche se sono configurati per sincronizzare set di oggetti che si escludono a vicenda (ad eccezione di un [server di gestione temporanea](#staging-server)). È possibile che si provi a usare questo scenario perché un dominio in una foresta non è raggiungibile da un percorso di rete comune o perché si prova a distribuire il carico di sincronizzazione in più server.
@@ -60,7 +60,7 @@ Nella configurazione predefinita disponibile nel servizio di sincronizzazione Az
 
 Se l'ambiente non soddisfa questi presupposti, si verificherà quanto segue: - Se sono disponibili più account attivi o più cassette postali, il motore di sincronizzazione sceglierà un account o una cassetta postale e ignorerà gli altri. - Se sono disponibili cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo. Una cassetta postale collegata in DirSync viene rappresentata come una cassetta postale normale. Si tratta quindi di un comportamento intenzionalmente diverso per supportare in modo migliore gli scenari con più foreste.
 
-### Più foreste, più server di sincronizzazione per una directory di Windows Azure
+### Più foreste, più server di sincronizzazione per una directory di Microsoft Azure
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
 Non è consentita la connessione di più server del Servizio di sincronizzazione Azure AD Connect a una singola directory di Azure AD (ad eccezione di un [server di gestione temporanea](#staging-server)).

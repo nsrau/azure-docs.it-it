@@ -152,7 +152,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
 
     ![Modifica utente](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Modifica utente")
 
-    1.  Nelle caselle di testo **Posta elettronica**, **Nome** e **Cognome**, digitare le informazioni di un account utente di Windows Azure di cui si desidera eseguire il provisioning.
+    1.  Nelle caselle di testo **Posta elettronica**, **Nome** e **Cognome**, digitare le informazioni di un account utente di Microsoft Azure di cui si desidera eseguire il provisioning.
     2.  Selezionare **Password disabled**.
     3.  Selezionare una **Language**.
     4.  Selezionare un **User Type**.

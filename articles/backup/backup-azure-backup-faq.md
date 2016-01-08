@@ -166,8 +166,8 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 	| Percorso del Registro | Chiave del Registro | Valore |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
 
 
 + Avviare OBEngine eseguendo il seguente comando in un prompt dei comandi con privilegi elevati:

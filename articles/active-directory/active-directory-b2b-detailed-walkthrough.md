@@ -38,7 +38,7 @@ Dopo aver inviato gli inviti agli utenti dell’azienda partner, è possibile co
 
 6. Alice viene reindirizzata al pannello di accesso dell’App, che resta vuoto fino a quando all'utente viene concesso l'accesso alle app. ![Pannello di accesso per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
-Questa è la forma più semplice di collaborazione B2B. In qualità di utente nella directory di Windows Azure di Contoso, ad Alice può essere concesso l'accesso alle applicazioni e ai gruppi tramite il portale di Azure. Ora aggiungiamo Bob, che deve accedere alle applicazioni Moodle e Salesforce.
+Questa è la forma più semplice di collaborazione B2B. In qualità di utente nella directory di Microsoft Azure di Contoso, ad Alice può essere concesso l'accesso alle applicazioni e ai gruppi tramite il portale di Azure. Ora aggiungiamo Bob, che deve accedere alle applicazioni Moodle e Salesforce.
 
 ## Aggiungere Bob alla directory di Contoso e concedergli l'accesso alle app
 1. Utilizzare Windows PowerShell con il modulo di Azure AD installato per trovare le ID dell’applicazione di Moodle e Salesforce. Gli ID possono essere recuperati tramite il cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` Verrà visualizzato un elenco di tutte le applicazioni disponibili in Contoso e nei relativi AppPrincialIds. ![Recuperare le ID per Bob](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)

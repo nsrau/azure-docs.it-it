@@ -32,12 +32,12 @@ Se un utente senza privilegi di amministratore della directory 'Contoso' crea qu
 
 È possibile configurare ogni directory di Azure AD in modo indipendente per ottenere dati sincronizzati da una singola istanza di uno:-strumento di sincronizzazione della Directory (DirSync), per sincronizzare i dati con una singola foresta di Active Directory. -Azure Active Directory Connector per Forefront Identity Manager, per sincronizzare i dati con uno o più insiemi di strutture e/o origini dati Active Directory non Azure.
 
-##Aggiungere una directory di Windows Azure
+##Aggiungere una directory di Microsoft Azure
 
 Per aggiungere una directory di Azure AD nel portale di Azure classico, selezionare l'estensione di Azure Active Directory a sinistra e toccare **Aggiungi**.
 
 > [AZURE.NOTE]Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se pertanto si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory mediante Azure AD PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
 
-Per un'ampia panoramica dei problemi relativi alle licenze di Windows Azure e le procedure consigliate, vedere[che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
+Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e le procedure consigliate, vedere[che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
 
 <!---HONumber=AcomDC_1203_2015-->

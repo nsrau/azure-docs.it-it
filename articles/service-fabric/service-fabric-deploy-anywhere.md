@@ -44,7 +44,7 @@ L'esecuzione di cluster dell'infrastruttura di servizi tramite il servizio ospit
 
 * Portale di Azure: il portale di Azure semplifica la creazione e la gestione dei cluster.
 * Gestione risorse di Azure: l’utilizzo di ARM consente una gestione semplificata di tutte le risorse utilizzate dal cluster come unità e semplifica il tracciamento dei costi e la fatturazione. 
-* Diagnostica: in Azure offriamo l’integrazione con WAD (diagnostica di Windows Azure) e informazioni operative per la diagnostica.
+* Diagnostica: in Azure offriamo l’integrazione con WAD (diagnostica di Microsoft Azure) e informazioni operative per la diagnostica.
 * Scalabilità automatica: per i cluster ospitati in Azure forniremo funzionalità di scalabilità automatica integrate. In altri ambienti se si usa la funzionalità Distribuzione in qualsiasi ambiente sarà necessario creare funzionalità di scalabilità automatica personalizzate o scalare manualmente tramite le API esposte dall'infrastruttura di servizi per la scalabilità dei cluster.
 
 <!---HONumber=AcomDC_1203_2015-->

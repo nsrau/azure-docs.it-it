@@ -30,7 +30,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
 
 ##<a name="Provision"></a>Connettersi al portale di Azure classico ed effettuare il provisioning di una macchina virtuale di SQL Server
 
-1.  Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://www.microsoftazure.com/pricing/free-trial/).
 
 2.  Nel portale di Azure classico, nella parte sinistra della pagina Web fare clic su **+NUOVO**, su **CALCOLO**, su **MACCHINA VIRTUALE** e infine su **DA RACCOLTA**.
 

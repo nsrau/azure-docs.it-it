@@ -61,7 +61,7 @@ Al centro della soluzione per la gestione dell’accesso alla Azure Active Direc
 
 
 ## Introduzione alla gestione dell’accesso
-Informazioni introduttive È consigliabile provare alcune delle attività di base che è possibile eseguire con i gruppi di Windows Azure AD. Utilizzare queste funzionalità per fornire accesso specializzato a diversi gruppi di utenti per diverse risorse all'interno dell'organizzazione. Un elenco di passaggi di base sono elencati di seguito.
+Informazioni introduttive È consigliabile provare alcune delle attività di base che è possibile eseguire con i gruppi di Microsoft Azure AD. Utilizzare queste funzionalità per fornire accesso specializzato a diversi gruppi di utenti per diverse risorse all'interno dell'organizzazione. Un elenco di passaggi di base sono elencati di seguito.
 
 
 * [Creazione di una regola semplice per configurare l’appartenenza dinamica per un gruppo](active-directory-accessmanagement-simplerulegroup.md)

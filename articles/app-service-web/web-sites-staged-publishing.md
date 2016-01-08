@@ -150,7 +150,7 @@ Nel pannello di uno slot di distribuzione, fare clic su **Elimina** nella barra 
 
 Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione delle app Web nel servizio app di Azure.
 
-- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Windows Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../install-configure-powershell.md).  
+- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../install-configure-powershell.md).  
 
 - Per utilizzare la nuova modalità di gestione risorse di Azure per i cmdlet PowerShell iniziare con il seguente: `Switch-AzureMode -Name AzureResourceManager`.
 
