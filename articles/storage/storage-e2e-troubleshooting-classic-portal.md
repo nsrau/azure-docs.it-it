@@ -347,9 +347,9 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
-| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All |
+| Aumento di PercentTimeoutError (tutti) |    *StatusCode == 500 | All |
 | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
 | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
 | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
