@@ -199,7 +199,8 @@ L'esempio seguente restituisce informazioni sull'amministratore di Azure AD corr
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L'esempio seguente rimuove un amministratore di Azure AD: ```
+L'esempio seguente rimuove un amministratore di Azure AD: 
+```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -243,7 +244,7 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 Usare questo metodo se si è connessi a Windows con le credenziali di un dominio non federato con Azure o quando si usa l'autenticazione di Azure AD con Azure AD basato sul dominio iniziale o client.
 
 1. Avviare Management Studio e nella finestra di dialogo **Connetti al motore di database** (o **Connetti al server**) selezionare **Autenticazione della password Active Directory** nella casella **Autenticazione**.
-2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato ****username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
+2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
 3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o l'account di dominio federato.
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -326,4 +327,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
