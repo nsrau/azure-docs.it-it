@@ -93,7 +93,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Non supportato | Chicago+, Washington DC |
+| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Non supportato | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Imminente | Non supportato | Chicago +, Washington DC + |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Chicago+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Non supportato | Chicago, Washington DC |
@@ -113,8 +113,8 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [Interxion](http://www.interxion.com/)
-	- [NEXTDC](http://www.nextdc.com/)
+	- [InterXion](http://www.interxion.com/)
+	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 - Richiedere al provider di connettività di estendere la rete alla località di peering scelta.
 	- Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.

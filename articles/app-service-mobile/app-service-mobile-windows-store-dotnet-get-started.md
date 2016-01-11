@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -18,7 +18,9 @@
 
 #Creare un'app Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -72,9 +74,11 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 
 ##Passaggi successivi
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+  <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 <!-- Anchors. -->
 <!-- Images. -->

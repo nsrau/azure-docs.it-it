@@ -47,7 +47,7 @@ Nel [portale di Azure](https://portal.azure.com/) fare clic su **SQL Server**, s
 Se viene visualizzato un messaggio che informa che esiste un pool consigliato per un server, fare clic per esaminare facilmente e creare un pool ottimizzato per i database del server. Per altre informazioni, vedere [Pool di database elastici consigliati](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
 
 
-![Creare un pool elastico][1]
+   ![Creare un pool elastico][1]
 
 
 Il pannello **Pool di database elastici** fornisce opzioni per scegliere il piano tariffario, aggiungere i database e configurare le caratteristiche delle prestazioni del pool.

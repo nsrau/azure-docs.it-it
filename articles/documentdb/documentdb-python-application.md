@@ -60,7 +60,8 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha g
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web Python Flask completamente nuova.
+<br/> 
+Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web Python Flask completamente nuova.
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 

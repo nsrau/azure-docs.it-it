@@ -299,10 +299,13 @@ In questa esercitazione di HBase per HDInsight si è appreso come effettuare il 
 
 Per altre informazioni, vedere:
 
-- [Informazioni su HBase in HDInsight][hdinsight-hbase-overview]. HBase è un database NoSQL open source Apache basato su Hadoop che fornisce accesso rapido e coerenza assoluta per quantità elevate di dati non strutturati e semi-strutturati.
-- [Creare cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]. Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase.
+- [Informazioni su HBase in HDInsight][hdinsight-hbase-overview].
+HBase è un database NoSQL open source Apache basato su Hadoop che fornisce accesso rapido e coerenza assoluta per quantità elevate di dati non strutturati e semi-strutturati.
+- [Creare cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]. 
+Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase.
 - [Configurare la replica geografica di HBase in HDInsight](hdinsight-hbase-geo-replication.md). Informazioni su come configurare la replica di HBase in due data center di Azure.
-- [Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment]. Informazioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
+- [Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment].
+Informazioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

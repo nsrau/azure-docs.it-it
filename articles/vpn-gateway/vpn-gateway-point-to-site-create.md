@@ -24,7 +24,7 @@ Questo articolo si applica alle connessioni Gateway VPN da punto a sito alla ret
 
 **Informazioni sui modelli di distribuzione di Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Informazioni sulla creazione di una connessione da punto a sito
  

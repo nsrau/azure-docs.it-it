@@ -17,11 +17,12 @@
 
 	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB. Per impostazione predefinita, verrà creato un nuovo gruppo di risorse. È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB. Per altre informazioni, vedere [Uso del portale di Azure per gestire le risorse di Azure](resource-group-portal.md).
  
-	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
+	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.   
 
-4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale ![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**.  Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
+	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/ca4.png)  
   
-	o dall'Hub di notifica.
+	o dall'Hub di notifica.  
 
 	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
 
@@ -33,6 +34,6 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]: ../articles/documentdb/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!---HONumber=AcomDC_1223_2015-->
