@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #Creare un'app Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
@@ -74,9 +74,11 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 
 ##Passaggi successivi
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+  <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -85,4 +87,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

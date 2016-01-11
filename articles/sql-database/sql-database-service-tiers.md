@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
@@ -96,4 +96,4 @@ Se si è interessati alla gestione di più database come gruppo, considerare i [
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

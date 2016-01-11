@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/22/2015"
    ms.author="shkurhek"/>
 
 # Informazioni sul database SQL Introduzione al database SQL, dettagli tecnici e spiegazione delle DTU
@@ -61,4 +61,4 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

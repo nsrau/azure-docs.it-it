@@ -61,7 +61,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Supportato | Non supportato | Hong Kong |
 |**Cologix** | Presto disponibile | Non supportato | Montreal+, Toronto+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Londra |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Dublino+, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
 | **CoreSite** | Supportato | Supportato | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto+, Washington DC |
@@ -74,7 +74,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **MTN** | Supportato | Supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney |
 | **NTT Communications** | Supportato | Non supportato | Londra+, Tokyo |
-| **[Orange](http://www.orange-business.com/)** | Supportato | Non supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
+| **[Orange](http://www.orange-business.com/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supportato | Non supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
 | **Softbank** | Presto disponibile | Non supportato | Osaka, Tokyo | 
@@ -113,8 +113,8 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [Interxion](http://www.interxion.com/)
-	- [NEXTDC](http://www.nextdc.com/)
+	- [InterXion](http://www.interxion.com/)
+	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 - Richiedere al provider di connettività di estendere la rete alla località di peering scelta.
 	- Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.
@@ -139,4 +139,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

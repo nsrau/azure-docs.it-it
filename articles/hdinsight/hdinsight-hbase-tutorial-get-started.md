@@ -55,7 +55,7 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 	- **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure o selezionarne uno esistente. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 	- **Credenziali**: per i cluster basati su Windows, è possibile creare un utente del cluster (noto anche come utente HTTP, utente del servizio Web HTTP) e un utente di Desktop remoto. Fare clic su **Abilita Desktop remoto** per aggiungere le credenziali utente desktop remoto. La sezione successiva richiede il protocollo RDP.
 	- **Origine dati**: creare un nuovo account di archiviazione di Azure o selezionarne uno esistente da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center.
-	- **Piani tariffari per il nodo**: selezionare il numero di server di area per il cluster HBase
+	- **Piani tariffari per il nodo**: selezionare il numero di server di area per il cluster HBase.
 
 		> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario creare un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
 
@@ -299,10 +299,13 @@ In questa esercitazione di HBase per HDInsight si è appreso come effettuare il 
 
 Per altre informazioni, vedere:
 
-- [Informazioni su HBase in HDInsight][hdinsight-hbase-overview]. HBase è un database NoSQL open source Apache basato su Hadoop che fornisce accesso rapido e coerenza assoluta per quantità elevate di dati non strutturati e semi-strutturati.
-- [Creare cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]. Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase.
+- [Informazioni su HBase in HDInsight][hdinsight-hbase-overview].
+HBase è un database NoSQL open source Apache basato su Hadoop che fornisce accesso rapido e coerenza assoluta per quantità elevate di dati non strutturati e semi-strutturati.
+- [Creare cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]. 
+Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase.
 - [Configurare la replica geografica di HBase in HDInsight](hdinsight-hbase-geo-replication.md). Informazioni su come configurare la replica di HBase in due data center di Azure.
-- [Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment]. Informazioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
+- [Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight][hbase-twitter-sentiment].
+Informazioni per l'esecuzione dell'[analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -331,4 +334,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

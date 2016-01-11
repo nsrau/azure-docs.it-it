@@ -65,7 +65,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ## Creare un account di archiviazione
 
-1. Accedere al [portale di Azure](portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nel menu Hub selezionare **Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**.
 
@@ -103,7 +103,7 @@ Quando si crea un account di archiviazione, Azure genera due chiavi di accesso a
 
 ### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
 
-Nel [portale di Azure](portal.azure.com) passare all'account di archiviazione e fare clic sull'icona **Chiavi** per visualizzare, copiare e rigenerare le chiavi di accesso all'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
+Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e fare clic sull'icona **Chiavi** per visualizzare, copiare e rigenerare le chiavi di accesso all'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
 
 ### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
 
@@ -129,7 +129,7 @@ Di seguito è riportato il processo per la rotazione delle chiavi di accesso all
 
 ## Eliminare un account di archiviazione
 
-Per rimuovere un account di archiviazione non più in uso, passare all'account di archiviazione nel [portale di Azure](portal.azure.com) e fare clic su **Elimina**. Se si elimina un account di archiviazione, viene eliminato l'intero account, inclusi tutti i dati in esso contenuti.
+Per rimuovere un account di archiviazione che non si usa più, passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com) e fare clic su **Elimina**. Se si elimina un account di archiviazione, viene eliminato l'intero account, inclusi tutti i dati in esso contenuti.
 
 > [AZURE.WARNING]Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo.
 
@@ -139,4 +139,4 @@ Per rimuovere un account di archiviazione non più in uso, passare all'account d
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
 # Creare un account database DocumentDB usando il portale di Azure
@@ -50,4 +50,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -25,7 +25,7 @@ Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che cons
 
 L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente senza costi aggiuntivi se si sceglie il servizio condiviso oppure a un prezzo standard se si sceglie la soluzione con risorse dedicate.
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nell'indice fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
@@ -92,10 +92,7 @@ Dopo aver creato il servizio, è possibile tornare al portale di Azure classico 
 <a id="sub-4"></a>
 ## Testare le operazioni del servizio
 
-L'ultimo passaggio della configurazione di Ricerca di Azure prevede la conferma che il servizio sia operativo e accessibile da un'applicazione client. È possibile usare uno dei collegamenti seguenti per un approccio senza scrittura di codice alla verifica della disponibilità del servizio.
-
-- [Come utilizzare Chrome Postman con Ricerca di Azure](search-chrome-postman.md)
-- [Come utilizzare Telerik Fiddler con Ricerca di Azure](search-fiddler.md)
+L'ultimo passaggio della configurazione di Ricerca di Azure prevede la conferma che il servizio sia operativo e accessibile da un'applicazione client. È possibile usare [Fiddler con Ricerca di Azure](search-fiddler.md) per verificare la disponibilità del servizio.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -123,4 +120,4 @@ Gli argomenti riportati di seguito contengono informazioni su come creare e gest
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
