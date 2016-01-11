@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
@@ -80,8 +80,12 @@ Il processo di registrazione prevede tre passaggi di base:
 - File HDFS
 - Directory HDFS
 - Tabella Hive
+- File di archivio Azure Data Lake
+- Directory di archivio Azure Data Lake
+- Tabella MySQL
+- Vista MySQL
 
-Ulteriori origini dati e i tipi di asset verranno aggiunti durante l’anteprima del **Catalogo dati di Azure**.
+Ulteriori origini dati e tipi di asset verranno aggiunti durante l’anteprima del **Catalogo dati di Azure**.
 
 > [AZURE.IMPORTANT]La registrazione di un'origine dati nel **Catalogo dati di Azure** non copia i dati dall'origine dati, a meno che non si selezioni "Includi anteprima" nello strumento di registrazione di origine dati. Registrazione copia i metadati dell'origine dati, non i dati. Esempi di metadati includono i nomi delle tabelle e altri oggetti origine dati, insieme ai tipi di dati e i nomi delle colonne e altri attributi di origine dati. I metadati includono inoltre il percorso di origine dati, in modo che gli utenti che trovano l'origine dati con il **Catalogo dati di Azure** possano connettersi all'origine dati. Se si seleziona "Includi anteprima", lo strumento di registrazione di origine dati copierà nel **Catalogo dati di Azure** un piccolo set di record che verrà visualizzato dagli utenti che individuano l'origine dati nel portale del **Catalogo dati di Azure**.
 
@@ -112,11 +116,11 @@ Nella parte superiore del riquadro proprietà sarà pulsanti aggiuntivi:
 1.	Anteprima: Selezionando questo pulsante verrà visualizzato un insieme statico di record dall'origine dati di anteprima se anteprima è stata selezionata durante la registrazione dell'origine dati.
 2.	Schema: selezionando questo pulsante viene visualizzato lo schema per l'origine dati, inclusi i nomi delle colonne e i tipi di dati, e i metadati a livello di colonna nel **Catalogo dati di Azure**.
 
-> [AZURE.NOTE]È importante ricordare che l’esperienza**Discover** può essere un punto d’accesso all’esperienza**Enrich**e non solo all’esperienza**Consume**. L'approccio del crowdsourcing del **Catalogo dati di Azure** consente a qualsiasi utente che individui un'origine dati registrata di condividere il proprio parere sui dati, e non solo di usarli.
+> [AZURE.NOTE]È importante ricordare che l’esperienza **Discover** può essere un punto d’accesso all’esperienza **Enrich**e non solo all’esperienza **Consume**. L'approccio del crowdsourcing del **Catalogo dati di Azure** consente a qualsiasi utente che individui un'origine dati registrata di condividere il proprio parere sui dati, e non solo di usarli.
 
 ## Rimuovere i metadati dell'origine dati
 
-Dopo la registrazione di un'origine dati, talvolta può essere necessario rimuovere il riferimento all'origine dati dal **Catalogo dati di Azure**. Modifica dei requisiti aziendali o al sistema di origine verranno ritirati possono essere. Indipendentemente dal motivo, il **Catalogo dati di Azure** consente di rimuovere le origini dati selezionandole semplicemente per eliminarle in modo che non possano più essere individuate e utilizzate.
+Dopo la registrazione di un'origine dati, talvolta può essere necessario rimuovere il riferimento all'origine dati dal **Catalogo dati di Azure**. Modifica dei requisiti aziendali o al sistema di origine verranno ritirati possono essere. Indipendentemente dal motivo, il **Catalogo dati di Azure** consente di rimuovere le origini dati selezionandole semplicemente, in modo che non possano più essere individuate e utilizzate.
 
 > [AZURE.IMPORTANT]L'eliminazione di un'origine dati dal **Catalogo dati di Azure** elimina solo i metadati memorizzati nel servizio **Catalogo dati di Azure**. L'origine dati non viene alterata in alcun modo.
 
@@ -129,4 +133,4 @@ L'obiettivo principale dell'individuazione dati è trovare i dati necessari e us
 
 > [AZURE.NOTE]Per l'anteprima del Catalogo dati di Azure, solo Microsoft Excel e il servizio di report di SQL saranno direttamente supportati e disponibili nel menu **Apri in**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

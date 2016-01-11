@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestione delle risorse di Azure con Cloud Explorer"
+   pageTitle="Gestione delle risorse di Azure con Cloud Explorer | Microsoft Azure"
    description="Informazioni su come usare Cloud Explorer per esplorare e gestire le risorse di Azure in Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Gestione delle risorse di Azure con Cloud Explorer
@@ -95,4 +95,4 @@ Per trovare risorse con un nome specifico nelle sottoscrizioni dell'account Azur
 
 Quando si immettono caratteri nella casella Search, nell'albero delle risorse vengono visualizzate solo le risorse corrispondenti ai caratteri immessi.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

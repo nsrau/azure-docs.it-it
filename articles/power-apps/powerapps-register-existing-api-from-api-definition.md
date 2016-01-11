@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Registrare un'API dalla definizione dell'API Swagger 2.0  
@@ -40,7 +40,7 @@ Questo articolo illustra come **registrare una delle API mediante la definizione
 	- La proprietà ``host`` deve fare riferimento all'endpoint effettivo dell'API esistente. Non utilizzare lo schema o i percorsi secondari. Ad esempio, immettere ``api.contoso.com``. <br/><br/>
 	- La proprietà ``basePath`` elenca i percorsi secondari dell'endpoint dell’API esistente, se presente. Iniziare con una barra ``/``. Ad esempio, immettere ``/purchaseorderapi``.
 
-2. Assicurarsi che l’API esistente sia accessibile dall'ambiente del servizio app in modo sicuro: <br/><br/> a) Se si è sicuri di voler rendere l'API accessibile tramite Internet, è possibile configurare l'autenticazione dell’accesso di base HTTP tra l'ambiente del servizio app e l’API esistente. Vedere [qui](powerapps-configure-apis.md) per sapere come. <br/><br/> b) Se si desidera mantenere l’API all'interno della rete aziendale, è possibile impostare una rete virtuale nell'ambiente del servizio app per accedere alla rete dell'organizzazione in modo sicuro. Vedere [qui](../app-service-app-service-environment-intro.md) per sapere come.
+2. Assicurarsi che l’API esistente sia accessibile dall'ambiente del servizio app in modo sicuro: <br/><br/> a) Se si è sicuri di voler rendere l'API accessibile tramite Internet, è possibile configurare l'autenticazione dell’accesso di base HTTP tra l'ambiente del servizio app e l’API esistente. [Aggiornare un API esistente](powerapps-configure-apis.md) per sapere come. <br/><br/> b) Se si desidera mantenere l’API all'interno della rete aziendale, è possibile impostare una rete virtuale nell'ambiente del servizio app per accedere alla rete dell'organizzazione in modo sicuro. Maggiori informazioni sugli [ambienti del servizio app](../app-service-app-service-environment-intro.md).
 
 3. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**: ![][11]
 4. In Gestisci API, selezionare **Aggiungi**: ![][12]
@@ -67,4 +67,4 @@ In questo argomento è stato possibile esaminare come registrare un'API dalla de
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

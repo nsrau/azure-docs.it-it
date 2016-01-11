@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" 
-	description="Informazioni su come creare ed esportare processi nel portale di Azure per trasferire dati all'archiviazione BLOB." 
+	description="Informazioni su come creare ed esportare processi nel portale classico di Azure per trasferire dati all'archiviazione BLOB." 
 	authors="robinsh" 
 	manager="carmonm" 
 	editor="" 
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="12/22/2015" 
 	ms.author="robinsh"/>
 
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob
-
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
 
 ## Panoramica
 
@@ -29,10 +27,10 @@ Per trasferire un set di grandi dimensioni di dati di file nell'archiviazione BL
 
 È possibile creare e gestire i processi di importazione ed esportazione in due modi:
 
-- Usando il [portale di Azure](portal.azure.com).
+- Utilizzando il portale di Azure classico.
 - Utilizzando un'interfaccia REST per il servizio.
 
-In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come utilizzare il [portale di Azure](portal.azure.com) per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
+In questo articolo viene fornita una panoramica del servizio Importazione/Esportazione e viene descritto come utilizzare il portale di Azure classico per lavorare con il servizio Importazione/Esportazione. Per informazioni sull'API REST, vedere il [Riferimento dell'API REST del servizio di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introduzione al servizio Importazione/Esportazione ##
 
@@ -58,9 +56,9 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
 5.	**Numero di processi: **un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
 6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 
-  >[AZURE.IMPORTANT]I dischi rigidi esterni forniti con un adattatore USB incorporato non sono supportati da questo servizio. Non preparare un disco rigido esterno. Il disco all'interno del casing esterno non può essere utilizzato anche per l'importazione di dati. Utilizzare un’unità disco rigido **interna** 3,5" SATA II/III. Se il disco SATA non può essere connesso direttamente al computer, utilizzare un SATA esterno per adattatore USB. Vedere l'elenco degli adattatori consigliati nella sezione Domande frequenti.
+  >[AZURE.IMPORTANT]I dischi rigidi esterni forniti con un adattatore USB incorporato non sono supportati da questo servizio. Non preparare un disco rigido esterno. Il disco all'interno del casing esterno non può essere utilizzato anche per l'importazione di dati. Utilizzare un'unità disco rigido **interna** da 3,5" SATA II/III. Se il disco SATA non può essere connesso direttamente al computer, utilizzare un SATA esterno per adattatore USB. Vedere l'elenco degli adattatori consigliati nella sezione Domande frequenti.
 
-## Creazione di un processo di importazione nel portale di Azure##
+## Creazione di un processo di importazione nel portale classico##
 
 Creare un processo di importazione per notificare al servizio Importazione/Esportazione che si spedirà al data center una o più unità contenenti dati da importare nell'account di archiviazione.
 
@@ -78,13 +76,15 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 ### Creare il processo di importazione
 
-1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel [portale di Azure](portal.azure.com) e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. 
+1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale classico e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. 
  
 2.	Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
  
 3.	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 
 4.	Nel passaggio 3 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. È necessario caricare un file per ogni unità preparata.
+
+	![Creare il processo di importazione - Passaggio 3][import-job-03]
 
 5.	Nel passaggio 4 immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
 
@@ -94,23 +94,25 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
-7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel [portale di Azure](portal.azure.com), selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 	
 	Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
 
 	Se il processo si trova in stato di creazione, spedizione o trasferimento, è anche possibile aggiornare il numero di account del vettore nel passaggio 2 della procedura guidata. Quando il processo è in stato Packaging, non è possibile aggiornare il numero di account del vettore del processo.
 
-## Creazione di un processo di esportazione nel portale di Azure##
+## Creazione di un processo di esportazione nel portale classico##
 
 Creare un processo di esportazione per notificare al servizio Importazione/Esportazione che si spedirà una o più unità vuote al data center, in modo che i dati possano essere esportati dall'account di archiviazione alle unità e le unità possano quindi essere spedite all'utente.
 
-1. 	Per creare un processo di esportazione, passare all'account di archiviazione nel [portale di Azure](portal.azure.com) e visualizzare il dashboard. In **Quick Glance**, fare clic su **Crea un processo di esportazione** e continuare la procedura guidata.
+1. 	Per creare un processo di esportazione, passare all'account di archiviazione nel portale classico e visualizzare il dashboard. In **Quick Glance**, fare clic su **Crea un processo di esportazione** e continuare la procedura guidata.
 
 2. 	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 
 3.	Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati Blob nell'account di archiviazione o specificare singoli Blob o set di Blob.
+
+	![Creare il processo di esportazione - Passaggio 3][export-job-03]
 
 	- Per specificare un BLOB da esportare, utilizzare il selettore **Equal To** e specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
 	- Per specificare tutti i BLOB che iniziano con un prefisso, utilizzare il selettore **Starts With** e specificare il prefisso, iniziando con una barra "/". Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB.
@@ -138,7 +140,7 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 	Se non si dispone ancora di un numero di spedizione, scegliere **Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto**, quindi completare il processo di esportazione.
 
-6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel [portale di Azure](portal.azure.com), selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 	
 	Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
 
@@ -146,9 +148,9 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 > [AZURE.NOTE]Se il blob da esportare è in uso al momento della copia sul disco rigido, servizio di Importazione/Esportazione di Azure creare uno snapshot del blob e copiare lo snapshot.
 
-## Traccia dello stato del processo nel portale di Azure##
+## Tenere traccia dello stato del processo nel portale classico##
 
-È possibile tenere traccia dello stato dei processo di importazione o esportazione dal [portale di Azure](portal.azure.com). Passare all'account di archiviazione nel portale di gestione e fare clic sulla scheda **Import/Export**. Nella pagina verrà visualizzato un elenco dei processi. È possibile filtrare l'elenco per stato processo, nome processo, tipo di processo o numero di spedizione.
+È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale classico. Passare all'account di archiviazione nel portale classico e fare clic sulla scheda **Importazione/Esportazione**. Nella pagina verrà visualizzato un elenco dei processi. È possibile filtrare l'elenco per stato processo, nome processo, tipo di processo o numero di spedizione.
 
 Nella tabella viene descritto il significato di ogni designazione dello stato del processo:
 
@@ -163,7 +165,9 @@ Complete|Il disco rigido è stato spedito all'utente.
 
 ## Visualizzazione delle chiavi BitLocker per un processo di esportazione ##
 
-Per i processi di esportazione, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità, in modo che sia possibile decrittografare i dati esportati dopo aver ricevuto l'unità dal data center di Azure. Passare all'account di archiviazione nel [portale di Azure](portal.azure.com) e fare clic sulla scheda **Importazione/Esportazione**. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante **View Keys**. Le chiavi BitLocker vengono visualizzate come illustrato:
+Per i processi di esportazione, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità, in modo che sia possibile decrittografare i dati esportati dopo aver ricevuto l'unità dal data center di Azure. Passare all'account di archiviazione nel portale classico e fare clic sulla scheda **Importazione/Esportazione**. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante **View Keys**. Le chiavi BitLocker vengono visualizzate come illustrato:
+
+![Visualizzare le chiavi BitLocker per il processo di esportazione][export-job-bitlocker-keys]
 
 ## Domande frequenti ##
 
@@ -206,7 +210,7 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - È possibile annullare un processo quando lo stato è Creating o Shipping.
 
-**Per quanto tempo è possibile visualizzare lo stato dei processi completati nel portale di Azure?**
+**Per quanto tempo è possibile visualizzare lo stato dei processi completati nel portale classico?**
 
 - È possibile visualizzare lo stato per i processi completati fino a 90 giorni. Tutti i processi completi vengono eliminati dopo 90 giorni.
 
@@ -268,9 +272,10 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-[import-job-03]: ./media/storage-import-export-service/import-job-03.png
-[export-job-03]: ./media/storage-import-export-service/export-job-03.png
-[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
+
+[import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

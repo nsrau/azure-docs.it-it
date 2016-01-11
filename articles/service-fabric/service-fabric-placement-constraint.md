@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Vincoli di posizionamento dell'orchestrazione del cluster di Service Fabric"
+   pageTitle="Vincoli di posizionamento dell'orchestrazione del cluster di Service Fabric | Microsoft Azure"
    description="Panoramica concettuale dei vincoli di posizionamento in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,7 +18,7 @@
 
 # Panoramica dei vincoli di posizionamento
 
-Service Fabric consente agli sviluppatori di vincolare il posizionamento delle repliche dei servizi in nodi che soddisfano condizioni particolari. Tali condizioni vengono indicate mediante un'espressione booleana che viene valutata con valori appropriati specifici del contesto del servizio.
+Service Fabric di Azure consente agli sviluppatori di vincolare il posizionamento delle repliche dei servizi in nodi che soddisfano condizioni particolari. Tali condizioni vengono indicate mediante un'espressione booleana che viene valutata con valori appropriati specifici del contesto del servizio.
 
 
 ## Funzionalità
@@ -29,14 +29,13 @@ Usando i vincoli di posizionamento, è possibile:
 - Applicare determinati vincoli alle repliche primarie, ma non a quelle secondarie.
 
 
-## Concetti principali
-NodeProperty. Mapping definito dall'utente o dal sistema tra una stringa e un valore che può variare da un nodo all'altro, ovvero NodeName.
+## Concetti chiave
+NodeProperty: mapping definito dall'utente o dal sistema tra una stringa e un valore che può variare da un nodo all'altro, ovvero NodeName.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-Per altre informazioni, vedere l'articolo relativo agli [scenari applicativi](../service-fabric-application-scenarios).
- 
+Per altre informazioni, vedere l'articolo [Scenari applicativi](../service-fabric-application-scenarios).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

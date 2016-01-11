@@ -44,22 +44,18 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Distribuire il progetto server in Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## <a id="add-push"></a>Aggiungere notifiche push all'app
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Testare le notifiche push nell'app
+## <a id="test"></a>Sottoporre a test le notifiche push nell'app
 
 [AZURE.INCLUDE [Testare le notifiche push nell'app](../../includes/test-push-notifications-in-app.md)]
 
 ##<a id="more"></a>Altro
 
-* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare la libreria client iOS per le app mobili di Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) illustra come registrare modelli.
-* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) illustra come aggiungere tag all’installazione di un dispositivo.
+* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare la libreria client iOS per le app per dispositivi mobili di Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) illustra come registrare modelli.
+* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) illustra come aggiungere tag all’installazione di un dispositivo.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
@@ -76,4 +72,4 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 <!-- URLs. -->
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

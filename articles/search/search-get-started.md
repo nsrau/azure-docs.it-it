@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/18/2015" 
 	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure
@@ -78,7 +78,7 @@ La configurazione di risorse dedicate può richiedere fino a 15 minuti o più.
 
 **Passaggio 1: creare un nuovo servizio con livello di prezzo impostato su Standard**
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
+1. Accedere a [Portale di Azure](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
 
 2. Fare clic su **New** nella parte inferiore della pagina.
 
@@ -310,7 +310,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 Per un ripasso su dove trovare le pagine di configurazione, eseguire la procedura seguente per passare al dashboard servizi.
 
-1.	Accedere al [portale di Azure classico](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
+1.	Accedere al [Portale di Azure](https://portal.azure.com) utilizzando la sottoscrizione esistente. 
 2.	Fare clic su **Home** e quindi fare clic sul riquadro per il servizio di ricerca.
 
  	![][22]
@@ -378,4 +378,4 @@ Pronti per il passaggio successivo? Fare clic sui collegamenti seguenti per acce
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

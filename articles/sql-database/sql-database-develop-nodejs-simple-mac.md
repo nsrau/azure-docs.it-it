@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Connettersi al database SQL tramite Node.js con Tedious in Mac OS X
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 Questo argomento presenta un esempio di codice Node.js che viene eseguito in Mac OS X. Nell'esempio ci si connette al database SQL di Azure utilizzando il driver Tedious.
@@ -35,7 +38,7 @@ Installare il **nodo**, a meno che non sia già installato nel computer.
 
 Per installare node.js in OSX 10.10 Yosemite è possibile scaricare un pacchetto binario precompilato che rende l'installazione semplice e intuitiva. [Passare il cursore su nodejs.org](http://nodejs.org/) e fare clic sul pulsante Installa per scaricare il pacchetto più recente.
 
-Installazione del pacchetto dal file DMG seguendo l'installazione guidata che consente di installare sia **node** che **npm**, npm è il Gestore dei pacchetti del nodo che facilita l'installazione di pacchetti aggiuntivi per node.js.
+Installare il pacchetto dal file .DMG seguendo l'installazione guidata che consente di installare sia **node** che **npm**, npm è il Gestore dei pacchetti del nodo che facilita l'installazione di pacchetti aggiuntivi per node.js.
 
 
 Una volta configurato il computer con **node** e **npm**, passare a una directory in cui si intende creare il progetto Node.js e immettere i comandi seguenti.
@@ -172,4 +175,4 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,13 +14,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="mebha"/>
+	ms.date="12/17/2015"
+	ms.author="meetb"/>
 
 
 # Connessione al database SQL tramite Ruby in Windows
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+<!--
+Older Selector technique, with dynamic drop-down lists.
+ [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
+-->
+
+
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+
 
 Questo argomento presenta un esempio di codice Ruby in esecuzione su computer con Windows 8.1 per la connessione a un database SQL di Azure.
 
@@ -30,14 +44,14 @@ Questo argomento presenta un esempio di codice Ruby in esecuzione su computer co
 
 Aprire il terminale in uso e installare quanto segue:
 
-**1) Ruby:** se non è presente nel computer, installare Ruby. Per i nuovi utenti di Ruby, è consigliabile utilizzare programmi di installazione di Ruby 2.1.X. Questi forniscono un linguaggio stabile e un elenco completo dei pacchetti (gemme) compatibili e aggiornati. [Visitare la pagina di download di Ruby](http://rubyinstaller.org/downloads/) e scaricare il programma di installazione 2.1.x appropriato. Ad esempio, se si usa un computer a 64 bit, scaricare il programma di installazione **Ruby 2.1.6 (x64)**. <br/><br/>Una volta scaricato il programma di installazione, eseguire le operazioni seguenti:
+**1) Ruby:** se non è presente nel computer, installare Ruby. Per i nuovi utenti di Ruby, è consigliabile utilizzare programmi di installazione di Ruby 2.1.X. Questi forniscono un linguaggio stabile e un elenco completo dei pacchetti (gemme) compatibili e aggiornati. [Visitare la pagina di download di Ruby](http://rubyinstaller.org/downloads/)e scaricare il programma di installazione 2.1.x appropriato. Ad esempio, se si utilizza un computer a 64 bit, scaricare il programma di installazione **Ruby 2.1.6 (x64)**. <br/><br/>Una volta scaricato il programma di installazione, eseguire le operazioni seguenti:
 
 
 - Fare doppio clic sul file per avviare il programma di installazione.
 
 - Selezionare la lingua e accettare le condizioni.
 
-- Nella schermata relativa alle impostazioni di installazione selezionare le caselle di controllo accanto a *Add Ruby executables to your PATH* e *Associate .rb and .rbw files with this Ruby installation*.
+- Nella schermata relativa alle impostazioni di installazione, selezionare le caselle di controllo accanto a *Add Ruby executables to your PATH* e *Associate .rb and .rbw files with this Ruby installation*.
 
 
 **2) DevKit:** scaricare il DevKit dalla [pagina di RubyInstaller](http://rubyinstaller.org/downloads/)
@@ -61,7 +75,7 @@ Aprire il prompt dei comandi e immettere i comandi seguenti:
 Adesso si dispone di una versione di Ruby completamente funzionale e RubyGems!
 
 
-**3) TinyTDS:** passare a C:\\DevKit ed eseguire il comando seguente dal terminale. TinyTDS verrà installato nel computer.
+**3) TinyTDS:** andare a C:\\DevKit ed eseguire il comando seguente dal terminale. TinyTDS verrà installato nel computer.
 
 	gem inst tiny_tds --pre
 
@@ -89,7 +103,7 @@ Copiare e incollare codice seguente in un file vuoto. Denominarlo test.rb. Quind
 
 	ruby test.rb
 
-Nel codice di esempio la funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene usata per recuperare un set di risultati da una query sul database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
+Nel codice di esempio, la funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene usata per recuperare un set di risultati di una query sul database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
     require 'tiny_tds'  
     print 'test'     
@@ -105,9 +119,9 @@ Nel codice di esempio la funzione [TinyTds::Result](https://github.com/rails-sql
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
-Per usare TinyTDS con Azure, si consiglia di eseguire diverse istruzioni `SET` per modificare la modalità di gestione di informazioni specifiche della sessione corrente. Le istruzioni `SET` consigliate vengono fornite nell'esempio di codice. Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà alle nuove colonne create di consentire valori nulli anche se lo stato di supporto dei valori Null della colonna non è indicato in modo esplicito.
+Per utilizzare TinyTDS con Azure, si consiglia di eseguire diverse `SET` istruzioni per modificare la modalità di gestione informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET` vengono fornite nell’esempio di codice. Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
 
-Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx), usare la funzione [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) per eseguire il cast nel formato datetime corrispondente.
+Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx), utilizzare la funzione [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) per eseguire il cast nel formato datetime corrispondente.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -130,4 +144,4 @@ Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.micros
     puts row
     end
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -144,7 +144,7 @@ La tabella seguente elenca i valori predefiniti per i parametri specificati nel 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creare ambienti
-Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](azure-portal/resource-group-portal.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](resource-group-rbac.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse nel gruppo di risorse possono essere visualizzati nel [portale di anteprima di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in una [posizione](http://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nella posizione Stati Uniti centrali. Quando si inizia a creare ambienti effettivi, si sceglierà la posizione più adatta alle proprie esigenze.
+Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](azure-portal/resource-group-portal.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-control-configure.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse nel gruppo di risorse possono essere visualizzati nel [portale di anteprima di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in una [posizione](http://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nella posizione Stati Uniti centrali. Quando si inizia a creare ambienti effettivi, si sceglierà la posizione più adatta alle proprie esigenze.
 
   **Passaggio 5:** Creare gruppi di risorse per gli ambienti di sviluppo e di test usando uno dei metodi seguenti. Entrambi i metodi avranno esattamente lo stesso risultato.
 
@@ -384,4 +384,4 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - Usare [Release Management per Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview) per creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente.
 - Richiedere un invito per l'anteprima del [Lab di sviluppo/test di Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Consente di gestire ambienti lab di sviluppo e test usando i modelli e di configurare le quote e i criteri da usare nell'organizzazione.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

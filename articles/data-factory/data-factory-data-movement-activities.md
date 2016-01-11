@@ -109,4 +109,8 @@ Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione
 
 Quando viene eseguita un'attività di copia, nella sezione **typeProperties** vengono visualizzate proprietà diverse a seconda dei tipi di origine e sink. Ciascuna pagina relativa agli archivi dati elencati sopra contiene informazioni su queste proprietà, che variano in base al tipo di archivio dati.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+### Prestazioni delle attività di copia e ottimizzazione 
+Vedere l’articolo [Guida alle prestazione delle attività di copia e all’ottimizzazione](data-factory-copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Inoltre, vengono elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
+
+<!---HONumber=AcomDC_1223_2015-->

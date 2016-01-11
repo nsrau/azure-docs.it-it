@@ -74,6 +74,7 @@
 - [EXCEPT e INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 - EXPLAIN
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
+- [Utilizzo di PIVOT e UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
 - [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
 - [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
@@ -128,4 +129,4 @@ Per altri esempi TSQL, vedere [Panoramica sullo sviluppo per SQL Data Warehouse]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

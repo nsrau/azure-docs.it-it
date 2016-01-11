@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Guida all'implementazione API
@@ -22,7 +22,7 @@
 ![](media/best-practices-api-implementation/pnp-logo.png)
 
 
-Alcuni argomenti di queste linee guida sono in fase di definizione e possono cambiare in futuro. Inviaci i tuoi commenti!
+Alcuni argomenti di queste linee guida sono in fase di definizione e possono cambiare in futuro. I commenti degli utenti saranno molto apprezzati.
 
 ## Panoramica
 UN’API web RESTful progettata attentamente definisce le risorse, relazioni e gli schemi di navigazione che sono accessibili alle applicazioni del client. Quando implementi e distribuisci un’API web, è necessario considerare i requisiti fisici dell'ambiente di hosting web API e il modo in cui viene creata l'API web, anziché la struttura logica dei dati. Questa guida illustra le procedure consigliate per l'implementazione e la pubblicazione di un'API web al fine di renderla disponibile alle applicazioni client. I problemi di sicurezza sono descritti separatamente nel documento Linee guida alla Sicurezza API. Informazioni dettagliate sulla progettazione di un’API web sono reperibili nel documento Linee guida alla progettazione di un’API.
@@ -247,26 +247,26 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 
 	- La relazione tra l'oggetto restituito e l'oggetto descritto dal collegamento. In questo caso "self" indica che il collegamento è un riferimento all'oggetto stesso (simile a un `this` puntatore in molti linguaggi orientati agli oggetti), e "orders" è il nome di una raccolta contenente le informazioni sugli ordini correlati.
 
-	- Il collegamento ipertestuale (`HRef`) per l'oggetto viene descritto dal collegamento sotto forma di un URI.
+	- Il collegamento ipertestuale (`Href`) per l'oggetto viene descritto dal collegamento sotto forma di un URI.
 
 	- Il tipo di richiesta HTTP (`Action`) che può essere inviata a questo URI.
 
-	- Il formato dei dati (`LinkedResourceMIMETypes`) che deve essere fornito nella richiesta HTTP o che può essere restituito nella risposta, a seconda del tipo di richiesta.
+	- Il formato dei dati (`Types`) che deve essere fornito nella richiesta HTTP o che può essere restituito nella risposta, a seconda del tipo di richiesta.
 
 	I collegamenti HATEOAS illustrati nell'esempio di risposta HTTP indicano che un'applicazione client è in grado di eseguire le operazioni seguenti:
 
@@ -406,7 +406,7 @@ In un ambiente distribuito, che coinvolge, ad esempio, un server Web e applicazi
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	In questo esempio, l'intestazione Cache-Control specifica che i dati restituiti scadono dopo 600 secondi, è adatta solo per un singolo client e non deve essere archiviata in una cache condivisa utilizzata da altri client (è _privata_). L'intestazione Cache-Control può specificare _pubblica_ anziché _privata_ se i dati possono essere archiviati in una cache condivisa. Può specificare _no-store_ se i dati **non** devono essere memorizzati nella cache dal client. Il seguente esempio di codice mostra come costruire un'intestazione Cache-Control in un messaggio di risposta:
@@ -514,7 +514,7 @@ In un ambiente distribuito, che coinvolge, ad esempio, un server Web e applicazi
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]Per motivi di sicurezza, non autorizzare dati riservati o dati restituiti tramite una connessione (HTTPS) autenticata da memorizzare nella cache.
@@ -646,7 +646,7 @@ In un ambiente distribuito, che coinvolge, ad esempio, un server Web e applicazi
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- L'operazione PUT nell'API Web ottiene l’attuale valore ETag per i dati richiesti (ordine 1 nell'esempio precedente) e lo confronta con il valore dell'intestazione If-None-Match.
@@ -1132,7 +1132,7 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 ## Modelli correlati
 - Il modello di [interfaccia](http://en.wikipedia.org/wiki/Facade_pattern) descrive come fornire un'interfaccia a un'API Web.
 
-## Ulteriori informazioni
+## Altre informazioni
 - La pagina [informazioni su API Web ASP.NET](http://www.asp.net/web-api) sul sito Web Microsoft fornisce un'introduzione dettagliata alla creazione di servizi Web RESTful con l'API Web.
 - La pagina [Routing in API Web ASP.NET](http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api) sul sito Web Microsoft descrive il funzionamento del routing basato su convenzione nel framework API Web ASP.NET.
 - Per ulteriori informazioni sul routing basato su convenzioni, vedere la pagina [Routing mediante attributi n API Web 2](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2) del sito Web Microsoft.
@@ -1152,4 +1152,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

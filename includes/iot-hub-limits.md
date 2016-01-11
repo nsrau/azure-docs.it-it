@@ -2,10 +2,9 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 
 | Risorsa | S1 Standard | S2 Standard | F1 Gratuito |
 | -------- | ----------- | ----------- | ------- |
-| Dispositivi per unità | 500 | 500 | 10 |
-| Messaggi al giorno | 50\.000 | 1\.500.000 | 3\.000 |
+| Messaggi al giorno | 400\.000 | 6\.000.000 | 8\.000 |
 | Unità massime | 200 | 200 | 1 |
-| Gli aggiornamenti del dispositivo (creazione, aggiornamento <br/> eliminare) per unità al giorno | 1100 | 1100 | 1100 |
+| Aggiornamenti del dispositivo (creazione, aggiornamento <br/> eliminazione) per unità al giorno | 1100 | 1100 | 1100 |
 
 > [AZURE.NOTE]Se si prevede l'utilizzo di più di 200 unità con un hub di livello S1 o S2, contattare il supporto tecnico di Microsoft.
 
@@ -29,9 +28,9 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 
 | Limitazione | Valore per ogni hub |
 | -------- | ------------- |
-| Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione) <br/> importazione/esportazione singola o in blocco | 100/min/unità, fino a 5000/min |
+| Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione), <br/> importazione/esportazione singola o in blocco | 100/min/unità, fino a 5000/min |
 | Connessioni del dispositivo | 100/sec/unità |
-| Inoltri dal dispositivo al cloud | 2000/min/unità (per S2), 60/min/unità (per S1) <br/> Minimo 100/sec |
-| Le operazioni dal cloud al dispositivo <br/> (inoltri, ricezioni, commenti e suggerimenti) | 100/min/unità |
+| Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1) <br/> Minimo 100/sec |
+| Operazioni dal cloud al dispositivo <br/> (inoltri, ricezioni e suggerimenti) | 100/min/unità |
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

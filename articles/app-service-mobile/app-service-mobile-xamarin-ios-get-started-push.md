@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.iOS
@@ -55,17 +55,15 @@ Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurar
 
 2. Nel pannello per la creazione dell'hub di notifica, fare clic su **Crea**.
 
-3. Fare clic su **Push** > **Apple (APN)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso con le notifiche push in iOS.
+3. Fare clic su **Push** > **Apple (APN)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+Il servizio è ora configurato per l'uso con le notifiche push in iOS.
 
 ##Aggiornare il progetto server per l'invio di notifiche push
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##Distribuire il progetto server in Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Configurare il progetto Xamarin.iOS
 
@@ -108,9 +106,9 @@ Per configurare l'app per l'invio di notifiche, creare un nuovo hub e configurar
             return true;
         }
 
-3. Nello stesso file eseguire l'override dell'evento **RegisteredForRemoteNotifications**. In questo codice ci si sta registrando per una semplice notifica del modello che verrà inviata a tutte le piattaforme supportate dal server.
+3. Nello stesso file, eseguire l'override dell'evento **RegisteredForRemoteNotifications**. In questo codice ci si sta registrando per una semplice notifica del modello che verrà inviata a tutte le piattaforme supportate dal server.
  
-	Per altre informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates.md).
+	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -157,7 +155,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -176,4 +174,4 @@ L'esercitazione è stata completata.
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

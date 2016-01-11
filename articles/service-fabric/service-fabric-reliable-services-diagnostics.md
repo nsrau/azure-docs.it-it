@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Diagnostica di Reliable Services con stato"
+   pageTitle="Diagnostica di Reliable Services con stato | Microsoft Azure"
    description="Funzionalità di diagnostica per Reliable Services con stato"
    services="service-fabric"
    documentationCenter=".net"
@@ -24,9 +24,9 @@ Il nome EventSource per la classe StatefulServiceBase di Reliable Services con s
 
 Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Microsoft Azure](../cloud-services-dotnet-diagnostics.md) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## Events
+## Eventi
 
-|Nome evento|ID evento|Livello|Descrizione evento|
+|Nome evento|ID evento|Level|Descrizione evento|
 |----------|--------|-----|-----------------|
 |StatefulRunAsyncInvocation|1|Informazioni|Emesso quando viene avviata l'attività RunAsync del servizio|
 |StatefulRunAsyncCancellation|2|Informazioni|Emesso quando viene annullata l'attività RunAsync del servizio|
@@ -40,8 +40,8 @@ Gli eventi StatefulRunAsyncInvocation, StatefulRunAsyncCompletion e StatefulRunA
 
 Gli sviluppatori devono prestare particolare attenzione agli eventi StatefulRunAsyncSlowCancellation e StatefulRunAsyncFailure in quanto indicano la presenza di problemi relativi al servizio.
 
-L'evento StatefulRunAsyncFailure viene emesso ogni volta che l'attività RunAsync() del servizio genera un'eccezione. Normalmente la generazione di un'eccezione indica la presenza di un errore o di un bug nel servizio. L'eccezione provoca inoltre l'arresto del servizio. Spostare il servizio su un altro nodo può essere un'operazione costosa e può ritardare le richieste in ingresso durante lo spostamento. Gli sviluppatori dovrebbero determinare la causa dell'eccezione e, se possibile, limitare il problema.
+L'evento StatefulRunAsyncFailure viene emesso ogni volta che l'attività RunAsync() del servizio genera un'eccezione. Normalmente, la generazione di un'eccezione indica la presenza di un errore o di un bug nel servizio. Inoltre, l'eccezione causa un esito negativo del servizio, con conseguente spostamento a un altro nodo. Lo spostamento del servizio può essere un'operazione costosa che può ritardare le richieste in ingresso. Gli sviluppatori dovrebbero determinare la causa dell'eccezione e, se possibile, limitare il problema.
 
-L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richiesta di annullamento dell'attività RunAsync richiede più di 4 secondi. L'eccessiva durata di un'operazione di annullamento influisce sulla possibilità di riavviare rapidamente il servizio su un altro nodo e può avere un impatto negativo sulla disponibilità complessiva.
+L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richiesta di annullamento dell'attività RunAsync richiede più di quattro secondi. L'eccessiva durata di un'operazione di annullamento influisce sulla possibilità di riavviare rapidamente il servizio su un altro nodo. Questo può avere un impatto negativo sulla disponibilità complessiva del servizio.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

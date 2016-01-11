@@ -3,7 +3,7 @@
 	description="Descrive i passaggi necessari per aggiornare manualmente lo script di PowerShell fornito con un progetto di distribuzione del gruppo di risorse di Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/20/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Aggiornare lo script di PowerShell per il progetto di gruppo di risorse di Azure
 
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

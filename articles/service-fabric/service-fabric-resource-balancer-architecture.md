@@ -1,6 +1,6 @@
 <properties
    pageTitle="Architettura di Resource Balancer | Microsoft Azure"
-   description="Panoramica dell'architettura di Resource Balancer dell’infrastruttura di servizi."
+   description="Panoramica dell'architettura di Resource Balancer di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -20,9 +20,11 @@
 
 ![Architettura di Resource Balancer][Image1]
 
-Service Fabric Resource Balancer è costituito da un servizio di bilanciamento delle risorse centralizzato e da un componente presente su ogni nodo, collocati da un punto di vista concettuale rispettivamente con Service Fabric Failover Manager e con il nodo locale di Service Fabric.
+Resource Balancer in Service Fabric di Azure è costituito da un unico servizio di bilanciamento delle risorse centralizzato e da un componente esistente in ogni nodo. Questi sono collocati concettualmente con la Gestione failover di Service Fabric e con il nodo locale di Service Fabric.
 
-L'agente locale è responsabile della raccolta e della memorizzazione nel buffer dei report sul carico provenienti dai servizi in esecuzione sul nodo locale, allo scopo di inviarli al servizio Resource Balancer e segnalare errori e altri eventi a Failover Manager e Resource Manager (1 e 2 nella figura precedente). Resource Balancer e Failover Manager funzionano in modo integrato per rispondere a eventi relativi al carico e ad altri eventi del sistema, ad esempio errori delle repliche o dei nodi, report sul carico e servizi e applicazioni che vengono creati ed eliminati. Ad esempio, quando una replica ha esito negativo, Failover Manager richiede a Service Fabric Resource Balancer di suggerire una posizione sostitutiva basata su dati relativi al carico di nodi diversi. Analogamente, al ricevimento di una nuova richiesta di servizio, Failover Manager richiede indicazioni a Resource Balancer circa la posizione in cui inserire il servizio. In tutti questi casi, Resource Balancer risponde con modifiche alle varie configurazioni di servizio (3), che vengono poi applicate concretamente da Failover Manager. Nell'esempio precedente Failover Manager crea una nuova replica sul nodo, che determina un bilanciamento generale ottimale (4).
+L'agente locale è responsabile della raccolta e della memorizzazione nel buffer dei report sul carico provenienti dai servizi in esecuzione sul nodo locale, allo scopo di inviarli al servizio Resource Balancer e segnalare errori e altri eventi alla Gestione failover e a Resource Manager (1 e 2 nella figura precedente). Gestione failover e Resource Balancer collaborano per rispondere agli eventi di carico e agli altri eventi nel sistema. Questi eventi potrebbero includere gli errori di replica o nodo, i report sul carico, i servizi e le applicazioni che vengono create ed eliminate.
+
+Ad esempio, quando una replica ha esito negativo, la Gestione Failover richiede che Resource Balancer suggerisca una posizione sostitutiva basata su dati relativi al carico di nodi diversi. Analogamente, al ricevimento di una nuova richiesta di servizio, la Gestione failover richiede indicazioni a Resource Balancer circa la posizione in cui inserire il servizio. In questi casi, Resource Balancer risponde con modifiche alle varie configurazioni di servizio (3). Queste modifiche vengono poi applicate concretamente dalla Gestione failover. Nell'esempio precedente, la Gestione failover crea una nuova replica sul nodo, che determina un bilanciamento generale ottimale (4).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
@@ -36,6 +38,5 @@ Funzionalità di bilanciamento delle risorse:
 - [Percentuale buffer dei nodi](service-fabric-resource-balancer-node-buffer-percentage.md)
 
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

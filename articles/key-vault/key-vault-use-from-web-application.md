@@ -36,13 +36,13 @@ Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni
 
 
 ## <a id="packages"></a>Aggiungere i pacchetti NuGet ##
-Sono tre i pacchetti che devono essere installati nell'applicazione Web.
+Sono due i pacchetti che devono essere installati nell'applicazione Web.
 
 - Active Directory Authentication Library: contiene i metodi per interagire con Azure Active Directory e gestire l'identità utente
 - Azure Key Vault Library: contiene i metodi per interagire con l'insieme di credenziali chiave di Azure
 
 
-È possibile installare tutti e tre questi pacchetti con la Console di Gestione pacchetti usando il comando Install-Package.
+È possibile installare entrambi i pacchetti con la Console di Gestione pacchetti usando il comando Install-Package.
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -133,7 +133,7 @@ Se si dispone di un'app Web di Azure, è ora possibile aggiungere i valori effet
 
 Prendere nota della data finale e della password per il formato .pfx (in questo esempio: 31/07/2016 e test123). Saranno necessarie più avanti.
 
-Per ulteriori informazioni sulla creazione di un certificato di prova, vedere [Procedura: Creare il proprio certificato di prova](https://msdn.microsoft.com/en-in/library/ff699202.aspx)
+Per ulteriori informazioni sulla creazione di un certificato di prova, vedere [Procedura: creare il proprio certificato di prova](https://msdn.microsoft.com/library/ff699202.aspx)
 
 
 **Associare il certificato a un'applicazione Azure AD** Ora che si dispone di un certificato, è necessario associarlo a un'applicazione di Azure AD. Ma il portale di gestione di Azure non supporta questo da subito. È necessario utilizzare Powershell. Di seguito sono elencati i comandi che è necessario eseguire:
@@ -243,4 +243,4 @@ Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

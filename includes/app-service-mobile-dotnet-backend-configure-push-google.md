@@ -50,6 +50,8 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+4. Pubblicare di nuovo il progetto server.
+
 ### <a name="nodejs"></a>Progetto di back-end Node.js
 
 1. [Scaricare il progetto di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) (se non ancora scaricato) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
@@ -103,4 +105,4 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso: [bac
 
 2. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

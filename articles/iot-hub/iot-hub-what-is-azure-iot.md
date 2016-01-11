@@ -20,14 +20,14 @@
 
 ## Passaggi successivi
 
-È possibile usare Azure IoT Hub, un servizio di Azure che riceve i dati di telemetria a livello di scalabilità dai dispositivi ed instrada i dati a un processore di eventi di flusso, per implementare la soluzione di back-end. IoT Hub può inoltre inviare comandi dal cloud al dispositivo a dispositivi specifici. Inoltre, hub IoT include un registro di identità del dispositivo che è possibile utilizzare per eseguire il provisioning dei dispositivi e per gestire i dispositivi che si possono connettere all’hub. Per ulteriori informazioni, vedere:
+L’hub IoT di Azure è un servizio di Azure che riceve dati di telemetria su scala dai dispositivi e indirizza tali dati a un processore di eventi di flusso. È possibile utilizzare l’hub IoT per implementare il proprio back-end di soluzione. IoT Hub può inoltre inviare comandi dal cloud al dispositivo a dispositivi specifici. Inoltre, l’hub IoT include un registro di identità del dispositivo che è possibile utilizzare per eseguire il provisioning dei dispositivi e per gestire i dispositivi che si possono connettere all’hub. Per altre informazioni, vedere:
 
 - [Che cos'è IoT Hub?][lnk-iot-hub]
 - [Iniziare a usare l'hub IoT][lnk-getstarted]
 
-Per implementare le applicazioni client su una vasta gamma di piattaforme hardware e sistemi operativi per dispositivi è possibile usare gli SDK per dispositivi IoT. GLI SDK per dispositivi IoT includono librerie che facilitano l'invio di dati di telemetria a un hub IoT e la ricezione di comandi da cloud a dispositivo. Quando si utilizzano SDK per dispositivi, è possibile scegliere tra una serie di protocolli di rete per comunicare con l’hub IoT. Per altre informazioni, vedere [Quali sono gli SDK dei dispositivi?][lnk-device-sdks].
+Per implementare le applicazioni client su una vasta gamma di piattaforme hardware e sistemi operativi per dispositivi, è possibile usare gli SDK per dispositivi IoT. GLI SDK per dispositivi IoT includono librerie che facilitano l'invio di dati di telemetria a un hub IoT e la ricezione di comandi da cloud a dispositivo. Quando si utilizzano gli SDK, è possibile scegliere tra una serie di protocolli di rete per comunicare con l’hub IoT. Per ulteriori informazioni, vedere [Informazioni sugli SDK del dispositivo][lnk-device-sdks].
 
-Si potrebbe anche essere interessati ad [Azure IoT Suite][lnk-iot-suite], una raccolta di soluzioni preconfigurate che consentono di iniziare rapidamente e scalare progetti IoT per scenari di IoT comuni, quali il monitoraggio remoto, la gestione degli asset e la manutenzione predittiva.
+Si potrebbe anche essere interessati a [Azure IoT Suite][lnk-iot-suite], che è una raccolta di soluzioni preconfigurate. IoT Suite consente di iniziare rapidamente e scalare progetti IoT per indirizzare scenari di IoT comuni, quali il monitoraggio remoto, la gestione degli asset e la manutenzione predittiva.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
@@ -35,4 +35,4 @@ Si potrebbe anche essere interessati ad [Azure IoT Suite][lnk-iot-suite], una ra
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

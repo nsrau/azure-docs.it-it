@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/17/2015"
    ms.author="sahaj08;barbkess"/>
 
 
@@ -21,7 +21,7 @@
 
 Questa guida offre informazioni pratiche per l'uso di PolyBase in SQL Data Warehouse.
 
-Per iniziare, seguire l'esercitazione relativa al [caricamento dei dati con PolyBase][].
+Per iniziare, seguire l'esercitazione [Caricamento dei dati con PolyBase][].
 
 
 ## Rotazione delle chiavi di archiviazione
@@ -181,7 +181,7 @@ Per ulteriori informazioni sullo spostamento di dati in SQL Data Warehouse, vede
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[caricamento dei dati con PolyBase]: sql-data-warehouse-load-with-polybase.md
+[Caricamento dei dati con PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistiche]: sql-data-warehouse-develop-statistics.md
@@ -210,4 +210,4 @@ Per ulteriori informazioni sullo spostamento di dati in SQL Data Warehouse, vede
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

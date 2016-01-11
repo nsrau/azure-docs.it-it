@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
    		
 	Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset. 
    4. Creare URL che puntano al file manifesto o ai file MP4. 
+   5. Si noti che non è possibile creare un localizzatore di streaming utilizzando un criterio di accesso che include autorizzazioni alla scrittura o all’eliminazione.
 
 
 ###Creare i criteri di accesso
@@ -186,4 +187,8 @@ esempio:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##Vedere anche
+
+[Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

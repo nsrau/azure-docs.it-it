@@ -3,7 +3,7 @@
 	description="Illustra come usare Microsoft Azure Storage Explorer (anteprima) per creare e gestire risorse di archiviazione di Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Gestire le risorsa di archiviazione di Azure con Storage Explorer (anteprima)
 
@@ -182,4 +182,4 @@ Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

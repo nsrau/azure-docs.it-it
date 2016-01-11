@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Uso dell'app per le API di BizTalk X12 e aggiunta all'app per la logica
@@ -33,7 +33,7 @@ Per usare il connettore BizTalk X12, è innanzitutto necessario creare un'istanz
 ## Configurazione del connettore BizTalk X12
 I partner commerciali sono le entità coinvolte nelle comunicazioni B2B. Quando due partner stabiliscono una relazione, questa è definita Contratto. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto.
 
-I passaggi relativi alla creazione di un contratto tra partner commerciali sono documentati in [questo articolo][2].
+Fare riferimento alla procedura per [creare un contratto tra partner commerciali][2].
 
 ## Uso del connettore X12 nell'area di progettazione delle app per la logica
 Il connettore X12 può essere usato come trigger o come azione.
@@ -83,4 +83,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

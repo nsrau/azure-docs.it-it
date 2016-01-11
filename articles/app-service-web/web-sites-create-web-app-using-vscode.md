@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="12/17/2015" 
 	ms.author="erikre"/>
 
 # Creare un'app Web ASP.NET 5 in Visual Studio Code
 
 ## Panoramica
 
-Questa esercitazione illustra come creare un'app Web ASP.NET 5 usando [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode) e come distribuirla nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). ASP.NET 5 è una riprogettazione significativa di ASP.NET. Costituisce un nuovo framework open source e multipiattaforma per la creazione di moderne app Web basate sul cloud tramite .NET. Per altre informazioni, vedere l'articolo di [introduzione ad ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html) Per altre informazioni sulle app Web del servizio app di Azure, vedere [Panoramica delle app Web](app-service-web-overview.md).
+Questa esercitazione illustra come creare un'app Web ASP.NET 5 usando [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode) e come distribuirla nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
+
+> [AZURE.NOTE]Sebbene in questo articolo si faccia riferimento alle app Web, è applicabile anche ad app per le API e app per dispositivi mobili.
+
+ASP.NET 5 è una riprogettazione significativa di ASP.NET. Costituisce un nuovo framework open source e multipiattaforma per la creazione di moderne app Web basate sul cloud tramite .NET. Per altre informazioni, vedere l'articolo di [introduzione ad ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html) Per altre informazioni sulle app Web del servizio app di Azure, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
 [AZURE.INCLUDE [App-Service-Web-try-App-Service.MD](../../includes/app-service-web-try-app-service.md)]
 
@@ -28,7 +32,7 @@ Questa esercitazione illustra come creare un'app Web ASP.NET 5 usando [Visual St
 
 * Installare [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
 * Installare [Node.js](http://nodejs.org): Node.js è una piattaforma per la creazione di applicazioni server veloci e scalabili tramite JavaScript. Node è il runtime (nodo), mentre [npm](http://www.npmjs.com/) è lo strumento di gestione pacchetti per i moduli Node. In questa esercitazione si userà npm per eseguire lo scaffolding di un'app Web ASP.NET 5.
-* Installare Git: è possibile installarlo da una delle seguenti posizioni: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Se non si ha familiarità con Git, scegliere [git-scm.com](http://git-scm.com/downloads) e selezionare l'opzione per **usare Git dal prompt dei comandi di Windows**. Dopo aver installato Git, è necessario impostare il nome utente e l'indirizzo di posta elettronica Git, poiché verrà richiesto più avanti nell'esercitazione (quando si eseguirà un'operazione di commit da Visual Studio Code).  
+* Installare Git: è possibile installarlo da una delle seguenti posizioni: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Se non si ha familiarità con Git, scegliere [git-scm.com](http://git-scm.com/downloads) e selezionare l'opzione **Usare Git dal prompt dei comandi di Windows**. Dopo aver installato Git, è necessario impostare il nome utente e l'indirizzo di posta elettronica Git, poiché verrà richiesto più avanti nell'esercitazione (quando si eseguirà un'operazione di commit da Visual Studio Code).  
 
 ## Installare ASP.NET 5 e DNX
 ASP.NET 5/DNX (l’ambiente di esecuzione .NET) è uno stack .NET snello per la creazione di un cloud moderno e di app Web in esecuzione su OS X, Linux e Windows. È stato completamente riprogettato per fornire un framework di sviluppo ottimizzato per le app che vengono distribuite nel cloud o eseguite in locale. È costituito da componenti modulari con un overhead minimo, in modo da garantire la massima flessibilità durante la creazione di soluzioni.
@@ -107,7 +111,7 @@ Questa sezione illustra come eseguire lo scaffolding di una nuova app Web ASP.NE
 
 Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è ora possibile eseguire l'app Web in locale.
 
-1. In Visual Studio Code immettere quanto segue in **Command Palette** per visualizzare le opzioni di esecuzione dei comandi disponibili.
+1. In Visual Studio Code, immettere quanto segue in **Command Palette** per visualizzare le opzioni di esecuzione dei comandi disponibili.
 
 		dnx: Run Command
 
@@ -119,7 +123,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 	Nella finestra di comando verrà visualizzato l'applicazione è stata avviata. Se nella finestra di comando non compare questo messaggio, verificare che nell'angolo inferiore sinistro della finestra di VSCode non siano presenti errori relativi al progetto.
 	
-	> [AZURE.NOTE]Per eseguire un comando da **Command Palette** è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*.
+	> [AZURE.NOTE]Per eseguire un comando da **Command Palette**, è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*.
 
 2. Aprire un browser e passare all'URL seguente.
 
@@ -129,7 +133,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 	![App Web locale in un browser](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 
-3. Chiudere il browser. Nella **finestra di comando** premere **Ctrl+C** per arrestare l'applicazione e chiudere la **finestra di comando**.
+3. Chiudere il browser. Nella **finestra di comando**, premere **Ctrl+C** per arrestare l'applicazione e chiudere la **finestra di comando**.
 
 ## Creazione di un'app Web nel portale di Azure ##
 
@@ -137,7 +141,7 @@ La procedura seguente consente di creare di un'app Web nel Portale di Azure.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 
-2. Fare clic su **NUOVO** nella parte inferiore sinistra del portale.
+2. Fare clic su **NUOVO** nella parte superiore sinistra del portale.
 
 3. Fare clic su **App Web > App Web**.
 
@@ -181,7 +185,7 @@ Git è un sistema di controllo delle versioni distribuite che è possibile usare
 
 	* Creare un nome utente e una password. La password sarà necessaria più avanti durante la configurazione di Git.
 
-	* Fare clic su **Save**.
+	* Fare clic su **Salva**.
 
 9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in **URL GIT**.
 
@@ -207,7 +211,7 @@ In questa sezione si creerà un repository Git locale e si eseguirà il push dal
 
 	Questo comando evita un problema relativo al testo che concerne le terminazioni CRLF e LF.
 
-4. In Visual Studio Code aggiungere un messaggio per il commit e fare clic sull'icona con il segno di spunta per **Commit All**.
+4. In Visual Studio Code, aggiungere un messaggio per il commit e fare clic sull'icona con il segno di spunta per **Commit All**.
 
 	![Commit All in Git](./media/web-sites-create-web-app-using-vscode/20-git-commit.png)
 
@@ -256,6 +260,6 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ![App Web di Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## Riepilogo
-In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo sui [vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
+In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo [Vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -28,10 +28,6 @@ Questo argomento illustra come eseguire attività comuni, come creare, aggiornar
 
 ## Prerequisiti
 
->[AZURE.IMPORTANT]La prima volta si crea una cache Redis in una sottoscrizione tramite il portale di Azure, il portale registra lo spazio dei nomi `Microsoft.Cache` per la sottoscrizione. Se si prova a creare la prima cache Redis in una sottoscrizione tramite PowerShell, è necessario prima registrare tale spazio dei nomi con il comando seguente. In caso contrario, i cmdlet come `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` non riusciranno.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 Se è già installato PowerShell di Microsoft Azure, è necessario installare Azure PowerShell versione 1.0.0 o versione successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile usare il comando del relativo prompt di Microsoft PowerShell.
 
 	Get-Module azure | format-table version
@@ -48,7 +44,7 @@ Successivamente, se si dispone di più sottoscrizioni di Microsoft Azure, è nec
 
 	Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio seguente il nome della sottoscrizione è `ContosoSubscription`.
+Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio seguente, il nome della sottoscrizione è `ContosoSubscription`.
 
 	Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
@@ -60,7 +56,7 @@ Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire 
 
 	Get-Help <cmdlet-name> -Detailed
 
-Ad esempio, per informazioni sul cmdlet `New-AzureRmRedisCache`, digitare:
+Ad esempio, per informazioni sul cmdlet `New-AzureRmRedisCache` digitare:
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
@@ -79,7 +75,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | RedisConfiguration | Specifica le impostazioni di configurazione di Redis per maxmemory-delta, maxmemory-policy e notify-keyspace-events. Si noti che maxmemory-delta e notify-keyspace-events sono disponibili solo per le cache Standard e Premium. | |
 | EnableNonSslPort | Indica se la porta non SSL è abilitata. | False |
 | MaxMemoryPolicy | Questo parametro è stato deprecato, usare invece RedisConfiguration. | |
-| StaticIP | Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. | |
+| StaticIP | Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. | |
 | Subnet | Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. | |
 | VirtualNetwork | Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa della rete virtuale in cui distribuire la cache. | |
 | KeyType | Specifica la chiave di accesso da rigenerare quando si rinnovano le chiavi di accesso. Valori validi: Primario, Secondario | | | |
@@ -88,6 +84,10 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 ## Creare una Cache Redis
 
 Le nuove istanze della Cache Redis di Azure vengono create con il cmdlet [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+>[AZURE.IMPORTANT]La prima volta chr si crea una cache Redis in una sottoscrizione tramite il portale di Azure, il portale registra lo spazio dei nomi `Microsoft.Cache` per la sottoscrizione. Se si prova a creare la prima cache Redis in una sottoscrizione tramite PowerShell, è necessario prima registrare tale spazio dei nomi con il comando seguente. In caso contrario, i cmdlet come `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` non riusciranno.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 Per visualizzare un elenco di parametri disponibili e le relative descrizioni per `New-AzureRmRedisCache`, eseguire il comando seguente.
 
@@ -242,16 +242,17 @@ Il comando seguente aggiorna maxmemory-policy per la Cache Redis denominata myCa
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Ridimensionare un'istanza della Cache Redis con PowerShell
+<a name="scale"></a>
+## Ridimensionare una Cache Redis
 
-`Set-AzureRmRedisCache` può essere usato per ridimensionare un'istanza della Cache Redis di Azure quando si modifica la proprietà `Size`, `Sku` o `ShardCount`.
+`Set-AzureRmRedisCache` può essere usato per ridimensionare un'istanza della Cache Redis di Azure quando si modificano le proprietà `Size`, `Sku` o `ShardCount`.
 
 >[AZURE.NOTE]Il ridimensionamento dell'istanza di una cache con PowerShell è soggetto agli stessi limiti e alle stesse linee guida per il ridimensionamento da una cache dal portale di Azure. È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
 >
->-	Non è possibile ridimensionare le istanze di una cache **Premium**.
->-	Non è possibile ridimensionare una cache da **Standard** a **Basic**.
->-	È possibile ridimensionare una cache da **Basic** **Standard**, ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
->-	Non è possibile passare da dimensioni maggiori alle dimensioni **C0 (250 MB)**.
+>-	Non è possibile scalare da o verso una cache **Premium**.
+>-	Non è possibile effettuare il ridimensionamento da una cache **Standard** a una cache **Basic**.
+>-	È possibile passare da una cache **Basic** a una cache **Standard** ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
+>-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 >
 >Per altre informazioni, vedere [Come ridimensionare la Cache Redis di Azure](cache-how-to-scale.md).
 
@@ -449,7 +450,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 	
-Per rigenerare la chiave primaria o secondaria per la cache, chiamare il cmdlet `New-AzureRmRedisCacheKey` e passare il nome, il gruppo di risorse e specificare il parametro `Primary` o `Secondary` per il parametro `KeyType`. Nell'esempio seguente viene rigenerata la chiave di accesso secondaria per una cache.
+Per rigenerare la chiave primaria o secondaria per la cache, chiamare il cmdlet `New-AzureRmRedisCacheKey` e passare il nome e il gruppo di risorse, quindi specificare il parametro `Primary` o `Secondary` per il parametro `KeyType`. Nell'esempio seguente viene rigenerata la chiave di accesso secondaria per una cache.
 
 	PS C:\> New-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 	
@@ -568,4 +569,4 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

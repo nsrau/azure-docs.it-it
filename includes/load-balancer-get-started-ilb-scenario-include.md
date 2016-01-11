@@ -6,4 +6,4 @@ Si sta creando un servizio di bilanciamento del carico interno in base allo scen
 
 Un servizio di bilanciamento del carico interno è configurato in una rete virtuale - 2 macchine virtuali denominate DB1 e DB2<BR> - endpoint <BR> - servizio di bilanciamento del carico interno<BR>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (script di Windows PowerShell)"
+   pageTitle="Publish-WebApplicationWebSite (script di Windows PowerShell) | Microsoft Azure"
    description="Informazioni su come pubblicare un progetto Web in un sito Web di Azure. Se non sono presenti, lo script crea le risorse necessarie nella sottoscrizione di Azure."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (script di Windows PowerShell)
@@ -129,4 +129,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 Per ulteriori informazioni, vedere [Publish-WebApplicationVM (script di Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

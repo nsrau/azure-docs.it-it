@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Connettersi al database SQL tramite Node.js in Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 Questo argomento presenta un esempio di codice Node.js che è possibile usare per connettersi al database SQL di Azure. Il programma Node.js viene eseguito su un computer client Windows. Per gestire la connessione viene usato il driver msnodesql.
@@ -41,7 +47,7 @@ Nel computer di sviluppo client devono essere presenti gli elementi software seg
 
 ### Installare i moduli necessari
 
-Una volta soddisfatti i requisiti, assicurarsi che si è nella versione 0.8.9. di Node.js. Per verificarlo, utilizzare il comando seguente dal terminale della riga di comando: node -v. <br>In una finestra della riga di comando **cmd.exe**, passare alla directory del progetto- ad esempio C:\\NodeJSSQLProject. Immettere i comandi seguenti nella sequenza indicata.
+Una volta soddisfatti i requisiti, assicurarsi che si è nella versione 0.8.9. di Node.js. Per verificarlo, utilizzare il comando seguente dal terminale della riga di comando: node -v. <br>In una finestra della riga di comando **cmd.exe**, passare alla directory del progetto, ad esempio C:\\NodeJSSQLProject. Immettere i comandi seguenti nella sequenza indicata.
 
 	npm init
 	npm install msnodesql
@@ -226,6 +232,6 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](/develop/nodejs/).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

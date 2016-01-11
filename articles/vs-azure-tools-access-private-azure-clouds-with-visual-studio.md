@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Accesso ai cloud privati di Azure con Visual Studio"
+   pageTitle="Accesso ai cloud privati di Azure con Visual Studio | Microsoft Azure"
    description="Informazioni su come accedere alle risorse del cloud privato con Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Accesso ai cloud privati di Azure con Visual Studio
@@ -43,4 +43,4 @@ Per impostazione predefinita, Visual Studio supporta gli endpoint REST del cloud
 
 [Procedura: Scaricare e importare le impostazioni di pubblicazione e le informazioni sulla sottoscrizione](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

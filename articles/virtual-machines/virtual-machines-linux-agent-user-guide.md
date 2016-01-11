@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="szark"/>
+	ms.date="12/14/2015" 
+	ms.author="mingzhan"/>
 
 
 
@@ -80,6 +80,7 @@ I seguenti sistemi sono stati testati e funzionano con l'agente Linux di Azure. 
 * openSUSE 12.3+
 * SLES 11 SP2+
 * Oracle Linux 6.4+
+* Red Hat 6.7+
 
 Altri sistemi supportati:
 
@@ -214,7 +215,7 @@ Tipo: Boolean Predefinito: y
 
 Consente all'utente di attivare o disattivare la funzionalità di provisioning nell'agente. I valori validi sono "y" o "n". Se il provisioning è disabilitato, le chiavi utente e host SSH nell'immagine vengono mantenute e qualsiasi configurazione specificata nell'API di provisioning di Azure viene ignorata.
 
-**Nota:** questo parametro viene impostato su "n" nelle immagini Ubuntu Cloud che utilizzano cloud-inizializzazione per il provisioning.
+**Nota:** questo parametro viene impostato su "n" nelle immagini Ubuntu Cloud che utilizzano cloud-init per il provisioning.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -320,4 +321,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

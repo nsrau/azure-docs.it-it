@@ -103,6 +103,8 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 	
 	Questo codice indica all'hub di notifica di inviare una notifica push dopo l'inserimento di un nuovo elemento.
 
+4. Pubblicare di nuovo il progetto server.
+
 ### <a name="nodejs"></a>Progetto di back-end Node.js
 
 1. [Scaricare il progetto di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) (se non ancora scaricato) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
@@ -153,10 +155,6 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
 2. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
 
-## <a name="publish-the-service"></a>Pubblicare il back-end mobile in Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ##<a id="update-service"></a>Aggiungere notifiche push all'app
 
 1. Aprire il file di progetto condiviso **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
@@ -178,7 +176,7 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
     
     Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'app per dispositivi mobili del servizio app.
     
-3. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs** aggiungere il modificatore **async** alla definizione del metodo e quindi aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**, come illustrato di seguito:
+3. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs**, aggiungere il modificatore **async** alla definizione del metodo e quindi aggiungere la seguente chiamata al nuovo metodo **InitNotificationsAsync**, come illustrato di seguito:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -204,8 +202,8 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 ##<a id="more"></a>Altro
 
-* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) illustra come registrare modelli.
-* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) illustra come aggiungere tag all'installazione di un dispositivo.
+* I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare il client gestito per le App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) illustra come registrare modelli.
+* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) illustra come aggiungere tag all’installazione di un dispositivo.
 
 <!-- Anchors. -->
 
@@ -214,4 +212,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

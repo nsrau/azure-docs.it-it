@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Trasferimento di una sottoscrizione di Azure
@@ -71,7 +71,7 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     L'elenco non è completo. Il destinatario dovrà prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio se deve limitare l'accesso alle proprie risorse. La maggior parte delle risorse può essere aggiornata come segue:
 
-    1.   Accedere al portale di Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Accedere al portale di Azure: [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Fare clic su Esplora tutto -&gt; Tutte le risorse
 
@@ -98,17 +98,17 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
 -   **Il destinatario può usare un meccanismo di pagamento diverso?**
 
-    Sì. In effetti è possibile usare questo meccanismo per modificare il metodo di pagamento della sottoscrizione da fattura a carta di credito. È sufficiente effettuare il trasferimento a un altro account di cui si è proprietari e immettere la carta di credito mentre si riceve la sottoscrizione. In questo caso esistono limitazioni, nel senso che la cronologia di fatturazione della sottoscrizione viene suddivisa tra i due account, ma si ha il vantaggio di poter eseguire questa operazione senza dover [contattare il Supporto tecnico](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Sì. In questo caso esistono limitazioni, nel senso che la cronologia di fatturazione della sottoscrizione viene suddivisa tra i due account, ma si ha il vantaggio di poter eseguire questa operazione senza dover [contattare il Supporto tecnico](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 ## Passaggi successivi dopo aver accettato la proprietà di una sottoscrizione
 
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkID=533293)
 2. Inoltre, è possibile utilizzare il controllo di accesso basato sui ruoli (RBAC) per la sottoscrizione e i servizi. Visitare il [portale di Azure](https://portal.azure.com) [Ulteriori informazioni su RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Aggiornare le credenziali associate ai servizi della sottoscrizione. Sono state illustrate le seguenti operazioni:
-    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -   Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
     -	Chiavi di accesso per servizi quali Archiviazione. Per ulteriori informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso all’archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Le credenziali di accesso remote per servizi quali macchine virtuali di Azure
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

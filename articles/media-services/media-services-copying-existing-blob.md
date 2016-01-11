@@ -227,6 +227,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 		            Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).First();
 		
 		        // Create a 30-day readonly access policy. 
+            // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		        IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		            TimeSpan.FromDays(30),
 		            AccessPermissions.Read);
@@ -315,4 +316,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

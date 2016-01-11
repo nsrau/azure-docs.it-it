@@ -1,4 +1,11 @@
-<properties pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure " description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
+<properties
+	pageTitle="Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)? | Microsoft Azure"
+	description="Viene descritto cosa succede al progetto WebApi quando ci si connette ad Azure AD mediante Visual Studio"
+  services="active-directory"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)?
@@ -109,4 +116,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

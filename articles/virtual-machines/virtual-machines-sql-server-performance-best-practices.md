@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth" />
 
-# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.
+# Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
 
 ## Panoramica
 
@@ -71,11 +71,13 @@ L'unità di archiviazione temporanea, etichettata come unità **D**:, non è per
 
 Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** quando si usano macchine virtuali serie D o G. Diversamente da altre serie di macchine virtuali, l'unità **D** nelle macchine virtuali serie D e G è basata su SSD. Ciò può migliorare le prestazioni dei carichi di lavoro che usano pesantemente oggetti temporanei o che hanno set di lavoro che non rientrano nella memoria. Per altre informazioni, vedere [Uso di SSD in Macchine virtuali di Azure per archiviare estensioni del pool di buffer e TempDB di SQL Server](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
+Per le macchine virtuali che supportano Archiviazione Premium, è consigliabile archiviare TempDB su un disco che supporta Archiviazione Premium con lettura cache abilitata.
+
 ### Disco dati
 
-- **Numero di dischi dati per file di dati e di log**: come minimo, usare 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage), dove un disco contiene i file di log e l'altro contiene i file di dati e TempDB. Per aumentare la velocità effettiva, è possibile richiedere dischi dati aggiuntivi. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di macchina virtuale](virtual-machines-size-specs.md) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../storage/storage-premium-storage-preview-portal.md). Se è necessaria una maggiore larghezza di banda, è possibile associare dischi aggiuntivi usando lo striping del disco. Se non si usa l'archiviazione Premium, è consigliabile aggiungere il numero massimo di dischi dati supportati dalle [dimensioni della macchina virtuale](virtual-machines-size-specs.md) e usare lo striping del disco. Per altre informazioni sullo striping del disco, vedere la relativa sezione riportata di seguito.
+- **Numero di dischi dati per file di dati e di log**: come minimo, usare 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage), dove un disco contiene i file di log e l'altro contiene i file di dati e TempDB. Per aumentare la velocità effettiva, è possibile richiedere dischi dati aggiuntivi. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di VM](virtual-machines-size-specs.md) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../storage/storage-premium-storage-preview-portal.md). Se è necessaria una maggiore larghezza di banda, è possibile associare dischi aggiuntivi usando lo striping del disco. Se non si usa l'archiviazione Premium, è consigliabile aggiungere il numero massimo di dischi dati supportati dalle [dimensioni della VM](virtual-machines-size-specs.md) e usare lo striping del disco. Per altre informazioni sullo striping del disco, vedere la relativa sezione riportata di seguito.
 
-- **Criteri di memorizzazione nella cache**: abilitare la lettura della cache per i dischi dati che ospitano solo file di dati e TempDB. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati. Per istruzioni sulla configurazione della memorizzazione nella cache su disco, vedere gli argomenti seguenti: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+- **Criteri di caching**: abilitare la lettura del caching per i dischi dati che ospitano solo file di dati e TempDB. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati. Per istruzioni sulla configurazione del caching su disco, vedere gli argomenti seguenti: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
 - **Dimensioni unità di allocazione NTFS**: quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché per TempDB.
 
@@ -103,23 +105,13 @@ Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** qu
 
 - Se si esegue SQL Server 2012, installare l'aggiornamento cumulativo 10 del Service Pack 1. Questo aggiornamento contiene la correzione per le prestazioni ridotte delle operazioni I/O quando si esegue select nell'istruzione di una tabella temporanea in SQL Server 2012. Per altre informazioni, vedere questo [articolo della Knowledge Base](http://support.microsoft.com/kb/2958012).
 
-- Spostare i database di sistema (ad esempio msdb e TempDB), i backup e le directory predefinite per dati e log di SQL Server su dischi dati senza memorizzazione nella cache per migliorare le prestazioni. Quindi, eseguire le azioni seguenti:
-
-	- Modificare i percorsi di file per XEvent e Trace.
-	
-	- Modificare il percorso dei log degli errori di SQL.
-	
-	- Modificare il percorso di backup predefinito.
-	
-	- Modificare il percorso predefinito del database.
-
 - Stabilire pagine bloccate per ridurre le operazioni di I/O e qualsiasi attività di paging.
 
 ## Considerazioni sulle prestazioni specifiche di funzionalità
 
 Alcune distribuzioni possono ottenere ulteriori miglioramenti delle prestazioni usando tecniche di configurazione più avanzate. Nell'elenco seguente vengono evidenziate alcune funzionalità di SQL Server che consentono di ottenere prestazioni migliori:
 
-- **Backup nell'archiviazione di Azure**: quando si eseguono backup per SQL Server in esecuzione in macchine virtuali di Azure, è possibile usare [Backup di SQL Server nell'URL](https://msdn.microsoft.com/library/dn435916.aspx). Questa funzionalità è disponibile a partire da SQL Server 2012 SP1 CU2 ed è consigliata per il backup su dischi dati associati. Quando si esegue il backup o il ripristino da e verso l'archiviazione di Azure, seguire le indicazioni offerte in [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL e Ripristino da backup archiviati nell'archiviazione di Azure](https://msdn.microsoft.com/library/jj919149.aspx). È anche possibile automatizzare i backup usando [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-automated-backup.md).
+- **Backup nell'archiviazione di Azure**: quando si eseguono backup per SQL Server in esecuzione in macchine virtuali di Azure, è possibile usare [Backup di SQL Server nell'URL](https://msdn.microsoft.com/library/dn435916.aspx). Questa funzionalità è disponibile a partire da SQL Server 2012 SP1 CU2 ed è consigliata per il backup su dischi dati associati. Quando si esegue il backup o il ripristino da e verso l'archiviazione di Azure, seguire le indicazioni fornite in [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL e Ripristino da backup archiviati nell'archiviazione di Azure](https://msdn.microsoft.com/library/jj919149.aspx). È anche possibile automatizzare i backup usando [Backup automatizzato per SQL Server in macchine virtuali di Azure](virtual-machines-sql-server-automated-backup.md).
 
 	Prima di SQL Server 2012, usare lo [strumento di backup di SQL Server in Azure](https://www.microsoft.com/download/details.aspx?id=40740). Questo strumento consente di aumentare la velocità effettiva di backup usando più destinazioni di backup in striping.
 
@@ -133,4 +125,7 @@ Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni rel
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=Oct15_HO1-->
+<!---Line 20 Unrec Char-->
+
+<!---HONumber=AcomDC_1223_2015-->

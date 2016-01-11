@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/18/2015"
    ms.author="masashin"/>
 
 # Informazioni aggiuntive sulla memorizzazione nella cache
@@ -94,7 +94,7 @@ Nella maggior parte dei casi, i dati conservati in una cache sono una copia dei 
 
 Quando i dati memorizzati nella cache scadono, vengono rimossi dalla cache e l'applicazione deve recuperare i dati dall'archivio dati originale (potrebbe riporre le informazioni appena recuperate nella cache). Successivamente, sarà possibile impostare un criterio di scadenza predefinito durante la configurazione della cache. In molti servizi cache è possibile inoltre impostare il periodo di scadenza di singoli oggetti quando si archiviano a livello di codice nella cache (alcune cache consentono di specificare il periodo di scadenza come un valore assoluto o come un valore scorrevole che comporta la rimozione dell'elemento dalla cache si non si accede a esso entro il periodo di tempo prestabilito). Questa impostazione esegue l'override di qualsiasi criterio di scadenza relativo alla cache, ma solo per gli oggetti specificati.
 
-> [AZURE.NOTE]Si consideri attentamente il periodo di scadenza della cache e degli oggetti in essa contenuti. Se si imposta un periodo troppo ridotto, gli oggetti scadranno troppo rapidamente e si ridurranno i vantaggi dell'uso della cache. Se si imposta il periodo in modo troppo esteso, si rischi l'obsolescenza dei dati.
+> [AZURE.NOTE] Si consideri attentamente il periodo di scadenza della cache e degli oggetti in essa contenuti. Se si imposta un periodo troppo ridotto, gli oggetti scadranno troppo rapidamente e si ridurranno i vantaggi dell'uso della cache. Se si imposta il periodo in modo troppo esteso, si rischi l'obsolescenza dei dati.
 
 È inoltre possibile che la cache si riempia se ai dati è consentita una permanenza prolungata. In tal caso, qualsiasi richiesta di aggiungere nuovi elementi alla cache potrebbe comportare la rimozione forzata di alcuni elementi in un processo noto come rimozione. I servizi cache tipicamente rimuovono i dati usati meno di recente, ma è solitamente possibile eseguire l'override di questo criterio e impedire la rimozione di elementi. Tuttavia, se si adotta questo approccio si rischia che la memoria cache superi la memoria disponibile e un'applicazione che prova ad aggiungere un elemento alla cache non completerà l'operazione con un'eccezione.
 
@@ -138,7 +138,7 @@ Molte operazioni di lettura e di scrittura probabilmente coinvolgeranno probabil
 
 Il modello cache-aside dipende dall'istanza dell'applicazione di popolamento della cache che può accedere alla versione più recente e coerente dei dati. In un sistema che implementa la coerenza finale (ad esempio, un archivio di dati replicati), ciò potrebbe non verificarsi. Un'istanza di un'applicazione può modificare un elemento di dati e invalidare la versione memorizzata nella cache dell'elemento. Un'altra istanza dell'applicazione potrebbe tentare di leggere l'elemento dalla cache provocando un mancato riscontro nella cache, in modo da leggere i dati dall'archivio dati e aggiungerli alla cache. Tuttavia, se l'archivio dati non è stato completamente sincronizzato con le altre repliche, l'istanza dell'applicazione può leggere e popolare la cache con il valore precedente.
 
-Per ulteriori informazioni sulla gestione di coerenza dei dati, vedere la pagina di Data Consistency Guidance sul sito Web di Microsoft.
+Per ulteriori informazioni sulla gestione di coerenza dei dati, vedere la pagina di [Data Consistency Primer](http://msdn.microsoft.com/library/dn589800.aspx) sul sito Web di Microsoft.
 
 ### Protezione dei dati memorizzati nella cache
 
@@ -162,9 +162,11 @@ Redis è una soluzione di memorizzazione nella cache ad alte prestazioni che for
 
 La cache Redis di Azure è compatibile con molte delle varie API usate dalle applicazioni client. Se si dispone di applicazioni che usano già Redis in esecuzione in locale, la cache Redis di Azure fornisce un percorso di migrazione rapido per la memorizzazione nella cache nel cloud.
 
-> [AZURE.NOTE]Azure offre inoltre il servizio cache gestita. Questo servizio si basa sul motore di cache di AppFabric Microsoft. Consente di creare una cache distribuita che può essere condivisa da applicazioni collegate in modo flessibile. La cache è ospitata su server ad alte prestazioni in esecuzione in un data center di Azure. Tuttavia, questa opzione non è più consigliata e viene fornita solo per supportare le applicazioni esistenti che sono stata realizzate per usarla. Per tutte le nuove applicazioni sviluppate, usare invece la cache Redis di Azure.
+> [AZURE.NOTE] Azure offre inoltre il servizio cache gestita. Questo servizio si basa sul motore di cache di AppFabric Microsoft. Consente di creare una cache distribuita che può essere condivisa da applicazioni collegate in modo flessibile. La cache è ospitata su server ad alte prestazioni in esecuzione in un data center di Azure. Tuttavia, questa opzione non è più consigliata e viene fornita solo per supportare le applicazioni esistenti che sono stata realizzate per usarla. Per tutte le nuove applicazioni sviluppate, usare invece la cache Redis di Azure.
 >
-> Inoltre, Azure supporta la memorizzazione nella cache nel ruolo. Questa funzionalità consente di creare una cache specifica per un servizio cloud. La cache ospitata da istanze di un ruolo Web o di lavoro e accessibile solo dai ruoli funziona come parte della stessa unità di distribuzione servizio cloud (un'unità di distribuzione è il set di istanze del ruolo distribuito come servizio cloud in un'area specifica). La cache è di tipo cluster e tutte le istanze del ruolo all'interno della stessa unità di distribuzione che ospitano la cache entrano a far parte dello stesso cluster di cache. Le applicazioni esistenti che usano la memorizzazione nella cache nel ruolo possono continuare a farlo, ma la migrazione alla cache Redis di Azure può offrire ulteriori vantaggi. Per ulteriori informazioni sull'uso della cache Redis di Azure o di una cache nel ruolo, visitare la pagina [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?](http://msdn.microsoft.com/library/azure/dn766201.aspx) sul sito Web di Microsoft.
+> Inoltre, Azure supporta la memorizzazione nella cache nel ruolo. Questa funzionalità consente di creare una cache specifica per un servizio cloud. La cache ospitata da istanze di un ruolo Web o di lavoro e accessibile solo dai ruoli funziona come parte della stessa unità di distribuzione servizio cloud (un'unità di distribuzione è il set di istanze del ruolo distribuito come servizio cloud in un'area specifica). La cache è di tipo cluster e tutte le istanze del ruolo all'interno della stessa unità di distribuzione che ospita la cache entrano a far parte dello stesso cluster di cache. Tuttavia, questa opzione non è più consigliata e viene fornita solo per supportare le applicazioni esistenti che sono stata realizzate per usarla. Per tutte le nuove applicazioni sviluppate, usare invece la cache Redis di Azure.
+>
+> Sia il Servizio cache gestita di Azure che la Cache nel ruolo di Azure sono attualmente destinati al ritiro in giorno 16 novembre 2016. Si consiglia di eseguire la migrazione a Cache Redis di Azure in preparazione a tale ritiro. Per ulteriori informazioni, visitare la pagina [Quale offerta e dimensione di Cache Redis è consigliabile usare?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) nel sito Web di Microsoft.
 
 
 ### Funzionalità di Redis
@@ -175,7 +177,7 @@ Redis è molto di più di un server di cache semplice. Fornisce un database in m
 
 Redis supporta la lettura e le operazioni di scrittura. A differenza di molte cache (che devono essere considerate come archivi dati transitori), le operazioni di scrittura possono essere protette da un errore di sistema mediante memorizzazione periodica in un file di snapshot locale o in un file di log di solo accodamento. Tutte le operazioni di scrittura sono asincrone e non impediscono ai client di leggere e scrivere dati. Quando viene avviata l'esecuzione di Redis, verranno letti i dati dal file di snapshot o di log e verranno usati per costruire la cache in memoria. Per ulteriori informazioni, vedere la sezione relativa alla [persistenza di Redis](http://redis.io/topics/persistence) sul relativo sito Web.
 
-> [AZURE.NOTE]Redis non garantisce che tutte le scritture verranno salvate in caso di errore, ma nel peggiore dei casi verranno persi solo il corrispettivo dei dati corrispondenti ad alcuni secondi. Tenere presente che una cache non è destinata a fungere da origine dati autorevole e spetta alle applicazioni che usano la cache garantire che i dati critici vengano salvati correttamente in un archivio dati appropriato. Per ulteriori informazioni, vedere il modello cache-aside.
+> [AZURE.NOTE] Redis non garantisce che tutte le scritture verranno salvate in caso di errore, ma nel peggiore dei casi verranno persi solo il corrispettivo dei dati corrispondenti ad alcuni secondi. Tenere presente che una cache non è destinata a fungere da origine dati autorevole e spetta alle applicazioni che usano la cache garantire che i dati critici vengano salvati correttamente in un archivio dati appropriato. Per ulteriori informazioni, vedere il modello cache-aside.
 
 #### Tipi di dati Redis
 
@@ -186,8 +188,6 @@ Redis è un archivio chiave-valore, dove i valori possono contenere tipi semplic
 Redis supporta la replica primaria o secondaria per garantire la disponibilità e gestire la velocità effettiva; le operazioni di scrittura per un nodo master di Redis vengono replicate su uno o più nodi subordinati e le operazioni di lettura possono essere fornite dal nodo master o tutti i nodi secondari. In caso di una partizione di rete, le forme subordinate possono continuare a fornire i dati e in modo trasparente risincronizzarsi con il nodo master quando viene ristabilita la connessione. Per ulteriori informazioni, visitare la pagina relativa alla [replica](http://redis.io/topics/replication) sul sito Web di Redis.
 
 Redis fornisce inoltre il clustering, consentendo di partizionare i dati in partizioni tra server e distribuire il carico in modo trasparente. Questa funzionalità migliora la scalabilità poiché è possibile aggiungere nuovi server Redis e ripartizionare i dati con l'incremento della dimensione della cache. Inoltre, ogni server del cluster può essere replicato usando la replica primaria o secondaria per garantire la disponibilità in ogni nodo del cluster. Per ulteriori informazioni sul servizio cluster e sul partizionamento orizzontale, visitare la [pagina relativa all'esercitazione del cluster Redis](http://redis.io/topics/cluster-tutorial) sul relativo sito Web.
-
-> [AZURE.NOTE]La cache Redis di Azure non supporta attualmente il clustering. Se si desidera creare un cluster di Redis, è possibile creare un server Redis personalizzato. Per ulteriori informazioni, vedere la sezione relativa alla creazione di una cache Redis personalizzata più avanti in questo documento.
 
 ### uso della memoria di Redis
 
@@ -211,7 +211,7 @@ Redis non supporta direttamente alcuna forma di crittografia dei dati, in modo c
 
 Per ulteriori informazioni, visitare la pagina relativa alla [protezione Redis](http://redis.io/topics/security) sul relativo sito Web.
 
-> [AZURE.NOTE]La cache Redis di Azure fornisce il proprio livello di protezione attraverso il quale i client si connettono; i server Redis sottostanti non sono esposti alla rete pubblica.
+> [AZURE.NOTE] La cache Redis di Azure fornisce il proprio livello di protezione attraverso il quale i client si connettono; i server Redis sottostanti non sono esposti alla rete pubblica.
 
 ### Come usare la cache Redis di Azure
 
@@ -225,8 +225,6 @@ Il portale di gestione di Azure include una visualizzazione grafica pratica che 
 
 È inoltre possibile monitorare la CPU, la memoria e l'uso della rete per la cache.
 
-> [AZURE.NOTE]La cache Redis di Azure è destinata a fungere esclusivamente da cache piuttosto che da database. Di conseguenza, attualmente non viene implementata la persistenza Redis.
-
 Per ulteriori informazioni ed esempi che illustrano come creare e configurare una cache Redis di Azure, visitare la pagina relativa all'[Introduzione alla Cache Redis di Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
 
 ## Memorizzazione nella cache dello stato della sessione e dell'output HTML
@@ -239,11 +237,11 @@ L'uso del provider di stato della sessione cache Redis di Azure offre diversi va
 - Supporta l'accesso controllato e simultaneo agli stessi dati di stato sessione per più lettori e un unico scrittore e
 - Consente di usare la compressione per risparmiare memoria e migliorare le prestazioni della rete.
 
-Per ulteriori informazioni visitare la pagina [Provider di stato della sessione ASP.NET per Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn690522.aspx) del sito Web di Microsoft.
+Per ulteriori informazioni visitare la pagina [Provider di stato della sessione ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-session-state-provider.md) del sito Web di Microsoft.
 
-> [AZURE.NOTE]Non usare il Provider di stato sessione per Cache Redis di Azure per le applicazioni ASP.NET eseguite all'esterno dell'ambiente Azure. La latenza di accesso alla cache dall'esterno di Azure consente di eliminare le prestazioni di memorizzazione nella cache di dati.
+> [AZURE.NOTE] Non usare il Provider di stato sessione per Cache Redis di Azure per le applicazioni ASP.NET eseguite all'esterno dell'ambiente Azure. La latenza di accesso alla cache dall'esterno di Azure consente di eliminare le prestazioni di memorizzazione nella cache di dati.
 
-Analogamente, il Provider di Cache di Output per Cache Redis di Azure consente di salvare le risposte HTTP generate da un'applicazione Web ASP.NET. L'uso del Provider di Cache di Output con Cache Redis di Azure può migliorare i tempi di risposta delle applicazioni che eseguono il rendering di output HTML complesso. Le istanze dell'applicazione che semplificano la generazione di risposte simili usano dei frammenti condivisi di output nella cache anziché generare il modello dell'output HTML. Per ulteriori informazioni visitare la pagina [Provider di cache di output ASP.NET per Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn798898.aspx) sul sito Web di Microsoft.
+Analogamente, il Provider di Cache di Output per Cache Redis di Azure consente di salvare le risposte HTTP generate da un'applicazione Web ASP.NET. L'uso del Provider di Cache di Output con Cache Redis di Azure può migliorare i tempi di risposta delle applicazioni che eseguono il rendering di output HTML complesso. Le istanze dell'applicazione che semplificano la generazione di risposte simili usano dei frammenti condivisi di output nella cache anziché generare il modello dell'output HTML. Per ulteriori informazioni visitare la pagina [Provider di cache di output ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-output-cache-provider.md) sul sito Web di Microsoft.
 
 ## Creazione di una Cache Redis personalizzata
 
@@ -265,8 +263,6 @@ Per una cache, la forma più comune di partizionamento è il partizionamento ori
 Per implementare il partizionamento in una cache Redis, è possibile adottare uno degli approcci seguenti:
 
 - _Routing di query lato server._ Con questa tecnica, un'applicazione client invia una richiesta a un qualsiasi server Redis che costituisca la cache (probabilmente il server più vicino). Ogni server Redis archivia i metadati che descrivono la partizione contenuta e contiene inoltre informazioni sulle partizioni che si trovano su altri server. Il server Redis esamina la richiesta del client e se può risolverla in locale eseguirà l'operazione richiesta, in caso contrario inoltrerà la richiesta al server appropriato. Questo modello viene implementato dal clustering Redis e viene descritto più dettagliatamente nell'[esercitazione relativa al cluster Redis](http://redis.io/topics/cluster-tutorial) sulla relativa pagina Web. Il clustering di Redis è trasparente alle applicazioni client e gli ulteriori server Redis possono essere aggiunti al cluster (e i dati partizionati nuovamente) senza dover riconfigurare i client.
-
-  >[AZURE.IMPORTANT]La Cache Redis di Azure non supporta attualmente il clustering. Se si desidera implementare questo approccio è necessario compilare una cache Redis personalizzata come descritto in precedenza.
 
 - _Partizionamento lato client._ In questo modello, l'applicazione client contiene la logica (possibilmente in forma di una libreria) le richieste vengono indirizzate al server Redis appropriato. Questo approccio può essere usato con la Cache Redis di Azure. È possibile creare più Cache Redis di Azure (una per ogni partizione di dati) e implementare la logica lato client che effettua il routing delle richieste verso la cache corretta. Se lo schema di partizionamento viene modificato (se ulteriori Cache Redis di Azure vengono create, ad esempio), potrebbe essere necessario riconfigurare le applicazioni client.
 
@@ -416,7 +412,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-La pagina relativa allo [sviluppo per Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn690520.aspx) sul sito Web di Microsoft fornisce ulteriori informazioni su come scrivere le applicazioni client che possono usare la Cache Redis di Azure. Informazioni aggiuntive sono disponibili sulla [pagina relativa all'uso di base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sul sito Web di Stackexchange e la pagina [Ppipeline e Multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) sullo stesso sito Web stesso fornisce ulteriori informazioni sulle operazioni asincrone e sul pipelining con Redis e la libreria StackExchange. Nella sezione Casi di uso per la memorizzazione nella cache Redis più avanti in questa guida vengono forniti esempi di alcune delle tecniche più avanzate che è possibile applicare ai dati contenuti in una cache Redis.
+La pagina relativa alla [documentazione della Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft fornisce ulteriori informazioni su come scrivere le applicazioni client che possono usare la Cache Redis di Azure. Informazioni aggiuntive sono disponibili sulla [pagina relativa all'uso di base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sul sito Web di Stackexchange e la pagina [Ppipeline e Multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) sullo stesso sito Web stesso fornisce ulteriori informazioni sulle operazioni asincrone e sul pipelining con Redis e la libreria StackExchange. Nella sezione Casi di uso per la memorizzazione nella cache Redis più avanti in questa guida vengono forniti esempi di alcune delle tecniche più avanzate che è possibile applicare ai dati contenuti in una cache Redis.
 
 ## Casi di uso per la memorizzazione nella cache Redis
 
@@ -432,9 +428,20 @@ Redis supporta una serie di operazioni di lettura e scrittura atomiche su valori
 
 - `INCR`, `INCRBY`, `DECR`, e `DECRBY` che eseguono operazioni di incremento e decremento atomiche su valori di dati numerici integer. La libreria StackExchange fornisce versioni di overload dei metodi `IDatabase.StringIncrementAsync` e `IDatabase.StringDecrementAsync` per eseguire queste operazioni e restituiscono il valore risultante memorizzato nella cache. Il frammento di codice riportato di seguito illustra come usare i metodi seguenti:
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... await cache.StringSetAsync("data:counter", 99); ... long oldValue = await cache.StringIncrementAsync("data:counter"); // Increment by 1 (the default) // oldValue should be 100
+  ```csharp
+  ConnectionMultiplexer redisHostConnection = ...;
+  IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  await cache.StringSetAsync("data:counter", 99);
+  ...
+  long oldValue = await cache.StringIncrementAsync("data:counter");
+  // Increment by 1 (the default)
+  // oldValue should be 100
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50); // Decrement by 50 // newValue should be 50 ```
+  long newValue = await cache.StringDecrementAsync("data:counter", 50);
+  // Decrement by 50
+  // newValue should be 50
+  ```
 
 - `GETSET` che recupera il valore associato a una singola chiave e lo modifica in un nuovo valore. La libreria StackExchange rende disponibile questa operazione tramite il metodo `IDatabase.StringGetSetAsync`. Nel frammento di codice seguente viene illustrato un esempio di questo metodo. Questo codice restituisce il valore corrente associato alla chiave "data:counter" dell'esempio precedente e reimposta il valore di questa chiave su zero, il tutto nell'ambito della stessa operazione:
 
@@ -447,9 +454,28 @@ Redis supporta una serie di operazioni di lettura e scrittura atomiche su valori
 
 - I metodi `MGET` e `MSET`, che possono restituire o modificare un set di valori stringa come un'unica operazione. I metodi `IDatabase.StringGetAsync` e `IDatabase.StringSetAsync` di sovraccarico per supportare questa funzionalità, come illustrato nell'esempio seguente:
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... // Create a list of key/value pairs var keysAndValues = new List<KeyValuePair<RedisKey  RedisValue>>() { new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3") };
+  ```csharp
+  ConnectionMultiplexer redisHostConnection = ...;
+  IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  // Create a list of key/value pairs
+  var keysAndValues =
+      new List<KeyValuePair<RedisKey, RedisValue>>()
+      {
+          new KeyValuePair<RedisKey, RedisValue>("data:key1", "value1"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
+      };
 
-  // Store the list of key/value pairs in the cache cache.StringSet(keysAndValues.ToArray()); ... // Find all values that match a list of keys RedisKey keys = { "data:key1", "data:key99", "data:key322"}; RedisValue values = null; values = cache.StringGet(keys); // values should contain { "value1", "value2", "value3" } ```
+  // Store the list of key/value pairs in the cache
+  cache.StringSet(keysAndValues.ToArray());
+  ...
+  // Find all values that match a list of keys
+  RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
+  RedisValue[] values = null;
+  values = cache.StringGet(keys);
+  // values should contain { "value1", "value2", "value3" }
+  ```
 
 È possibile inoltre combinare più operazioni in una singola transazione Redis in base a quanto descritto nella sezione Transazioni e batch Redis in questa guida. La libreria StackExchange fornisce supporto per le transazioni attraverso l'interfaccia `ITransaction`. È possibile creare un oggetto ITransaction usando il metodo IDatabase.CreateTransaction e richiamare i comandi per la transazione usando i metodi forniti dall'oggetto `ITransaction`. L'interfaccia `ITransaction` fornisce l'accesso a una serie di metodi come l'interfaccia`IDatabase`, ad eccezione del fatto che tutti i metodi sono asincroni, verranno eseguite quando viene richiamato il metodo `ITransaction.Execute`. Il valore restituito dal metodo execute indica se la transazione è stata creata correttamente (true) o non correttamente (false).
 
@@ -683,7 +709,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
 }
 ```
 
-> [AZURE.NOTE]La libreria StackExchange fornisce inoltre il metodo IDatabase.SortedSetRangeByRankAsync che restituisce i dati in ordine di punteggio, ma non restituisce i punteggi.
+> [AZURE.NOTE] La libreria StackExchange fornisce inoltre il metodo IDatabase.SortedSetRangeByRankAsync che restituisce i dati in ordine di punteggio, ma non restituisce i punteggi.
 
 È inoltre possibile recuperare gli elementi in ordine decrescente di punteggi e limitare il numero di elementi restituiti fornendo parametri aggiuntivi per il metodo IDatabase.SortedSetRangeByRankWithScoresAsync. L'esempio seguente consente di visualizzare i titoli e i punteggi dei primi 10 post di blog pertinenti:
 
@@ -754,11 +780,11 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - [Modello cache-Aside](http://msdn.microsoft.com/library/dn589799.aspx): questo modello descrive come caricare i dati su richiesta in una cache da un archivio dati. Questo modello consente inoltre di mantenere la coerenza tra i dati memorizzati nella cache e i dati nell'archivio dati originale.
 - Il [modello di partizionamento orizzontale](http://msdn.microsoft.com/library/dn589797.aspx) fornisce informazioni sull'implementazione del partizionamento orizzontale per migliorare la scalabilità per l'archiviazione e l'accesso a grandi volumi di dati.
 
-## Ulteriori informazioni
+## Altre informazioni
 
 - Pagina [Classe MemoryCache](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) sul sito Web di Microsoft.
-- Pagina [Microsoft Azure Cache](http://msdn.microsoft.com/library/windowsazure/gg278356.aspx) sul sito Web di Microsoft.
-- Pagina [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?](http://msdn.microsoft.com/library/azure/dn766201.aspx) sul sito Web di Microsoft.
+- Pagina [Documentazione della Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft.
+- Pagina [FAQ sulla Cache Redis di Azure](redis-cache/cache-faq.md) sul sito Web di Microsoft.
 - Pagina [Modello di configurazione](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) sul sito Web di Microsoft.
 - Pagina [Modello asincrono basato su attività](http://msdn.microsoft.com/library/hh873175.aspx) sul sito Web di Microsoft.
 - Pagina [Pipeline e Multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) nell'archivio GitHub Stackexchange.
@@ -769,14 +795,13 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - Pagina [Uso di Redis come cache LRU](http://redis.io/topics/lru-cache) sul sito Web di Redis.
 - Pagina [Transazioni](http://redis.io/topics/transactions) sul sito Web di Redis.
 - Pagina [Sicurezza Redis](http://redis.io/topics/security) sul sito Web di Redis.
-- Pagina [Introduzione alle Cache Redis di Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
+- Pagina [Introduzione alla Cache Redis di Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
 - Pagina [Esecuzione Redis in una macchina virtuale Linux CentOS](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) in Azure sul sito Web di Microsoft.
-- Pagina [Provider di stato della sessione ASP.NET per Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn690522.aspx) sul sito Web di Microsoft.
-- Pagina [Provider di cache di output ASP.NET per Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn798898.aspx) sul sito Web di Microsoft.
-- Pagina [Sviluppo per la Cache Redis di Azure](http://msdn.microsoft.com/library/azure/dn690520.aspx) sul sito di Azure.
-- Pagina [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) sul sito Web di Redis.
+- Pagina [Provider di stato della sessione ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-session-state-provider.md) sul sito Web di Microsoft.
+- Pagina [Provider di cache di output ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-output-cache-provider.md) sul sito Web di Microsoft.
+- Pagina [Introduzione sui tipi e sulle astrazioni dei dati Redis](http://redis.io/topics/data-types-intro) sul sito Web di Redis.
 - Pagina [Uso di base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sul sito Web Stackexchange.Redis.
 - Pagina [Transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nell'archivio Stackexchange.Redis.
 - [Guida partizionamento dati](http://msdn.microsoft.com/library/dn589795.aspx) sul sito Web di Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

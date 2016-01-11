@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -91,6 +91,20 @@ Dopo aver creato la VM è possibile eseguire l'accesso tramite desktop remoto co
 
 Una volta creata la VM ed effettuato il provisioning, si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Sono disponibili riquadri con le icone del desktop e i menu di avvio per molti strumenti.
 
+## Come creare una password complessa per la macchina virtuale di Data Science
+
+Eseguire il seguente comando dal prompt dei comandi nella macchina virtuale di Data Science per creare la password complessa per la macchina.
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+Immettere la password quando viene richiesto.
+
+Verrà visualizzato l'hash della password nel formato "sha1:xxxxxx" nell'output. Copiare questo hash della password e sostituire l’hash esistente nel file di configurazione del notebook disponibile al percorso: **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py** con un nome di parametro ***c.NotebookApp.password***.
+
+È necessario sostituire solo il valore dell’hash esistente all'interno delle virgolette. Le virgolette e il prefisso ***sha1:*** per il valore del parametro devono essere conservati.
+
+Infine, è necessario arrestare e riavviare il server di Ipython che è in esecuzione nella macchina virtuale come un'attività pianificata di windows denominata "Start\_IPython\_Notebook". Se la nuova password non viene accettata dopo il riavvio di questa attività, provare a riavviare la macchina virtuale.
+
 ## Strumenti installati nella macchina virtuale per l'analisi scientifica dei dati di Microsoft
 
 ### R
@@ -100,18 +114,18 @@ Se si vuole usare R per l'analisi, nella VM è installato Revolution R Open (RRO
 Per lo sviluppo tramite Python, è installata distribuzione Anaconda Python 2.7. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati. È possibile usare Python Tools per Visual Studio (PTVS), installato con Visual Studio 2015 Community Edition, o uno degli ambienti IDE inclusi in Anaconda, ad esempio IDLE o Spyder. È possibile avviare uno di questi IDE eseguendo una ricerca sulla barra di ricerca (**Win**+**S**).
 
 ### IPython Notebook
-La distribuzione Anaconda include anche IPython Notebook, un ambiente per condividere il codice e le analisi. È stato preconfigurato un server IPython Notebook. Sul desktop è disponibile un'icona per avviare il browser per accedere al server Notebook. Se si usa la VM da desktop remoto, è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server IPython Notebook. Nota: scegliere semplicemente di continuare se viene visualizzato un avviso relativo al certificato.
+La distribuzione Anaconda include anche IPython Notebook, un ambiente per condividere il codice e le analisi. È stato preconfigurato un server IPython Notebook. Sul desktop è disponibile un'icona per avviare il browser per accedere al server Notebook. Se si usa la VM da desktop remoto, è anche possibile visitare il sito [https://localhost:9999/](https://localhost:9999/) per accedere al server notebook IPython. Nota: scegliere semplicemente di continuare se viene visualizzato un avviso relativo al certificato.
 
 ### Visual Studio 2015 Community Edition
-Visual Studio Community Edition è installato nella VM. È una versione gratuita di IDE più diffuso di Microsoft che è possibile usare per scopi di valutazione e per team molto piccoli. È possibile consultare le condizioni di licenza [qui](https://www.visualstudio.com/support/legal/mt171547). Aprire Visual Studio facendo doppio clic sull'icona del desktop o sul menu **Start**. È anche possibile cercare i programmi premendo i tasti **Win**+**S** e immettendo "Visual Studio".
+Visual Studio Community Edition è installato nella VM. È una versione gratuita di IDE più diffuso di Microsoft che è possibile usare per scopi di valutazione e per team molto piccoli. È possibile consultare le condizioni di licenza [qui](https://www.visualstudio.com/support/legal/mt171547). Aprire Visual Studio facendo doppio clic sull'icona del desktop o sul menu **Start**. È anche possibile cercare i programmi premendo i tasti **Win** + **S** e immettendo "Visual Studio".
 
 Nota: è possibile che venga visualizzato un messaggio indicante che il periodo di valutazione è scaduto. È possibile immettere le credenziali di un account Microsoft o crearne uno e immetterlo per accedere a Visual Studio Community Edition. È quindi possibile creare progetti in linguaggi come C# e Python.
 
 ### SQL Server Express
-Con Visual Studio Community Edition viene fornita anche una versione limitata di SQL Server. È possibile accedere a SQL Server avviando **SQL Server Management Studio**. Il nome della VM verrà popolato come Nome server. Usare l'autenticazione di Windows durante l'accesso come amministratore a Windows. Una volta eseguito l'accesso a SQL Server Management Studio è possibile creare altri utenti, creare database, importare i dati ed eseguire query SQL.
+Con Visual Studio Community Edition viene fornita anche una versione limitata di SQL Server. È possibile accedere al server SQL avviando **SQL Server Management Studio**. Il nome della VM verrà popolato come Nome server. Usare l'autenticazione di Windows durante l'accesso come amministratore a Windows. Una volta eseguito l'accesso a SQL Server Management Studio è possibile creare altri utenti, creare database, importare i dati ed eseguire query SQL.
 
 ### Azure 
-Nella macchina virtuale sono installati diversi strumenti di Azure: un collegamento sul desktop, per accedere alla documentazione di Azure SDK; **AzCopy**, usato per spostare i dati fuori e dentro l'account di archiviazione di Microsoft Azure; **Esplora archivi di Azure**, usato per scorrere gli oggetti archiviati nell'account di archiviazione di Azure; **Microsoft Azure Powershell**, installato nella VM e usato per amministrare le risorse di Azure in un linguaggio di script.
+Nella macchina virtuale sono installati diversi strumenti di Azure: un collegamento sul desktop per accedere alla documentazione di Azure SDK; **AzCopy**, usato per spostare i dati fuori e dentro l'account di archiviazione di Microsoft Azure; **Esplora archivi di Azure**, usato per scorrere gli oggetti archiviati nell'account di archiviazione di Azure; **Microsoft Azure Powershell**, installato nella VM e usato per amministrare le risorse di Azure in un linguaggio di script.
 
 ###Power BI
 
@@ -120,6 +134,6 @@ Nella macchina virtuale sono installati diversi strumenti di Azure: un collegame
 Nota: è necessario un account Office 365 per accedere a Power BI.
 
 ## Altri strumenti di sviluppo Microsoft
-È possibile usare l'[**Installazione guidata piattaforma Web**](https://www.microsoft.com/web/downloads/platform.aspx) per trovare e scaricare altri strumenti di sviluppo Microsoft. È disponibile anche un collegamento allo strumento sul desktop della macchina virtuale per l'analisi scientifica dei dati di Microsoft.
+È possibile usare [**Microsoft Web Platform Installare**](https://www.microsoft.com/web/downloads/platform.aspx) per trovare e scaricare altri strumenti di sviluppo Microsoft. È disponibile anche un collegamento allo strumento sul desktop della macchina virtuale per l'analisi scientifica dei dati di Microsoft.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

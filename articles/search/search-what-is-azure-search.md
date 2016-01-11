@@ -1,134 +1,85 @@
 <properties
 	pageTitle="Che cos'è la Ricerca di Azure? | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud. Altri informazioni su questa panoramica tecnica e sul riepilogo delle funzionalità"
+	description="Ricerca di Azure è un servizio di ricerca interamente ospitato sul cloud. In questa panoramica delle funzionalità sono fornite ulteriori informazioni sul servizio."
 	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+	authors="ashmaka"
+	documentationCenter=""/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+	ms.date="12/18/2015"
+	ms.author="ashmaka"/>
 
 # Che cos'è la Ricerca di Azure?
+Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e dell'infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire i dati e quindi eseguirvi una ricerca. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice API REST o .NET SDK senza dover gestire l'infrastruttura di ricerca e diventare esperti di ricerca.
 
-Il servizio di Ricerca di Azure è un servizio di ricerca ospitato sul cloud completamente gestito che consente agli sviluppatori di compilare applicazioni di ricerca avanzate utilizzando un SDK .NET o API REST. Include la ricerca full-text concentrata sul contenuto, su comportamenti di ricerca avanzati simili a quelli disponibili nei motori di ricerca web commerciali, ad esempio suggerimenti digitazione query in base a un termine parziale di input, evidenziazione e navigazione sfaccettata. É integrato un supporto per linguaggio naturale, utilizzando le regole linguistiche appropriate per la lingua specificata.
+## Offrire agli utenti un'esperienza di ricerca avanzata
 
-È possibile scalare il servizio in base alla necessità di capacità di archiviazione o maggiore di ricerca. Ad esempio i rivenditori possono aumentare capacità per soddisfare volumi aggiuntivi associati agli eventi di acquisti o promozionale festività.
+È possibile formulare **query efficaci** tramite gli operatori logici, espressioni di confronto e molto altro usando la [sintassi OData](https://msdn.microsoft.com/library/azure/dn798921.aspx) e una [sintassi delle query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). Inoltre, la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (attualmente in anteprima) consente la ricerca fuzzy, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. Ricerca di Azure supporta anche gli analizzatori lessicali personalizzati per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
 
-La Ricerca di Azure è un servizio basato su API per gli sviluppatori e integratori di sistemi che sanno come utilizzare i servizi web e HTTP. La Ricerca di Azure semplifica l'utilizzo di gestione di un servizio di ricerca del cloud e semplifica la creazione di applicazioni per dispositivi mobili e basato sulla ricerca web.
+È incluso il **supporto** per [56 lingue diverse](https://msdn.microsoft.com/library/azure/dn879793.aspx). Tramite gli analizzatori Lucene e gli analizzatori di Microsoft (ridefiniti in base all’esperienza accumulata in anni di elaborazione del linguaggio naturale in Office e Bing), Ricerca di Azure può analizzare il testo usando la suddivisione delle parole, la normalizzazione del testo, la lemmatizzazione e altro ancora. In questo modo la casella di ricerca dell'applicazione può gestire in modo intelligente gli errori di ortografia, la coniugazioni dei verbi, i nomi plurali irregolari (ad esempio 'bue' e 'buoi') e così via.
 
-##Funzionamento
+I **suggerimenti per la ricerca** possono essere abilitati per le barre di ricerca con completamento automatico e le query di digitazione. Agli utenti che immettono un input di ricerca parziale vengono [suggeriti i documenti presenti nell'indice](https://msdn.microsoft.com/library/azure/dn798936.aspx).
 
-La Ricerca di Azure è un [servizio PaaS](https://wikipedia.org/wiki/Platform_as_a_service) che delega la gestione di server e dell'infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire i dati di ricerca e quindi accedere dall'applicazione. A seconda della configurazione del servizio, si utilizzerà il servizio gratuito condiviso con altri sottoscrittori Ricerca di Azure o il livello del prezzo Standard che offre risorse dedicate utilizzate solo dal servizio. La Ricerca standard è scalabile, con le opzioni per soddisfare le esigenze di maggiore per l'archiviazione o query carica.
+L’**evidenziazione** [consente](https://msdn.microsoft.com/library/azure/dn798927.aspx) agli utenti di visualizzare il frammento di testo in ogni risultato che contiene corrispondenze per la query effettuata. È possibile scegliere i campi che devono restituire i frammenti evidenziati.
 
-La Ricerca di Azure permette di archiviare dati in un indice e può essere effettuata la ricerca le query full-text. Lo schema di questi indici può essere creato nel portale di Azure classico o a livello di codice utilizzando la libreria client o l'API REST. Una volta definito lo schema, è quindi possibile caricare i dati al servizio di Ricerca di Azure dove sono successivamente indicizzati.
+L’**esplorazione in base a facet** può essere aggiunta facilmente alle pagine dei risultati della ricerca con Ricerca di Azure. Usando [un singolo parametro di query](https://msdn.microsoft.com/library/azure/dn798927.aspx), Ricerca di Azure restituirà tutte le informazioni necessarie per creare un'esperienza di ricerca basata su facet nell'interfaccia utente dell'applicazione in modo da consentire agli utenti di eseguire il drill-down e filtrare i risultati di ricerca, ad esempio filtrando gli articoli del catalogo per fascia di prezzo o marca.
 
-È possibile utilizzare push o pull modelli per caricare i dati dell'indice. Il modello pull è fornito tramite gli indicizzatori che possono essere configurati su richiesta o con aggiornamenti pianificati (vedere [operazioni indicizzatore (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), permettendo di acquisire facilmente dati ed i cambiamenti dei dati da un DocumentDB di Azure, Database SQL di Azure o SQL Server ospitato in una macchina virtuale di Azure VM. Il modello push viene fornito tramite il SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile inserire dati da qualsiasi set di dati, purché in formato JSON. Vedere [Aggiungi, aggiorna o cancella documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [come utilizzare il SDK di .NET)](search-howto-dotnet-sdk.md) per informazioni sul caricamento dei dati.
+Con il **supporto** [geospaziale](https://msdn.microsoft.com/library/azure/dn798921.aspx) è possibile elaborare, filtrare e visualizzare le posizioni geografiche in modo intelligente. Ricerca di Azure consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca in una posizione specificata o in base a una specifica area geografica.
 
-Alcuni sviluppatori sceglieranno un indicizzatore per la sua praticità. Per gli altri sviluppatori, il modello push merita uno pena sforzo aggiuntivo. I motivi per la scelta di un modello push sono duplici. In primo luogo, è possibile evitare di caricare altri meccanismi crawler stile sui server dati. In secondo luogo, è possibile evitare la latenza implicita prevista con l'indicizzazione pianificata. Nel caso di lunedì o venerdì nero elettronico, la ricerca dovrà riflettere lo l’inventario quasi al secondo. Un modello push consente di visualizzare tale grado di precisione.
+È possibile utilizzare i **filtri** per incorporare l’esplorazione in base a facet (ad esempio, il filtro per categoria o prezzo), migliorare la formulazione delle query e filtrare in base a criteri specificati dall'utente o dallo sviluppatore.
 
-##Cosa si crea e stocca
+## Un servizio facile da usare a disposizione degli sviluppatori
 
-Il flusso di lavoro tipico consiste nel compilare lo schema e i documenti in un ambiente di sviluppo locale e quindi utilizzare .NET SDK o API REST per caricare, processare e infine eseguire query sui dati. Tutti i dati indicizzati rimangono all'interno della Ricerca di Azure per migliorare le prestazioni e per garantire la coerenza tra le operazioni di ricerca.
+La **disponibilità elevata** garantisce un'esperienza del servizio di ricerca estremamente affidabile. Se si applica una scala corretta, [Ricerca di Azure offre un contratto di servizio con disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-È possibile utilizzare l’editor integrato del portale per creare lo schema di indice e i punteggi di profili, utili per la creazione di prototipi. Per gli sviluppatori che necessitano di un approccio automatizzato e ripetibile, è consigliabile creare l'indice nel codice. Prima di tutto vengono aggiunte funzionalità più recenti all'API, per cui a seconda dei requisiti dell'applicazione, un approccio programmatico potrebbe essere l'unica opzione disponibile.
+Poiché prevede una **gestione completa** come soluzione end-to-end, Ricerca di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere facilmente adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.
 
-Quando si genera lo schema, si definiscono i campi e i relativi attributi supportati nell'applicazione di ricerca. I campi contengono dati con cui è possibile eseguire ricerche, ad esempio nomi dei prodotti, descrizioni, commenti dei clienti, marchi, prezzi, notifich promozionali e così via. Gli attributi indicano i tipi di operazioni che possono essere eseguite. Gli esempio degli attributi più comunemente utilizzati includono un campo che supporta la ricerca full-text (ricerca = true), filtri (filtrabile = true), oi facet (facetable = true).
+L’**integrazione dei dati** basata sugli [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) consente a Ricerca di Azure di eseguire automaticamente una ricerca per indicizzazione nel database SQL di Azure o in Azure DocumentDB per sincronizzare il contenuto dell'indice di ricerca con l'archivio dati primario.
 
-I Campi contengono inoltre i dati con non è possibile eseguire ricerche rilevanti per l'applicazione di ricerca, ad esempio valori internamente utilizzati nei filtri e assegnazione dei punteggi profili o magari URL al contenuto archiviato in altre piattaforme di archiviazione (per esempio, video o immagine file inseriti in archiviazione BLOB). Un esempio citato spesso di un campo solo interno è un margine di profitto o un altro valore che indica i ricavi potenziali. Ad esempio l'applicazione di ricerca deve promuovere elementi specifici che forniscono il maggiore vantaggio finanziario all’azienda Lo schema può includere gli attributi di campo che consentono questi tipi di comportamenti di ricerca.
+È disponibile la **decifrazione del documento** [per leggere e indicizzare i principali formati di file](search-howto-indexing-azure-blob-storage.md) inclusi Microsoft Office, nonché i documenti PDF e HTML.
 
-I documenti sono i dati dettagliati restituiti dal motore di ricerca nei risultati della ricerca. Ad esempio, se l'applicazione di ricerca è un catalogo in linea, è necessario un solo documento per ogni SKU e la pagina dei risultati viene poi creata utilizzando i valori restituiti dai documenti che corrispondono ai criteri di ricerca.
+I dati sull’**analisi del traffico di ricerca** possono essere [facilmente raccolti e analizzati](search-traffic-analytics.md) per dedurre informazioni sulla base delle parole digitate dagli utenti nella casella di ricerca.
 
-##Vedere in azione
+Uno dei vantaggi chiave di Ricerca di Azure è la **semplicità di assegnazione dei punteggi**. Vengono usati [profili di punteggio](https://msdn.microsoft.com/library/azure/dn798928.aspx) per consentire alle organizzazioni di modellare la rilevanza in funzione dei valori nei documenti stessi. Ad esempio, si potrebbe decidere che prodotti più recenti o prodotti scontati compaiano prima tra i risultati della ricerca. È inoltre possibile compilare profili di puntaggio utilizzando tag per il punteggio personalizzati in base alle preferenze di ricerca cliente che sono stati rilevati e archiviati separatamente.
 
-Guarda il video per ulteriori informazioni sugli scenari e le funzionalità. Visitare [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md) per collegamenti a contenuti video.
+L’**ordinamento** è disponibile per più campi tramite lo schema dell'indice e viene attivato o disattivato in fase di query con un solo parametro di ricerca.
 
-##Funzionalità di drill-down
+Il **paging** e la limitazione dei risultati della ricerca non comportano alcuna difficoltà grazie al controllo accurato che Azure offre sui risultati della ricerca.
 
-La Ricerca di Azure fornisce il valore in più categorie, tra cui provisioning e scala, programmabilità, accesso e controllo e le funzionalità che si decide di implementare in un'applicazione di ricerca personalizzate.
+**Esplora ricerche** consente di eseguire query su tutti gli indici direttamente dal portale di Azure dell'account in uso per poter facilmente testare le query e perfezionare i profili di assegnazione punteggi.
 
-Il seguente elenco di funzionalità consente di valutare la Ricerca di Azure per esigenze dell'applicazione di ricerca. Gli annunci di nuove funzionalità sono disponibili negli aggiornamenti più recenti per la Ricerca di Azure. È inoltre possibile esaminare la pagina di richiesta funzionalità di Ricerca di Azure per controllare lo stato delle funzionalità non ancora implementato.
+## Funzionamento
 
-Domande sulle funzionalità specifiche? Provare il [forum di Ricerca di Azure su MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch). È inoltre possibile rivedere il [pagina richiesta della funzionalità Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search) per controllare lo stato delle funzionalità non ancora implementato.
+### 1\. Servizio di provisioning
+È possibile attivare un servizio Ricerca di Azure usando il [portale Azure](https://portal.azure.com/) o l’[API Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-###Caratteristiche di capacità e la scala e restrizioni
+A seconda della configurazione del servizio, si userà il servizio gratuito condiviso con altri sottoscrittori di Ricerca di Azure o il [piano tariffario](https://azure.microsoft.com/pricing/details/search/) Standard che riserva risorse all’uso esclusivo da parte dal servizio. Durante il provisioning del servizio, è anche possibile scegliere l'area del data center che ospita il servizio.
 
-Il servizio può essere eseguito come Standard o con distribuzione di servizi condivisi. La Ricerca standard supporta risorse dedicate che possono essere ridimensionate in base ai carichi di lavoro. I servizi condivisi sono gratuiti e in genere sono utilizzati per testare la funzionalità dei servizi visto che non ci sono garanzie di prestazioni.
+Quando si usa Ricerca di Azure nel livello Standard, è possibile scalare il servizio in due dimensioni: 1) aggiungere repliche per aumentare la capacità di gestire ingenti carichi di query e 2) aggiungere partizioni per aumentare lo spazio di archiviazione per altri documenti. Grazie alla gestione separata dell’archiviazione dei documenti e della velocità effettiva delle query è possibile personalizzare il servizio di ricerca in base alle esigenze.
 
-**Scalabile** in incrementi di conteggi di archiviazione e di documenti (partizioni) o nel carico di query (repliche). Per ogni replica viene eseguita una copia di un indice. La disponibilità elevata richiede 2 repliche per i carichi di lavoro di query e 3 per carichi di lavoro di lettura / scrittura (Progettazione query e indicizzazione). Per ulteriori informazioni sulla pianificazione della capacità, vedere limiti e i vincoli (Ricerca di Azure).
+### 2\. Creare un indice
+Per poter caricare il contenuto nel servizio Ricerca di Azure, è innanzitutto necessario definire un indice di Ricerca di Azure. Un indice è simile a una tabella di database che contiene i dati e può accettare query di ricerca. È necessario definire lo schema di indice per eseguire il mapping della struttura dei documenti in cui si desidera eseguire la ricerca, in modo analogo ai campi in un database.
 
-La Ricerca di Azure si espande automaticamente a documenti ed indici in tutte le partizioni che sono state allocate per questo servizio. Ciò significa che è impossibile procedere al peg di indici e documenti in un set di partizioni e repliche.
+Lo schema di questi indici può essere creato nel portale di Azure o a livello di codice [usando .NET SDK](search-howto-dotnet-sdk.md) o [l'API REST](https://msdn.microsoft.com/library/azure/dn798941.aspx). Una volta definito l’indice, è quindi possibile caricare i dati nel servizio Ricerca di Azure dove sono successivamente indicizzati.
 
-Partizioni e repliche sono risorse a livello di servizio, con tutti gli indici in esecuzione su tutte le repliche. Se fosse necessario indicizzare un isolamento o si dispone di requisiti per dispersione geografica dei servizi e risorse in data center diversi, è possibile creare un secondo servizio.
+### 3\. Dati dell'indice
+Dopo aver definito i campi e gli attributi dell'indice, è possibile caricare il contenuto nell'indice, scegliendo il modello push o pull per caricare i dati.
 
-Vi sono limiti sull'archiviazione e il numero di indici e documenti caricati nel servizio. Il limite effettivo sarà rispettivamente: esaurimento di memoria fisica o soddisfazione del limite superiore sugli indici e conteggi dei documenti. Vedere [limiti e i vincoli (Ricerca di Azure)](search-limits-quotas-capacity.md) per informazioni dettagliate.
+Il modello pull è fornito tramite gli indicizzatori che possono essere configurati su richiesta o con aggiornamenti pianificati (vedere [operazioni indicizzatore (API REST del servizio Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), permettendo di acquisire facilmente dati e modifiche ai dati da Azure DocumentDB, database SQL di Azure, archivio BLOB di Azure o SQL Server ospitato in una macchina virtuale di Azure.
 
-###Programmabilità
+Il modello push viene fornito tramite il SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
 
-API REST è costituito da richieste e risposte HTTP con il contenuto in formato JSON. Esiste un'API per accedere al servizio e un'API per la gestione del servizio. Vedere [API REST dei servizi di API REST di gestione di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) e [API REST per la gestione di API REST di gestione di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx) per informazioni dettagliate.
+### 4\. Search
+Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire query di ricerca](https://msdn.microsoft.com/library/azure/dn798927.aspx) nell'endpoint del servizio tramite semplici richieste HTTP con l'API REST o .NET SDK.
 
-.NET SDK include classi che consentono di utilizzare il servizio di Ricerca di Azure senza la necessità di lavorare direttamente con HTTP e JSON. Vedere [come utilizzare la Ricerca di Azure .NET SDK](search-howto-dotnet-sdk.md) per ulteriori informazioni.
+## Prova gratuita subito
+È possibile provare oggi stesso Ricerca di Azure. Se si dispone già di un account Azure, è possibile [eseguire il provisioning di un servizio al livello gratuito](search-create-service-portal.md).
 
-###Accesso e controllo
+Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-La ricerca è accessibile solo tramite HTTPS.
-
-L’autenticazione dall'applicazione host per la Ricerca di Azure avviene tramite una chiave api di amministrazione in un'intestazione HTTP. Non è disponibile alcun modello di autenticazione o autorizzazione per utente. Tuttavia, è possibile utilizzare $filter per limitare l'accesso dall'identità dell'utente. È inoltre possibile utilizzare più query api tasti che è possibile assegnare a diverse applicazioni client. Per ulteriori informazioni sulla gestione delle chiavi, vedere [gestire il servizio di ricerca in Microsoft Azure](search-manage.md). Vedere [documenti Search (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) per informazioni dettagliate su $filter.
-
-###Gli indici e documenti
-
-È possibile avere più indici (vedere [limiti e i vincoli (Ricerca di Azure)](search-limits-quotas-capacity.md) per limiti in base a livelli di prezzo). Si noti che non esiste attualmente supporto per l'unione degli indici. Una richiesta di ricerca può precisare un indice.
-
-I**Documenti** contengono campi e attributi associati. I campi includono testo ricercabile, valori utilizzati prevalentemente (o persino esclusivamente) nei filtri e assegnazione dei punteggi profili, e molto probabilmente URL o puntatori al contenuto, ad esempio immagini, in altri dati. Molte applicazioni di ricerca utilizzano più tipi di archiviazione. Immagini o video possono essere archiviati un prezzo molto più conveniente in altri supporti di archiviazione, ad esempio l'archiviazione Blob di Azure.
-
-Gli **Indicizzatori** possono essere utilizzati per pianificare gli aggiornamenti dell'indice da dati modificati nel Database di SQL Azure, SQL Server su macchine virtuali di Azure o Azure DocumentDB. Vedere [indicizzatore operazioni (ricerca API REST di Azure)]((https://msdn.microsoft.com/library/azure/dn946891.aspx) per informazioni dettagliate.
-
-La **Query** può essere formulata utilizzando la sintassi di OData per filtri booleani e una sintassi di query semplici per la ricerca full-text. Vedere [sintassi delle espressioni di OData per la Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx) e [sintassi di query semplice nella Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798920.aspx) per informazioni dettagliate.
-
-È possibile cercare documenti specifici in base al relativo ID per recuperare rapidamente elementi specifici. Ciò è utile quando un utente fa clic su un risultato di ricerca specifico e si desidera eseguire una ricerca dettagli specifici su tale documento. Vedere [documento di ricerca (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798929.aspx) per informazioni dettagliate.
-
-##Funzionalità di applicazione di ricerca
-
-La **Ricerca full-text** (in base all'impostazione predefinita per i campi di testo) è abilitata per tutti i campi con l'attributo è possibile eseguire ricerche. La Ricerca full-text si fonda sul prefisso di ricerca, che significa che le corrispondenze sono basate sulla prima parte di un termine di ricerca e non al centro o alla fine della parola. Vedere [Create Index (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) o [creare un indice nel portale di](search-create-index-portal.md) per istruzioni su come definire un indice.
-
-I**Profili di punteggio** vengono utilizzati per creare modelli di classificazione che consentono di ottimizzare la ricerca in base agli obiettivi aziendali. Ad esempio, si potrebbe decidere che prodotti più recenti o prodotti scontati compaiano prima tra i risultati della ricerca. È inoltre possibile compilare profili di puntaggio utilizzando tag per il punteggio personalizzati in base alle preferenze di ricerca cliente che sono stati rilevati e archiviati separatamente. Per ulteriori dettagli, vedere [Aggiungere profili di punteggio a un indice di ricerca (API REST di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798928.aspx).
-
-Il **Supporto linguistico** è incorporato per cinquanta linguaggi diversi, utilizzando più opzioni di stack di elaborazione del linguaggio naturale, inclusi analizzatori Lucene ben noti e analizzatori di Microsoft che utilizzano Microsoft Office e Bing (solo anteprima). Vedere [supporto linguistico (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn879793.aspx) per Lucene, e [ricerca servizio REST versione API 2015-02-28-Anteprima di Azure](search-api-2015-02-28-Preview.md) per i processori di linguaggio naturale.
-
-La **Navigazione sfaccettata** fa riferimento a una struttura ad albero di categorizzazione utilizzata per la ricerca mirata, spesso fondata su marchi, modelli, dimensioni o su tutte le categorie che sono utili i dati. La navigazione sfaccettata viene implementata tramite gli attributi nell'indice e di un campo di facet che è disponibile in una query. Vedere [navigazione sfaccettata](search-faceted-navigation.md) per informazioni dettagliate.
-
-**Suggerimenti** di digitazione o di completamento automatico query sono supportati attraverso attributi nell’indice. Ricerca di Azure supporta corrispondenze fuzzy o per infissi (corrispondenza con qualsiasi parte del contenuto del campo) È possibile eseguire entrambe le cose; non si escludono a vicenda. Vedere [Create Index (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) per informazioni sull'abilitazione dei suggerimenti, e [suggerimenti (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798936.aspx) per il loro utilizzo.
-
-I**Filtri** possono essere utilizzati per implementare la navigazione sfaccettata, utilizzata nella costruzione di query o a livello globale per vincolare le operazioni di ricerca e filtrare i criteri stabiliti nel codice. I filtri sono abilitati per i campi specifici tramite lo schema di indice e tramite il parametro di ricerca $Filter. Vedere [Create Index (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) e [documenti Search (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) per informazioni dettagliate.
-
-La funzione**Ordinamento** è attivata anche per i campi specifici tramite lo schema di indice e quindi implementata come parametro di ricerca tramite il parametro $orderBy. Ancora una volta [Creare Index (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) e [documenti di ricerca (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) precisano gli specifici dettagli.
-
-Il **Conteggio** dell'ambito di ricerca restituito per una query e la possibilità di limitare il numero di visite insieme vengono implementate tramite $top e $skip. Vedere [documenti di ricerca (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) per informazioni dettagliate su $filter.
-
-I **Riscontri evidenziati** sono precisati tramite il parametro di query evidenziato e consentono di visualizzare da parte degli utenti un frammento di testo, che evidenzia le parole chiave disponibili rispetto alle condizioni di ricerca inserite dall'utente. Vedere [documenti di ricerca (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) per ulteriori informazioni sui parametri di query.
-
-##Reporting ed analisi
-
-L'utilizzo delle risorse viene visualizzato nel dashboard del servizio in modo che sia possibile ottenere rapidamente un'idea dell'utilizzo dell'archiviazione.
-
-Il consumo dell'archiviazione, il numero di documento e il numero di indice sono disponibili nel portale. È inoltre possibile utilizzare l'API. Vedere [ottenere statistiche dell'indice (ricerca API REST di Azure)](https://msdn.microsoft.com/library/azure/dn798942.aspx) per informazioni dettagliate.
-
-Non esiste alcun meccanismo incorporato per misurare la velocità effettiva della query o altre operazioni di servizio. Inoltre, non è attualmente presente alcun supporto per la registrazione o l'analisi dei risultati di ricerca (ad esempio, il recupero un elenco di termini di ricerca che non ha permesso di ottenere alcun risultato o la segnalazione dell'origine delle richieste di ricerca).
-
-##Provare il servizio
-
-Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.md) per impostare il servizio oppure utilizzare [provare Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) per una sessione di un'ora disponibile senza alcuna installazione o sottoscrizione obbligatoria.
-
-È inoltre possibile provare queste esercitazioni:
-
-[Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
