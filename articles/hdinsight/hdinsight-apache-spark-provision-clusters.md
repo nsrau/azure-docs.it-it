@@ -32,7 +32,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 ##<a id="configuration"></a>Quali sono le diverse opzioni di configurazione?
 
-### Risorse di archiviazione aggiuntive
+###Risorse di archiviazione aggiuntive
 
 Durante la configurazione, è necessario specificare un account di archiviazione BLOB di Azure e un contenitore predefinito, che viene usato come posizione di archiviazione predefinita dal cluster. È possibile specificare anche un account di archiviazione di Azure aggiuntivo da associare al cluster.
 
@@ -40,7 +40,7 @@ Durante la configurazione, è necessario specificare un account di archiviazione
 
 Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
 
-### Metastore
+###Metastore
 
 Spark consente di definire schema e Hive tabelle su dati non elaborati. È possibile salvare questi schemi e i metadati della tabella in Metastore esterni. Il metastore consente di conservare i propri metadati Hive, in modo da non dover creare nuovamente tabelle Hive alla creazione di un nuovo cluster. Per impostazione predefinita, Hive usa un database incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato.
 
@@ -51,7 +51,7 @@ Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo 
 L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un'**azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-customize-cluster].
 
 
-### Reti virtuali
+###Reti virtuali
 
 [Rete virtuale di Azure](http://azure.microsoft.com/documentation/services/virtual-network/) consente di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
 
@@ -140,7 +140,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 		Per **Usare un database SQL esistente per i metadati Hive**, fare clic su **Sì**, selezionare un database SQL e quindi specificare il nome utente e la password per il database. Ripetere questi passaggi se si vuole **Usare un database SQL esistente per i metadati Oozie**. Fare clic su **Seleziona** fino a quando non si visualizza di nuovo il pannello **Configurazione facoltativa**.
 
-		>[AZURE.NOTE]Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Windows Azure** fare clic su **Sì** e infine su **Salva**.
+		>[AZURE.NOTE]Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
 
 	* Fare clic su **Azioni script** se si vuole usare uno script personalizzato per personalizzare un cluster, come il cluster che si sta creando. Per altre informazioni sulle azioni script, vedere [Personalizzare i cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md). Nel pannello Azioni di Script fornire i dettagli, come illustrato nella schermata.
 
@@ -189,7 +189,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 	* **Dashboard del cluster**: avvia il pannello Dashboard cluster da cui è possibile avviare lo stesso dashboard del cluster o i notebook Zeppelin e Jupyter.
 
 
-##<a id="powershell"></a>Uso di Azure PowerShell
+##<a id="powershell"></a> Uso di Azure PowerShell
 
 Vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md#create-using-azure-powershell).
 
@@ -248,4 +248,4 @@ Specificare il tipo di cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

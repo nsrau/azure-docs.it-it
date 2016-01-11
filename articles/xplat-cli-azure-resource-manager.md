@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
-	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Windows Azure per distribuire più risorse come un gruppo di risorse."
+	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Microsoft Azure per distribuire più risorse come un gruppo di risorse."
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -210,4 +210,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

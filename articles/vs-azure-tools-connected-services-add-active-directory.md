@@ -77,6 +77,6 @@ Porre domande e ottenere assistenza.
 
  - [Documentazione di Azure AD](http://azure.microsoft.com/documentation/services/active-directory/)
 
- - [Post di blog: Introduzione a Windows Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+ - [Post di blog: Introduzione a Microsoft Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->
