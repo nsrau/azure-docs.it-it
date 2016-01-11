@@ -55,7 +55,7 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 	- **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure o selezionarne uno esistente. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 	- **Credenziali**: per i cluster basati su Windows, è possibile creare un utente del cluster (noto anche come utente HTTP, utente del servizio Web HTTP) e un utente di Desktop remoto. Fare clic su **Abilita Desktop remoto** per aggiungere le credenziali utente desktop remoto. La sezione successiva richiede il protocollo RDP.
 	- **Origine dati**: creare un nuovo account di archiviazione di Azure o selezionarne uno esistente da usare come file system predefinito per il cluster. La posizione dell'account di archiviazione determina la posizione del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center.
-	- **Piani tariffari per il nodo**: selezionare il numero di server di area per il cluster HBase
+	- **Piani tariffari per il nodo**: selezionare il numero di server di area per il cluster HBase.
 
 		> [AZURE.WARNING]Per garantire disponibilità elevata dei servizi di HBase, è necessario creare un cluster contenente almeno **tre** nodi. Questo assicura che, se un nodo viene disattivato, le aree dati HBase siano disponibili in altri nodi.
 
@@ -331,4 +331,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

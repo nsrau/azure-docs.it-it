@@ -58,7 +58,7 @@ Per istruzioni dettagliate sui requisiti e le configurazioni, vedere [Requisiti 
 Esaminare le risorse seguenti per altre informazioni sui requisiti di Office 365.
 
 - [Pianificazione della rete e ottimizzazione delle prestazioni per Office 365](http://aka.ms/tune)
-- [Gestione del traffico di rete di Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Gestione del traffico di rete di Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Vedere l'articolo relativo ai [requisiti di Qualità del servizio (QoS) di ExpressRoute](expressroute-qos.md) per informazioni dettagliate sui requisiti e le configurazioni di QoS. Rivolgersi al proprio provider di connettività per verificare se vengono offerte più classi di servizio per la VPN. 
 
 ## Passaggi successivi
@@ -71,4 +71,4 @@ Esaminare le risorse seguenti per altre informazioni sui requisiti di Office 365
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

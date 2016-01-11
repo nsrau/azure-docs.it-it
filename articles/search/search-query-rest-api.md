@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -67,4 +66,4 @@ Cercare nell'intero indice e ordinare in base a un campo specifico (lastRenovati
 
 Una richiesta di query riuscita restituirà un codice di stato "200 OK" e i risultati della ricerca saranno riportati in formato JSON nel corpo della risposta. Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

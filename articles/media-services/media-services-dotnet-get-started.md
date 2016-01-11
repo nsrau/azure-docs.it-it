@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/08/2015"
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -22,28 +22,18 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+ 
+##Panoramica 
 
 Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando l'SDK di Servizi multimediali di Azure per .NET.
 
 
 L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.
 
+## Contenuto dell'esercitazione
 
-##Scaricare un esempio
-
-È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
-
-
-## Prerequisiti
-Per iniziare l'attività di sviluppo con l'SDK di Servizi multimediali per .NET sono previsti i seguenti prerequisiti.
-
-- Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
-- .NET Framework 4.5 o .NET Framework 4.0
-- Visual Studio 2010, SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
-
-
-Questa guida rapida illustra come effettuare le seguenti attività.
+L'esercitazione mostra come eseguire le attività seguenti:
 
 1.  Creare un account di Servizi multimediali (usando il portale di Azure classico).
 2.  Configurare l'endpoint di streaming (usando il portale).
@@ -52,12 +42,27 @@ Questa guida rapida illustra come effettuare le seguenti attività.
 6.  Creare un nuovo asset e caricare un file video.
 7.  Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
 8.  Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.
-9.  Riprodurre i contenuti.
+9.  Testare riproducendo i contenuti.
 
+## Prerequisiti
+
+Per completare l'esercitazione è necessario quanto segue.
+
+- Per completare l'esercitazione, è necessario un account Azure. 
+	
+	Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+- Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
+- .NET Framework 4.0 o versione successiva.
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versioni successive.
+
+
+##Scaricare un esempio
+
+È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Creare un account di Servizi multimediali usando il portale
 
-1. Nel portale di Azure classico fare clic su **Nuovo**, quindi su **Servizi multimediali** e infine su **Creazione rapida**.
+1. Nel portale di Azure classico fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
 
 ![Creazione rapida di Servizi multimediali](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
@@ -110,7 +115,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 
 >[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
 >
-> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
+> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere i [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 
@@ -118,7 +123,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 
 1. Creare una nuova applicazione console C# in Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su **OK**.
 
-2. Usare il pacchetto Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare **Estensioni dell'SDK di Servizi multimediali di Azure per .NET**. Media Services .NET SDK Extensions è un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
+2. Usare il pacchetto Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare **Azure Media Services .NET SDK Extensions**. Media Services .NET SDK Extensions è un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
 
 3. Aggiungere un riferimento all'assembly System.Configuration, che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
 
@@ -207,8 +212,8 @@ Il metodo **UploadFile** definito di seguito chiama **CreateFromFile** (definito
 Il metodo **CreateFromFile** acquisisce **AssetCreationOptions**, che consente di specificare una delle opzioni di creazione seguenti:
 
 - **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
-- **StorageEncrypted**: usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
-- **CommonEncryptionProtected**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
+- **StorageEncrypted**: usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+- **CommonEncryptionProtected**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM, ad esempio Smooth Streaming protetto con PlayReady DRM.
 - **EnvelopeEncryptionProtected**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
 Il metodo **CreateFromFile** consente anche di specificare un callback per visualizzare l'avanzamento del caricamento del file.
@@ -378,7 +383,7 @@ Aggiungere il seguente metodo alla classe Program.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Riprodurre i contenuti  
+##Testare riproducendo i contenuti.  
 
 Dopo aver eseguito il programma definito nella sezione precedente, nella finestra della console vengono visualizzati URL simili al seguente.
 
@@ -441,4 +446,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

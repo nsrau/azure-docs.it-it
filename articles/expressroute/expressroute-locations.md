@@ -61,7 +61,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Supportato | Non supportato | Hong Kong |
 |**Cologix** | Presto disponibile | Non supportato | Montreal+, Toronto+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Londra |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Dublino+, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
 | **CoreSite** | Supportato | Supportato | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto+, Washington DC |
@@ -74,7 +74,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **MTN** | Supportato | Supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney |
 | **NTT Communications** | Supportato | Non supportato | Londra+, Tokyo |
-| **[Orange](http://www.orange-business.com/)** | Supportato | Non supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
+| **[Orange](http://www.orange-business.com/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supportato | Non supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
 | **Softbank** | Presto disponibile | Non supportato | Osaka, Tokyo | 
@@ -93,7 +93,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Non supportato | Chicago+, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Non supportato | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Imminente | Non supportato | Chicago +, Washington DC + |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Non supportato | Chicago+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Non supportato | Chicago, Washington DC |
@@ -139,4 +139,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

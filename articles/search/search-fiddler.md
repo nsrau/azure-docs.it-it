@@ -13,18 +13,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
-# Usare Fiddler per valutare e testare le API REST di Ricerca di Azure
+# Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come usare Fiddler, disponibile come [download gratuito da Telerik](http://www.telerik.com/fiddler), per eseguire richieste HTTP e visualizzare risposte tramite l'API REST di Ricerca di Azure, senza dover scrivere codice. Ricerca di Azure è un servizio di ricerca cloud ospitato in Microsoft Azure e completamente gestito, facilmente programmabile con le API REST e .NET. Le API REST del servizio Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Questo articolo illustra come usare Fiddler, disponibile come [download gratuito da Telerik](http://www.telerik.com/fiddler), per eseguire richieste HTTP e visualizzare risposte attraverso l'API REST di Ricerca di Azure, senza dover scrivere codice. Ricerca di Azure è un servizio di ricerca cloud ospitato in Microsoft Azure e completamente gestito, facilmente programmabile con le API REST e .NET. Le API REST del servizio Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Nei seguenti passaggi verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
 
@@ -43,7 +42,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
 3. Immettere un URL che specifichi l'URL del servizio (disponibile nella pagina delle proprietà), gli attributi della richiesta e la versione dell'API. Tenere presente quanto segue:
    + Usare HTTPS come prefisso.
    + L'attributo della richiesta è "/indexes/hotels". In questo modo si comunica al servizio di ricerca di creare un indice denominato 'hotels'.
-   + La versione API è in lettere minuscole, specificata come "?api-version=2015-02-28". Le versioni API sono importanti perché Ricerca di Azure distribuisce aggiornamenti su base regolare. In rare occasioni, un aggiornamento del servizio potrebbe introdurre modifiche significative all'API. Con le versioni API, è possibile continuare a usare la versione esistente ed effettuare l'aggiornamento a una più recente nel momento più opportuno.
+   + La versione API è in lettere minuscole, specificata come "?api-version=2015-02-28". Le versioni API sono importanti perché Ricerca di Azure distribuisce aggiornamenti su base regolare. In rare occasioni, un aggiornamento del servizio potrebbe introdurre modifiche significative all'API. Per questo motivo, Ricerca di Azure richiede la versione dell'API in ogni richiesta per garantire il controllo completo sulla versione usata.
 
     L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente.
 
@@ -63,7 +62,7 @@ Per completare questi passaggi, è necessario disporre del servizio Ricerca di A
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -229,10 +228,8 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 ## Passaggi successivi
 
-I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senza scrittura di codice alla gestione e all’utilizzo di Ricerca di Azure.
+Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per un approccio senza scrittura di codice alla gestione e all'uso di Ricerca di Azure.
 
--  [Gestire il servizio di ricerca in Azure](search-manage.md)
--  [Come utilizzare Chrome Postman con Ricerca di Azure](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@ I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senz
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->
