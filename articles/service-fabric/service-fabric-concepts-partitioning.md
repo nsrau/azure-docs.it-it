@@ -284,7 +284,9 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
     Analisi dettagliata. Il codice legge la prima lettera del parametro della stringa di query `lastname` in un char. Quindi determina la chiave di partizione di questa lettera sottraendo il valore hex di `A` dal valore hex della prima lettera dei parametri lastname.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     Si ricordi che in questo esempio si usano 26 partizioni con una chiave per ogni partizione. A questo punto è necessario ottenere la partizione del servizio `partition` usando il metodo `ResolveAsync` nell'oggetto `servicePartitionResolver`. `servicePartitionResolver` viene definito come mostrato di seguito.
@@ -322,8 +324,10 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
   </Parameters>
   ```
 
-16. Una volta eseguita la distribuzione, è possibile controllare il servizio e tutte le partizioni in Service Fabric Explorer. ![Servizio](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. Per testare la logica di partizionamento, immettere `http://localhost:8090/?lastname=somename` in un browser. Ogni cognome che inizia con la stessa lettera risulta archiviato nella stessa partizione. ![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. Una volta eseguita la distribuzione, è possibile controllare il servizio e tutte le partizioni in Service Fabric Explorer.
+![Servizio](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. Per testare la logica di partizionamento, immettere `http://localhost:8090/?lastname=somename` in un browser. Ogni cognome che inizia con la stessa lettera risulta archiviato nella stessa partizione.
+![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 L'intero codice sorgente dell'esempio è disponibile in [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
