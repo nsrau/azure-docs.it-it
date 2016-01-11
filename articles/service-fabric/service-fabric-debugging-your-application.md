@@ -16,11 +16,11 @@
    ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Debug dell'applicazione dell’infrastruttura di servizi mediante Visual Studio
+# Debug dell'applicazione di Service Fabric mediante Visual Studio
 
 Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
 
-1. Avviare un cluster di sviluppo locale seguendo la procedura descritta nell'articolo relativo alla [configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
+1. Avviare un cluster di sviluppo locale seguendo la procedura descritta nell'articolo [Configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 
 2. Premere **F5** oppure fare clic su **Debug** > **Avvia debug**.
 
@@ -28,13 +28,13 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 
 3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug**.
 
-    > [AZURE.NOTE]Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti, rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
+    > [AZURE.NOTE]Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
 
-4. La finestra degli eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
+4. La finestra degli **Eventi di diagnostica** si aprirà automaticamente in modo da poter visualizzare gli eventi diagnostici in tempo reale.
 
     ![Visualizzare gli eventi diagnostici in tempo reale][diagnosticevents]
 
-5. È possibile aprire la finestra degli eventi di diagnostica anche in Esplora server. In **Azure** fare clic con il pulsante destro del mouse su **Service Fabric Cluster** e scegliere **View Diagnostic Events**.
+5. È possibile aprire la finestra degli **Eventi di diagnostica** anche in Esplora server. In **Azure**, fare clic con il pulsante destro del mouse su **Service Fabric Cluster** > **View Diagnostic Events**.
 
     ![Aprire la finestra degli eventi di diagnostica][viewdiagnosticevents]
 
@@ -48,7 +48,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 
     ![Filtrare, sospendere e riprendere o esaminare gli eventi in tempo reale][diagnosticeventsactions]
 
-8. Il debug dei servizi è analogo al debug di qualsiasi altra applicazione. I punti di interruzione possono essere impostati normalmente tramite Visual Studio per un semplice debug. Anche se le raccolte Reliable Collections vengono replicate tra più nodi, implementano comunque IEnumerable, pertanto durante l'esecuzione del debug è possibile usare la finestra Visualizzazione risultati di Visual Studio per visualizzare il contenuto archiviato. È sufficiente impostare un punto di interruzione in qualsiasi posizione all'interno del codice.
+8. Il debug dei servizi è analogo al debug di qualsiasi altra applicazione. I punti di interruzione possono essere impostati normalmente tramite Visual Studio per un semplice debug. Anche se le raccolte Reliable Collections vengono replicate tra più nodi, implementano comunque IEnumerable. Ciò significa che è possibile utilizzare la visualizzazione dei risultati in Visual Studio durante il debug per vedere cosa è stato memorizzato all'interno. È sufficiente impostare un punto di interruzione in qualsiasi posizione all'interno del codice.
 
     ![Avviare il debug di un'applicazione][breakpoint]
 
@@ -56,7 +56,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 ## Passaggi successivi
 
 - [Testare un servizio di Service Fabric](service-fabric-testability-overview.md)
-- [Gestire le applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+- [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
@@ -65,4 +65,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

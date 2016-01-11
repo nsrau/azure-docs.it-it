@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Eseguire un cluster Spark su HDInsight di Azure e usare SQL Spark da Zeppelin e Jupyter per l'analisi interattiva | Microsoft Azure"
-	description="Istruzioni dettagliate su come eseguire rapidamente un cluster Apache Spark in HDInsight, quindi usare notebook SQL Spark da Zeppelin e Jupyter per l'esecuzione di query interattive."
+	pageTitle="Creare un cluster Spark su Azure HDInsight e usare Spark SQL da Zeppelin e Jupyter per l'analisi interattiva | Microsoft Azure"
+	description="Istruzioni dettagliate su come creare rapidamente un cluster Apache Spark in HDInsight, quindi usare Spark SQL da notebook di Zeppelin e Jupyter per l'esecuzione di query interattive."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,115 +14,113 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
+	ms.date="12/22/2015"
 	ms.author="nitinme"/>
 
 
-# Avvio: eseguire il provisioning Apache Spark e avviare query interattive usando SQL Spark in Azure HDInsight.
+# Introduzione: creare Apache Spark in HDInsight ed eseguire query interattive mediante Spark SQL
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+> [AZURE.NOTE]HDInsight offre ora cluster Spark su Linux. Per informazioni su come iniziare a usare i cluster Spark in HDInsight per Linux, vedere l'articolo di [introduzione alla creazione di Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-* [Eseguire il provisioning di Apache Spark in HDInsight ed eseguire query interattive mediante SQL di Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
-
-Imparare come eseguire il provisioning di un cluster Apache Spark in HDInsight tramite l'opzione Creazione rapida e quindi usare i notebook sul Web [Zeppelin](https://zeppelin.incubator.apache.org) e [Jupyter](https://jupyter.org) per l'esecuzione di query interattive sul cluster Spark.
+Informazioni sulla creazione di un cluster Apache Spark in HDInsight tramite l'opzione Creazione rapida e sull'uso di notebook di [Zeppelin](https://zeppelin.incubator.apache.org) e [Jupyter](https://jupyter.org) basati sul Web per l'esecuzione di query interattive Spark SQL sul cluster Spark.
 
 
-   ![Introduzione all'uso di Apache Spark in HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png "Introduzione al tutorial di Apache Spark in HDInsight. I passaggi illustrati: creare un account di archiviazione, eseguire un cluster, eseguire istruzioni SQL Spark.")
+   ![Introduzione all'uso di Apache Spark in HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.getstartedflow.png "Introduzione al tutorial di Apache Spark in HDInsight. Passaggi illustrati: creare un account di archiviazione, creare un cluster, eseguire istruzioni Spark SQL")
 
 **Prerequisiti:**
 
 Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
-## <a name="provision"></a>Eseguire il provisioning di un cluster HDInsight Spark
+## Creare un cluster HDInsight Spark
 
-In questa sezione si esegue una versione 3.2 del cluster HDInsight, basato sulla versione 1.3.1. in Spark. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
+In questa sezione viene creato un cluster HDInsight versione 3.2, basato su Spark versione 1.3.1. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 
->[AZURE.NOTE]I passaggi descritti in questo articolo creano un cluster Apache Spark in HDInsight usando le impostazioni di configurazione di base. Per informazioni su altre impostazioni di configurazione di cluster (ad esempio l'uso di un'ulteriore archiviazione, l'uso di una rete virtuale di Azure o di un metastore per Hive) vedere: [Eseguire il provisioning di cluster HDInsight con opzioni personalizzate](hdinsight-apache-spark-provision-clusters.md).
+>[AZURE.NOTE]I passaggi descritti in questo articolo creano un cluster Apache Spark in HDInsight usando le impostazioni di configurazione di base. Per informazioni su altre impostazioni di configurazione del cluster (ad esempio l'uso di archiviazione aggiuntiva, di una rete virtuale di Azure o di un metastore per Hive) vedere [Creare cluster HDInsight con opzioni personalizzate](hdinsight-apache-spark-provision-clusters.md).
 
 
-**Come eseguire un cluster Spark**
+**Per creare un cluster Spark**
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
 
-2. Fare clic su **NUOVO**, fare clic su **Analisi di dati**, quindi fare clic su **HDInsight**.
+2. Fare clic su **NUOVO**, **Analisi di dati** e quindi su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 
-3. Immettere un **Nome cluster**, selezionare **Hadoop** per il **tipo di Cluster**, e dal menu a discesa **Sistema operativo Cluster**, selezionare **Windows Server 2012 R2 Datacenter**. Un segno di spunta verde appare accanto al Nome del cluster, se disponibile.
+3. Immettere un **Nome cluster**, selezionare **Hadoop** per il **Tipo di cluster** e dal menu a discesa **Sistema operativo cluster** selezionare **Windows Server 2012 R2 Datacenter**. Un segno di spunta verde appare accanto al Nome del cluster, se disponibile.
 
-	![Immettere il nome del cluster e il tipo](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.2.png "Immettere il nome del cluster e il tipo")
+	![Immettere il nome del cluster e il tipo](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.2.png "Immettere il nome del cluster e il tipo")
 
-4. Se si dispone di più di una sottoscrizione, fare clic sulla voce**Sottoscrizione** per selezionare la sottoscrizione di Azure da usare per il cluster.
+4. Se si dispone di più di una sottoscrizione, fare clic sulla voce **Sottoscrizione** per selezionare la sottoscrizione di Azure da usare per il cluster.
 
 5. Fare clic su **Gruppo di risorse** per visualizzare un elenco di gruppi di risorse esistenti e selezionare quello in cui creare il cluster. In alternativa, è possibile fare clic su **Crea nuovo** e quindi immettere il nome del nuovo gruppo di risorse. Viene visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
 	> [AZURE.NOTE]Questa voce è impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Fare clic su **Credenziali**, e poi immettere un **Nome utente di accesso al Cluster** e la **Password dell'account di accesso Cluster**. Se si desidera attivare il desktop remoto nel nodo del cluster, su**Abilita Desktop remoto**, fare clic su **Sì** e poi specificare i valori richiesti. In questa esercitazione non richiede desktop remoto, quindi è possibile ignorare questo passaggio. Fare clic su **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.
+6. Fare clic su **Credenziali** e quindi immettere i valori di **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster**. Se si vuole abilitare il Desktop remoto nel nodo del cluster, su **Abilita Desktop remoto**, fare clic su **Sì** e quindi specificare i valori richiesti. In questa esercitazione non richiede desktop remoto, quindi è possibile ignorare questo passaggio. Fare clic su **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.
 
-	![Fornire le credenziali del cluster](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.3.png "Fornire le credenziali del cluster")
+	![Fornire le credenziali del cluster](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.3.png "Fornire le credenziali del cluster")
 
-7. Fare clic su **Origine dati** per scegliere un'origine dati esistente per il cluster o crearne una nuova. Quando si esegue il provisioning di un cluster Hadoop in HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account viene designato come file system predefinito, come in HDFS (Hadoop Distributed File System, file system distribuito Hadoop). Per impostazione predefinita, il provisioning del cluster HDInsight viene effettuato nello stesso data center dell'account di archiviazione specificato. Per altre informazioni, vedere l'argomento relativo all'[uso dell'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
+7. Fare clic su **Origine dati** per scegliere un'origine dati esistente per il cluster o crearne una nuova. Quando si crea un cluster Hadoop in HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account viene designato come file system predefinito, come in HDFS (Hadoop Distributed File System, file system distribuito Hadoop). Per impostazione predefinita, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione specificato. Per altre informazioni, vedere l'argomento relativo all'[uso dell'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
-	![Pannello di origine dati](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.4.png "Fornire la configurazione origine dati")
+	![Pannello di origine dati](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.4.png "Fornire la configurazione origine dati")
 
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare quanto segue per comprendere le voci nel pannello **Origine dati**.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci nel pannello **Origine dati**.
 
-	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Tasto di scelta** se si desidera immettere il **Nome di archiviazione** e il **Tasto di scelta** di un account di archiviazione esistente.
+	- **Metodo di selezione**: impostare questa voce su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa voce su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
 
-	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. Fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Usare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, viene visualizzato un segno di spunta verde.
+	- **Selezionare l'account di archiviazione/Crea nuovo**: fare clic su **Selezionare l'account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Usare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, viene visualizzato un segno di spunta verde.
 
-	- **Scegli contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- **Scegliere il contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
-	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
+	- **Località**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
 		> [AZURE.IMPORTANT]La selezione del percorso per l'origine dati predefinito imposta anche il percorso del cluster HDInsight. L'origine dati del cluster e l'origine dati predefinita devono trovarsi nella stessa area.
 
 	Fare clic su **Seleziona** per salvare la configurazione dell'origine dati.
 
-8. Fare clic su **Livelli di prezzi nodo** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
+8. Fare clic su **Piani tariffari per il nodo** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
 
-	![Pannello livelli dei prezzi di nodo](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
+	![Pannello livelli dei prezzi di nodo](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.5.png "Specificare il numero di nodi del cluster")
 
-	Fare clic su **Seleziona** per salvare la configurazione del prezzo del nodo.
+	Fare clic su **Seleziona** per salvare la configurazione dei piani tariffari per il nodo.
 
-9. Nel pannello**Nuovo cluster HDInsight**, assicurarsi che **Aggiungi alla schermata iniziale** sia selezionato, quindi fare clic su **Crea**. Questo crea il cluster e aggiunge una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+9. Nel pannello **Nuovo cluster HDInsight** assicurarsi che l'opzione **Aggiungi a Schermata iniziale** sia selezionata e quindi fare clic su **Crea**. Verrà creato il cluster e verrà aggiunto un riquadro apposito nella Schermata iniziale del portale di Azure. L'icona indica che il cluster è in fase di creazione e verrà visualizzata l'icona di HDInsight al termine dell'operazione.
 
-	| Durante il provisioning | Provisioning completato |
+	| Durante la creazione | Creazione completata |
 	| ------------------ | --------------------- |
-	| ![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioned.png) |
+	| ![Indicatore della creazione sulla schermata iniziale](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioning.png) | ![Riquadro del cluster creato](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale, o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
+	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro nella Schermata iniziale o la voce **Notifiche** nella parte sinistra della pagina per controllare il processo di creazione.
 
-10. Al termine del provisioning, fare clic sul riquadro per il cluster Spark dalla schermata iniziale per avviare il pannello del cluster.
+10. Dopo aver completato la creazione, fare clic sul riquadro per il cluster Spark dalla Schermata iniziale per avviare il pannello del cluster.
 
 
-## <a name="zeppelin"></a>Eseguire query interattive SQL Spark usando un notebook Zeppelin
+## <a name="zeppelin"></a>Eseguire query interattive Spark SQL mediante un notebook di Zeppelin
 
-Dopo che è stato eseguito un cluster, è possibile usare un notebook on line Zeppelin per eseguire query interattive SQL Spark contro il cluster HDInsight Spark. In questa sezione, verrà usato un file dati di esempio (hvac.csv) disponibile per impostazione predefinita sul cluster per eseguire alcune query interattive SQL Spark.
+Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato sul Web per eseguire query interattive Spark SQL nel cluster HDInsight Spark. In questa sezione, verrà usato un file dati di esempio (hvac.csv) disponibile per impostazione predefinita sul cluster per eseguire alcune query interattive SQL Spark.
 
 >[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Zeppelin, si noterà il notebook dal nome **Esercitazione Zeppelin HVAC**.
 
-1. Dal [Portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
-2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e quindi dal pannello **Dashboard del cluster** fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
+2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
 	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Creare un nuovo notebook. Dal riquadro intestazioni fare clic su **Notebook** e quindi fare clic su **Crea nuova nota**.
+2. Creare un nuovo notebook. Dal riquadro di intestazione fare clic su **Notebook** e quindi su **Crea nuova nota**.
 
-	![Creare un nuovo notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "Creare un nuovo notebook Zeppelin")
+	![Creare un nuovo notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createnewnote.png "Creare un nuovo notebook Zeppelin")
 
 	Nella stessa pagina, sotto l'intestazione **Notebook**, verrà visualizzato un nuovo notebook con il nome che inizia con **Nota XXXXXXXXX**. Fare clic su nuovo notebook.
 
 3. Nella pagina web per il nuovo notebook, fare clic sull'intestazione e se si vuole modificare il nome del notebook. Premere INVIO per salvare la modifica del nome. Verificare anche che l'intestazione del notebook mostri lo stato **Connesso** nell'angolo in alto a destra.
 
-	![Stato di notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Stato di notebook Zeppelin")
+	![Stato di notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.newnote.connected.png "Stato di notebook Zeppelin")
 
-4. Caricare i dati di esempio in una tabella temporanea. Quando si esegue il provisioning di un cluster di Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato in **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Nel paragrafo vuoto creato per impostazione predefinita del nuovo notebook, incollare il seguente snippet:
 
@@ -145,67 +143,67 @@ Dopo che è stato eseguito un cluster, è possibile usare un notebook on line Ze
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 
-	Premere **MAIUSC + INVIO** sulla tastiera oppure fare clic sul pulsante **Riproduci** in modo che il paragrafo esegua il frammento di codice. Lo stato nell'angolo destro superiore del paragrafo deve passare da PRONTO, IN ATTESA, IN ESECUZIONE, a COMPLETATO. L'output appare nella parte inferiore dello stesso paragrafo. Nella schermata è simile al seguente:
+	Premere **MAIUSC+INVIO** oppure fare clic sul pulsante **Riproduci** in modo che il paragrafo esegua il codice. Lo stato nell'angolo destro superiore del paragrafo deve passare da PRONTO, IN ATTESA, IN ESECUZIONE, a COMPLETATO. L'output appare nella parte inferiore dello stesso paragrafo. Nella schermata è simile al seguente:
 
-	![Crea una tabella temporanea dai dati non elaborati](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.LoadDataIntoTable.png "Crea una tabella temporanea dai dati non elaborati")
+	![Crea una tabella temporanea dai dati non elaborati](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.loaddataintotable.png "Crea una tabella temporanea dai dati non elaborati")
 
 	È inoltre possibile fornire un titolo a ogni paragrafo. Nell'angolo superiore destro fare clic sull'icona **Impostazioni** e quindi su **Mostra titolo**.
 
-5. È ora possibile eseguire istruzioni SQL Spark nella tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di generazione e la differenza tra la destinazione e le temperature effettive per ogni creazione di una determinata data. Premere **MAIUSC + INVIO**.
+5. È ora possibile eseguire istruzioni Spark SQL nella tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di generazione e la differenza tra la destinazione e le temperature effettive per ogni creazione di una determinata data. Premere **MAIUSC+INVIO**.
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date
 		from hvac
 		where date = "6/1/13"
 
-	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete SQL Spark. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
+	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete Spark SQL. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
 
 	Nella schermata riportata di seguito sono illustrate questo output.
 
-	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery1.png "Eseguire un'istruzione SQL Spark usando il notebook")
+	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.sparksqlquery1.png "Eseguire un'istruzione SQL Spark usando il notebook")
 
 	Scegliere le opzioni di visualizzazione (evidenziate nel rettangolo) per passare tra diverse rappresentazioni per lo stesso output. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave e la media di **temp\_diff** come valore.
 
-6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. L'esempio di codice successivo mostra come definire una variabile **Temp** nella query con i valori possibili con cui si desidera eseguire query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
+6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. L'esempio di codice seguente mostra come definire una variabile **Temp** nella query con i valori possibili con cui si vuole eseguire una query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
 		from hvac
 		where targettemp > "${Temp = 65,65|75|85}"
 
-	Incollare questo esempio di codice in un nuovo paragrafo e premere **MAIUSC + INVIO**. Nella schermata riportata di seguito sono illustrate questo output.
+	Incollare questo esempio di codice in un nuovo paragrafo e premere **MAIUSC+INVIO**. Nella schermata riportata di seguito sono illustrate questo output.
 
-	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "Eseguire un'istruzione SQL Spark usando il notebook")
+	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.sparksqlquery2.png "Eseguire un'istruzione SQL Spark usando il notebook")
 
 	Per le query successive, è possibile selezionare un nuovo valore dall'elenco a tendina e quindi eseguire nuovamente la query. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave, la media di **temp\_diff** come valore e **targettemp** come gruppo.
 
-7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Fare clic sulla scheda **Interprete** nella parte superiore e per l'interprete Spark fare clic su **Riavvia**.
+7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Fare clic sulla scheda **Interprete** nella parte superiore e, per l'interprete Spark, fare clic su **Riavvia**.
 
-	![Riavviare l'interprete Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "Riavviare l'interprete Zeppelin")
+	![Riavviare l'interprete Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.zeppelin.restart.interpreter.png "Riavviare l'interprete Zeppelin")
 
-## <a name="jupyter"></a>Eseguire query SQL Spark con un notebook di Jupyter
+## <a name="jupyter"></a>Eseguire query Spark SQL con un notebook di Jupyter
 
 In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL Spark su un cluster Spark.
 
 >[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Jupyter, si noterà il notebook con nome **HVACTutorial.ipynb**.
 
-1. Dal [Portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
-2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard del cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
+2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
 	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi fare clic su **Python2**.
+2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Python2**.
 
-	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Creare un nuovo notebook Jupyter")
+	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
 3. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
 
-	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "Specificare un nome per il notebook")
+	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare l'esempio di codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
+4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare l'esempio di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -215,13 +213,13 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È inoltre possibile notare un cerchio nero accanto al testo **Python2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Stato di un processo notebook Jupyter")
+	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.jupyter.job.status.png "Stato di un processo notebook Jupyter")
 
-4. Caricare i dati di esempio in una tabella temporanea. Quando si esegue il provisioning di un cluster di Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato in **\\HdiSamples\\SensorSampleData\\hvac**.
 
-	In una cella vuota, incollare l'esempio di codice seguente e premere **MAIUSC + INVIO**. Questo esempio di codice consente di registrare i dati in una tabella temporanea denominata **hvac**.
+	In una cella vuota incollare l'esempio di codice seguente e premere **MAIUSC+INVIO**. Questo esempio di codice registra i dati in una tabella temporanea denominata **hvac**.
 
 		# Load the data
 		hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -266,16 +264,16 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 		9          -9        6/1/13
 		15         -10       6/1/13
 
-6. Riavviare il kernel per uscire dall'applicazione. Dalla barra del menu superiore fare clic su **Kernel** e su **Riavvia** e quindi fare di nuovo clic su **Riavvia** al prompt.
+6. Riavviare il kernel per uscire dall'applicazione. Dalla barra del menu superiore fare clic su **Kernel** e su **Restart** e quindi fare di nuovo clic su **Restart** quando richiesto.
 
-	![Riavviare il Kernel Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Restart.Kernel.png "Riavviare il Kernel Jupyter")
+	![Riavviare il Kernel Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.jupyter.restart.kernel.png "Riavviare il Kernel Jupyter")
 
 
 ## <a name="seealso"></a>Vedere anche
 
 
-* [Panoramica: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Eseguire il provisioning di uno Spark nel cluster HDInsight](hdinsight-apache-spark-provision-clusters.md)
+* [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Creare un cluster Spark in HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 * [Usare Spark in HDInsight per la creazione di applicazioni di Machine Learning](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
@@ -292,4 +290,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

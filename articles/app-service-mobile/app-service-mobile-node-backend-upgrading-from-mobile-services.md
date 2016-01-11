@@ -3,7 +3,7 @@
 	description="Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione di Servizi mobili a un'app per dispositivi mobili del servizio app"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -42,13 +42,13 @@ L'aggiornamento alla nuova versione di [Mobile Apps SDK](https://www.npmjs.com/p
 
 - Creato per lo sviluppo multipiattaforma e locale, Mobile Apps SDK può essere sviluppato ed eseguito in locale su piattaforme Windows, Linux e OSX. L'uso di tecniche di sviluppo comuni di Node, ad esempio l'esecuzione di test [Mocha](https://mochajs.org/) prima della distribuzione, è ora più semplice.
 
-- Possibilità di usare Redis con moduli nativi come [hiredis](https://www.npmjs.com/package/hiredis). Inoltre, poiché il servizio app installa i pacchetti npm automaticamente durante la distribuzione, non è necessario includere i file binari nei pacchetti di distribuzione.
+- È possibile usare Redis con i moduli nativi come [hiredis](https://www.npmjs.com/package/hiredis). Non è necessario includere file binari nei pacchetti di distribuzione, in quanto il servizio app installerà automaticamente i pacchetti npm.
 
 ## <a name="overview"></a>Panoramica di base sull'aggiornamento
 
 A differenza di quanto avviene con .NET Mobile Apps SDK, l'aggiornamento di un back-end di Node da Servizi mobili ad App per dispositivi mobili non è semplice come la sostituzione dei pacchetti. L'utente, non Azure, è ora proprietario dell'intero gruppo di applicazioni, pertanto è necessario creare un'app Express di base che ospiti il back-end per dispositivi mobili. Per i controller dell'API e della tabella, i concetti sono simili, ma è ora necessario esportare gli oggetti tabella e le API della funzione sono state in qualche modo modificate. Questo articolo illustra in dettaglio le strategie di base dell'aggiornamento, ma prima di eseguire la migrazione, è opportuno leggere l'articolo relativo all'[uso del back-end di Node](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
->[AZURE.TIP]Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
+>[AZURE.TIP]Leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
 
 Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di App per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
@@ -56,10 +56,13 @@ Si avranno quindi due versioni dell'applicazione: una che rimane invariata e usa
 
 La struttura completa del processo di aggiornamento è la seguente:
 
-1. Creare una nuova app per dispositivi mobili
-2. Aggiornare il progetto per l'uso dei nuovi SDK del server
-3. Rilasciare una nuova versione dell'applicazione client
-4. (Facoltativo) Eliminare l'app del servizio mobile originale migrata
+1. Creare una nuova App per dispositivi mobili.
+2. Aggiornare il progetto per l'uso dei nuovi SDK del server.
+3. Pubblicare il progetto nella nuova App per dispositivi mobili.
+4. Rilasciare una nuova versione dell'applicazione client che usa la nuova App per dispositivi mobili
+5. (Facoltativo) Eliminare l'app del servizio mobile originale migrata.
+
+L'eliminazione può verificarsi quando non viene visualizzato traffico nell'app del servizio mobile originale migrata.
 
 ## <a name="mobile-app-version"></a> Avvio dell'aggiornamento
 Il primo passaggio per l'aggiornamento prevede la creazione della risorsa dell'app per dispositivi mobili che ospiterà la nuova versione dell'applicazione. Se è già stata eseguita la migrazione di un servizio mobile esistente, è consigliabile creare questa versione nello stesso piano di hosting. Aprire il [portale di Azure] e passare all'applicazione migrata. Prendere nota del piano di servizio app in cui è in esecuzione.
@@ -110,10 +113,13 @@ Ogni back-end Node.js per App per dispositivi mobili del servizio app di Azure v
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+Per altri esempi, vedere l'[archivio GitHub](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples).
 
 ## Aggiornamento del progetto server
 
@@ -121,11 +127,11 @@ App per dispositivi mobili fornisce una nuova versione dell'[SDK del server dell
 
 ### Configurazione di base
 
-Il server ha numerose impostazioni di configurazione, ma un'ampia gamma di valori predefiniti in grado di semplificare le operazioni iniziali. Molte delle impostazioni vengono configurate automaticamente, nel [portale di Azure], tramite i menu delle impostazioni di **dati**, **autenticazione/autorizzazione** e **push**. Per lo sviluppo locale, se si desidera usare le impostazioni di dati, autenticazione e push, può essere necessario configurare l'ambiente di sviluppo locale.
+Il server ha numerose impostazioni di configurazione, ma un'ampia gamma di valori predefiniti in grado di semplificare le operazioni iniziali. Molte delle impostazioni vengono configurate automaticamente nel [portale di Azure], tramite i menu delle impostazioni di **dati**, **autenticazione/autorizzazione** e **push**. Per lo sviluppo locale, se si desidera usare le impostazioni di dati, autenticazione e push, può essere necessario configurare l'ambiente di sviluppo locale.
 
 È possibile definire la configurazione del server tramite le variabili di ambiente che possono essere specificate mediante le impostazioni dell'app nel back-end dell'app per dispositivi mobili.
 
-È inoltre possibile personalizzare Mobile Apps SDK passando un [oggetto di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) all'inizializzatore o [creando un file denominato azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) nella radice del progetto.
+È inoltre possibile personalizzare l'SDK delle app per dispositivi mobili passando un [oggetto di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) all'inizializzatore o [creando un file denominato azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) nella radice del progetto.
 
 ### Uso di dati e tabelle
 
@@ -140,11 +146,14 @@ Per iniziare a spostare la logica di business dal servizio mobile ad App per dis
 
     module.exports = table;
 
-Per avviare il trasferimento di alcune logiche, per ogni tabella `<tablename>.<operation>.js`, è necessaria una funzione per la tabella. Aggiungere, a titolo di esempio, una funzione di lettura.
+Per avviare il trasferimento di alcune logiche, per ogni tabella `<tablename>.<operation>.js` sarà necessaria una funzione. Aggiungere, a titolo di esempio, una funzione di lettura.
 
 In un servizio mobile con una tabella TodoItem e un'operazione di lettura che filtra gli elementi in base a ID utente, simile alla seguente:
 
-  function(query, user, request) { query.where({ userId: user.userId}); request.execute(); }
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 La funzione che viene aggiunta al codice della tabella di App per dispositivi mobili di Azure sarà simile alla seguente:
 
@@ -153,17 +162,32 @@ La funzione che viene aggiunta al codice della tabella di App per dispositivi mo
         return context.execute();
     });
 
-Esaminando il codice, è possibile riconoscere la maggior parte dei parametri della funzione da
+La query, l'utente e la richiesta vengono combinati in un contesto. I campi seguenti sono disponibili all'interno dell'oggetto contesto:
+
+| Campo | Tipo | Descrizione |
+| :------ | :--------------------- | :---------- |
+| query | queryjs/Query | Query OData analizzata |
+| id | stringa o numero | ID associato alla richiesta |
+| item | object | Elemento inserito o eliminato |
+| req | express.Request | Oggetto della richiesta esplicita corrente |
+| res | express.Response | Oggetto della risposta esplicita corrente |
+| data | data | Provider di dati configurati |
+| tables | funzione | Funzione che accetta un nome di tabella di stringa e restituisce un oggetto di accesso alla tabella |
+| user | auth/user | Oggetto utente autenticato |
+| results | object | Risultati dell'operazione di esecuzione |
+| push | NotificationHubService | Servizio Hub di notifica, se configurato |
+
+Per altre informazioni, vedere la [documentazione relativa all'API corrente](http://azure.github.io/azure-mobile-apps-node).
 
 ### CORS
 
-È possibile abilitare la Condivisione risorse tra le origini (CORS) tramite un'[impostazione di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) specifica nell'SDK.
+È possibile abilitare la Condivisione risorse tra le origini (Cross-Origin Resource Sharing, CORS) tramite un'[impostazione di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#corsConfiguration) nell'SDK.
 
 Le principali aree problematiche per l'uso di CORS sono rappresentate dal fatto che le intestazioni `eTag` e `Location` devono essere consentite per il corretto funzionamento degli SDK del client.
 
 ### Notifiche push
 
-Ad Azure Notification Hubs SDK sono stati apportati alcuni aggiornamenti significativi a partire da Servizi mobili, è quindi possibile che alcune firme di funzione di hub di notifica siano diverse. In caso contrario, la funzionalità è simile a quella di Servizi mobili. Azure Mobile SDK esegue il provisioning di un'istanza di hub di notifica se è presente l'impostazione dell'app per gli hub di notifica e la espone su `context.push`. In [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js) è disponibile un esempio con la relativa sezione illustrata di seguito:
+Ad Azure Notification Hubs SDK sono stati apportati alcuni aggiornamenti significativi a partire da Servizi mobili, è quindi possibile che alcune firme di funzione di hub di notifica siano diverse. In caso contrario, la funzionalità è simile a quella di Servizi mobili. Azure Mobile SDK esegue il provisioning di un'istanza di Hub di notifica, se è presente l'impostazione dell'app per gli hub di notifica, e la espone su `context.push`. In [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js) è disponibile un esempio con la relativa sezione illustrata di seguito:
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -264,4 +288,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

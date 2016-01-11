@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)
@@ -38,16 +38,22 @@ Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure
 Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamento delle istanze di Cache Redis.
 
 | Proprietà | Switch | Descrizione |
-|------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | -n, --name | Nome della Cache Redis. |
 | gruppo di risorse | -g, --resource-group | Nome del gruppo di risorse. |
 | location | -l, --location | Posizione in cui creare una cache. |
-| size | -z, --size | Dimensione della Cache Redis. Valori validi: [C0, C1, C2, C3, C4, C5, C6] |
-| sku | -x, sku: | SKU di Redis. Deve essere uno di: [Standard di base] |
-| MaxMemoryPolicy | -m, --max-memory-policy | Proprietà MaxMemoryPolicy della Cache Redis. Valori validi: [AllKeysLRU, AllKeysRandom, NoEviction, VolatileLRU, VolatileRandom, VolatileTTL] |
+| size | -z, --size | Dimensione della Cache Redis. Valori validi: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| sku | -x, sku: | SKU di Redis. Deve essere uno di: [Basic, Standard, Premium] |
 | EnableNonSslPort | -e, --enable-non-ssl-port | Proprietà EnableNonSslPort della Cache Redis. Aggiungere questo flag se si desidera abilitare la porta SSL Non per la cache |
-| subscription | -s, --subscription | L'identificatore della sottoscrizione. |
+| Configurazione di Redis | -c, --redis-configuration | Configurazione di Redis. Immettere qui una stringa in formato JSON di chiavi di configurazione e valori. Formato: "{"":"","":""}" |
+| Configurazione di Redis | -f, --redis-configuration-file | Configurazione di Redis. Immettere qui il percorso di un file contenente le chiavi di configurazione e i valori. Formato per l’immissione del file: {"": "","": ""} |
+| Numero di partizioni | -r, --shard-count | Numero di partizioni da creare su una cache di cluster Premium con il clustering. |
+| Rete virtuale | -v, --virtual-network | Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa esatto ARM della rete virtuale in cui distribuire la cache Redis. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo di chiave | -t, --key-type | Tipo di chiave per il rinnovo. Valori validi: [primario, secondario] |
+| StaticIP | -p, --static-ip <static-ip> | Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
+| Subnet | t, --subnet <subnet> | Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
+| VirtualNetwork | -v, --virtual-network <virtual-network> | Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa esatto ARM della rete virtuale in cui distribuire la cache Redis. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Sottoscrizione | -s, --subscription | L'identificatore della sottoscrizione. |
 
 ## Vedere tutti i comandi di Cache Redis
 
@@ -69,7 +75,7 @@ Per visualizzare tutti i comandi di Cache Redis e i relativi parametri, utilizza
 	help:      rediscache show [--name <name> --resource-group <resource-group>]
 	help:
 	help:    Change settings of an existing Redis Cache
-	help:      rediscache set [--name <name> --resource-group <resource-group> --max-memory-policy <max-memory-policy>]
+	help:      rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 	help:
 	help:    Renew the authentication key for an existing Redis Cache
 	help:      rediscache renew-key [--name <name> --resource-group <resource-group> ]
@@ -96,18 +102,23 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:    Usage: rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 	help:
 	help:    Options:
-	help:      -h, --help                                   output usage information
-	help:      -v, --verbose                                use verbose output
-	help:      -vv                                          more verbose with debug output
-	help:      --json                                       use json output
-	help:      -n, --name <name>                            Name of the Redis Cache.
-	help:      -g, --resource-group <resource-group>        Name of the Resource Group
-	help:      -l, --location <location>                    Location to create cache.
-	help:      -z, --size <size>                            Size of the Redis Cache. Valid values: [C0, C1, C2, C3, C4, C5, C6]
-	help:      -x, --sku <sku>                              Redis SKU. Should be one of : [Basic, Standard]
-	help:      -m, --max-memory-policy <max-memory-policy>  MaxMemoryPolicy property of the Redis Cache. Valid values: [AllKeysLRU, AllKeysRandom, NoEviction, VolatileLRU, VolatileRandom, VolatileTTL]
-	help:      -e, --enable-non-ssl-port                    EnableNonSslPort property of the Redis Cache. Add this flag if you want to enable the Non SSL Port for your cache
-	help:      -s, --subscription <id>                      the subscription identifier
+	help:      -h, --help                                               output usage information
+	help:      -v, --verbose                                            use verbose output
+	help:      -vv                                                      more verbose with debug output
+	help:      --json                                                   use json output
+	help:      -n, --name <name>                                        Name of the Redis Cache.
+	help:      -g, --resource-group <resource-group>                    Name of the Resource Group
+	help:      -l, --location <location>                                Location to create cache.
+	help:      -z, --size <size>                                        Size of the Redis Cache. Valid values: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4]
+	help:      -x, --sku <sku>                                          Redis SKU. Should be one of : [Basic, Standard, Premium]
+	help:      -e, --enable-non-ssl-port                                EnableNonSslPort property of the Redis Cache. Add this flag if you want to enable the Non SSL Port for your cache
+	help:      -c, --redis-configuration <redis-configuration>          Redis Configuration. Enter a JSON formatted string of configuration keys and values here. Format:"{"<key1>":"<value1>","<key2>":"<value2>"}"
+	help:      -f, --redis-configuration-file <redisConfigurationFile>  Redis Configuration. Enter the path of a file containing configuration keys and values here. Format for the file entry: {"<key1>":"<value1>","<key2>":"<value2>"}
+	help:      -r, --shard-count <shard-count>                          Number of Shards to create on a Premium Cluster Cache
+	help:      -v, --virtual-network <virtual-network>                  The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+	help:      -t, --subnet <subnet>                                    Required when deploying a redis cache inside an existing Azure Virtual Network
+	help:      -p, --static-ip <static-ip>                              Required when deploying a redis cache inside an existing Azure Virtual Network
+	help:      -s, --subscription <id>                                  the subscription identifier
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
@@ -182,28 +193,30 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
+<a name="scale"></a>
 ## Modificare le impostazioni di una Cache Redis esistente
 
 Per modificare le impostazioni di una Cache Redis esistente, utilizzare il comando seguente:
 
-	azure rediscache set [--name <name> --resource-group <resource-group> --max-memory-policy <max-memory-policy>]
+	azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
 Per altre informazioni su questo comando, eseguire il comando `azure rediscache set -h`.
 
 	C:\>azure rediscache set -h
 	help:    Change settings of an existing Redis Cache
 	help:
-	help:    Usage: rediscache set [--name <name> --resource-group <resource-group> --max-memory-policy <max-memory-policy>]
+	help:    Usage: rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 	help:
 	help:    Options:
-	help:      -h, --help                                   output usage information
-	help:      -v, --verbose                                use verbose output
-	help:      -vv                                          more verbose with debug output
-	help:      --json                                       use json output
-	help:      -n, --name <name>                            Name of the Redis Cache.
-	help:      -g, --resource-group <resource-group>        Name of the Resource Group
-	help:      -m, --max-memory-policy <max-memory-policy>  Max Memory Policy of the Redis Cache. Valid values: [AllKeysLRU, AllKeysRandom, NoEviction, VolatileLRU, VolatileRandom, VolatileTTL]
-	help:      -s, --subscription <subscription>            the subscription identifier
+	help:      -h, --help                                               output usage information
+	help:      -v, --verbose                                            use verbose output
+	help:      -vv                                                      more verbose with debug output
+	help:      --json                                                   use json output
+	help:      -n, --name <name>                                        Name of the Redis Cache.
+	help:      -g, --resource-group <resource-group>                    Name of the Resource Group
+	help:      -c, --redis-configuration <redis-configuration>          Redis Configuration. Enter a JSON formatted string of configuration keys and values here.
+	help:      -f, --redis-configuration-file <redisConfigurationFile>  Redis Configuration. Enter the path of a file containing configuration keys and values here.
+	help:      -s, --subscription <subscription>                        the subscription identifier
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
@@ -229,7 +242,7 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:      --json                                 use json output
 	help:      -n, --name <name>                      Name of the Redis Cache.
 	help:      -g, --resource-group <resource-group>  Name of the Resource Group under which cache exists
-	help:      -t, --key-type <key-type>              type of key to renew
+	help:      -t, --key-type <key-type>              type of key to renew. Valid values are: 'Primary', 'Secondary'.
 	help:      -s, --subscription <subscription>      the subscription identifier
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
@@ -258,4 +271,4 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

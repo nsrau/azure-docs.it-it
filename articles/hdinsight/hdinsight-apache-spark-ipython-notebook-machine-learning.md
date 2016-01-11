@@ -14,54 +14,56 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 
-# Compilare le applicazioni di Machine Learning utilizzando Apache Spark in Azure HDInsight
+# Compilare le applicazioni di Machine Learning utilizzando Apache Spark in Azure HDInsight (Linux)
 
 Informazioni su come creare un'applicazione che utilizza un cluster Apache Spark in HDInsight di apprendimento automatico. Questo articolo illustra come usare il notebook Jupyter disponibile con il cluster per compilare e testare l'applicazione. L'applicazione utilizza i dati di HVAC.csv di esempio sono disponibili in tutti i cluster per impostazione predefinita.
+
+> [AZURE.TIP]Questa esercitazione è disponibile anche come un notebook Jupyter in un cluster Spark (Linux) creati in HDInsight. L'esperienza di notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione all'interno di un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), quindi eseguire il notebook **Spark Machine Learning - stima temperatura compilazione utilizzando HVAC data.ipynb** nella cartella **Python**.
 
 **Prerequisiti:**
 
 È necessario disporre di quanto segue:
 
 - Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark. Per istruzioni, vedere [Provisioning dei cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
+- Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ##<a name="data"></a>Mostra i dati
 
 Prima di iniziare la compilazione dell'applicazione, possiamo comprendere la struttura dei dati e il tipo di analisi che facciamo sui dati.
 
-In questo articolo, è possibile utilizzare l'esempio file dati **HVAC.csv** è disponibile in tutti i cluster HDInsight per impostazione predefinita in **\\HdiSamples\\SensorSampleData\\hvac**. Scaricare e aprire il file CSV per ottenere uno snapshot dei dati.
+In questo articolo, si utilizza l'esempio file dati **HVAC.csv** disponibile in tutti i cluster HDInsight per impostazione predefinita in **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Scaricare e aprire il file CSV per ottenere uno snapshot dei dati.
 
-![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "Snapshot dei dati HVAC")
+![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot dei dati HVAC")
 
-I dati illustrano la temperatura di destinazione e la temperatura effettiva di un edificio con sistemi HVAC installati. Si supponga che la colonna **sistema** rappresenta l'ID del sistema e la colonna **SystemAge** rappresenta il numero di anni in cui il sistema HVAC è stato in luogo presso l’edificio.
+I dati illustrano la temperatura di destinazione e la temperatura effettiva di un edificio con sistemi HVAC installati. Si supponga che la colonna **sistema** rappresenti l'ID del sistema e la colonna **SystemAge** rappresenti il numero di anni in cui il sistema HVAC è stato in luogo presso l’edificio.
 
 Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base alla temperatura di destinazione, in base a un ID di sistema e all'età di sistema.
 
-##<a name="app"></a>Scrivere un'applicazione di formazione machine utilizzando MLlib Spark
+##<a name="app"></a>Scrivere un'applicazione di Machine Learning utilizzando MLlib Spark
 
-1. Dal [portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **Cluster HDInsight**.   
+1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
-2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Jupyter**. Se richiesto, immettere le credenziali per il cluster.
+2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard del cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
 	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **Nuovo**, quindi su **Python 2**.
+2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **Python 2**.
 
-	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "Creare un nuovo notebook Jupyter")
+	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
 3. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
 
-	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "Specificare un nome per il notebook")
+	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
 3. Iniziare a creare l'applicazione di apprendimento automatico. In questa applicazione viene utilizzata una pipeline di Spark ML per eseguire una classificazione di documento. Nella pipeline si è suddiviso il documento in parole, convertite le parole in un vettore di funzionalità numerico e infine creato un modello di stima utilizzando i vettori di funzionalità e le etichette.
 
-	Per avviare la compilazione dell'applicazione, importare i moduli necessari e assegnare risorse all'applicazione. Nella cella vuota nel nuovo notebook, incollare il seguente frammento e premere **MAIUSC + INVIO**.
+	Per avviare la compilazione dell'applicazione, importare i moduli necessari e assegnare risorse all'applicazione. Nella cella vuota nel nuovo notebook, incollare il seguente frammento di codice e premere **MAIUSC + INVIO**.
 
 
 		from pyspark.ml import Pipeline
@@ -82,7 +84,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		
 		# Assign resources to the application
 		conf = SparkConf()
-		conf.setMaster('spark://headnodehost:7077')
+		conf.setMaster('yarn-client')
 		conf.setAppName('pysparkregression')
 		conf.set("spark.cores.max", "4")
 		conf.set("spark.executor.memory", "4g")
@@ -90,11 +92,11 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		sc = SparkContext(conf=conf)
 		sqlContext = SQLContext(sc)
 
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del browser web visualizzerà uno stato **(Occupato)** accanto al titolo notebook. È inoltre possibile notare un cerchio pieno accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
+	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
  
-4. È ora necessario caricare i dati (hvac.csv), da analizzare e utilizzare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo, indicato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo, indicato dal valore **0.0**.
+4. È ora necessario caricare i dati (hvac.csv), da analizzare e utilizzare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo ed è contrassegnato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo ed è contrassegnato dal valore **0.0**.
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 
@@ -127,13 +129,13 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
     		return LabeledDocument((values[6]), textValue, hot)
 
 		# Load the raw HVAC.csv file, parse it using the function
-		data = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 		training = documents.toDF()
 
 
-5. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr. Per altre informazioni su una pipeline e sul suo funzionamento vedere <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">pipeline machine learning di Spark</a>.
+5. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr. Per altre informazioni sulle pipeline e sul loro funzionamento, vedere <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">pipeline machine learning di Spark</a>.
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 
@@ -152,35 +154,39 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 	Questo dovrebbe fornire un output simile al seguente:
 
-		BuildingID SystemInfo label
-		4          13 20      0.0  
-		17         3 20       0.0  
-		18         17 20      1.0  
-		15         2 23       0.0  
-		3          16 9       1.0  
-		4          13 28      0.0  
-		2          12 24      0.0  
-		16         20 26      1.0  
-		9          16 9       1.0  
-		12         6 5        0.0  
-		15         10 17      1.0  
-		7          2 11       0.0  
-		15         14 2       1.0  
-		6          3 2        0.0  
-		20         19 22      0.0  
-		8          19 11      0.0  
-		6          15 7       0.0  
-		13         12 5       0.0  
-		4          8 22       0.0  
-		7          17 5       0.0
+		+----------+----------+-----+
+		|BuildingID|SystemInfo|label|
+		+----------+----------+-----+
+		|         4|     13 20|  0.0|
+		|        17|      3 20|  0.0|
+		|        18|     17 20|  1.0|
+		|        15|      2 23|  0.0|
+		|         3|      16 9|  1.0|
+		|         4|     13 28|  0.0|
+		|         2|     12 24|  0.0|
+		|        16|     20 26|  1.0|
+		|         9|      16 9|  1.0|
+		|        12|       6 5|  0.0|
+		|        15|     10 17|  1.0|
+		|         7|      2 11|  0.0|
+		|        15|      14 2|  1.0|
+		|         6|       3 2|  0.0|
+		|        20|     19 22|  0.0|
+		|         8|     19 11|  0.0|
+		|         6|      15 7|  0.0|
+		|        13|      12 5|  0.0|
+		|         4|      8 22|  0.0|
+		|         7|      17 5|  0.0|
+		+----------+----------+-----+
+
 
 	Tornare indietro e verificare l'output nel file CSV non elaborato. Ad esempio, la prima riga del file CSV ha dati:
 
-	![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.First.Row.png "Snapshot dei dati HVAC")
+	![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Snapshot dei dati HVAC")
 
-	Si noti come la temperatura effettiva è inferiore alla temperatura destinazione suggerendo che edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0.0** che indica l’edificio non è caldo.
+	Si noti come la temperatura effettiva è inferiore alla temperatura destinazione suggerendo che edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0.0**, che indica l’edificio non è caldo.
 
-8.  Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, si passa un ID di sistema e l'età di sistema (indicato come **SystemInfo** nell'output di formazione), e il modello potrebbe prevedere se la compilazione con tale ID di sistema e l'età di sistema sarebbe più calda (indicato da 1.0) o fredda (indicato da 0.0).
+8.  Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, si passa a un ID di sistema e all'età di sistema (indicati come **SystemInfo** nell'output di formazione), e il modello potrebbe prevedere se la compilazione con tale ID di sistema ed età di sistema sarebbe più calda (contrassegnata da 1.0) o fredda (contrassegnata da 0.0).
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 		
@@ -213,9 +219,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 	Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
 
-11. È ora possibile chiudere il notebook riavviando il kernel. Dalla barra del menu superiore, fare clic su **Kernel**, quindi fare clic su **Riavvia**, quindi fare clic su **Riavvia** nuovamente al prompt.
-
-	![Riavviare il Kernel Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Riavviare il Kernel Jupyter")
+11. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Arresta e sospendi**. Questo arresterà e chiuderà il notebook.
 	  	   
 
 ##<a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
@@ -225,9 +229,31 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 ##<a name="seealso"></a>Vedere anche
 
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Eseguire il provisioning di uno Spark nel cluster HDInsight](hdinsight-apache-spark-provision-clusters.md)
-* [Eseguire l’analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
-* [Usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+
+### Scenari
+
+* [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
+
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
+* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
+
+* [Analisi del log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### Creare ed eseguire applicazioni
+
+* [Creare un'applicazione autonoma con Scala](hdinsight-apache-spark-create-standalone-application.md)
+
+* [Eseguire i processi in modalità remota in un cluster Spark utilizzando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+
+### Estensioni
+
+* [Usare i notebook Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Kernel disponibili per il notebook Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+### Gestione delle risorse
+
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -247,4 +273,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

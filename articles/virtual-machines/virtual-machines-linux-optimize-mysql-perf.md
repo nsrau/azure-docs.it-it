@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Ottimizzazione delle prestazioni di MySQL in macchine virtuali Linux di Azure
@@ -348,4 +348,4 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

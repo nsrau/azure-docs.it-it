@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di GaggleAMP in Azure AD, è necessario aggiunger
 
 **Per aggiungere GaggleAMP dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
+1. Nel **portale di Azure classico**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di GaggleAMP in Azure AD, è necessario aggiunger
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **GaggleAMP**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_01.png)<br>
-7. Nel riquadro dei risultati selezionare **GaggleAMP** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati, selezionare **GaggleAMP** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con GaggleAMP in base a un utente test di nome "Britta Simon".
@@ -87,43 +87,43 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 **Per configurare Single Sign-On di Azure AD con GaggleAMP, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **GaggleAMP** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **GaggleAMP** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a GaggleAMP** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_03.png) <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a GaggleAMP**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_03.png) <br>
 
-3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_04.png) <br>
+3. Nella pagina **Configurare le impostazioni dell'app**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_04.png) <br>
 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione GaggleAMP adottando il modello seguente: **"https://secure4.gaggleamp.com"**.
+    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione GaggleAMP adottando il modello seguente: **"https://secure4.gaggleamp.com"**.
 
-    > [AZURE.NOTE]Contattare il [team delle vendite di GaggleAMP](mailto:sales@gaggleamp.com) se è necessario il valore di **Sign On URL** per l'applicazione."
+    > [AZURE.NOTE]Contattare il [team delle vendite di GaggleAMP](mailto:sales@gaggleamp.com) se è necessario il valore **URL di accesso** per l'applicazione."
 
     b. Fare clic su **Avanti**.
 
 
-4. Nella pagina **Configura accesso Single Sign-On in GaggleAMP** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in GaggleAMP**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_05.png) <br>
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer. Questo certificato e gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) saranno necessari per configurare l'accesso Single Sign-On nel sito GaggleAMP.
 
     b. Fare clic su **Avanti**.
 
 
-5. In un'altra istanza del browser passare alla pagina dell'accesso Single Sign-On SAML creata dal team di supporto di Gaggle (ad esempio: **https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+5. In un'altra istanza del browser, passare alla pagina dell'accesso Single Sign-On SAML creata dal team di supporto di Gaggle (ad esempio: **https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-6. Nella pagina **SAML SSO** seguire questa procedura: <br><br>![Accesso Single Sign-On di GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) <br>
+6. Nella pagina **Accesso Single Sign-On SAML**, seguire questa procedura: <br><br>![Accesso Single Sign-On di GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) <br>
 
-    a. Nel portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Identity Provider Issuer**.
+    a. Nel portale di Azure classico, copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Provider di identità autorità di certificazione**.
 
-    b. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Identity Provider Single Sign-On URL**.
+    b. Nel portale di Azure classico, copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **URL dell’accesso Single Sign-On per il provider di identità**.
 
     c. Fare clic su **Save**.
     
     d. Inviare il certificato scaricato al [team di vendite di GaggleAMP](mailto:sales@gaggleamp.com).
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-On**, fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
@@ -133,15 +133,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure classico**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_03.png) <br>
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_04.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina **Informazioni sull'utente**, seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -149,7 +149,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina **Profilo utente**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png) <br>
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -161,11 +161,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina **Ottieni password temporanea**, fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_07.png) <br>
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina **Ottieni password temporanea**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_08.png) <br>
 
-    a. Prendere nota del valore in **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -186,13 +186,13 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni selezionare **GaggleAMP**. <br><br>![Elenco di Azure](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png) <br>
+2. Nell'elenco di applicazioni, selezionare **GaggleAMP**. <br><br>![Elenco di Azure](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png) <br>
 
-1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
+1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Sulla barra degli strumenti in basso, fare clic su **Assegna**. <br><br>![Assegna utente][205]
 
 
 
@@ -225,4 +225,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

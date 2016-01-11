@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Uso di BizTalk Trading Partner Management e aggiunta all'app per la logica
@@ -25,7 +25,7 @@ L'app per le API TPM è il requisito di base del connettore AS2 e delle app per 
 - Database SQL di Azure vuoto: è necessario creare un database SQL di Azure vuoto prima di creare una nuova app per le API TPM.
 
 ## Informazioni su partner, contratti e profili
-Per altre informazioni sul contratto tra partner commerciali, fare clic [qui][1].
+Ulteriori informazioni su come [creare un contratto tra partner commerciali][1].
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -39,4 +39,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

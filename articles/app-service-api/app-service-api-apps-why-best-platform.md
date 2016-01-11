@@ -42,7 +42,7 @@ Inoltre, le funzionalità offerte da App per le API, App Web e app per dispositi
 
 >[AZURE.NOTE]È possibile usare [Gestione API di Azure](../api-management/api-management-key-concepts.md) per controllare l'accesso client alle API ospitate dalle app per le API del servizio app. Anche se le app per le API forniscono servizi di autenticazione, non offrono altre funzionalità di gestione degli accessi offerte da Gestione API, ad esempio consolidamento di endpoint e limitazione delle richieste.
 
-## Concetti delle app per le API ##
+## Concetti delle app per le API <a id="concepts"></a>
 
 - **Swagger**: un framework per la documentazione e per l'individuazione di un'API RESTful, usato per impostazione predefinita nelle app per le API. Per altre informazioni, visitare il sito [http://swagger.io/](http://swagger.io/).
 - **Condivisione risorse tra le origini (CORS)**: un meccanismo che consente a JavaScript in esecuzione in un browser di effettuare chiamate a un'API ospitata in un dominio diverso da quello da cui è stata caricata la pagina Web. Per altre informazioni, vedere [Utilizzare un'app per le API da JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). 
@@ -57,4 +57,4 @@ Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

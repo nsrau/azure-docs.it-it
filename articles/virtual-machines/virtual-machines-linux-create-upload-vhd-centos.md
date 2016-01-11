@@ -322,11 +322,21 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 12.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
 
-13. Installare l'agente Linux di Azure eseguendo il comando seguente:
+13.	**Solo se si sta creando un’immagine da VMWare, VirtualBox o KVM:** aggiungere moduli Hyper-V in initramfs:
+
+    Modificare `/etc/dracut.conf` e aggiungere il contenuto:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Ricompilare l’initramfs:
+
+        # dracut –f -v
+
+14. Installare l'agente Linux di Azure eseguendo il comando seguente:
 
 		# sudo yum install WALinuxAgent
 
-14.	Non creare l'area di swap sul disco del sistema operativo.
+15.	Non creare l'area di swap sul disco del sistema operativo.
 
 	L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
 
@@ -336,12 +346,12 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
+16.	Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+17. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

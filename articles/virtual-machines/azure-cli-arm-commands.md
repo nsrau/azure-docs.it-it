@@ -49,7 +49,7 @@ I requisiti di impostazione per l'uso della modalità Gestione risorse con l'int
 
 Dopo aver ottenuto un account e aver installato l'interfaccia della riga di comando di Azure, è necessario eseguire queste operazioni:
 
-- [configurare la CLI di Azure](../xplat-cli-connect.md) per utilizzare un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft 
+- [configurare la CLI di Azure](../xplat-cli-connect.md) per utilizzare un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft
 - Passare alla modalità Gestione risorse digitando `azure config mode arm`
 
 
@@ -1686,9 +1686,9 @@ Opzioni dei parametri:
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**Elencare le macchine virtuali all'interno di un gruppo di risorse**
+**Elencare le macchine virtuali all’interno di un account**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
 **Ottenere una macchina virtuale all'interno di un gruppo di risorse**
 
@@ -1779,7 +1779,7 @@ Esempio: creare un file di configurazione che contiene un'azione script per l'es
 	 
 Esempio: creare uno Storm nel cluster Linux
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1787,7 +1787,7 @@ Esempio: creare uno Storm nel cluster Linux
 
 Esempio: creare un cluster con un'azione script
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1879,4 +1879,4 @@ Opzioni dei parametri:
 
 	hdinsight cluster disable-rdp-access [options] <clusterName>
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

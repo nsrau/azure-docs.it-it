@@ -479,7 +479,7 @@ Proprietà | Descrizione | Obbligatorio
 folderPath | Percorso della cartella. Esempio: myfolder<p>Usare il carattere di escape ' \\ ' per i caratteri speciali nella stringa. Ad esempio: per folder\\subfolder, specificare folder\\\subfolder e per d:\\samplefolder, specificare d:\\\samplefolder.</p><p>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi delle cartelle basati sull'intervallo di data di inizio e fine della sezione.</p> | Sì
 fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<p>Quando fileName non è specificato per un set di dati di output, il nome del file generato è nel formato seguente:</p><p>Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
-Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. | No
+Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. ** La proprietà di formato non è attualmente supportata per i sistemi di file locali. La relativa abilitazione è prevista al più presto, come indicato di seguito.** | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
@@ -489,7 +489,7 @@ fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di f
 
 Come indicato sopra, partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata.
 
-Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
+Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Creazione di set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) e [Creazione di pipeline](data-factory-create-pipelines.md).
 
 #### Esempio 1.
 
@@ -517,14 +517,14 @@ Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti
 
 ### Specifica di TextFormat
 
-Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format** all'interno della sezione **typeProperties**.
+Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Formato** all'interno della sezione **typeProperties**.
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 columnDelimiter | Carattere/i usato/i come separatore di colonne in un file. Il valore predefinito è la virgola (,). | No
 rowDelimiter | Carattere/i usato/i come separatore raw in un file. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No
 escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si vuole inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
-quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si vuole inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
+quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si vuole inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire ‘"’ come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
 nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Il valore predefinito è "\\N".> | No
 encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. <p>Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8.</p> | No
 
@@ -575,7 +575,7 @@ Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazion
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identico al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine si trovano nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identico al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine si trovano nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/Blob, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
 
 ### esempi ricorsivi e copyBehavior
 In questa sezione viene descritto il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
@@ -603,4 +603,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

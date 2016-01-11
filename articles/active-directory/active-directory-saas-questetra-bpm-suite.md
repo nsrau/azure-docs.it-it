@@ -3,8 +3,8 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Questetra BPM Suite."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	authors="jeevansd"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Questetra BPM Suite
@@ -265,4 +265,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

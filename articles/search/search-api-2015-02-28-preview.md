@@ -1,6 +1,6 @@
 <properties
-   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure | Servizio di ricerca cloud ospitato"
-   description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come la sintassi delle query Lucene e le ricerche moreLikeThis."
+   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure"
+   description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come la sintassi delle query Lucene e gli analizzatori personalizzati."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="11/04/2015"
+   ms.date="12/21/2015"
    ms.author="heidist"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
-Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
+Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
 
-- La [Sintassi delle query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) è un'implementazione del [parser delle query Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), che può essere specificato mediante il parametro queryType nelle [operazioni di ricerca](#SearchDocs).
+- La [sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) ora può essere usata per le query in Ricerca di Azure. Per usare il parser delle query Lucene, specificare `queryType` nelle operazioni di ricerca.
+- Gli [analizzatori personalizzati](https://msdn.microsoft.com/library/azure/mt605304.aspx) consentono di controllare il processo di conversione del testo in token indicizzabili/ricercabili
 - `moreLikeThis` è un parametro di query usato nelle [operazioni di ricerca](#SearchDocs) che trova documenti rilevanti rispetto a un altro documento specifico.
-
-Alcune funzionalità aggiuntive di `2015-02-28-Preview` sono documentate separatamente, incluse le seguenti:
-
-- [Profili di punteggio](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indicizzatori](search-api-indexers-2015-02-28-preview.md)
 
 Ricerca di Azure è disponibile in più versioni. Per informazioni dettagliate, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 ##API in questo documento
-
-L'API del servizio di Ricerca di Azure supporta due sintassi di URL per le operazioni dell'API, ovvero semplice e OData. Per informazioni dettagliate, vedere [Supporto per OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx). L'elenco seguente mostra la sintassi semplice.
 
 [Creare un indice](#CreateIndex)
 
@@ -153,7 +147,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per
 - per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Sintassi del corpo della richiesta**
 
@@ -185,8 +179,10 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false,		      
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -267,7 +263,11 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
 `retrievable`: specifica se il campo può essere restituito nel risultato di una ricerca. Questo attributo è utile quando si vuole usare un campo, ad esempio quello relativo al margine, come meccanismo di filtro, ordinamento o punteggio ma si preferisce che il campo non sia visibile all'utente finale. L'attributo deve essere `true` per i campi `key`.
 
-`analyzer`: imposta il nome dell'analizzatore di testo da usare per il campo. Per il set di valori consentito, vedere [Supporto per le lingue](#LanguageSupport). Questa opzione può essere usata solo con i campi `searchable`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
+`analyzer`: imposta il nome dell'analizzatore da usare per il campo durante la ricerca e l'indicizzazione. Per il set di valori consentito, vedere [Analisi in ricerca di Azure](https://msdn.microsoft.com/library/mt605304.aspx). Questa opzione può essere usata solo con campi `searchable` e non può essere impostata con `searchAnalyzer` o `indexAnalyzer`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
+
+`searchAnalyzer`: imposta il nome dell'analizzatore usato per il campo durante la ricerca. Per il set di valori consentito, vedere [Analisi in ricerca di Azure](https://msdn.microsoft.com/library/mt605304.aspx). Questa opzione può essere usata solo con i campi `searchable`. Questa opzione deve essere impostata con `indexAnalyzer` e non può essere impostata con l'opzione `analyzer`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
+
+`indexAnalyzer`: imposta il nome dell'analizzatore usato per il campo durante l'indicizzazione. Per il set di valori consentito, vedere [Analisi in ricerca di Azure](https://msdn.microsoft.com/library/mt605304.aspx). Questa opzione può essere usata solo con i campi `searchable`. Questa opzione deve essere impostata con `searchAnalyzer` e non può essere impostata con l'opzione `analyzer`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
 
 `suggesters`: imposta la modalità di ricerca e i campi che sono l'origine del contenuto per i suggerimenti. Per informazioni dettagliate, vedere [Componenti per il suggerimento](#Suggesters).
 
@@ -289,7 +289,7 @@ Alcuni sviluppatori potrebbero preferire la soluzione open source di Lucene, pi�
 
 L'analizzatore Lucene per la lingua inglese estende l'analizzatore standard. Rimuove il genitivo sassone (la 's finale) dalle parole, applica lo stemming in base all'[algoritmo Porter Stemming](http://tartarus.org/~martin/PorterStemmer/) e rimuove le [parole non significative](http://en.wikipedia.org/wiki/Stop_words) per la lingua inglese.
 
-In confronto, l'analizzatore Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari in modo decisamente migliore, producendo risultati delle ricerche più rilevanti. Guardare il modulo 7 della [presentazione di Ricerca di Azure MVA](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) per altri dettagli.
+In confronto, l'analizzatore Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari in modo decisamente migliore, producendo risultati di ricerca più rilevanti. Guardare il modulo 7 della [presentazione di Ricerca di Azure MVA](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) per altri dettagli.
 
 L'indicizzazione con gli analizzatori Microsoft è in media da due a tre volte più lenta rispetto agli analizzatori Lucene corrispondenti, a seconda della lingua. Le prestazioni della ricerca non devono essere influenzate in modo significativo per le query di dimensioni medie.
 
@@ -455,7 +455,7 @@ Di seguito è riportato l'elenco delle lingue supportate con i nomi degli analiz
 	</tr>
     <tr>
 		<td>Coreano</td>
-		<td></td>
+		<td>ko.Microsoft</td>
 		<td>ko.lucene</td>
 	</tr>
     <tr>
@@ -733,7 +733,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiornamento dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Sintassi del corpo della richiesta**
 
@@ -752,8 +752,10 @@ Per comodità, di seguito è riprodotta la sintassi dello schema usata per crear
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false, 
+		  "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -833,7 +835,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **elencare gli indici** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -900,7 +902,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -915,7 +917,7 @@ Per un esempio di payload di risposta, vedere l'esempio JSON nella sezione relat
 <a name="DeleteIndex"></a>
 ## Eliminare un indice
 
-L'operazione di **eliminazione di un indice** rimuove un indice e i documenti associati da Ricerca di Azure. È possibile ottenere il nome dell'indice dal dashboard servizi nel portale di Azure classico oppure dall'API. Per informazioni dettagliate, vedere [Elencare gli indici](#ListIndexes).
+L'operazione di **eliminazione di un indice** rimuove un indice e i documenti associati da Ricerca di Azure. È possibile ottenere il nome dell'indice dal dashboard servizi nel portale di Azure oppure dall'API. Per informazioni dettagliate, vedere [Elencare gli indici](#ListIndexes).
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
@@ -934,7 +936,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **eliminazione di un indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -967,7 +969,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta per **ottenere le statistiche di un indice** deve includere un'intestazione `api-key` impostata su una chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1022,7 +1024,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiunta di documenti** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](.search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](.search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1145,11 +1147,11 @@ Quando si usa HTTP GET per chiamare l'API di **Ricerca**, è necessario tenere p
 
 **Richiesta**
 
-Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta **Search** può essere creata con il metodo GET.
+Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta **Search** può essere creata con il metodo GET o POST.
 
 L'URI della richiesta specifica l'indice in cui eseguire la query per tutti i documenti corrispondenti ai parametri. I parametri vengono specificati nella stringa di query per le richieste GET e nel corpo della richiesta nel caso di richieste POST.
 
-Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri della query specifici quando si chiama direttamente l'API REST. Per le operazioni **Search** sono inclusi i parametri seguenti:
+Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri di query specifici quando si chiama direttamente l'API REST. Per le operazioni **Search** sono inclusi i parametri seguenti:
 
 - `$filter`
 - `facet`
@@ -1166,7 +1168,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 **Search** accetta diversi parametri che forniscono i criteri di query e specificano anche il comportamento di ricerca. Specificare questi parametri nella stringa di query dell'URL quando si chiama **Search** con GET e come proprietà JSON nel corpo della richiesta quando si chiama **Search** con POST. La sintassi per alcuni parametri è leggermente diversa tra GET e POST. Queste differenze sono riportate di seguito:
 
-`search=[string]` (facoltativo): specifica il testo da cercare. Per impostazione predefinita, la ricerca viene eseguita in tutti i campi `searchable` a meno che non sia specificato `searchFields`. Quando si esegue la ricerca nei campi `searchable`, il testo della ricerca viene suddiviso in token. In questo modo, più termini possono essere separati con uno spazio vuoto, ad esempio `search=hello world`. Per trovare corrispondenze con qualsiasi termine, usare `*`, che può essere utile per le query con filtro booleano. L'omissione di questo parametro equivale a impostarlo su `*`. Per le specifiche della sintassi di ricerca, vedere [Semplice sintassi di query nella Ricerca di Azure](https://msdn.microsoft.com/library/dn798920.aspx).
+`search=[string]` (facoltativo): specifica il testo da cercare. Per impostazione predefinita, la ricerca viene eseguita in tutti i campi `searchable` a meno che non sia specificato `searchFields`. Quando si esegue la ricerca nei campi `searchable`, il testo della ricerca viene suddiviso in token. In questo modo, più termini possono essere separati con uno spazio vuoto, ad esempio `search=hello world`. Per trovare corrispondenze con qualsiasi termine, usare `*`, che può essere utile per le query con filtro booleano. L'omissione di questo parametro equivale a impostarlo su `*`. Per le specifiche della sintassi di ricerca, vedere [Sintassi di query semplice nella ricerca di Azure](https://msdn.microsoft.com/library/dn798920.aspx).
 
   - **Nota**: quando si eseguono query sui campi `searchable`, talvolta si possono ottenere risultati imprevisti. Il tokenizer include logica per la gestione di casi comuni nel testo inglese, ad esempio apostrofi, virgole nei numeri e così via. Ad esempio, `search=123,456` corrisponde a un singolo termine 123,456 invece che ai termini separati 123 e 456, poiché in inglese le virgole vengono usate come separatore delle migliaia per i numeri di grandi dimensioni. È quindi consigliabile usare uno spazio vuoto in sostituzione dei segni di punteggiatura per separare i termini nel parametro `search`.
 
@@ -1174,7 +1176,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `searchFields=[string]` (facoltativo): specifica l'elenco di nomi di campo delimitati da virgole in cui cercare il testo specificato. I campi di destinazione devono essere contrassegnati come `searchable`.
 
-`queryType=simple|full` (facoltativo, il valore predefinito è `simple`): se impostato su testo di ricerca "semplice", viene interpretato mediante un semplice linguaggio di query che consente l'uso di simboli come +, * e "". Per impostazione predefinita, le query vengono valutate in tutti i campi disponibili per la ricerca o i campi indicati `searchFields` in ogni documento. Quando il tipo di query è impostato su `full`, il testo di ricerca viene interpretato mediante il linguaggio di query Lucene, che consente ricerche specifiche del campo e ponderate. Per le specifiche delle sintassi di ricerca, vedere [Semplice sintassi di query](https://msdn.microsoft.com/library/dn798920.aspx) e [Sintassi delle query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+`queryType=simple|full` (facoltativo, il valore predefinito è `simple`): se impostato su testo di ricerca "semplice", viene interpretato mediante un semplice linguaggio di query che consente l'uso di simboli come +, * e "". Per impostazione predefinita, le query vengono valutate in tutti i campi disponibili per la ricerca o nei campi indicati in `searchFields` in ogni documento. Quando il tipo di query è impostato su `full`, il testo di ricerca viene interpretato mediante il linguaggio di query Lucene, che consente ricerche specifiche del campo e ponderate. Per le specifiche delle sintassi di ricerca, vedere [Sintassi di query semplice nella ricerca di Azure](https://msdn.microsoft.com/library/dn798920.aspx) e [Sintassi delle query Lucene nella ricerca di Azure](https://msdn.microsoft.com/library/mt589323.aspx).
  
 > [AZURE.NOTE]La ricerca in un intervallo non è supportata nel linguaggio di query Lucene ed è sostituita da $filter, che offre funzionalità analoghe.
 
@@ -1182,25 +1184,23 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `$skip=#` (facoltativo): specifica il numero di risultati della ricerca da ignorare. Non può essere maggiore di 100.000. Se è necessario analizzare i documenti in sequenza, ma non è possibile usare `$skip` a causa di questa limitazione, prendere in considerazione l'uso di `$orderby` su una chiave totalmente ordinata e `$filter` con una query di intervallo.
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `skip` invece di `$skip`.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `skip` anziché `$skip`.
 
 `$top=#` (facoltativo): specifica il numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
 
-> [AZURE.NOTE]Ricerca di Azure usa il ***paging sul lato server*** per evitare che le query recuperino troppi documenti contemporaneamente. Le dimensioni predefinite della pagina sono pari a 50, mentre le dimensioni massime della pagina sono pari a 1000. Ciò significa che per impostazione predefinita **Search** restituisce al massimo 50 risultati se non si specifica `$top`. Se sono presenti più di 50 risultati, la risposta include informazioni per recuperare la pagina successiva con al massimo 50 risultati. Vedere `@odata.nextLink` e `@search.nextPageParameters` nell'[esempio sottostante](#SearchResponse). In modo analogo, se si specifica un valore maggiore di 1000 per `$top` e sono presenti più di 1000 risultati, verranno restituiti solo i primi 1000 insieme a informazioni per recuperare la pagina successiva con al massimo 1000 risultati.
-
 > [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `top` invece di `$top`.
 
-`$count=true|false` (facoltativo, il valore predefinito è `false`): specifica se recuperare il conteggio totale dei risultati. L'impostazione di questo valore su `true` può influire negativamente sulle prestazioni. Si noti che il conteggio restituito è un'approssimazione.
+`$count=true|false` (facoltativo, il valore predefinito è `false`): specifica se recuperare il conteggio totale dei risultati. Si tratta del conteggio di tutti i documenti che corrispondono ai parametri `search` e `$filter`, ignorando `$top` e `$skip`. L'impostazione di questo valore su `true` può influire negativamente sulle prestazioni. Si noti che il conteggio restituito è un'approssimazione.
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `count` invece di `$count`.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `count` anziché `$count`.
 
 `$orderby=[string]` (facoltativo): specifica un elenco di espressioni delimitate da virgole in base alle quali ordinare i risultati. Ogni espressione può essere un nome campo o una chiamata alla funzione `geo.distance()`. Ogni espressione può essere seguita da `asc` per indicare l'ordine crescente e da `desc` per indicare l'ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente. Le situazioni di parità di priorità vengono risolte in base ai punteggi di corrispondenza dei documenti. Se `$orderby` non è specificato, l'ordine predefinito è decrescente in base al punteggio di corrispondenza dei documenti. È previsto un limite di 32 clausole per `$orderby`.
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `orderby` invece di `$orderby`.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `orderby` anziché `$orderby`.
 
 `$select=[string]` (facoltativo): specifica un elenco di campi delimitati da virgole da recuperare. Se non è specificato, vengono inclusi tutti i campi contrassegnati come recuperabili nello schema. È anche possibile richiedere in modo esplicito tutti i campi impostando questo parametro su `*`.
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `select` invece di `$select`.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `select` anziché `$select`.
 
 `facet=[string]` (zero o più): specifica un campo da usare per l'esplorazione in base a facet. La stringa può contenere parametri per personalizzare l'esplorazione in base a facet, espressi come coppie `name:value` delimitate da virgole. I parametri validi sono:
 
@@ -1218,27 +1218,27 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
   - Esempio: `facet=lastRenovationDate,interval:year` genera un bucket per ogni anno in cui gli hotel sono stati rinnovati.
 - **Nota**: `count` e `sort` possono essere combinati nella stessa specifica di facet, ma non possono essere combinati con `interval` o `values` e inoltre `interval` e `values` non possono essere combinati tra loro.
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `facets` invece di `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `facets` anziché `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
 
 `$filter=[string]` (facoltativo): specifica un'espressione di ricerca strutturata nella sintassi standard di OData. Per informazioni dettagliate sul sottoinsieme della grammatica delle espressioni OData supportato da Ricerca di Azure, vedere l'articolo relativo alla [sintassi delle espressioni OData](#ODataExpressionSyntax).
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `filter` invece di `$filter`.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `filter` anziché `$filter`.
 
 `highlight=[string]` (facoltativo): specifica un set di nomi di campo delimitati da virgole usati per evidenziare i risultati. Per l'evidenziazione dei risultati è possibile usare solo i campi `searchable`.
 
 `highlightPreTag=[string]` (facoltativo, il valore predefinito è `<em>`): specifica un tag di stringa che viene aggiunto all'inizio delle evidenziazioni dei risultati. Deve essere impostato con `highlightPostTag`.
 
-> [AZURE.NOTE]Quando si chiama **Search** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale (ad esempio, %23 invece di #).
+> [AZURE.NOTE]Quando si chiama **Search** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale (ad esempio %23 anziché #).
 
 `highlightPostTag=[string]` (facoltativo, il valore predefinito è `</em>`): specifica un tag di stringa che viene aggiunto alla fine delle evidenziazioni dei risultati. Deve essere impostato con `highlightPreTag`.
 
-> [AZURE.NOTE]Quando si chiama **Search** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale, ad esempio, %23 invece di #.
+> [AZURE.NOTE]Quando si chiama **Search** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale (ad esempio %23 anziché #).
 
 `scoringProfile=[string]` (facoltativo): specifica il nome di un profilo di punteggio da usare per valutare i punteggi di corrispondenza per i documenti trovati, in modo da ordinare i risultati.
 
 `scoringParameter=[string]` (zero o più): indica il valore per ogni parametro definito in una funzione di assegnazione di punteggio (ad esempio, `referencePointParameter`) usando il formato nome:valore. Ad esempio, se il profilo di punteggio definisce una funzione con un parametro denominato "mylocation", l'opzione della stringa di query sarà &scoringParameter=mylocation:-122.2,44.8
 
-> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` invece di `scoringParameter`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è una coppia nome:valore distinta.
+> [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` anziché `scoringParameter`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è una coppia nome:valore distinta.
 
 `minimumCoverage` (facoltativo, valore predefinito pari a 100): un numero compreso tra 0 e 100 che indica la percentuale di indice che deve essere inclusa nella query di ricerca in modo che l'esecuzione di quest'ultima venga segnalata come corretta. Per impostazione predefinita, deve essere disponibile l'intero indice. In caso contrario, `Search` restituirà il codice di stato HTTP 503. Se si imposta `minimumCoverage` e `Search` ha esito positivo, verrà restituito HTTP 200 che include un valore `@search.coverage` nella risposta; quest'ultimo indica la percentuale dell'indice che è stata inclusa nella query.
 
@@ -1254,7 +1254,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1282,6 +1282,12 @@ Per POST:
       "top": #
     }
 
+**Continuazione di risposte di ricerca parziali**
+
+A volte Ricerca di Azure non può restituire tutti i risultati richiesti in un'unica risposta di ricerca. Ciò può verificarsi per diversi motivi, ad esempio quando la query richiede troppi documenti senza specificare `$top` o specificando un valore troppo grande per `$top`. In questi casi Ricerca di Azure includerà nel corpo della risposta l'annotazione `@odata.nextLink` e anche `@search.nextPageParameters` se si tratta di una richiesta POST. È possibile usare i valori di queste annotazioni per formulare un'altra richiesta di ricerca per ottenere la parte successiva della risposta di ricerca. Tale operazione è denominata ***continuazione*** della richiesta di ricerca originale e le annotazioni vengono in genere chiamate ***token di continuazione***. Vedere [l'esempio seguente](#SearchResponse) per informazioni dettagliate sulla sintassi di queste annotazioni e sulla posizione in cui vengono visualizzate nel corpo della risposta.
+
+I motivi per cui Ricerca di Azure potrebbe restituire token di continuazione sono specifici dell'implementazione e soggetti a variazioni. I client affidabili devono essere sempre pronti a gestire i casi in cui viene restituito un numero di documenti inferiore al previsto e in cui viene incluso un token di continuazione per continuare il recupero dei documenti. Si noti inoltre che per poter continuare è necessario usare lo stesso metodo HTTP della richiesta originale. Se ad esempio si invia una richiesta GET, anche le richieste di continuazione inviate devono usare il metodo GET e lo stesso vale per il metodo POST.
+
 <a name="SearchResponse"></a> **Risposta**
 
 Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
@@ -1300,7 +1306,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
         ],
         ...
       },
-      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+      "@search.nextPageParameters": { (request body to fetch the next page of results if not all results could be returned in this response and Search was called with POST)
         "count": ... (value from request body if present),
         "facets": ... (value from request body if present),
         "filter": ... (value from request body if present),
@@ -1332,7 +1338,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 200 OK.
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
+      "@odata.nextLink": (URL to fetch the next page of results if not all results could be returned in this response; Applies to both GET and POST)
     }
 
 **Esempi:**
@@ -1474,7 +1480,7 @@ Si noti che è possibile eseguire query su un solo indice alla volta. Non creare
       "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
     }
 
-14) Trovare documenti nell'indice usando una [semplice sintassi di query](https://msdn.microsoft.com/library/dn798920.aspx). Questa query restituisce gli hotel i cui campi disponibili per la ricerca contengono i termini "comfort" e "location" ma non "motel":
+14) Trovare documenti nell'indice usando una [sintassi di query semplice](https://msdn.microsoft.com/library/dn798920.aspx). Questa query restituisce gli hotel i cui campi disponibili per la ricerca contengono i termini "comfort" e "location" ma non "motel":
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1486,7 +1492,7 @@ Si noti che è possibile eseguire query su un solo indice alla volta. Non creare
 
 Si noti l'uso di `searchMode=all` nell'esempio precedente. Se si include questo parametro, viene eseguito l'override del valore predefinito `searchMode=any`. In questo modo, si ha la sicurezza che `-motel` significa "AND NOT" anziché "OR NOT". Senza `searchMode=all`, si ottiene "OR NOT" che espande i risultati della ricerca anziché limitarli e questo può essere poco intuitivo per alcuni utenti.
 
-15) Trovare documenti nell'indice usando una [sintassi di query Lucene](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). Questa query restituisce gli hotel in cui il campo categoria contiene il termine "budget" e tutti i campi disponibili per la ricerca contengono la frase "recently renovated". I documenti contenenti la frase "recently renovated" avranno una posizione superiore nella classifica, come risultato del valore di incremento dell'importanza di un termine (3)
+15) Trovare documenti nell'indice usando una [sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx). Questa query restituisce gli hotel in cui il campo categoria contiene il termine "budget" e tutti i campi disponibili per la ricerca contengono la frase "recently renovated". I documenti contenenti la frase "recently renovated" avranno una posizione superiore nella classifica, come risultato del valore di incremento dell'importanza di un termine (3)
 
     GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
 
@@ -1531,7 +1537,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **ricerca di un documento** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1579,7 +1585,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Accept`: questo valore deve essere impostato su `text/plain`.
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **conteggio dei documenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1636,11 +1642,11 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `highlightPreTag=[string]` (facoltativo): specifica un tag di stringa che viene aggiunto all'inizio dei risultati della ricerca. Deve essere impostato con `highlightPostTag`.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale, ad esempio, %23 invece di #.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale, ad esempio %23 anziché #.
 
 `highlightPostTag=[string]` (facoltativo): specifica un tag di stringa che viene aggiunto alla fine dei risultati della ricerca. Deve essere impostato con `highlightPreTag`.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale, ad esempio, %23 invece di #.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con GET, i caratteri riservati nell'URL devono essere codificati in percentuale, ad esempio %23 anziché #.
 
 `suggesterName=[string]`: specifica il nome del componente per il suggerimento, come definito nella raccolta `suggesters` che fa parte della definizione di indice. Un elemento `suggester` determina i campi analizzati per i termini di query suggeriti. Per informazioni dettagliate, vedere [Componenti per il suggerimento](#Suggesters).
 
@@ -1650,19 +1656,19 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `$top=#` (facoltativo, il valore predefinito è 5): specifica il numero di suggerimenti da recuperare. Deve essere un numero compreso tra 1 e 100.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `top` invece di `$top`.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `top` anziché `$top`.
 
 `$filter=[string]` (facoltativo): specifica un'espressione che filtra i documenti considerati per i suggerimenti.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `filter` invece di `$filter`.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `filter` anziché `$filter`.
 
 `$orderby=[string]` (facoltativo): specifica un elenco di espressioni delimitate da virgole in base alle quali ordinare i risultati. Ogni espressione può essere un nome campo o una chiamata alla funzione `geo.distance()`. Ogni espressione può essere seguita da `asc` per indicare l'ordine crescente e da `desc` per indicare l'ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente. È previsto un limite di 32 clausole per `$orderby`.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `orderby` invece di `$orderby`.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `orderby` anziché `$orderby`.
 
-`$select=[string]` (facoltativo): specifica un elenco di campi delimitati da virgole da recuperare. Se non è specificato, vengono restituiti solo la chiave del documento e il testo del suggerimento.
+`$select=[string]` (facoltativo): specifica un elenco di campi delimitati da virgole da recuperare. Se non è specificato, vengono restituiti solo la chiave del documento e il testo del suggerimento. È possibile richiedere in modo esplicito tutti i campi impostando questo parametro su `*`.
 
-> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `select` invece di `$select`.
+> [AZURE.NOTE]Quando si chiama **Suggestions** con POST, questo parametro è denominato `select` anziché `$select`.
 
 `minimumCoverage` (facoltativo, valore predefinito pari a 80): un numero compreso tra 0 e 100 che indica la percentuale di indice che deve essere inclusa nella query di suggerimento in modo che l'esecuzione di quest'ultima venga segnalata come corretta. Per impostazione predefinita, deve essere disponibile almeno l'80% del codice. In caso contrario, `Suggest` restituirà il codice di stato HTTP 503. Se si imposta `minimumCoverage` e `Suggest` ha esito positivo, verrà restituito HTTP 200 che include un valore `@search.coverage` nella risposta; quest'ultimo indica la percentuale dell'indice che è stata inclusa nella query.
 
@@ -1678,7 +1684,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di recupero dei **suggerimenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure classico. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1742,4 +1748,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
-	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Microsoft Azure per distribuire più risorse come un gruppo di risorse."
+	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Windows Azure per distribuire più risorse come un gruppo di risorse."
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -44,7 +44,7 @@ L'uso di Gestione risorse di Azure tramite l'interfaccia della riga di comando d
 
 Per altre informazioni sull'autenticazione a Microsoft Azure, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per informazioni dettagliate, vedere l'articolo relativo alla [gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).
+>[AZURE.NOTE]Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per maggiori dettagli, vedere [Controllo di accesso in base al ruolo Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Impostare la modalità di gestione risorse di Azure
 
@@ -77,7 +77,7 @@ Un gruppo di risorse è un raggruppamento logico di risorse di rete, di archivia
 
 Quando si lavora con i modelli, è possibile [crearne uno personalizzato](resource-group-authoring-templates.md) oppure usare uno dei modelli dalla [Raccolta modelli](https://azure.microsoft.com/documentation/templates/) che sono disponibili anche in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi iniziare con l’utilizzo del modello _101-simple-vm-from-image_ disponibile da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Per impostazione predefinita, verrà creata una macchina virtuale LTS di Ubuntu 4.04.2 in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
+La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi iniziare con l’utilizzo del modello _101-simple-vm-from-image_ disponibile da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
 
 * Un nome dell'account di archiviazione univoco.
 * Un nome utente dell'amministratore per la macchina virtuale
@@ -210,4 +210,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

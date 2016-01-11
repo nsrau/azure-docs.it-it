@@ -21,7 +21,7 @@
 
 Osservando gli aspetti della sicurezza per i modelli di Gestione risorse di Azure, sono diverse le aree da considerare: le chiavi e i segreti, il controllo degli accessi in base al ruolo e i gruppi di sicurezza di rete.
 
-In questo argomento si presuppone che si abbia familiarità con il controllo degli accessi in base al ruolo (RBAC) di Gestione risorse di Azure. Per ulteriori informazioni, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md) e [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)
+In questo argomento si presuppone che si abbia familiarità con il controllo degli accessi in base al ruolo (RBAC) di Gestione risorse di Azure. Per ulteriori informazioni, vedere [Controllo di accesso in base al ruolo Azure](./active-directory/role-based-access-control-configure.md).
 
 Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
@@ -241,7 +241,7 @@ INTERNET | Indica lo spazio degli indirizzi IP esterno alla rete virtuale e ragg
 
 ### Porte e intervalli di porte
 
-Le regole del gruppo di sicurezza di rete possono essere specificate su un'unica porta di origine/destinazione o su un intervallo di porte. Questo approccio è particolarmente utile se si vuole aprire un ampio intervallo di porte per un'applicazione, ad esempio FTP. L'intervallo deve essere sequenziale e non può essere combinato con una specifica di porta singola. Per specificare un intervallo di porte, utilizzare il segno meno (–). Ad esempio, **100-500**.
+Le regole del gruppo di sicurezza di rete possono essere specificate su un'unica porta di origine/destinazione o su un intervallo di porte. Questo approccio è particolarmente utile se si vuole aprire un ampio intervallo di porte per un'applicazione, ad esempio FTP. L'intervallo deve essere sequenziale e non può essere combinato con una specifica di porta singola. Per specificare un intervallo di porte, utilizzare il segno meno (–). Ad esempio: **100-500**.
 
 ### Traffico ICMP
 
@@ -261,7 +261,7 @@ Quando un gruppo di sicurezza di rete è associato a una subnet, le regole di ac
 
 ![Associazione di un gruppo di sicurezza di rete a una subnet e una macchina virtuale](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
 
-Quando un gruppo di sicurezza di rete viene associato a una macchina virtuale o una subnet, le regole di controllo di accesso alla rete diventano molto esplicite. La piattaforma non inserisce alcuna regola implicita per consentire il traffico su una porta specifica. In questo caso, se si crea un endpoint nella macchina virtuale, è necessario creare anche una regola per consentire il traffico da Internet. In caso contrario, il *VIP: {Port}* non è accessibile dall'esterno.
+Quando un gruppo di sicurezza di rete viene associato a una macchina virtuale o una subnet, le regole di controllo di accesso alla rete diventano molto esplicite. La piattaforma non inserisce alcuna regola implicita per consentire il traffico su una porta specifica. In questo caso, se si crea un endpoint nella macchina virtuale, è necessario creare anche una regola per consentire il traffico da Internet. In caso contrario, il *VIP:{Port}* non è accessibile dall'esterno.
 
 Ad esempio, è possibile creare una nuova macchina virtuale e un nuovo gruppo di sicurezza di rete. Associare il gruppo di sicurezza di rete alla macchina virtuale. La macchina virtuale può comunicare con altre macchine virtuali nella rete virtuale tramite la regola CONSENTI RETE VIRTUALE IN INGRESSO. La macchina virtuale può anche effettuare connessioni in uscita a Internet usando la regola CONSENTI INTERNET IN USCITA. In seguito si crea un endpoint sulla porta 80 per ricevere il traffico destinato al sito Web in esecuzione nella macchina virtuale. I pacchetti destinati alla porta 80 all'indirizzo VIP (indirizzo IP virtuale pubblico) da Internet non raggiungono la macchina virtuale finché non si aggiunge al gruppo di sicurezza di rete una regola simile alla tabella seguente.
 
@@ -332,9 +332,9 @@ Come descritto sopra, uno dei motivi principali per creare una route definita da
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire una macchina virtuale ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP nella macchina virtuale.
 
 ## Passaggi successivi
-- Per informazioni su come impostare le entità di sicurezza con l'accesso corretto per lavorare con le risorse nell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
+- Per informazioni su come impostare le entità di sicurezza principali con l'accesso corretto per lavorare con le risorse nell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
 - Se è necessario bloccare l'accesso a una risorsa, è possibile utilizzare i blocchi di gestione. Vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md)
 - Per configurare routing e inoltro IP, vedere [Come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
+- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo di accesso in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

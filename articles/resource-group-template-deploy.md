@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -38,7 +38,7 @@ Mediante Azure PowerShell o l'API REST, è possibile specificare un aggiornament
 - **aggiunge** le risorse specificate nel modello, ma non presenti nel gruppo di risorse 
 - **non esegue nuovamente il provisioning** delle risorse presenti nel gruppo di risorse alle stesse condizioni definite nel modello
  
-La proprietà **Mode** consente di specificare il tipo di distribuzione.
+Specificare il tipo di distribuzione tramite la proprietà **Modalità**, come illustrati negli esempi seguenti per PowerShell e API REST.
 
 ## Distribuire con PowerShell
 
@@ -100,9 +100,9 @@ La proprietà **Mode** consente di specificare il tipo di distribuzione.
           Mode              : Incremental
           ...
 
-     Per eseguire una distribuzione completa, impostare **Mode** su **Complete**.
+     Per eseguire una distribuzione completa, impostare **Mode** su **Complete**. Si noti che viene richiesto di confermare se si desidera utilizzare la modalità di completamento, che potrebbe comportare l'eliminazione delle risorse.
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
              }
            }
    
-3. Creare la distribuzione di un nuovo gruppo di risorse. Fornire l'ID sottoscrizione, il nome del gruppo di risorse per la distribuzione, il nome della distribuzione e il percorso del modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Per eseguire una distribuzione completa, impostare **Mode** su **Complete**.
+3. Creare la distribuzione di un nuovo gruppo di risorse. Fornire l'ID sottoscrizione, il nome del gruppo di risorse per la distribuzione, il nome della distribuzione e il percorso del modello. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Creare la distribuzione di un modello](https://msdn.microsoft.com/library/azure/dn790564.aspx). Si noti che la **modalità** è impostata su **Incremental**. Per eseguire una distribuzione completa, impostare **Mode** su **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -272,4 +272,4 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -475,7 +475,7 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 | -------- | ------------- |
 | Operazioni del registro delle identità (creazione, recupero, elenco, aggiornamento, eliminazione) importazione/esportazione singola o in blocco | 100/min/unità, fino a 5000/min |
 | Connessioni del dispositivo | 100/sec/unità |
-| Invii D2C | 2000/min/unità (per S2), 60/min/unità (per S1). Almeno 100/sec. |
+| Invii D2C | 120/sec/unità (per S2), 12/sec/unità (per S1). Almeno 100/sec. |
 | Operazioni C2D (invio, ricezione, commenti) | 100/min/unità |
 
 **Nota**. È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
@@ -532,4 +532,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

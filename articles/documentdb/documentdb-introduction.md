@@ -48,8 +48,7 @@ Azure DocumentDB offre le funzionalità chiave e i vantaggi seguenti:
 
 -	**Esecuzione di JavaScript nel database:** è possibile esprimere la logica dell'applicazione sotto forma di stored procedure, trigger e funzioni definite dall'utente (UDF, User Defined Functions) tramite JavaScript standard. Ciò permette alla logica dell'applicazione di operare sui dati, senza preoccuparsi della mancata corrispondenza tra l'applicazione e lo schema di database. DocumentDB offre l'esecuzione transazionale completa della logica dell'applicazione JavaScript direttamente nel motore di database. La profonda integrazione di JavaScript permette l'esecuzione di operazioni INSERT, REPLACE, DELETE e SELECT da un programma JavaScript come transazione isolata. Ulteriori informazioni sono disponibili in [Programmazione sul lato server di DocumentDB](documentdb-programming.md).
 
--	**Livelli di coerenza perfezionabili:** è possibile scegliere tra quattro livelli di coerenza ben definiti per ottenere il compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, DocumentDB offre quattro livelli di coerenza distinti, ovvero avanzata, con obsolescenza associata, sessione e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza,
--	disponibilità e latenza. Ulteriori informazioni sono disponibili in [Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB](documentdb-consistency-levels.md).
+-	**Livelli di coerenza perfezionabili:** è possibile scegliere tra quattro livelli di coerenza ben definiti per ottenere il compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, DocumentDB offre quattro livelli di coerenza distinti, ovvero avanzata, con obsolescenza associata, sessione e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza, disponibilità e latenza. Ulteriori informazioni sono disponibili in [Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB](documentdb-consistency-levels.md).
 
 -	**Completamente gestito:** è possibile eliminare la necessità di gestire risorse di database e computer. Questo servizio Microsoft Azure completamente gestito non richiede la gestione di macchine virtuali, la distribuzione e la configurazione di software o la gestione di aggiornamenti complessi per i livelli di dati. Il backup di ogni database è eseguito automaticamente e ogni database è protetto da errori nell'area geografica specifica. La possibilità di aggiungere con facilità account e capacità di provisioning di DocumentDB in base alla necessità permette di concentrarsi sull'applicazione invece che sul funzionamento e sulla gestione del database.
 
@@ -103,13 +102,13 @@ Se si dispone già di un account Azure, è possibile iniziare con DocumentDB nel
 
 Se non si dispone di un account Azure, è possibile:
 
-- Effettuare l'iscrizione alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/), che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. 
-- Se si dispone di una sottoscrizione a MSDN, si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. 
+- Effettuare l'iscrizione alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/), che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. 
+- Se si dispone di una sottoscrizione a MSDN, si ha invece diritto a [150 dollari statunitensi al mese di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. 
 
-Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di formazione](http://azure.microsoft.com/documentation/learning-paths/documentdb/) per esplorare tutte le risorse di formazione disponibili.
+Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di apprendimento](http://azure.microsoft.com/documentation/learning-paths/documentdb/) per esplorare tutte le risorse di formazione disponibili.
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

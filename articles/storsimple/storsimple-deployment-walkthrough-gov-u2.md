@@ -15,7 +15,7 @@
    ms.date="12/09/2015"
    ms.author="v-sharos" />
 
-# Distribuire un dispositivo StorSimple locale nel portale di Azure Government
+# Distribuire un dispositivo StorSimple locale nel portale di Azure Government (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
@@ -243,4 +243,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

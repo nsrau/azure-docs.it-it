@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Profilatura di un servizio cloud in locale nell'emulatore di calcolo" 
+	pageTitle="Profilatura di un servizio cloud in locale nell'emulatore di calcolo | Microsoft Azure " 
 	services="cloud-services"
 	description="Analizzare i problemi di prestazioni nei servizi cloud con il profiler di Visual Studio" 
 	documentationCenter=""
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"
+	editor=""
 	tags="" 
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/21/2015" 
 	ms.author="tarcher"/>
 
 # Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
@@ -186,4 +186,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

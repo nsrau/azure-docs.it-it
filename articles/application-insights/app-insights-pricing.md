@@ -49,15 +49,24 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 
 ## Quota mensile
 
-* In ogni mese di calendario, l'applicazione può inviare fino a una quantità specificata di telemetria ad Application Insights. Per i numeri effetti, vedere lo [schema dei prezzi][pricing]. 
+* In ogni mese di calendario, l'applicazione può inviare fino a una quantità specificata di telemetria ad Application Insights. Attualmente, la quota per il piano tariffario gratuito è 5 milioni di punti dati al mese, e sostanzialmente più elevato per gli altri schemi; è possibile acquistarne ulteriori se si raggiunge la quota. Per i numeri effetti, vedere lo [schema dei prezzi][pricing]. 
 * La quota dipende dal piano tariffario scelto.
 * La quota viene conteggiata da mezzanotte UTC il primo giorno di ogni mese.
 * Il grafico Punti dati mostra la quantità di quota che è stata usata questo mese.
-* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. I punti dati includono:
- * Ogni riga visibile in [Ricerca diagnostica](app-insights-diagnostic-search.md). 
- * Ogni misurazione non elaborata di una [metrica](app-insights-metrics-explorer.md), ad esempio un contatore delle prestazioni. I punti visualizzati nel grafico sono di solito aggregazioni di più punti dati non elaborati.
- * Ogni punto nei grafici dei [test Web (disponibilità)](app-insights-monitor-web-app-availability.md). 
+* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. 
+* I punti dati vengono generati da:
+ * [Moduli di SDK](app-insights-configuration-with-applicationinsights-config.md) che raccolgono automaticamente i dati, ad esempio per segnalare una richiesta o un arresto anomalo oppure per misurare le prestazioni.
+ * Chiamate [API](app-insights-api-custom-events-metrics.md) `Track...` scritte dall'utente, ad esempio `TrackEvent` o `trackPageView`.
+ * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md) configurati dall'utente.
+* Durante il debug, è possibile visualizzare i punti dati inviati dall'app nella finestra di output di Visual Studio. Gli eventi client possono essere visualizzati aprendo la scheda di rete nel riquadro di debug del browser (in genere F12).
 * I *dati della sessione* non vengono conteggiati nella quota. Ciò include il numero di utenti, sessioni, ambienti e dati del dispositivo.
+* Se si desidera determinare il numero di punti dati in ispezione, è possibile ottenerli in varie posizioni:
+ * Ogni elemento visualizzato in [ricerca diagnostica](app-insights-diagnostic-search.md), che include le richieste, le eccezioni, le tracce del log, le visualizzazioni di pagina, gli eventi di dipendenza e gli eventi personalizzati HTTP.
+ * Ogni misurazione non elaborata di una [metrica](app-insights-metrics-explorer.md), ad esempio un contatore delle prestazioni. I punti visualizzati nel grafico sono di solito aggregazioni di più punti dati non elaborati.
+ * Ogni punto in un grafico di disponibilità web è anche un'aggregazione di più punti dati.
+* È anche possibile esaminare singoli punti dati all'origine durante il debug:
+ * Se si esegue l'app in modalità di debug in Visual Studio, i punti dati vengono registrati nella finestra di output. 
+ * Per visualizzare i punti dati client, aprire il riquadro di debug del browser (in genere F12) e aprire la scheda di rete.
 
 
 ### Eccedenza
@@ -84,11 +93,30 @@ Oltre alla quota mensile, esistono limiti della limitazione sulla percentuale di
 
 Esistono tre bucket che vengono conteggiati separatamente:
 
-* [Chiamate TrackTrace ](app-insights-api-custom-events-metrics.md#track-trace) e [log acquisiti](app-insights-asp-net-trace-logs.md)
+* [Chiamate TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [log acquisiti](app-insights-asp-net-trace-logs.md).
 * [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti al secondo.
 * Tutti gli altri dati di telemetria (visualizzazioni pagina, sessioni, richieste, dipendenze, metrica, eventi personalizzati, risultati dei test Web).
 
-Se l'app invia più rispetto al limite per diversi minuti, alcuni dei dati possono essere eliminati. Si visualizzerà una notifica che avviserà che ciò si è verificato.
+
+
+
+
+*Cosa accade se l'app supera la velocità al secondo.*
+
+* Il volume dei dati inviati dall'app viene valutato ogni minuto. Se il valore supera la velocità media al secondo calcolata nel minuto, il server rifiuta alcune richieste. Alcune versioni dell’SDK tentano quindi di inviarle di nuovo, distribuendo un picco per diversi minuti; altre, ad esempio l’SDK JavaScript, semplicemente eliminano i dati rifiutati.
+
+In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà che ciò si è verificato.
+
+*Come è possibile sapere quanti punti dati vengono inviati dall'app?*
+
+* Aprire Impostazioni/Quota e Prezzi per vedere il grafico Volume dati.
+* Altrimenti, in Esplora metriche, aggiungere un nuovo grafico e selezionare **Volume punti dati** come metrica. Attivare il raggruppamento in base a **Tipo di dati**.
+
+*Come è possibile ridurre la quantità di dati inviati dall'app personale?*
+
+* Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca. Da ASP.NET SDK 2.0.0-beta3, il campionamento adattivo è abilitato per impostazione predefinita.
+* [Disattivare gli agenti di raccolta dei dati di telemetria](app-insights-configuration-with-applicationinsights-config.md) che non sono necessari.
+
 
 ### Suggerimenti per ridurre la velocità dei dati
 
@@ -136,4 +164,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

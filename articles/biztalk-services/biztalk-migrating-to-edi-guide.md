@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ Un altro esempio è l’operazione di mapping dell’espressione **If-Then-Else*
 
 ### Migrazione delle mappe di BizTalk Server
 
-I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la migrazione delle mappe di BizTalk Server alle trasformazioni dei servizi BizTalk. Lo strumento **BTMMigrationTool** è disponibile come parte del pacchetto di **strumenti** fornito con l’SDK dei servizi BizTalk e può essere scaricato da [qui](http://go.microsoft.com/fwlink/p/?LinkId=235057). Per ulteriori informazioni sullo strumento, vedere [Convertire una mappa BizTalk in una trasformazione dei servizi BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la migrazione delle mappe di BizTalk Server alle trasformazioni dei servizi BizTalk. Lo strumento **BTMMigrationTool** è disponibile come parte del pacchetto di **Strumenti** fornito con il [download dell’SDK dei Servizi BizTalk](http://go.microsoft.com/fwlink/p/?LinkId=235057). Per ulteriori informazioni sullo strumento, vedere [Convertire una mappa BizTalk in una trasformazione dei servizi BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-È inoltre possibile esaminare un esempio di Sandro Pereira, MVP di BizTalk, su come eseguire la migrazione di mappe BizTalk Server a trasformazioni dei servizi BizTalk. L'esempio è disponibile [qui](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+È inoltre possibile esaminare un esempio di Sandro Pereira, MVP di BizTalk, su come eseguire la [migrazione di mappe BizTalk Server a trasformazioni dei servizi BizTalk](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## Orchestrazioni
 
 Se è necessario eseguire la migrazione a Microsoft Azure dell’elaborazione di orchestrazioni di BizTalk Server, le orchestrazioni devono essere riscritte poiché Microsoft Azure non supporta l'esecuzione di orchestrazioni di BizTalk Server. È possibile riscrivere la funzionalità di orchestrazione in un servizio di Windows Workflow Foundation 4.0 (WF4). Si tratta di una riscrittura completa poiché non esiste attualmente la migrazione dalle orchestrazioni di BizTalk Server a WF4. Di seguito sono riportate alcune risorse per Windows Workflow:
 
-- *Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio* di Paolo Salvatori. Vedere [qui](https://msdn.microsoft.com/library/azure/hh709041.aspx).
+- [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://msdn.microsoft.com/library/azure/hh709041.aspx) di Paolo Salvatori. 
 
-- Sessione *Creazione di applicazioni con Windows Workflow Foundation e Azure* estratta dalla conferenza Build 2011. Vedere [qui](http://go.microsoft.com/fwlink/p/?LinkId=237314).
+- Sessione [*Creazione di applicazioni con Windows Workflow Foundation e Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) estratta dalla conferenza Build 2011.
 
-- *Windows Workflow Foundation Developer Center in MSDN*. Vedere [qui](http://go.microsoft.com/fwlink/p/?LinkId=237315).
+- [*Windows Workflow Foundation Developer Center*](http://go.microsoft.com/fwlink/p/?LinkId=237315) in MSDN.
 
-- *Documentazione di Windows Workflow Foundation 4 (WF4) in MSDN*. Vedere [qui] (https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).
+- [*Documentazione di Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) in MSDN.
 
 ## Altre considerazioni
 
@@ -126,7 +126,7 @@ Di seguito sono riportate alcune informazioni da tenere in considerazione quando
 
 ### Accordi di fallback
 
-L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback". I servizi BizTalk ancora **non** hanno un concetto di accordo di fallback. Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà dell'accordo globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'utilizzo di accordi di fallback in BizTalk Server.
+L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fallback". I servizi BizTalk **non** hanno ancora un concetto di accordo di fallback. Vedere gli argomenti della documentazione di BizTalk [Ruolo degli accordi nell'elaborazione EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configurazione delle proprietà del contratto globale o di fallback](https://msdn.microsoft.com/library/bb245981.aspx) per informazioni sull'utilizzo di contratti di fallback in BizTalk Server.
 
 ### Routing a più destinazioni
 
@@ -142,4 +142,4 @@ I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari pe
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

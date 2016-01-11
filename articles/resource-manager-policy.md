@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
@@ -71,10 +71,10 @@ Gli operatori logici supportati con la relativa sintassi sono elencati di seguit
 | Nome operatore | Sintassi |
 | :------------- | :------------- |
 | Not | "not": {&lt;condizione o operatore &gt;} |
-| E | "allOf" : [ {&lt;condizione1&gt;},{&lt;condizione2&gt;}] |
-| Or | "anyOf" : [ {&lt;condizione1&gt;},{&lt;condizione2&gt;}] |
+| E | "allOf": [{&lt; condizione o operatore &gt;}, {&lt; condizione o operatore &gt;}] |
+| Oppure | "anyOf": [{&lt; condizione o operatore &gt;}, {&lt; condizione o operatore &gt;}] |
 
-Le condizioni nidificate non sono supportate.
+Gestione risorse consente di specificare una logica complessa nel criterio tramite operatori nidificati. Ad esempio, è possibile impedire la creazione di risorse in un percorso specifico per un tipo di risorsa specificato. Di seguito è riportato un esempio di operatori nidificati.
 
 ## Condizioni
 
@@ -88,7 +88,6 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 | In | "in" : [ "&lt;valore1&gt;","&lt;valore2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nomeChiave&gt;" |
 
-
 ## Campi e origini
 
 Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse. Un'origine rappresenta le caratteristiche della richiesta stessa.
@@ -99,7 +98,7 @@ Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
 Origini: **action**.
 
-Per altre informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md).
+Per ulteriori informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md). Attualmente, il criterio funziona solo su richieste PUT.
 
 ## Esempi di definizioni di criteri
 
@@ -184,6 +183,30 @@ L'esempio seguente illustra l'uso dei caratteri jolly supportato dalla condizion
       "then" : {
         "effect" : "deny"
       }
+    }
+    
+### Requisito di tag solo per le risorse di archiviazione
+
+L'esempio seguente illustra come annidare gli operatori logici per richiedere un tag dell'applicazione solo per le risorse di archiviazione.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
     }
 
 ## Assegnazione dei criteri
@@ -291,4 +314,17 @@ Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile pro
 
 Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri tramite i cmdlet Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment, rispettivamente.
 
-<!---HONumber=Nov15_HO3-->
+##Eventi di controllo dei criteri
+
+Dopo aver applicato il criterio, si inizierà a visualizzare gli eventi correlati ai criteri. È possibile accedere al portale o utilizzare PowerShell per ottenere questi dati.
+
+Per visualizzare tutti gli eventi correlati all'effetto di negazione, è possibile utilizzare il comando seguente.
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibile utilizzare il comando seguente.
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

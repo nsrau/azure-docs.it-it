@@ -158,8 +158,8 @@ Visualizzare quindi l'elenco delle operazioni più recenti.
 
 ## Passaggi successivi
 
-- Per informazioni su come impostare i criteri di sicurezza, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).
+- Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo di accesso basato sul ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 - Per informazioni su come concedere l'accesso a un'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 - Per informazioni su come agire su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

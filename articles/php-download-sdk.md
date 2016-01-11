@@ -79,7 +79,7 @@ Per installare le librerie client PHP per Azure come pacchetto PEAR, eseguire la
 		pear channel-discover pear.windowsazure.com
 3. Installare il pacchetto PEAR:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 Al termine dell'installazione, è possibile fare riferimento alle librerie di classi dall'applicazione.
 
@@ -130,4 +130,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

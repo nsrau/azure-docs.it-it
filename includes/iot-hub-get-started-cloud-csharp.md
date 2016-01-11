@@ -8,11 +8,11 @@ In questa sezione si scriverà un'app console di Windows che consente di creare 
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **CreateDeviceIdentity** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. Nella finestra **Gestione pacchetti NuGet** verificare che l'opzione **Includi versione preliminare** sia selezionata. Cercare quindi **Microsoft Azure Devices**, fare clic su **Installa** e accettare le condizioni per l'utilizzo.
+3. Nella finestra **Gestione pacchetti NuGet** verificare che l'opzione **Includi versione preliminare** sia selezionata. Cercare quindi **Microsoft Azure Devices**, fare clic su **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'utilizzo.
 
 	![][11]
 
-4. Verrà quindi scaricato e installato il pacchetto NuGet [Microsoft Azure Devices SDK][lnk-nuget-device-sdk] e verrà aggiunto un riferimento a tale pacchetto.
+4. Verrà quindi scaricato e installato il pacchetto NuGet [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] e verrà aggiunto un riferimento a tale pacchetto.
 
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs**:
 
@@ -41,7 +41,7 @@ In questa sezione si scriverà un'app console di Windows che consente di creare 
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
 
-	Questo metodo crea una nuova identità del dispositivo con l'ID **myFirstDevice**. Se questo ID dispositivo è già disponibile del registro del dispositivo, il codice recupera semplicemente le informazioni sul dispositivo esistenti. L'app visualizzerà quindi la chiave primaria per l'identità. Questa chiave verrà usata dal dispositivo simulato per connettersi all'hub IoT.
+	Questo metodo crea una nuova identità del dispositivo con l'ID **myFirstDevice**. Se questo ID dispositivo è già disponibile nel registro, il codice recupera semplicemente le informazioni sul dispositivo esistenti. L'app visualizzerà quindi la chiave primaria per l'identità. Questa chiave verrà usata dal dispositivo simulato per connettersi all'hub IoT.
 
 7. Aggiungere infine le righe seguenti al metodo **Main**:
 
@@ -57,13 +57,13 @@ In questa sezione si scriverà un'app console di Windows che consente di creare 
 
 ## Ricezione di messaggi da dispositivo a cloud
 
-In questa sezione si creerà un'app console di Windows che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione[Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala, mentre l'esercitazione [Introduzione all'hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi dagli hub eventi.
+In questa sezione si creerà un'app console di Windows che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione [Elaborare messaggi da dispositivo a cloud][lnk-processd2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala, mentre l'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi dagli Hub eventi.
 
 1. In Visual Studio aggiungere un nuovo progetto desktop di Windows classico in Visual C# usando il modello di progetto **Applicazione console**. Denominare il progetto **ReadDeviceToCloudMessages**.
 
     ![][10]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**.
+2. In Esplora soluzioni, fare clic con il pulsante destro del mouse sul progetto **ReadDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**.
 
 3. Nella finestra **Gestione pacchetti NuGet** verificare che l'opzione **Includi versione preliminare** sia selezionata. Cercare **WindowsAzure.ServiceBus**, fare clic su **Installa** e quindi accettare le condizioni per l'utilizzo.
 
@@ -117,7 +117,7 @@ In questa sezione si creerà un'app console di Windows che legge i messaggi da d
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
 
-[lnk-nuget-device-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
@@ -125,4 +125,4 @@ In questa sezione si creerà un'app console di Windows che legge i messaggi da d
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Configurazione delle credenziali per l'autenticazione denominate
@@ -71,4 +71,4 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     1. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

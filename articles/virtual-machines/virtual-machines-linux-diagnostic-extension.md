@@ -15,7 +15,7 @@
 		ms.tgt_pltfrm="vm-linux"
 		ms.devlang="na"
 		ms.topic="article"
-		ms.date="07/20/2015"
+		ms.date="12/15/2015"
 		ms.author="Ning"/>
 
 
@@ -35,13 +35,13 @@ Per la versione 2.0, i dati includono:
 - Tutti i dati di sistema specificati in questo [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - I file di log specificati dall'utente.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+Si noti che questa estensione funziona sia con i modelli classici che con i modelli di distribuzione Resource Manager.
 
 
 ## Come abilitare l'estensione
 L'estensione può essere abilitata tramite il [portale di Azure](https://ms.portal.azure.com/#), Azure PowerShell o gli script dell'interfaccia della riga di comando di Azure.
 
-Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, seguire questa [procedura](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL del blog di Windows").
+Per visualizzare e configurare i dati di sistema e le prestazioni direttamente dal portale di Azure, seguire questa [procedura](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL del blog di Windows").
 
 
 Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensione tramite i comandi dell'interfaccia della riga di comando di Azure. In questo modo è possibile leggere e visualizzare i dati direttamente dalla tabella di archiviazione.
@@ -49,7 +49,7 @@ Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensi
 
 ## Prerequisiti
 - Agente Linux di Microsoft Azure 2.0.6 o versioni successive. Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-- [Interfaccia della riga di comando di Azure](./xplat-cli-install.md). Seguire [queste linee guida](./xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo,**accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure ** per elencare tutte le macchine virtuali presenti in Azure.
+- [Interfaccia della riga di comando di Azure](./xplat-cli-install.md). Seguire [queste linee guida](./xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo, **accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure ** per elencare tutte le macchine virtuali presenti in Azure.
 - Un account di archiviazione per archiviare i dati. Saranno necessari un nome di account di archiviazione e un tasto di scelta creati in precedenza per caricare i dati nella risorsa di archiviazione.
 
 
@@ -142,6 +142,5 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 
 ## Problemi noti
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
-- Per la versione 2.0, se l'estensione di diagnostica Linux è stata abilitata prima tramite script, non sarà possibile visualizzare i dati dal portale. Se invece si abilita l'estensione prima dal portale, gli script funzioneranno comunque.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

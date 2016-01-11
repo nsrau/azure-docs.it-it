@@ -18,9 +18,9 @@
 
 # Ridimensionamento dell'hub IoT
 
-L'hub IoT può supportare fino a un milione di dispositivi connessi simultaneamente incrementando il numero di unità S1 o S2 dell'hub IoT fino a 2,000. Per ulteriori informazioni, vedere [prezzi di IoT Hub][lnk-pricing].
+L'hub IoT può supportare fino a un milione di dispositivi connessi simultaneamente incrementando il numero di unità di livello S1 o S2 dell'hub IoT fino a 2.000. Per ulteriori informazioni, vedere [prezzi di dell’hub IoT][lnk-pricing].
 
-Ogni unità dell'hub IoT consente un certo numero di identità del dispositivo nel relativo registro, che possono essere tutte connesse simultaneamente, e un certo numero di messaggi giornalieri.
+Ogni unità dell'hub IoT consente un certo numero di dispositivi nel relativo registro, che possono essere tutti connessi simultaneamente. Ogni unità consente inoltre un numero di messaggi giornalieri.
 
 Per il ridimensionamento corretto della soluzione, considerare l'uso specifico che viene fatto dell'hub IoT. In particolare, considerare la velocità effettiva di picco richiesta per le categorie di operazioni seguenti:
 
@@ -38,15 +38,15 @@ I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocit�
 
 | Livello | Velocità effettiva sostenuta | Frequenza di invio sostenuta |
 | ---- | -------------------- | ------------------- |
-| S1 | Fino a 8 KB/ora per dispositivo | Media di 4 messaggi/ora per dispositivo |
-| S2 | Fino a 4 KB/ora per dispositivo | Media di 2 messaggi/minuto per dispositivo |
+| S1 | Fino a 8 KB/ora per ogni dispositivo | Media di 4 messaggi/ora per dispositivo |
+| S2 | Fino a 4 KB/min per ogni dispositivo | Media di 2 messaggi/minuto per dispositivo |
 
 Quando si ricevono messaggi da dispositivo a cloud, il back-end dell'applicazione può prevedere la velocità effettiva massima seguente (su tutti i lettori).
 
 | Livello | Velocità effettiva sostenuta |
 | ---- | -------------------- |
-| S1 | Fino a 120 KB/minuto per untià, con un di minimo 2 MB/secondo |
-| S2 | Fino a 4 MB/secondo per unità, con un massimo di 2 MB/secondo |
+| S1 | Fino a 120 KB/minuto per unità, con un di minimo 2 MB/secondo |
+| S2 | Fino a 4 MB/minuto per unità, con un massimo di 2 MB/minuto |
 
 Le prestazioni dei messaggi da cloud a dispositivo vengono ridimensionate per dispositivo, con ogni dispositivo che riceve al massimo 5 messaggi al minuto.
 
@@ -58,13 +58,13 @@ Per i dati specifici sulle prestazioni in modalità burst, vedere [Quote e limit
 
 ## Partizionamento orizzontale
 
-Mentre un hub IoT può essere ridimensionato fino a milioni di dispositivi, a volte la soluzione richiede caratteristiche di prestazioni specifiche che un singolo hub IoT non può garantire. In questo caso, è consigliabile partizionare i dispositivi in più hub IoT, per supportare le condizioni di burst del traffico e ottenere la velocità effettiva richiesta o le velocità operative richieste.
+Mentre un hub IoT può essere ridimensionato fino a milioni di dispositivi, a volte la soluzione richiede caratteristiche di prestazioni specifiche che un singolo hub IoT non può garantire. In tal caso, è consigliabile partizionare i dispositivi in più hub IoT. Più hub IoT appianano i picchi di traffico e ottengono il throughput necessario o i tassi di operazione richiesti.
 
 ## Passaggi successivi
 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
-- [Introduzione agli hub IoT (esercitazione)][lnk-get-started]
+- [Introduzione all'hub IoT (esercitazione)][lnk-get-started]
 - [Che cos'è l’hub IoT Azure?][]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
@@ -73,4 +73,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

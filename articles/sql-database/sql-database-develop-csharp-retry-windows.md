@@ -12,19 +12,24 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Codice di esempio: logica di ripetizione tentativi in C# per la connessione a Database SQL
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-In questo argomento viene fornito un esempio di codice C# che illustra la logica di ripetizione tentativi personalizzata. La logica di ripetizione tentativi è progettata per elaborare correttamente gli errori temporanei o *guasti temporanei* che tendono a risolversi se il programma attende qualche secondo ed effettua un nuovo tentativo.
+
+In questo argomento viene fornito un esempio di codice C# che illustra la logica di ripetizione tentativi personalizzata. La logica di ripetizione tentativi è progettata per elaborare correttamente gli errori temporanei o i *guasti temporanei* che tendono a risolversi se il programma attende qualche secondo ed effettua un nuovo tentativo.
 
 
 Le classi ADO.NET utilizzate per connettersi a Microsoft SQL Server locale possono anche connettersi a Database SQL di Azure. Tuttavia, le classi ADO.NET non forniscono autonomamente tutta la solidità e l’affidabilità necessarie per l’uso in un ambiente di produzione. Il programma client può rilevare guasti temporanei da cui dovrebbe eseguire un ripristino automatico e corretto autonomamente.
@@ -90,7 +95,7 @@ L'esempio di codice C# è costituito da un file denominato Program.cs. Il codice
 #### Il codice sorgente C# da incollare
 
 
-Incollare il codice sorgente nel file **Program.cs**.
+Incollare questo codice nel file **Program.cs**.
 
 
 È necessario modificare le stringhe per nome del server, password e così via. È possibile trovare queste stringhe nel metodo denominato **GetSqlConnectionStringBuilder**.
@@ -220,7 +225,7 @@ SELECT TOP 3
 ### Eseguire il programma
 
 
-L’eseguibile **RetryAdo2.exe** non invia parametri. Per eseguire il file exe in Visual Studio:
+Il **RetryAdo2.exe** eseguibile non invia parametri. Per eseguire il file exe in Visual Studio:
 
 
 1. Impostare un punto di interruzione sull’istruzione **return;** nel metodo **Main**.
@@ -282,4 +287,6 @@ Eseguirebbe il programma con il parametro "test" e verificherebbe che ha dapprim
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

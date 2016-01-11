@@ -4,9 +4,9 @@ Gestione traffico e la relativa risorsa endpoint figlio consentono il routing DN
 
 | Proprietà | Descrizione |
 |---|---|
-|**Metodo di routing del traffico**| i valori possibili sono *Prestazioni*, *Valore ponderato* e *Priorità* | 
-| **Configurazione DNS** | FQDN per il profilo | 
-| **Protocollo** | protocollo di monitoraggio. I valori possibili sono *HTTP* e *HTTPS*|
+|**trafficRoutingMethod**| i valori possibili sono *Prestazioni*, *Valore ponderato* e *Priorità* | 
+| **dnsConfig** | FQDN per il profilo | 
+| **Protocollo** | protocollo di monitoraggio, i valori possibili sono *HTTP* e *HTTPS*|
 | **Porta** | porta di monitoraggio |  
 | **Percorso** | percorso di monitoraggio |
 | **Endpoint** | contenitore per le risorse endpoint | 
@@ -17,8 +17,8 @@ Un endpoint è una risorsa figlio di un profilo di Gestione traffico. Rappresent
 
 | Proprietà | Descrizione | 
 |---|---| 
-| **Tipo** | tipo di endpoint. I valori possibili sono *Endpoint di Azure*, *Endpoint esterno* ed *Endpoint annidato*. | 
-| **ID risorsa di destinazione** | indirizzo IP pubblico di un endpoint di servizio o Web. Può trattarsi di un endpoint di Azure o esterno. | 
+| **Tipo** | il tipo di endpoint. I valori possibili sono *Endpoint di Azure*, *Endpoint esterno* ed *Endpoint annidato*. | 
+| **targetResourceId** | indirizzo IP pubblico di un endpoint di servizio o Web. Può trattarsi di un endpoint di Azure o esterno. | 
 | **Peso** | peso dell'endpoint usato nella gestione del traffico. | 
 | **Priorità** | priorità dell'endpoint, usata per definire un'azione di failover |
 
@@ -82,6 +82,6 @@ Esempio di Gestione traffico in formato Json:
  
 ## Risorse aggiuntive
 
-Per altre informazioni, leggere la [documentazione dell'API REST per Gestione traffico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
+Per ulteriori informazioni, leggere la [documentazione dell'API REST per Gestione traffico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

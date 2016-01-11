@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="sergkanz"/>
+	ms.date="12/17/2015" 
+	ms.author="abaranch"/>
  
 # Note sulla versione per Application Insights SDK per NET
 
@@ -35,7 +35,17 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-asp-net.md).
 
 ## Versione 2.0.0-beta3
 
-- [Campionamento adattivo](app-insights-sampling.md)
+- [Campionamento adattivo](app-insights-sampling.md) attivato per impostazione predefinita nel canale dati di telemetria del server. 
+- Firma fissa di ```UseSampling``` per consentire la concatenazione con altre chiamate a ```Use``` di processori di telemetria.  
+- Proprietà ```Request.ID``` restituita. ```OperationContext``` ha ora una proprietà ```ParentId``` per la correlazione end-to-end.
+- ```TimestampTelemetryInitializer``` rimosso. Il Timestamp verrà aggiunto automaticamente da ```TelemetryClient```.
+- ```OperationCorrelationTelemetryInitializer``` viene aggiunto per impostazione predefinita per abilitare la correlazione delle operazioni.
+- ```OperationCorrelationTelemetryInitializer``` viene utilizzato al posto di ```OperationIdTelemetryInitializer```.
+- Agente utente non verrà raccolto per impostazione predefinita. Inizializzatore di telemetria agente utente è stato rimosso.
+- Il campo ```DependencyTelemetry.Async``` non verrà raccolto dal modulo di telemetria dell'agente di raccolta dati di dipendenza. 
+- Le richieste di diagnostica e il contenuto statico non verranno raccolti dal modulo di telemetria di richiesta. Utilizzare la raccolta ```HandlersToFilter``` di ```RequestTrackingTelemetryModule``` per filtrare le richieste generate da determinati gestori http. 
+- La telemetria di richiesta generata automaticamente è accessibile tramite il metodo di estensione HttpContext: System.Web.HttpContextExtension.GetRequestTelemetry  
+
 
 ## Versione 2.0.0-beta2
 - Aggiunta del supporto per ITelemetryProcessor e possibilità di configurare tramite codice o configurazione. [Abilita il filtro personalizzato nell’SDK](app-insights-api-telemetry-processors/#telemetry-processors)
@@ -62,7 +72,7 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-asp-net.md).
 
 ## Versione 1.2
 
-- Gli inizializzatori di telemetria che non hanno dipendenze sulle librerie ASP.NET sono stati spostati da `Microsoft.ApplicationInsights.Web` al nuovo pacchetto NuGet della dipendenza `Microsoft.ApplicationInsights.WindowsServer`
+- Gli inizializzatori di telemetria che non hanno dipendenze sulle librerie ASP.NET sono stati spostati da `Microsoft.ApplicationInsights.Web` al nuovo pacchetto Nuget della dipendenza `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` è stato rinominato in `Microsoft.AI.Web.dll`
 - Nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` è stato rinominato in `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. Assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` è stato rinominato in `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` è stata rinominata in `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Tutti gli spazi dei nomi che fanno parte dell'SDK Web sono stati modificati per escludere la parte `Extensibility`. Ciò include tutti gli inizializzatori di telemetria in ApplicationInsights.config e il modulo `ApplicationInsightsWebTracking` nel file web.config.
@@ -114,4 +124,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services
@@ -322,4 +322,4 @@ Per altre informazioni sull'esecuzione di unit test in Visual Studio Team Servic
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

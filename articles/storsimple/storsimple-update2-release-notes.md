@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="12/22/2015"
    ms.author="v-sharos" />
 
 # Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000  
@@ -28,7 +28,7 @@ Esaminare le informazioni contenute nelle note sulla versione prima di distribui
 >[AZURE.IMPORTANT]
 > 
 - Sono necessarie circa 4-7 ore per installare questo aggiornamento (inclusi gli aggiornamenti di Windows). 
-- L'aggiornamento 2 contiene aggiornamenti del software, del firmware USM, del driver LSI e del firmware SSD.
+- L'aggiornamento 2 contiene aggiornamenti del software, del driver LSI e del firmware SSD.
 - Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Attendere alcuni giorni e quindi provare a cercare nuovamente gli aggiornamenti, perché verranno presto resi disponibili.
 
 
@@ -55,7 +55,6 @@ L'aggiornamento 2 introduce le nuove funzionalità seguenti:
 - **Miglioramenti dell'aggiornamento**: nell'aggiornamento 1.2 e versioni precedenti, StorSimple serie 8000 veniva aggiornato tramite due canali: Windows Update per clustering, iSCSI e così via e Microsoft Update per i file binari e il firmware. L'aggiornamento 2 usa Microsoft Update per tutti i pacchetti di aggiornamento. Questo dovrebbe ridurre il tempo necessario per l'applicazione di patch o l'esecuzione di failover.
 
 - **Aggiornamenti del firmware**: sono inclusi gli aggiornamenti del firmware seguenti:
-    - USM 3.33 RC5
     - LSI: lsi\_sas2.sys versione del prodotto 2.00.72.10
     - Solo unità SSD (non sono presenti aggiornamenti dell'unità disco rigido): XMGG, XGEG, KZ50, F6C2 e VR08
 
@@ -81,7 +80,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Quorum disco | In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un'assenza di quorum disco, il pool di archiviazione sarà offline. Il pool rimarrà in tale stato anche se i dischi vengono riconnessi. | Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. | Sì | No |
 | 2 | ID controller non corretto | Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. | Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller. | Sì | No |
-| 3 | Account di archiviazione | L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente. | Sì | Sì |
+| 3 | Account di archiviazione | L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente.| | Sì | Sì |
 | 4 | Failover del dispositivo | I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. Il failover da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico. | | Sì | No |
 | 5 | Installare | Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | | Sì | No |
 | 6 | Proxy Web | Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. | Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md). | Sì | No |
@@ -93,18 +92,23 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 12| Migrazione | Al termine della migrazione, il dispositivo di serie 5000/7000 non deve accedere ai contenitori di dati migrati. | Dopo il completamento e l'approvazione della migrazione, è consigliabile eliminare i contenitori di dati migrati. | Sì | No |
 | 13| Clonazione e ripristino di emergenza | Un dispositivo StorSimple che esegue l'aggiornamento 1 non può clonare o eseguire un ripristino di emergenza su un dispositivo che esegue software precedente a tale aggiornamento. | È necessario aggiornare il dispositivo di destinazione all'aggiornamento 1 per consentire queste operazioni | Sì | Sì |
 | 14 | Migrazione | La configurazione del backup per la migrazione potrebbe non riuscire in un dispositivo di serie 5000-7000 quando sono presenti gruppi di volumi senza volumi associati. | Eliminare tutti i gruppi di volumi vuoti senza volumi associati e poi tentare nuovamente il backup della configurazione.| Sì | No |
-| 15 | Cmdlet di Azure PowerShell e volumi aggiunti in locale | Non è possibile creare un volume aggiunto in locale tramite i cmdlet di Azure PowerShell. I volumi creati tramite Azure PowerShell verranno suddivisi in livelli. |Usare sempre il servizio StorSimple Manager per configurare i volumi aggiunti in locale.|
-| 16 |Spazio disponibile per i volumi aggiunti in locale | Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna lo spazio locale disponibile circa ogni ora.| Attendere un'ora prima di creare il nuovo volume. |
+| 15 | Cmdlet di Azure PowerShell e volumi aggiunti in locale | Non è possibile creare un volume aggiunto in locale tramite i cmdlet di Azure PowerShell. I volumi creati tramite Azure PowerShell verranno suddivisi in livelli. |Usare sempre il servizio StorSimple Manager per configurare i volumi aggiunti in locale.| Sì | No |
+| 16 |Spazio disponibile per i volumi aggiunti in locale | Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna lo spazio locale disponibile circa ogni ora.| Attendere un'ora prima di creare il nuovo volume. | Sì | No |
+| 17 | Volumi aggiunti in locale | Il processo di ripristino espone il backup dell'istantanea temporaneo in Catalogo Backup, ma solo per la durata del processo di ripristino. | Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. | Sì | No |
+| 18 | Volumi aggiunti in locale | Se si annulla un processo di ripristino e si verifica un failover del controller subito dopo, il processo di ripristino visualizzerà lo stato **Non riuscito** anziché **Annullato**. Se un processo di ripristino ha esito negativo e si verifica un failover del controller subito dopo, il processo di ripristino visualizzerà lo stato **Annullato** anziché **Non riuscito**. | Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. | Sì | No |
+| 19 |Volumi aggiunti in locale | Se si annulla un processo di ripristino o se un ripristino ha esito negativo e quindi si verifica un failover del controller, viene visualizzato un processo di ripristino aggiuntivo nella pagina **Processi**. | Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. | Sì | No |
+| 20 |Messaggio di anteprima al momento della creazione del servizio StorSimple Manager | Il messaggio di anteprima visualizzato al momento della creazione di un servizio StorSimple Manager è applicabile solo alla serie dell'array virtuale di Microsoft Azure StorSimple. La serie dell'array virtuale è stata avviata di recente ed è attualmente un'offerta in anteprima che rientra nelle [condizioni aggiuntive per l'anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il servizio StorSimple Manager e la serie del dispositivo fisico StorSimple sono soluzioni a disponibilità generale e non sono soggette alle condizioni aggiuntive per l'anteprima. | | |
+| 21 |Volumi aggiunti in locale | Il processo di ripristino espone un gruppo di dischi virtuali con prefisso **tmpCollection** nella pagina **Criteri di backup**, ma solo per la durata del processo di ripristino.|Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente.|
 
 ## Aggiornamenti del controller e del firmware presenti nell'aggiornamento 2
 
 Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
  
-- Per altre informazioni sugli aggiornamenti del firmware USM e LSI, vedere l'articolo della Microsoft Knowledge Base 3121900. 
+- Per altre informazioni sugli aggiornamenti del firmware LSI, vedere l'articolo della Microsoft Knowledge Base 3121900. 
 - Per altre informazioni sugli aggiornamenti del firmware del disco, vedere l'articolo della Microsoft Knowledge Base 3121899.
  
 ## Aggiornamenti del dispositivo virtuale nell'aggiornamento 2
 
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

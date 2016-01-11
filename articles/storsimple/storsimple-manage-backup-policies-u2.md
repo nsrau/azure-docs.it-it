@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
-# Per gestire i criteri di backup, è possibile usare il servizio StorSimple Manager.
+# Per gestire i criteri di backup è possibile usare il servizio StorSimple Manager (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
@@ -96,4 +96,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un criteri
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -48,7 +48,7 @@ Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'
 - **Connettività**. Le reti virtuali possono essere connesse tra loro e anche al data center locale usando una connessione VPN da sito a sito o una connessione ExpressRoute. Per altre informazioni sui gateway VPN, visitare [Informazioni sui gateway VPN](./vpn-gateway-about-vpngateways.md). Per altre informazioni su ExpressRoute, visitare [Panoramica tecnica relativa a ExpressRoute](./expressroute-introduction.md).
 
     >[AZURE.NOTE]Verificare di aver creato una nuova rete virtuale prima di distribuire eventuali istanze del ruolo PaaS o delle macchine virtuali IaaS nell'ambiente Azure. Le macchine virtuali basate su ARM richiedono una rete virtuale e, se non si specifica una rete virtuale esistente, Azure crea una rete virtuale predefinita che potrebbe presentare un conflitto dei blocchi di indirizzi CIDR con la propria rete locale, rendendo impossibile la connessione tra la propria rete virtuale e la propria rete locale.
-    
+
 ## Subnet
 
 Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare tabelle di route e gruppi di sicurezza di rete per una subnet.
@@ -58,7 +58,7 @@ Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile su
 
 Esistono due tipi di indirizzi IP assegnati alle risorse in Azure: *pubblici* e *privati*. Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e altri servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/) e [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Gli indirizzi IP privati consentono la comunicazione tra risorse in una rete virtuale, oltre che con quelle connesse tramite una VPN, senza usare indirizzi IP instradabili tramite Internet.
 
-Per altre informazioni sugli indirizzi IP in Azure, visitare [Indirizzi IP in una rete virtuale](virtual-network-ip-addresses-arm.md).
+Per altre informazioni sugli indirizzi IP in Azure, visitare [Indirizzi IP in una rete virtuale](virtual-network-ip-addresses-overview-arm.md)
 
 ## Servizi di bilanciamento del carico di Azure
 
@@ -98,4 +98,4 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 - [Riservare un indirizzo IP pubblico](../virtual-networks-reserved-public-ip.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

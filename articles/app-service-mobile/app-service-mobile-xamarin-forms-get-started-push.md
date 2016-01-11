@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/25/2015" 
+	ms.date="12/19/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -59,10 +57,6 @@ Questa procedura illustra la creazione di un nuovo hub di notifica. Se è già s
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##Distribuire il progetto server aggiornato in Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 
 ##(Facoltativo) Configurare ed eseguire il progetto Android
 
@@ -77,14 +71,14 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 ####Configurare l'hub di notifica per GCM
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Google (GCM)**. Incollare la chiave API server creata in precedenza e fare clic su **Salva**. Il servizio è ora configurato per l'uso delle notifiche push per Android.
+1. Accedere al [portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Google (GCM)**. Incollare la chiave API server creata in precedenza e fare clic su **Salva**. Il servizio è ora configurato per l'uso delle notifiche push per Android.
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
 
 ####Aggiungere notifiche push al progetto droid
 
-1. Fare clic con il pulsante destro del mouse sulla cartella Componenti, fare clic su Altri componenti, cercare il componente **Client Google Cloud Messaging** e aggiungerlo al progetto. Questo componente consente di semplificare l'uso delle notifiche push con un progetto Xamarin Android.
+1. Fare clic con il pulsante destro del mouse sulla cartella Componenti, fare clic su Altri componenti, cercare il componente **Client di Google Cloud Messaging** e aggiungerlo al progetto. Questo componente consente di semplificare l'uso delle notifiche push con un progetto Xamarin Android.
 
 2. Aprire il nuovo file di progetto MainActivity.cs e aggiungere l'istruzione using seguente all'inizio del file:
 
@@ -112,7 +106,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 	    }
 
 
-4. Aggiungere il codice seguente per il metodo helper `CreateAndShowDialog`.
+4. Aggiungere il codice seguente per il metodo di supporto `CreateAndShowDialog`.
 
 		private void CreateAndShowDialog(String message, String title) 
 		{
@@ -143,7 +137,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 		// Set the current instance of MainActivity.
 		instance = this;
 
-7. Aggiungere un nuovo file della classe per il progetto **Droid**. Denominare il nuovo file della classe come **GcmService**.
+7. Aggiungere un nuovo file della classe al progetto **Droid**. Denominare il nuovo file della classe come **GcmService**.
 
 8. Assicurarsi che le istruzioni `using` seguenti siano incluse all'inizio del file.
 
@@ -194,7 +188,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 12. Aggiungere il codice seguente alla classe GcmService che sostituisce il gestore eventi OnRegistered e implementa un metodo `Register`.
 
-	Questo codice registra un corpo del modello per ricevere notifiche di modello usando il parametro `messageParam`. Le notifiche di modello consentono di inviare notifiche multipiattaforma. Per altre informazioni, vedere [Modelli](https://msdn.microsoft.com/library/azure/dn530748.aspx).
+	Questo codice registra un corpo del modello per ricevere notifiche di modello usando il parametro `messageParam`. Le notifiche di modello consentono di inviare notifiche multipiattaforma. Per ulteriori informazioni, vedere [Modelli](https://msdn.microsoft.com/library/azure/dn530748.aspx).
 		
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -307,13 +301,13 @@ Questa sezione illustra l'esecuzione del progetto Xamarin droid per dispositivi 
 
 ####Testare le notifiche push nell'app Android
 
-1. In Visual Studio o Xamarin Studio fare clic con il pulsante destro del mouse sul progetto **droid** e scegliere **Imposta come progetto di avvio**.
+1. In Visual Studio o Xamarin Studio, fare clic con il pulsante destro del mouse sul progetto **droid** e scegliere **Imposta come progetto di avvio**.
  
 2. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -330,7 +324,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
 
 ####Configurare l'hub di notifica per APNS
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
+1. Accedere al [portale di Azure](https://portal.azure.com/). Fare clic su **Sfoglia** > **App per dispositivi mobili** > App per dispositivi mobili > **Impostazioni** > **Push** > **Apple (APNS)** > **Carica certificato**. Caricare il file del certificato push (con estensione p12) esportato in precedenza. Assicurarsi di selezionare **Sandbox** se è stato creato un certificato push di sviluppo per le fasi di sviluppo e test. In caso contrario, scegliere **Produzione**. Il servizio è ora configurato per l'uso delle notifiche push per iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -393,7 +387,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin iOS per dispositivi iO
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. In AppDelegate.cs aggiungere anche un override per l'evento **DidReceivedRemoteNotification** per gestire le notifiche in ingresso mentre l'app è in esecuzione:
+5. In AppDelegate.cs, aggiungere anche un override per l'evento **DidReceivedRemoteNotification** per gestire le notifiche in ingresso mentre l'app è in esecuzione:
 
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -417,11 +411,11 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 1. Fare clic con il pulsante destro del mouse sul progetto iOS, quindi scegliere **Imposta come progetto di avvio**.
 
-2. Scegliere **Run** o **F5** in Visual Studio per compilare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
+2. Premere il pulsante **Run** o **F5** in Visual Studio per compilare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
+3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 4. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -512,7 +506,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
             await InitNotificationsAsync();
         }
 
-4. In Esplora soluzioni di Visual Studio aprire il file **Package.appxmanifest** e in **Notifiche** impostare **Popup supportati** su **Sì**.
+4. In Esplora soluzioni di Visual Studio, aprire il file **Package.appxmanifest** e in **Notifiche** impostare **Popup supportati** su **Sì**.
 
 5. Compilare l'app e verificare che non siano presenti errori. A questo punto l'app client dovrebbe eseguire la registrazione per le notifiche di modello dal back-end dell'app per dispositivi mobili.
 
@@ -526,7 +520,7 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app, digitare un'attività e fare clic sull'icona con il segno più (**+**).
+3. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 4. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -541,4 +535,4 @@ Questa sezione illustra l'esecuzione del progetto Xamarin WinApp per dispositivi
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

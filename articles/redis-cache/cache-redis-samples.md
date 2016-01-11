@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="sdanie"/>
 
 # Esempi di Cache Redis di Azure 
@@ -35,6 +35,7 @@ In questo esempio viene illustrato come:
 -	Utilizzare gli elenchi e i set ordinati di Redis
 -	Archiviare oggetti .NET mediante i serializzatori JsonConvert
 -	Utilizzare i set di Redis per implementare l'assegnazione di tag
+-	Lavorare con Cluster Redis
 
 Per ulteriori informazioni, vedere la documentazione [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) in github, mentre per ulteriori scenari di utilizzo, vedere gli unit test [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
 
@@ -57,7 +58,7 @@ Questo esempio mette a confronto le prestazioni di accesso ai dati da una cache 
 
 ## Memorizzazione nella cache dell'output e dello stato sessione ASP.NET
 
-L'esempio relativo all'[uso di Cache Redis di Azure per archiviare SessionState e OutputCache di ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) illustra come usare Cache Redis di Azure per archiviare la cache di output e la sessione ASP.NET usando i provider SessionState e OutputCache per Redis.
+Nell’[esempio relativo all’uso di Cache Redis di Azure per archiviare SessionState e OutputCache ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) viene illustrato come usare Cache Redis di Azure per archiviare la cache di output e la sessione ASP.NET usando i provider SessionState e OutputCache per Redis.
 
 ## Gestire Cache Redis di Azure con MAML
 
@@ -75,4 +76,4 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

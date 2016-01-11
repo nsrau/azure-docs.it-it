@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/20/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Risoluzione dei problemi del Docker
@@ -100,4 +100,4 @@ R: È possibile usare OpenSSL sul server per generare i certificati e le chiavi 
 
 Un'altra opzione consiste nello scaricare OpenSSL per Windows e generare i certificati e le chiavi necessari e quindi caricare autorità di certificazione, certificati server e chiavi per il computer Linux. Per altre informazioni su come stabilire una connessione sicura a Docker, vedere [Protezione del socket del daemon Docker con HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

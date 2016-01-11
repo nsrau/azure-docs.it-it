@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Codice di esempio: logica di ripetizione tentativi della libreria Enterprise 6, in C&#x23; per la connessione al database SQL
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 In questo argomento viene presentato un esempio di codice completo che illustra la libreria Enterprise (EntLib). EntLib semplifica molte attività per i programmi client che interagiscono con servizi cloud come il database SQL di Azure. L'esempio è incentrato sull'importante attività di inclusione della logica di ripetizione dei tentativi per gli errori temporanei.
@@ -29,7 +35,11 @@ Le classi EntLib sono progettate per distinguere due categorie di errori di runt
 - Errori che non possono essere corretti automaticamente, ad esempio un nome di server errato.
 - Errori temporanei, ad esempio un server che sospende per alcuni secondi l'accettazione di nuove connessioni mentre viene eseguito il bilanciamento del carico del sistema Azure.
 
+
 La libreria Enterprise 6 (EntLib60) è la versione più recente ed è stata rilasciata ad aprile 2013.
+
+- Microsoft ha rilasciato il codice sorgente al pubblico.
+- Microsoft non prevede di gestire ulteriormente il codice sorgente.
 
 
 ## Prerequisiti
@@ -44,7 +54,7 @@ Deve essere installato Microsoft .NET Framework 4.0 o versione successiva. Al mo
 #### Edizione gratuita Visual Studio Community
 
 
-È necessario un sistema per compilare il codice sorgente di questo esempio. È possibile installare l'[edizione gratuita Microsoft Visual Studio *Community*](http://www.visualstudio.com/products/free-developer-offers-vs.aspx).
+È necessario un sistema per compilare il codice sorgente di questo esempio. È possibile installare l'[edizione gratuita di Microsoft Visual Studio *Community*](http://www.visualstudio.com/products/free-developer-offers-vs.aspx).
 
 
 Potrebbe essere necessario registrare l'indirizzo di posta elettronica con MSDN. La procedura è simile alla seguente:
@@ -64,13 +74,13 @@ Modalità per l'installazione di EntLib60:
 
 
 - Usare la funzionalità per la gestione dei pacchetti *NuGet* in Visual Studio:
- - In NuGet cercare **enterpriselibrary**.
+ - In NuGet, cercare **enterpriselibrary**.
 
 
-- Nell'[argomento principale della documentazione per EntLib60](http://msdn.microsoft.com/library/dn169621.aspx) individuare la riga denominata **Download**, quindi fare clic su [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) per scaricare i file di assembly binari con estensione DLL.
+- Nell'[argomento principale della documentazione per EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), individuare la riga denominata **Download**, quindi fare clic su [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) per scaricare i file di assembly binari con estensione .DLL.
 
 
-EntLib60 dispone di numerosi file di assembly con estensione DLL il cui nome inizia con lo stesso prefisso **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, ma per questo esempio di codice sono necessari solo i due assembly seguenti:
+EntLib60 dispone di numerosi file di assembly con estensione .DLL il cui nome inizia con lo stesso prefisso **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, ma per questo esempio di codice sono necessari solo i due assembly seguenti:
 
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling**.dll
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling.Data**.dll
@@ -90,10 +100,10 @@ Le classi EntLib vengono utilizzate per creare altre classi EntLib. In questo es
 4. Creare un oggetto **ReliableSqlConnection**. I parametri di input sono:
  - Un oggetto **stringa** con il nome del server e altre informazioni di connessione.
  - Oggetto **RetryPolicy**
-5. Chiamare per la connessione, tramite il metodo **RetryPolicy .ExecuteAction**.
+5. Chiamare per la connessione tramite il metodo **RetryPolicy .ExecuteAction**.
 6. Chiamare il metodo **ReliableSqlConnection .CreateCommand**.
  - Restituisce un oggetto **System.SqlClient.Data.DbCommand**, parte di ADO.NET.
-7. Chiamare per la query, tramite il metodo **RetryPolicy .ExecuteAction**.
+7. Chiamare per la query tramite il metodo **RetryPolicy .ExecuteAction**.
 
 
 ## Compilare ed eseguire l'esempio di codice
@@ -302,11 +312,11 @@ SELECT TOP 3
 ## Collegamenti correlati
 
 
-- Numerosi collegamenti per ottenere altre informazioni sono disponibili in: [Libreria Enterprise 6, aprile 2013](http://msdn.microsoft.com/library/dn169621.aspx)
+- Numerosi collegamenti per ottenere altre informazioni sono disponibili in: [Enterprise Library 6, aprile 2013](http://msdn.microsoft.com/library/dn169621.aspx)
  - Questo argomento include un pulsante nella parte superiore che consente di [scaricare il codice sorgente di EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898), se si è interessati a visualizzare il codice sorgente.
 
 
-- Ebook gratuito in formato PDF di Microsoft: [Guida per gli sviluppatori alla libreria Microsoft Enterprise, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145).
+- Ebook gratuito in formato .PDF di Microsoft: [Guida per gli sviluppatori a Microsoft Enterprise Library, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Spazio dei nomi Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

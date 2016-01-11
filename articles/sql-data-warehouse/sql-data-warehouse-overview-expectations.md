@@ -58,16 +58,10 @@ Gli snapshot vengono copiati in modo asincrono in un'area di Azure remota per as
 
 SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono alcuni dati utente e controllano l’esecuzione della query su tali dati. Come parte dell'architettura di elaborazione parallela massiva (MPP), le query vengono eseguite in parallelo tra i nodi di calcolo. SQL Data Warehouse rileva automaticamente e consente di ridurre gli errori del nodo di calcolo. Tuttavia, durante l'anteprima, un'operazione (ad esempio, il caricamento dei dati o query) può non riuscire a causa di errori del singolo nodo. Durante l'anteprima, stiamo predisponendo miglioramenti continui per completare con successo le operazioni nonostante gli errori di nodo.
 
-Basandoci su dati di telemetria, stimiamo l'affidabilità attuale dell’SQL Data Warehouse di Azure al 98%. Questo significa che, in media, 2 query su 100 potrebbero non riuscire a seguito di errori di sistema. Non si tratta di un contratto di servizio. La probabilità di un errore di query aumenta con il tempo di esecuzione. Ad esempio, una query eseguita per più di 2 ore ha una probabilità di errori molto più elevata rispetto a una query che viene eseguita per meno di 10 minuti. Durante il periodo di anteprima miglioreremo l’affidabilità per garantire lo stesso livello di affidabilità per le tutte operazioni indipendentemente dal loro tempo di esecuzione. Verrà aggiornata l'affidabilità prevista ogni qual volta che rilasceremo tali miglioramenti. Per la disponibilità generale, l’affidabilità verrà sostenuta da un contratto di servizio.
-
-### Disponibilità del servizio
-
-SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di manutenzione al mese per l'installazione di correzioni critiche. Ogni evento può causare errori di query fino a 2 ore. Il tempo varia in base al numero di DWU allocate al servizio.
-
 
 ## Passaggi successivi
 
-[Introduzione][]ad anteprima pubblica.
+[Introduzione][] ad anteprima pubblica.
 
 <!--Image references-->
 
@@ -78,4 +72,4 @@ SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di man
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

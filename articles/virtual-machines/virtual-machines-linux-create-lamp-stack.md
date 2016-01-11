@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Come creare uno stack LAMP con Microsoft Azure
@@ -36,7 +36,7 @@ Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversa
 
 Oltre a questo argomento, se si dispone già di una macchina virtuale e sono necessarie solo informazioni di base sull'installazione di uno stack LAMP in diverse distribuzioni Linux, vedere [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-install-lamp-stack.md).
 
-È anche possibile distribuire immagini LAMP preconfigurate da Azure Marketplace. Nel seguente video di 10 minuti viene presentata la distribuzione di immagini LAMP predefinite da Azure Marketplace: (stack LAMP sulle macchine virtuali di Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+È anche possibile distribuire immagini LAMP preconfigurate da Azure Marketplace. Nel seguente video di 10 minuti viene presentata la distribuzione di immagini LAMP predefinite da Azure Marketplace: [stack LAMP sulle macchine virtuali di Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Fase 1: creare un'immagine.
 In questa fase si creerà una macchina virtuale usando un'immagine Linux in Azure.
@@ -46,7 +46,7 @@ SSH è uno strumento importante per gli amministratori di sistema. Tuttavia, far
 
 Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 
--	Scaricare e installare Puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Scaricare e installare puttygen dal percorso [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	Eseguire puttygen.exe.
 -	Fare clic su **Generate** per generare le chiavi. Nel processo è possibile aumentare la casualità spostando il puntatore del mouse sull'area vuota della finestra. ![][1]
 -	Dopo il processo di generazione, Puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
@@ -54,11 +54,11 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 -	Fare clic su **Save private key** e salvarla in un file denominato **privateKey.ppk**.
 
 ###Passaggio 2: creare l'immagine nel portale di Azure.
-Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** nella barra delle applicazioni e creare un'immagine seguendo queste istruzioni, quindi scegliendo l'immagine Linux in base alle esigenze. In questo esempio viene usata l'immagine Ubuntu 14.04.
+Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** nella barra delle applicazioni e creare un'immagine seguendo queste istruzioni, scegliendo l'immagine Linux in base alle esigenze. In questo esempio viene usata l'immagine Ubuntu 14.04.
 
 ![][3]
 
-Per **Nome host**, specificare il nome per l'URL che verrà utilizzato dall'utente e dai client Internet per accedere a questa macchina virtuale. Definire l'ultima parte del nome DNS, ad esempio LAMPDemo; Azure genererà l'URL come Lampdemo.cloudapp.net.
+Per **Nome host**, specificare il nome per l'URL che verrà utilizzato dall'utente e dai client Internet per accedere a questa macchina virtuale. Definire l'ultima parte del nome DNS, ad esempio LAMPDemo; Azure genererà l'URL come *lampdemo.cloudapp.net*.
 
 Per **Nome utente**, scegliere un nome che verrà utilizzato successivamente per l'accesso alla macchina virtuale.
 
@@ -102,7 +102,7 @@ Fare clic su **OK** per aggiungere l'endpoint alla macchina virtuale.
 ###Passaggio 2: effettuare la connessione all'immagine creata
 È possibile scegliere qualsiasi strumento SSH per connettersi alla nuova macchina virtuale. In questo esempio, viene usato Putty.
 
-Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di Azure. **Fare clic su Sfoglia** -> Macchine virtuali -> nome della macchina virtuale** -> Proprietà** e osservare il campo **Nome di dominio** del riquadro **Proprietà**.
+Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di Azure. Fare clic su **Sfoglia -> Macchine virtuali ->** nome della macchina virtuale **-> Proprietà** e osservare il campo **Nome di dominio** del riquadro **Proprietà**.
 
 Ottenere il numero di porta per le connessioni SSH dal campo **SSH**. Di seguito è fornito un esempio.
 
@@ -114,7 +114,7 @@ Dopo il download, fare clic sul file eseguibile PUTTY.EXE. Configurare le opzion
 
 ![][9]
 
-Nel riquadro sinistro fare clic su **Connection** -> SSH -> Auth e quindi fare clic su **Browse** per specificare il percorso del file **privateKey.ppk** che contiene la chiave privata generata da puttygen nella fase 1: creare un’immagine. Di seguito è fornito un esempio:
+Nel riquadro sinistro fare clic su **Connection -> SSH -> Auth** e quindi fare clic su **Browse** per specificare il percorso del file **privateKey.ppk** che contiene la chiave privata generata da puttygen nella fase 1: creare un’immagine. Di seguito è fornito un esempio:
 
 ![][10]
 
@@ -147,7 +147,7 @@ Dopo l'installazione, avviare Apache con il comando seguente:
 	sudo service httpd start
 
 ####Testare Apache
-Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato "It works!" ![][14]
+Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato il messaggio "It works!" ![][14]
 
 ####Risoluzione dei problemi
 Se Apache è in esecuzione ma è possibile visualizzare la pagina predefinita di Apache riportata sopra, è necessario controllare che:
@@ -351,7 +351,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html /.
--	Utilizzare qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
+-	Utilizzare qualsiasi client SFTP (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
 
 
 
@@ -390,14 +390,14 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 ###Autorizzazione negata quando si caricano i file di progetto in /var/www/html/  
 
--	**Sintomo**: quando viene utilizzato qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione alla macchina virtuale e passare a /var/www/html per pubblicare il sito, viene visualizzato un messaggio di errore simile al seguente:  
+-	**Sintomo**: quando viene utilizzato qualsiasi client SFTP (come FileZilla) per effettuare la connessione alla macchina virtuale e passare a /var/www/html per pubblicare il sito, viene visualizzato un messaggio di errore simile al seguente:  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
 		Error:	/var/www/html/info.php: open for write: permission denied
 		Error:	File transfer failed
 
--	**Causa radice possibile**: non si dispone di autorizzazioni di accesso alla cartella /var/www/html.
+-	**Possibile causa principale**: non si dispone di autorizzazioni di accesso alla cartella /var/www/html.
 -	**Soluzione** È necessario ottenere l'autorizzazione dall'account radice. È possibile modificare la proprietà di tale cartella dalla radice al nome utente usato per il provisioning della macchina. Di seguito è riportato un esempio con il nome dell'account azureuser:  
 
 		sudo chown azureuser -R /var/www/html  
@@ -431,7 +431,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		... waiting apache2:
 		Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
 
--	**Causa radice possibile**: non è stato impostato il nome del server di Apache.
+-	**Possibile causa principale**: non è stato impostato il nome del server di Apache.
 
 -	**Soluzione**: inserire una riga "ServerName localhost" in httpd.conf (versione Red Hat) o apache2.conf (versione Debian) in /etc/apache2 e riavviare Apache. L'avviso scomparirà.
 
@@ -456,4 +456,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

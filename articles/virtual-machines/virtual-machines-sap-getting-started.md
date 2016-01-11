@@ -44,9 +44,9 @@ Ultimo aggiornamento: settembre 2015
 ## DBMS per SAP in Azure
 Titolo: Guida alla distribuzione di DBMS per SAP in Azure
 
-Riepilogo: Questo documento presenta le considerazioni sulla pianificazione e l'implementazione per i sistemi DBMS che dovranno essere eseguiti con SAP. Nella prima parte vengono elencate e presentate alcune considerazioni di carattere generale. Le parti successive descrivono invece le distribuzioni supportate da SAP di diversi sistemi DBMS in Azure. I sistemi DBMS presentati sono SQL Server, SAP ASE e Oracle. In queste sezioni più specifiche vengono illustrate le considerazioni di cui è necessario tenere conto quando vengono eseguiti sistemi SAP con tali sistemi DBMS in Azure. Vengono presentati argomenti quali i metodi di backup e disponibilità elevata supportati dai diversi sistemi DBMS in Azure per l'utilizzo con applicazioni SAP.
+Riepilogo: Questo documento presenta le considerazioni sulla pianificazione e l'implementazione per i sistemi DBMS che dovranno essere eseguiti con SAP. Nella prima parte vengono elencate e presentate alcune considerazioni di carattere generale. Le parti successive descrivono invece le distribuzioni supportate da SAP di diversi sistemi DBMS in Azure. Vari DBMS presentati sono SQL Server, SAP ASE, Oracle, SAP MaxDB e IBM DB2 per Linux, Unix e Windows. In queste sezioni più specifiche vengono illustrate le considerazioni di cui è necessario tenere conto quando vengono eseguiti sistemi SAP con tali sistemi DBMS in Azure. Vengono presentati argomenti quali i metodi di backup e disponibilità elevata supportati dai diversi sistemi DBMS in Azure per l'utilizzo con applicazioni SAP.
 
-Ultimo aggiornamento: agosto 2015
+Ultimo aggiornamento: dicembre 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=397965)
 
@@ -70,4 +70,14 @@ Ultimo aggiornamento: agosto 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_1125_2015-->
+## SAP NetWeaver nelle macchine virtuali SUSE Linux di Azure
+
+Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure
+
+Riepilogo: attualmente, non è previsto alcun supporto ufficiale di SAP per l'esecuzione di SAP NetWeaver nelle macchine virtuali Linux di Azure. Tuttavia, i clienti potrebbero richiedere di eseguire alcuni test o considerare di eseguire SAP dimostrativi o sistemi di formazione in macchine virtuali Linux di Azure fino a quando non è necessario contattare il supporto SAP. In questo articolo viene descritto come configurare le macchine virtuali SUSE Linux di Azure per l'esecuzione di SAP; inoltre, vengono forniti alcuni suggerimenti di base per evitare errori potenziali comuni.
+
+Ultimo aggiornamento: dicembre 2015
+
+[Questo articolo è disponibile qui](virtual-machines-sap-on-linux-suse-quickstart.md)
+
+<!---HONumber=AcomDC_1223_2015-->

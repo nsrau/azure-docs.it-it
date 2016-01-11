@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="12/23/2015" 
 	ms.author="mimig"/>
 
 # Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB
@@ -88,4 +88,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 -	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

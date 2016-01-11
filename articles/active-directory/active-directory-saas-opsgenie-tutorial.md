@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="12/18/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di OpsGenie in Azure AD, è necessario aggiungere
 
 **Per aggiungere OpsGenie dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
+1. Nel **portale di gestione di Azure**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -64,7 +64,8 @@ Per configurare l'integrazione di OpsGenie in Azure AD, è necessario aggiungere
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **OpsGenie**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_01.png)<br>
-7. Nel riquadro dei risultati selezionare **OpsGenie**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **OpsGenie**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_02.png)<br>
+
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con OpsGenie in base a un utente test di nome "Britta Simon".
@@ -87,11 +88,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 **Per configurare Single Sign-On di Azure AD con OpsGenie, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **OpsGenie** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **OpsGenie** del portale di Azure AD, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a OpsGenie** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_03.png) <br>
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a OpsGenie**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_03.png) <br>
 
-3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_04.png) <br>
+3. Nella pagina **Configurare le impostazioni dell'app**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_04.png) <br>
 
 
     a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione OpsGenie adottando il modello seguente: **“https://app.opsgenie.com/auth/login”**.
@@ -101,7 +102,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-4. Nella pagina **Configura accesso Single Sign-On in OpsGenie** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in OpsGenie**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_05.png) <br>
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer. Questo certificato e gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) saranno necessari per configurare l'accesso Single Sign-On nel sito OpsGenie.
 
@@ -110,54 +111,54 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 5. Aprire un'altra istanza del browser e quindi accedere a OpsGenie come amministratore.
 
-6. Fare clic su **Settings** e quindi selezionare la scheda **Single Sign On**. <br><br>![Accesso Single Sign-On di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png) <br>
+6. Fare clic su **Impostazioni** e quindi selezionare la scheda **Single Sign On**. <br><br>![Accesso Single Sign-On di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png) <br>
 
-7. Per abilitare l'accesso Single Sign-On, selezionare **Enabled**. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) <br>
+7. Per abilitare l'accesso Single Sign-On, selezionare **Abilitato**. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) <br>
    
-8. Nella sezione **Provider** fare clic sulla scheda **Azure Active Directory**. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) <br>
+8. Nella sezione **Provider**, fare clic sulla scheda **Azure Active Directory**. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) <br>
     
-9. Nella finestra di dialogo Azure Active Directory seguire questa procedura: <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png) <br>
+9. Nella pagina Azure Active Directory, seguire questa procedura: <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png) <br>
 
-    a. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in OpsGenie** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SAML 2.0 Endpoint**.
+    a. Nella pagina **Configura accesso Single Sign-On in OpsGenie** del portale di Azure, copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SAML 2.0 Endpoint**.
 
     b. Creare un file con codifica Base 64 dal certificato scaricato.
     
-    > [AZURE.NOTE]Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be).
+    > [AZURE.NOTE]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be).
 
     c. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **X.500 Certificate**.
 
-    d. Fare clic su **Save Changes**.
+    d. Fare clic su **Salva modifiche**.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+6. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-On**, fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test nel portale di Azure denominato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di gestione di Azure**, fare clic su **Active Directory** nel pannello di navigazione sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_03.png) <br>
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_04.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina **Informazioni sull'utente**, seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella **casella di testo** Nome utente digitare **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina **Profilo utente**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png) <br>
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -169,9 +170,9 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina **Ottieni password temporanea**, fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_07.png) <br>
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina **Ottieni password temporanea**, seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_08.png) <br>
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -185,15 +186,15 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in OpsGenie.
 
 1.	In una finestra del Web browser accedere al tenant di OpsGenie come amministratore.
 
-2.	Passare all'elenco di utenti facendo clic su **User** nel riquadro a sinistra. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) <br>
+2.	Passare all'elenco di utenti facendo clic su **Utente** nel riquadro a sinistra. <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) <br>
 
-3.	Fare clic su "**Add User**".
+3.	Fare clic su "**Aggiungi utente**".
 
-3.	Nella finestra di dialogo **Add User** seguire questa procedura: <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png) <br>
+3.	Nella finestra di dialogo **Aggiungi utente**, seguire questa procedura: <br><br>![Impostazioni di OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png) <br>
 
-    a. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica di Britta in Azure Active Directory.
+    a. Nella casella di testo **E-mail**, digitare l'indirizzo di posta elettronica di Britta in Azure Active Directory.
 
-    b. Nella casella di testo **Full Name** digitare **Britta Simon**.
+    b. Nella casella di testo **Nome completo** digitare **Britta Simon**.
 
     c. Fare clic su **Save**.
 
@@ -208,13 +209,13 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 
-2. Nell'elenco di applicazioni selezionare **OpsGenie**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_50.png) <br>
+2. Nell'elenco di applicazioni, selezionare **OpsGenie**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_50.png) <br>
 
-1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
+1. Nel menu in alto, fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
+2. Sulla barra degli strumenti in basso, fare clic su **Assegna**. <br><br>![Assegna utente][205]
 
 
 
@@ -247,4 +248,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

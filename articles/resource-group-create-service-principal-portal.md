@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/17/2015"
    ms.author="tomfitz"/>
 
 # Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
 
 ## Panoramica
-Quando si dispone di un processo automatico o di un'applicazione che deve accedere a una risorsa nella sottoscrizione o modificarla, è possibile usare il portale per creare un'applicazione di Active Directory e assegnarla a un ruolo con le autorizzazioni corrette. Quando si crea un'applicazione di Active Directory tramite il portale, vengono create sia l'applicazione che un'entità servizio. L'entità servizio viene usata quando si impostano le autorizzazioni.
+Quando si dispone di un processo automatico o di un'applicazione che deve accedere a una risorsa nella sottoscrizione o modificarla, è possibile usare il portale per creare un'applicazione di Active Directory e assegnarla a un ruolo con le autorizzazioni corrette. Quando si crea un'applicazione di Active Directory tramite il portale classico, vengono create sia l'applicazione sia un'entità servizio. L'entità servizio viene usata quando si impostano le autorizzazioni.
 
-Questo argomento spiega come creare una nuova applicazione e un'entità servizio usando il portale di Azure. Attualmente, è necessario usare il portale di Microsoft Azure per creare una nuova applicazione di Active Directory. Questa funzionalità verrà aggiunta al portale di anteprima di Azure in una versione successiva. È possibile usare il portale di anteprima per assegnare l'applicazione a un ruolo. È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
+Questo argomento spiega come creare una nuova applicazione e un'entità servizio usando il portale classico. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory. Questa funzionalità verrà aggiunta al portale di Azure in una versione successiva. È possibile usare il portale per assegnare l'applicazione a un ruolo. È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di PowerShell o dell'interfaccia della riga di comando con l'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 
 ## Concetti
 1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
@@ -33,7 +33,7 @@ Per una spiegazione più dettagliata delle applicazioni e delle entità servizio
 
 ## Creare gli oggetti applicazione ed entità servizio
 
-1. Accedere all'account Azure tramite il [portale](https://manage.windowsazure.com/).
+1. Accedere all'account di Azure tramite il [portale classico](https://manage.windowsazure.com/).
 
 2. Selezionare **Active Directory** dal riquadro di sinistra.
 
@@ -101,17 +101,33 @@ A questo punto, l'applicazione è pronta e l'entità servizio è stata creata ne
 
 ## Assegnazione di un'applicazione a un ruolo
 
-È necessario assegnare l'applicazione a un ruolo per garantirle le autorizzazioni per l'esecuzione di azioni. È possibile utilizzare il [portale di anteprima](https://portal.azure.com) per assegnare l'applicazione di Active Directory a un ruolo con le autorizzazioni corrette.
+È necessario assegnare l'applicazione a un ruolo per garantirle le autorizzazioni per l'esecuzione di azioni. Per assegnare l'applicazione a un ruolo, passare dal portale classico al [portale di Azure](https://portal.azure.com). È necessario decidere quale ruolo aggiungere all'applicazione e indicare l'ambito del ruolo. Per informazioni sui ruoli disponibili, vedere [RBAC: Ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione è in grado di leggere il gruppo di risorse e le risorse in esso contenute.
 
-Per iniziare a usare il controllo dell’accesso nel portale di anteprima, selezionare l’icona **Accesso**.
+1. Nel portale passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per questo argomento è possibile passare a un gruppo di risorse e nel relativo pannello selezionare l'icona **Accesso**.
 
-![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)
 
-Selezionare il ruolo che si desidera assegnare all'applicazione, e cercare l'applicazione.
+2. Selezionare **Aggiungi**.
 
-![selezionare gli utenti](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![selezionare aggiungi](./media/resource-group-create-service-principal-portal/select-add.png)
 
-Per ulteriori informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Gestire gli accessi tramite il portale di gestione di Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+3. Selezionare il ruolo **Lettore** o il ruolo al quale si vuole assegnare l'applicazione.
+
+     ![selezionare il ruolo](./media/resource-group-create-service-principal-portal/select-role.png)
+
+4. Quando viene visualizzato per la prima volta l'elenco degli utenti che è possibile aggiungere al ruolo, le applicazioni non verranno visualizzate. Verranno visualizzati solo il gruppo e gli utenti.
+
+     ![mostrare gli utenti](./media/resource-group-create-service-principal-portal/show-users.png)
+
+5. Per individuare l'applicazione, è necessario cercarla. Digitando il nome dell'applicazione, l'elenco delle opzioni disponibili cambierà. Quando l'applicazione viene visualizzata nell'elenco, selezionarla.
+
+     ![assegnare al ruolo](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+6. Selezionare **OK** per completare l'assegnazione al ruolo. L'applicazione dovrebbe essere ora visualizzata nell'elenco degli utenti assegnati a un ruolo per il gruppo di risorse.
+
+     ![mostrare](./media/resource-group-create-service-principal-portal/show-app.png)
+
+Per altre informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Gestire gli accessi con il portale di gestione di Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Ottenere token di accesso nel codice
 
@@ -141,10 +157,10 @@ Nell'applicazione, aggiungere un metodo simile al seguente per recuperare il tok
 
 ## Passaggi successivi
 
-- Per informazioni su come specificare i criteri di sicurezza, vedere [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md).  
+- Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).  
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Per altre informazioni sull'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure per lavorare con applicazioni ed entità servizio di Active Directory, oltre che su come usare un certificato per l'autenticazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md).
-- Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
+- Per altre informazioni sull'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure con applicazioni ed entità servizio di Active Directory, incluso l'uso di un certificato per l'autenticazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md).
+- Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
@@ -162,4 +178,4 @@ Nell'applicazione, aggiungere un metodo simile al seguente per recuperare il tok
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

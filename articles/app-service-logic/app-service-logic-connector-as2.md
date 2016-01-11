@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Uso del connettore AS2 e aggiunta all'app per la logica
@@ -59,7 +59,7 @@ TPM Instance Name | Immettere il nome dell'app per le API **BizTalk Trading Part
 
 I partner commerciali sono le entità coinvolte nelle comunicazioni B2B. Quando due partner stabiliscono una relazione, questa è definita Contratto. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto.
 
-I passaggi relativi alla creazione di un contratto tra partner commerciali sono documentati in [questo articolo][2].
+Fare riferimento alla procedura per [creare un contratto tra partner commerciali][2].
 
 ## Usare il connettore come trigger
 
@@ -117,4 +117,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

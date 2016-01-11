@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Indicazioni di monitoraggio e diagnostica
@@ -92,7 +92,7 @@ I dati di strumentazione devono essere aggregati e correlati per supportare i se
 
 - La disponibilità immediata del sistema e dei sottosistemi.
 - La frequenza degli errori di disponibilità del sistema e dei sottosistemi. In teoria, un operatore deve essere in grado di correlare gli errori con specifiche attività. Qual è il problema quando il sistema fallisce?
-- Una visualizzazione cronologica delle frequenze di errori del sistema o di qualsiasi sottosistema in qualsiasi periodo di tempo specificato e il caricamento nel sistema (numero di richieste utente ad esempio) quando si è verificato un errore.
+- Una visualizzazione cronologica delle frequenze di errori del sistema o di qualsiasi sottosistema in qualsiasi periodo di tempo specificato e il caricamento nel sistema (ad esempio, numero di richieste utente) quando si è verificato un errore.
 - I motivi della mancata disponibilità del sistema o dei sottosistemi. Ad esempio, il servizio non in esecuzione, perdita di connettività, connessione ma timeout e connessione ma restituzione di errori.
 
 È possibile calcolare la percentuale di disponibilità di un servizio in un periodo di tempo utilizzando la formula:
@@ -101,7 +101,7 @@ I dati di strumentazione devono essere aggregati e correlati per supportare i se
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Ciò è utile per i contratti di servizio ([il monitoraggio del contratto di servizio ](#SLA-monitoring) è descritto in dettaglio più avanti nelle Indicazioni). La definizione di _Tempi di inattività_ dipende dal servizio. Ad esempio, Visual Studio Team Services definisce il tempo di inattività come il periodo durante il quale i tentativi di connessione al servizio da parte di un cliente richiedono più di 120 secondi e tutte le operazioni di base di lettura e scrittura hanno esito negativo dopo aver stabilito la connessione all'interno di tale periodo.
+Ciò è utile per i contratti di servizio ([il monitoraggio del contratto di servizio ](#SLA-monitoring) è descritto in dettaglio più avanti nelle Indicazioni). La definizione di _Tempi di inattività_ dipende dal servizio. Ad esempio, il Servizio di compilazione Visual Studio Team Services definisce il tempo di inattività come il periodo durante il quale il Servizio di compilazione non è disponibile (minuti totali accumulati). Un minuto è considerato non disponibile se tutte le richieste HTTP continue al Servizio di compilazione per l'esecuzione di operazioni avviate dal Cliente per l'intero minuto generano un codice errore o non restituiscono alcuna risposta.
 
 ## Monitoraggio delle prestazioni
 Quando il sistema si trova in più condizioni di stress per l’aumento del volume di utenti e le dimensioni dei set di dati che tali utenti utilizzano aumentano, il guasto di uno o più componenti diventa probabile. Spesso, il guasto di un componente è preceduto da una riduzione delle prestazioni. Se si è in grado di rilevare tale riduzione, è possibile adottare misure proattive per ovviare al problema.
@@ -283,14 +283,14 @@ Per esaminare l'utilizzo di sistema, un operatore deve poter visualizzare le inf
 - Il volume di archiviazione dei dati occupato da ogni utente.
 - Le risorse cui accede ogni utente.
 
-Un operatore deve anche essere in grado di generare grafici, ad esempio, visualizzando gli utenti più avidi di risorse o le risorse utilizzate con maggiore frequenza.
+Un operatore deve anche essere in grado di generare grafici, ad esempio, visualizzando gli utenti più avidi di risorse, le risorse utilizzate con maggiore frequenza o le funzionalità di sistema.
 
 ### Requisiti di origine dati, strumentazione e raccolta dati
 L'utilizzo di rilevamento può essere eseguito a un livello elevato, si noti l'ora di inizio e fine di ogni richiesta e la natura della richiesta (lettura, scrittura e così via, a seconda della risorsa in questione). È possibile ottenere queste informazioni da:
 
 - Traccia attività dell'utente.
 - Acquisizione di contatori delle prestazioni misurando l'utilizzo per ogni risorsa.
-- Monitoraggio dell'utilizzo della CPU e di I/O di operazioni eseguite da ogni utente.
+- Monitoraggio dell'utilizzo di risorse da parte di ogni utente.
 
 Per scopi di controllo, è necessario essere in grado di identificare quali utenti sono responsabili dell'esecuzione di operazioni e le risorse che utilizzano queste operazioni. Le informazioni raccolte devono essere dettagliate a sufficienza per abilitare una fatturazione corretta.
 
@@ -324,7 +324,7 @@ Per la traccia di eventi imprevisti e altri problemi, è fondamentale che i dati
 ### Requisiti di origine dati, strumentazione e raccolta dati
 La risoluzione dei problemi può includere la traccia di tutti i metodi (e i relativi parametri) richiamati come parte di un'operazione per creare una struttura ad albero che rappresenta il flusso logico attraverso il sistema quando un cliente effettua una richiesta specifica. Eccezioni e avvisi generati dal sistema in seguito a questo flusso devono essere acquisiti e registrati.
 
-Per supportare il debug, il sistema può fornire collegamenti che consentono a un operatore di acquisire informazioni sullo stato nei punti cruciali del sistema o fornire informazioni dettagliate, come lo stato di avanzamento di operazioni selezionate. L’acquisizione dei dati a questo livello di dettaglio per applicare un ulteriore carico sul sistema deve essere un processo temporaneo utilizzato principalmente quando si verifica una serie di eventi inusuale difficile da replicare o quando una nuova versione di uno o più elementi in un sistema richiede un attento controllo per assicurarsi che funzionino come previsto.
+Per supportare il debug, il sistema può fornire collegamenti che consentono a un operatore di acquisire informazioni sullo stato nei punti cruciali del sistema o fornire informazioni dettagliate, come lo stato di avanzamento di operazioni selezionate. L’acquisizione dei dati a questo livello di dettaglio può applicare un ulteriore carico sul sistema e deve essere un processo temporaneo utilizzato principalmente quando si verifica una serie di eventi inusuale difficile da replicare, o quando una nuova versione di uno o più elementi in un sistema richiede un attento controllo per assicurarsi che funzionino come previsto.
 
 ## La pipeline di monitoraggio e diagnostica
 Il monitoraggio di un sistema distribuito su larga scala costituisce una sfida significativa e ciascuno degli scenari descritti nella sezione precedente non deve necessariamente essere considerato in isolamento. È probabile che ci sia una sovrapposizione significativa nei dati di monitoraggio e diagnostici necessari per ogni situazione, anche se questi dati devono essere elaborati e presentati in modi diversi. Per questi motivi, è necessario avere una visione olistica di monitoraggio e diagnostica.
@@ -335,7 +335,7 @@ Il monitoraggio di un sistema distribuito su larga scala costituisce una sfida s
 
 _Figura 1. Le fasi della pipeline di monitoraggio e diagnostica_
 
-La figura 1 evidenzia come i dati per il monitoraggio e la diagnostica possono provenire da una varietà di origini dati. La fase di strumentazione/raccolta riguarda la strumentazione. È necessario determinare quali dati acquisire, come acquisirli e come formattarli in modo che possano essere facilmente esaminati. La fase di analisi/diagnosi accetta i dati non elaborati e li utilizza per generare informazioni significative che possono essere sfruttate per determinare lo stato del sistema. Queste informazioni consentono di scegliere le possibili azioni da intraprendere e i risultati possono essere inseriti nella fase di strumentazione/raccolta. La fase di visualizzazione/avvertimenti fase presenta una visualizzazione dello stato del sistema; è possibile visualizzare le informazioni in tempo quasi reale mediante una serie di dashboard e si possono generare rapporti, grafici per fornire una visualizzazione cronologica dei dati che consentono di identificano le tendenze a lungo termine. Se le informazioni indicano che un indicatore KPI potrebbe superare i limiti accettabili, questa fase può generare un avviso a un operatore. In alcuni casi, un avviso può essere utilizzato anche per attivare un processo automatico che tenta di effettuare operazioni correttive, quali la scalabilità automatica.
+La figura 1 evidenzia come i dati per il monitoraggio e la diagnostica possono provenire da una varietà di origini dati. La fase di strumentazione/raccolta riguarda la strumentazione. È necessario determinare quali dati acquisire, come acquisirli e come formattarli in modo che possano essere facilmente esaminati. La fase di analisi/diagnosi accetta i dati non elaborati e li utilizza per generare informazioni significative che possono essere sfruttate per determinare lo stato del sistema. Queste informazioni consentono di scegliere le possibili azioni da intraprendere e i risultati possono essere inseriti nella fase di strumentazione/raccolta. La fase di visualizzazione/avvertimento presenta una visualizzazione dello stato del sistema; è possibile visualizzare le informazioni in tempo quasi reale mediante una serie di dashboard e si possono generare rapporti e grafici per fornire una visualizzazione cronologica dei dati che consentono di identificare le tendenze a lungo termine. Se le informazioni indicano che un indicatore KPI potrebbe superare i limiti accettabili, questa fase può generare un avviso a un operatore. In alcuni casi, un avviso può essere utilizzato anche per attivare un processo automatico che tenta di effettuare operazioni correttive, quali la scalabilità automatica.
 
 Si noti che questi passaggi costituiscono un processo di flusso continuo in cui le fasi si verificano in parallelo. In teoria, tutte le fasi devono essere dinamicamente configurabili; In alcuni momenti soprattutto quando un sistema è stato appena distribuito o si sono verificati problemi, è necessario raccogliere i dati estesi più frequentemente. In altri casi, è possibile ripristinare l'acquisizione di un livello base di informazioni essenziali per verificare che il sistema funzioni correttamente.
 
@@ -446,7 +446,6 @@ Si tratta di una vista semplificata. Il servizio di raccolta non è necessariame
 
 Per servizi e applicazioni Azure, diagnostica Azure (WAD) fornisce una possibile soluzione per l'acquisizione di dati. WAD raccoglie i dati dalle origini seguenti per ogni nodo di calcolo, li aggrega e quindi li carica nell'archiviazione di Azure:
 
-- Log di Azure
 - Log di IIS
 - Log delle richieste non riuscite di IIS
 - Registri eventi di Windows
@@ -454,6 +453,8 @@ Per servizi e applicazioni Azure, diagnostica Azure (WAD) fornisce una possibile
 - Dump di arresto anomalo del sistema
 - Log dell'infrastruttura diagnostica di Azure  
 - Log degli errori personalizzati
+- EventSource .NET
+- ETW basato su manifesto
 
 Per ulteriori informazioni, consultare l'articolo [Azure: nozioni fondamentali di telemetria e risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sito Web Microsoft.
 
@@ -465,7 +466,7 @@ Per ottimizzare l'utilizzo della larghezza di banda, è possibile scegliere di t
 #### _Eseguire il pull e push dei dati di strumentazione_
 Il sottosistema di raccolta dati di strumentazione può recuperare attivamente dati di strumentazione da vari registri e altre fonti per ogni istanza dell'applicazione (il _modello pull_), o può fungere da ricevitore passivo che attende i dati che devono essere inviati da componenti che costituiscono ogni istanza dell'applicazione (il _modello push_).
 
-Un approccio all'implementazione del modello pull consiste nell'utilizzare gli agenti di monitoraggio in esecuzione in locale con ogni istanza dell'applicazione. Un agente di monitoraggio è un processo separato che recupera periodicamente i dati di telemetria (pull) raccolti nel nodo locale e scrive queste informazioni direttamente nell’archiviazione centralizzata è condiviso da tutte le istanze dell'applicazione. Si tratta del meccanismo implementato da tale funzionalità. Ogni istanza di un ruolo web o di lavoro di Azure può essere configurata per acquisizione diagnostica e altre informazioni di traccia archiviate localmente. L'agente di monitoraggio che viene eseguito insieme a ogni copia dei dati specificati nell'archiviazione di Azure. Per ulteriori dettagli su questa procedura, consultare la pagina [Configurazione di diagnostica per servizi Cloud di Azure e macchine virtuali](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sito Web Microsoft. Alcuni elementi, ad esempio log IIS, dump di arresto anomalo del sistema e registrazione di errori personalizzati vengono scritti nell'archiviazione BLOB, mentre i dati dal log Windows Event, ETW events e i contatori delle prestazioni sono registrati nell'archiviazione tabelle. Nella figura 3 viene illustrato questo concetto.
+Un approccio all'implementazione del modello pull consiste nell'utilizzare gli agenti di monitoraggio in esecuzione in locale con ogni istanza dell'applicazione. Un agente di monitoraggio è un processo separato che recupera periodicamente i dati di telemetria (pull) raccolti nel nodo locale e scrive queste informazioni direttamente nell’archiviazione centralizzata è condiviso da tutte le istanze dell'applicazione. Si tratta del meccanismo implementato da tale funzionalità. Ogni istanza di un ruolo web o di lavoro di Azure può essere configurata per acquisizione diagnostica e altre informazioni di traccia archiviate localmente. L'agente di monitoraggio che viene eseguito insieme a ogni copia dei dati specificati nell'archiviazione di Azure. Per ulteriori dettagli su questa procedura, consultare la pagina [Abilitazione della diagnostica per servizi Cloud di Azure e macchine virtuali](cloud-services-dotnet-diagnostics.md) del sito Web Microsoft. Alcuni elementi, ad esempio log IIS, dump di arresto anomalo del sistema e registrazione di errori personalizzati vengono scritti nell'archiviazione BLOB, mentre i dati dal log Windows Event, ETW events e i contatori delle prestazioni sono registrati nell'archiviazione tabelle. Nella figura 3 viene illustrato questo concetto.
 
 ![](media/best-practices-monitoring/PullModel.png)
 
@@ -473,9 +474,8 @@ _Figura 3. Utilizzo di un agente di monitoraggio per l’estrazione di informazi
 
 > [AZURE.NOTE]L’utilizzo di un agente di monitoraggio è adatto per l'acquisizione dei dati di strumentazione naturalmente estratti da un'origine dati, ad esempio informazioni da SQL Server Management Views o la lunghezza di una coda di Azure Service Bus.
 
-Per informazioni sulla configurazione e utilizzo di diagnostica Azure, visitare la pagina [Raccogliere dati di registrazione usando Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) del sito Web Microsoft.
 
-Dati di telemetria per un'applicazione di piccole dimensioni in esecuzione su un numero limitato di nodi concretamente possono essere archiviati in un'unica posizione utilizzando l'approccio descritto in precedenza. Tuttavia, un'applicazione cloud globale, estremamente scalabile potrebbe facilmente generare grandi volumi di dati da centinaia di ruoli web e di lavoro, partizioni di database e altri servizi. Questa enorme quantità di dati può facilmente sovraccaricare la larghezza di banda di I/O disponibile con una singola posizione centrale. Pertanto la soluzione di telemetria deve essere scalabile per evitare che funga da un collo di bottiglia quando il sistema si espande e idealmente incorporare un livello di ridondanza per ridurre il rischio di perdere importanti informazioni di monitoraggio (ad esempio i dati di fatturazione o di controllo), se parte del sistema fallisce.
+Dati di telemetria per un'applicazione di piccole dimensioni in esecuzione su un numero limitato di nodi concretamente possono essere archiviati in un'unica posizione utilizzando l'approccio descritto in precedenza. Tuttavia, un'applicazione cloud globale, estremamente scalabile potrebbe facilmente generare grandi volumi di dati da centinaia di ruoli web e di lavoro, partizioni di database e altri servizi. Questa enorme quantità di dati può facilmente sovraccaricare la larghezza di banda di I/O disponibile con una singola posizione centrale. Pertanto, la soluzione di telemetria deve essere scalabile per evitare che funga da un collo di bottiglia quando il sistema si espande, e idealmente incorporare un livello di ridondanza per ridurre il rischio di perdere importanti informazioni di monitoraggio (ad esempio i dati di fatturazione o di controllo) se parte del sistema fallisce.
 
 Per risolvere questi problemi, è possibile implementare l'accodamento. Nella figura 4 viene illustrata questa struttura. In questa architettura, l'agente di monitoraggio locale (se può essere configurato in modo appropriato) o il servizio di raccolta di dati personalizzati (se non) pubblica i dati in una coda e un processo separato che esegue in modo asincrono (il Servizio archiviazione di scrittura nella figura 4) accetta i dati in questa coda e li scrive nell’archiviazione condivisa. Una coda di messaggi è adatta per questo scenario poiché almeno una volta fornisce la semantica per garantire che, una volta registrati, i dati in coda non andranno persi. Il servizio di archiviazione scrittura può essere implementato utilizzando un ruolo di lavoro distinto.
 
@@ -533,7 +533,7 @@ L’analisi e la riformattazione dei dati per scopi di virtualizzazione, creazio
 
 Altre forme di analisi sono hanno meno problemi di tempo e potrebbero richiedere alcuni calcoli e aggregazioni una volta che sono stati ricevuti i dati non elaborati. Ciò è noto come _analisi a caldo_. L’analisi delle prestazioni spesso rientra in questa categoria. In questo caso, è improbabile che un evento prestazioni singolo e isolato sia significativo a livello statistico (può essere causato da un picco improvviso o un problema), mentre i dati derivanti da una serie di eventi dovrebbero fornire un quadro più affidabile delle prestazioni del sistema. È possibile utilizzare l’analisi a caldo anche per diagnosticare problemi di integrità. Un evento di integrità viene generalmente elaborato eseguendo analisi critiche e può generare immediatamente un avviso. Un operatore deve essere in grado di analizzare i motivi dell’evento di integrità esaminando i dati dal percorso a caldo; tali dati devono contenere informazioni sugli eventi che conducono al problema che ha causato l'evento di integrità.
 
-Alcuni tipi di monitoraggio generano dati più a lungo termine e l'analisi può essere eseguita in un secondo momento, possibilmente secondo una pianificazione predefinita. In alcuni casi, l'analisi potrebbe dover eseguire operazioni di filtro complesse di grandi volumi di dati acquisiti in un periodo di tempo. Ciò è noto come _analisi a freddo_. Il requisito chiave è che i dati vengano archiviati in modo sicuro una volta che è stata acquisita. Ad esempio il controllo e il monitoraggio dell’utilizzo richiedono un quadro preciso dello stato del sistema a intervalli regolari nel tempo, ma non serve che le informazioni sullo stato siano disponibili per l'elaborazione non appena sono state raccolte. È possibile utilizzare l’analisi a freddo anche per fornire i dati per l'analisi predittiva di integrità. Le informazioni cronologiche raccolte in un periodo di tempo specifico possono essere utilizzate in combinazione con i dati dello stato corrente (recuperati dal percorso critico) per individuare tendenze che presto potrebbero causare problemi di integrità. In questi casi, potrebbe essere necessario generare un avviso per abilitare l'azione correttiva da intraprendere.
+Alcuni tipi di monitoraggio generano dati più a lungo termine e l'analisi può essere eseguita in un secondo momento, possibilmente secondo una pianificazione predefinita. In alcuni casi, l'analisi potrebbe dover eseguire operazioni di filtro complesse di grandi volumi di dati acquisiti in un periodo di tempo. Ciò è noto come _analisi a freddo_. Il requisito chiave è che i dati vengano archiviati in modo sicuro una volta che è stata acquisita. Ad esempio, il controllo e il monitoraggio dell’utilizzo richiedono un quadro preciso dello stato del sistema a intervalli regolari nel tempo, ma non serve che le informazioni sullo stato siano disponibili per l'elaborazione non appena sono state raccolte. È possibile utilizzare l’analisi a freddo anche per fornire i dati per l'analisi predittiva di integrità. Le informazioni cronologiche raccolte in un periodo di tempo specifico possono essere utilizzate in combinazione con i dati dello stato corrente (recuperati dal percorso critico) per individuare tendenze che presto potrebbero causare problemi di integrità. In questi casi, potrebbe essere necessario generare un avviso per abilitare l'azione correttiva da intraprendere.
 
 ### Correlazione dei dati
 I dati acquisiti dalla strumentazione possono fornire uno snapshot dello stato del sistema, ma lo scopo dell’analisi è rendere tali dati utilizzabili. Ad esempio, cosa ha causato un carico I/O elevato a livello di sistema in un momento specifico? È il risultato di un numero elevato di operazioni di database? Questo influisce sui tempi di risposta del database, sul numero di transazioni al secondo e sui tempi di risposta dell’applicazione nello stesso momento? In tal caso, un'azione correttiva che potrebbe ridurre il carico potrebbe essere la partizione dei dati su più server. Inoltre, un guasto a qualsiasi livello del sistema può generare eccezioni e un’eccezione in un livello spesso provoca un altro guasto nel livello superiore. Per questi motivi, è necessario essere in grado di correlare i diversi tipi di monitoraggio dei dati a ogni livello per produrre una visualizzazione complessiva dello stato del sistema e delle applicazioni in esecuzione su di esso. È quindi possibile utilizzare queste informazioni per decidere se il sistema funzioni in modo accettabile o meno e determinare cosa può essere fatto per migliorare la qualità del sistema.
@@ -604,12 +604,11 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 ## Altre informazioni
 - L'articolo [Monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) del sito Web Microsoft.
 - L'articolo [Azure: nozioni fondamentali di telemetria e risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sito Web Microsoft.
-- La pagina [Raccogliere dati di registrazione utilizzando la diagnostica Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) del sito Web Microsoft.
-- La pagina [Configurazione di diagnostica per servizi Cloud di Azure e macchine virtuali](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sito Web Microsoft.
+- Pagina [Abilitazione della diagnostica per servizi Cloud di Azure e macchine virtuali](cloud-services-dotnet-diagnostics.md) del sito Web Microsoft.
 - Le pagine [Cache Redis di Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), e [HDInsight](http://azure.microsoft.com/services/hdinsight/) del sito Web Microsoft.
-- La pagina [Come utilizzare le code del Bus di servizio](http://azure.microsoft.com/) del sito Web Microsoft.
+- La pagina [Come utilizzare le code del Bus di servizio](service-bus-dotnet-how-to-use-queues.md) del sito Web Microsoft.
 - L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sito Web Microsoft.
-- La pagina [informazioni sugli avvisi di monitoraggio e notifiche in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sito Web Microsoft.
-- La pagina [Application Insights](app-insights-get-started/) del sito Web Microsoft.
+- Pagine [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) e [Tenere traccia dell’integrità del servizio](insights-service-health.md) del sito Web Microsoft.
+- La pagina [Application Insights](app-insights-get-started.md) del sito Web Microsoft.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

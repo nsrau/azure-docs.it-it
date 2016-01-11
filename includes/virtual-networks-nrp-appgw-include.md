@@ -4,11 +4,12 @@ Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del car
 
 | Proprietà | Descrizione | 
 |---|---|
-|*Pool di server back-end* | L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici o indirizzi IP privati. |
-| *Impostazioni del pool di server back-end* | Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool. |
-| *Porta front-end* | Questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end. |
-| *Listener* | Il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). |
-| *Regola* | La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola di base. La regola di base è una distribuzione del carico di tipo round robin. |
+| **backendAddressPools** | L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici o indirizzi IP privati. |
+| **backendHttpSettingsCollection** | Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool. |
+| **frontendPorts** | Questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end. |
+| **httpListeners** | Il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). |
+| **requestRoutingRules** | La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico. Attualmente è supportato solo come Round-robin |
+
 
 Esempio di un modello Json del gateway applicazione:
 
@@ -215,8 +216,9 @@ Esempio di un modello Json del gateway applicazione:
   	]	
 	}
 
+
 ### Risorse aggiuntive
 
 Leggere [API REST del gateway applicazione](https://msdn.microsoft.com/library/azure/mt299388.aspx) per altre informazioni.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

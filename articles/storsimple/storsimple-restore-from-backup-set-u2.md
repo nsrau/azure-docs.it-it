@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos" />
 
-# Ripristinare un volume StorSimple da un set di backup
+# Ripristinare un volume StorSimple da un set di backup (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
@@ -115,4 +115,4 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 
 - Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

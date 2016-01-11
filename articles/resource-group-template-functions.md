@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Espressioni del modello di Gestione risorse di Azure
@@ -167,6 +167,7 @@ Gestione risorse fornisce le espressioni seguenti per usare le stringhe:
 - [replace](#replace)
 - [split](#split)
 - [string](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [Trim](#trim)
@@ -292,6 +293,28 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
     },
     "variables": { 
         "stringValue": "[string(parameters('appId'))]"
+    }
+
+<a id="substring" />
+### substring
+
+**substring (stringToParse, startIndex, lenght)**
+
+Restituisce una sottostringa che inizia nella posizione del carattere specificato e contiene il numero di caratteri specificato.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| stringToParse | Sì | La stringa originale da cui estrarre la sottostringa.
+| startIndex | No | La posizione del carattere iniziale in base zero della sottostringa.
+| length | No | Il numero di caratteri della sottostringa.
+
+Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
 <a id="tolower" />
@@ -743,7 +766,7 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 ## Passaggi successivi
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
-- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
-- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
+- Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+- Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,13 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 ##Panoramica
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
->[AZURE.NOTE]Per informazioni più concettuali sui canali abilitati per la codifica live, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
+Per informazioni più concettuali sui canali abilitati per la codifica live, vedere [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Scenario comune di streaming live
@@ -39,17 +41,17 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Questa operazione può essere eseguita anche dopo la creazione del canale.
+	Questa operazione può essere eseguita anche dopo la creazione del canale.
 
 1. Creare e avviare un canale.
 
 1. Recuperare l'URL di inserimento del canale.
 
-L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
+	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
 
 1. Recuperare l'URL di anteprima del canale.
 
-Usare questo URL per verificare che il canale riceva correttamente il flusso live.
+	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
 2. Creare un asset.
 3. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
@@ -59,14 +61,14 @@ Usare questo URL per verificare che il canale riceva correttamente il flusso liv
 3. Creare un programma e specificare di usare l'asset creato.
 1. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
 
-Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
 1. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
-##Contenuto dell'argomento
+## Contenuto dell'esercitazione
 
 Questo argomento illustra come eseguire diverse operazioni su canali e programmi tramite Media Services .NET SDK. Poiché molte operazioni hanno un'esecuzione prolungata, vengono usate API .NET che gestiscono questo tipo di operazioni.
 
@@ -82,6 +84,18 @@ Questo argomento illustra come eseguire le operazioni seguenti:
 1. Pulire il canale e tutte le risorse associate.
 
 
+##Prerequisiti
+
+Per completare l'esercitazione è necessario quanto segue.
+
+- Per completare l'esercitazione, è necessario un account Azure. 
+	
+	Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+- Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
+- È necessario usare Media Services .NET SDK versione 3.2.0.0 o successiva.
+- Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
+
 ##Considerazioni
 
 - Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
@@ -91,14 +105,6 @@ Questo argomento illustra come eseguire le operazioni seguenti:
 
 È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-##Prerequisiti
-Per completare l'esercitazione è necessario quanto segue.
-
-- Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](azure.microsoft.com).
-- Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
-- Visual Studio 2010 SP1 o versione successiva.
-- È necessario usare Media Services .NET SDK versione 3.2.0.0 o successiva.
-- Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
 ##Configurare lo sviluppo con Media Services SDK per .NET
 
@@ -334,6 +340,7 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 	        /// <returns></returns>
 	        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 	        {
+             	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 	            var locator = _context.Locators.CreateLocator
 	                (
 	                    LocatorType.OnDemandOrigin,
@@ -516,4 +523,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
 Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

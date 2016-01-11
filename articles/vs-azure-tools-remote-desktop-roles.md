@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Utilizzo di Desktop remoto con i ruoli Azure
@@ -37,7 +37,7 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
  
     Verrà visualizzato un elenco a discesa che consente di creare o scegliere un certificato in modo che sia possibile crittografare le informazioni sulle credenziali per la connessione tramite Desktop remoto.
 
-1. Nell'elenco a discesa scegliere **<Create>** o scegliere un certificato esistente dall'elenco.
+1. Nell'elenco a discesa scegliere **&lt;Create>** o scegliere un certificato esistente dall'elenco.
 
     Se si sceglie un certificato esistente, ignorare i passaggi seguenti.
 
@@ -47,7 +47,7 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
 
     1. Specificare un nome descrittivo per il nuovo certificato e quindi scegliere il pulsante **OK**. Il nuovo certificato verrà visualizzato nell'elenco a discesa.
 
-    1. Nella finestra di dialogo **Configurazione Desktop remoto** specificare un nome utente e una password.
+    1. Nella finestra di dialogo **Configurazione Desktop remoto**, specificare un nome utente e una password.
     
         Non è possibile usare un account esistente. Non specificare l'amministratore come nome utente per il nuovo account.
 
@@ -55,19 +55,19 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
 
     1. Scegliere una data di scadenza dell'account, dopo la quale le connessioni Desktop remoto verranno bloccate.
 
-    1. Dopo aver fornito tutte le informazioni necessarie, scegliere il pulsante **OK**.
+    1. Dopo aver immesso tutte le informazioni necessarie, premere il pulsante **OK**.
     
         Verranno aggiunte diverse impostazioni che abilitano i servizi di accesso remoto ai file con estensione cscfg e csdef.
 
-1. Nella procedura guidata **Impostazioni di pubblicazione Microsoft Azure** scegliere il pulsante **OK** quando si è pronti a pubblicare il servizio cloud.
+1. Nella procedura guidata **Impostazioni di pubblicazione Microsoft Azure**, scegliere il pulsante **OK** quando si è pronti a pubblicare il servizio cloud.
 
-    Se non si è ancora pronti, scegliere il pulsante **Annulla**. Le impostazioni di configurazione vengono salvate ed è possibile pubblicare il servizio cloud in un secondo momento.
+    Se non si è ancora pronti, premere il pulsante **Annulla**. Le impostazioni di configurazione vengono salvate ed è possibile pubblicare il servizio cloud in un secondo momento.
 
 ## Connettersi a un ruolo di Azure tramite Desktop remoto
 
 Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Server per accedere alle macchine virtuali ospitate da Azure.
 
-1. In Esplora server espandere il nodo **Azure** e quindi espandere il nodo di un servizio cloud e uno dei relativi ruoli per visualizzare un elenco di istanze.
+1. In Esplora server, espandere il nodo **Azure** e quindi espandere il nodo di un servizio cloud e uno dei relativi ruoli per visualizzare un elenco di istanze.
 
 1. Aprire il menu di scelta rapida di un nodo dell'istanza e quindi scegliere **Connessione tramite desktop remoto**.
 
@@ -75,4 +75,4 @@ Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Serv
 
 1. Immettere il nome utente e la password creati in precedenza. L'accesso alla sessione remota è stato completato.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
