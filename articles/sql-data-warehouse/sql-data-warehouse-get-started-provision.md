@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Creare un database SQL Data Warehouse nel portale di Azure | Microsoft Azure"
-	description="Informazioni su come creare un database SQL Data Warehouse nel portale di Azure"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Creare un database SQL Data Warehouse nel portale di Azure | Microsoft Azure"
+   description="Informazioni su come creare un database SQL Data Warehouse nel portale di Azure"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Creare un SQL Data Warehouse
@@ -134,4 +135,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

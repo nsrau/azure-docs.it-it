@@ -30,12 +30,6 @@ Il gateway applicazione è un servizio di bilanciamento del carico di livello 7.
 Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
 
 
->[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite la distribuzione di Azure Classic. Per utilizzare la versione di Gestione risorse, passare a [Creare una distribuzione del gateway applicazione mediante Gestione risorse](application-gateway-create-gateway-arm.md).
-
-
-
-
-
 ## Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
@@ -66,6 +60,9 @@ I passaggi per creare un gateway applicazione devono essere eseguiti nell'ordine
 2. Creare un file XML di configurazione o un oggetto di configurazione.
 3. Eseguire il commit della configurazione nella risorsa per il gateway applicazione appena creata.
 
+>[AZURE.NOTE]Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo [Creare un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
+
+
 ### Creare una risorsa per il gateway applicazione
 
 Per creare il gateway, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori esistenti con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
@@ -73,7 +70,7 @@ Per creare il gateway, usare il cmdlet `New-AzureApplicationGateway`, sostituend
 L'esempio seguente illustra la creazione di un nuovo gateway applicazione con una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1".
 
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -90,7 +87,7 @@ L'esempio seguente illustra la creazione di un nuovo gateway applicazione con un
 
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   :
 	VnetName      : testvnet1
@@ -211,15 +208,12 @@ L'esempio seguente mostra come usare un file di configurazione per impostare il 
 	</ApplicationGatewayConfiguration>
 
 
-
-
-
 ### Passaggio 2
 
 Si configurerà ora il gateway applicazione. Si userà il cmdlet `Set-AzureApplicationGatewayConfig` con un file XML di configurazione.
 
 
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -341,7 +335,7 @@ Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGatew
 
 
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest
+	Start-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -355,7 +349,7 @@ Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gatewa
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -380,7 +374,7 @@ Per eliminare un gateway applicazione:
 
 L'esempio seguente mostra il cmdlet `Stop-AzureApplicationGateway` sulla prima riga seguito dall'output.
 
-	PS C:\> Stop-AzureApplicationGateway AppGwTest
+	Stop-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -391,7 +385,7 @@ L'esempio seguente mostra il cmdlet `Stop-AzureApplicationGateway` sulla prima r
 Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-AzureApplicationGateway` per rimuovere il servizio.
 
 
-	PS C:\> Remove-AzureApplicationGateway AppGwTest
+	Remove-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -402,7 +396,7 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-A
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureApplicationGateway`. Questo passaggio non è obbligatorio.
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
@@ -413,11 +407,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

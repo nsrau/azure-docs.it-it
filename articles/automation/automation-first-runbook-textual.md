@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Il primo runbook del flusso di lavoro di PowerShell in Automazione di Azure | Microsoft Azure"
-	description="Esercitazione in cui viene illustrata la creazione, il test e la pubblicazione di un semplice runbook testuale con flusso di lavoro PowerShell. Vengono trattati numerosi concetti, ad esempio l'autenticazione per le risorse di Azure, i parametri di input."
+	description="Esercitazione in cui viene illustrata la creazione, il test e la pubblicazione di un semplice runbook testuale con flusso di lavoro PowerShell."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 Questa esercitazione illustra la creazione di un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powerShell-workflow-runbooks) in Automazione di Azure. Si inizierà con un runbook semplice che sarà testato e pubblicato, quindi verrà illustrato come tenere traccia dello stato del processo del runbook. Si modificherà quindi il runbook per gestire effettivamente le risorse di Azure, avviando in questo caso una macchina virtuale di Azure. Si renderà quindi il runbook più affidabile aggiungendo i relativi parametri.
 
@@ -70,7 +71,7 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 1. Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br> ![Publish](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
 2. Se ora si scorre verso sinistra per visualizzare il runbook nel pannello **Runbook**, come **Stato di creazione** viene visualizzato**Pubblicato**.
 3. Scorrere verso destra per visualizzare il pannello **MyFirstRunbook-Workflow**. Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP. 
-4. Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br> ![Avvia runbook](media/automation-first-runbook-textual/runbook-toolbar-start.png)
+4. Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br>![Avvia runbook](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5. Viene aperto un riquadro del processo per il processo del runbook appena creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare l'avanzamento del processo.
 6.  Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-summary.png)
 7.  Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello Output dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)  
@@ -121,5 +122,6 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 ## Articoli correlati
 
 - [Il primo runbook grafico](automation-first-runbook-graphical.md)
+- [Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

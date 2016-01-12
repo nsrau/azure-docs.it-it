@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Associare le sottoscrizioni di Azure ad Azure Active Directory
@@ -34,8 +34,7 @@ Sebbene in origine l'accesso ad Azure fosse consentito solo agli utenti con acco
 
 Ad esempio, un utente con un account Microsoft accede al portale di Azure classico.
 
-> [AZURE.NOTE]
-> Per accedere al portale di Azure classico, msmith@hotmail.com deve avere una sottoscrizione di Azure. L'account deve essere un amministratore del servizio o un coamministratore della sottoscrizione.
+> [AZURE.NOTE]Per accedere al portale di Azure classico, msmith@hotmail.com deve avere una sottoscrizione di Azure. L'account deve essere un amministratore del servizio o un coamministratore della sottoscrizione.
 
 ![][1]
 
@@ -105,8 +104,7 @@ Se per l'iscrizione a Office 365 è stato usato un account aziendale o dell'isti
 
 Per gestire entrambe le directory nel portale di Azure classico, procedere come indicato di seguito.
 
-> [AZURE.NOTE]
-> Per completare questa procedura, è necessario eseguire l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile, in quanto gli account aziendali o dell'istituto di istruzione possono essere autenticati solo dalla relativa home directory, ovvero la directory in cui tale account è archiviato e che è di proprietà dell'azienda o dell'istituto di istruzione.
+> [AZURE.NOTE]Per completare questa procedura, è necessario eseguire l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile, in quanto gli account aziendali o dell'istituto di istruzione possono essere autenticati solo dalla relativa home directory, ovvero la directory in cui tale account è archiviato e che è di proprietà dell'azienda o dell'istituto di istruzione.
 
 1. Accedere al portale di Azure classico mediante il proprio account Microsoft.
 2. Fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**.
@@ -126,4 +124,4 @@ Per gestire entrambe le directory nel portale di Azure classico, procedere come 
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

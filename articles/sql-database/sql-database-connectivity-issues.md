@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -144,7 +144,7 @@ La stringa di connessione necessaria per la connessione al database SQL di Azure
 ### Parametri di SqlConnection di .NET per nuovi tentativi di connessione
 
 
-Se il programma client si connette al database SQL di Azure usando la classe di .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.5.1 o versioni successive per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per conoscere i dettagli della funzionalità, vedere [qui](http://go.microsoft.com/fwlink/?linkid=393996).
+Se il programma client si connette al database SQL di Azure usando la classe **System.Data.SqlClient.SqlConnection** di .NET Framework, è necessario usare .NET 4.6.1 o versione successiva per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per conoscere i dettagli della funzionalità, vedere [qui](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -197,7 +197,7 @@ Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messa
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Per altre informazioni, vedere [Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure](sql-database-configure-firewall-settings.md).
+Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -220,7 +220,7 @@ Ad esempio, se il programma client è ospitato in un computer Windows, Windows F
 7. &gt; Nuova regola
 
 
-Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori alla 1433 per ADO.NET 4.5 e il database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
@@ -228,19 +228,19 @@ Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Connessione: ADO.NET 4.5
+## Connessione: ADO.NET 4.6.1
 
 
-Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework versione 4.5 o successiva.
+Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework versione 4.6.1 o successiva.
 
 
-ADO.NET 4.5: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
+ADO.NET 4.6.1: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
 
 
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se non deve essere usata immediatamente. La riapertura di una connessione è meno dispendiosa della creazione di una nuova connessione.
 
 
-Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. - A partire da luglio 2015 è possibile [scaricare ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. - A partire da novembre 2015 è possibile [scaricare ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -367,7 +367,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area in cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
 La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: - [4 - Perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

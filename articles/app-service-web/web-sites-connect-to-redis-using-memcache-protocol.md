@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Connettere un'app Web nel servizio app di Azure a Cache Redis mediante il protocollo Memcache
@@ -30,8 +30,8 @@ Lo shim Memcache per app Web può essere usato con qualsiasi applicazione, purch
 
 Seguire la procedura descritta in questi articoli:
 
-* [Provisioning di un'istanza del servizio Cache Redis di Azure][1]
-* [Distribuzione di un sito WordPress scalabile in Azure][0]
+* [Provisioning di un'istanza del servizio Cache Redis di Azure][0]
+* [Distribuzione di un sito WordPress scalabile in Azure][1]
 
 Dopo aver distribuito il sito WordPress scalabile e aver eseguito il provisioning di un'istanza di Cache Redis, si è pronti per abilitare lo shim Memcache in App Web del servizio app di Azure.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 Dopo che il frammento di codice è stato incollato, il documento verrà salvato automaticamente.
 
-Il passaggio successivo consiste nell'abilitare il plug-in della cache di oggetti. Questa operazione viene eseguita trascinando **object-cache.php** dalla cartella **wp-content/memcached** sulla cartella **wp-content** per abilitare la funzionalità Memcached Object Cache.
+Il passaggio successivo consiste nell'abilitare il plug-in della cache di oggetti. Questa operazione viene eseguita trascinando **object-cache.php** dalla cartella **wp-content/plugins/memcached** alla cartella **wp-content** per abilitare la funzionalità della cache di oggetti Memcache.
 
 ![Individuare il plug-in object-cache.php di memcache](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ Aprire la console della riga di comando desiderata e digitare il seguente comand
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-Sostituire **<hostname-for-redis-cache>** con il nome host effettivo xxxxx.redis.cache.windows.net e **<primary-key-for-redis-cache>** con la chiave di accesso della cache, quindi premere **INVIO**. Dopo che l'interfaccia della riga di comando si è connessa all'istanza di Cache Redis, inviare un comando Redis. Nella seguente schermata si è scelto di elencare le chiavi.
+Sostituire **&lt;hostname-for-redis-cache&gt;** con il nome host effettivo xxxxx.redis.cache.windows.net e **&lt;primary-key-for-redis-cache&gt;** con la chiave di accesso della cache, quindi premere **INVIO**. Dopo che l'interfaccia della riga di comando si è connessa all'istanza di Cache Redis, inviare un comando Redis. Nella seguente schermata si è scelto di elencare le chiavi.
 
 ![Connettersi a Cache Redis di Azure dall'interfaccia della riga di comando di Redis in Terminal](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 * Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

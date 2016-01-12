@@ -33,11 +33,6 @@ Verrà illustrato come scaricare e modificare un modello di Gestione risorse di 
 Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, andare al passaggio per distribuire un modello da GitHub.
 
 
->[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante conoscere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di usare le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite Gestione risorse di Azure. Per usare la versione classica, passare all'articolo relativo alla [creazione di una distribuzione classica del gateway applicazione tramite PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Scenario
 
 In questo scenario verrà creato quanto segue:
@@ -87,7 +82,7 @@ In questo scenario verrà creato quanto segue:
 	- **properties**. Elenco di proprietà per la risorsa. Questo modello usa la rete virtuale e l'indirizzo IP pubblico durante la creazione del gateway applicazione.
 
 7. Tornare a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
-8. Fare clic su **azuredeploy-parameters.json** e quindi su **RAW**.
+8. Fare clic su **azuredeploy-parameters.json**, quindi fare clic su **RAW**.
 9. Salvare il file in una cartella locale nel computer in uso.
 10. Aprire il file appena salvato e modificare i valori per i parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
 
@@ -121,20 +116,36 @@ In questo scenario verrà creato quanto segue:
  
 ## Distribuire il modello di Gestione risorse di Azure tramite PowerShell
 
-1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
-2. Al prompt di Azure PowerShell eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-		Switch-AzureMode AzureResourceManager
+### Passaggio 1
+
+		Login-AzureRmAccount
+
+
+
+### Passaggio 2
+
+Controllare le sottoscrizioni per l'account
+
+		get-AzureRmSubscription 
+
+Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
+
+### Passaggio 3 
+
+Scegliere quali sottoscrizioni Azure usare. <BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### Passaggio 4
+
 	
-Output previsto:
+Se necessario, creare un nuovo gruppo di risorse usando il cmdlet `New-AzureResourceGroup`. Nell'esempio seguente verrà creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali (eastus):
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
-	
-3. Se necessario, creare un nuovo gruppo di risorse usando il cmdlet `New-AzureResourceGroup`. Nell'esempio seguente verrà creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali (eastus):
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@ Output previsto:
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. Eseguire il cmdlet New-AzureResourceGroupDeployment per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
+4. Eseguire il cmdlet New-AzureRmResourceGroupDeployment per distribuire la nuova rete virtuale usando i file modello e di parametri scaricati e modificati in precedenza.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 L'output generato dalla riga di comando sarà il seguente:
@@ -273,4 +284,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

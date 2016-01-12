@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="12/23/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # Sviluppo di applicazioni Web Python Flask con DocumentDB
@@ -43,6 +43,7 @@ Seguendo questa esercitazione, si creerà una semplice applicazione di voto che 
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
 
+- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) o versione successiva oppure [Visual Studio Express](), che è la versione gratuita. Le istruzioni riportate in questa esercitazione sono scritte in modo specifico per Visual Studio 2015. 
 - Python Tools per Visual Studio, disponibile su [GitHub](http://microsoft.github.io/PTVS/). Questa esercitazione usa Python Tools per Visual Studio 2015. 
 - Azure Python SDK per Visual Studio 2.4 o versione successiva, disponibile su [azure.com](https://azure.microsoft.com/downloads/). Questa esercitazione usa Microsoft Azure SDK per Python 2.7.
@@ -60,8 +61,7 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha g
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> 
-Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web Python Flask completamente nuova.
+<br/> Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web Python Flask completamente nuova.
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 
@@ -161,7 +161,7 @@ class VoteForm(Form):
 
 ### Create database, raccolta e documento
 
-- Ancora in **views.py** aggiungere il codice seguente alla fine del file. Verrà creato il database usato dal form. Non eliminare alcuna parte del codice esistente dal file **views.py**. Aggiungere semplicemente la parte nuova alla fine del file.
+- Ancora in **views.py** aggiungere il codice seguente alla fine del file. Verrà creato il database usato dal form. Non eliminare nessuna porzione del codice esistente dal file **views.py**. Aggiungere semplicemente la parte nuova alla fine del file.
 
 ```python
 @app.route('/create')
@@ -198,7 +198,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]Il metodo **CreateCollection** accetta **RequestOptions** come terzo parametro facoltativo. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP]Il metodo **CreateCollection** accetta un **RequestOptions** facoltativo come 3° parametro. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
 
 ### Leggere database, raccolta, documento e inviare il form
@@ -370,7 +370,7 @@ def vote():
 
 	![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png)
 
-4. Fare quindi clic su **Vote** e selezionare un'opzione.
+4. Fare quindi clic su **Voto** e selezionare un'opzione.
 
 	![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png)
 
@@ -422,7 +422,7 @@ Aggiorniamo e miglioriamo spesso questo argomento in base al feedback degli uten
 
 Per aggiungere altre funzionalità all'applicazione Web, esaminare le API disponibili in [DocumentDB Python SDK](documentdb-sdk-python.md).
 
-Per altre informazioni su Azure, Visual Studio e Python, vedere il [centro per sviluppatori di Python](/develop/python/).
+Per altre informazioni su Azure, Visual Studio e Python, vedere il [centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/).
 
 Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
@@ -432,4 +432,4 @@ Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

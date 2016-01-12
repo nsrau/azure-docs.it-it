@@ -26,16 +26,16 @@ Un gateway applicazione può essere configurato con un indirizzo VIP con conness
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della pagina [Download](http://azure.microsoft.com/downloads/).
 2. Si creerà una rete virtuale e una subnet per il Gateway Applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i loro endpoint siano stati creati nella rete virtuale o che sia stato loro assegnato un indirizzo VIP/IP pubblico.
 
 ## Che cosa è necessario per creare un gateway applicazione?
  
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Pool di server back-end:** l’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end**: è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
@@ -102,7 +102,7 @@ Assegnare l’intervallo di indirizzo 10.0.0.0/24 al subnet variabile da utilizz
 	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
-Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorsa "appw-rg" per l'area Stati Uniti occidentali utilizzando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
+Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
 	
 ### Passaggio 3
 
@@ -170,42 +170,6 @@ Configura le dimensioni dell'istanza del Gateway Applicazione
 Crea un Gateway applicazione con tutti gli elementi di configurazione da passaggi precedenti. Nell'esempio il Gateway Applicazione è denominato "appgwtest".
 
 
-
-## Avviare il gateway
-
-Dopo la configurazione del gateway, usare il cmdlet `Start-AzureRmApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
-
-
-**Nota:** il completamento del cmdlet `Start-AzureRmApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
-
-Per l'esempio riportato di seguito, il Gateway applicazione è denominato "appgwtest" e il gruppo di risorse è "appgw-rg":
-
-
-### Passaggio 1
-
-Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### Passaggio 2
-	 
-Usare `Start-AzureRmApplicationGateway` per avviare il gateway applicazione:
-
-	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## Verificare lo stato del Gateway Applicazione
-
-Usare il cmdlet `Get-AzureRmApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione *Start-AzureApplicationGateway* è riuscita, lo stato risulterà *In esecuzione*.
-
-
 ## Eliminare un gateway applicazione
 
 Per eliminare un gateway applicazione, sarà necessario eseguire i passaggi seguenti nell'ordine indicato:
@@ -214,7 +178,7 @@ Per eliminare un gateway applicazione, sarà necessario eseguire i passaggi segu
 2. Usare il cmdlet `Remove-AzureRmApplicationGateway` per rimuovere il gateway.
 3. Assicurarsi che il gateway sia stato rimosso usando il cmdlet `Get-AzureApplicationGateway`.
 
-Questo esempio illustra il cmdlet `Stop-AzureRmApplicationGateway` nella prima riga seguito dall'output.
+Questo esempio illustra il cmdlet `Stop-AzureRmApplicationGateway` nella prima riga, seguito dall'output.
 
 ### Passaggio 1
 
@@ -246,7 +210,7 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-A
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 >[AZURE.NOTE]L’opzione"-force" può essere utilizzata per eliminare il messaggio di conferma di rimozione
->
+
 
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureRmApplicationGateway`. Questo passaggio non è obbligatorio.
 
@@ -269,4 +233,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

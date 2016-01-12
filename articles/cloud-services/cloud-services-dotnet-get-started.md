@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="12/28/2015"
 	ms.author="tdykstra"/>
 
 # Introduzione a Servizi cloud di Azure e ASP.NET
@@ -58,9 +58,9 @@ Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti
 Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
 
 * Visual Studio 2013
-* Visual Studio 2013 Express per il Web
+* Visual Studio 2015
 
-Se non sono disponibili, Visual Studio 2013 Express per il Web sarà installato automaticamente quando si installa Azure SDK.
+Se uno di questi prodotti non è disponibile, Visual Studio 2015 sarà installato automaticamente quando si installa Azure SDK.
 
 ## Architettura dell'applicazione
 
@@ -72,7 +72,7 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 
 ![Architettura di Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
 ## Download ed esecuzione della soluzione completata
 
@@ -87,6 +87,8 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 	Per impostazione predefinita, Visual Studio ripristina automaticamente il contenuto del pacchetto NuGet, che non era incluso nel file con estensione *zip*. In caso di mancato ripristino dei pacchetti, installarli manualmente passando alla finestra di dialogo **Gestisci pacchetti NuGet** per la soluzione, quindi facendo clic sul pulsante **Ripristina** in alto a destra.
 
 3. In **Esplora soluzioni** verificare che come progetto di avvio sia selezionato **ContosoAdsCloudService**.
+
+2. Se si usa Visual Studio 2015, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\\v11.0" in "(localdb)\\MSSQLLocalDB".
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
 
@@ -252,7 +254,7 @@ Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tu
 
 7. Impostare **Configurazione servizio** su **Cloud**.
 
-7. Selezionare il testo nell'impostazione `ContosoAdsDbConnectionString`, quindi incollare la stringa di connessione copiata dalla sezione precedente dell'esercitazione.
+7. Selezionare il campo **Valore** per l'impostazione `ContosoAdsDbConnectionString` e quindi incollare la stringa di connessione copiata dalla sezione precedente dell'esercitazione.
 
 	![Stringa di connessione del database per il ruolo di lavoro](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
@@ -341,7 +343,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 
 	![Finestra Log attività di Azure](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. Quando lo stato della distribuzione è completo, fare clic su **Website URL** per avviare l'applicazione.
+1. Quando lo stato della distribuzione è completato, fare clic sull'**URL dell'app Web** per avviare l'applicazione.
 
 9. È ora possibile testare l'applicazione creando, visualizzando e modificando alcune inserzioni, esattamente come durante l'esecuzione locale dell'applicazione.
 
@@ -387,7 +389,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
 9. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non su uno dei progetti, quindi scegliere **Aggiungi - Nuovo progetto**.
 
-11. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Windows Desktop** in **Visual C#** nel riquadro a sinistra, quindi fare clic sul modello **Libreria di classi**.
+11. Nella finestra di dialogo **Aggiungi nuovo progetto** scegliere **Windows** in **Visual C#** nel riquadro sinistro e quindi fare clic sul modello **Libreria di classi**.
 
 10. Assegnare il nome *ContosoAdsCommon* al progetto, quindi fare clic su **OK**.
 
@@ -397,15 +399,13 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
 11. Aprire la finestra di dialogo **Gestisci pacchetti NuGet** per la soluzione.
 
-12. Nel riquadro sinistro selezionare **Aggiornamenti**.
+12. Nella parte superiore della finestra selezionare **Aggiornamenti**.
 
-13. Cercare il pacchetto *WindowsAzure.Storage* e, se è incluso nell'elenco, fare clic su **Aggiorna** per ottenere la versione più recente della libreria del client di archiviazione.
-
-	![Aggiornare la libreria del client di archiviazione](./media/cloud-services-dotnet-get-started/updstg.png)
+13. Cercare il pacchetto *WindowsAzure.Storage*. Se è incluso nell'elenco, selezionarlo e selezionare i progetti Web e di lavoro per aggiornarlo in e quindi fare clic su **Aggiorna**.
 
 	La libreria del client di archiviazione è aggiornata con frequenza maggiore rispetto ai modelli di progetto di Visual Studio. È quindi possibile che la versione disponibile in un progetto appena creato debba essere aggiornata.
 
-14. Nel riquadro sinistro selezionare **Online**.
+14. Nella parte superiore della finestra selezionare **Sfoglia**.
 
 16. Individuare il pacchetto NuGet *EntityFramework* e installarlo nei tre progetti.
 
@@ -433,6 +433,8 @@ In questa sezione saranno configurate le stringhe di connessione di Archiviazion
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
+	Se si usa Visual Studio 2015, sostituire "v11.0" con "MSSQLLocalDB".
+
 3. Salvare le modifiche.
 
 2. Nel progetto ContosoAdsCloudService fare clic con il pulsante destro del mouse su ContosoAdsWeb in **Ruoli**, quindi scegliere **Proprietà**.
@@ -455,7 +457,7 @@ In questa sezione saranno configurate le stringhe di connessione di Archiviazion
 
 	* Nome: ContosoAdsDbConnectionString
 	* Tipo: String
-	* Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web:
+	* Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web. L'esempio seguente è destinato a Visual Studio 2013, quindi se si copia questo esempio e si usa Visual Studio 2015, è necessario modificare l'origine dati.
 
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
@@ -593,13 +595,13 @@ Nel file *AdController.cs* il costruttore chiama il metodo `InitializeStorage` p
 Il codice ottiene quindi un riferimento al contenitore BLOB *images*, come illustrato in precedenza in *Global.asax.cs*. Durante questa operazione, imposta un [criterio per l'esecuzione di nuovi tentativi](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinito appropriato per un'app Web. Il criterio per l'esecuzione di nuovi tentativi predefinito per il backoff esponenziale potrebbe sospendere l'app Web per più di un minuto in caso di nuovi tentativi ripetuti per un errore temporaneo. Il criterio per l'esecuzione di nuovi tentativi specificato qui attende 3 secondi dopo ogni tentativo, fino a un massimo di 3 tentativi.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
 Tramite codice analogo si ottiene un riferimento alla coda *images*.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
 La maggior parte del codice del controller è tipica per l'uso di un modello di dati Entity Framework con una classe DbContext. Un'eccezione è costituita dal metodo `Create` HttpPost che carica un file e lo salva nell'archiviazione BLOB. Lo strumento di associazione di modelli fornisce un oggetto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al metodo.
@@ -800,7 +802,7 @@ L'applicazione Contoso Ads è intenzionalmente semplice, in modo da essere idone
 Di seguito sono indicate alcune applicazioni di esempio per servizi cloud che illustrano procedure di codifica più simili a quelle del mondo reale, elencate in ordine di complessità crescente:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Concettualmente simile a Contoso Ads, implementa però più funzionalità e procedure più simili a quelle del mondo reale.
-* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Presenta le tabelle di archiviazione di Azure, oltre ai BLOB e alle code, e include una [serie di esercitazioni dettagliate](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
+* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduce le tabelle di archiviazione di Azure, nonché i BLOB e le code. Basata su una versione precedente di Azure SDK per .NET, richiederà alcune modifiche per funzionare con la versione corrente.
 * [Nozioni fondamentali su Servizi cloud in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Un esempio completo che illustra una vasta gamma di procedure consigliate, creato dal gruppo Microsoft Patterns and Practices.
 
 Per informazioni generali sullo sviluppo per il cloud, vedere l'articolo relativo alla [creazione di applicazioni cloud funzionanti con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -813,4 +815,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

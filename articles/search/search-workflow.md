@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure
@@ -42,7 +42,7 @@ Sono disponibili due livelli di prezzo per la selezione. Si consiglia di utilizz
 
 Dopo aver creato il servizio, è possibile creare un indice, iniziando con la definizione dello schema.
 
-Il modo più rapido e semplice per creare un indice è tramite il portale di Azure classico. Ciascun documento deve avere almeno una chiave univoca e un campo contenente dati disponibili per la ricerca. Per iniziare, vedere la pagina [Creare un indice nel portale](search-create-index-portal.md).
+Il modo più rapido e semplice per creare un indice consiste nell'usare il portale di Azure. Ciascun documento deve avere almeno una chiave univoca e un campo contenente dati disponibili per la ricerca. Per iniziare, vedere la pagina [Creare un indice nel portale](search-create-index-portal.md).
 
 > [AZURE.NOTE]Contenuto di un indice di Ricerca di Azure
 >
@@ -73,7 +73,7 @@ Una seconda opzione consiste nello scrivere un semplice programma che utilizza l
 - [Aggiungere, aggiornare o eliminare documenti (API REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [Classe DocumentOperationsExtensions](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Una terza opzione adatta per i set di dati molto piccoli consiste nell’utilizzare [Fiddler](search-fiddler.md) o [Chrome Postman](search-chrome-postman.md) per caricare i documenti.
+Una terza opzione adatta per i set di dati molto piccoli consiste nell'usare [Fiddler](search-fiddler.md) per caricare i documenti.
 
 Una quarta opzione, probabilmente la più semplice, consiste nell’utilizzo del codice presente in [Esempio di API REST C# di Adventure Works](https://azuresearchadventureworksdemo.codeplex.com/) che carica i documenti da un database incorporato (con estensione mdf) nella soluzione o in [Esempio di API REST C# di Profili di punteggio](https://azuresearchscoringprofiles.codeplex.com/) che carica i dati dai file di dati JSON inclusi nella soluzione.
 
@@ -83,7 +83,7 @@ Una quarta opzione, probabilmente la più semplice, consiste nell’utilizzo del
 
 Una volta che i documenti vengono caricati nell'indice, è possibile scrivere la prima query.
 
-Il modo più rapido per ottenere i risultati iniziali della ricerca dal servizio di ricerca consiste nell'utilizzare [Fiddler](search-fiddler.md) o [Chrome Postman](search-chrome-postman.md) per visualizzare una risposta, ma in uno scenario reale, è possibile scrivere il codice dell'interfaccia utente semplice per visualizzare i risultati in un formato leggibile.
+Il modo più rapido per ottenere i risultati della ricerca iniziali dal servizio di ricerca consiste nell'usare [Fiddler](search-fiddler.md) per visualizzare una risposta. In uno scenario reale è tuttavia possibile scrivere un semplice codice dell'interfaccia utente per visualizzare i risultati in un formato leggibile.
 
 Le API per le operazioni di ricerca includono:
 
@@ -140,7 +140,8 @@ Ricerca di Azure offre due modelli di programmazione: la libreria .NET per il co
 
 Attualmente nella libreria .NET ancora non è disponibile un piccolo subset di funzionalità, pertanto anche se si preferisce scrivere codice gestito, è necessario utilizzare l'API REST per ottenere le funzionalità desiderate. Le funzionalità disponibili solo nell'API REST sono:
 
-- [Processori del linguaggio naturale Microsoft - Solo anteprima](../search-api-2015-02-28-preview/)
+- [Analizzatori personalizzati - solo anteprima](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Analizzatori di query Lucene - solo anteprima](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [Funzionalità moreLikeThis - Solo anteprima](../search-api-2015-02-28-preview/)
 - [API di gestione](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

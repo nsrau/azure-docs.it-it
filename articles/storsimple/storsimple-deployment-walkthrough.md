@@ -17,7 +17,10 @@
 
 # Distribuire un dispositivo StorSimple locale
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Panoramica
 
@@ -143,7 +146,7 @@ Prima di iniziare, verificare che:
 | | | |
 | **NTP** | È attiva la sincronizzazione dell'ora non appena il server NTP è di input. Controllare che la porta 123 sia aperta durante l'input`time.windows.com`o server di riferimento ora pubblico). | [Scaricare e utilizzare questo script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
+| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
 | | Il traffico è indirizzabile tramite proxy? | Eseguire la convalida di DNS, il controllo NTP o HTTP dopo la configurazione del proxy sul dispositivo. Questo fornirà un quadro preciso se il traffico viene bloccato nel proxy o altrove. |
 | | | |
 | **Registrazione** | Controllare che le porte TCP in uscita 443, 80, 9354 siano aperte. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Ulteriori informazioni per il cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -291,4 +294,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

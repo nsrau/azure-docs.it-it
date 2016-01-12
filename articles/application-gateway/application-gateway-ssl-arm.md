@@ -24,10 +24,6 @@
  Gateway applicazione può essere configurato per terminare la sessione SSL nel gateway, evitando così una costosa decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
 
->[AZURE.IMPORTANT]Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, Gestione risorse e modello di distribuzione classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di usare qualsiasi risorsa di Azure. Per visualizzare la documentazione relativa a ogni strumento, fare clic sulle schede nella parte superiore dell'articolo. Questo documento illustra come creare un gateway applicazione con Gestione risorse di Azure. Per usare la versione del modello di distribuzione classico, passare all'articolo [Configurare un gateway applicazione per l'offload SSL tramite la distribuzione classica di Azure](application-gateway-ssl.md).
-
-
-
 ## Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](http://azure.microsoft.com/downloads/).
@@ -38,8 +34,8 @@
  
 
 - **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end:** per ogni pool sono disponibili impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end**: è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener:** il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
@@ -114,7 +110,7 @@ Assegna l'intervallo di indirizzi 10.0.0.0/24 a una variabile di subnet da usare
 ### Passaggio 2	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
+Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
 
 ### Passaggio 3
 
@@ -126,7 +122,7 @@ L'oggetto subnet viene assegnato alla variabile $subnet per i passaggi successiv
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Crea una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appw-rg" per l'area Stati Uniti occidentali.
+Crea una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali.
 
 
 ## Creare un oggetto di configurazione gateway applicazione
@@ -190,184 +186,9 @@ Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 
 ## Creare un gateway applicazione usando il metodo New-AzureApplicationGateway
 
-	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
 Questo metodo crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
-
-
-## Avviare il gateway applicazione
-
-Dopo la configurazione del gateway, usare il cmdlet `Start-AzureRmApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
-
-
-**Nota:** il completamento del cmdlet `Start-AzureRmApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
-
-Per l'esempio seguente il gateway applicazione è denominato "appgwtest" e il gruppo di risorse è "app-rg":
-
-
-### Passaggio 1
-
-Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
-
-### Passaggio 2
-	 
-Usare `Start-AzureRmApplicationGateway` per avviare il gateway applicazione:
-
-	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	
-
-## Verificare lo stato del gateway applicazione
-
-Usare il cmdlet `Get-AzureRmApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'operazione *Start-AzureApplicationGateway* è riuscita, lo stato risulterà *Operazione riuscita*.
-
-	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
-	GatewayIPConfigurations           : {gatewayip01}
-	SslCertificates                   : {}
-	FrontendIPConfigurations          : {frontendip01}
-	FrontendPorts                     : {frontendport01}
-	BackendAddressPools               : {pool01}
-	BackendHttpSettingsCollection     : {setting01}
-	HttpListeners                     : {listener01}
-	RequestRoutingRules               : {rule01}
-	OperationalState                  : 
-	ProvisioningState                 : Succeeded
-	GatewayIpConfigurationsText       : [
-                                      {
-                                        "Subnet": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/virtualNetworks/vnet01/subnets/subnet01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "gatewayip01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/gatewayIPConfigurations/gatewayip
-                                    01"
-                                      }
-                                    ]
-	SslCertificatesText               : []
-	FrontendIpConfigurationsText      : [
-                                      {
-                                        "PrivateIPAddress": null,
-                                        "PrivateIPAllocationMethod": "Dynamic",
-                                        "Subnet": null,
-                                        "PublicIPAddress": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/publicIPAddresses/publicip01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "frontendip01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/frontend
-                                    ip01"
-                                      }
-                                    ]
-	FrontendPortsText                 : [
-                                      {
-                                        "Port": 80,
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "frontendport01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
-                                      }
-                                    ]
-	BackendAddressPoolsText           : [
-                                      {
-                                        "BackendAddresses": [
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.185.46"
-                                          },
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.188.221"
-                                          },
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.185.50"
-                                          }
-                                        ],
-                                        "BackendIpConfigurations": [],
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "pool01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
-                                      }
-                                    ]
-	BackendHttpSettingsCollectionText : [
-                                      {
-                                        "Port": 80,
-                                        "Protocol": "Http",
-                                        "CookieBasedAffinity": "Disabled",
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "setting01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/set
-                                    ting01"
-                                      }
-                                    ]
-	HttpListenersText                 : [
-                                      {
-                                        "FrontendIpConfiguration": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fronte
-                                    ndip01"
-                                        },
-                                        "FrontendPort": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
-                                        },
-                                        "Protocol": "Http",
-                                        "SslCertificate": null,
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "listener01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
-                                      }
-                                    ]
-	RequestRoutingRulesText           : [
-                                      {
-                                        "RuleType": "Basic",
-                                        "BackendAddressPool": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
-                                        },
-                                        "BackendHttpSettings": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/s
-                                    etting01"
-                                        },
-                                        "HttpListener": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "rule01",
-                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/requestRoutingRules/rule01"
-                                      }
-                                    ]
-	ResourceGroupName                 : appgw-rg
-	Location                          : westus
-	Tag                               : {}
-	TagsTable                         : 
-	Name                              : appgwtest
-	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
-	Id                                : /subscriptions/###############################/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest
-
-
-
 
 ## Passaggi successivi
 
@@ -378,4 +199,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
