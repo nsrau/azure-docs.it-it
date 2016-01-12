@@ -17,7 +17,10 @@
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Panoramica
 
@@ -238,7 +241,7 @@ Per guardare un video che descrive come creare un dispositivo StorSimple virtual
 Dopo aver creato e configurato il dispositivo virtuale StorSimple, è possibile iniziare a utilizzarlo. È possibile utilizzare contenitori di volumi, criteri per volumi e backup su un dispositivo virtuale esattamente come si farebbe con un dispositivo StorSimple fisico; l'unica differenza consiste nella necessità di selezionare il dispositivo virtuale dall'elenco dei dispositivi. Fare riferimento alle sezioni seguenti per istruzioni sulle attività associate:
 
 
-- [Contenitori di volume](storsimple-manage-volume-containers.md).
+- [Contenitori di volume.](storsimple-manage-volume-containers.md)
 
 - [Volumi](storsimple-manage-volumes.md)
 
@@ -283,7 +286,7 @@ E’ necessario eseguire le procedure descritte in [Connessione in remoto al dis
 
 Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente di Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
-Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, seguire questa procedura:
+Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
 1. Accedere al portale di Microsoft Azure classico.
 
@@ -388,4 +391,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in [Amministrare il dispositivo StorSimple utilizzando il servizio di gestione di StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

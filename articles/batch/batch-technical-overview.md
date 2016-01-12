@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Nozioni di base sul servizio Azure Batch | Microsoft Azure"
-	description="Informazioni su concetti, flussi di lavoro e scenari del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala"
+	description="Informazioni sull'uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -38,9 +38,9 @@ Tra gli esempi sono inclusi:
 * Analisi delle sequenze genetiche
 * Test di software
 
-Batch può anche eseguire calcoli paralleli con un passaggio di riduzione alla fine e altri carichi di lavoro paralleli più complicati.
+Batch può anche eseguire calcoli paralleli con un passaggio di riduzione alla fine e altri carichi di lavoro HPC più complessi, ad esempio applicazioni MPI (Message Passing Interface).
 
->[AZURE.NOTE]Attualmente Batch supporta solo i carichi di lavoro eseguiti su macchine virtuali basate su Windows Server. Inoltre, Batch non supporta attualmente le applicazioni MPI (Message Passing Interface).
+>[AZURE.NOTE]Attualmente Batch supporta solo i carichi di lavoro eseguiti su macchine virtuali basate su Windows Server.
 
 Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [Batch e soluzioni HPC](batch-hpc-solutions.md).
 
@@ -103,4 +103,4 @@ La figura 2 mostra un flusso di lavoro che usa un'applicazione client .NET per B
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

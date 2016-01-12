@@ -48,7 +48,7 @@ Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicem
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili gli elementi seguenti:
 
-- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
+- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] v0.10.29 o versioni successive.
 - [Generatore di Express](http://www.expressjs.com/starter/generator.html) (è possibile installarlo tramite `npm install express-generator -g`)
 - [Git][].
@@ -457,7 +457,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 
 
-	Questa operazione comunica al motore **Jade** di eseguire il rendering di una parte di HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto. Salvare e chiudere il file **layout.jade**.
+	Ciò in effetti comunica al motore** Jade** di eseguire il rendering di una parte di HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto. Salvare e chiudere il file **layout.jade**.
 
 4. Aprire il file **index.jade**, la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con quanto segue:
 
@@ -544,7 +544,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 ## <a name="_Toc395783182"></a>Passaggio 7: Distribuire il progetto di sviluppo dell'applicazione in Siti Web di Azure
 
-1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Le istruzioni su come eseguire questa operazione sono disponibili [qui](../web-sites-publish-source-control-git.md#step4).
+1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Le istruzioni su come eseguire questa operazione nell'argomento [Distribuzione continua tramite GIT nel servizio app di Azure](../app-service-web/web-sites-publish-source-control.md).
 
 2. Aggiungere il sito Web di Azure come Git remoto.
 
@@ -562,11 +562,11 @@ Congratulazioni. Si è creata la prima applicazione Web Express Node.js usando A
 
 Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download da [GitHub][].
 
-Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](/develop/nodejs/).
+Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

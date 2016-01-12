@@ -13,17 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Creare SQL Data Warehouse mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-> [AZURE.NOTE]  Per usare Microsoft Azure PowerShell con SQL Data Warehouse, è necessario disporre della versione 0.9.4 o versione successiva. È possibile controllare la versione eseguendo (Get-Module Azure).Version in PowerShell.
+> [AZURE.NOTE]Per usare Microsoft Azure PowerShell con SQL Data Warehouse, è necessario disporre della versione 0.9.4 o versione successiva. È possibile controllare la versione eseguendo (Get-Module Azure).Version in PowerShell.
 
 ## Ottenere ed eseguire i cmdlet di Azure PowerShell
 Se non si dispone già di una configurazione con PowerShell, è possibile:
@@ -67,9 +67,8 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, c
 [caricare dati di esempio]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Powershell]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
 [API REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/it-IT/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: https://azure.microsoft.com/it-IT/documentation/articles/sql-database-configure-firewall-settings/
 [Come installare e configurare Azure PowerShell]: powershell-install-configure.md
 
-<!----HONumber=AcomDC_1210_2015-->
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con Azure PowerShell
+# Creare la prima pipeline di Data factory di Azure con il modello di Gestione risorse di Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -226,11 +226,9 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 
 ## Monitorare la pipeline
  
-1.	Dopo l'accesso al [portale di Azure](http://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**. 
-		![Esplora -> Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Dopo l'accesso al [portale di Azure](http://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**. ![Esplora -> Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Nel pannello **Data factory** fare clic sulla data factory **TutorialFactoryARM** creata.	
-2.	Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**.
- 		![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**. ![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	In **Vista diagramma** saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
 	
 	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -243,4 +241,4 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 10. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

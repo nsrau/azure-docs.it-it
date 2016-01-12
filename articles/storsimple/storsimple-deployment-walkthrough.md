@@ -17,7 +17,10 @@
 
 # Distribuire un dispositivo StorSimple locale
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Panoramica
 
@@ -164,8 +167,7 @@ Effettuare i passaggi seguenti per creare una nuova istanza del servizio StorSim
 
 > [AZURE.IMPORTANT]Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
-> Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
+> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
@@ -196,7 +198,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per completare l'inst
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
-Una volta completata la configurazione del dispositivo, è necessario analizzare gli aggiornamenti e, se disponibili, installarli. Gli aggiornamenti possono richiedere diverse ore. Seguire le istruzioni in [cercare e applicare gli aggiornamenti](#scan-for-and-apply-updates).
+Una volta completata la configurazione del dispositivo, è necessario analizzare gli aggiornamenti e, se disponibili, installarli. Gli aggiornamenti possono richiedere diverse ore. Seguire le istruzioni in[cercare e applicare gli aggiornamenti](#scan-for-and-apply-updates).
 
 
 ## Passaggio 5: Creare un contenitore di volumi
@@ -291,4 +293,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

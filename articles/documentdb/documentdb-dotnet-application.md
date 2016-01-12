@@ -38,7 +38,7 @@ La procedura guidata mostra come usare il servizio DocumentDB fornito da Azure p
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili gli elementi seguenti:
 
-- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](../../pricing/free-trial/).
+- Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 o versioni successive.
 - Azure SDK per .NET versione 2.5.1 o successiva, disponibile tramite [Installazione guidata piattaforma Web Microsoft][].
 
@@ -83,7 +83,7 @@ A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
   	Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure DocumentDB successivamente nel portale di Azure.
 
-	Per altre informazioni sulla scelta di un **Piano di servizio app** e del **Gruppo di risorse**, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Per altre informazioni sulla scelta di un **Piano di servizio app** e del **Gruppo di risorse**, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -454,7 +454,7 @@ Aprire ***App\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaul
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo repository e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\\**Item**\\**Index**.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo repository e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -482,7 +482,7 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 			return View(); 
    		}
 
-	È ora necessario aggiungere altro codice al controller, in modo da accettare gli invii dalla visualizzazione **Create**.
+	Nel controller è necessario avere più codici, ed il controller stesso accetterà la presentazione dal codice **Crea**visualizzazione.
 
 2. Aggiungere il blocco di codice successivo alla classe ItemController.cs, che indica a MVC ASP.NET le operazioni da eseguire con un POST per i moduli per questo controller.
 	
@@ -499,9 +499,9 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 		}
 	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
-	**Nota sulla sicurezza**: l'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per altre informazioni su questo argomento e alcuni esempi di implementazione corretta, vedere la pagina relativa alla [prevenzione di attacchi di richiesta intersito falsa][]. Il codice sorgente disponibile in [GitHub][] definisce l'implementazione completa.
+	**Nota sulla sicurezza**: l'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in [GitHub][] permette l'implementazione completa.
 
-	**Nota sulla sicurezza**: viene usato anche l'attributo **Bind** nel parametro del metodo per garantire la protezione da attacchi basati su un eccesso di post. Per altri dettagli, vedere l'articolo relativo alle [operazioni CRUD di base in ASP.NET MVC][].
+	**Nota sulla sicurezza**: È possibile utilizzare l’attributo**associare**sul parametro del metodo per proteggersi da attacchi di registrazione eccessiva. Per altri dettagli, vedere l'articolo relativo alle [operazioni CRUD di base in ASP.NET MVC][].
 
 Questo è tutto il codice necessario per aggiungere nuovi elementi al database.
 
@@ -571,7 +571,7 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
  	   	}
 		
 	
-	Il primo metodo gestisce l'operazione Http GET che si verifica quando l'utente fa clic sul collegamento **Edit** nella visualizzazione **Index**. Questo metodo recupera un oggetto [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) da DocumentDB e lo passa alla visualizzazione **Edit**.
+	Il primo metodo per gestire Http GET che si verifica quando l'utente fa clic sul collegamento**Modifica** dall’**indice**di visualizzazione. Questo metodo recupera un[**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)da DocumentDB e passa alla visualizzazione **Modifica**.
 
 	La visualizzazione **Edit** esegue quindi un'operazione Http POST in **IndexController**.
 	
@@ -629,8 +629,8 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[prevenzione di attacchi di richiesta intersito falsa]: http://go.microsoft.com/fwlink/?LinkID=517254
+[impedendo Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
