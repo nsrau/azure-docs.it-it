@@ -220,7 +220,7 @@ Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche sec
       }
     ```
 
-    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
+    `ProcessInternalRequest` legge i valori del parametro della stringa di query usato per chiamare la partizione e chiama `AddUserAsync` per aggiungere il cognome al dizionario attendibile `m_name`.
 
 10. Ora si aggiungerà un servizio senza stato al progetto per verificare se sia possibile chiamare una determinata partizione. Questo servizio viene usato come semplice interfaccia Web che accetta il cognome come parametro della stringa di query, determina la chiave di partizione e la invia al servizio Alphabet.Processing per l'elaborazione.
 11. Nella finestra di dialogo per la creazione di un servizio scegliere il servizio senza stato e assegnargli il nome "Alphabet.WebApi", come illustrato di seguito. ![Schermata di servizio senza stato](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)
@@ -290,10 +290,13 @@ Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche sec
       }
       ```
 
-    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a char. Then, it determines the partition key for this letter by subtracting the hexadecimal value of `A` from the hexadecimal value of the last names' first letter.
+    Analisi dettagliata. Il codice legge la prima lettera del parametro della stringa di query `lastname` in un char. Quindi determina la chiave di partizione di questa lettera sottraendo il valore hex di `A` dal valore hex della prima lettera dei parametri lastname.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     Si ricordi che in questo esempio si usano 26 partizioni con una chiave per ogni partizione. A questo punto è necessario ottenere la partizione del servizio `partition` usando il metodo `ResolveAsync` nell'oggetto `servicePartitionResolver`. `servicePartitionResolver` viene definito come mostrato di seguito.
 
@@ -347,4 +350,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
