@@ -291,7 +291,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**.
-	>[AZURE.IMPORTANT]La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
+>[AZURE.IMPORTANT]La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
@@ -313,4 +313,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
