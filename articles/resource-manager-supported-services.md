@@ -37,7 +37,6 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Service Fabric (anteprima) | Sì | | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Macchine virtuali (classiche) | Limitato | No | Parziale (vedere di seguito) | - | - |
 | App remota | No | - | - | - |
-| Infrastruttura di servizi | No | No | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -91,7 +90,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Analisi dei flussi | Sì | | [REST di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Sì | Sì | [Creare cluster](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data factory | Sì | Sì | [Creare Data factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Machine Learning | No | - | - | - | | Catalogo dati | No | - | - | - |
+| Machine Learning | No | - | - | - |
+| Catalogo dati | No | - | - | - |
 
 ## Supporti multimediali e CDN
 
@@ -107,13 +107,16 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Servizi BizTalk | Sì | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus di servizio | Sì | | [REST bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | No | - | - | - | | Ripristino sito | No | - | - | - |
+| Backup | No | - | - | - |
+| Ripristino sito | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
 | Servizio | Gestione risorse abilitato | Sposta risorse | API REST | Schema | Modelli di avvio rapido |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | No | - | - | - | | Azure Active Directory B2C | No | - | - | - | | Multi-Factor Authentication | No | - | - | - |
+| Azure Active Directory | No | - | - | - |
+| Azure Active Directory B2C | No | - | - | - |
+| Multi-Factor Authentication | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 
