@@ -32,7 +32,7 @@ Per completare questa esercitazione sono inoltre necessari:
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
->[AZURE.NOTE]L'account di archiviazione creato a questo punto viene usato per archiviare il modello. Un altro account di archiviazione viene creato quando si distribuisce il modello usato per archiviare il disco per la macchina virtuale. Creare un contenitore nell'account di archiviazione denominato templates.
+>[AZURE.NOTE] L'account di archiviazione creato a questo punto viene usato per archiviare il modello. Un altro account di archiviazione viene creato quando si distribuisce il modello usato per archiviare il disco per la macchina virtuale. Creare un contenitore nell'account di archiviazione denominato templates.
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
@@ -318,7 +318,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
 	}
 	```
 
-    >[AZURE.NOTE]Questa esercitazione crea una macchina virtuale con una versione del sistema operativo Windows Server in esecuzione. Per altre informazioni sulla selezione di altre immagini, vedere l'articolo relativo all'[esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md).
+    >[AZURE.NOTE] Questa esercitazione crea una macchina virtuale con una versione del sistema operativo Windows Server in esecuzione. Per altre informazioni sulla selezione di altre immagini, vedere l'articolo relativo all'[esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md).
 
 
 4. Salvare il file dei parametri creato.

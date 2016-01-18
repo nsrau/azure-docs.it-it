@@ -44,7 +44,7 @@ Il diagramma seguente illustra la relazione tra applicazioni e istanze di serviz
 ![Partizioni e repliche in un servizio][cluster-application-instances]
 
 
->[AZURE.TIP]È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Descrivere un servizio
 
@@ -93,7 +93,7 @@ Gli attributi **Version** sono stringhe non strutturate e non analizzate dal sis
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
+> [AZURE.NOTE] Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:

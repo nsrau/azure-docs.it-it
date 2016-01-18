@@ -219,8 +219,10 @@ Infine, compilare ed eseguire sia `TaskWebApp` che `TaskService`. Eseguire l'isc
 
 ## 8\. Modificare i criteri
 
-Ora che l'API è stata protetta tramite Azure AD B2C, è possibile effettuare delle prove con i criteri dell'app e visualizzarne gli effetti (o l'assenza di effetti) nell'API. È possibile <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->modificare le **attestazioni dell'applicazione** nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni supplementari che si aggiungono saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
+Ora che l'API è stata protetta tramite Azure AD B2C, è possibile effettuare delle prove con i criteri dell'app e visualizzarne gli effetti (o l'assenza di effetti) nell'API. È possibile 
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->modificare le **attestazioni dell'applicazione** nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni supplementari che si aggiungono saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
 
 <!--
 

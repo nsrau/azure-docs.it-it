@@ -30,7 +30,7 @@ Per costruire un'applicazione che accetta l’iscrizione e l’accesso dell’ut
 
 È possibile passare al pannello delle funzionalità B2C dal portale di Azure o dal portale di Azure classico.
 
-### 1\. Direttamente nel portale di Azure
+### 1. Direttamente nel portale di Azure
 
 Se il pannello delle funzionalità B2C è stato aggiunto alla Schermata iniziale, lo si vedrà non appena si accede al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant B2C.
 
@@ -39,9 +39,9 @@ Se il pannello delle funzionalità B2C è stato aggiunto alla Schermata iniziale
 È inoltre possibile accedere direttamente, passando a [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) dove **{tenant}** deve essere sostituito con il nome usato al momento della creazione del tenant, ad esempio contosob2c. È possibile creare un segnalibro su questo collegamento per l'uso futuro.
 
    >[AZURE.IMPORTANT] 
-   >È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.
+   È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.
 
-### 2\. Accesso tramite il portale di Azure classico
+### 2. Accesso tramite il portale di Azure classico
 
 Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto di istruzione o dello stesso account Microsoft usato per l'iscrizione ad Azure. Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C. Nella scheda **Avvio rapido** (la prima visualizzata), fare clic su **Gestione impostazioni B2C** in **Amministra**. Si aprirà così il pannello delle funzionalità di B2C in una nuova finestra o scheda del browser.
 
@@ -54,7 +54,8 @@ Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come a
 3. Il **Nome** dell'applicazione deve essere una descrizione per gli utenti. Ad esempio, immettere "Contoso B2C app".
 4. Se si sta scrivendo un'applicazione basata su web, commutare **Includi app Web o API Web** su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione include un componente lato server (API) che deve essere protetto, sarà opportuno creare (e copiare) anche una **chiave privata dell'applicazione** facendo clic sul pulsante **Rigenera chiave**.
 
-    > [AZURE.NOTE]La **chiave privata dell'applicazione** è una credenziale di sicurezza importante.
+    > [AZURE.NOTE]
+    La **chiave privata dell'applicazione** è una credenziale di sicurezza importante.
 
 5. Se si sta scrivendo un'applicazione per dispositivi mobili, impostare **Includi client nativo** su **Sì**. Copiare l'**URI di reindirizzamento** predefinito creato automaticamente.
 6. Fare clic su **Crea** per registrare l'applicazione.

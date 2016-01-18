@@ -41,7 +41,7 @@ Al termine di questa esercitazione si eseguiranno tre applicazioni console Windo
 * **ProcessDeviceToCloudMessages**, che usa la classe [EventProcessorHost] per recuperare i messaggi dall'endpoint compatibile con Hub eventi e quindi archiviare in modo affidabile i messaggi di punti dati in un BLOB di Azure e per inoltrare i messaggi interattivi a una coda del bus di servizio.
 * **ProcessD2CInteractiveMessages**, che rimuove i messaggi interattivi dalla coda del bus di servizio.
 
-> [AZURE.NOTE]L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, come connettere dispositivi all'hub IoT di Azure.
+> [AZURE.NOTE] L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, come connettere dispositivi all'hub IoT di Azure.
 
 Questa esercitazione è direttamente applicabile ad altri modi di utilizzare i messaggi compatibili con Hub eventi, ad esempio i progetti [HDInsight (Hadoop)]. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud].
 
@@ -69,7 +69,7 @@ A questo punto è possibile eseguire le applicazioni.
 
   ![][50]
 
-> [AZURE.NOTE]Per visualizzare gli aggiornamenti nel file BLOB, potrebbe essere necessario ridurre la costante **MAX\_BLOCK\_SIZE** nella classe **StoreEventProcessor** a un valore inferiore, ad esempio **1024**. Questo perché raggiungere il limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere tempo. Con una dimensione del blocco ridotta, la creazione e l'aggiornamento del BLOB richiedono meno tempo. Tuttavia, una dimensione del blocco maggiore rende l'applicazione più scalabile.
+> [AZURE.NOTE] Per visualizzare gli aggiornamenti nel file BLOB, potrebbe essere necessario ridurre la costante **MAX\_BLOCK\_SIZE** nella classe **StoreEventProcessor** a un valore inferiore, ad esempio **1024**. Questo perché raggiungere il limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere tempo. Con una dimensione del blocco ridotta, la creazione e l'aggiornamento del BLOB richiedono meno tempo. Tuttavia, una dimensione del blocco maggiore rende l'applicazione più scalabile.
 
 ## Passaggi successivi
 
@@ -98,6 +98,7 @@ Altre informazioni sull'hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Gestione degli errori temporanei]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
 
 [Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud]: https://azure.microsoft.com/it-IT/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@ Altre informazioni sull'hub IoT:
 
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
+[Elaborare messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
 [esercitazione sul caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
 [Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md

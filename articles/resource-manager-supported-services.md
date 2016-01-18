@@ -35,7 +35,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Batch | Sì | Sì | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Servizi del ciclo di vita Dynamics | Sì | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (anteprima) | Sì | | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Macchine virtuali (classiche) | Limitato | Parziale (vedere di seguito) | - | - | | App remota | No | - | - | - | | Servizi cloud (classici) | No | Parziale (vedere di seguito) | - | - | - |
+| Macchine virtuali (classiche) | Limitato | Parziale (vedere di seguito) | - | - | 
+| App remota | No | - | - | - | 
+| Servizi cloud (classici) | No | Parziale (vedere di seguito) | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -64,7 +66,8 @@ Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuit
 | Database SQL | Sì | Sì | [REST di database SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [01/04/2014-anteprima](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Search | Sì | Sì | [REST Ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL Data Warehouse | Sì | | | |
-| StorSimple | No | - | - | - | | Cache gestita | No| - | - | - |
+| StorSimple | No | - | - | - |
+| Cache gestita | No| - | - | - |
 
 ## Web e dispositivi mobili
 
@@ -90,7 +93,8 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | Analisi dei flussi | Sì | | [REST di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Sì | Sì | [REST di HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data factory | Sì | Sì | [REST di Data factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Machine Learning | No | - | - | - | | Catalogo dati | No | - | - | - |
+| Machine Learning | No | - | - | - | 
+| Catalogo dati | No | - | - | - |
 
 ## Supporti multimediali e CDN
 
@@ -106,13 +110,16 @@ Quando si usano le app Web non è possibile spostare solo un piano di servizio a
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Servizi BizTalk | Sì | | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus di servizio | Sì | | [REST bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | No | - | - | - | | Ripristino sito | No | - | - | - |
+| Backup | No | - | - | - | 
+| Ripristino sito | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
 | Servizio | Gestione risorse abilitato | Sposta risorse | API REST | Schema | Modelli di avvio rapido |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | No | - | - | - | | Azure Active Directory B2C | No | - | - | - | | Multi-Factor Authentication | No | - | - | - |
+| Azure Active Directory | No | - | - | - | 
+| Azure Active Directory B2C | No | - | - | - | 
+| Multi-Factor Authentication | No | - | - | - |
 
 ## Servizi per gli sviluppatori 
 
@@ -234,7 +241,8 @@ Che restituisce:
 
 ## Versioni API supportate
 
-Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione di ogni risorsa. La versione dell'API corrisponde a una versione delle operazioni API REST che vengono rilasciate dal provider di risorse. Poiché un provider di risorse abilita nuove funzionalità, rilascerà una nuova versione dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà che è possibile specificare nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
+Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione di ogni risorsa. La versione dell'API corrisponde a una versione delle operazioni API REST che vengono rilasciate dal provider di risorse.
+Poiché un provider di risorse abilita nuove funzionalità, rilascerà una nuova versione dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà che è possibile specificare nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
 
 ### API REST
 

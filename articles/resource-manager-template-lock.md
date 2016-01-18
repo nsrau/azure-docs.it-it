@@ -46,7 +46,9 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sì | Per le risorse: <br />**{namespace}/{type}/providers/locks**<br /><br />per gruppi di risorse:<br />**Microsoft.Authorization/locks** | Il tipo di risorsa da creare. |
 | apiVersion | enum | Sì | **01/01/2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | | dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | | proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
+| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | 
+| dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | 
+| proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
 
 ### oggetto delle proprietà
 

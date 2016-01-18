@@ -6,7 +6,8 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"	/>
+	tags="azure-service-management"
+	/>
 
 <tags
 	ms.service="virtual-machines"
@@ -37,7 +38,7 @@ In questa esercitazione si apprenderà come:
 * [Completare la procedura di configurazione per connettersi alla macchina virtuale mediante SQL Server Management Studio in un altro computer](#SSMS)
 * [Passaggi successivi](#Optional)
 
->[AZURE.NOTE]In questo articolo viene descritto come eseguire il provisioning di una VM SQL Server con il portale esistente. Tuttavia, è anche possibile creare e gestire VM di SQL Server nel [nuovo portale](https://manage.windowsazure.com). Esistono alcuni vantaggi per il nuovo portale, ad esempio l'impostazione dell'utilizzo di Archiviazione Premium e altre opzioni, ad esempio l'applicazione di patch automatizzata, il backup automatizzato e configurazioni di AlwaysOn. Il contenuto futuro coprirà istruzioni dettagliate.
+>[AZURE.NOTE] In questo articolo viene descritto come eseguire il provisioning di una VM SQL Server con il portale esistente. Tuttavia, è anche possibile creare e gestire VM di SQL Server nel [nuovo portale](https://manage.windowsazure.com). Esistono alcuni vantaggi per il nuovo portale, ad esempio l'impostazione dell'utilizzo di Archiviazione Premium e altre opzioni, ad esempio l'applicazione di patch automatizzata, il backup automatizzato e configurazioni di AlwaysOn. Il contenuto futuro coprirà istruzioni dettagliate.
 
 ##<a id="Provision">Eseguire il provisioning di una macchina virtuale di SQL Server dalla raccolta</a>
 
@@ -77,7 +78,7 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 	- Nella casella **Servizio cloud** scegliere **Crea un nuovo servizio cloud**.
 	- Nella casella **Nome DNS del servizio cloud** specificare la prima parte del nome DNS desiderato, in modo che completi un nome nel formato **TESTNAME.cloudapp.net**.
 	- Selezionare una **SOTTOSCRIZIONE** se sono presenti più sottoscrizioni. La scelta determina quali **account di archiviazione** saranno disponibili.
-- Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+	- Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 	- Nella casella **Account di archiviazione** generare automaticamente un account o selezionarne uno dall'elenco. Modificare la **SOTTOSCRIZIONE** per visualizzare altri account.
 	- Nella casella **AVAILABILITY SET** selezionare **(none)**.
 	- Leggere e accettare le note legali.

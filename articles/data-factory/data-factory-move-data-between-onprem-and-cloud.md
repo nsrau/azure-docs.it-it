@@ -548,10 +548,15 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 7.	Nel pannello **Credenziali** fare clic su **Fare clic qui per impostare le credenziali**.
 8.	Nella finestra di dialogo **Impostazione credenziali** seguire questa procedura:
 
-	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selezionare l'**autenticazione** che sarà usata dal servizio Data Factory per connettersi al database. 2. Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 3. Per l'impostazione **PASSWORD** immettere la password dell'utente. 4. Fare clic su **OK** per chiudere la finestra di dialogo. 
+	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Selezionare l'**autenticazione** che sarà usata dal servizio Data Factory per connettersi al database. 
+	2.	Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 
+	3.	Per l'impostazione **PASSWORD** immettere la password dell'utente.  
+	4.	Fare clic su **OK** per chiudere la finestra di dialogo. 
 4. Fare clic su **OK** per chiudere il pannello **Credenziali**. 
 5. Fare clic su **OK** nel pannello **Nuovo archivio dati**. 	
-6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online. ![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online.
+	![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
 
@@ -601,7 +606,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
-	**Output del comando di esempio:**
+	**Output del comando di esempio**:
 
 
 		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
@@ -623,7 +628,8 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 ## Flusso di dati per la copia mediante il Gateway di gestione dati
 Quando si usa un'attività di copia in una pipeline di dati per inserire dati locali nel cloud ai fini di una successiva elaborazione o per esportare nuovamente i dati memorizzati nel cloud in un archivio dati locale, l'attività di copia usa un gateway per trasferire i dati dall'origine dati locale nel cloud e viceversa.
 
-Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati: ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati:
+![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Lo sviluppatore di dati crea un nuovo gateway per una data factory di Azure usando il [portale di Azure classico](http://portal.azure.com) o un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Tramite il pannello "Servizi collegati" viene definito un nuovo servizio collegato per un archivio dati locale all'interno del gateway. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione Impostazione credenziali per specificare i tipi di autenticazione e le credenziali come illustrato nella procedura dettagliata. La finestra di dialogo dell'applicazione Impostazione credenziali comunicherà con l'archivio dati per eseguire il test della connessione e con il gateway per salvare le credenziali.

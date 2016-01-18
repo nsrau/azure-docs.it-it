@@ -150,7 +150,7 @@ In questa sezione sono elencate le versioni del sistema operativo guest attualme
 
 Microsoft supporta almeno le due versioni più recenti di ogni famiglia del sistema operativo guest supportata. La data di disabilitazione di una versione di sistema operativo guest esistente può essere posticipata per garantire che almeno due versioni rilasciate rimangano sempre disponibili per la distribuzione.
 
-> [AZURE.WARNING]Il ritiro della famiglia di sistemi operativi guest 1 è iniziato il 1° giugno 2013 e il completamento è previsto a breve. Non creare nuove installazioni e aggiornare quelle precedenti mediante questa famiglia di sistemi operativi guest. Per altre informazioni, vedere [Informazioni sul ritiro della famiglia di sistemi operativi guest Azure 1][fam1retire]
+> [AZURE.WARNING] Il ritiro della famiglia di sistemi operativi guest 1 è iniziato il 1° giugno 2013 e il completamento è previsto a breve. Non creare nuove installazioni e aggiornare quelle precedenti mediante questa famiglia di sistemi operativi guest. Per altre informazioni, vedere [Informazioni sul ritiro della famiglia di sistemi operativi guest Azure 1][fam1retire]
 
 
 ### Famiglia, versione e rilascio del sistema operativo guest

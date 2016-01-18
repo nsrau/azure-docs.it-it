@@ -267,7 +267,7 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
 
  - Per altre informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/it-IT/services/search/).
+ - Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

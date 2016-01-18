@@ -51,7 +51,9 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 	
 - **Sistema operativo**
 
-	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti: - **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight su Linux (Ubuntu 12.04 LTS per Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti:
+	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
+ 	- **HDInsight su Linux (Ubuntu 12.04 LTS per Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Tipo di cluster** e **Dimensioni del cluster (definiti anche nodi di dati)**
 
@@ -77,16 +79,25 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	I cluster HBase per HDInsight vengono distribuiti con tre ruoli: - Server head (2 nodi) - Server area (almeno 1 nodo) - Nodi master/Zookeeper (3 nodi)
+	I cluster HBase per HDInsight vengono distribuiti con tre ruoli:
+	- Server head (2 nodi)
+	- Server area (almeno 1 nodo)
+	- Nodi master/Zookeeper (3 nodi)
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	I cluster Storm per HDInsight vengono distribuiti con tre ruoli: - Nodi Nimbus (2 nodi) - Server Supervisor (almeno 1 nodo) - Nodi Zookeeper (3 nodi)
+	I cluster Storm per HDInsight vengono distribuiti con tre ruoli:
+	- Nodi Nimbus (2 nodi)
+	- Server Supervisor (almeno 1 nodo)
+	- Nodi Zookeeper (3 nodi)
 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	I cluster Spark per HDInsight vengono distribuiti con tre ruoli: - Nodo head (2 nodi) - Nodo di lavoro (almeno 1 nodo) - Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
+	I cluster Spark per HDInsight vengono distribuiti con tre ruoli:
+	- Nodo head (2 nodi)
+	- Nodo di lavoro (almeno 1 nodo)
+	- Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
 
 	L'uso di questi nodi viene addebitato ai clienti per la durata del ciclo di vita del cluster. La fatturazione inizia dopo la creazione di un cluster e si interrompe quando il cluster viene eliminato. Non è possibile deallocare o mettere in attesa i cluster. Le dimensioni del cluster influiscono sul prezzo del cluster. Ai fini dell'apprendimento, è consigliabile usare un nodo di dati. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 

@@ -19,12 +19,12 @@
 
 # Come usare docker con swarm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 
 In questo argomento viene descritto un modo molto semplice di utilizzare [Docker](https://www.docker.com/) con [Swarm](https://github.com/docker/swarm) per creare un cluster gestito da Swarm in Azure. Vengono create quattro macchine virtuali in Azure, una da usare come gestore di swarm e tre come parte del cluster di host docker. Al termine dell'operazione, sarà possibile usare swarm per visualizzare il cluster e quindi iniziare a usare docker con swarm. Inoltre, le chiamate dell’interfaccia della riga di comando di Azure in questo argomento utilizzano la modalità di gestione servizi (asm).
 
-> [AZURE.NOTE]Questo argomento usa Docker con Swarm e l'interfaccia della riga di comando di Azure *senza* usare **Docker Machine** per illustrare come i diversi strumenti interagiscano pur restando indipendenti. **Docker Machine** offre inoltre opzioni **--swarm**, che consentono di usare **Docker Machine** per aggiungere direttamente i nodi a uno Swarm. Per un esempio, vedere la documentazione di [Docker Machine](https://github.com/docker/machine). Per informazioni sull’esecuzione di **Docker Machine** con Macchine virtuali di Azure, vedere [Come usare Docker Machine in Azure](virtual-machines-docker-machine.md).
+> [AZURE.NOTE] Questo argomento usa Docker con Swarm e l'interfaccia della riga di comando di Azure *senza* usare **Docker Machine** per illustrare come i diversi strumenti interagiscano pur restando indipendenti. **Docker Machine** offre inoltre opzioni **--swarm**, che consentono di usare **Docker Machine** per aggiungere direttamente i nodi a uno Swarm. Per un esempio, vedere la documentazione di [Docker Machine](https://github.com/docker/machine). Per informazioni sull’esecuzione di **Docker Machine** con Macchine virtuali di Azure, vedere [Come usare Docker Machine in Azure](virtual-machines-docker-machine.md).
 
 ## Creare host docker con macchine virtuali di Azure
 
@@ -63,7 +63,9 @@ In questo argomento viene utilizzato il [modello contenitore dell’installazion
 
 L'ultima riga è l'ID cluster; si consiglia di copiarla in quanto verrà usata nuovamente quando le macchine virtuali del nodo vengono collegate allo swarm master per creare lo "swarm". In questo esempio, l'ID cluster è **36731c17189fd8f450c395db8437befd**.
 
-> [AZURE.NOTE]Per maggiore chiarezza, viene usata l'installazione di Docker locale per collegarsi alla macchina virtuale **swarm-master** in Azure e indicare a **swarm-master** di scaricare, installare ed eseguire il comando **create**. Tale comando restituisce l'ID cluster che verrà usato successivamente per scopi di individuazione. <!-- --> Per verificare ciò, eseguire `docker -H tcp://`*&lt;nomehost&gt;* ` images` per visualizzare i processi del contenitore sulla macchina **swarm-master** e su un altro nodo a scopo di confronto. Il comando Swarm precedente è stato eseguito con l'opzione **--rm**, il contenitore è stato rimosso dopo l'operazione, per cui usando **docker ps -a** non viene restituito alcun risultato:
+> [AZURE.NOTE] Per maggiore chiarezza, viene usata l'installazione di Docker locale per collegarsi alla macchina virtuale **swarm-master** in Azure e indicare a **swarm-master** di scaricare, installare ed eseguire il comando **create**. Tale comando restituisce l'ID cluster che verrà usato successivamente per scopi di individuazione.
+<!-- -->
+> Per verificare ciò, eseguire `docker -H tcp://`*&lt;nomehost&gt;* ` images` per visualizzare i processi del contenitore sulla macchina **swarm-master** e su un altro nodo a scopo di confronto. Il comando Swarm precedente è stato eseguito con l'opzione **--rm**, il contenitore è stato rimosso dopo l'operazione, per cui usando **docker ps -a** non viene restituito alcun risultato:
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images

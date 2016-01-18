@@ -128,7 +128,12 @@ La tabella seguente illustra ogni tipo di risorsa con i metodi di allocazione po
 
 La tabella seguente illustra i limiti imposti sugli indirizzi IP in Azure per ogni area e ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
 
-||Limite predefinito|Limite massimo| |---|---|---| |Indirizzi IP pubblici (dinamici)|60|Contattare il supporto tecnico| |Indirizzi IP pubblici (statici)|20|Contattare il supporto tecnico| |IP del front-end pubblico per ogni servizio di bilanciamento del carico|5|Contattare il supporto tecnico| |IP del front-end privato per ogni servizio di bilanciamento del carico|1|Contattare il supporto tecnico|
+||Limite predefinito|Limite massimo|
+|---|---|---|
+|Indirizzi IP pubblici (dinamici)|60|Contattare il supporto tecnico|
+|Indirizzi IP pubblici (statici)|20|Contattare il supporto tecnico|
+|IP del front-end pubblico per ogni servizio di bilanciamento del carico|5|Contattare il supporto tecnico|
+|IP del front-end privato per ogni servizio di bilanciamento del carico|1|Contattare il supporto tecnico|
 
 Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure-subscription-service-limits.md#networking-limits) in Azure.
 
