@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Risoluzione dei problemi del controllo di accesso basato sui ruoli
@@ -82,4 +82,4 @@ Le risorse correlate delle macchine virtuali sono: * Nomi di dominio * Reti virt
 
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

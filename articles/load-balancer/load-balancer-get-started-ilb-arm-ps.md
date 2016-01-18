@@ -48,7 +48,7 @@ Gli elementi seguenti devono essere configurati prima di creare un servizio di b
 
 - Regole NAT in ingresso: configurazione delle regole della porta per accedere direttamente a una delle istanze di macchina virtuale.
 
-È possibile ottenere altre informazioni sui componenti del servizio di bilanciamento del carico con Gestione risorse di Azure in [Supporto di Gestione risorse di Azure per il servizio di bilanciamento del carico](load-balancer-arm.md).
+È possibile ottenere altre informazioni sui componenti del servizio di bilanciamento del carico con Gestione risorse di Azure in [Supporto di Gestione risorse di Azure per il bilanciamento del carico](load-balancer-arm.md).
 
 I passaggi seguenti illustrano come configurare un servizio di bilanciamento del carico tra 2 macchine virtuali.
 
@@ -118,7 +118,7 @@ Configurazione di un pool di indirizzi IP front-end per il traffico di rete in i
 
 Creare un pool IP front-end usando l'indirizzo IP privato 10.0.2.5 per la subnet 10.0.2.0/24 che sarà l'endpoint del traffico di rete in ingresso.
 
-	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
+	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 
 ### Passaggio 2 
 
@@ -282,4 +282,4 @@ Usare il comando Remove-AzureRmLoadBalancer per eliminare un servizio di bilanci
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

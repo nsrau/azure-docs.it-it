@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ In precedenza, per gestire una risorsa in Microsoft Azure, ad esempio un server 
 
 In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
 
-Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di Azure. Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere [Supporto di Gestione risorse per servizi, aree e versioni API](resource-manager-supported-services.md)
+Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di Azure. Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico di disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Creare risorse e un gruppo di risorse
 
@@ -154,4 +154,4 @@ Introduzione
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

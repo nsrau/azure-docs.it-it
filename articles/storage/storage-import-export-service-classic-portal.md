@@ -19,8 +19,6 @@
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob
 
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
-
 ## Panoramica
 
 È possibile usare il servizio di Importazione/Esportazione di Microsoft Azure per trasferire grandi quantità di dati di file nell'archiviazione BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è realizzabile. È inoltre possibile usare il servizio Importazione/Esportazione per trasferire nelle installazioni locali, nel tempo previsto e in modo conveniente, grandi quantità di dati residenti nell'archiviazione BLOB.
@@ -78,7 +76,7 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 ### Creare il processo di importazione
 
-1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale classico e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. 
+1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. 
  
 2.	Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
  
@@ -98,7 +96,7 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
 
-7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **/Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 	
 	Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
 
@@ -279,4 +277,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

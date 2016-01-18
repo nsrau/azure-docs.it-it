@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Kintone | Microsoft Azure" 
     description="Informazioni su come usare Kintone con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Kintone
   
@@ -111,7 +111,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     3.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
     4.  Fare clic su **Save**.
 
-11. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+11. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -126,7 +126,7 @@ Per consentire agli utenti di Azure AD di accedere a Kintone, è necessario eseg
 
     ![Impostazioni](./media/active-directory-saas-kintone-tutorial/IC785879.png "Impostazioni")
 
-3.  Fare clic su **Amministrazione Utenti e di sistema**.
+3.  Fare clic su **Amministrazione utenti e di sistema**.
 
     ![User & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "User & System Administration")
 
@@ -159,10 +159,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-kintone-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

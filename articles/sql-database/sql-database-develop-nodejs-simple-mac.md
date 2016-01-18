@@ -21,10 +21,7 @@
 # Connettersi al database SQL tramite Node.js con Tedious in Mac OS X
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento presenta un esempio di codice Node.js che viene eseguito in Mac OS X. Nell'esempio ci si connette al database SQL di Azure utilizzando il driver Tedious.
@@ -175,4 +172,4 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

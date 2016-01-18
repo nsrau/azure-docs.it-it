@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: configurazione della Reimpostazione password self-service per gli utenti
@@ -22,7 +22,7 @@
 
 Questa funzionalità consente agli utenti (che hanno effettuato la registrazione agli account locali) di reimpostare le password in modo indipendente. Questo riduce notevolmente il carico per lo staff di supporto, soprattutto se l'applicazione dispone di milioni di clienti che la utilizzano regolarmente. Attualmente, è supportato solo l’utilizzo di un indirizzo di posta elettronica verificato come metodo di ripristino. Verranno aggiunti metodi di ripristino aggiuntivi (numero di telefono verificato, domande di sicurezza e così via) in futuro. Per impostazione predefinita, la directory non avrà la reimpostazione password self-service attivata. Usare i passaggi seguenti per attivarla:
 
-1. Accedere al [portale di Azure](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Questo è lo stesso account di lavoro o scolastico o lo stesso Account Microsoft utilizzato per creare la directory.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Questo è lo stesso account di lavoro o scolastico o lo stesso Account Microsoft utilizzato per creare la directory.
 2. Passare all'estensione Active Directory sulla barra di spostamento sul lato sinistro.
 3. Trovare la directory sotto la scheda **Directory** e fare clic su di essa.
 4. Fare clic sulla scheda **Configura**.
@@ -36,4 +36,4 @@ Per eseguire il test, utilizzare la funzionalità "Run now" in ogni criterio di 
 
 > [AZURE.NOTE]Le pagine di reimpostazione della password self-service sono personalizzabili tramite la [funzionalità marchio della società](active-directory-add-company-branding.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

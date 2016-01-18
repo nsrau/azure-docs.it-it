@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK
@@ -22,7 +22,7 @@
 
 In questa guida sono forniti esempi di codice C# che illustrano come leggere e scrivere le tabelle di archiviazione di Azure usando [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
+Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md) o [più account di archiviazione](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 		
 Alcuni dei frammenti di codice illustrano l'attributo `Table` usato nelle funzioni [chiamate manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e non mediante uno degli attributi del trigger.
 
@@ -163,4 +163,4 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

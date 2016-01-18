@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK
@@ -24,7 +24,7 @@ In questa guida vengono forniti esempi di codice C# che illustrano come attivare
 
 Per gli esempi di codice che illustrano come creare BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
-Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md).
+Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visual Studio con stringhe di connessione che puntano all'account di archiviazione](websites-dotnet-webjobs-sdk-get-started.md) o [più account di archiviazione](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 ## <a id="trigger"></a> Come attivare una funzione quando viene creato o aggiornato un BLOB
 
@@ -89,9 +89,15 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia nel con
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * Altri tipi deserializzati da [ICloudBlobStreamBinder](#icbsb) 
 
 Se si desidera usare direttamente l'account di archiviazione di Azure, è anche possibile aggiungere un parametro `CloudStorageAccount` alla firma del metodo.
+
+Per alcuni esempi, vedere il [codice di associazione BLOB nel repository azure-webjobs-sdk in GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Ottenere contenuti di BLOB di testo tramite associazione alla stringa
 
@@ -152,7 +158,7 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione [MaxDequ
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{nome processo Web}*.Functions.*{nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{Nome WebJob}*.Functions.*{Nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -203,7 +209,7 @@ WebJobs SDK verifica che nessuna funzione `BlobTrigger` venga chiamata più volt
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione chiamata per il BLOB ("*{Nome processo Web}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
+* La funzione chiamata per il BLOB ("*{Nome WebJob}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -232,4 +238,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

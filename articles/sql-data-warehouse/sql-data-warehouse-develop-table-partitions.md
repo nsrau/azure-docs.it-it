@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/28/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partizioni della tabella in SQL Data Warehouse
@@ -333,4 +333,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

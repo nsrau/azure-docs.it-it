@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Ripetizione dei tentativi EntLib per connettersi al database SQL | Microsoft Azure"
 	description="La libreria Enterprise è progettata per semplificare diverse attività per i programmi client dei servizi cloud, inclusa l'integrazione della logica di ripetizione dei tentativi per gli errori temporanei."
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # Codice di esempio: logica di ripetizione tentativi della libreria Enterprise 6, in C&#x23; per la connessione al database SQL
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 In questo argomento viene presentato un esempio di codice completo che illustra la libreria Enterprise (EntLib). EntLib semplifica molte attività per i programmi client che interagiscono con servizi cloud come il database SQL di Azure. L'esempio è incentrato sull'importante attività di inclusione della logica di ripetizione dei tentativi per gli errori temporanei.
@@ -74,10 +70,10 @@ Modalità per l'installazione di EntLib60:
 
 
 - Usare la funzionalità per la gestione dei pacchetti *NuGet* in Visual Studio:
- - In NuGet, cercare **enterpriselibrary**.
+ - In NuGet cercare **enterpriselibrary**.
 
 
-- Nell'[argomento principale della documentazione per EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), individuare la riga denominata **Download**, quindi fare clic su [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) per scaricare i file di assembly binari con estensione .DLL.
+- Nell'[argomento principale della documentazione per EntLib60](http://msdn.microsoft.com/library/dn169621.aspx) individuare la riga denominata **Download**, quindi fare clic su [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) per scaricare i file di assembly binari con estensione DLL.
 
 
 EntLib60 dispone di numerosi file di assembly con estensione .DLL il cui nome inizia con lo stesso prefisso **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, ma per questo esempio di codice sono necessari solo i due assembly seguenti:
@@ -100,10 +96,10 @@ Le classi EntLib vengono utilizzate per creare altre classi EntLib. In questo es
 4. Creare un oggetto **ReliableSqlConnection**. I parametri di input sono:
  - Un oggetto **stringa** con il nome del server e altre informazioni di connessione.
  - Oggetto **RetryPolicy**
-5. Chiamare per la connessione tramite il metodo **RetryPolicy .ExecuteAction**.
+5. Chiamare per la connessione, tramite il metodo **RetryPolicy .ExecuteAction**.
 6. Chiamare il metodo **ReliableSqlConnection .CreateCommand**.
  - Restituisce un oggetto **System.SqlClient.Data.DbCommand**, parte di ADO.NET.
-7. Chiamare per la query tramite il metodo **RetryPolicy .ExecuteAction**.
+7. Chiamare per la query, tramite il metodo **RetryPolicy .ExecuteAction**.
 
 
 ## Compilare ed eseguire l'esempio di codice
@@ -312,11 +308,11 @@ SELECT TOP 3
 ## Collegamenti correlati
 
 
-- Numerosi collegamenti per ottenere altre informazioni sono disponibili in: [Enterprise Library 6, aprile 2013](http://msdn.microsoft.com/library/dn169621.aspx)
+- Numerosi collegamenti per ottenere ulteriori informazioni sono disponibili in: [Libreria Enterprise 6, aprile 2013](http://msdn.microsoft.com/library/dn169621.aspx)
  - Questo argomento include un pulsante nella parte superiore che consente di [scaricare il codice sorgente di EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898), se si è interessati a visualizzare il codice sorgente.
 
 
-- Ebook gratuito in formato .PDF di Microsoft: [Guida per gli sviluppatori a Microsoft Enterprise Library, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145).
+- Ebook gratuito in formato PDF di Microsoft: [Guida per gli sviluppatori alla libreria Microsoft Enterprise, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Spazio dei nomi Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Gigya | Microsoft Azure" 
     description="Informazioni su come usare Gigya con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Gigya
   
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Gigy
 
 ###Per abilitare l'integrazione dell'applicazione per Gigya, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-gigya-tutorial/IC700993.png "Active Directory")
 
@@ -51,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Gigy
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-gigya-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-gigya-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -100,7 +100,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     4.  Nella pagina **Configura accesso Single Sign-On in Gigya** nel portale di Azure copiare il valore di **Formato identificatore nome** e quindi incollarlo nella casella di testo **Name ID Format**.
     5.  Creare un file **con codifica Base 64** dal certificato scaricato.
         
-		>[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
     6.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**.
     7.  Fare clic su **Save Settings**.
@@ -143,10 +143,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-gigya-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -122,4 +122,4 @@ Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

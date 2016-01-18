@@ -24,8 +24,8 @@ Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un lingu
 
 Uno dei principali vantaggi di Azure HDInsight è la separazione tra archiviazione e calcolo dei dati. HDInsight usa l'archivio BLOB di Azure per l'archiviazione dei dati. Un tipico processo comporta 3 parti:
 
-1. **Archiviare dati nell'archivio BLOB di Azure**: un processo che può essere continuo. Ad esempio, i dati meteo, i dati dei sensori, i blog e, in questo caso, i dati sui ritardi dei voli vengono salvati nell'archivio BLOB.
-2. **Eseguire processi**: Quando giunge il momento di elaborare i dati, viene eseguito uno script di Windows PowerShell (o un'applicazione client) per creare un cluster HDInsight, eseguire i processi ed eliminare il cluster. I dati di output dei processi vengono salvati nell'archivio BLOB di Azure e vengono mantenuti anche in seguito all'eliminazione del cluster. In questo modo, l'utente paga solo in base al consumo effettivo.
+1. **Archiviare dati nell'archivio BLOB di Azure:** un processo che può essere continuo. Ad esempio, i dati meteo, i dati dei sensori, i blog e, in questo caso, i dati sui ritardi dei voli vengono salvati nell'archivio BLOB.
+2. **Eseguire processi:** Quando giunge il momento di elaborare i dati, viene eseguito uno script di Windows PowerShell (o un'applicazione client) per creare un cluster HDInsight, eseguire i processi ed eliminare il cluster. I dati di output dei processi vengono salvati nell'archivio BLOB di Azure e vengono mantenuti anche in seguito all'eliminazione del cluster. In questo modo, l'utente paga solo in base al consumo effettivo.
 3. **Recuperare l'output dall'archivio BLOB di Azure** oppure, in questo caso, esportare i dati in un database SQL di Azure.
 
 Nel diagramma seguente vengono illustrati lo scenario e la struttura di questo articolo:
@@ -103,7 +103,7 @@ Per Hadoop MapReduce è prevista l'elaborazione batch. Il modo più economico di
 		
 		$HDInsightClusterName = $namePrefix + "hdi"
 		$httpUserName = "admin"
-		$httpPassword = "Pass@word111"
+		$httpPassword = "<Enter the Password>"
 		
 		$defaultStorageAccountName = $namePrefix + "store"
 		$defaultBlobContainerName = $HDInsightClusterName # use the cluster name
@@ -742,4 +742,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

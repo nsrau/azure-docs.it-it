@@ -8,7 +8,7 @@
 
 3. Nella finestra di dialogo **Modifica contenitore di volumi**, effettuare le seguenti operazioni:
 
-    1. Modificare il nome del contenitore di volumi, modificare la larghezza di banda associata e specificare se i dati presenti nel cloud devono essere crittografati.
+    1. Modificare il nome del contenitore del volume e modificare l'impostazione di larghezza di banda associata. 
 
         ![Modificare il contenitore di volumi con il modello di larghezza di banda 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
@@ -26,4 +26,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

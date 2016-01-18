@@ -32,7 +32,7 @@ Il dispositivo virtuale StorSimple rappresenta una funzionalità aggiuntiva forn
 Il dispositivo virtuale StorSimple è disponibile in due modelli, un modello Standard 8010 e un modello Premium 8020 (introdotto nella versione Update 2). La tabella seguente illustra un confronto tra i due modelli.
 
 
-| Modello del dispositivo | 8010<sup>1, 2</sup> | 8020<sup>3</sup> |
+| Modello del dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacità massima** | 30 TB | 64 TB |
 | **Macchina virtuale di Azure** | Standard\_A3 (4 core, 7 GB di memoria) | Standard\_DS3 (4 core, 14 GB di memoria) |
@@ -41,7 +41,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, un modello Sta
 | **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Indicazioni relative al carico di lavoro** | Recupero a livello di elemento per i file dai backup | Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori <br></br>Dispositivo secondario per il ripristino di emergenza |
  
-<sup>1</sup> *Precedentemente noto come 1100*, <sup>2</sup> *A indica il fattore di forma Azure*, <sup>3</sup> *AP indica il fattore di forma Azure Premium.*
+<sup>1</sup> *precedentemente noto come 1100*.
 
 
 Questo articolo illustra il processo dettagliato per la distribuzione di un dispositivo virtuale StorSimple in Azure. Dopo avere letto l'articolo, si sarà in grado di:
@@ -259,4 +259,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
  
 - Ottenere informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

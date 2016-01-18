@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio
@@ -35,7 +35,7 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
 ### Per abilitare un'applicazione Web per la distribuzione in Azure
 
-1. Per abilitare l'applicazione Web per la distribuzione in Azure, aprire il menu di scelta rapida per un progetto Web nella soluzione e scegliere Aggiungi progetto di distribuzione di Azure.
+1. Per abilitare l'applicazione Web per la distribuzione in Azure, aprire il menu di scelta rapida per un progetto Web nella soluzione e scegliere il pulsante per aggiungere il progetto di distribuzione di Azure.
 
     Si verificano le seguenti azioni:
 
@@ -67,7 +67,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. Per copiare la stringa di connessione ADO.NET da utilizzare per la stringa di connessione, eseguire i passaggi seguenti nel portale di gestione per Azure.
 
-  1. Scegliere il pulsante **Database** e quindi aprire il nodo per la sottoscrizione usata per creare l'istanza del database SQL.
+  1. Scegliere il pulsante **Database**, quindi aprire il nodo per la sottoscrizione utilizzata per creare l'istanza del database SQL.
 
   1. Per visualizzare le istanze disponibili del database SQL, scegliere il nodo **Database SQL**.
 
@@ -133,7 +133,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
     ![VST\_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
 
-1. (Facoltativo) Per annullare il processo di distribuzione, aprire il menu di scelta rapida per la voce nel log attività e scegliere **Annulla e rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
+1. (Facoltativo) Per annullare il processo di distribuzione, aprire il menu di scelta rapida per la voce nel registro attività e scegliere **Annulla e rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
 
     >[AZURE.NOTE]Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
 
@@ -149,7 +149,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
     |Tipo di applicazione Web|Eseguire/Effettuare il debug localmente utilizzando l'emulatore di calcolo|Esecuzione in Azure|
     |---|---|---|
-    |Applicazione Web ASP.NET|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|Scegliere il collegamento ipertestuale URL visualizzato nella scheda **Distribuzione** per il **Log attività di Azure** per caricare la pagina iniziale nel browser.|
+    |Applicazione Web ASP.NET|Nella barra del menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|Scegliere il collegamento ipertestuale URL visualizzato nella scheda **Distribuzione** per il **Log attività di Azure** per caricare la pagina iniziale nel browser.|
     |Applicazione Web ASP.NET MVC 2|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|Scegliere il collegamento ipertestuale URL visualizzato nella scheda **Distribuzione** per il **Log attività di Azure** per caricare la pagina iniziale nel browser.|
     |Applicazione Web ASP.NET MVC 3|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|Scegliere il collegamento ipertestuale URL visualizzato nella scheda **Distribuzione** per il **Log attività di Azure** per caricare la pagina iniziale nel browser.|
     |Applicazione Web ASP.NET MVC 4|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|Scegliere il collegamento ipertestuale URL visualizzato nella scheda **Distribuzione** per il **Log attività di Azure** per caricare la pagina iniziale nel browser.|
@@ -159,8 +159,8 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
     |Applicazione di navigazione Silverlight|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario passare alla pagina specifica per l'applicazione usando il seguente formato per l'URL:`<url for deployment>/<name of page>.aspx`|
     |Applicazione di servizio WCF|È necessario impostare il file con estensione .svc come pagina iniziale per il progetto di servizio WCF. Nella barra dei menu scegliere quindi **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario passare al file con estensione svc per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of service file>.svc`|
     |Applicazione di servizio del flusso di lavoro WCF|È necessario impostare il file con estensione .svc come pagina iniziale per il progetto di servizio WCF. Nella barra dei menu scegliere quindi **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario passare al file con estensione svc per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of service file>.svc`|
-    |Entità dinamiche ASP.NET|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario aggiornare la stringa di connessione (vedere la sezione successiva). È inoltre necessario passare alla pagina specifica per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of page>.aspx`|
-    |Linq ASP.NET Dynamic Data a SQL|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario seguire i passaggi descritti in questa procedura: utilizzare un database SQL Azure per l'applicazione (vedere la sezione precedente in questo argomento). È inoltre necessario passare alla pagina specifica per l'applicazione usando il seguente formato per l'URL: `<url for deployment>/<name of page>.aspx`|
+    |Entità dinamiche ASP.NET|Nella barra del menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario aggiornare la stringa di connessione (vedere la sezione successiva). È inoltre necessario passare alla pagina specifica per l'applicazione utilizzando il seguente formato per l'url: `<url for deployment>/<name of page>.aspx`|
+    |Linq ASP.NET Dynamic Data a SQL|Nella barra dei menu scegliere **Debug**, **Avvia debug** (tastiera: scegliere il tasto **F5**).|È necessario seguire i passaggi descritti in questa procedura: utilizzare un database SQL Azure per l'applicazione (vedere la sezione precedente in questo argomento). È inoltre necessario passare alla pagina specifica per l'applicazione utilizzando il seguente formato per l'url: `<url for deployment>/<name of page>.aspx`|
 
 ## Aggiornamento di una stringa di connessione per entità dinamiche ASP.NET
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

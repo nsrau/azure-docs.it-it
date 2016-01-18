@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/06/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Usare Azure Machine Learning con SQL Data Warehouse
@@ -149,4 +149,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

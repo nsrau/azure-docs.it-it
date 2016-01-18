@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Uso di Gestione snapshot StorSimple per gestire il catalogo di backup
 
 ## Panoramica
 
-La funzione principale di Gestione snapshot StorSimple è consentire di creare copie di backup coerenti con l'applicazione dei volumi di Azure StorSimple sotto forma di snapshot. Gli snapshot vengono quindi elencati in un file XML denominato *catalogo di backup*. Il catalogo di backup consente di organizzare gli snapshot per gruppo di volumi, quindi per snapshot locale o cloud.
+La funzione principale di Gestione snapshot StorSimple è consentire di creare copie di backup coerenti con l'applicazione dei volumi di Azure StorSimple sotto forma di snapshot. Gli snapshot vengono quindi elencati in un file XML denominato *catalogo di backup*. Il catalogo di backup consente di organizzare gli snapshot per gruppo di volumi e quindi per snapshot locali o cloud.
 
 È possibile visualizzare il catalogo di backup espandendo il nodo del **catalogo di backup** nel riquadro **Ambito**, quindi espandendo il gruppo di volumi.
 
@@ -208,4 +208,4 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Ulteriori informazioni sulle[ attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

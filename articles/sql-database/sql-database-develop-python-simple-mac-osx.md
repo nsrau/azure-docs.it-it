@@ -21,10 +21,7 @@
 # Connettersi al database SQL tramite Python su Mac OS
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento presenta un esempio di codice scritto in Python. L'esempio viene eseguito su un computer Mac e si connette a un database SQL di Azure tramite il driver **pymssql**. Inoltre, utilizzare il video [Guida introduttiva a Python su Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) per integrare questa documentazione.
@@ -126,4 +123,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 # Analizzare i log in HDInsight Spark usando una libreria personalizzata (Linux)
@@ -100,7 +100,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 	È quindi necessario eseguire il frammento di codice seguente per distribuire la libreria a tutti i nodi di lavoro nel cluster Spark.
 
 
-		sc.addPyFile('wasb:///example/data/iislogparser.py')
+		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 9. `iislogparser` offre una funzione `parse_log_line` che restituisce `None` se una riga del log è una riga di intestazione e restituisce un'istanza della classe `LogLine` se viene rilevata una riga del log. Usare la classe `LogLine` per estrarre solo le righe del log dall'RDD:
@@ -209,7 +209,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -227,8 +227,8 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gestire risorse
+### Gestire le risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

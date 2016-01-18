@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
@@ -116,4 +116,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi relativi a Visual Studio
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 Il primo passaggio da eseguire per attenersi al codice riportato in questi esempi dipende dal tipo di servizio mobile a cui si è connessi.
 
@@ -80,7 +76,7 @@ Aggiornare una riga in una tabella dati. In questo esempio *todoItem* è l'eleme
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Eliminare una voce
+##Eliminare una voce
 
 Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) restituito per ottenere una copia dell'oggetto inserito e gestire eventuali errori.
 
@@ -92,4 +88,4 @@ Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

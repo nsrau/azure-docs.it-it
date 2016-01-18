@@ -107,6 +107,10 @@ Ora che si è definita l'interfaccia, è necessario implementarla nel servizio c
 2. Individuare la classe che eredita da `StatefulService`, ad esempio `MyStatefulService`, ed estenderla per implementare l'interfaccia `ICounter`.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ Con l'interfaccia `ICounter` implementata, il passaggio finale per consentire al
 
 >[AZURE.NOTE]Il metodo equivalente per aprire un canale di comunicazione con i servizi senza stato è denominato `CreateServiceInstanceListeners`.
 
-In questo caso verrà fornito un oggetto `ServiceRemotingListener`, che crea un endpoint RPC chiamabile dai client tramite `ServiceProxy`.
+In questo caso, verrà sostituito il metodo `CreateServiceReplicaListeners` esistente e verrà fornito un oggetto `ServiceRemotingListener`, che crea un endpoint RPC chiamabile dai client tramite `ServiceProxy`.
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ Il servizio con stato ora è pronto per ricevere il traffico da altri servizi, q
 3. Nella cartella dei controller aprire la classe `ValuesController`. Attualmente, il metodo `Get` restituisce solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto si è visto prima nel browser. Sostituire l'implementazione con il codice seguente:
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -221,4 +234,4 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

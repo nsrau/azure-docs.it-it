@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/17/2015" 
 	ms.author="stefsch"/>
 
 # Panoramica dell'architettura di rete degli ambienti del servizio app
@@ -44,7 +44,7 @@ Se l'endpoint da chiamare è all'**esterno** della topologia di rete virtuale, l
  
 ![Indirizzo IP in uscita][OutboundIPAddress]
 
-Questo indirizzo può essere determinato anche creando un'app nell'ambiente del servizio app e quindi eseguendo *nslookup* nell'indirizzo dell'app. L'indirizzo IP risultante è sia l'indirizzo VIP pubblico che l'indirizzo NAT in uscita dell'ambiente del servizio app.
+Questo indirizzo può essere determinato anche creando un'app nell'ambiente del servizio app e quindi eseguendo *nslookup* nell'indirizzo dell'app. L'indirizzo IP risultante è sia l'indirizzo VIP pubblico sia l'indirizzo NAT in uscita dell'ambiente del servizio app.
 
 Se l'endpoint da chiamare è all'**interno** della topologia di rete virtuale, l'indirizzo in uscita dell'app chiamante sarà l'indirizzo IP interno della singola risorsa di calcolo che esegue l'app. Tuttavia non esiste un mapping persistente degli indirizzi IP interni di rete virtuale alle app. Le app possono spostarsi in risorse di calcolo diverse e il pool di risorse di calcolo disponibili in un ambiente del servizio app può essere modificato in seguito a operazioni di ridimensionamento.
 
@@ -87,4 +87,4 @@ Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -256,15 +256,13 @@ Se si non utilizza la porta SSH predefinita 22 durante la creazione della macchi
 
 ### Esempio: output della sessione SSH mediante le chiavi .pem e la distribuzione classica
 
-Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/.ssh/id_rsa` file, è possibile collegarsi a SSH direttamente in quella macchina virtuale. Si noti che quando si esegue questa operazione, il certificato handshake utilizzerà la chiave privata in `~/.ssh/id_rsa`. Sarà simile all’esempio seguente:
+Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/.ssh/id_rsa` file, è possibile collegarsi a SSH direttamente in quella macchina virtuale. Si noti che quando si esegue questa operazione, il certificato handshake utilizzerà la chiave privata in `~/.ssh/id_rsa`. Il processo di creazione della macchina virtuale calcola la chiave pubblica dal file con estensione pem e inserisce la chiave pubblica, nel formato ssh-rsa, in `~/.ssh/authorized_users`. La connessione sarà simile all'esempio seguente:
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Saving password to keychain failed
-	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +296,4 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
  
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

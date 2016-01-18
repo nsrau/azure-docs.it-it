@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Concatenamento di entità del bus di servizio con l'inoltro automatico
 
 La funzionalità di *inoltro automatico* consente di concatenare una coda o una sottoscrizione a una coda o un argomento differente che fa parte dello stesso spazio dei nomi del servizio. Quando l'inoltro automatico è abilitato, il bus di servizio rimuove automaticamente i messaggi presenti nella prima coda o sottoscrizione (origine) e li inserisce nella seconda coda o nell'argomento (destinazione). Si noti che è comunque possibile inviare un messaggio direttamente all'entità di destinazione. Tenere inoltre presente che non è possibile concatenare una coda secondaria, ad esempio una coda di messaggi non recapitabili, a una coda o un argomento differente.
 
-## Uso dell'inoltro automatico
+## Utilizzo dell'inoltro automatico
 
 Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][] o [SubscriptionDescription.ForwardTo][] nell'oggetto [QueueDescription][] o [SubscriptionDescription][] per l'origine, come mostrato nell'esempio seguente.
 
@@ -59,7 +59,7 @@ Per informazioni dettagliate sull'inoltro automatico, vedere gli argomenti di ri
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Partizionamento delle entità di messaggistica][].
+Per altre informazioni sui miglioramenti di prestazioni del bus di servizio, vedere [Entità di messaggistica partizionate][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partizionamento delle entità di messaggistica]: service-bus-partitioning.md
+  [Entità di messaggistica partizionate]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

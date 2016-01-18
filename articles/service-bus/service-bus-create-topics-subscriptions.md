@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Crea applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio
@@ -148,6 +148,6 @@ Tutti i motivi per utilizzare l’accodamento messaggi descritto in [Creare appl
 
 ## Passaggi successivi
 
-Vedere [Creare applicazioni che utilizzano gli argomenti e le sottoscrizioni del Bus di servizio ](service-bus-create-topics-subscriptions.md) per vedere come utilizzare le code nello scenario di vendita al dettaglio POS.
+Vedere [Creare applicazioni che utilizzano le code del Bus di servizio](service-bus-create-queues.md) per informazioni su come usare le code nello scenario di vendita al dettaglio POS.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

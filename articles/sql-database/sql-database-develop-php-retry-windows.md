@@ -21,10 +21,7 @@
 # Connettersi al Database SQL tramite PHP su Windows con la gestione degli errori temporanei
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento illustra come connettersi al database SQL di Azure da un'applicazione client scritta in PHP che viene eseguita in Windows.
@@ -139,4 +136,4 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 
 Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

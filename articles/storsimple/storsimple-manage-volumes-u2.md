@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
@@ -108,7 +108,7 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u2.md#step-6-creat
 
 3. Fare clic su **Add** nella parte inferiore della pagina. Verrà avviata la procedura guidata Aggiungi volume.
 
-     ![Aggiungi procedura guidata del volume Impostazioni di base](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Aggiungi procedura guidata del volume Impostazioni di base](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. Nella procedura guidata Aggiungi un volume, in **Impostazioni di base**, procedere come segue:
 
@@ -117,22 +117,19 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u2.md#step-6-creat
   3. Se nel passaggio 2 è stato selezionato **A livelli**, è possibile selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** per configurare un volume di archivio.
   4. Immettere la **Capacità provisioning** per il volume in GB o TB. Vedere [Capacità con provisioning](#provisioned-capacity) per conoscere le dimensioni massime per ogni tipo di dispositivo e di volume. Esaminare la **Capacità disponibile** per determinare quanto spazio di archiviazione sia attualmente disponibile nel dispositivo.
 
-    Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
+5. Fare clic sull'icona a forma di freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
 
-    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    Verrà visualizzata la pagina seguente.
+    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. Fare di nuovo clic sull'icona a forma di freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive**.
 
     ![Aggiungi procedura guidata del volume Impostazioni aggiuntive](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)per passare alla pagina **Impostazioni aggiuntive**.
 
 6. Nella finestra di dialogo **Impostazioni aggiuntive**, aggiungere un nuovo record di controllo di accesso (ACR):
   
   1. Selezionare un record di controllo di accesso (ACR) dall'elenco a discesa. In alternativa, è possibile aggiungere un nuovo ACR. Gli ACR determinano quali host possono accedere ai volumi creando una corrispondenza tra il nome qualificato ISCSI dell'host e quello elencato nel record. Se non si specifica un ACR, verrà visualizzato il messaggio seguente.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. È consigliabile selezionare la casella di controllo **Abilita un criterio di backup predefinito per questo volume**.
   3. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) per creare il volume con le impostazioni specificate.
@@ -174,7 +171,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
    1. Andare a **Gestione Computer** ->**Gestione disco**.
    2. Fare doppio clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Ripeti analisi dischi**.
-   3. Nell'elenco dei dischi selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi scegliere **Estendi volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
+   3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
    4. Completare la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
 
     >[AZURE.NOTE]Se si espande un volume aggiunto in locale e quindi se ne espande un altro subito dopo, i processi di espansione dei volumi vengono eseguiti in sequenza. Il primo processo di espansione del volume deve terminare prima che possa iniziare quello successivo.
@@ -211,13 +208,11 @@ Quando un volume aggiunto in locale viene creato, ne viene effettuato il provisi
     - Se si imposta il tipo su **Volume aggiunto**, StorSimple verificherà se la capacità è sufficiente.
     - Se si imposta il tipo su **A livelli** e questo volume verrà usato per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
 
-    ![Casella di controllo per l'archivio](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![Casella di controllo per l'archivio](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive**.
+5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive**. Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
 
-    Viene visualizzato il messaggio seguente.
-
-    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. Fare di nuovo clic sull'icona a freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per continuare.
 
@@ -280,9 +275,7 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
 4. Nella parte inferiore della pagina fare clic su **Modifica**.
 
-5. Nella procedura guidata Modifica volume, in **Impostazioni di base** selezionare **Abilita** o **Disabilita** nell'elenco a discesa **Monitoraggio**.
-
-    ![Casella di controllo per l'archivio](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+5. Nella procedura guidata Modifica volume in **Impostazioni di base**, selezionare **Abilita** o **Disabilita** dall’elenco a discesa **Monitoraggio**.
 
 ## Passaggi successivi
 
@@ -291,4 +284,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

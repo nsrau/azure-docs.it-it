@@ -8,14 +8,14 @@
     manager="stevenpo"
     editor=""/>
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="12/01/2015"
-      ms.author="curtand"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="01/05/2016"
+    ms.author="curtand"/>
 
 # Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS  
 
@@ -49,7 +49,7 @@ L'impostazione di Single Sign-On per un'applicazione in uso nell'organizzazione 
 
 Un'identità utente in genere è un identificatore univoco che può essere un indirizzo di posta elettronica o un nome dell'entità utente (UPN). Sarà necessario collegare (mappare) ciascuna identità utente dell'applicazione alla rispettiva identità di Azure AD. Per eseguire questa operazione è possibile procedere in due modi, a seconda dei requisiti di autenticazione dell'applicazione.
 
-Per altre informazioni sul mapping delle identità delle applicazioni alle identità di Azure AD, vedere l'articolo relativo alla [Personalizzazione delle attestazioni rilasciate nel token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) e la pagina [Personalizzazione dei mapping degli attributi per il provisioning](active-directory-saas-customizing-attribute-mappings.md).
+Per altre informazioni sul mapping delle identità delle applicazioni alle identità di Azure AD, vedere l'articolo relativo alla [personalizzazione delle attestazioni rilasciate nel token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) e la pagina [Personalizzazione dei mapping degli attributi per il provisioning](active-directory-saas-customizing-attribute-mappings.md).
 
 ### Informazioni sull'esperienza utente all'accesso
 
@@ -68,4 +68,4 @@ Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta
 
 La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
@@ -36,7 +36,7 @@ Sarà necessario [registrare un'applicazione](active-directory-b2c-app-registrat
 
 - Creare una delle applicazioni di avvio rapido di Azure Active Directory B2C elencate [qui](active-directory-b2c-overview.md#getting-started).
 - Usare l'applicazione esistente [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net). In questo caso, è necessario registrare un'applicazione nel tenant B2C usando l'**URI di reindirizzamento** `https://aadb2cplayground.azurewebsites.net/`
-- Usare il pulsante **Esegui adesso** nel criterio nel [portale di anteprima di Azure](https://portal.azure.com).
+- Usare il pulsante **Esegui adesso** nel criterio nel [portale di Azure](https://portal.azure.com).
 
 ## Personalizzare il criterio
 
@@ -44,7 +44,7 @@ Per personalizzare l'aspetto dei criteri, è necessario prima creare file HTML e
 
 A fini di questa esercitazione, il contenuto di esempio è stato già creato ed è ospitato in Archiviazione BLOB di Azure. Si tratta di una personalizzazione di base del tema della società fittizia "Contoso B2C". Per provarlo nel proprio criterio, seguire questa procedura:
 
-1. Accedere al proprio tenant nel [portale di anteprima di Azure](https://portal.azure.com) e passare al pannello delle funzionalità B2C.
+1. Accedere al proprio tenant nel [portale di Azure](https://portal.azure.com) e passare al pannello delle funzionalità B2C.
 2. Fare clic su **Criteri di iscrizione** e quindi sul criterio stesso, ad esempio, "b2c\_1\_sign\_up".
 3. Fare clic su **Personalizzazione interfaccia utente della pagina** e quindi su **Pagina di selezione del provider di identità**.
 4. Impostare l'interruttore **Usa modello personalizzato** su **Sì**. Nel campo **URI pagina personalizzata** immettere `https://contosob2c.blob.core.windows.net/static/Index.html`. Fare clic su **OK**.
@@ -59,11 +59,11 @@ Se si desidera usare Archiviazione BLOB di Azure per ospitare il contenuto della
 
 #### Creare un account di archiviazione
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **+ Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. Fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per usare la versione di valutazione gratuita.
 3. Specificare un valore in **Nome** per l'account di archiviazione, ad esempio "contoso", e selezionare le voci appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**.
 4. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
-5. Nella sezione **Riepilogo** fare clic su **Contenitori** e quindi su **+ Aggiungi**.
+5. Nella sezione **Riepilogo** fare clic su **Contenitori** e quindi su **Aggiungi**.
 6. Specificare un valore in **Nome** per il contenitore, ad esempio "b2c", e quindi selezionare **BLOB** come **Tipo di accesso**. Fare clic su **OK**.
 7. Il contenitore appena creato verrà visualizzato nell'elenco nel pannello **BLOB**. Prendere nota dell'URL del contenitore, che dovrebbe avere un aspetto simile al seguente: `https://contoso.blob.core.windows.net/b2c`. Chiudere il pannello **BLOB**.
 8. Nel pannello dell'account di archiviazione fare clic su **Chiavi** e prendere nota dei valori dei campi **Nome account di archiviazione** e **Chiave di accesso primaria**.
@@ -90,4 +90,4 @@ Dopo aver caricato il contenuto di esempio nell'account di archiviazione, è nec
         
 È ora possibile usare il pulsante **Esegui adesso** o la propria applicazione per eseguire nuovamente il criterio. Il risultato dovrebbe essere lo stesso, poiché in entrambi i casi sono stati usati gli stessi file HTML e CSS di esempio. I criteri tuttavia fanno ora riferimento alla propria istanza di Archiviazione BLOB di Azure e si è liberi di modificare e caricare di nuovo i file in base alle proprie esigenze. Per altre informazioni sulla personalizzazione dei file HTML e CSS, fare riferimento all'[articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

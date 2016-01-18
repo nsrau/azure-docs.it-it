@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	editor="monicar"    
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
+	ms.date="01/06/2015"
 	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
@@ -24,7 +24,7 @@
 
 [Archiviazione Premium di Azure](../storage-premium-storage-preview-portal.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](http://azure.microsoft.com/services/virtual-machines/) IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
  
 
 In questo articolo sono fornite indicazioni per la migrazione di una macchina virtuale che esegue SQL Server per l’uso di Archiviazione Premium. Sono inclusi i passaggi relativi all'infrastruttura di Azure (rete, archiviazione) e alle macchine virtuali guest di Windows. Nell'esempio incluso nell'[Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) viene mostrata una migrazione end-to-end completa in cui vengono spostate le macchine virtuali più grandi per sfruttare i vantaggi dell'archiviazione SSD locale migliorata con PowerShell.
@@ -380,7 +380,7 @@ Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di
 1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
 1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
 
-#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
 
 Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
@@ -402,7 +402,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Copiare i backup completi e ripristinare con **NORECOVERY**.
 1. Copiare gli oggetti dipendenti esterni al database utente, ad esempio nomi di accesso e così via.
 1. Crea un nuovo servizio di carico bilanciamento interno (ILB) oppure utilizzare un servizio di bilanciamento del carico esterno (ELB) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
-> [AZURE.NOTE]Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
+> [AZURE.NOTE] Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
 
 1. Impedire all'utente/applicazione l’accesso a SQL Server (se si utilizzano pool di archiviazione).
 1. Arrestare i servizi motore di SQL Server in tutti i nodi (se si utilizzano il pool di archiviazione).
@@ -427,7 +427,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2. Eseguire la migrazione a un nuovo cluster di AlwaysOn
 
 Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
 
@@ -458,7 +458,7 @@ Sono disponibili due strategie per la migrazione delle distribuzioni di AlwaysOn
 1. **Utilizzare una replica secondaria esistente: singolo sito**
 1. **Utilizzare repliche secondarie esistenti: multisito**
 
-#### 1\. Utilizzare una replica secondaria esistente: singolo sito
+#### 1. Utilizzare una replica secondaria esistente: singolo sito
 
 Una strategia per il tempo di inattività minimo consiste nel rimuovere una replica secondaria del cloud esistente dal servizio cloud corrente. Successivamente si copiano i dischi rigidi virtuali nel nuovo account di Archiviazione Premium e si crea la macchina virtuale nel nuovo servizio cloud. A questo punto, si aggiorna il listener in clustering e failover.
 
@@ -468,7 +468,7 @@ Una strategia per il tempo di inattività minimo consiste nel rimuovere una repl
 - La riconnessione del client potrebbe essere rimandata a seconda della configurazione client/DNS.
 - Un ulteriore tempo di inattività si verifica se si sceglie di portare offline il gruppo di cluster AlwaysOn per sostituire gli indirizzi IP. È possibile evitare questa situazione utilizzando una dipendenza OR e possibili proprietari per la risorsa indirizzo IP aggiunto. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE]Quando si desidera che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un Endpoint di Azure con un riferimento al set con bilanciamento del carico. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuni verificare questa durata.
+> [AZURE.NOTE] Quando si desidera che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un Endpoint di Azure con un riferimento al set con bilanciamento del carico. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuno verificare questa durata.
 
 ##### Vantaggi
 
@@ -504,7 +504,7 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
 - Se si utilizzano i passaggi 5ii, aggiungere SQL1 come possibile proprietario per la risorsa indirizzo IP aggiunto
 - Testare i failover.
 
-#### 2\. Utilizzare repliche secondarie esistenti: multisito
+#### 2. Utilizzare repliche secondarie esistenti: multisito
 
 Se si dispone di nodi in più centri dati Azure o se si dispone di un ambiente ibrido, è possibile utilizzare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
 
@@ -1149,4 +1149,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

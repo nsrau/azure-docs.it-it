@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -33,48 +33,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 <!-- ################################ -->
 
 
-##Installare Azure PowerShell 1.0 e versioni successive
+##Installare Azure PowerShell 1.0 o versioni successive
 
-È innanzitutto necessario disinstallare le versioni 0.9x.
-
-Per controllare la versione di PowerShell installata:
-
-	Get-Module *azure*
-	
-Per disinstallare la versione precedente, eseguire Programmi e Funzionalità nel Pannello di controllo.
-
-Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
-
-- [Raccolta di PowerShell](https://www.powershellgallery.com/). Dalla console di Windows PowerShell con privilegi elevati o di PowerShell ISE con privilegi elevati, eseguire i comandi seguenti:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
-
-	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
-
-- [Installazione guidata della piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
-
-**Per visualizzare l'elenco dei cmdlet**:
-
-	Get-Command *Azure*DataLakeAnalytics*
-
-**Per connettersi ad Azure, usare i cmdlet seguenti**:
-
-	Login-AzureRmAccount
-	Get-AzureRmSubscription  # for finding the Azure Subscription ID
-	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+Vedere la sezione relativa ai prerequisiti di [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md#prerequisites).
 	
 ## Gestire account
 
@@ -205,7 +166,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### Aggiungere altri account di Data Lake Store
 
@@ -213,7 +174,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
 
 ### Elencare le origini dati:
 
@@ -235,49 +196,49 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### Ottenere i dettagli dei processi
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
 	
 ### Inviare i processi
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -286,26 +247,26 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 ### Annullare i processi
 
-	Stop-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-JobID $jobID
 
 
 ## Gestire gli elementi del catalogo
 
-Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
+Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere la pagina di [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 ###Elencare gli elementi del catalogo
 
 	#List databases
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database
 	
 	
 	
 	#List tables
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo"
 
@@ -313,32 +274,32 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
 
 	#Get a database
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 	
 	#Get a table
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo.mytable"
 
 ###Verificare l'esistenza dell'elemento del catalogo
 
 	Test-AzureRmDataLakeAnalyticsCatalogItem  `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 
 ###Creare il segreto del catalogo
 	New-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
 ### Modificare il segreto del catalogo
 	Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
@@ -346,7 +307,7 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
 
 ###Eliminare il segreto del catalogo
 	Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master"
 
 
@@ -431,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

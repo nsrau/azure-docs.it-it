@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per conoscere utili modelli di elaborazione dei messaggi da dispositivo a cloud dell'hub IoT."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="fsautomata"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,37 +13,37 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
-     ms.author="elioda"/>
+     ms.date="01/05/2016"
+     ms.author="dobett"/>
 
 # Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT
 
 ## Introduzione
 
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Le esercitazioni precedenti ([Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT]) illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT e come accedervi dai dispositivi e dai componenti cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e protette tra milioni di dispositivi IoT e un back-end dell'applicazione. Altre esercitazioni, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
 
-Questa esercitazione si basa sul codice fornito in [Introduzione all'hub IoT] per presentare due modelli di elaborazione dei messaggi da dispositivo a cloud.
+Questa esercitazione è basata sul codice mostrato nell'esercitazione [Introduzione all'hub IoT] e illustra due modelli scalabili che è possibile usare per elaborare i messaggi da dispositivo a cloud:
 
-Il primo modello prevede l'archiviazione affidabile dei messaggi da dispositivo a cloud nei [BLOB di Azure]. Questo scenario è molto comune quando si implementa l'analisi dei *percorsi a freddo*, in cui i dati archiviati nei BLOB vengono usati come input per l'analisi basata su strumenti come [Data factory di Azure] o lo stack [Hadoop].
+- L'archiviazione affidabile dei messaggi da dispositivo a cloud nell'[Archivio BLOB di Azure]. Questo scenario è molto comune quando si implementa l'analisi dei *percorsi non critici*, in cui i dati archiviati nei BLOB vengono usati come input per processi di analisi basata su strumenti come [Data factory di Azure] o lo stack [HDInsight (Hadoop)].
 
-Il secondo modello prevede l'elaborazione affidabile di messaggi da dispositivo a cloud *interattivi*. I messaggi da dispositivo a cloud sono detti *interattivi* quando sono trigger immediati per un set di azioni nel back-end applicazioni, contrariamente a un messaggio di *punto dati* che viene inserito in un motore di analisi. Ad esempio, un avviso proveniente da un dispositivo che deve attivare l'inserimento di un ticket in un sistema CRM è un messaggio da dispositivo a cloud *interattivo*, contrariamente a un messaggio relativo alla telemetria contenente esempi di temperatura, che è un messaggio di *punto dati*.
+- L'elaborazione affidabile di messaggi da dispositivo a cloud *interattivi*. I messaggi da dispositivo a cloud sono detti interattivi quando sono trigger immediati per un set di azioni nel back-end dell'applicazione, contrariamente ai messaggi di *punti dati* che vengono inseriti in un motore di analisi. Ad esempio, un avviso proveniente da un dispositivo che deve attivare l'inserimento di un ticket in un sistema CRM è un messaggio da dispositivo a cloud interattivo, mentre i dati di telemetria come i campioni di temperatura rappresentano un messaggio di punti dati.
 
-Poiché l'hub IoT espone un endpoint compatibile con Hub eventi per ricevere i messaggi da dispositivo a cloud, questa esercitazione usa [EventProcessorHost] per ospitare una classe di processori di eventi, che:
+Dal momento che l'hub IoT espone un endpoint compatibile con Hub eventi per ricevere i messaggi da dispositivo a cloud, questa esercitazione usa un'istanza di [EventProcessorHost] che:
 
-* Archivia in modo affidabile i messaggi di *punto dati* nei BLOB di Azure
+* Archivia in modo affidabile i messaggi di *punti dati* nei BLOB di Azure.
 * Inoltra i messaggi da dispositivo a cloud *interattivi* a una [coda del bus di servizio] per l'elaborazione immediata.
 
-Il [bus di servizio][Service Bus Queue] è un ottimo modo per assicurare un'elaborazione affidabile dei messaggi interattivi, perché fornisce checkpoint per ogni messaggio e la deduplicazione basata su finestre temporali.
+Il bus di servizio è un ottimo modo per assicurare un'elaborazione affidabile dei messaggi interattivi, perché fornisce checkpoint per ogni messaggio e la deduplicazione basata su finestre temporali.
 
 Al termine di questa esercitazione si eseguiranno tre applicazioni console Windows:
 
-* **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all'hub IoT], che invia i messaggi da dispositivo a cloud dei *punti dati* ogni secondo e i messaggi da dispositivo a cloud *interattivi* ogni 10 secondi.
-* **ProcessDeviceToCloudMessages**, che usa [EventProcessorHost] per archiviare in modo affidabile i messaggi dei *punti dati* in un BLOB di Azure e inoltra i messaggi *interattivi* a una coda del bus di servizio.
-* **ProcessD2cInteractiveMessages**, che rimuove dalla coda i messaggi.
+* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione all'hub IoT], che invia messaggi da dispositivo a cloud di punti dati ogni secondo e messaggi da dispositivo a cloud interattivi ogni 10 secondi.
+* **ProcessDeviceToCloudMessages**, che usa la classe [EventProcessorHost] per recuperare i messaggi dall'endpoint compatibile con Hub eventi e quindi archiviare in modo affidabile i messaggi di punti dati in un BLOB di Azure e per inoltrare i messaggi interattivi a una coda del bus di servizio.
+* **ProcessD2CInteractiveMessages**, che rimuove i messaggi interattivi dalla coda del bus di servizio.
 
-> [AZURE.NOTE]L'hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo Azure IoT. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure.
+> [AZURE.NOTE] L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, come connettere dispositivi all'hub IoT di Azure.
 
-> [AZURE.NOTE]Il contenuto di questa esercitazione è direttamente applicabile ad altri modi di utilizzare i messaggi compatibili con Hub eventi, ad esempio i progetti [Hadoop] come Storm. Per altre informazioni, vedere [Linee guida dell'hub IoT - Compatibilità con Hub eventi].
+Questa esercitazione è direttamente applicabile ad altri modi di utilizzare i messaggi compatibili con Hub eventi, ad esempio i progetti [HDInsight (Hadoop)]. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud].
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -51,7 +51,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
-È richiesta anche una certa conoscenza del servizio di [Archiviazione di Azure] e del [Bus di servizio di Azure].
+È richiesta una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
 
 
 [AZURE.INCLUDE [iot-hub-process-d2c-device-csharp](../../includes/iot-hub-process-d2c-device-csharp.md)]
@@ -63,19 +63,19 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 A questo punto è possibile eseguire le applicazioni.
 
-1.	In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2cInteractiveMessages**.
+1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per i progetti **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
 
-2.	Premere **F5**. Tutte le applicazioni verranno avviate e ogni messaggio interattivo inviato dal dispositivo simulato verrà elaborato dal processore di messaggi interattivi.
+2.	Premere **F5** per avviare le tre applicazioni console. L'applicazione **ProcessD2CInteractiveMessages** deve elaborare tutti i messaggi interattivi inviati dall'applicazione **SimulatedDevice**.
 
   ![][50]
 
-> [AZURE.NOTE]Per visualizzare il file BLOB mentre viene aggiornato, potrebbe essere necessario impostare la costante `MAX_BLOCK_SIZE` in `StoreEventProcessor` su un valore più basso (ad esempio, `1024`). Infatti il raggiungimento del limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere qualche minuto. Con tale modifica, dovrebbe essere possibile visualizzare la creazione e l'aggiornamento di un BLOB nel contenitore di archiviazione.
+> [AZURE.NOTE] Per visualizzare gli aggiornamenti nel file BLOB, potrebbe essere necessario ridurre la costante **MAX\_BLOCK\_SIZE** nella classe **StoreEventProcessor** a un valore inferiore, ad esempio **1024**. Questo perché raggiungere il limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere tempo. Con una dimensione del blocco ridotta, la creazione e l'aggiornamento del BLOB richiedono meno tempo. Tuttavia, una dimensione del blocco maggiore rende l'applicazione più scalabile.
 
 ## Passaggi successivi
 
-In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud dei *punti dati* e *interattivi* con [EventProcessorHost]. Una logica analoga di elaborazione dei messaggi può essere implementata con:
+In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud di punti dati e interattivi con la classe [EventProcessorHost].
 
-- [Caricamento di file da dispositivi] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
+L'[esercitazione sul caricamento di file da dispositivi] si basa su questa esercitazione e fa uso della logica di elaborazione dei messaggi analoghi. L'esercitazione descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
 
 Altre informazioni sull'hub IoT:
 
@@ -91,34 +91,31 @@ Altre informazioni sull'hub IoT:
 
 <!-- Links -->
 
-[BLOB di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-dotnet-how-to-use-blobs/
+[Archivio BLOB di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-dotnet-how-to-use-blobs/
 [Data factory di Azure]: https://azure.microsoft.com/it-IT/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/it-IT/documentation/services/hdinsight/
-[Service Bus Queue]: https://azure.microsoft.com/it-IT/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/it-IT/documentation/services/hdinsight/
 [coda del bus di servizio]: https://azure.microsoft.com/it-IT/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
+
 [Gestione degli errori temporanei]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
 
-[Linee guida dell'hub IoT - Compatibilità con Hub eventi]: iot-hub-guidance.md#eventhubcompatible
+[Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud]: https://azure.microsoft.com/it-IT/documentation/articles/iot-hub-devguide/#d2c
 
 [Archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/services/storage/
-[Bus di servizio di Azure]: https://azure.microsoft.com/it-IT/documentation/services/service-bus/
+[bus di servizio di Azure]: https://azure.microsoft.com/it-IT/documentation/services/service-bus/
 
-[Azure portal]: https://portal.azure.com/
+
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Elaborare messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
-[Caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
+[esercitazione sul caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
 [Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
 [Linee guida dell'hub IoT]: iot-hub-guidance.md
 [Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
+[Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

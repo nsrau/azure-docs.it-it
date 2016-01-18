@@ -74,7 +74,7 @@ Per impostazione predefinita, tutti i documenti sono indicizzati automaticamente
 ## Passaggi successivi
 Per istruzioni su come monitorare i livelli di prestazioni nel portale di Azure, vedere [Monitorare un account DocumentDB](documentdb-monitor-accounts.md).
 
-Per altre informazioni sulla scelta dei livelli di prestazioni delle raccolte, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels).
+Per altre informazioni sulla scelta dei livelli di prestazioni delle raccolte, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

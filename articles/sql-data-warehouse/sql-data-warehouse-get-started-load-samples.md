@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Caricare i dati di esempio in SQL Data Warehouse
@@ -73,12 +73,12 @@ In realtà, SQL Data Warehouse supporta quasi tutti i costrutti T-SQL di SQL Ser
 
 
 ## Passaggi successivi
-Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [caricare][] o [migrare][].
+Dopo essersi esercitati con i dati di esempio, è possibile vedere come [sviluppare][], [caricare][] o [eseguire la migrazione][].
 
 <!--Image references-->
 
 <!--Article references-->
-[migrare]: ./sql-data-warehouse-overview-migrate.md
+[eseguire la migrazione]: ./sql-data-warehouse-overview-migrate.md
 [sviluppare]: ./sql-data-warehouse-overview-develop.md
 [caricare]: ./sql-data-warehouse-overview-load.md
 [connessione ed esecuzione di query]: ./sql-data-warehouse-get-started-connect.md
@@ -94,4 +94,4 @@ Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

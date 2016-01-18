@@ -19,9 +19,9 @@
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
 
-Gli sviluppatori possono utilizzare l'insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. L’insieme di credenziali chiave supporta più tipi di chiave e di algoritmi e può essere utilizzato con i moduli di protezione hardware (HSM) per le chiavi clienti di alto valore. Inoltre, è possibile utilizzare l’insieme di credenziali chiave per l'archiviazione protetta delle informazioni riservate che sono oggetti ottetto di dimensioni limitate senza una semantica specifica. Un insieme di credenziali chiave può contenere una combinazione di chiavi e di informazioni riservate. Il controllo di accesso per i tipi di oggetti viene gestito in modo indipendente.
+Gli sviluppatori possono usare l'insieme di credenziali delle chiavi di Azure per gestire le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. L'insieme di credenziali delle chiavi supporta più tipi di chiavi e algoritmi e può essere usato con i moduli di protezione hardware per le chiavi di alto valore. Inoltre, è possibile utilizzare l’insieme di credenziali chiave per l'archiviazione protetta delle informazioni riservate che sono oggetti ottetto di dimensioni limitate senza una semantica specifica. Il controllo di accesso per i tipi di oggetti viene gestito in modo indipendente.
 
-Gli utenti, per i quali l'autorizzazione ha esito positivo, possono effettuare le seguenti operazioni:
+Gli utenti per i quali l'autorizzazione ha esito positivo possono eseguire le operazioni seguenti:
 
 - Gestire le chiavi di crittografia utilizzando [Crea](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importa](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Aggiorna](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Elimina](https://msdn.microsoft.com/library/azure/dn903611.aspx) e altre operazioni
 
@@ -29,7 +29,7 @@ Gli utenti, per i quali l'autorizzazione ha esito positivo, possono effettuare l
 
 - Utilizzare le chiavi di crittografia con le operazioni [Accedi](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verifica](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) e [Crittografa](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrittografa](https://msdn.microsoft.com/library/azure/dn878097.aspx)
 
-Le operazioni sugli insiemi di credenziali chiave vengono autenticate e autorizzate tramite Azure Active Directory.
+Le operazioni sugli insiemi di credenziali delle chiavi vengono autenticate e autorizzate tramite Azure Active Directory.
 
 ## Programmazione dell'insieme di credenziali chiave
 
@@ -65,4 +65,4 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 
 - Le [estensioni dell'insieme di credenziali delle chiavi di Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornisce funzionalità estese per l'insieme di credenziali delle chiavi di Azure.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

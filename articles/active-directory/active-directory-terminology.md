@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Terminologia di Azure AD
@@ -43,4 +43,4 @@ Account aziendale o dell'istituto di istruzione | Un account utente assegnato da
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrizioni e limiti del servizio Azure AD](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

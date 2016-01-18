@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/28/2015"
 	ms.author="krisragh"/>
 
 # Aggiungere l'autenticazione all'app iOS
@@ -46,4 +46,4 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
 [Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016--->

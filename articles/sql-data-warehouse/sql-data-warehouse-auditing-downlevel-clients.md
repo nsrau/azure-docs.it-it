@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL Data Warehouse supporto client di livello inferiore per controllo dati | Microsoft Azure" 
-	description="Informazioni sul supporto di client di livello inferiore di SQL Data Warehouse per il controllo dati" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="SQL Data Warehouse supporto client di livello inferiore per controllo dati | Microsoft Azure" 
+   description="Informazioni sul supporto di client di livello inferiore di SQL Data Warehouse per il controllo dati" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica 
 
@@ -40,4 +40,4 @@ Un elenco parziale di "client di livello inferiore" include:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

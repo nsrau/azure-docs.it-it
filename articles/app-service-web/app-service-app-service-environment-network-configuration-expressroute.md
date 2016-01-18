@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -29,9 +29,9 @@ I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'
 Esistono requisiti di connettività di rete per gli ambienti del servizio app che potrebbero non essere inizialmente soddisfatti in una rete virtuale connessa a ExpressRoute. I requisiti per il corretto funzionamento degli ambienti del servizio app sono i seguenti:
 
 
--  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area come l’ambiente di servizio app, così come gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione Azure si risolvono con i seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
+-  Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'ambiente del servizio app, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di Archiviazione di Azure si risolvono nei seguenti domini DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*.  
 -  Connettività di rete in uscita agli endpoint Sql DB che si trovano nella stessa area dell'ambiente del servizio app. Gli endpoint del database SQL si risolvono nel dominio seguente: *database.windows.net*.
--  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). Ciò include la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
+-  Connettività di rete in uscita verso gli endpoint del piano di gestione di Azure (sia gli endpoint ASM che quelli ARM). È inclusa la connettività in uscita verso *management.core.windows.net* e *management.azure.com*. 
 -  Connettività di rete in uscita verso *ocsp.msocsp.com*. È necessario per supportare la funzionalità SSL.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Se questi endpoint non possono essere risolti, il tentativo di creazione dell’ambiente del servizio App avrà esito negativo, e gli ambienti del servizio App esistenti verranno contrassegnati come non integri.
 -  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l’ambiente di servizio app. 
@@ -137,4 +137,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

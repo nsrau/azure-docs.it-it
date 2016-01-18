@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -79,7 +79,7 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, incluso quello spec
 
 ![Dati di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
 
-Fare clic sul collegamento della cartella di lavoro **Excel 2010 o earlier** per ottenere la chiave API e l'URL che saranno necessari in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per sfruttare un modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'esercitazione presume che sia necessario per questo scenario.
+Fare clic sul collegamento della cartella di lavoro **Excel 2010 or earlier** per ottenere la chiave API e l'URL che saranno necessari in seguito per configurare il processo di Analisi di flusso. Questo passaggio è obbligatorio solo per sfruttare un modello di Machine Learning dell'area di lavoro di un altro account di Azure. L'esercitazione presume che sia necessario per questo scenario.
 
 ![Esperimento di analisi nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
 
@@ -101,7 +101,7 @@ Prendere nota dell'URL del servizio Web e della chiave di accesso dal file di Ex
 
     ![Aggiunta di output nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-7.	Scegliere **Archiviazione BLOB** e specificare gli stessi parametri a eccezione del contenitore. **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. Per **Output**, inserire "testoutput". I nomi dei contenitori devono essere diversi. Verificare che questo contenitore esista.
+7.	Scegliere **Archivio BLOB** e specificare gli stessi parametri a eccezione del contenitore. **Input** è stato configurato per la lettura dal contenitore denominato "test" in cui è stato caricato il file **CSV**. Per **Output**, inserire "testoutput". I nomi dei contenitori devono essere diversi. Verificare che questo contenitore esista.
 8.	Fare clic su **Avanti** per configurare le **Impostazioni di serializzazione** dell'output. Come per Input, scegliere **CSV** e fare clic su **OK**.
 9.	Passare alla scheda **Funzioni** e fare clic su **Aggiungi una funzione di Machine Learning**.  
 
@@ -150,4 +150,4 @@ In questa esercitazione è stato creato un processo di Analisi di flusso che leg
 
     ![Visualizzazione monitoraggio ML nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="09/23/2015"
+    ms.date="01/05/2016"
     ms.author="tamram"/>
 
 # Come usare l'archiviazione tabelle da C++
@@ -414,4 +414,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -44,11 +44,11 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 ## Creare un database di query elastico
 
 1. Aprire il [portale di Azure](https://portal.azure.com) ed effettuare l’accesso.
-2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery". Per un livello di prezzo, è necessario selezionare una delle offerte premium. La query del Database elastico è attualmente disponibile solo nel livello premium.
+2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery". 
 
 	![Portale di Azure e il livello di prezzo][3]
 
-	Nota: è possibile utilizzare un database premium esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
+	Nota: è possibile usare un database esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
 
 
 ## Creare oggetti di database
@@ -113,21 +113,21 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 
 1. Avviare Excel 2013.
 2. 	Individuare il **dati** della barra multifunzione.
-3. 	Fare clic su **da altre origini** e fare clic su **da SQL Server**.
+3. 	Fare clic su**Da altre fonti**quindi**Da SQL Server**.
 
 	![Importazione di Excel da altre origini][5]
-4. 	Nel **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Avanti**.
-5. 	Nella finestra di dialogo **Selezionare il database che contiene i dati che si desidera**, selezionare il **ElasticDBQuery** database.
-6. 	Selezionare il **clienti** tabella nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Finish**.
-7. 	Nel **l'importazione dei dati** modulo **selezionare come si desidera visualizzare i dati nella cartella di lavoro**, selezionare **tabella** e fare clic su **OK**.
+4. 	In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Avanti**.
+5. 	Nella finestra di dialogo **Selezionare il database che contiene i dati che si desidera**, selezionare il database **ElasticDBQuery**.
+6. 	Selezionare la tabella **Clienti** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
+7. 	Nel modulo **Importazione dati** sotto **Selezionare come si desidera visualizzare i dati nella cartella di lavoro**, selezionare **Tabella** e fare clic su **OK**.
 
-Tutte le righe da **clienti** tabella, archiviata in diverse partizioni popolare il foglio di Excel.
+Tutte le righe dalla tabella **Clienti**, archiviate in diverse partizioni sono riportate nel foglio Excel.
 
 ## Passaggi successivi
 È ora possibile utilizzare funzioni di visualizzazione avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
 
 ### Costi
-Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
+Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -142,4 +142,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Scalabilità e prestazioni elastiche con SQL Data Warehouse
@@ -93,4 +93,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

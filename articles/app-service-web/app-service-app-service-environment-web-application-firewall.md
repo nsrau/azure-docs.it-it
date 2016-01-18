@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="naziml"/>
 
 # Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
@@ -66,7 +66,7 @@ Fare clic sulla scheda Services per configurare il firewall WAF per i servizi pr
 > Nota: a seconda di come sono configurate le applicazioni e di quali funzionalità sono in uso nell'ambiente del servizio app, sarà necessario inoltrare il traffico per le porte TCP diverse dalla 80 e dalla 443, ad esempio se IP SSL è configurato per un'app Web. Per un elenco di porte di rete usate negli ambienti del servizio app, fare riferimento alla sezione Porte di rete della [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configurazione di Gestione traffico di Microsoft Azure (FACOLTATIVO) ##
-Se l'applicazione è disponibile in più aree, è preferibile bilanciarne il carico dietro [Gestione traffico di Azure](traffic-manager.md). A questo scopo, è possibile aggiungere un endpoint nel [portale di Azure classico](https://manage.azure.com) usando il nome del servizio cloud per il firewall WAF nel profilo di Gestione traffico come illustrato nell'immagine seguente.
+Se l'applicazione è disponibile in più aree, è preferibile bilanciarne il carico dietro [Gestione traffico di Azure](traffic-manager.md). A questo scopo, è possibile aggiungere un endpoint nel [portale di Azure classico](https://manage.azure.com) usando il nome del servizio cloud per WAF nel profilo di Gestione traffico come illustrato nell'immagine seguente.
 
 ![Endpoint di Gestione traffico][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

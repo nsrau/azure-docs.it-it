@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="01/04/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -50,25 +50,28 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Hub di notifica
 - Operational Insights
 - Cache Redis
-- Ricerca
-- Database SQL
+- Search
+- Server di database SQL (lo spostamento di un server comporta anche lo spostamento di tutti i relativi database, che non possono essere spostati separatamente dal server)
 - App Web (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
 
 I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
 
 - Macchine virtuali (classico)
 - Archiviazione (classico)
+- Reti virtuali
+- Microsoft Azure
 
 I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 - Macchine virtuali
-- Reti virtuali
 - Archiviazione
 
 Quando si usano le app Web non è possibile spostare solo un piano di servizio app. Per spostare le app Web, le opzioni disponibili sono:
 
 - Spostare tutte le risorse da un gruppo di risorse a un gruppo di risorse diverso, se il gruppo di risorse di destinazione non contiene già risorse Microsoft.Web.
 - Spostare le app Web in un gruppo di risorse diverso, ma conservare il piano di servizio app nel gruppo di risorse originale.
+
+Non è possibile spostare un database SQL separatamente dal server in cui è eseguito, poiché il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
 
 ## Uso di PowerShell per spostare le risorse
 
@@ -113,4 +116,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

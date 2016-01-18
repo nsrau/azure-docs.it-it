@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
@@ -72,13 +72,17 @@ I metadati di input dei codificatori sono descritti [qui](http://msdn.microsoft.
 
 I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Immagine di anteprima
+###Generare anteprime
 
-Per informazioni su come generare anteprime, vedere [Come generare anteprime utilizzando Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
+Per informazioni, vedere l'argomento relativo alla [generazione di anteprime mediante Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Sovrapposizioni audio e video
+###Tagliare video (ritaglio)
 
-Attualmente non supportate.
+Per informazioni, vedere l'articolo su [come tagliare video usando Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Creare sovrimpressioni
+
+Per informazioni, vedere l'articolo su [come creare sovrimpressioni usando Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###Vedere anche
 
@@ -265,4 +269,4 @@ Windows Media Audio|No|Sì|Sì
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Espressioni del modello di Gestione risorse di Azure
@@ -408,7 +408,7 @@ Valore univoco basato su una distribuzione per un gruppo di risorse
 Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse.
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
@@ -769,4 +769,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

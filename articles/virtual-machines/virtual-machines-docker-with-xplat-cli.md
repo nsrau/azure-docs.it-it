@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
@@ -24,14 +24,9 @@
 
 Questo argomento descrive come creare una macchina virtuale con l'estensione della VM Docker dalla modalità di gestione servizi (asm) nell’interfaccia della riga di comando di Azure su qualsiasi piattaforma. [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l'[Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-+ [Come usare l'estensione della VM Docker con Azure]
-+ [Estensioni della macchina virtuale per Linux e Windows]
-+ [Contenitore e risorse di gestione del contenitore per Azure]
-+ [Passaggi successivi]
 
 ##Come usare l'estensione della VM Docker con Azure
 Per usare l'estensione della VM Docker con Azure è necessario installare una versione dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat) successiva alla versione 0.8.6 (al momento della stesura di questo articolo, la versione corrente è la 0.8.10). È possibile installare l’interfaccia della riga di comando di Azure su Mac, Linux e Windows.
-
 
 
 Il processo completo di utilizzo di Docker su Azure è semplice:
@@ -45,7 +40,7 @@ Il processo completo di utilizzo di Docker su Azure è semplice:
 
 Per installare e configurare l’interfaccia della riga di comando di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). Per confermare l'installazione, digitare `azure` nel prompt dei comandi. Dopo pochi secondi verrà visualizzata la grafica ASCII dell’interfaccia della riga di comando di Azure, in cui sono elencati i comandi di base disponibili. Se l'installazione è andata a buon fine, sarà possibile digitare `azure help vm` e verificare che uno dei comandi elencati corrisponda a "docker".
 
-> [AZURE.NOTE]Docker dispone di un programma di installazione per Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), che è possibile utilizzare per automatizzare la creazione di un client docker da usare per lavorare con macchine virtuali di Azure come host Docker.
+> [AZURE.NOTE]Docker dispone di un programma di installazione per Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), che consente anche di automatizzare la creazione di un client Docker da usare per gestire macchine virtuali di Azure come host Docker.
 
 ### Connettere l'interfaccia della riga di comando di Azure al proprio account Azure
 Prima di poter usare l'interfaccia della riga di comando di Azure è necessario associare alla stessa le credenziali del proprio account Azure sulla propria piattaforma. La sezione [Come connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) spiega come scaricare e importare il file **.publishsettings** o associare l’interfaccia della riga di comando di Azure a un ID organizzazione.
@@ -160,16 +155,12 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
-[Passaggi successivi]: #next-steps
+[Next steps]: #next-steps
 
-[Come usare l'estensione della VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Estensioni della macchina virtuale per Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Contenitore e risorse di gestione del contenitore per Azure]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
@@ -181,4 +172,4 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

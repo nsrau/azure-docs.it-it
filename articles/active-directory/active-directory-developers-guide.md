@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/10/2015"
+   ms.date="01/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Azure Active Directory è una piattaforma IDMaaS (Identity Management As A Servi
 
 1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure Active Directory per accedere a livello di codice ad Azure Active Directory tramite gli endpoint dell'API REST. Si noti che l'API Graph di Azure AD è accessibile anche tramite [Microsoft Graph](https://graph.microsoft.io/), un’API unificata che consente l'accesso a più API del servizio Microsoft Cloud tramite un singolo endpoint API REST e con un token di accesso singolo.
 
-1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare facilmente gli utenti per ottenere i token di accesso mediante le librerie di autenticazione di Azure per [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o) e [molte altre](active-directory-authentication-libraries.md).
+1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare facilmente gli utenti per ottenere i token di accesso mediante le librerie di autenticazione di Azure AD per .NET, JavaScript, Objective-C, Android e molte altre.
 
 
 ## Introduzione
@@ -93,7 +93,7 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 - [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare l’esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): ambiti di autorizzazione di OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
+- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): ambiti di autorizzazione di OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
 
 ### Librerie di autenticazione
 
@@ -110,9 +110,9 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 - [Informazioni di riferimento sul protocollo OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): il protocollo OpenID Connect 1.0 estende OAuth 2.0 per l'uso come protocollo di autenticazione.
 
 
-- [Informazioni di riferimento sul protocollo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): il protocollo WS-Federation 1.2, come indicato nella specifica Web Services Federation versione 1.2.
+- [Informazioni di riferimento sul protocollo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): protocollo WS-Federation 1.2, come indicato nella specifica Web Services Federation versione 1.2.
 
-- [Token e tipi di attestazione supportati](active-directory-token-and-claims.md): questa guida illustra come valutare le attestazioni nei token SAML 2.0 e JWT (JSON Web Token).
+- [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md): questa guida illustra come valutare le attestazioni nei token SAML 2.0 e JWT (JSON Web Token).
 
 ## Video
 
@@ -141,4 +141,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

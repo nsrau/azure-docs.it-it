@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="01/04/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -196,4 +196,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

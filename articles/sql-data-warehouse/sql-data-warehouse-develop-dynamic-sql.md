@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL dinamico in SQL Data Warehouse
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 Se la stringa è corta, è possibile usare [sp\_executesql][] come di consueto.
 
+> [AZURE.NOTE]Le istruzioni eseguite come SQL dinamico saranno ancora soggette a tutte le regole di convalida TSQL.
 
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
@@ -45,4 +46,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

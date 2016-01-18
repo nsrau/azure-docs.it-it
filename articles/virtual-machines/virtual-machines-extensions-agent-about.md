@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/22/2015"
+ ms.date="01/04/2016"
  ms.author="rasquill"/>
 
 #Informazioni sull'agente e sulle estensioni di macchine virtuali
 
-L'agente macchine virtuali di Azure (agente VM) viene usato per installare, configurare, gestire ed eseguire estensioni di macchine virtuali di Azure (estensioni VM). Le estensioni VM offrono funzionalità dinamiche sviluppate da Microsoft e da terze parti. L'agente e le estensioni vengono aggiunti principalmente tramite il portale di gestione, ma è anche possibile usare i cmdlet di [Powershell](../install-configure-powershell.md) o l'interfaccia [Azure CLI](xplat-install.md) per le operazioni di aggiunta e configurazione al momento della creazione di una macchina virtuale o su macchine virtuali esistenti.
+L'agente macchine virtuali di Azure (agente VM) viene usato per installare, configurare, gestire ed eseguire estensioni di macchine virtuali di Azure (estensioni VM). Le estensioni VM offrono funzionalità dinamiche sviluppate da Microsoft e da terze parti. L'agente e le estensioni vengono aggiunti principalmente tramite il portale di gestione, ma è anche possibile usare i cmdlet di [Powershell](../powershell-install-configure.md) o l'interfaccia [Azure CLI](../xplat-cli-install.md) per le operazioni di aggiunta e configurazione al momento della creazione di una macchina virtuale o su macchine virtuali esistenti.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
@@ -46,7 +46,7 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 -   Quando si crea un'istanza di una macchina virtuale usando il metodo **Creazione rapida** o **Creazione personalizzata** nel portale di gestione, con la casella di controllo **Installa agente VM** selezionata, come illustrato nell'immagine seguente. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata](virtual-machines-create-custom.md).
 
-    ![Casella di controllo dell'agente VM](./media/virtual-machines-extensions-agent-about/IC719409.png "Casella di controllo dell'agente VM")
+    ![Casella di controllo dell'agente VM](media/virtual-machines-extensions-agent-about/IC719409.png)
 
 -   Quando si crea un'istanza di una macchina virtuale mediante il cmdlet [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) o [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). È possibile creare una macchina virtuale senza l'agente VM installato aggiungendo il parametro **–DisableGuestAgent** al cmdlet [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -66,4 +66,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Creare applicazioni che utilizzano le code del Bus di servizio
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti del Bus di servizio e sottoscrizioni](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione del Bus di servizio di messaggistica negoziata.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

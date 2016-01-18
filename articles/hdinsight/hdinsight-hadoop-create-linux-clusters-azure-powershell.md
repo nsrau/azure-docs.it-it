@@ -25,13 +25,13 @@ Azure PowerShell è un ambiente di scripting potente che può essere usato per c
 
 > [AZURE.NOTE]Azure PowerShell è disponibile solo su client Windows. Se si utilizza un client Mac OS X, Linux o Unix, vedere [creare un cluster HDInsight basato su Linux utilizzando Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) per informazioni sull'utilizzo di CLI di Azure per creare un cluster.
 
-##Prerequisiti
+###Prerequisiti
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerShell__ Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-##Creare il cluster
+##Creare i cluster
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight con Azure PowerShell:
 
@@ -106,6 +106,11 @@ I valori specificati per **$clusterCredentials** vengono usati per creare l'acco
 
 Ci possono volere fino a 15 minuti per completare il provisioning.
 
+##Personalizzare i cluster
+
+- Vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Vedere [Personalizzare cluster HDInsight basati su Windows tramite Azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+
 ##Passaggi successivi
 
 Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster:
@@ -135,4 +140,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

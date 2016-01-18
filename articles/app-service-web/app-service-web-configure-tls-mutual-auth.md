@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/17/2015" 
 	ms.author="naziml"/>
 
 # Come configurare l'autenticazione reciproca TLS per un'app Web
@@ -179,4 +179,4 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
         }
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

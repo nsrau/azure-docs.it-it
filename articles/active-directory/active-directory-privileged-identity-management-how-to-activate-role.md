@@ -20,8 +20,8 @@
 
 ## Attivazione o disattivazione di un ruolo
 
-1. Accedere a [http://portal.azure.com](http://portal.azure.com).
-2. Seguire i passaggi in [Introduzione ad Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) per inserire Azure PIM nel dashboard del portale.
+1. Accedere al [Portale di Azure](http://portal.azure.com).
+2. Seguire i passaggi in [Introduzione ad Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) per inserire Azure PIM nel dashboard del portale di Azure.
 3. Dopo aver completato i passaggi dell’Impostazione guidata Protezione, verrà visualizzato il menu principale di Azure PIM.
 4. Fare clic su **Attiva il mio ruolo**.
 5. Verrà visualizzato un elenco di ruoli assegnati all'utente.
@@ -38,4 +38,4 @@
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

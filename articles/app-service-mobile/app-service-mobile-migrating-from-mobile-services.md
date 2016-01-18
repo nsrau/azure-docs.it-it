@@ -45,7 +45,6 @@ Potrebbe non essere consigliabile eseguire ora la migrazione da Servizi mobili d
   *  L'attuale mole di lavoro non consente il riavvio del sito in questo momento.
   *  Si preferisce testare il processo di migrazione prima che possa influire sul sito di produzione.
   *  Sono presenti più siti nel piano tariffario Basic e in quello gratuito e non si vuole eseguire la migrazione di tutti i siti contemporaneamente.
-  *  Si vuole eseguire la migrazione di processi pianificati configurati come su richiesta.
 
 Se l'attuale mole di lavoro non permette la migrazione, è consigliabile prevederne l'esecuzione durante una finestra di manutenzione pianificata. Il processo di migrazione riavvia il sito e gli utenti potrebbero rilevare una temporanea interruzione della disponibilità.
 
@@ -146,6 +145,24 @@ Questa attività è facoltativa, ma consente di migliorare l'esperienza di gesti
 
 > [AZURE.TIP]Uno dei vantaggi dell'uso di un servizio app di Azure è che è possibile eseguire il sito Web e il servizio mobile nello stesso sito. Per altre informazioni, vedere la sezione [Passaggi successivi](#next-steps).
 
+### <a name="download-publish-profile"></a>Scaricare un nuovo profilo di pubblicazione
+
+Il profilo di pubblicazione del sito viene modificato durante la migrazione al Servizio app di Azure. Se si intende pubblicare il sito da Visual Studio, sarà necessario un nuovo profilo di pubblicazione. Per scaricare il nuovo profilo di pubblicazione:
+
+  1.  Accedere al [portale di Azure].
+  2.  Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
+  3.  Fare clic su **Recupera profilo**.
+
+Il file PublishSettings verrà scaricato nel computer. In genere verrà chiamato _nomesito_.PublishSettings. È quindi possibile importare le impostazioni di pubblicazione nel progetto esistente:
+
+  1.  Aprire Visual Studio e il progetto di Servizi mobili di Azure.
+  2.  Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Pubblica**.
+  3.  Fare clic su **Importa**
+  4.  Fare clic su **Sfoglia** e selezionare il file delle impostazioni di pubblicazione scaricato. Fare clic su **OK**.
+  5.  Fare clic su **Convalida connessione** per verificare il corretto funzionamento delle impostazioni di pubblicazione.
+  6.  Fare clic su **Pubblica** per pubblicare il sito.
+
+
 ## <a name="working-with-your-site"></a>Uso del sito dopo la migrazione
 
 Dopo la migrazione sarà possibile iniziare a usare il nuovo servizio app nel [portale di Azure]. Di seguito sono riportate informazioni sulle operazioni specifiche che era possibile eseguire nel [portale di Azure classico], con i rispettivi equivalenti nel servizio app.
@@ -224,33 +241,24 @@ La scheda _API_ in Servizi mobili è stata sostituita da _Easy APIs_ nel portale
 
 Le API di cui è stata eseguita la migrazione sono già elencate nel pannello. Dal pannello è anche possibile aggiungere una nuova API. Per gestire un'API specifica, fare clic sull'API. Dal nuovo pannello è possibile modificare le autorizzazioni e gli script per l'API.
 
-### <a name="on-demand-jobs"></a>Processi pianificati su richiesta
+### <a name="on-demand-jobs"></a>Processi dell'Utilità di pianificazione
 
-I processi pianificati su richiesta vengono attivati attraverso una richiesta Web. Si consiglia di usare un client HTTP, ad esempio [Postman], [Fiddler] o [curl]. Se il sito si chiama "contoso", sarà disponibile un endpoint https://contoso.azure-mobile.net/jobs/_yourjobname_ che è possibile usare per attivare il processo su richiesta. È necessario inviare un'intestazione aggiuntiva **X-ZUMO-MASTER** con la chiave master.
-
-La chiave master può essere ottenuta come indicato di seguito:
+Tutti i processi dell'Utilità di pianificazione sono disponibili tramite la sezione relativa alle raccolte dei processi dell'Utilità di pianificazione. Per accedere ai processi dell'Utilità di pianificazione:
 
   1. Accedere al [portale di Azure].
-  2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
-  3. Verrà aperto il pannello Impostazioni per impostazione predefinita. In caso contrario, fare clic su **Impostazioni**.
-  4. Fare clic su **Impostazioni dell'applicazione** nel menu GENERALE.
-  5. Cercare l'impostazione dell'applicazione **MS\_MasterKey**.
+  2. Selezionare **Sfoglia>**, immettere **Pianificazione** nella casella _Filtro_ e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
+  3. Selezionare la raccolta di processi per il sito. Verrà denominata _nomesito_-Processi.
+  4. Fare clic su **Impostazioni**.
+  5. Fare clic sull'area dei **processi dell'Utilità di pianificazione** in GESTISCI.
 
-È possibile eseguire il taglia e incolla della chiave master nella sessione di Postman. Di seguito è riportato un esempio di attivazione di un processo su richiesta in un servizio mobile di cui è stata eseguita la migrazione:
+Verranno elencati i processi pianificati con la frequenza specificata prima della migrazione. I processi su richiesta verranno disabilitati. Per eseguire un processo su richiesta:
 
-  ![Attivazione di un processo su richiesta con Postman][2]
+  1. Selezionare il processo che si desidera eseguire.
+  2. Se necessario, fare clic su **Abilita** per abilitare il processo.
+  3. Fare clic su **Impostazioni** e quindi su **Pianifica**.
+  4. Selezionare una ricorrenza di **Una sola volta** e quindi fare clic su **Salva**
 
-Prendere nota delle impostazioni:
-
-  * Metodo: **POST**
-  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
-  * Intestazioni: X-ZUMO-MASTER: _your-master-key_
-
-In alternativa è possibile usare [curl] per attivare il processo su richiesta dalla riga di comando:
-
-    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
-
-I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`. Si consiglia di convertire tutti i processi su richiesta in [processi Web].
+I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-migration`. Si consiglia di convertire tutti i processi su richiesta in [processi Web]. È consigliabile scrivere nuovi processi dell'Utilità di pianificazione come [Processi Web].
 
 ### <a name="notification-hubs"></a>Hub di notifica
 
@@ -385,4 +393,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

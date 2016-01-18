@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurazione del progetto Azure tramite più configurazioni del servizio"
+   pageTitle="Configurazione del progetto Azure tramite più configurazioni del servizio | Microsoft Azure"
    description="Informazioni su come configurare un progetto di servizio cloud di Azure modificando i file ServiceDefinition.csdef e ServiceConfiguration.cscfg"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Configurazione del progetto Azure tramite più configurazioni del servizio
@@ -110,4 +110,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 |Sviluppo|In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione.|
 |Web|In questa pagina è possibile configurare le impostazioni che sono correlate al server Web.|
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

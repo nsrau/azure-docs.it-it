@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="joliang"/>
 
 # Partner di soluzioni per SQL Data Warehouse
@@ -101,4 +101,4 @@ Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare 
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

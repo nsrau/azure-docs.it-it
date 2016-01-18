@@ -23,12 +23,11 @@
 
 Gateway applicazione può essere configurato per terminare la sessione SSL nel gateway, evitando così una costosa decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
->[AZURE.IMPORTANT]Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, Gestione risorse e modello di distribuzione classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite la distribuzione classica di Azure. Per usare la versione Gestione risorse di Azure, passare all'articolo [Configurare un gateway applicazione SSL mediante Gestione risorse di Azure](application-gateway-ssl-arm.md).
 
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina download](http://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida.
 3. Assicurasi di avere server back-end nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
@@ -59,7 +58,7 @@ Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
 **Per convalidare** la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
 
-In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
+In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
 
 Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
 
@@ -116,15 +115,15 @@ I valori possibili sono:
  
 - **Pool di server back-end:** l’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici. 
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener**: il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Porta front-end**: è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
 **Note aggiuntive sulla configurazione:**
 
 Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con *Https* (distinzione tra maiuscole e minuscole). L'elemento **SslCert** deve essere aggiunto a **HttpListener** con il valore impostato sullo stesso nome usato nella sezione precedente sul caricamento dei certificati SSL. La porta front-end deve essere aggiornata in 443.
 
-**Per abilitare l'affinità basata sui cookie**: un gateway applicazione può essere configurato per verificare che una richiesta proveniente da una sessione client sia sempre indirizzata alla stessa VM nella Web farm. A tale scopo viene usata l'aggiunta di un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
+**Per abilitare l'affinità basata su cookie**: un gateway applicazione può essere configurato per verificare che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. A tale scopo viene usata l'aggiunta di un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
 
 
 
@@ -211,7 +210,7 @@ Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGatew
 
 ## Verificare lo stato del gateway
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* ha avuto esito positivo nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico
 
@@ -236,4 +235,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

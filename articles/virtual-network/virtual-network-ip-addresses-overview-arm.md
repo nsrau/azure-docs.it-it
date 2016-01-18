@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# Indirizzi IP in Gestione risorse di Azure
+# Indirizzi IP in Azure
 È possibile assegnare indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
 
 Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi pubblici di Azure.
 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet) e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs), [Database SQL](sql-database-technical-overview.md) e [Archiviazione di Azure](storage-introduction.md).
@@ -46,7 +48,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 
 - Gli utenti finali hanno l'esigenza di aggiornare le regole del firewall per comunicare con le risorse di Azure.
 - La risoluzione del nome DNS, in cui una modifica dell'indirizzo IP richiederebbe l'aggiornamento dei record A.
-- Le risorse di Azure comunicano con altri servizi Web che usano il modello di sicurezza basato su IP.
+- Le risorse di Azure comunicano con altri servizi o altre app che usano il modello di sicurezza basato su indirizzi IP.
 - Si usano certificati SSL collegati a un indirizzo IP.
 
 >[AZURE.NOTE]L'elenco degli intervalli IP da cui gli indirizzi IP pubblici, statici o dinamici, vengono allocati alle risorse di Azure è pubblicato nell'articolo relativo agli [intervalli di indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -122,19 +124,32 @@ La tabella seguente illustra ogni tipo di risorsa con i metodi di allocazione po
 |Front-end del servizio di bilanciamento del carico interno|Sì|Sì|Sì|
 |Front-end del gateway applicazione|Sì|Sì|Sì|
 
-## Confronto tra distribuzioni con Gestione risorse e il modello classico
-Di seguito è riportato un confronto tra l'indirizzo IP in Gestione risorse e il modello di distribuzione classico.
+## Limiti
 
-|| Risorsa| Classico| Gestione risorse|
-|---|---|---|---|
-|**Indirizzo IP pubblico**|VM|Definito come un ILPIP (solo dinamico)|Definito come un indirizzo IP pubblico (dinamico o statico)|
-|||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda di interfaccia di rete della VM|
-||Servizio di bilanciamento del carico con connessione Internet|Definito indirizzo VIP (dinamico) o indirizzo IP riservato (statico)|Definito come un indirizzo IP pubblico (dinamico o statico|
-||| Assegnato a un servizio cloud|Associato alla configurazione front-end del servizio di bilanciamento del carico|
-||||
-|**Indirizzo IP privato**|VM|Definito come DIP|Definito come indirizzo di IP privato|
-|||Assegnato a una VM IaaS o a un'instanza del ruolo PaaS|Assegnato a una scheda di interfaccia di rete della macchina virtuale|
-||Servizio di bilanciamento del carico interno|Assegnato al servizio di bilanciamento del carico interno (statico o dinamico)|Assegnato alla configurazione front-end del servizio di bilanciamento del carico interno (dinamico o statico)|
+La tabella seguente illustra i limiti imposti sugli indirizzi IP in Azure per ogni area e ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
+
+||Limite predefinito|Limite massimo|
+|---|---|---|
+|Indirizzi IP pubblici (dinamici)|60|Contattare il supporto tecnico|
+|Indirizzi IP pubblici (statici)|20|Contattare il supporto tecnico|
+|IP del front-end pubblico per ogni servizio di bilanciamento del carico|5|Contattare il supporto tecnico|
+|IP del front-end privato per ogni servizio di bilanciamento del carico|1|Contattare il supporto tecnico|
+
+Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure-subscription-service-limits.md#networking-limits) in Azure.
+
+## Prezzi
+
+Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È prevista una tariffa nominale se si vuole usare indirizzi IP pubblici statici e/o aggiuntivi. Accertarsi di aver compreso la [struttura dei prezzi per gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/).
+
+In sintesi, la struttura di prezzi seguenti si applica a risorse IP pubbliche:
+
+- I gateway VPN e i gateway di applicazione usano solo un indirizzo IP pubblico dinamico gratuito.
+- Le VM usano solo un indirizzo IP pubblico, che è gratuito solo se è un indirizzo IP dinamico. Se una VM usa un indirizzo IP pubblico statico, l'indirizzo IP verrà incluso nel conteggio relativo all'utilizzo di indirizzi IP pubblici (riservati) statici.
+- Ogni servizio di bilanciamento del carico può usare più indirizzi IP pubblici. Il primo indirizzo IP pubblico è gratuito. Per ogni indirizzo IP dinamico aggiuntivo vengono addebitati $ 0,004/ora. Gli indirizzi IP pubblici statici vengono inclusi nel conteggio relativo all'utilizzo di indirizzi IP pubblici (riservati) statici.
+- Utilizzo di indirizzi IP pubblici (riservati) statici: 
+	- I primi 5 (in uso) sono gratuiti. Per ogni indirizzo IP statico aggiuntivo vengono addebitati $ 0,004/ora. 
+	- Per ogni indirizzo IP pubblico statico non assegnato ad alcuna risorsa vengono addebitati $ 0,004/ora.
+	- L'utilizzo viene calcolato in base al numero totale di indirizzi IP pubblici statici nella sottoscrizione.
 
 ## Passaggi successivi
 - [Distribuire una macchina virtuale con un indirizzo IP pubblico statico](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,5 +160,4 @@ Di seguito è riportato un confronto tra l'indirizzo IP in Gestione risorse e il
 - [Creare un indirizzo IP privato statico front-end per un servizio di bilanciamento del carico interno tramite PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [Creare un pool back-end con indirizzi IP statici privati per un gateway applicazione usando PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_1223_2015-->
-
+<!---HONumber=AcomDC_0107_2016-->

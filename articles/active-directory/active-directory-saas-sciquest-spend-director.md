@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/05/2016"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con SciQuest Spend Director
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con SciQuest Spend Director, sono nec
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -60,7 +60,7 @@ Per configurare l'integrazione di SciQuest Spend Director in Azure AD, è necess
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br> ![Applicazioni][2]
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]
 6. Nella casella di ricerca, digitare **sciQuest spend director**.<br> ![Applicazioni][5]
@@ -88,7 +88,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 1. Nella pagina di integrazione dell'applicazione **SciQuest Spend Director** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br>![Configura accesso Single Sign-On][8]
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SciQuest Spend Director** selezionare **Single Sign-On di Azure AD**, quindi fare clic su **Avanti**.<br><br> ![Accesso Single Sign-On di Azure AD][9]
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SciQuest Spend Director** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.<br><br> ![Accesso Single Sign-On di Azure AD][9]
 
 3. Nella pagina **Configurare le impostazioni dell'app**, eseguire la procedura seguente: <br><br>![Configurare le impostazioni dell'app][10]
  
@@ -113,15 +113,15 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento a sinistra. <br><br>![Cos'è Azure AD Connect][100] 
+1. Nel pannello di navigazione sinistro del **portale di gestione di Azure** fare clic su **Active Directory**. <br><br>![Cos'è Azure AD Connect][100] 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br>![Cos'è Azure AD Connect][101] 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br>![Cos'è Azure AD Connect][102] 
-5. Nella pagina **Informazioni sull'utente**, eseguire la procedura seguente: <br><br>![Cos'è Azure AD Connect][103] 
-  1. In **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
+5. Nella pagina **Informazioni sull'utente** eseguire la procedura seguente: <br><br>![Cos'è Azure AD Connect][103] 
+  1. Come **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
   3. Fare clic su Avanti.
-6.  Nella pagina **Profilo utente**, eseguire la procedura seguente: <br><br>![Cos'è Azure AD Connect][104] 
+6.  Nella pagina **Profilo utente** eseguire la procedura seguente: <br><br>![Cos'è Azure AD Connect][104] 
   1. Nella casella di testo **Nome** digitare **Britta**.  
   2. Nella casella di testo **Cognome** digitare **Simon**.
   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
@@ -195,4 +195,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

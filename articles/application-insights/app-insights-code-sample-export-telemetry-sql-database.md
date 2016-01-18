@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # Esempio di codice: analizzare i dati esportati da Application Insights
@@ -543,4 +543,4 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

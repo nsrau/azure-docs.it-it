@@ -14,7 +14,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="12/11/2015"
+ ms.date="01/05/2016"
  ms.author="cynthn"/>
 
 # Dimensioni delle macchine virtuali
@@ -33,10 +33,7 @@ Le dimensioni standard sono costituite da più serie: A, D, DS, G e GS. Si tenga
 
 *   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
-    La disponibilità internazionale della serie Dv2 sarà basata su questa pianificazione: Ottobre 2015: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti occidentali Novembre 2015: Stati Uniti orientali, Europa settentrionale, Europa occidentale Gennaio 2016: Stati Uniti centro-meridionali, APAC orientale, APAC sud-orientale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sud-orientale, Brasile meridionale
-
-
-*   Le macchine virtuali serie G offrono le dimensioni maggiori e le prestazioni migliori e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
+*   Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 
 *   Le macchine virtuali serie DS e GS possono usare l'archiviazione Premium, che offre un'archiviazione ad alte prestazioni e a bassa latenza per carichi di lavoro con uso intensivo di I/O. Usano le unità SSD (Solid State Drive) per ospitare i dischi della macchina virtuale e offrono una cache del disco SSD locale. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md).
 
@@ -45,13 +42,31 @@ La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
 
-*   Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.  
+* Le dimensioni A8-A11 sono note anche come *istanze a elevato utilizzo di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. Per informazioni dettagliate e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md).
 
-*   Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno le stesse capacità fisiche. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota (RDMA) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI (Message Passing Interface). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
 
 *	Le serie Dv2, D, G e DS/GS sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 
+*   Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
 
+
+## Considerazioni sulle prestazioni
+
+È stato creato il concetto di unità di elaborazione di Azure (ACU, Azure Compute Unit) per mettere a punto un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure. In questo modo, sarà più semplice identificare lo SKU più adatto a soddisfare le proprie esigenze di prestazioni. L'unità ACU adotta come standard una macchina virtuale Small (Standard\_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard.
+
+>[AZURE.IMPORTANT]L'unità ACU costituisce solo un'indicazione di riferimento. I risultati possono variare in base al carico di lavoro.
+
+<br>
+
+|Famiglia SKU |ACU/Core |
+|---|---|
+|[Standard\_A0 (Extra Small)](#standard-tier-a-series) |50 |
+|[Standard\_A1-4 (Small - Large)](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+
+
+Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
 
 
@@ -60,6 +75,8 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dimensione.
 
 >[AZURE.NOTE]La capacità di archiviazione è rappresentata usando 1024 ^ 3 byte come unità di misura per GB. Questa unità di misura è definita talvolta gibibyte o definizione di base 2. Quando si confrontano dimensioni che usano sistemi di base diversi, è necessario ricordare che le dimensioni di base 2 potrebbero risultare più piccole di quelli di base 10 ma per qualsiasi dimensione specifica (ad esempio, 1 GB) un sistema di base 2 fornisce maggiore capacità di un sistema di base 10, perché 1024^3 è superiore a 1000^3.
+
+<br>
 
 
 
@@ -85,10 +102,18 @@ Nel modello di distribuzione classico, alcune dimensioni delle macchine virtuali
 |Standard\_A5|2|14 GB|1|Temporaneo = 135 GB |4|4X500|
 |Standard\_A6|4|28 GB|2|Temporaneo = 285 GB |8|8x500|
 |Standard\_A7|8|56 GB|4|Temporaneo = 605 GB |16|16x500|
-|Standard\_A8|8|56 GB|2| Temporaneo = 382 GB Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard\_A9|16|112 GB|4| Temporaneo = 382 GB Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard\_A10|8|56 GB|2| Temporaneo = 382 GB Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard\_A11|16|112 GB|4| Temporaneo = 382 GB Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato uso di calcolo](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
+
+
+## Livello standard: serie A - Istanze a elevato utilizzo di calcolo
+
+Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md).
+
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|---|---|---|---|---|---|---|
+|Standard\_A8|8|56 GB|2| Temporaneo = 382 GB |16|16x500|
+|Standard\_A9|16|112 GB|4| Temporaneo = 382 GB |16|16x500|
+|Standard\_A10|8|56 GB|2| Temporaneo = 382 GB |16|16x500|
+|Standard\_A11|16|112 GB|4| Temporaneo = 382 GB |16|16x500|
 
 ## Livello Standard: serie D
 
@@ -159,4 +184,4 @@ Nel modello di distribuzione classico, alcune dimensioni delle macchine virtuali
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

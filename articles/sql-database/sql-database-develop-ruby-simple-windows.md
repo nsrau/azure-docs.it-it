@@ -26,14 +26,7 @@ Older Selector technique, with dynamic drop-down lists.
  [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
 -->
 
-
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento presenta un esempio di codice Ruby in esecuzione su computer con Windows 8.1 per la connessione a un database SQL di Azure.
@@ -103,7 +96,7 @@ Copiare e incollare codice seguente in un file vuoto. Denominarlo test.rb. Quind
 
 	ruby test.rb
 
-Nel codice di esempio, la funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene usata per recuperare un set di risultati di una query sul database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
+Nel codice di esempio, la funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene utilizzata per recuperare un set di risultati da una query sul database SQL. Questa funzione accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
     require 'tiny_tds'  
     print 'test'     
@@ -119,7 +112,7 @@ Nel codice di esempio, la funzione [TinyTds::Result](https://github.com/rails-sq
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
-Per utilizzare TinyTDS con Azure, si consiglia di eseguire diverse `SET` istruzioni per modificare la modalità di gestione informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET` vengono fornite nell’esempio di codice. Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
+Per usare TinyTDS con Azure, si consiglia di eseguire diverse istruzioni `SET` per modificare la modalità di gestione di informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET`vengono fornite nell’esempio di codice Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
 
 Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx), utilizzare la funzione [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) per eseguire il cast nel formato datetime corrispondente.
 
@@ -144,4 +137,4 @@ Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.micros
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

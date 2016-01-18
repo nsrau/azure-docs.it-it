@@ -12,12 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Panoramica
 
@@ -239,7 +242,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 ## Cercare e applicare gli aggiornamenti
 
 L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passaggi seguenti per la ricerca e l’applicazione degli aggiornamenti sul dispositivo.
-<!-- > can take 1-4 hours-->
+<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -287,4 +290,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

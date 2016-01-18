@@ -26,10 +26,10 @@
 ### Revisione di tipo "Io"
 1. Scegliere **Rivedi accesso amministrativo** dal menu principale di PIM. Verrà visualizzato un elenco di revisioni della sicurezza.
 2. Selezionare nell'elenco gli **utenti** per i quali si desidera modificare l'accesso. NOTA: l'accesso verrà effettivamente modificato. Questo processo prevede semplicemente la creazione di un elenco di controllo per coloro che desiderano modificare l'accesso per il ruolo. Dopo che è stato selezionato almeno un utente, vengono abilitati i pulsanti **Approva accesso** e **Nega accesso**.
-3. Fare clic su **Approva accesso** o **Nega accesso** per gli utenti selezionati. Verrà visualizzata una notifica nel menu principale del portale e l'elenco di revisioni verrà eliminato. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
+3. Fare clic su **Approva accesso** o **Nega accesso** per gli utenti selezionati. Verrà visualizzata una notifica nel menu principale del portale di Azure e l'elenco di revisioni verrà eliminato. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
 
 ### Revisione self-service
-1. L'utente riceverà un messaggio di posta elettronica che indica che è necessaria la revisione dell'accesso. Il messaggio di posta elettronica conterrà un collegamento per l'accesso al portale.
+1. L'utente riceverà un messaggio di posta elettronica che indica che è necessaria la revisione dell'accesso. Il messaggio di posta elettronica conterrà un collegamento per l'accesso al portale di Azure.
 2. Dopo aver avuto accesso al portale, l'utente potrà approvare o negare il proprio accesso facendo clic sui pulsanti **Approva accesso** o **Nega accesso**. Il nome dell'utente verrà rimosso dall'elenco.
 
 ## Per i responsabili delle revisioni: gestione delle revisioni della sicurezza
@@ -60,4 +60,4 @@
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

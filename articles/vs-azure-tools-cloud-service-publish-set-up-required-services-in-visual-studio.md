@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio"
+   pageTitle="Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio | Microsoft Azure"
    description="Informazioni sulle procedure per la configurazione di servizi cloud e dell'account di archiviazione e per la configurazione dell'applicazione Azure."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio
@@ -44,7 +44,7 @@ Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare u
 
     ![Impostazioni comuni della Pubblicazione guidata](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 
-1. Nell'elenco **Servizi cloud** scegliere **Crea nuovo**. Verrà visualizzata la finestra di dialogo **Crea servizi di Azure**.
+1. Nell'elenco **Servizi cloud** scegliere **Crea nuovo**. La finestra di dialogo **Crea Servizi di Azure**.
 
 1. Immettere il nome del servizio cloud. Il nome fa parte dell'URL per il servizio, quindi deve essere globalmente univoco. Nel nome non viene fatta distinzione tra maiuscole e minuscole.
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio, vedere [Pubblicazione di un servizio Cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

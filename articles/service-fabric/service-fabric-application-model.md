@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"   
+   ms.date="12/30/2015"   
    ms.author="seanmck"/>
 
 # Modellare un'applicazione in Service Fabric
@@ -24,14 +24,16 @@ In questo articolo viene fornita una panoramica del modello di applicazione Azur
 
 Un'applicazione è una raccolta di servizi costituenti che eseguono determinate funzioni. Un servizio esegue una funzione completa e autonoma (avvio ed esecuzione indipendenti da altri servizi) ed è costituito da codice, configurazione e dati. Per ogni servizio, il codice è costituito dai file binari eseguibili, la configurazione è costituita dalle impostazioni del servizio che possono essere caricate in fase di esecuzione e i dati sono costituiti da dati statici arbitrari che devono essere usati dal servizio. Per ogni componente di questo modello applicativo gerarchico è possibile eseguire il controllo delle versioni e l'aggiornamento in modo indipendente.
 
-![][1]
+![Modello di applicazione di Service Fabric][appmodel-diagram]
 
 
 Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in un'aggregazione di tipi di servizi. Un tipo di servizio è una categorizzazione di un servizio. La categorizzazione di un servizio può disporre di impostazioni e configurazioni diverse, ma la funzionalità di base resta la stessa. Le istanze di un servizio sono le diverse varianti di configurazione dello stesso tipo di servizio.
 
-Le classi (o "tipi") di applicazioni e servizi vengono descritte mediante file XML (manifesti delle applicazioni e manifesti dei servizi) che agiscono come modelli in base ai quali possono essere create istanze delle applicazioni. Il codice di istanze di applicazioni diverse verrà eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione inoltre può essere gestito, ovvero aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti.
+Le classi (o "tipi") di applicazioni e servizi vengono descritte mediante file XML (manifesti delle applicazioni e manifesti dei servizi), che agiscono come modelli in base ai quali possono essere create istanze delle applicazioni dall'archivio immagini del cluster.
 
-![Tipi di applicazioni di Service Fabric e tipi di servizio][Image1]
+Il codice di istanze di applicazioni diverse verrà eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione inoltre può essere gestito, ovvero aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti. Per semplificare il diagramma, vengono visualizzati solo i pacchetti codice/configurazione/dati relativi a `ServiceType4`, anche se ogni tipo di servizio può includere alcuni o tutti questi tipi di pacchetti.
+
+![Tipi di applicazioni di Service Fabric e tipi di servizio][cluster-imagestore-apptypes]
 
 Vengono usati due diversi file manifesto per descrivere le applicazioni e i servizi: il manifesto del servizio e il manifesto dell'applicazione. Questi prerequisiti sono analizzati in dettaglio nelle sezioni che seguono.
 
@@ -39,8 +41,10 @@ Nel cluster possono essere attive una o più istanze di un tipo di servizio. Le 
 
 Il diagramma seguente illustra la relazione tra applicazioni e istanze di servizi, partizioni e repliche.
 
-![Partizioni e repliche in un servizio][Image2]
+![Partizioni e repliche in un servizio][cluster-application-instances]
 
+
+>[AZURE.TIP] È possibile visualizzare il layout delle applicazioni in un cluster usando lo strumento Service Fabric Explorer disponibile all'indirizzo http://&lt;yourclusteraddress&gt;:19080/Explorer. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Descrivere un servizio
 
@@ -89,7 +93,7 @@ Gli attributi **Version** sono stringhe non strutturate e non analizzate dal sis
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
+> [AZURE.NOTE] Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati. Ognuna di queste può essere creata in modo indipendente.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -104,7 +108,9 @@ For more information about other features supported by service manifests, refer 
 ## Descrivere un'applicazione
 
 
-Il manifesto dell'applicazione descrive in modo dichiarativo il tipo di applicazione e la versione. Specifica i metadati di composizione dei servizi, ad esempio i nomi stabili, lo schema di partizionamento, il numero di istanze/fattore di replica, i criteri di sicurezza/isolamento, i vincoli di posizionamento, gli override di configurazione e i tipi di servizi costituenti. Vengono descritti anche i domini di bilanciamento del carico in cui viene posizionata l'applicazione. Un manifesto dell'applicazione quindi descrive elementi a livello di applicazione e fa riferimento a uno o più manifesti dei servizi per comporre un tipo di applicazione. Questo è un semplice esempio di manifesto dell'applicazione:
+Il manifesto dell'applicazione descrive in modo dichiarativo il tipo di applicazione e la versione. Specifica i metadati di composizione dei servizi, ad esempio i nomi stabili, lo schema di partizionamento, il numero di istanze/fattore di replica, i criteri di sicurezza/isolamento, i vincoli di posizionamento, gli override di configurazione e i tipi di servizi costituenti. Vengono descritti anche i domini di bilanciamento del carico in cui viene posizionata l'applicazione.
+
+Un manifesto dell'applicazione quindi descrive elementi a livello di applicazione e fa riferimento a uno o più manifesti dei servizi per comporre un tipo di applicazione. Questo è un semplice esempio di manifesto dell'applicazione:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -186,7 +192,7 @@ Se si usa Visual Studio 2015 per creare un'applicazione, è possibile usare il c
 
 Per creare un pacchetto, fare clic con il pulsante destro sul progetto dell'applicazione in Esplora soluzioni e scegliere il comando Pacchetto, come mostrato di seguito:
 
-![][2]
+![Inserire un'applicazione in un pacchetto con Visual Studio][vs-package-command]
 
 Dopo aver completato la creazione del pacchetto, ne verrà indicata la posizione nella finestra **Output**. Si noti che il passaggio di creazione del pacchetto viene eseguito automaticamente con la distribuzione o il debug di un'applicazione in Visual Studio.
 
@@ -238,14 +244,14 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 [RunAs: Esecuzione di un'applicazione dell'infrastruttura di servizi con varie autorizzazioni di sicurezza][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
+[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
+[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/04/2016"
 	ms.author="nitinme"/>
 
 
@@ -39,7 +39,7 @@ Informazioni su come creare un cluster Apache Spark in HDInsight e quindi usare 
 	-  Da un computer Windows: [Usare SSH con HDInsight basato su Linux (Hadoop) da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 
-##>Creare un cluster Spark in HDInsight Linux
+## Creare un cluster Spark in HDInsight Linux
 
 In questa sezione viene creato un cluster HDInsight versione 3.3, basato su Spark versione 1.5.1. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 
@@ -64,7 +64,7 @@ In questa sezione viene creato un cluster HDInsight versione 3.3, basato su Spar
 
 	> [AZURE.NOTE]Questa voce viene impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È anche necessario immettere un **Nome utente SSH**. Per **Tipo autenticazione SSH**, fare clic su **PASSWORD** e specificare una password per l'utente SSH. Fare clic su **Seleziona** in basso per salvare la configurazione delle credenziali.
+6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È inoltre necessario immettere un **SSH Username**. Per il **Tipo di autenticazione SSH**, fare clic su **PASSWORD** e specificare una password per l'utente SSH. Fare clic su **Seleziona** in basso per salvare la configurazione delle credenziali.
 
 	![Fornire le credenziali del cluster](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "Fornire le credenziali del cluster")
 
@@ -86,7 +86,7 @@ In questa sezione viene creato un cluster HDInsight versione 3.3, basato su Spar
 
 	- **Metodo di selezione**: impostare questa voce su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa voce su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
 
-	- **Selezionare l'account di archiviazione/Crea nuovo**: fare clic su **Selezionare l'account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Usare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, viene visualizzato un segno di spunta verde.
+	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Usare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, viene visualizzato un segno di spunta verde.
 
 	- **Scegliere il contenitore predefinito**: usare questa opzione per immettere il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
@@ -134,7 +134,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare l'esempio di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
+4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare l'esempio di codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -211,11 +211,11 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark: usare Spark in HDInsight per creare applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -231,7 +231,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gestire risorse
+### Gestire le risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
@@ -246,4 +246,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

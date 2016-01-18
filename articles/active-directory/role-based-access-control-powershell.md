@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Gestione del controllo di accesso basato sui ruoli con Windows PowerShell #
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli-install.md)
-
+- [PowerShell](role-based-access-control-manage-access-powershell.md)
+- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 Nel portale di Azure e nell'API di Gestione risorse di Azure, il controllo di accesso basato sui ruoli (RBAC) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
@@ -164,4 +164,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Configurazione del controllo di accesso basato sui ruoli usando l'interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli-install.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

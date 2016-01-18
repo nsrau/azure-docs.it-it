@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Passaggi successivi per l'uso di Azure AD
@@ -39,6 +39,5 @@ Registrazione dispositivo di Azure AD consente di eseguire il provisioning dei d
 
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

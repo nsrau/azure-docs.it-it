@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # Query su database elastico per le query tra database (partizionamento verticale)
 
 Questo documento illustra come configurare le query elastiche per scenari di query tra database (partizionamento verticale) e come eseguire le query. Per una definizione dello scenario di partizionamento verticale, vedere [Panoramica delle query su database elastico del database SQL di Azure (anteprima)](sql-database-elastic-query-overview.md).
+
+![Eseguire una query tra tabelle in vari database][1]
 
 ## Creazione di oggetti di database
 
@@ -31,7 +33,7 @@ La definizione degli oggetti database per le query su database elastico si basa 
 
 * [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
+* [CREARE/ELIMINARE ORIGINE DATI ESTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 
 * [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -182,6 +184,9 @@ Dopo aver definito l'origine dati esterna e le tabelle esterne, è ora possibile
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

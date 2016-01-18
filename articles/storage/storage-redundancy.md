@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/20/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 # Replica di Archiviazione di Azure
@@ -26,7 +26,7 @@ Quando si crea un account di archiviazione, è necessario selezionare una delle 
 - [Archiviazione con ridondanza locale (LRS)](#locally-redundant-storage)
 - [Archiviazione con ridondanza della zona (ZRS).](#zone-redundant-storage)
 - [Archiviazione con ridondanza geografica (GRS)](#geo-redundant-storage)
-- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](#read-access-geo-redundant-storage).
+- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](#read-access-geo-redundant-storage)
 
 Nella tabella seguente è riportata una breve panoramica delle differenze tra i vari tipi di archiviazione, mentre nelle sezioni successive verranno forniti altri dettagli su ogni tipo di replica.
 
@@ -106,4 +106,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

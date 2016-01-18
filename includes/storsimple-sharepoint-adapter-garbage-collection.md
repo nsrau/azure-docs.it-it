@@ -14,13 +14,13 @@ In questa procedura, si apprenderà come:
 
 1. Sul server front-end web, aprire la Shell di gestione di SharePoint 2013 come amministratore.
 
-2. Passare alla cartella<boot drive>: \\Programmi\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Passare alla cartella *unità di avvio*:\\Programmi\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
 
 3. Rinominare**Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config**con**web.config**.
 
 4. Utilizzare`aspnet_regiis -pdf connectionStrings`per decrittografare il file web.config.
 
-5. Nel file web.config decrittografato sotto al nodo**<connectionStrings>**, aggiungere la stringa di connessione per l'istanza di SQL server e il nome del database del contenuto. Vedere l'esempio seguente.
+5. Nel file web.config decrittografato sotto al nodo `connectionStrings`, aggiungere la stringa di connessione per l'istanza del server SQL e il nome del database del contenuto. Vedere l'esempio seguente.
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@ In questa procedura, si apprenderà come:
 
 2. Sul server web front-end, in**Amministrazione centrale**modificare le **Impostazioni generali dell’applicazione Web**per il database del contenuto desiderato per abilitare nuovamente il Cestino. A tale scopo, fare clic su**Amministrazione centrale** -> **Gestione dell’applicazione** -> **Applicazioni Web (Gestisci applicazioni web)** -> **SharePoint - 80** -> **Impostazioni generali dell’applicazione**. Impostare lo stato del Cestino su**ON**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

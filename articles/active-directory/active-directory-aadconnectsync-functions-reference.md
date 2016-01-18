@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -363,7 +363,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ### EscapeDNComponent
 
-**Descrizione:** <br> La funzione EscapeDNComponent accetta un componente di un oggetto DN e inserisce un carattere di escape per consentirne la rappresentazione in LDAP.
+**Descrizione:** <br> La funzione EscapeDNComponent accetta un componente di un DN e inserisce un carattere di escape per consentirne la rappresentazione in LDAP.
 
 **Sintassi:** <br> `str EscapeDNComponent(str value)`
 
@@ -414,7 +414,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 - valueIfTrue: valore che verrà restituito se la condizione restituisce true.
 - valueIfFalse: valore che verrà restituito se la condizione restituisce false.
 
-**Esempio:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è un tirocinante. In caso contrario restituisce l'alias dell'utente invariato.
+**Esempio:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è un interno. In caso contrario restituisce l'alias dell'utente invariato.
 
 
 
@@ -456,7 +456,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 **Osservazioni:** <br> Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
-**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7
+**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7.
 
 
 
@@ -500,7 +500,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 ----------
 ###IsGuid
 
-**Descrizione:** <br> La funzione IsGuid restituisce True se la stringa può essere convertita in un GUID.
+**Descrizione:** <br> La funzione IsGuid restituisce true se la stringa può essere convertita in un GUID.
 
 **Sintassi:** <br> `bool IsGuid(str GUID)`
 
@@ -742,7 +742,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 **Sintassi:** <br> `num NumFromDate(dt value)`
 
 
-**Esempio:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> Restituisce 129699324000000000.
+**Esempio:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> Restituisce 129699324000000000
 
 
 
@@ -1058,4 +1058,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

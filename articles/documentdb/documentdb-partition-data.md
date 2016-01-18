@@ -18,7 +18,7 @@
 
 # Dati di partizione e di scalabilità in DocumentDB
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) è progettato per permettere di ottenere prestazioni elevate e prevedibili e applicare facilmente la *scalabilità orizzontale* in base alla crescita dell'applicazione. DocumentDB viene usato per i servizi di produzione su vasta scala di Microsoft, quale l'archivio dati utente su cui si basano le app Web e per dispositivi mobili della famiglia di prodotti MSN.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è progettato per permettere di ottenere prestazioni elevate e prevedibili e applicare facilmente la *scalabilità orizzontale* in base alla crescita dell'applicazione. DocumentDB viene usato per i servizi di produzione su vasta scala di Microsoft, quale l'archivio dati utente su cui si basano le app Web e per dispositivi mobili della famiglia di prodotti MSN.
 
 Grazie al **partizionamento orizzontale** dei dati, è possibile ottenere una scalabilità quasi infinita in termini di archiviazione e produttività per l'applicazione DocumentDB. Gli account DocumentDB supportano la scalabilità lineare grazie all'uso di unità organizzabili in stack, note anche come **raccolte**. Il partizionamento ottimale dei dati tra le raccolte dipenderà dal formato dei dati e dai modelli di accesso.
 
@@ -112,4 +112,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

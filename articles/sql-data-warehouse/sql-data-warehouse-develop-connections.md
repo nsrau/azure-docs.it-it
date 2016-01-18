@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Connettersi a SQL Data Warehouse 
@@ -158,4 +158,4 @@ Una volta connessi, è possibile iniziare a progettare le tabelle. Per ulteriori
 
 <!--Other references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

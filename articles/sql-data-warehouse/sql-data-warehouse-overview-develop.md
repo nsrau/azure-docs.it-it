@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
@@ -79,4 +79,4 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

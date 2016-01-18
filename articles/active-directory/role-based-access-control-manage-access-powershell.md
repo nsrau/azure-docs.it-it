@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
-<!-- Azure Selector -->
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## Elencare i ruoli Controllo degli accessi in base al ruolo
 ### Elencare tutti i ruoli disponibili
@@ -149,4 +149,4 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 ## Argomenti relativi a Controllo degli accessi in base al ruolo
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

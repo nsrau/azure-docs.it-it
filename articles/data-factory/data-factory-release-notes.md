@@ -338,7 +338,7 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
     
   		Per una procedura dettagliata su come creare un'attività personalizzata e usarla in una pipeline di Data factory di Azure, vedere [Usare attività personalizzate in una pipeline di Data factory di Azure][adf-custom-activities].
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -354,4 +354,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

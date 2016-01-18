@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 
-Archivio Azure Data Lake fornisce uno strumento da riga di comando, [AdlCopy](http://aka.ms/downloadadlcopy), per copiare dati da BLOB di Archiviazione di Azure ad Archivio Data Lake. È possibile usare lo strumento in due modi:
+Archivio Data Lake di Azure fornisce uno strumento da riga di comando, [AdlCopy](http://aka.ms/downloadadlcopy), per copiare dati da **BLOB di Archiviazione di Azure ad Archivio Data Lake**. Non è possibile usare lo strumento AdlCopy per copiare dati da Archivio Data Lake ai BLOB di Archiviazione di Azure.
+
+È possibile usare lo strumento AdlCopy in due modi:
 
 * **Autonomo**, in cui lo strumento usa le risorse di Archivio Data Lake per eseguire l'attività.
 * **Tramite un account di Analisi Data Lake**, in cui le unità assegnate all'account di Analisi Data Lake vengono usate per eseguire l'operazione di copia. È consigliabile scegliere questa opzione se si intende eseguire le attività di copia in modo prevedibile.
@@ -68,9 +70,12 @@ I parametri nella sintassi sono descritti di seguito:
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. È inoltre possibile copiare tutti i BLOB da un contenitore all'account di Archivio Data Lake tramite il comando seguente:
@@ -103,10 +108,14 @@ Ad esempio:
 
 * Se si usa lo strumento AdlCopy con l'account di Analisi Data Lake, verranno applicati i [Prezzi di Analisi Data Lake](https://azure.microsoft.com/pricing/details/data-lake-analytics/) standard.
 
+## Considerazioni sull'uso di AdlCopy
+
+* AdlCopy non supporta la copia dei dati da origini che complessivamente contengono più di 1000 file e cartelle. Un approccio alternativo può essere la distribuzione di file e cartelle in sottocartelle diverse e l'uso del percorso per tali sottocartelle come origine.
+
 ## Passaggi successivi
 
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

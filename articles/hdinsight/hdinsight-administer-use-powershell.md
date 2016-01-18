@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
@@ -60,7 +60,7 @@ Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 
 	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
 
-- [Installazione guidata della piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+- [Installazione guidata piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
 
@@ -232,7 +232,7 @@ Per concedere:
 
 	# Credential option 1
 	$hadoopUserName = "admin"
-	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPassword = "<Enter the Password>"
 	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
 	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
@@ -332,4 +332,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

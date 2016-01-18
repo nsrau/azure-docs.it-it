@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 	
 # Anteprima di Azure AD B2C: Creare un'API Web .NET
@@ -33,7 +33,7 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md). Assicurarsi di
 
 - Includere un'**app Web/API Web** nell'applicazione.
-- Per l'app Web, usare l'**URI di reindirizzamento** `https://localhost:44316/`: si tratta della posizione predefinita del client di app Web per questo codice di esempio.
+- Per l'app Web, usare l'**URI di reindirizzamento** `https://localhost:44316/`: si tratta della posizione predefinita del client dell'app Web per questo codice di esempio.
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
  [AZURE.INCLUDE [Active-Directory-B2C-devquickstarts-v2-Apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -45,7 +45,7 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** dei criteri dopo averli creati. Sarà necessario usare i nomi dei criteri a breve. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -59,7 +59,7 @@ Il codice per questa esercitazione è disponibile [in GitHub](https://github.com
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è un'applicazione Web MVC con cui interagisce l'utente. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti.
 
@@ -74,8 +74,8 @@ Quando l'utente interagisce con l'app `TaskWebApp`, il client invia le richieste
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
     <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
@@ -219,8 +219,10 @@ Infine, compilare ed eseguire sia `TaskWebApp` che `TaskService`. Eseguire l'isc
 
 ## 8\. Modificare i criteri
 
-Ora che l'API è stata protetta tramite Azure AD B2C, è possibile effettuare delle prove con i criteri dell'app e visualizzarne gli effetti (o l'assenza di effetti) nell'API. È possibile <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->modificare le **attestazioni dell'applicazione** nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni supplementari che si aggiungono saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
+Ora che l'API è stata protetta tramite Azure AD B2C, è possibile effettuare delle prove con i criteri dell'app e visualizzarne gli effetti (o l'assenza di effetti) nell'API. È possibile 
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->modificare le **attestazioni dell'applicazione** nei criteri e modificare le informazioni utente disponibili nell'API Web. Le eventuali attestazioni supplementari che si aggiungono saranno disponibili per l'API Web MVC .NET nell'oggetto `ClaimsPrincipal`, come descritto in precedenza.
 
 <!--
 
@@ -234,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Gestione delle unità amministrative in Azure AD - Anteprima pubblica
@@ -36,4 +36,4 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 ## Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

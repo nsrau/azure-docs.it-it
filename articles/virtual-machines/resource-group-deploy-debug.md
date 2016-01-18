@@ -3,6 +3,7 @@
    description="Vengono descritti i problemi comuni che possono verificarsi durante la distribuzione di risorse create usando il modello di distribuzione di Gestione risorse e viene illustrato come rilevare e risolvere questi problemi."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/14/2015"
+   ms.date="01/06/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure
@@ -313,7 +314,6 @@ Per essere precisi per i core, ad esempio, è possibile controllare le aree per 
         }
 
 
-
 ## Verifica della registrazione del provider di risorse
 
 Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un account o una sottoscrizione per usare un provider specifico. Se è abilitato l'uso di un provider, è anche necessario registrarlo. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando.
@@ -435,4 +435,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

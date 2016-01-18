@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Modelli di messaggistica asincrona e disponibilità elevata
@@ -35,7 +35,7 @@ Per ognuno di questi problemi, esistono diverse modalità di errore che consento
 
 ## Affidabilità nel bus di servizio
 
-Sono disponibili diverse modalità di gestione dei problemi relativi a entità e messaggi, oltre a linee guida per l'uso appropriato di queste misure di prevenzione. Per comprendere le linee guida, è necessario comprendere prima di tutto i motivi per cui nel bus di servizio si possono verificare errori. Considerata la progettazione dei sistemi Azure, tutti questi problemi sono in genere di breve durata. Ad alto livello, le diverse cause della mancata disponibilità si manifestano nei modi seguenti:
+Sono disponibili diverse modalità di gestione dei problemi relativi a entità e messaggi, oltre a linee guida per l'utilizzo appropriato di queste misure di prevenzione. Per comprendere le linee guida, è necessario comprendere prima di tutto i motivi per cui nel bus di servizio si possono verificare errori. Considerata la progettazione dei sistemi Azure, tutti questi problemi sono in genere di breve durata. Ad alto livello, le diverse cause della mancata disponibilità si manifestano nei modi seguenti:
 
 -   Limitazione da un sistema esterno dal quale dipende il bus di servizio. La limitazione è generata da interazioni con le risorse di archiviazione e calcolo.
 
@@ -43,11 +43,11 @@ Sono disponibili diverse modalità di gestione dei problemi relativi a entità e
 
 -   Errore del bus di servizio in un singolo sottosistema. In questo caso, è possibile che un nodo di calcolo si trovi in uno stato incoerente e debba essere riavviato, causando il bilanciamento del carico in altri nodi di tutte le entità servite. Questa situazione può causare a sua volta un breve periodo di elaborazione lenta dei messaggi.
 
--   Errore del bus di servizio in un data center di Azure. Questo è il classico "errore irreversibile", durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
+-   Errore del bus di servizio in un data center di Azure. Questo è il classico "errore irreversibile" durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
 
 > [AZURE.NOTE]Il termine **archiviazione** può indicare sia Archiviazione di Azure sia SQL Azure.
 
-Nel bus di servizio sono disponibili numerose misure di prevenzione per i problemi illustrati sopra. Le sezioni seguenti illustrano ogni problema e le relative misure di prevenzione.
+Nel bus di servizio sono disponibili diverse misure di prevenzione per questi problemi. Le sezioni seguenti illustrano ogni problema e le relative misure di prevenzione.
 
 ### Limitazione
 
@@ -57,13 +57,13 @@ Come misura di prevenzione, il codice deve leggere l'errore e bloccare ogni nuov
 
 ### Problema per una dipendenza di Azure
 
-Anche per altri componenti di Azure possono occasionalmente verificarsi problemi di servizio. Quando ad esempio si aggiorna un sistema che usa il bus di servizio, è possibile che debba funzionare temporaneamente con capacità limitate. Per risolvere questo tipo di problemi, il bus di servizio analizza e implementa regolarmente le misure di prevenzione. È tuttavia possibile che si verifichino effetti collaterali di misure di prevenzione. Ad esempio, per gestire problemi temporanei con l'archiviazione, il bus di servizio implementa un sistema che consente il funzionamento uniforme delle operazioni di invio dei messaggi. Considerata la natura della misura di prevenzione, un messaggio inviato può impiegare fino a 15 minuti prima di essere visualizzato nella sottoscrizione o nella coda interessata ed essere pronto per un'operazione di ricezione. In genere, la maggior parte delle entità non è interessata da questo problema. Dato tuttavia il numero di entità presenti nel bus di servizio all'interno di Azure, questa misura di prevenzione può essere utile a volte per un limitato sottoinsieme di clienti del bus di servizio.
+Anche per altri componenti di Azure possono occasionalmente verificarsi problemi di servizio. Quando, ad esempio, si aggiorna un sistema usato dal bus di servizio, è possibile che il sistema funzioni temporaneamente con capacità limitate. Per risolvere questo tipo di problemi, il bus di servizio analizza e implementa regolarmente le misure di prevenzione. È tuttavia possibile che si verifichino effetti collaterali di misure di prevenzione. Ad esempio, per gestire problemi temporanei con l'archiviazione, il bus di servizio implementa un sistema che consente il funzionamento uniforme delle operazioni di invio dei messaggi. Considerata la natura della misura di prevenzione, un messaggio inviato può impiegare fino a 15 minuti prima di essere visualizzato nella sottoscrizione o nella coda interessata ed essere pronto per un'operazione di ricezione. In genere, la maggior parte delle entità non è interessata da questo problema. Dato tuttavia il numero di entità presenti nel bus di servizio all'interno di Azure, questa misura di prevenzione può essere utile a volte per un limitato sottoinsieme di clienti del bus di servizio.
 
 ### Errore del bus di servizio in un singolo sottosistema
 
 In qualsiasi applicazione possono verificarsi casi in cui un componente interno del bus di servizio diventa incoerente. Quando il bus di servizio rileva questo problema, raccoglie dati dall'applicazione a fini diagnostici. Una volta raccolti i dati, l'applicazione viene riavviata nel tentativo di ripristinarne un stato coerente. Questo processo avviene abbastanza velocemente e causa la mancata disponibilità di un'entità per alcuni minuti, anche se in genere i tempi di inattività sono molto più brevi.
 
-In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. .NET SDK per il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli spazi dei nomi associati. Questi ultimi possono presentare altri ostacoli che saranno illustrati più avanti in questo documento.
+In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. .NET SDK per il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli [spazi dei nomi associati][]. Questi ultimi possono presentare altri ostacoli che saranno illustrati più avanti in questo documento.
 
 ### Errore del bus di servizio in un data center di Azure
 
@@ -72,11 +72,11 @@ Il motivo più probabile di un errore in un data center di Azure è una distribu
 -   Interruzione elettrica (arresto di alimentazione e produzione di energia).
 -   Connettività (interruzione della connessione Internet tra i client e Azure).
 
-In entrambi i casi, il problema è dovuto a una calamità naturale o a un errore umano. Per risolvere il problema e assicurarsi di poter continuare a inviare messaggi, si possono usare gli spazi dei nomi associati per consentire l'invio dei messaggi a una seconda posizione, mentre viene ristabilita l'integrità della prima. Per altre informazioni, vedere [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio][].
+In entrambi i casi, il problema è dovuto a una calamità naturale o a un errore umano. Per risolvere il problema e assicurarsi di poter continuare a inviare messaggi, è possibile usare gli [spazi dei nomi associati][], che consentono l'invio dei messaggi a una seconda posizione mentre viene ristabilita l'integrità della prima. Per altre informazioni, vedere [Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio][].
 
 ## Spazi dei nomi associati
 
-La funzionalità relativa agli spazi dei nomi associati supporta scenari in cui un'entità o una distribuzione del bus di servizio in un data center diventa non disponibile. Anche se eventi di questo tipo si verificano raramente, i sistemi distribuiti devono comunque essere in grado di gestire gli scenari peggiori. In genere, questo tipo di evento si verifica perché in qualche elemento dal quale dipende il bus di servizio avviene un problema di breve durata. Per garantire la disponibilità di un'applicazione durante un'interruzione, gli utenti del bus di servizio possono usare due diversi spazi dei nomi, preferibilmente in due distinti data center, per ospitare le proprie entità di messaggistica. Nel resto di questa sezione si userà la terminologia seguente:
+La funzionalità relativa agli [spazi dei nomi associati][] supporta scenari in cui un'entità o una distribuzione del bus di servizio in un data center diventa non disponibile. Anche se eventi di questo tipo si verificano raramente, i sistemi distribuiti devono comunque essere in grado di gestire gli scenari peggiori. In genere, questo tipo di evento si verifica perché in qualche elemento dal quale dipende il bus di servizio avviene un problema di breve durata. Per garantire la disponibilità di un'applicazione durante un'interruzione, gli utenti del bus di servizio possono usare due diversi spazi dei nomi, preferibilmente in due distinti data center, per ospitare le proprie entità di messaggistica. Nel resto di questa sezione si userà la terminologia seguente:
 
 -   Spazio dei nomi primario: spazio dei nomi con cui interagisce l'applicazione per operazioni di invio e ricezione.
 
@@ -84,13 +84,13 @@ La funzionalità relativa agli spazi dei nomi associati supporta scenari in cui 
 
 -   Intervallo di failover: intervallo di tempo per accettare gli errori normali prima che l'applicazione passi dallo spazio dei nomi primario a quello secondario.
 
-Gli spazi dei nomi associati supportano la funzionalità SendAvailability, che consente di preservare la capacità di inviare messaggi. Per usare la funzionalità SendAvailability, l'applicazione deve soddisfare i requisiti seguenti:
+Gli spazi dei nomi associati supportano la funzionalità *SendAvailability*, che consente di preservare la capacità di inviare messaggi. Per usare la funzionalità SendAvailability, l'applicazione deve soddisfare i requisiti seguenti:
 
 1.  I messaggi vengono ricevuti solo dallo spazio dei nomi primario.
 
 2.  I messaggi inviati a una coda o a un argomento specifico possono arrivare senza un ordine preciso.
 
-3.  Se l'applicazione usa le sessioni: i messaggi all'interno di una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi. Lo stato delle sessioni viene mantenuto solo nello spazio dei nomi primario.
+3.  Se l'applicazione usa le sessioni, i messaggi all'interno di una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi. Lo stato delle sessioni viene mantenuto solo nello spazio dei nomi primario.
 
 4.  I messaggi in una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi.
 
@@ -102,13 +102,13 @@ Le sezioni seguenti illustrano l'API, la relativa modalità di implementazione e
 
 ### API MessagingFactory.PairNamespaceAsync
 
-La funzionalità relativa agli spazi dei nomi associati introduce nella classe [Microsoft.ServiceBus.Messaging.MessagingFactory][] il nuovo metodo seguente:
+La funzionalità relativa agli spazi dei nomi associati introduce il metodo [PairNamespaceAsync][] nella classe [Microsoft.ServiceBus.Messaging.MessagingFactory][]\:
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-Al termine dell'attività viene completata anche l'associazione degli spazi dei nomi e qualsiasi oggetto [MessageReceiver][], [QueueClient][] o [TopicClient][] creato con l'oggetto [MessagingFactory][]. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][] è la classe di base per i vari tipi di associazioni disponibili con un oggetto [MessagingFactory][]. Attualmente [SendAvailabilityPairedNamespaceOptions][] è l'unica classe derivata che implementa i requisiti della funzionalità SendAvailability. La classe [SendAvailabilityPairedNamespaceOptions][] include un set di costruttori creati l'uno in base all'altro. Se si osserva il costruttore con il maggior numero di parametri, è possibile comprendere il comportamento degli altri.
+Al termine dell'attività viene completata anche l'associazione degli spazi dei nomi, che può quindi avere effetto su qualsiasi oggetto [MessageReceiver][], [QueueClient][] o [TopicClient][] creato con l'istanza [MessagingFactory][]. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][] è la classe di base per i vari tipi di associazioni disponibili con un oggetto [MessagingFactory][]. Attualmente [SendAvailabilityPairedNamespaceOptions][] è l'unica classe derivata che implementa i requisiti della funzionalità SendAvailability. La classe [SendAvailabilityPairedNamespaceOptions][] include un set di costruttori creati l'uno in base all'altro. Se si osserva il costruttore con il maggior numero di parametri, è possibile comprendere il comportamento degli altri.
 
 ```
 public SendAvailabilityPairedNamespaceOptions(
@@ -121,21 +121,20 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Ecco il significato di questi parametri:
 
--   *secondaryNamespaceManager*: inizializzazione di un'istanza di [NamespaceManager][] per lo spazio dei nomi secondario che può essere usata dal metodo [PairNamespaceAsync][] per configurare lo spazio dei nomi secondario. Il gestore sarà usato per ottenere l'elenco di code nello spazio dei nomi e assicurarsi che esistano le code di backlog necessarie. Se le code non esistono, verranno create. L'oggetto [NamespaceManager][] richiede la funzionalità per creare un token con l'attestazione **Manage**.
+-   *secondaryNamespaceManager*: inizializzazione di un'istanza di [NamespaceManager][] per lo spazio dei nomi secondario che può essere usata dal metodo [PairNamespaceAsync][] per configurare lo spazio dei nomi secondario. Il gestore dello spazio dei nomi viene usato per ottenere l'elenco di code nello spazio dei nomi e assicurarsi che esistano le code di backlog necessarie. Se le code non esistono, vengono create. L'oggetto [NamespaceManager][] richiede la funzionalità per creare un token con l'attestazione **Manage**.
 
 -   *messagingFactory*: istanza di [MessagingFactory][] per lo spazio dei nomi secondario. L'oggetto [MessagingFactory][] viene usato per inviare e, se la proprietà [EnableSyphon][] è impostata su **true**, per ricevere messaggi dalle code di backlog.
 
 -   *backlogQueueCount*: numero di code di backlog da creare. Il valore deve essere almeno 1. Quando si inviano messaggi al backlog, viene scelta casualmente una di queste code. Se il valore è impostato su 1, è possibile usare una sola coda. In questo caso e se l'unica coda di backlog genera errori, il client non può provare a usare un'altra coda di backlog e potrebbe non riuscire a inviare il messaggio. È quindi consigliabile impostare questo parametro su un valore maggiore e impostare il valore predefinito su 10. Il parametro può essere impostato su un valore superiore o inferiore in base ai dati che vengono inviati dall'applicazione ogni giorno. Ogni coda di backlog può contenere fino a 5 GB di messaggi.
 
--   *failoverInterval*: intervallo di tempo durante il quale vengono accettati gli errori nello spazio dei nomi primario, prima del passaggio di ogni singola entità allo spazio dei nomi secondario. I failover si verificano su un'entità alla volta. Le entità in un singolo spazio dei nomi di solito risiedono in nodi diversi del bus di servizio. Un errore in un'entità non implica che si verifichi in un'altra entità. È possibile impostare questo valore su [System.TimeSpan.Zero][] per eseguire il failover allo spazio dei nomi secondario immediatamente dopo il primo errore non temporaneo. Gli errori che attivano il timer del failover sono eccezioni di tipo [MessagingException][] in cui la proprietà [IsTransient][] è impostata su false o di tipo [System.TimeoutException][]. Altri tipi di eccezioni, ad esempio [UnauthorizedAccessException][], non causeranno il failover, perché indicano che il client non è configurato correttamente. Un'eccezione di tipo [ServerBusyException][] non causa il failover perché il modello corretto prevede un'attesa di 10 secondi e quindi invia nuovamente il messaggio.
+-   *failoverInterval*: intervallo di tempo durante il quale vengono accettati errori nello spazio dei nomi primario, prima del passaggio di ogni singola entità allo spazio dei nomi secondario. I failover si verificano su un'entità alla volta. Le entità in un singolo spazio dei nomi di solito risiedono in nodi diversi del bus di servizio. Un errore in un'entità non implica che si verifichi in un'altra entità. È possibile impostare questo valore su [System.TimeSpan.Zero][] per eseguire il failover allo spazio dei nomi secondario immediatamente dopo il primo errore non temporaneo. Gli errori che attivano il timer del failover sono eccezioni di tipo [MessagingException][] in cui la proprietà [IsTransient][] è impostata su false o di tipo [System.TimeoutException][]. Altri tipi di eccezioni, ad esempio [UnauthorizedAccessException][], non causeranno il failover, perché indicano che il client non è configurato correttamente. Un'eccezione di tipo [ServerBusyException][] non causa il failover perché il modello corretto prevede un'attesa di 10 secondi e quindi invia nuovamente il messaggio.
 
 -   *enableSyphon*: indica che l'associazione specificata dovrebbe spostare i messaggi dallo spazio dei nomi secondario a quello primario mediante il sifone. In genere nelle applicazioni che inviano messaggi questo valore deve essere impostato su **false**, mentre in quelle che ricevono messaggi deve essere impostato su **true**. Il motivo per cui si verifica questo tipo di errore è dato dal fatto che spesso il numero dei destinatari dei messaggi è inferiore a quello dei mittenti. A seconda del numero dei destinatari, è possibile scegliere di impostare un'unica istanza dell'applicazione per la gestione delle attività del sifone. All'uso di più destinatari sono associati costi di fatturazione per ogni coda di backlog.
 
 Per usare il codice, creare un'istanza primaria di [MessagingFactory][], un'istanza secondaria di [MessagingFactory][], un'istanza secondaria di [NamespaceManager][] e un'istanza di [SendAvailabilityPairedNamespaceOptions][]. La chiamata può essere semplice come la seguente:
 
 ```
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions =
-    new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
+SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
@@ -150,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## Passaggi successivi
 
-Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre informazioni vedere l'articolo su [spazi dei nomi associati e implicazioni in termini di costo].
+Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre informazioni vedere l'articolo su [spazi dei nomi associati e implicazioni in termini di costo][].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -171,5 +170,6 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre i
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [spazi dei nomi associati e implicazioni in termini di costo]: service-bus-paired-namespaces.md
+  [spazi dei nomi associati]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -69,7 +69,7 @@ Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto, so
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 Passaggio 2: eseguire questo comando, sostituendo il nome della macchina virtuale per "vmname".
@@ -82,7 +82,7 @@ Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto, so
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 Passaggio 2: eseguire questo comando, sostituendo il nome della macchina virtuale per "vmname".
@@ -96,7 +96,7 @@ Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto, so
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 Passaggio 2: eseguire questo comando, sostituendo il nome della macchina virtuale per "vmname".
@@ -122,7 +122,7 @@ Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche
 Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto.
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 Passaggio 2: eseguire questo comando, sostituendo il nome della macchina virtuale per "vmname".
@@ -136,7 +136,7 @@ Se si desidera eliminare un account utente senza accedere alla macchina virtuale
 Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto, sostituendo il valore del segnaposto.
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 Passaggio 2: eseguire questo comando, sostituendo il nome della macchina virtuale per "vmname".
@@ -266,4 +266,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Estensioni VM e funzionalità di Azure]: virtual-machines-extensions-features.md
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

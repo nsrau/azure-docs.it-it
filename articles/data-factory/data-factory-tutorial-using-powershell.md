@@ -131,7 +131,7 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 	
 	In alternativa, è possibile usare i file nella cartella C:\\ADFWalkthrough\\Scripts per caricare gli script pig/hive e i file di esempio nel contenitore adfwalkthrough nell'archiviazione BLOB e creare la tabella MarketingCampaignEffectiveness nel database SQL di Azure MarketingCamapaigns.
    
-2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il [portale di Azure classico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
+2. Verificare che al computer locale sia consentito l'accesso al database SQL di Azure. Per abilitare l'accesso, usare il [Portale di Azure classico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** nel database master per creare una regola firewall per l'indirizzo IP del computer. Affinché la modifica diventi effettiva potrebbero essere necessari fino a cinque minuti. Vedere [Procedura: Configurare le impostazioni del firewall (database SQL di Azure)][azure-sql-firewall].
 4. In Azure PowerShell passare al percorso in cui si sono estratti gli esempi (ad esempio, **C:\\ADFWalkthrough**)
 5. Eseguire **uploadSampleDataAndScripts.ps1** 
 6. Una volta completata l'esecuzione dello script, verrà visualizzato quanto segue:
@@ -454,16 +454,6 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-powershell/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-powershell/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png
@@ -514,10 +504,6 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

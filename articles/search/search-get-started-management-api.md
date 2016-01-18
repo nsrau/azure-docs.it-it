@@ -34,7 +34,7 @@ Completamento dell'esercitazione, verranno eseguito il provisioning di due servi
 
 Questa esercitazione si basa su un'applicazione console di Windows scritta in C#, che è possibile modificare ed eseguire in Visual Studio 2012 o 2013.
 
-È possibile trovare l'applicazione client in Codeplex all'indirizzo [Demo API di gestione di Ricerca di Azure](https://azuresearchmgmtapi.codeplex.com/).
+È possibile trovare l'applicazione client in Codeplex all'indirizzo [Demo API di gestione di Ricerca di Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configurare l'applicazione
@@ -58,7 +58,7 @@ In questa sezione verranno eseguite le attività seguenti:
 
 ###Creare un servizio Active Directory
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 
 2. Scorrere il riquadro di spostamento a sinistra e fare clic su **Active Directory**.
 
@@ -119,7 +119,7 @@ In questa sezione verrà illustrato come modificare la soluzione in Visual Studi
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Se non ancora [scaricata l'applicazione di esempio da Codeplex](https://azuresearchmgmtapi.codeplex.com/), è necessario per questo passaggio.
+[Scaricare l'applicazione di esempio da Github](https://github.com/Azure-Samples/search-dotnet-management-api/), se necessario, poiché servirà per questo passaggio.
 
 1. Aprire il **ManagementAPI.sln** in Visual Studio..
 
@@ -204,4 +204,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

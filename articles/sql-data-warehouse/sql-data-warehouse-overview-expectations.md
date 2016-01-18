@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lvargas;twounder;barbkess"/>
 
 # Aspettative di anteprima di SQL Data Warehouse
@@ -72,4 +72,4 @@ SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

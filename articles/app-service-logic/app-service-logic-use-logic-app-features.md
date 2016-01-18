@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare le funzionalità delle app per la logica" 
+	pageTitle="Usare le funzionalità delle app per la logica | Microsoft Azure" 
 	description="Informazioni su come usare le funzionalità avanzate delle app per la logica." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
@@ -49,15 +49,15 @@ La ripetizione esegue l'azione per ciascun elemento di un elenco di elementi. I 
 
 3. Fare clic sull'icona a forma di ingranaggio e selezionare **Ripetere in un elenco**.
  
-2. Accanto alla casella **Ripeti** fare clic su `...` e selezionare **Corpo**. L'input verrà inserito:
+2. Accanto alla casella **Repeat** fare clic su `...` e selezionare **Body**. Questa operazione consente di immettere quanto segue:
 
     	@body('twitterconnector')
 
 	Nella casella di testo. Questa funzione produce un elenco di tweet.
 
-3. Selezionare tutto il testo nella casella di testo **Contenuto** ed eliminarlo. Quindi, fare clic su `...` e selezionare **Testo tweet**. Verrà inserita la funzione **repeatItem()**, che restituisce ogni elemento presente in elenco.
+3. Selezionare tutto il testo nella casella di testo **Contenuto** ed eliminarlo. Quindi, fare clic su `...` e selezionare **Testo tweet**. Viene inserita la funzione **repeatItem()**, che restituisce ogni elemento presente in elenco.
 
-Da notare, infine, che gli output delle azioni ripetute sono speciali. Se si intende fare riferimento ai risultati dell'operazione Dropbox, ad esempio, *non* è possibile eseguire la normale funzione `@actions('dropboxconnector').outputs.body`, invece viene eseguita la funzione `@actions('dropboxconnector').outputs.repeatItems`: Questa funzione restituisce un elenco di tutte le volte in cui è stata eseguita l'operazione, assieme agli output di ciascuna di esse. Ad esempio, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` restituirà il percorso del primo file caricato.
+Da notare, infine, che gli output delle azioni ripetute sono speciali. Se si intende fare riferimento ai risultati dell'operazione Dropbox, ad esempio, *non* è possibile eseguire la normale funzione `@actions('dropboxconnector').outputs.body`. Viene eseguita invece la funzione `@actions('dropboxconnector').outputs.repeatItems`. Questa funzione restituisce un elenco di tutte le volte in cui è stata eseguita l'operazione, assieme agli output di ciascuna di esse. Ad esempio, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` restituisce il percorso del primo file caricato.
 
 ### Condizionale
 Questa app per la logica implica il caricamento di moltissimi file su Dropbox. I passaggi seguenti consentono di aggiungere un'ulteriore logica per assicurarsi di ricevere un file solo quando il tweet riceve un determinato numero di retweet.
@@ -106,7 +106,7 @@ Il codice seguente consente di aggiornare l'app per la logica esistente in modo 
 
 I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
-A questo punto, quando si fa clic su **Salva**, ogni ora tutti i nuovi tweet con più di 5 retweet verranno recapitati in una cartella denominata **tweet** nel proprio Dropbox.
+A questo punto, quando si fa clic su **Save**, ogni ora tutti i nuovi tweet con più di 5 retweet vengono recapitati in una cartella denominata **tweet** nella propria area Dropbox.
 
 Per informazioni sulle definizioni dell'app per la logica, vedere l'articolo relativo alla [creazione di definizioni di app per la logica](app-service-logic-author-definitions.md).
 
@@ -114,7 +114,7 @@ Per informazioni sulle definizioni dell'app per la logica, vedere l'articolo rel
 Vi sono diverse opzioni per avviare il flusso di lavoro definito nell'app per la logica. Un flusso di lavoro può sempre essere avviato su richiesta nel [portale di Azure].
 
 ### Trigger di ricorrenza
-Un trigger di ricorrenza eseguito a un intervallo specificato dall'utente. Quando il trigger è caratterizzato dalla logica condizionale, determina se è necessario o no eseguire il flusso di lavoro. Un trigger indica che deve essere eseguito restituendo un codice di stato `200`. Quando non è necessario eseguirlo, restituisce il codice di stato `202`.
+Un trigger di ricorrenza viene eseguito a un intervallo specificato dall'utente. Quando il trigger è caratterizzato dalla logica condizionale, determina se è necessario o no eseguire il flusso di lavoro. Un trigger indica che deve essere eseguito restituendo un codice di stato `200`. Quando non è necessario eseguirlo, restituisce il codice di stato `202`.
 
 ### Callback tramite le API REST
 I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. È possibile trovare l'endpoint per accedere passando al pannello **Proprietà** dal pulsante **Impostazioni** sulla barra dei comandi dell'app per la logica.
@@ -129,7 +129,7 @@ I servizi possono chiamare un endpoint dell'app per la logica per avviare un flu
             "outputs" : { "property" : "value" }
         }
 
-È possibile passare gli output al flusso di lavoro e farvi riferimento nel flusso di lavoro. Ad esempio, con il trigger sopra riportato, se si include `@triggers().outputs.property` si otterrà `value`.
+È possibile passare gli output al flusso di lavoro e farvi riferimento nel flusso di lavoro. Ad esempio, con il trigger sopra riportato, se si include `@triggers().outputs.property` si ottiene `value`.
 
 Per altre informazioni, vedere la [documentazione di REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
@@ -143,4 +143,4 @@ Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui ad
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

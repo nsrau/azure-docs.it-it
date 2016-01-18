@@ -32,8 +32,8 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) oppure [Versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage-whatis-account.md).
-- Una workstation con Azure PowerShell 0.9.8. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Questa esercitazione non è ancora stata aggiornata per l'anteprima di Azure PowerShell 1.0. 
+- Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+- Una workstation con Azure PowerShell 0.9.8. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Questa esercitazione non è ancora stata aggiornata per l'anteprima di Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Passaggio 1: Scaricare ed estrarre i file di esempio ##
 Per iniziare, scaricare i file di esempio che verranno usati in questa esercitazione.
@@ -210,4 +210,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

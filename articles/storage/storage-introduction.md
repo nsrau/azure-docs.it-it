@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Introduzione ad Archiviazione di Microsoft Azure
@@ -65,8 +65,8 @@ Un account di archiviazione standard consente di accedere all'archiviazione BLOB
 
 - Nell'**archiviazione BLOB** sono archiviati i dati di file. Un BLOB può essere qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archiviazione BLOB è talvolta denominata archiviazione di oggetti. 
 - Nell'**archiviazione tabelle** sono archiviati set di dati strutturati. L'archiviazione delle tabelle utilizza un archivio dati chiave-attributo NoSQL, che consente lo sviluppo e l'accesso rapido a grandi quantità di dati.
-- L'**archiviazione di accodamento** offre un sistema di messaggistica affidabile per l'elaborazione del flusso di lavoro e per la comunicazione tra i componenti dei servizi cloud.
-- L'**archiviazione file** offre uno spazio di archiviazione condiviso per le applicazioni tradizionali che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file. 
+- L'**archiviazione code** offre un sistema di messaggistica affidabile per l'elaborazione del flusso di lavoro e per la comunicazione tra i componenti dei servizi cloud.
+- L'**archiviazione file** offre uno spazio di archiviazione condiviso per le applicazioni legacy che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file. 
 
 Ogni account di archiviazione standard può includere fino a 500 TB di dati combinati di BLOB, code, tabelle e file. Per informazioni sulla capacità dell'account di archiviazione standard, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure](storage-scalability-targets.md).
 
@@ -236,4 +236,4 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

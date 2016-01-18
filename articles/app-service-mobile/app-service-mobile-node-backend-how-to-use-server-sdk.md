@@ -16,7 +16,7 @@
 	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
-# Come usare Node.js SDK per le app per dispositivi mobili di Azure
+# Come usare Node.js SDK per App per dispositivi mobili di Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
 
@@ -24,7 +24,7 @@
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end Node.js nelle app per dispositivi mobili del servizio app di Azure.
 
-> [AZURE.NOTE]Questo SDK è disponibile in ANTEPRIMA. Non è quindi consigliabile usare questo SDK in fase di produzione. Gli esempi di questo documento usano la versione 2.0.0-beta1 di [azure-mobile-apps].
+> [AZURE.NOTE]Questo SDK è disponibile in ANTEPRIMA. Non è quindi consigliabile usare questo SDK in fase di produzione. Gli esempi di questo documento usano la versione 2.0.0-beta2 di [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduzione
 
@@ -91,7 +91,7 @@ Il codice per questa applicazione di base è disponibile nell'[esempio basicapp 
 
 Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.js all'interno dell'IDE. Per iniziare, scaricare e installare gli [Strumenti Node.js 1.1 per Visual Studio]. Dopo aver installato gli Strumenti Node.js per Visual Studio, creare un'applicazione Express 4.x:
 
-1. Aprire la finestra di dialogo **Nuovo progetto** da **File** > **Nuovo** > **Progetto**.
+1. Aprire la finestra di dialogo **New Project** (da **File** > **New** > **Project**).
 
 2. Espandere **Modelli** > **JavaScript** > **Node.js**.
 
@@ -103,7 +103,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 5. Fare clic sul nodo **npm** e selezionare **Install New npm packages**.
 
-6. Al momento della creazione della prima applicazione Node.js potrebbe essere necessario aggiornare il catalogo npm. In questo caso, verrà richiesto di fare clic su **Refresh**.
+6. Al momento della creazione della prima applicazione Node.js potrebbe essere necessario aggiornare il catalogo npm. In questo caso, verrà richiesto di fare clic su **Aggiorna**.
 
 7. Immettere _azure-mobile-apps_ nella casella di ricerca. Fare clic sul pacchetto **azure-mobile-apps 2.0.0**, quindi fare clic su **Install Package**.
 
@@ -111,7 +111,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 8. Fare clic su **Close**.
 
-9. Aprire il file _app.js_ per aggiungere il supporto per Azure Mobile Apps SDK. Nella riga 6 nella parte inferiore delle istruzioni require della libreria aggiungere il codice seguente:
+9. Aprire il file _app.js_ per aggiungere il supporto per l'SDK per App per dispositivi mobili di Azure. Nella riga 6 nella parte inferiore delle istruzioni require della libreria aggiungere il codice seguente:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -283,7 +283,7 @@ Node.js SDK per le app per dispositivi mobili di Azure usa il [pacchetto mssql p
 
   9. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**.
   10. Selezionare la pagina **Ruoli server**.
-  11. Selezionare la casella accanto al ruolo del server **dbcreator**.
+  11. Selezionare la casella accanto al ruolo server **dbcreator**.
   12. Fare clic su **OK**.
   13. Chiudere SQL Server 2015 Management Studio.
 
@@ -362,7 +362,7 @@ L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi d
 
 3. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 
-4. Verrà selezionato il piano di servizio app predefinito. Per modificare il piano di servizio app, fare clic su Piano di servizio app > **+ Crea nuovo**. Specificare un nome del nuovo piano di servizio app e selezionare un percorso appropriato. Fare clic su Piano tariffario e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare più opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona**. Nel pannello **Piano di servizio app** fare clic su **OK**.
+4. Verrà selezionato il piano di servizio app predefinito. Per modificare il piano di servizio app, fare clic su Piano di servizio app > **+ Crea nuovo**. Specificare un nome del nuovo piano di servizio app e selezionare un percorso appropriato. Fare clic su Piano tariffario e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo avere scelto il piano tariffario, fare clic sul pulsante **Seleziona**. Nel pannello **Piano di servizio app** fare clic su **OK**.
 
 5. Fare clic su **Crea**. In questo modo, viene creato un back-end dell'app per dispositivi mobili in cui verrà in seguito distribuito il progetto server. L'operazione di provisioning di un back-end dell'app per dispositivi mobili può richiedere alcuni minuti. Dopo aver effettuato il provisioning del back-end dell'app per dispositivi mobili, nel portale verrà aperto il pannello **Impostazioni** per il back-end dell'app per dispositivi mobili.
 
@@ -374,13 +374,13 @@ Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegl
 
 7. Nel pannello **Aggiungi connessione dati** fare clic su **Database SQL - Configurare le impostazioni necessarie** > **Crea un nuovo database**. Immettere il nome del nuovo database nel campo **Nome**.
 
-8. Fare clic su **Server**. Nel pannello **Nuovo server** immettere un nome del server univoco nel campo **Nome server** e specificare un **Account di accesso amministratore server** e una **Password** appropriati. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Fare clic su **OK**.
+8. Fare clic su **Server**. Nel pannello **Nuovo server** immettere un nome di server univoco nel campo **Nome server** e specificare un **Account di accesso amministratore server** e una **Password** idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Fare clic su **OK**.
 
 	![Creare un database SQL di Azure][6]
 
 9. Nel pannello **Nuovo database** fare clic su **OK**.
 
-10. Nel pannello **Aggiungi connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password forniti al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Dopo averli immessi fare clic su **OK**.
+10. Nel pannello per l'**aggiunta di una connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password forniti al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Dopo averli immessi fare clic su **OK**.
 
 11. Nel pannello **Aggiungi connessione dati** fare nuovamente clic su **OK** per creare il database.
 
@@ -422,7 +422,7 @@ La proprietà di accesso può assumere uno dei tre valori seguenti:
 
   - *anonymous* indica che all'applicazione client è consentito leggere i dati senza autenticazione
   - *authenticated* indica che l'applicazione client deve inviare un token di autenticazione valido con la richiesta
-  - *disabled* indica che la tabella è attualmente disabilitata
+  - *disabled* indica che la tabella è attualmente disabilitata.
 
 Se la proprietà di accesso non è definita, è consentito l'accesso non autenticato.
 
@@ -430,10 +430,10 @@ Se la proprietà di accesso non è definita, è consentito l'accesso non autenti
 
 Oltre che sulla tabella, la proprietà di accesso può essere usata per controllare singole operazioni. Sono disponibili quattro operazioni:
 
-  - *read* è l'operazione GET RESTful sulla tabella
+  - *read* è l'operazione RESTful GET nella tabella.
   - *insert* è l'operazione POST RESTful sulla tabella
   - *update* è l'operazione PATCH RESTful sulla tabella
-  - *delete* è l'operazione DELETE RESTful sulla tabella
+  - *delete* è l'operazione RESTful DELETE nella tabella.
 
 Si supponga, ad esempio, di voler fornire una tabella non autenticata di sola lettura. A questo scopo è possibile usare la definizione di tabella seguente:
 
@@ -559,7 +559,7 @@ Per usare l'autenticazione del servizio app con un'API personalizzata, è necess
 
 Le API personalizzate vengono definite in modo molto simile alle API di tabella.
 
-1. Creare una directory **api**
+1. Creare una directory **api**.
 2. Creare un file JavaScript di definizione dell'API nella directory **api**.
 3. Usare il metodo di importazione per importare la directory **api**.
 
@@ -633,7 +633,7 @@ Il Servizio app di Azure offre diverse tecniche di debug e risoluzione dei probl
 
 ### <a name="howto-diagnostic-logs"></a>Procedura: Scrivere nei log di diagnostica di App per dispositivi mobili di Azure
 
-Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Al suo interno Node.js SDK per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica. Questa opzione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS\_DebugMode** nel [portale di Azure]. I log generati verranno visualizzati tra i log di diagnostica del [portale di Azure].
+Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica. Al suo interno l'SDK di Node.js per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica. Questa opzione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS\_DebugMode** nel [portale di Azure]. I log generati verranno visualizzati tra i log di diagnostica del [portale di Azure].
 
 ## <a name="in-portal-editing"></a>Esperienza di modifica del codice nel portale
 
@@ -656,7 +656,7 @@ I comandi seguenti sono disponibili sulla barra dei comandi di una tabella:
 
 ###<a name="work-easy-apis"></a>Procedura: Usare Easy APIs nel portale di Azure
 
-Quando si fa clic su **Easy APIs** nelle impostazioni del sito di back-end, è possibile aggiungere un endpoint dell'API personalizzata oppure modificarne o eliminarne uno esistente.
+Quando fa clic su **Easy APIs** nelle impostazioni del sito di back-end, è possibile aggiungere un endpoint dell'API personalizzata oppure modificarne o eliminarne uno esistente.
 
 ![Utilizzare Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
@@ -698,7 +698,7 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [Come configurare l'autenticazione di Google]: app-service-mobile-how-to-configure-google-authentication.md
 [Come configurare l'autenticazione di Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare l'autenticazione di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guida alla distribuzione del servizio app di Azure]: ../app-service-web/web-site-deploy.md
+[Guida alla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
 [Monitoraggio di un servizio app di Azure]: ../app-service-web/web-sites-monitor.md
 [Abilitazione della registrazione diagnostica nel servizio app di Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Risoluzione dei problemi di un Servizio app di Azure in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

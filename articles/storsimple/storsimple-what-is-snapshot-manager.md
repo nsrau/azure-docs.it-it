@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Che cos’è Gestione snapshot StorSimple?
@@ -21,10 +21,12 @@
 
 Gestione Snapshot StorSimple è uno snap-in Microsoft Management Console (MMC) che semplifica la protezione dei dati e la gestione dei backup in un ambiente di Microsoft Azure StorSimple. Con Gestione snapshot StorSimple è possibile gestire i dati di Microsoft Azure StorSimple nel datacenter e nel cloud come una singola soluzione di archiviazione integrata, in modo da semplificare i processi di backup e di ridurre i costi.
 
-In questa panoramica viene presentato Gestione snapshot StorSimple, vengono descritte le relative funzionalità e ne viene illustrato il ruolo in Microsoft Azure StorSimple.
+Questa panoramica introduce Gestione snapshot StorSimple, ne descrive le funzionalità e ne illustra il ruolo in Microsoft Azure StorSimple.
 
 Per una panoramica dell'intero sistema di Microsoft Azure StorSimple, tra cui il dispositivo StorSimple, il servizio StorSimple Manager, Gestione snapshot StorSimple e l'adattatore StorSimple per SharePoint, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md).
  
+>[AZURE.NOTE]Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
+
 ## Scopo e architettura di Gestione snapshot StorSimple
 
 Gestione snapshot StorSimple fornisce una console di gestione centrale che consente di creare copie di backup coerenti e temporizzate di dati locali e cloud. Ad esempio, è possibile utilizzare la console per:
@@ -150,4 +152,4 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 - Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

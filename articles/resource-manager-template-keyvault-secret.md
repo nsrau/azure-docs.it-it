@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modello di Gestione risorse per una chiave privata nell’insieme di credenziali chiave | Microsoft Azure"
-   description="Mostra lo schema di gestione delle risorse per le chiavi private negli insiemi di credenziali chiave."
+   description="Mostra lo schema di Gestione risorse per la distribuzione di chiavi private nell'insieme di credenziali delle chiavi tramite un modello."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Schema del modello di chiave privata nell’insieme di credenziali chiave
@@ -227,4 +227,4 @@ Nel secondo esempio viene distribuita una chiave privata come risorsa di livello
 - Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
 - Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,8 +1,10 @@
-To create a gateway subnet in the Azure portal, do the following:
+Per creare una subnet del gateway nel portale di Azure, seguire questa procedura:
 
-1. In the portal, navigate to the virtual network to which you want to connect a gateway. Click the name of the virtual network to expand the **Virtual network settings** blade.
-2. On the **Settings** blade, click **Subnets** to expand the settings.
-3. On the **Subnets** blade, click Add to expand the **Add subnet** blade.
-4. On the **Add subnet** blade, name your subnet **GatewaySubnet**. You should not name it anything else, or the gateway will not work.
-5. Add the IP **address range** for your gateway. Please verify the gateway subnet setting is correct for your configuration.
-6. Click **OK** to create the subnet.
+1. Nel portale passare alla rete virtuale a cui si vuole connettere un gateway. Fare clic sul nome della rete virtuale per espandere il pannello delle **impostazioni della rete virtuale**.
+2. Nel pannello **Impostazioni** fare clic su **Subnet** per espandere le impostazioni.
+3. Nel pannello **Subnet** fare clic sull'icona di aggiunta per espandere il pannello **Aggiungi subnet**.
+4. Nel pannello **Aggiungi subnet** assegnare alla subnet il nome **GatewaySubnet**. Se si specifica un nome diverso, il gateway non funzionerà.
+5. Aggiungere l'**intervallo di indirizzi** IP per il gateway. Verificare che le impostazioni della subnet del gateway siano corrette per la configurazione in uso.
+6. Fare clic su **OK** per creare la subnet.
+
+<!---HONumber=AcomDC_0107_2016-->

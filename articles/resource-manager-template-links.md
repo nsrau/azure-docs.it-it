@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modello di Gestione risorse per il collegamento delle risorse | Microsoft Azure"
-   description="Illustra lo schema del modello di Gestione risorse per la creazione di collegamenti tra risorse correlate."
+   description="Mostra lo schema di Gestione risorse per la distribuzione di collegamenti tra risorse correlate tramite un modello."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Collegamenti alle risorse - schema del modello
+# Collegamenti alle risorse - Schema del modello
 
 Crea un collegamento tra due risorse. Il collegamento viene applicato a una risorsa nota come risorsa di origine. La seconda risorsa nel collegamento è nota come risorsa di destinazione.
 
@@ -124,9 +124,20 @@ Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
         "outputs": {}
     }
 
+## Modelli di Guida introduttiva
+
+I modelli di Guida introduttiva seguenti consentono di distribuire risorse con un collegamento.
+
+- [Avviso alla coda con un'app per la logica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [Avviso a Slack con un'app per la logica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Eseguire il provisioning di un'app per le API con un gateway esistente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Eseguire il provisioning di un'app per le API con un nuovo gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Creare un'app per la logica e un'app per le API usando un modello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [App per la logica che invia un messaggio di testo quando viene generato un avviso](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 
 ## Passaggi successivi
 
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

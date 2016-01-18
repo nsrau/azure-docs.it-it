@@ -431,7 +431,6 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -440,7 +439,7 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

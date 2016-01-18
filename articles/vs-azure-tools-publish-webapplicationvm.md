@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell script)
@@ -189,4 +189,4 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 È possibile modificare il file di configurazione JSON per cambiare gli elementi del provisioning. Una macchina virtuale e un servizio cloud sono necessari, ma la sezione del database è facoltativa.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

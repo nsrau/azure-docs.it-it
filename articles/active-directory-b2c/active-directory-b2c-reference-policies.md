@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Framework di criteri estendibile
@@ -62,11 +62,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
+Se si è interessati a un approfondimento sul framework dei criteri, leggere questo [post di blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+
 ## Come creare i criteri di iscrizione
 
 Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri di iscrizione. I criteri descrivono l'esperienza utente durante la procedura di iscrizione e il contenuto dei token che l'applicazione riceverà al completamento dell'iscrizione.
 
-1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di iscrizione**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione. Ad esempio, immettere "SiUp".
@@ -86,7 +88,7 @@ Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri 
 
 Per abilitare l'accesso nell'applicazione, sarà necessario creare i criteri di accesso. I criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
 
-1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di accesso**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di accesso usati dall'applicazione. Ad esempio, immettere "SiIn".
@@ -102,7 +104,7 @@ Per abilitare l'accesso nell'applicazione, sarà necessario creare i criteri di 
 
 Per abilitare la modifica del profilo nell'applicazione, è necessario creare i criteri di modifica del profilo. Questi criteri descrivono l'esperienza utente durante la procedura di modifica del profilo e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
-1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di modifica del profilo**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di modifica del profilo usati dall'applicazione. Ad esempio, immettere "SiPe".
@@ -115,4 +117,4 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 
     > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

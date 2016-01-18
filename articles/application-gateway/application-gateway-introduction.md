@@ -30,23 +30,12 @@ Il servizio Gateway applicazione attualmente supporta la distribuzione di applic
 
 ![Gateway applicazione](./media/application-gateway-introduction/appgateway1.png)
 
-## Bilanciamento del carico di livello 7 HTTP
-
-Azure fornisce il servizio di bilanciamento del carico di livello 4 che funziona a livello di trasporto (TCP/UDP) e il bilanciamento del carico di tutto il traffico di rete in ingresso al servizio Gateway applicazione. Il gateway applicazione applicherà quindi le regole di routing al traffico HTTP, fornendo il bilanciamento del carico di livello 7. Quando si crea un gateway applicazione, un endpoint (indirizzo VIP) verrà associato e usato come IP pubblico per il traffico di rete in ingresso.
-
-Il gateway applicazione instraderà il traffico HTTP in base alla relativa configurazione, sia che si tratti di una macchina virtuale, di servizio cloud, di un'app Web o di un indirizzo IP esterno.
-
-Il diagramma seguente illustra il flusso di traffico per il servizio Gateway applicazione:
-
- 
-![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
-
 Il bilanciamento del carico di livello 7 HTTP è utile per:
-
 
 - Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa VM back-end, ad esempio applicazioni carrello e server di posta Web.
 - Applicazioni che hanno la funzione di liberare le server farm Web dal sovraccarico della terminazione SSL.
 - Applicazioni, ad esempio la rete CDN, che necessitano che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
+
 
 ## Istanze e dimensioni del gateway
 
@@ -68,9 +57,7 @@ Nella tabella seguente viene illustrata una velocità effettiva media delle pres
 ## Monitoraggio dell’integrità
  
 
-Il gateway applicazione di Azure monitora l’integrità delle istanze del server back-end ogni 30 secondi. Invia una richiesta di probe dell’integrità di HTTP per ogni istanza nella porta configurata negli elementi *BackendHttpSettings* della configurazione. Il probe di integrità prevede una risposta HTTP con esito positivo, con codice di stato della risposta nell'intervallo che va da 200 a 399.
-
-Quando viene ricevuta una risposta HTTP con esito positivo, il server di back-end è contrassegnato come integro e continua a riceve il traffico dal Gateway applicazione di Azure. Se il probe ha esito negativo, l'istanza di back-end viene rimossa dal pool integro e si interrompe il flusso del traffico nel server. Il probe dell’integrità continua comunque ogni 30 secondi per l'istanza di back-end non riuscita per controllare il suo stato di integrità attuale. Quando l'istanza di back-end risponde correttamente al probe di integrità, viene aggiunta di nuovo come integra al pool di back-end, e il flusso del traffico in questa istanza riprenderà.
+Il gateway applicazione di Azure monitora automaticamente l'integrità delle istanze di back-end. Per altre informazioni, vedere la pagina relativa a [probe e monitoraggio dell'integrità del gateway applicazione](application-gateway-probe-overview.md).
 
 ## Configurazione e gestione
 
@@ -84,4 +71,4 @@ Creare un gateway applicazione. Vedere [Creare un gateway applicazione](applicat
 
 Configurare l'offload SSL. Vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/04/2016"
 	ms.author="klam"/>
 
 #Cosa sono le app per la logica?
@@ -24,19 +24,19 @@
 | [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
 
-Azure App Service è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori e facilita la creazione di app Web, mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
+Servizio app di Azure è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori che semplifica la creazione di app Web, per dispositivi mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
 
-Ancora più importante, è possibile combinare le app per la logica con le app per le API e i [connettori][connectors] del Marketplace per contribuire a risolvere facilmente anche i più complessi scenari di integrazione.
+Inoltre, è possibile combinare le app per la logica con i [connettori][connectors] del Marketplace per contribuire a risolvere facilmente anche i più complessi scenari di integrazione.
 
 ![Finestra di progettazione del flusso di app](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-Se si vogliono replicare automaticamente nuovi record nel database SQL e inviarli alla reception o automaticamente trovare tweet negativi e inviarli a un canale slack
+È possibile replicare automaticamente nuovi record nel database SQL e inviarli al front desk. In alternativa, è possibile trovare automaticamente tweet negativi e inviarli a un canale slack.
 
 ##Perché usare le app per la logica?
 
-Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi eseguono una serie di passaggi, ognuno dei quali richiama un'app per le API del servizio app e, al contempo, si occupa in modo sicuro dell'autenticazione e delle procedure consigliate, ad esempio il checkpoint e l'esecuzione durevole.
+Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi. Per ogni passaggio viene richiamata un'app per le API del servizio app e contemporaneamente vengono gestite in modo sicuro l'autenticazione e le procedure consigliate, come l'impostazione del checkpoint e l'esecuzione durevole.
 
-Se si vuole automatizzare qualsiasi processo aziendale (ad esempio, individuare tweet negativi e pubblicarli nel canale slack interno o replicare nuovi record del cliente da SQL, appena arrivano, nel sistema CRM), le app logiche facilitano l'integrazione di diverse origini dati, dal cloud a un'infrastruttura locale. Controllare i [connettori][connectors] per altre informazioni e [iniziare][create] ora per scoprire le attività che è possibile eseguire.
+Se si desidera automatizzare qualsiasi processo aziendale (ad esempio, individuare tweet negativi e pubblicarli nel canale slack interno o replicare nuovi record del cliente da SQL, appena arrivano, nel sistema CRM), le app per la logica facilitano l'integrazione di diverse origini dati, dal cloud a un'infrastruttura locale. Controllare i [connettori][connectors] per altre informazioni e [iniziare][create] ora per scoprire le attività che è possibile eseguire.
 
 Con le [app per le API BizTalk][biztalk] è anche possibile passare a scenari di integrazione avanzati con la potenza di un [motore regole][rules], della [gestione dei partner trader][tpm] e altro ancora.
 
@@ -58,7 +58,7 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 - **Connettori**: le app per la logica devono avere accesso ai dati e ai servizi. Un connettore è un tipo speciale di app per le API, che viene creato in maniera specifica per assistere l'utente durante la connessione ai dati e la successiva elaborazione. Visualizzare l'elenco dei connettori ora disponibile in [uso dei connettori][connectors].
 - **Trigger**: alcuni connettori possono anche fungere da trigger. Un trigger avvia una nuova istanza di un flusso di lavoro basata su un evento specifico, ad esempio l'arrivo di un messaggio di posta elettronica oppure una modifica nell'account di archiviazione di Azure.
 -  **Azioni**: ogni passaggio dopo il trigger in un flusso di lavoro viene chiamato azione. Ogni azione viene in genere mappata a un'operazione sul connettore o app per le API personalizzate.
-- **BizTalk**: per altri scenari di integrazione più avanzati, Azure App Service include le capacità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Le app per le API di BizTalk consentono di includere facilmente la convalida, la trasformazione, le regole e molto altro nei flussi di lavoro dell'app per la logica. Leggere altre informazioni sul [funzionamento delle app per le API di BizTalk][biztalk].
+- **BizTalk**: per altri scenari di integrazione più avanzati, Servizio app di Azure include le funzionalità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Le app per le API di BizTalk consentono di includere facilmente la convalida, la trasformazione, le regole e molto altro nei flussi di lavoro dell'app per la logica. Leggere altre informazioni sul [funzionamento delle app per le API di BizTalk][biztalk].
 
 ## Introduzione
 
@@ -75,4 +75,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

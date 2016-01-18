@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/30/2015"
 	ms.author="nitinme"/>
 
-# Personalizzare cluster HDInsight mediante Azione di script (Windows)
+# Personalizzare cluster HDInsight basati su Windows tramite Azione script
 
-[AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 **Azione script** può essere utilizzato per richiamare [gli script personalizzati](hdinsight-hadoop-script-actions.md) durante il processo di creazione di cluster per l'installazione del software aggiuntivo in un cluster.
 
@@ -45,9 +45,9 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 
 Nome | Script
 ----- | -----
-**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster HDInsight][hdinsight-install-spark].
-**Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R in cluster HDInsight][hdinsight-install-r].
-**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr in cluster HDInsight](hdinsight-hadoop-solr-install.md).
+**Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark].
+**Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster Hadoop HDInsight][hdinsight-install-r].
+**Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md).
 - **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 
@@ -90,7 +90,7 @@ Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDIn
 	
 	$hdinsightClusterName = $namePrefix + "spark"
 	$httpUserName = "admin"
-	$httpPassword = "Pass@word111"
+	$httpPassword = "<Enter a Password>"
 	
 	$defaultStorageAccountName = "$namePrefix" + "store"
 	$defaultBlobContainerName = $hdinsightClusterName
@@ -115,13 +115,23 @@ Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDIn
 	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 	
 	# Create storage account
-	New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
-	New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
+	New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Location $location `
+        -Type Standard_GRS
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $storageAccountKey  
+	New-AzureStorageContainer `
+        -Name $defaultBlobContainerName `
+        -Context $defaultStorageAccountContext
 	
 	#############################################################
-	# Create cluster with Spark
+	# Create cluster with ApacheSpark
 	#############################################################
 	
 	# Specify the configuration options
@@ -294,8 +304,8 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 - [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script]
 - [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 - [Installare e usare R nei cluster HDInsight][hdinsight-install-r]
-- [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md)
-- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md)
+- [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
+- [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -306,4 +316,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

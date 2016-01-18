@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="01/05/2016"
 	ms.author="stefsch"/>
 
 # Introduzione all'ambiente del servizio app
@@ -104,4 +104,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
