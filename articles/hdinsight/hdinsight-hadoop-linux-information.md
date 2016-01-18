@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
@@ -69,7 +69,7 @@ Viene restituito un documento JSON che descrive il servizio e quindi jq estrae s
 
 I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La directory contiene le sottodirectory seguenti:
 
-* __2.2.4.9-1__: questa directory è denominata in base alla versione di Hortonworks Data Platform usata da HDInsight, di conseguenza il numero visualizzato nel cluster potrebbe essere diverso da quello mostrato qui.
+* __2.2.4.9-1__: questa directory è denominata per la versione di Hortonworks Data Platform utilizzato da HDInsight, pertanto il numero il cluster potrebbe essere diverso da quelle elencate di seguito.
 * __current__: questa directory contiene collegamenti alle directory all'interno della directory __2.2.4.9-1__ e consente di non dover digitare il numero della versione (che può cambiare) ogni volta che si vuole accedere a un file.
 
 Dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
@@ -88,7 +88,7 @@ Poiché è l'archivio predefinito per HDInsight, in genere non è necessario ese
 
 	hadoop fs -ls /example/data
 
-Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre il prefisso ****WASB://** al comando.
+Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre ****WASB://** al comando.
 
 HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **WASB://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
 
@@ -98,27 +98,31 @@ HDInsight consente anche di associare più account di archiviazione BLOB a un cl
 
 Durante la creazione del cluster si è scelto se usare un account e un contenitore di archiviazione di Azure esistenti o se crearne di nuovi. Successivamente questa operazione viene probabilmente dimenticata. È possibile trovare l'account di archiviazione e il contenitore predefiniti usando l'API REST Ambari.
 
-1. Per recuperare le informazioni di configurazione HDFS, usare il comando seguente:
+1. Usare il comando seguente per recuperare le informazioni di configurazione HDFS tramite curl e filtrarle tramite [jq](https://stedolan.github.io/jq/):
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE]Verrà restituita la prima configurazione applicata al server (`service_config_version=1`) che conterrà queste informazioni. Se si recupera un valore che è stato modificato dopo la creazione del cluster, potrebbe essere necessario elencare le versioni della configurazione e recuperare la versione più recente.
 
-2. Nei dati JSON restituiti, trovare la voce `fs.defaultFS`. Questa conterrà il contenitore e il nome dell'account di archiviazione predefiniti in un formato simile al seguente:
+    Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il contenitore predefinito e __ACCOUNTNAME__ è il nome dell'account di archiviazione di Azure:
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP]Se è stato installato [jq](http://stedolan.github.io/jq/), è possibile usare quanto segue per restituire solo la voce `fs.defaultFS`:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. Ottenere il gruppo di risorse per l'account di archiviazione, usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente, sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
-3. Per trovare la chiave utilizzata per autenticare l'account di archiviazione o per trovare gli account di archiviazione secondari associati al cluster, usare:
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    Verrà restituito il nome del gruppo di risorse per l'account.
+    
+    > [AZURE.NOTE]Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Gestione risorse di Azure, usare il comando seguente.
+    >
+    > `azure config mode arm`
+    
+2. Ottenere la chiave per l'account di archiviazione. Sostituire __GROUPNAME__ con il gruppo di risorse del passaggio precedente. Sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione:
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. Nei dati JSON restituiti, trovare le voci che iniziano con `fs.azure.account.key`. Il resto del nome della voce è il nome dell’account di archiviazione. Ad esempio: `fs.azure.account.key.mystorage.blob.core.windows.net`. Il valore archiviato in questa voce è la chiave utilizzata per autenticare l'account di archiviazione.
-
-	> [AZURE.TIP]Se è stato installato [jq](http://stedolan.github.io/jq/), è possibile usare quanto segue per restituire un elenco di chiavi e valori:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+    Verrà restituita la chiave primaria per l'account.
 
 Per individuare le informazioni di archiviazione, è anche possibile usare il portale di Azure:
 
@@ -244,7 +248,7 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 
 > [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
 ## Passaggi successivi
 
@@ -252,4 +256,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

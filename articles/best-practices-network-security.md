@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Servizi cloud Microsoft e sicurezza della rete
@@ -307,7 +307,13 @@ Dopo la creazione, le tabelle di routing vengono associate alle rispettive subne
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Esistono attualmente alcune limitazioni per il routing definito dall'utente e le reti ibride. Queste limitazioni verranno risolte in una versione futura. Per esempi relativi a come abilitare la rete perimetrale con ExpressRoute o con la rete da sito a sito, vedere gli esempi 3 e 4 più avanti.
+>[AZURE.NOTE]Sono previste limitazioni per l'uso del routing definito dall'utente (User Defined Routing, UDR) con ExpressRoute, a causa della complessità del routing dinamico usato nel gateway virtuale di Azure. Queste limitazioni sono elencate di seguito:
+>
+> 1. Il routing definito dall'utente non deve essere applicato alla subnet del gateway in cui è connessa l'istanza di ExpressRoute collegata al gateway virtuale di Azure.
+> 2. L'istanza di ExpressRoute collegata al gateway virtuale di Azure non può essere il dispositivo NextHop usato per altre subnet associate al routing definito dall'utente.
+>
+>La possibilità di integrare il routing definito dall'utente ed ExpressRoute verrà abilitata in una versione futura. Per esempi relativi a come abilitare la rete perimetrale con ExpressRoute o con la rete da sito a sito, vedere gli esempi 3 e 4 più avanti.
+
 
 #### Descrizione dell'inoltro IP
 L'inoltro IP è una funzionalità complementare del routing definito dall'utente. Si tratta di un'impostazione in un dispositivo virtuale che consente al dispositivo di ricevere traffico non indirizzato in modo specifico ad esso e quindi di inoltrare il traffico alla destinazione finale.
@@ -436,9 +442,15 @@ saranno presto disponibili, con collegamenti in questa pagina.
 
 Come illustrato nella figura precedente, il peering privato di ExpressRoute fornisce una connessione diretta tra la rete locale e la rete virtuale di Azure. Il traffico attraversa solo la rete del provider del servizio e la rete Microsoft/Azure, senza contatto con Internet.
 
->[AZURE.NOTE]Sono previste limitazioni per l'uso del routing definito dall'utente e di ExpressRoute, a causa della complessità del routing dinamico usato sul gateway virtuale di Azure. È consigliabile non applicare il routing definito dall'utente alle subnet che comunicano con il gateway di Azure che fornisce la connessione ExpressRoute. Il gateway di Azure, inoltre, non può essere il dispositivo NextHop per altre subnet associate al routing definito dall'utente. La possibilità di integrare completamente il routing definito dall'utente ed ExpressRoute sarà abilitata in una versione futura di Azure.
+>[AZURE.NOTE]Sono previste limitazioni per l'uso del routing definito dall'utente (User Defined Routing, UDR) con ExpressRoute, a causa della complessità del routing dinamico usato nel gateway virtuale di Azure. Queste limitazioni sono elencate di seguito:
+>
+> 1. Il routing definito dall'utente non deve essere applicato alla subnet del gateway in cui è connessa l'istanza di ExpressRoute collegata al gateway virtuale di Azure.
+> 2. L'istanza di ExpressRoute collegata al gateway virtuale di Azure non può essere il dispositivo NextHop usato per altre subnet associate al routing definito dall'utente.
+>
+>La possibilità di integrare completamente il routing definito dall'utente ed ExpressRoute sarà abilitata in una versione futura di Azure.
 
-</br>
+<br />
+
 >[AZURE.TIP]L'uso di ExpressRoute mantiene il traffico di rete aziendale lontano da Internet per una protezione e prestazioni significativamente migliori e consente contratti di servizio dal provider ExpressRoute. Poiché è correlato alle prestazioni di ExpressRoute, il gateway di Azure può passare fino a 2 Gbps con ExpressRoute, mentre la velocità massima effettiva con le VPN da sito a sito per il gateway di Azure è di 200 Mbps.
 
 Come illustrato nel diagramma seguente, con questa opzione l'ambiente include ora due margini di rete, ovvero il dispositivo virtuale di rete e i gruppi di sicurezza di rete controllano i flussi di traffico per le reti interne di Azure e tra Azure e Internet, mentre il gateway è un margine di rete completamente separato e isolato tra le reti locali e Azure.
@@ -499,4 +511,4 @@ saranno presto disponibili, con collegamenti in questa pagina.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # Esercitazione: Introduzione a Analisi di Azure Data Lake con il portale di Azure
@@ -31,9 +31,9 @@ In questa esercitazione si svilupperà un processo che legge un file di valori s
 1. Creare un account di Analisi Data Lake.
 2. Preparare i dati di origine. I processi di Analisi Data Lake possono leggere dati da account di Archivio Data Lake di Azure o da account di archiviazione BLOB di Azure. In questo esempio si userà Archivio Data Lake di Azure.  
 3. Sviluppare uno script U-SQL.
-4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, li elabora come indicato nello script U-SQL e quindi salva l'output in un account di Archivio Data Lake o in un account di archiviazione BLOB.
+4. Inviare un processo (script U-SQL) all'account di Analisi Data Lake. Il processo legge i dati di origine, elabora i dati come indicato nello script U-SQL e quindi salva l'output in un account di Data Lake Store o in un account di archiviazione BLOB.
 
-**Prerequisiti**
+###Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
@@ -162,4 +162,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

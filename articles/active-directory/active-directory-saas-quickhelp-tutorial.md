@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/06/2015"
 	ms.author="jeedes"/>
 
 
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con QuickHelp, sono necessari gli ele
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -85,7 +85,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 **Per configurare Single Sign-On di Azure AD con QuickHelp, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **QuickHelp** del portale di Azure AD, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nella pagina di integrazione dell'applicazione **QuickHelp** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a QuickHelp** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Accesso Single Sign-On di Azure AD][7] <br>
 
@@ -109,7 +109,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 1. Nel menu **QuickHelp Admin** fare clic su **Impostazioni**. <br><br>![Configura accesso Single Sign-On][22]<br>
 
-1. Fare clic su **Impostazioni di autenticazione**.
+1. Fare clic su **Authentication Settings**.
 
 1. Nella pagina **Impostazioni di autenticazione** seguire questa procedura <br><br>![Configura accesso Single Sign-On][23]<br>
 
@@ -117,13 +117,13 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
     b. Per caricare il file dei metadati di Azure scaricato, fare clic su **Sfoglia**, passare al file e quindi fare clic su **Carica metadati**.
 
-    d. Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    e. Nella casella di testo **Nome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    d. Nella casella di testo **Nome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
 
-    f. Nella casella di testo **Cognome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    e. Nella casella di testo **Cognome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    g. Nella **barra delle azioni**, fare clic su **Salva**.
+    f. Nella **barra delle azioni**, fare clic su **Salva**.
 
 
 
@@ -133,7 +133,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]<br>
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]
 
 
 
@@ -149,17 +149,17 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
 3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) <br>
  
-4. Per aprire la finestra di dialogo **Aggiungi utente**, sulla barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png)<br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png)<br>
 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella **casella di testo** Nome utente digitare **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -169,11 +169,11 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
  
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
   
-    a. Prendere nota del valore in **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -255,4 +255,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

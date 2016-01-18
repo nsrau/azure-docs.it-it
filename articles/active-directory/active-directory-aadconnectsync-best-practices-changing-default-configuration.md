@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/28/2015"
 	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
-
 Questo argomento descrive le modifiche supportate e non supportate apportate al servizio di sincronizzazione Azure AD Connect.
 
 La configurazione creata da Azure AD Connect funziona "così com'è" per la maggior parte degli ambienti che sincronizzano l'istanza di Active Directory locale con Azure AD. In alcuni casi, tuttavia, è necessario applicare alcune modifiche a una configurazione per soddisfare un'esigenza o un requisito specifico.
@@ -33,36 +32,47 @@ Il servizio di sincronizzazione Azure AD Connect è impostato per sincronizzare 
 
 - La modifica dell'attività pianificata **non è supportata**. La password per l'account del servizio non è nota. Vedere [Modifiche apportate all'account del servizio](#changes-to-the-service-account)
 - La sincronizzazione in base a una frequenza maggiore delle 3 ore predefinite **non è supportata**.
+	- È supportata per l'esecuzione di sincronizzazioni occasionali quando si testa una nuova configurazione, ma non è consigliabile eseguire esportazioni in Azure AD con maggiore frequenza.
 
 ## Modifiche apportate alle regole di sincronizzazione
-
 L'installazione guidata fornisce una configurazione valida per gli scenari più comuni. Nel caso in cui sia necessario apportare modifiche alla configurazione, seguire queste regole per disporre ancora di una configurazione supportata.
 
-- L'unica modifica supportata per una regola di sincronizzazione predefinita è una modifica per la disabilitazione. Qualsiasi altra modifica potrebbe andare perse durante un aggiornamento.
-- Se è necessario apportare qualsiasi altra modifica a una regola predefinita, effettuarne una copia e disabilitare la regola originale. A tale scopo, avviare e usare l'editor delle regole di sincronizzazione.
+- È possibile [modificare i flussi degli attributi](#change-attribute-flows) se i flussi degli attributi diretti predefiniti non sono adatti alla propria organizzazione.
+- Per [non trasmettere un attributo](#do-not-flow-an-attribute) e rimuovere i valori degli attributi esistenti in Azure AD, è necessario creare una regola specifica.
+- [Disabilitare una regola di sincronizzazione indesiderata](#disable-an-unwanted-sync-rule) invece di eliminarla. Una regola eliminata verrà ricreata durante un aggiornamento.
+- Per [modificare una regola predefinita](#change-an-out-of-box-rule), effettuare una copia della regola originale e disabilitare la regola predefinita. A tale scopo, avviare e usare l'editor delle regole di sincronizzazione.
 - Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 
 >[AZURE.WARNING]Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non corrisponderà più e potrebbero verificarsi problemi quando si tenta di applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
-### Eliminare una regola di sincronizzazione indesiderata
-Non eliminare una regola di sincronizzazione predefinita; verrà ricreata durante l'aggiornamento successivo.
+### Modificare i flussi degli attributi
+In alcuni casi i flussi degli attributi predefiniti non sono adatti a un'organizzazione.
 
-In alcuni casi l'installazione guidata ha generato una configurazione non adatta alla topologia dell'utente. Ad esempio, se si dispone di una topologia di foresta di account-risorse ma lo schema nella foresta degli account è stato esteso con lo schema Exchange, le regole per lo schema verranno create per la foresta degli account e per quella delle risorse. In questo caso è necessario disabilitare la regola di sincronizzazione per Exchange.
+È consigliabile seguire queste regole:
 
-![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
+- Creare una nuova regola di sincronizzazione con i propri flussi degli attributi. Assegnandole una precedenza più elevata (valore numerico più basso), le proprie regole eseguiranno l'override dei flussi degli attributi predefiniti.
+- Non aggiungere altri flussi a una regola predefinita. Queste modifiche andranno perse in caso di aggiornamento.
 
-Nell'esempio precedente l'installazione guidata ha rilevato un vecchio schema Exchange 2003 nella foresta degli account. Questo è stato aggiunto prima dell'introduzione della foresta delle risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola deve essere disabilitata, come illustrato.
+In Fabrikam esiste una foresta in cui l'alfabeto locale viene usato per un determinato nome, cognome e nome visualizzato. La rappresentazione in caratteri latini di questi attributi viene archiviata negli attributi di estensione. Quando si compila l'elenco indirizzi globale in Azure AD e Office 365, l'organizzazione vuole invece usarli.
 
-### Modifica delle regole predefinite
-Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. A tale scopo è possibile usare l'editor delle regole di sincronizzazione. Quando si apre una regola predefinita viene visualizzata questa finestra di dialogo:
+Con una configurazione predefinita, un oggetto della foresta locale sarà simile al seguente:
 
-![Avviso regola predefinita](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+![Flusso dell'attributo 1](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp1.png)
 
-Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la regola clonata.
+Per creare una regola con altri flussi di attributi, eseguire queste operazioni:
 
-![Regola clonata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
+- Avviare **Synchronization Rule Editor** dal menu Start.
+- Con **Inbound** selezionato a sinistra, fare clic sul pulsante **Add new rule**.
+- Assegnare alla regola un nome e una descrizione. Selezionare la directory Active Directory locale e i tipi di oggetto pertinenti. In **Link Type** selezionare **Join**. Per la precedenza scegliere un numero non usato da un'altra regola. Le regole predefinite iniziano con 100, quindi in questo esempio si può usare il valore 50. ![Flusso dell'attributo 2](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp2.png)
+- Lasciare vuoto l'ambito (perché deve essere applicabile a tutti gli oggetti utente della foresta).
+- Lasciare vuote le regole di join (per consentire alla regola predefinita di gestire tutti i join).
+- In Transformations creare i flussi seguenti. ![Flusso dell'attributo 3](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp3.png)
+- Fare clic su **Add** per salvare la regola.
+- Andare a **Synchronization Service Manager**. In **Connectors** selezionare il connettore in cui è stata aggiunta la regola. Selezionare **Run** e **Full Synchronization**. Una sincronizzazione completa ricalcolerà tutti gli oggetti usando le regole correnti.
 
-In questa regola clonata, apportare le modifiche necessarie all'ambito, al join e alle trasformazioni.
+Il seguente è il risultato finale per lo stesso oggetto con questa regola personalizzata:
+
+![Flusso dell'attributo 4](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp4.png)
 
 ### Non trasmettere un attributo
 Sono disponibili due modalità per non trasmettere un attributo. Il primo è disponibile nell'installazione guidata e consente di [rimuovere gli attributi selezionati](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Questa opzione funziona se l'attributo non è mai stato sincronizzato in precedenza. Tuttavia se si è iniziato a sincronizzare questo attributo e lo si rimuoverà in seguito con questa funzionalità, il motore di sincronizzazione interromperà la gestione dell'attributo e i valori esistenti verranno lasciati in Azure AD.
@@ -78,9 +88,29 @@ In Fabrikam è stato notato che alcuni degli attributi sincronizzati nel cloud n
 - Salvare la regola di sincronizzazione Avviare il **servizio di sincronizzazione**, trovare il connettore, selezionare **Esegui** e avviare una **sincronizzazione completa**. Questo consentirà di ricalcolare tutti i flussi degli attributi.
 - Verificare che le modifiche richieste stiano per essere esportate mediante la ricerca dello spazio connettore. ![Eliminazione di gestione temporanea](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/deletetobeexported.png)
 
+### Disabilitare una regola di sincronizzazione indesiderata
+Non eliminare una regola di sincronizzazione predefinita; verrà ricreata durante l'aggiornamento successivo.
+
+In alcuni casi l'installazione guidata ha generato una configurazione non adatta alla topologia dell'utente. Ad esempio, se si dispone di una topologia di foresta di account-risorse ma lo schema nella foresta degli account è stato esteso con lo schema Exchange, le regole per lo schema verranno create per la foresta degli account e per quella delle risorse. In questo caso è necessario disabilitare la regola di sincronizzazione per Exchange.
+
+![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
+
+Nell'esempio precedente l'installazione guidata ha rilevato un vecchio schema Exchange 2003 nella foresta degli account. Questo è stato aggiunto prima dell'introduzione della foresta delle risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola deve essere disabilitata, come illustrato.
+
+### Modificare una regola predefinita
+Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. A tale scopo è possibile usare l'editor delle regole di sincronizzazione. Quando si apre una regola predefinita viene visualizzata questa finestra di dialogo:
+
+![Avviso regola predefinita](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+
+Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la regola clonata.
+
+![Regola clonata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/clonedrule.png)
+
+In questa regola clonata, apportare le modifiche necessarie all'ambito, al join e alle trasformazioni.
+
 ## Passaggi successivi
-Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

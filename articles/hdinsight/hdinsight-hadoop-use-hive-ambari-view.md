@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2015"
    ms.author="larryfr"/>
 
 #Usare la visualizzazione Hive con Hadoop in HDInsight
@@ -123,7 +123,7 @@ Questa è la visualizzazione __Visual Explain__ della query, che può essere uti
 
 ###Tez
 
-Selezionare l'icona __Visual Explain__ a destra dell'editor.
+Selezionare l'icona __Tez__ a destra dell'editor.
 
 ![Icone](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Verrà visualizzato il grafo aciclico diretto (DAG) usato da Tez per questa quer
 
 ###Notifiche
 
-Selezionare l'icona __Visual Explain__ a destra dell'editor.
+Selezionare l'icona __Notifications__ a destra dell'editor.
 
 ![Icone](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -199,4 +199,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="10/20/2015" 
+	ms.date="01/05/2016" 
 	ms.author="markusvi"/>
 
 
@@ -123,7 +123,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 -  [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
+-  [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
 -  [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -137,4 +137,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

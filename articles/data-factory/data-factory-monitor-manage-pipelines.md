@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Monitorare e gestire le pipeline di Data factory di Azure
@@ -59,7 +59,7 @@ Fare clic su **Diagramma** nella home page della data factory precedente per vis
 ### Visualizzare lo stato di ogni attività all'interno di una pipeline
 Per visualizzare lo stato corrente di un'attività, visualizzare lo stato di uno dei set di dati generati dall'attività.
 
-Ad esempio: nell'esempio seguente **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable** con lo stato **Ready**.
+Ad esempio: nell'esempio seguente **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable** con lo stato **Pronto**.
 
 ![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -195,7 +195,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 2.	Nel pannello **Set di dati con errori** fare clic sulla tabella che interessa.
 
 	![Pannello Set di dati con errori](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Non riuscito**.
+3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Operazione non riuscita**.
 
 	![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Nel pannello **SEZIONE DI DATI** fare clic sull'esecuzione dell’attività non riuscita.
@@ -207,9 +207,6 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 #### Usare PowerShell per eseguire il debug di un errore
 1.	Avviare **Azure PowerShell**.
-2.	Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory sono disponibili unicamente in questa modalità.
-
-		switch-azuremode AzureResourceManager
 3.	Eseguire il comando **Get-AzureRmDataFactorySlice** per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -355,9 +352,9 @@ OnDemandClusterDeleted | Succeeded
 Vedere [Crea regola di avviso](https://msdn.microsoft.com/library/azure/dn510366.aspx) per informazioni dettagliate sugli elementi JSON usati nell'esempio precedente.
 
 #### Distribuzione dell'avviso 
-Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureResourceGroupDeployment**, come mostrato nell'esempio seguente:
+Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Una volta completata la distribuzione del gruppo di risorse, si noteranno i messaggi seguenti:
 
@@ -377,9 +374,9 @@ Una volta completata la distribuzione del gruppo di risorse, si noteranno i mess
 	Outputs           :
 
 #### Recupero dell'elenco di distribuzioni del gruppo di risorse Azure
-Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribuite, usare il cmdlet **Get-AzureResourceGroupDeployment**, come mostrato nell'esempio seguente:
+Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribuite, usare il cmdlet **Get-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -543,15 +540,13 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori:
-- FailedRuns
-- SuccessfulRuns
+*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 
-Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureResourceGroupDeployment**, come mostrato nell'esempio seguente:
+Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 Dopo il completamento della distribuzione, verrà visualizzato il messaggio seguente:
 
@@ -569,4 +564,7 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
+
+<!---HONumber=AcomDC_0107_2016-->

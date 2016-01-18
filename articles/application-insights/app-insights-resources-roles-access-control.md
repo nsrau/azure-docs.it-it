@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # Risorse, ruoli e controllo di accesso in Application Insights
@@ -110,4 +110,4 @@ Se l'utente desiderato non è nella directory, è possibile invitare chiunque di
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -22,7 +22,7 @@ Questo articolo descrive come richiamare un programma **MapReduce** da una pipel
 ## Introduzione 
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. In questo articolo viene descritto l'utilizzo dell'attività MapReduce di HDInsight.
  
-Vedere l’articolo su [Pig](data-factory-pig-activity) e [Hive](data-factory-hive-activity.md) per informazioni dettagliate sull'esecuzione di script Pig/Hive in un cluster HDInsight basato su Windows/Linux da una pipeline di Data Factory di Azure mediante le attività Pig e Hive di HDInsight.
+Vedere l’articolo su [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity.md) per informazioni dettagliate sull'esecuzione di script Pig/Hive in un cluster HDInsight basato su Windows/Linux da una pipeline di Data Factory di Azure mediante le attività Pig e Hive di HDInsight.
 
 ## JSON per attività MapReduce di HDInsight 
 
@@ -221,4 +221,4 @@ linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in 
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

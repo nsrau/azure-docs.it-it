@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Entità di messaggistica partizionate
@@ -31,7 +31,7 @@ I messaggi a una coda o a un argomento partizionato non presentano costi aggiunt
 
 ## Abilitare il partizionamento
 
-Per usare le code e gli argomenti partizionati con il bus di servizio di Microsoft Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
+Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
 È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è di 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 * 16). È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure classico][].
 
@@ -125,7 +125,7 @@ Nell'implementazione corrente il bus di servizio impone alle code o agli argomen
 
 ## Passaggi successivi
 
-Per altre informazioni sul partizionamento delle entità di messaggistica, vedere la discussione relativa al supporto di AMQP 1.0 per le code e gli argomenti partizionati del bus di servizio (presto disponibile).
+Per altre informazioni sul partizionamento delle entità di messaggistica, vedere [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio][].
 
   [Architettura del bus di servizio]: service-bus-architecture.md
   [portale di Azure classico]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Per altre informazioni sul partizionamento delle entità di messaggistica, veder
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
+  [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

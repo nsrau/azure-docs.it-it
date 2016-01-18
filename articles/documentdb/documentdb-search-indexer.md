@@ -20,7 +20,7 @@
 
 Chi desidera implementare esperienze di ricerca straordinarie nei dati di DocumentDB, può usare l'indicizzatore di Ricerca di Azure per DocumentDB. Questo articolo illustra come integrare Azure DocumentDB con Ricerca di Azure senza dover scrivere codice per gestire l'infrastruttura di indicizzazione.
 
-A tale scopo, è necessario [impostare un account di Ricerca di Azure](../search-get-started.md#start-with-the-free-service) (non è necessario eseguire l'aggiornamento al servizio di ricerca standard) e quindi chiamare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per creare un'**origine dati** DocumentDB e un **indicizzatore** per tale origine.
+A tale scopo, è necessario [impostare un account di Ricerca di Azure](../search/search-get-started.md#start-with-the-free-service) (non è necessario eseguire l'aggiornamento al servizio di ricerca standard) e quindi chiamare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per creare un'**origine dati** DocumentDB e un **indicizzatore** per tale origine.
 
 ##<a id="Concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure
 
@@ -121,7 +121,7 @@ Se l'origine dati è stata creata correttamente, si riceve una risposta HTTP 201
 
 ##<a id="CreateIndex"></a>Passaggio 2: Creare un indice
 
-Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure classico](../search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
+Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure classico](../search/search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -178,13 +178,13 @@ Se l'indice è stato creato correttamente, si riceve una risposta HTTP 201 - Cre
 
 Il corpo della richiesta contiene la definizione dell'indicizzatore, che deve includere i campi seguenti:
 
-- **name**: obbligatorio. Nome dell'indicizzatore.
+- **name**: richiesto. Nome dell'indicizzatore.
 
-- **dataSourceName**: obbligatorio. Nome di un'origine dati esistente.
+- **dataSourceName**: richiesto. Nome di un'origine dati esistente.
 
 - **targetIndexName**: obbligatorio. Nome di un indice esistente.
 
-- **schedule**: facoltativo. Vedere la sezione relativa alla [pianificazione dell'indicizzazione](#IndexingSchedule) di seguito.
+- **pianificazione**: facoltativa. Vedere la sezione relativa alla [pianificazione dell'indicizzazione](#IndexingSchedule) di seguito.
 
 ###<a id="IndexingSchedule"></a>Esecuzione di indicizzatori in base a una pianificazione
 
@@ -265,9 +265,9 @@ La cronologia di esecuzione contiene fino alle 50 più recenti esecuzioni comple
 
 Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerca di Azure usando l'indicizzatore per DocumentDB.
 
- - Per altre informazioni su Azure DocumentDB, fare clic [qui](/services/documentdb/).
+ - Per altre informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
+ - Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/it-IT/services/search/).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

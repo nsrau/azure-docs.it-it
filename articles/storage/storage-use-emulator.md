@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -49,7 +49,7 @@ Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamar
 
 1. Installare Azure PowerShell, se non è stato già installato. È consigliabile usare l'ultima versione dei cmdlet di Azure PowerShell. Per istruzioni per l'installazione, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md#Install).
 
-2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT\_NAME* e *ACCOUNT\_KEY==* con le credenziali personali. Sostituire *CONTAINER\_NAME* con un nome a scelta.
+2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT\_NAME* e *ACCOUNT\_KEY==* con le credenziali personali. ostituire *CONTAINER\_NAME* con un nome a scelta.
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		
@@ -152,9 +152,9 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 | Opzione | Descrizione | Comando | Argomenti |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Inizia** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
-| **Arresto** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
-| **Stato** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
-| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati blob. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
+| **Stop** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
+| **Status** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
+| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
 | **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. È necessario avviare il processo corrente con autorizzazioni elevate per eseguire l'inizializzazione. |
                                                                                                                   
 ## Differenze tra l'emulatore di archiviazione e Archiviazione di Azure
@@ -195,7 +195,7 @@ All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 
 - Le dimensioni totali di una riga in una tabella nell'emulatore di archiviazione sono limitate a meno di 1 MB.
 
-- Nell'emulatore di archiviazione, le proprietà con tipo di dati `Edm.Guid` o `Edm.Binary` supportano solo gli operatori di confronto `Equal (eq)` e `NotEqual (ne)` nelle stringhe di filtro delle query.
+- Nell'emulatore di archiviazione le proprietà con tipo di dati `Edm.Guid` o `Edm.Binary` supportano solo gli operatori di confronto `Equal (eq)` e `NotEqual (ne)` nelle stringhe di filtro delle query.
 
 ### Differenze per l'archiviazione di accodamento
 
@@ -232,4 +232,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

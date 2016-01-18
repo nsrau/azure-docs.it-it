@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
@@ -126,6 +126,18 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -288,7 +300,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\\bin\\Debug. È possibile includere il file **MyDotNetActivity.pdb** in modo da ottenere altri dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore.
 
 	![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
-13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
+13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archivio BLOB di Azure usato dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
 
 > [AZURE.NOTE]Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto Data factory, non è necessario eseguire gli ultimi due passaggi della creazione del file zip e caricarlo manualmente nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare dati da BLOB di Azure a SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di entità di Data factory con Visual Studio.
 
@@ -296,7 +308,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 
 Questa sezione fornisce informazioni dettagliate e note sul codice del metodo **Execute**.
  
-1. I membri per l'iterazione della raccolta di input si trovano nello spazio dei nomi [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). L'iterazione della raccolta di BLOB richiede l'uso della classe **BlobContinuationToken**. In sostanza, è necessario usare un ciclo do-while con il token come meccanismo di uscita dal ciclo. Per altre informazioni, vedere [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md). Di seguito è illustrato un ciclo di base:
+1. I membri per l'iterazione della raccolta di input si trovano nello spazio dei nomi [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx). L'iterazione della raccolta di BLOB richiede l'uso della classe **BlobContinuationToken**. In sostanza, è necessario usare un ciclo do-while con il token come meccanismo di uscita dal ciclo. Per altre informazioni, vedere [Come usare l'archivio BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md). Di seguito è illustrato un ciclo di base:
 
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
@@ -318,11 +330,11 @@ Questa sezione fornisce informazioni dettagliate e note sul codice del metodo **
 
 2.	Il codice per l'uso in modo logico del set di BLOB viene inserito all'interno del ciclo do-while. Nel metodo **Execute** il ciclo do-while passa l'elenco di BLOB a un metodo denominato **Calculate**. Il metodo restituisce una variabile stringa denominata **output** che rappresenta il risultato dell'iterazione di tutti i BLOB nel segmento.
 
-	Restituisce il numero di occorrenze del termine di ricerca (**Microsoft**) nel BLOB passato al metodo **Calculate**.
+	Restituisce il numero di occorrenze del termine di ricerca, **Microsoft**, nel BLOB passato al metodo **Calculate**.
 
 			output += string.Format("{0} occurrences of the search term "{1}" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
 
-3.	Al termine, è necessario scrivere il metodo **Calculate** in un nuovo BLOB. Quindi, per ogni set di BLOB elaborati è possibile scrivere un nuovo BLOB con i risultati. Per scrivere in un nuovo BLOB, trovare prima di tutto il set di dati di output.
+3.	Una volta completato, il metodo **Calculate** deve essere scritto in un nuovo BLOB. Quindi, per ogni set di BLOB elaborati è possibile scrivere un nuovo BLOB con i risultati. Per scrivere in un nuovo BLOB, trovare prima di tutto il set di dati di output.
 
 			// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 			Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
@@ -330,7 +342,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice del metodo **
 			// Convert to blob location object.
 			outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
-4.	Il codice chiama anche un metodo helper, **GetFolderPath**, per recuperare il percorso della cartella (il nome del contenitore di archiviazione).
+4.	Il codice chiama anche un metodo helper, **GetFolderPath**, per recuperare il percorso della cartella, ovvero il nome del contenitore di archiviazione.
  
 			folderPath = GetFolderPath(outputDataset);
 
@@ -360,7 +372,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice del metodo **
 
 ## Creare la data factory
 
-La sezione **Creare l'attività personalizzata** ha illustrato come creare un'attività personalizzata e caricare il file ZIP con file binari e il file PDB in un contenitore BLOB di Azure. Questa sezione illustra come creare una **data factory** di Azure con una **pipeline** che usa l'**attività personalizzata**.
+La sezione **Creare l'attività personalizzata** ha illustrato come creare un'attività personalizzata e caricare il file ZIP con i file binari e il file PDB in un contenitore BLOB di Azure. Questa sezione illustra come creare una **data factory** di Azure con una **pipeline** che usa l'**attività personalizzata**.
  
 Il set di dati di input per l'attività personalizzata rappresenta i BLOB (file) nella cartella di input (mycontainer\\inputfolder) nell'archiviazione BLOB. Il set di dati di output per l'attività rappresenta i BLOB di output nella cartella di output (mycontainer\\outputfolder) nell'archiviazione BLOB.
 
@@ -388,7 +400,7 @@ Di seguito sono elencati i passaggi da eseguire in questa sezione:
 	1.	Fare clic su **Nuovo** nel menu a sinistra.
 	2.	Fare clic su **Dati e analisi** nel pannello **Nuovo**.
 	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
-2.	Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory (ad esempio, **nomeutenteCustomActivityFactory**) e provare di nuovo a crearla.
+2.	Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
 3.	Fare clic su **Nome del gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo. 
 4.	Verificare se la **sottoscrizione** e l'**area** in cui si vuole creare la data factory sono quelle corrette. 
 5.	Fare clic su **Crea** nel pannello **Nuova data factory**.
@@ -401,9 +413,9 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 
 #### Creare il servizio collegato Archiviazione di Azure
 
-1.	Fare clic sul riquadro **Creare e distribuire** nel pannello **Data factory** per **CustomActivityFactory**. Verrà avviato l'editor di Data factory.
+1.	Fare clic sul riquadro **Creare e distribuire** nel pannello **DATA FACTORY** per **CustomActivityFactory**. Verrà avviato l'editor di Data factory.
 2.	Fare clic su **Nuovo archivio dati** sulla barra dei comandi e scegliere **Archiviazione di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure.
-3.	Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+3.	Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
 
@@ -627,7 +639,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 
 	2 occorrenze del termine di ricerca "Microsoft" sono state trovate nel file inputfolder/2015-11-16-00/file.txt.
 
-10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (nello specifico, user-0.log) scaricabili dal portale o con i cmdlet.
+10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (specifically user-0.log) scaricabili dal portale o con i cmdlet.
 
 	![scaricare i log dall'attività personalizzata][image-data-factory-download-logs-from-custom-activity]
 
@@ -640,7 +652,7 @@ Il debug è costituito da alcune tecniche di base:
 1.	Se la sezione di input non è impostata su **Ready**, verificare che la struttura di cartelle di input sia corretta e che file.txt sia presente nelle cartelle di input.
 2.	Nel metodo **Execute** dell'attività personalizzata usare l'oggetto **IActivityLogger** per registrare informazioni utili per la risoluzione di problemi. I messaggi registrati verranno visualizzati nel file user\_0.log. 
 
-	Nel pannello **OutputDataset** fare clic sulla sezione per visualizzare il relativo pannello **Sezione dati**. Verranno visualizzate le **esecuzioni attività** per la sezione. Dovrebbe essere visualizzata una esecuzione attività per questa sezione. Facendo clic su Esegui sulla barra dei comandi è possibile avviare un'altra esecuzione attività per la stessa sezione.
+	Nel pannello **OutputDataset** fare clic sulla sezione per visualizzare il relativo pannello **SEZIONE DATI**. Verranno visualizzate le **esecuzioni di attività** per quella sezione. Dovrebbe essere visualizzata una esecuzione attività per questa sezione. Facendo clic su Esegui sulla barra dei comandi è possibile avviare un'altra esecuzione attività per la stessa sezione.
 
 	Quando si fa clic sull'esecuzione attività viene visualizzato il pannello **Dettagli esecuzione attività** con un elenco di file di log. I messaggi registrati verranno visualizzati nel file user\_0.log. Quando si verifica un errore vengono visualizzate tre esecuzioni attività perché il numero di tentativi è impostato su 3 nel codice JSON della pipeline/attività. Quando si fa clic sull'esecuzione attività vengono visualizzati i file di log che è possibile esaminare per risolvere l'errore.
 
@@ -656,6 +668,37 @@ Il debug è costituito da alcune tecniche di base:
 
 ## Aggiornare l'attività personalizzata
 Per aggiornare il codice dell'attività personalizzata, compilarlo e caricare il file ZIP contenente i nuovi file binari nell'archiviazione BLOB.
+
+## Accedere a tutte le proprietà estese
+È possibile dichiarare estese le proprietà presenti nel codice JSON dell'attività come illustrato di seguito:
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+Nell'esempio precedente sono disponibili due proprietà estese: **SliceStart** e **DataFactoryName**. Il valore di SliceStart si basa sulla variabile di sistema SliceStart. Per un elenco delle variabili di sistema supportate, vedere [Variabili di sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables). Il valore di DataFactoryName è hardcoded su "CustomActivityFactory".
+
+Per accedere alle proprietà estese seguenti nel metodo **Execute**, usare un codice simile a quello riportato di seguito:
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
 
 ## <a name="AzureBatch"></a> Usare il servizio collegato Azure Batch
 > [AZURE.NOTE]Per una panoramica del servizio Azure Batch, vedere [Nozioni di base su Azure Batch][batch-technical-overview]. Per iniziare subito a usare il servizio Azure Batch, vedere [Introduzione alla libreria di Azure Batch per .NET][batch-get-started].
@@ -674,7 +717,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 1. Creare un account di Azure Batch usando il [portale di Azure](http://manage.windowsazure.com). Per istruzioni, vedere l'articolo [Creare e gestire un account Azure Batch nel portale di Azure][batch-create-account]. Annotare il nome e la chiave dell'account Azure Batch.
 
 	Inoltre, è possibile usare il cmdlet [New-AzureBatchAccount][new-azure-batch-account] per creare un account di Azure Batch. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch][azure-batch-blog].
-2. Creare un pool di Azure Batch. Per creare un pool di Azure Batch, è possibile scaricare, compilare e usare il codice sorgente per lo [strumento Azure Batch Explorer][batch-explorer] o usare la [libreria di Azure Batch per .NET][batch-net-library]. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
+2. Creare un pool di Azure Batch. Per creare un pool di Azure Batch, è possibile scaricare il codice origine per lo [strumento di esplorazione di Azure Batch][batch-explorer], generarlo e utilizzarlo oppure usare la [libreria di Azure Batch per .NET][batch-net-library]. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
 
 	È anche possibile usare il cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) per creare un pool di Azure Batch.
 
@@ -760,4 +803,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

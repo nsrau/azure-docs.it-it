@@ -12,22 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Interfaccia utente di Gestione snapshot StorSimple
 
 ## Panoramica
 
-Gestione snapshot StorSimple dispone di un'interfaccia utente grafica (GUI) che è possibile utilizzare per gestire copie di backup dei gruppi di volumi, tra cui quelli archiviati in locale e nel cloud. In questa esercitazione viene fornita un'introduzione all'interfaccia, quindi viene illustrato come utilizzare ciascuno dei componenti. (Per una descrizione dettagliata di Gestione snapshot StorSimple, vedere [Che cos'è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md)
+Gestione snapshot StorSimple dispone di un'interfaccia utente grafica (GUI) che è possibile utilizzare per gestire copie di backup dei gruppi di volumi, tra cui quelli archiviati in locale e nel cloud. In questa esercitazione viene fornita un'introduzione all'interfaccia, quindi viene illustrato come utilizzare ciascuno dei componenti. Per una descrizione dettagliata di Gestione snapshot StorSimple, vedere [Che cos'è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md)
 
 ### Descrizione della console
 
 Per visualizzare l'interfaccia utente, fare clic sull'icona di Gestione snapshot StorSimple sul desktop. Viene visualizzata la finestra della console, come mostrato nella figura seguente.
 
 ![Riquadri di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
-
-**Figura 1: Interfaccia utente di Gestione snapshot StorSimple**
 
 Nella finestra della console sono presenti cinque elementi principali. Fare clic sul collegamento appropriato per una descrizione completa di ciascun elemento.
 
@@ -57,8 +55,6 @@ Fare clic su qualsiasi elemento nella barra dei menu per visualizzare un elenco 
 
 ![Menu Visualizza selezionato](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**Figura 2: Barra dei menu di Gestione snapshot StorSimple con il menu Visualizza selezionato**
-
 ### File menu
 
 Il menu **File** contiene i comandi standard di Microsoft Management Console (MMC).
@@ -68,8 +64,6 @@ Il menu **File** contiene i comandi standard di Microsoft Management Console (MM
 Per visualizzare il menu **File**, fare clic su **File** nella barra dei menu. Viene visualizzato il menu seguente.
 
 ![Menu File di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
-
-**Figura 3: Menu File di Gestione snapshot StorSimple**
 
 #### Descrizione del menu
 
@@ -102,13 +96,9 @@ Ad esempio, se si seleziona il nodo principale nel riquadro **Ambito**, quindi s
  
 ![Menu Azione di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**Figura 4: Menu Azione di Gestione snapshot StorSimple**
-
 Il riquadro **Azioni** (a destra della console) contiene lo stesso elenco di azioni del menu **Azione**. Inoltre, il riquadro **Azioni** contiene le opzioni del menu **Visualizza**, che consentono di creare una visualizzazione personalizzata del riquadro **Risultati**.
 
 ![Riquadro Azioni con menu Visualizza aperto](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**Figura 5: Riquadro Azioni di Gestione snapshot StorSimple con il menu Visualizza**
 
 #### Descrizione del menu
 
@@ -153,8 +143,6 @@ Utilizzare il menu **Visualizza** per creare una visualizzazione personalizzata 
 
 ![Menu Visualizza di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**Figura 6: Menu Visualizza di Gestione snapshot StorSimple**
-
 #### Descrizione del menu
 
 Nella tabella seguente vengono descritte le voci del menu **Visualizza**.
@@ -174,8 +162,6 @@ Utilizzare il menu **Preferiti** per aggiungere, rimuovere e organizzare le visu
 
 ![Menu Preferiti di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-**Figura 7: Menu Preferiti di Gestione snapshot StorSimple**
-
 #### Descrizione del menu
 
 Nella tabella seguente vengono descritte le voci del menu **Preferiti**.
@@ -194,8 +180,6 @@ Utilizzare il menu **Finestra** per aggiungere e ridisporre le finestre della co
 È possibile accedere al menu **Finestra** nella barra dei menu.
 
 ![Menu Finestra di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
-
-**Figura 8: Menu Finestra di Gestione snapshot StorSimple**
 
 L'elenco numerato nella parte inferiore del menu mostra le finestre attualmente aperte. Fare clic su qualsiasi finestra dell'elenco per portarla in primo piano.
 
@@ -217,8 +201,6 @@ Utilizzare il menu **Guida** per visualizzare la guida in linea disponibile per 
 È possibile accedere al menu **Guida** nella barra dei menu. È inoltre possibile accedere agli argomenti della guida di Gestione snapshot StorSimple nel riquadro **Azioni**.
 
 ![Menu Guida di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
-
-**Figura 9: Menu Guida di Gestione snapshot StorSimple**
 
 #### Descrizione del menu
 
@@ -259,8 +241,6 @@ Nella tabella seguente vengono descritte le icone della barra degli strumenti.
 Il riquadro **Ambito** contiene una serie di oggetti selezionabili (nodi) organizzati in una struttura ad albero.
 
 ![Riquadro Ambito](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
-
-**Figura 10: Riquadro Ambito di Gestione snapshot StorSimple**
 
 - Per espandere o comprimere un nodo, fare clic sull'icona della freccia accanto al nome del nodo.
 
@@ -384,8 +364,6 @@ Per visualizzare l'esempio seguente, fare clic sul nodo **Gruppi di volumi** nel
 
 ![Riquadro Risultati](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
 
-**Figura 11: Riquadro Risultati di Gestione snapshot StorSimple**
-
 È possibile configurare i dettagli mostrati nel riquadro **Risultati**: fare clic con il pulsante destro del mouse su un nodo nel riquadro **Ambito**, fare clic su **Visualizza**, quindi fare clic su **Aggiungi/Rimuovi colonne**.
 
 ## Riquadro Azioni
@@ -398,13 +376,9 @@ Per vedere l’esempio seguente, nel riquadro **Ambito**, espandere il nodo **Pr
 
 ![Esempio processi pianificati nel riquadro Azioni](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
 
-**Figura 12: Riquadro Azioni di Gestione snapshot StorSimple (processi pianificati)**
-
-Per visualizzare ulteriori opzioni, nel riquadro **Ambito**, espandere il nodo **Processi**, fare clic su **Pianificati**, quindi fare clic su un processo pianificato nel riquadro **Risultati**. Il riquadro **Azioni** contiene le azioni disponibili per il processo pianificato, come mostrato nell'esempio seguente.
+Per visualizzare altre opzioni, nel riquadro **Ambito** espandere il nodo **Processi**, fare clic su **Pianificati** e quindi su un processo pianificato nel riquadro **Risultati**. Il riquadro **Azioni** contiene le azioni disponibili per il processo pianificato, come mostrato nell'esempio seguente.
 
 ![Esempio azioni del processo nel riquadro Azioni](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**Figura 13: Riquadro Azioni di Gestione snapshot StorSimple (per un processo specifico)**
 
 ## Navigazione da tastiera e tasti di scelta rapida
 
@@ -541,4 +515,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 - Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

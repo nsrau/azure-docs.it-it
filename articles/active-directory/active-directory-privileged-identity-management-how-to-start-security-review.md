@@ -38,7 +38,7 @@ Quando si fa clic sul pulsante **Revisione**, vengono visualizzati i pannelli **
 
 ### Selezionare il ruolo da rivedere
 
-1. Selezionare il ruolo dall'elenco dei ruoli nel pannello **Seleziona ruolo da rivedere**. È possibile scegliere solo un ruolo per volta. Il pannello **Seleziona ruolo da rivedere** verrà sostituito dal pannello **Seleziona revisori**. Per la selezione dei revisori sono disponibili due opzioni:
+1. Selezionare il ruolo dall'elenco dei ruoli nel pannello **Selezionare un ruolo da verificare**. È possibile scegliere solo un ruolo per volta. Il pannello **Seleziona ruolo da rivedere** verrà sostituito dal pannello **Seleziona revisori**. Per la selezione dei revisori sono disponibili due opzioni:
   - Io: usare questa funzionalità per visualizzare un'anteprima del funzionamento delle revisioni della sicurezza senza coinvolgere altri amministratori.
   - Revisione self-service da membri del ruolo: usare questa funzionalità se si desidera che gli utenti rivedano personalmente le proprie assegnazioni di ruoli.
 2. Selezionare una di queste due opzioni per iniziare a esaminare i dettagli della revisione. Verrà visualizzato il pannello **Modifica impostazioni predefinite**.
@@ -51,7 +51,7 @@ Quando si fa clic sul pulsante **Revisione**, vengono visualizzati i pannelli **
   - Numero di persone da sottoporre a revisione
   - Rapidità con cui gli utenti saranno in grado di aggiungere l'estensione e completare la revisione
 4. Fare clic su OK nel pannello **Modifica impostazioni predefinite**. Il pannello verrà chiuso.
-5. Fare clic su OK nel pannello **Avvia revisione ruolo**. Il pannello verrà chiuso. Nel menu principale del portale verrà visualizzata una notifica. Aggiornare il dashboard facendo clic sul pulsante **Aggiorna** e la revisione della sicurezza verrà visualizzata nella sezione **Revisioni sicurezza**.
+5. Fare clic su OK nel pannello **Avvia revisione ruolo**. Il pannello verrà chiuso. Nel menu principale del portale di Azure verrà visualizzata una notifica. Aggiornare il dashboard facendo clic sul pulsante **Aggiorna** e la revisione della sicurezza verrà visualizzata nella sezione **Verifiche della sicurezza**.
 6. Notificare agli utenti del ruolo che dovranno aggiungere l'estensione e quindi rivedere il proprio accesso amministrativo. Vedere il passaggio successivo.
 6. [Rivedere l'accesso amministrativo](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@ Se è stata selezionata l'opzione "Io" come revisore, passare alla revisione del
 ## Sommario PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

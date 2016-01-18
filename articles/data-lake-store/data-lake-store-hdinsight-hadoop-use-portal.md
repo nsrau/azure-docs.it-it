@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Eseguire il provisioning di cluster HDInsight Hadoop con Archivio Data Lake di Azure tramite il portale | Azure" 
-   description="Usare il portale di Azure per configurare e usare cluster HDInsight Hadoop con Archivio Azure Data Lake" 
+   pageTitle="Creare cluster Hadoop di HDInsight con Archivio Data Lake di Azure tramite il portale | Azure" 
+   description="Usare il portale di Azure per creare e usare cluster Hadoop di HDInsight con Archivio Data Lake di Azure." 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
+# Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Informazioni su come usare il portale di Azure per configurare un cluster HDInsight (Hadoop, HBase o Storm) in modo da interagire con Archivio Azure Data Lake. Alcune considerazioni importanti per questa versione:
+Informazioni su come usare il portale di Azure per creare un cluster HDInsight (Hadoop, HBase o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
 
 * **Per i cluster Hadoop e Storm (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
 
@@ -92,7 +92,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 	Eseguire le operazioni seguenti nell'account di Archivio Data Lake.
 
 	* [Creare una cartella in Archivio Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Caricare un file in Archivio Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	Questi file verranno usati più tardi, al momento di eseguire il test dell'account di Archivio Data Lake nel cluster HDInsight.
 
@@ -207,4 +207,4 @@ Per istruzioni su come aggiungere un'entità servizio al file system di Archivio
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

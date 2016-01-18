@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 
@@ -28,7 +28,7 @@ I data warehouse sono caratterizzati da query che analizzano quantità più elev
 
 - Un data warehouse funziona al meglio quando i dati sono archiviati in maniera da ottimizzare le query che devono analizzare grandi quantità di righe o grandi intervalli di dati. Questo tipo di analisi opera in modo ottimale quando i dati vengono archiviati e sottoposti a ricerche in base alle colonne invece che alle righe. 
 
->[AZURE.NOTE]L'indice columnstore in memoria, che si basa sull'archiviazione in colonne, offre una compressione fino a cinque volte superiore e prestazioni delle query anche dieci volte più elevate rispetto agli alberi binari tradizionali per le query di reporting e analisi. Gli indici columnstore vengono considerati uno standard per l'archiviazione e l'analisi di grandi quantità di dati in un data warehouse.
+>[AZURE.NOTE]L'indice columnstore in memoria, che si basa sull'archiviazione in colonne, offre una compressione fino a dieci volte superiore e prestazioni delle query anche cento volte più elevate rispetto agli alberi binari tradizionali per le query di creazione di report e analisi. Gli indici columnstore vengono considerati uno standard per l'archiviazione e l'analisi di grandi quantità di dati in un data warehouse.
 
 - Un data warehouse ha requisiti diversi rispetto a un sistema ottimizzato per l'elaborazione di transazioni online (OLTP). Il sistema OLTP prevede numerose operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni eseguono la ricerca fino a righe specifiche nella tabella. Le ricerche nelle tabelle vengono eseguite in modo ottimale quando i dati sono archiviati riga per riga. I dati possono essere ordinati e ricercati rapidamente secondo un approccio di tipo "divide et impera", noto anche come ricerca nell'albero binario o albero B.
 
@@ -73,4 +73,4 @@ Per iniziare a sviluppare il data warehouse, vedere la [panoramica sullo svilupp
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

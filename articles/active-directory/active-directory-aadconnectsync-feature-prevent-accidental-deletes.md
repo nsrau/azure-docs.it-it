@@ -13,19 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/16/2015"
+   ms.date="12/29/2015"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 In questo argomento viene descritta la funzionalità relativa alla prevenzione delle eliminazioni accidentali (impedire eliminazioni accidentali) in AD Connect di Azure.
 
-Durante l'installazione di Azure AD Connect verrà attivata per impostazione predefinita la funzionalità per evitare le eliminazioni accidentali e verrà configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. Questa funzionalità è progettata per la protezione da modifiche accidentali della configurazione e da modifiche alla directory locale che potrebbero riguardare un numero elevato di utenti.
+Durante l'installazione di Azure AD Connect verrà attivata per impostazione predefinita la funzionalità per evitare le eliminazioni accidentali e verrà configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. Questa funzionalità è progettata per la protezione da modifiche accidentali della configurazione e da modifiche alla directory locale che possono riguardare un numero elevato di utenti e altri oggetti.
+
+Gli scenari comuni in cui si verifica questa situazione comprendono:
+
+- Modifiche ai [filtri](active-directory-aadconnectsync-configure-filtering.md) in cui è deselezionata un'intera [unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+- Vengono eliminati tutti gli oggetti in un'unità organizzativa.
+- Un'unità organizzativa viene rinominata in modo che tutti gli oggetti in essa contenuti vengano considerati al di fuori dell'ambito di sincronizzazione.
 
 Il valore predefinito di 500 oggetti può essere modificato con PowerShell utilizzando `Enable-ADSyncExportDeletionThreshold`. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione di sincronizzazione verrà eseguita ogni 3 ore, il valore è il numero di eliminazioni visualizzate in 3 ore.
 
 Con questa funzionalità abilitata, in caso di un numero eccessivo di eliminazioni da esportare ad Azure AD, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
 
-![Salve. Al momento il servizio di sincronizzazione delle identità ha rilevato che il numero di eliminazioni ha superato la soglia configurata per fabrikam.com. 1234 oggetti in totale sono stati inviati per l'eliminazione in questa esecuzione della sincronizzazione delle identità. La soglia di eliminazione configurata è stata raggiunta o superata di 500 oggetti. È necessario confermare l’elaborazione di queste eliminazioni prima di continuare. Vedere la sezione su come impedire eliminazioni accidentali per ulteriori informazioni sull'errore elencato nel messaggio di posta elettronica.](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+![Messaggio di posta elettronica per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+
+> *Gentile (contatto tecnico), Sincronizzazione delle identità: il giorno (data) è stato rilevato che il numero di eliminazioni ha superato la soglia di eliminazione per (nome dell'organizzazione). È stato inviato un totale di (numero) oggetti per l'eliminazione in questa esecuzione di sincronizzazione delle identità. È stato quindi raggiunto o superato il valore della soglia di eliminazione configurato di (numero) oggetti. Prima di continuare, è necessario confermare di voler procedere con l'elaborazione di queste eliminazioni. Per altre informazioni sull'errore indicato in questo messaggio di posta elettronica, vedere l'articolo che illustra come evitare eliminazioni accidentali.*
 
 Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventuali azioni correttive. Per visualizzare gli oggetti che devono essere eliminati, procedere come segue:
 
@@ -44,8 +52,8 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 3. Per riabilitare la protezione, eseguire il cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold`
 
 ## Passaggi successivi
-Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

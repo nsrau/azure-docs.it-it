@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -203,4 +203,4 @@ Per ulteriori suggerimenti sulla gestione di SQL Data Warehouse, vedere [panoram
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

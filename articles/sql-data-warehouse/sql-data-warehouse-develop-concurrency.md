@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]è consigliabile creare utenti per gli accessi nel database master per quando si lavora con database SQL Azure e SQL Data Warehouse. Su questo livello ci sono due ruoli disponibili che richiedono l'accesso per avere un utente nel database master per concedere l’appartenenza. I ruoli sono`Loginmanager` e `dbmanager`: Nel database SQL Azure e SQL Data Warehouse questi ruoli concedono diritti per gestire gli account di accesso e per creare database. Questo comportamento è diverso rispetto a SQL Server. Per altre informazioni, vedere l'articolo [Gestione di database e account di accesso in database SQL di Azure].
+[AZURE.NOTE]è consigliabile creare utenti per gli accessi nel database master per quando si lavora con database SQL Azure e SQL Data Warehouse. Su questo livello ci sono due ruoli disponibili che richiedono l'accesso per avere un utente nel database master per concedere l’appartenenza. I ruoli sono`Loginmanager` e `dbmanager`: Nel database SQL Azure e SQL Data Warehouse questi ruoli concedono diritti per gestire gli account di accesso e per creare database. Questo comportamento è diverso rispetto a SQL Server. Per ulteriori informazioni, vedere il[Gestione di database e gli account di accesso nel Database di SQL Azure]articolo per ulteriori informazioni.
 
 Dopo aver creato l'account di accesso, è necessario aggiungere un account utente.
 
@@ -448,8 +448,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestione di database e account di accesso in database SQL di Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Gestione di database e gli account di accesso nel Database di SQL Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

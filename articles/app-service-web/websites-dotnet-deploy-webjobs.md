@@ -100,8 +100,7 @@ Per creare un nuovo progetto abilitato per i processi Web, è possibile usare il
 
 	Creare un progetto configurato in modo da essere distribuito automaticamente come processo Web quando viene distribuito un progetto Web nella stessa soluzione. Usare questa opzione quando si vuole eseguire il processo Web nella stessa app Web in cui viene eseguita l'applicazione Web correlata.
 
-Nella versione SDK 2.4 il modello nuovo-progetto di processi Web non è molto più facile da usare rispetto alla creazione di un progetto di applicazione console e all'abilitazione della distribuzione dei processi Web. In futuro, il modello nuovo-progetto di processi Web sarà più pratico per lo sviluppo di [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), perché installerà automaticamente i pacchetti NuGet appropriati di WebJobs SDK. Fino ad allora, è possibile configurare un progetto in modo da usare WebJobs SDK installando i pacchetti manualmente come illustrato nell'[esercitazione di WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs).
-
+> [AZURE.NOTE]Il modello new-project di Processi Web installa automaticamente pacchetti NuGet e include il codice in *Program.cs* per [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se non si vuole usare WebJobs SDK o se si vuole usare un processo Web pianificato anziché continuo, rimuovere o modificare l'istruzione `host.RunAndBlock` in *Program.cs*.
 
 ### <a id="createnolink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web indipendente
   
@@ -198,4 +197,4 @@ Questo articolo ha descritto come distribuire processi Web tramite Visual Studio
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

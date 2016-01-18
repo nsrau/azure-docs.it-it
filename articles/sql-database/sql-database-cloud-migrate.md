@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="01/05/2016"
    ms.author="carlrab"/>
 
 # Migrazione di un database SQL Server nel database SQL di Azure
@@ -55,7 +55,7 @@ Per scegliere il metodo di migrazione, è necessario stabilire innanzitutto se �
 
 Per eseguire la migrazione con tempi di inattività minimi, usare la [replica di tipo transazionale di SQL Server](sql-database-cloud-migrate-compatible-using-transactional-replication.md) a condizione che il database soddisfi i requisiti per la replica di tipo transazionale. Se si è disposti a tollerare un certo tempo di inattività o se si esegue una migrazione di prova del database di produzione per una migrazione successiva, considerare uno dei tre metodi seguenti:
 
-- [Migrazione guidata di SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): per i database di piccole e medie dimensioni, la migrazione di database compatibili con SQL Server 2005 o versioni successive è semplice quanto l'esecuzione della [distribuzione guidata del database al database SQL di Microsoft Azure](sql-database-cloud-migrate-compatible-using-migration-wizard.md) in SQL Server Management Studio. 
+- [Migrazione guidata di SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): per i database di piccole e medie dimensioni, la migrazione di database compatibili con SQL Server 2005 o versioni successive è semplice quanto l'esecuzione della [distribuzione guidata del database al database SQL di Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) in SQL Server Management Studio. 
 - [Esportare in un file BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) e quindi [Importare da un file BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): in caso di problemi di connettività (nessuna connettività, larghezza di banda ridotta o problemi di timeout) e per database di medie e grandi dimensioni, usare un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Con questo metodo, si esporta lo schema di SQL Server e i dati in un file BACPAC e quindi si importa il file BACPAC nel database SQL mediante la configurazione guidata applicazione per l'esportazione del livello dati in SQL Server Management Studio o l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
 - Usare insieme file BACPAC e BCP: usare un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) e [BCP](https://msdn.microsoft.com/library/ms162802.aspx) per database molto grandi per ottenere una parallelizzazione maggiore per prestazioni migliori, sebbene ciò comporti maggiore complessità. Con questo metodo la migrazione dei dati e dello schema viene eseguita separatamente. 
  - [Esportare lo schema solo in un file BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
@@ -64,4 +64,4 @@ Per eseguire la migrazione con tempi di inattività minimi, usare la [replica di
 
 	 ![Diagramma di migrazione di SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="12/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -95,7 +95,7 @@ In questa sezione si userà un'applicazione Scala locale autonoma per inviare un
 
 ## Aggiornare l'applicazione di streaming Scala per la ricezione di eventi
 
-Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazioni diverse è disponibile all'indirizzo [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Seguire questa procedura per aggiornare l'applicazione e creare il file JAR di output.
+Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazioni diverse è disponibile all'indirizzo [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Seguire questa procedura per aggiornare l'applicazione e creare il file JAR di output.
 
 1. Avviare IntelliJ IDEA e dalla schermata di avvio selezionare **Check out from Version Control** e quindi fare clic su **Git**.
 		
@@ -110,7 +110,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazio
 
 	![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. Aprire il file pom.xml e verificare che la versione di Spark sia corretta. Nel nodo <properties> cercare il frammento seguente e verificare la versione di Spark.
+4. Aprire il file pom.xml e verificare che la versione di Spark sia corretta. Nel nodo <properties> cercare il frammento seguente e verificare la versione di Spark.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -119,7 +119,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazio
 
 	Assicurarsi che il valore di **spark.version** sia impostato su **1.5.1**.
 
-3. L'applicazione richiede due file JAR di dipendenza:
+5. L'applicazione richiede due file JAR di dipendenza:
 
 	* **File JAR del ricevitore EventHub**. È necessario per consentire a Spark di ricevere i messaggi dall'Hub eventi. Il file JAR è disponibile nel cluster Linux Spark in `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. È possibile usare pscp per copiare il file JAR nel computer locale.
 
@@ -128,23 +128,24 @@ Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazio
 		Il file JAR verrà copiato dal cluster Spark nel computer locale.
 
 	* **File JAR del driver JDBC**. È necessario per scrivere i messaggi ricevuti dall'Hub eventi in un database SQL di Azure. È possibile scaricare la versione 4.1 o successiva di questo file JAR [qui](https://msdn.microsoft.com/it-IT/sqlserver/aa937724.aspx).
-
-	Aggiungere riferimenti a questi file JAR nella libreria del progetto. Eseguire la procedura seguente:
-
-	1. Nella finestra di IntelliJ IDEA in cui è aperta l'applicazione fare clic su **File**, su **Project Structure** e quindi su **Libraries**. 
-
-		![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "aggiungere file JAR di dipendenza mancanti")
-
-		Fare clic sull'icona di aggiunta (![icona per l'aggiunta](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), fare clic su **Java** e quindi passare al percorso in cui è stato scaricato il file JAR del ricevitore EventHub. Seguire le istruzioni per aggiungere il file JAR alla libreria del progetto.
-
-	2. Ripetere il passaggio precedente per aggiungere anche il file JAR JDBC alla libreria del progetto.
 	
-		![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "aggiungere file JAR di dipendenza mancanti")
 
-	3. Fare clic su **Apply**.
+		Aggiungere riferimenti a questi file JAR nella libreria del progetto. Eseguire la procedura seguente:
 
-4. Creare il file JAR di output. Seguire questa procedura.
-	1. Nella finestra di dialogo **Project Structure** fare clic su **Artifacts** e quindi sul segno più. Nella finestra di dialogo popup fare clic su **JAR** e quindi fare clic su **From modules with dependencies**.
+		1. Nella finestra di IntelliJ IDEA in cui è aperta l'applicazione fare clic su **File**, su **Project Structure** e quindi su **Libraries**. 
+
+			![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "aggiungere file JAR di dipendenza mancanti")
+
+			Fare clic sull'icona di aggiunta (![icona per l'aggiunta](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), fare clic su **Java** e quindi passare al percorso in cui è stato scaricato il file JAR del ricevitore EventHub. Seguire le istruzioni per aggiungere il file JAR alla libreria del progetto.
+
+		1. Ripetere il passaggio precedente per aggiungere anche il file JAR JDBC alla libreria del progetto.
+	
+			![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "aggiungere file JAR di dipendenza mancanti")
+
+		1. Fare clic su **Apply**.
+
+6. Creare il file JAR di output. Seguire questa procedura.
+	1. Nella finestra di dialogo **Project Structure** fare clic su **Artifacts** e quindi sul segno più. Nella finestra di dialogo popup fare clic su **JAR**, quindi fare clic su **From modules with dependencies**.
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
 
@@ -154,7 +155,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazio
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
 
-	1. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione **extract to the target JAR** sia selezionata e quindi fare clic su **OK**. Verrà creato un singolo file JAR con tutte le dipendenze.
+	1. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione per **estrarre nel file JAR di destinazione** sia selezionata e quindi fare clic su **OK**. Verrà creato un singolo file JAR con tutte le dipendenze.
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-3.png)
 
@@ -162,7 +163,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instadarlo a destinazio
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-eventhub-streaming/delete-output-jars.png)
 
-		Assicurarsi che la casella **Build on make** sia selezionata per garantire che il file JAR venga creato ogni volta che si compila o si aggiorna il progetto. Fare clic su **Apply** e quindi su **OK**.
+		Assicurarsi che la casella **Build on make** sia selezionata per garantire che il file jar venga creato ogni volta che il progetto viene creato o aggiornato. Fare clic su **Apply** e quindi su **OK**.
 
 	1. Nella scheda **Output Layout** in fondo alla casella Available Elements sono disponibili i due file JAR di dipendenza aggiunti in precedenza alla libreria del progetto. È necessario aggiungerli alla scheda Output Layout. Fare clic con il pulsante destro del mouse su ogni file con estensione JAR e quindi scegliere **Extract Into Output Root**.
 
@@ -336,7 +337,7 @@ L'output dovrebbe essere simile al seguente:
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di un edificio con sistemi HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -350,9 +351,9 @@ L'output dovrebbe essere simile al seguente:
 
 ### Estensioni
 
-* [Usare i notebook Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernel disponibili per il notebook Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Gestire le risorse
 
@@ -369,4 +370,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -18,7 +18,7 @@
 
 # Protezione dell'accesso ai dati in DocumentDB #
 
-Questo articolo fornisce una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure DocumentDB](../../services/documentdb/).
+Questo articolo fornisce una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Dopo la lettura di questa panoramica, si potrà rispondere alle domande seguenti:
 
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Trigger delle app per le API del servizio app di Azure" 
-	description="Questo articolo illustra come implementare i trigger in un'app per le API" 
+	pageTitle="Trigger delle app per le API del servizio app | Microsoft Azure" 
+	description="Come implementare i trigger in un'app per le API in Servizio app di Azure." 
 	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/04/2016" 
 	ms.author="guayan"/>
 
 # Trigger delle app per le API del servizio app di Azure
@@ -341,4 +341,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

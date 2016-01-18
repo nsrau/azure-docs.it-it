@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Analizzare i dati con Azure Machine Learning
@@ -25,7 +25,7 @@ Per eseguire questa esercitazione, sono necessari:
 
 - SQL Data Warehouse con il database di esempio AdventureWorksDW.
 
-[Creare un SQL Data Warehouse][] illustra come effettuare il provisioning di un database con dati di esempio. Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare i dati di esempio manualmente][].
+[Creare un SQL Data Warehouse][] illustra come effettuare il provisioning di un database con dati di esempio. Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][].
 
 
 ## Passaggio 1: Ottenere i dati 
@@ -136,7 +136,7 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 <!--Article references-->
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[caricare i dati di esempio manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
+[caricare manualmente i dati di esempio]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

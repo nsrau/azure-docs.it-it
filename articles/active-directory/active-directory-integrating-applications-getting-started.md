@@ -74,12 +74,12 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 - [Elenco delle esercitazioni sull'integrazione di applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
 ## Gestione dell'accesso alle applicazioni
-Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso alle applicazioni dopo l'integrazione con Azure AD mediante i connettori di Azure AD e Azure AD nel portale di Azure.
+Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso alle applicazioni dopo l'integrazione con Azure AD mediante i connettori di Azure AD e Azure AD.
 
 - [Gestione dell'accesso alle app tramite Azure AD](active-directory-managing-access-to-apps.md)
 - [Automazione con i connettori di Azure AD](active-directory-saas-app-provisioning.md)
-- [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md) con il portale di Azure.
-- [Assegnazione di gruppi a un'applicazione](active-directory-applications-guiding-developers-assigning-groups.md) con il portale di Azure.
+- [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md)
+- [Assegnazione di gruppi a un'applicazione](active-directory-applications-guiding-developers-assigning-groups.md)
 - [Condivisione di account](active-directory-sharing-accounts.md)
 
 ## Integrazione di applicazioni personalizzate
@@ -87,4 +87,4 @@ Se si sviluppa una nuova applicazione e si vuole aiutare gli sviluppatori a sfru
 
 Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di Azure, vedere il post di blog su ["Bring your own app" con la configurazione SAML Self-Service di Azure AD](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,10 +21,7 @@
 # Connettersi al Database SQL utilizzando Ruby in Mac OS X (Yosemite)
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Questo argomento presenta un esempio di codice Ruby in esecuzione su computer Mac che esegue Yosemite per connettersi a un database di SQL Azure.
@@ -84,7 +81,7 @@ La funzione [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) viene
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
 
-Per utilizzare TinyTDS con Azure, si consiglia di eseguire diverse `SET` istruzioni per modificare la modalità di gestione informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET` vengono fornite nell’esempio di codice. Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
+Per usare TinyTDS con Azure, si consiglia di eseguire diverse istruzioni `SET` per modificare la modalità di gestione di informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET`vengono fornite nell’esempio di codice Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.
 
 Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx), utilizzare la funzione [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) per eseguire il cast nel formato datetime corrispondente.
 
@@ -109,4 +106,4 @@ Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.micros
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # Query su database elastico per il partizionamento orizzontale
 
 Questo documento illustra come configurare le query su database elastico per scenari di partizionamento orizzontale e come eseguire le query. Per una definizione dello scenario di partizionamento orizzontale, vedere la [panoramica delle query su database elastico (anteprima)](sql-database-elastic-query-overview.md).
+
+![Eseguire una query tra partizioni][1]
 
 Questa funzionalità è inclusa nel [set di funzionalità del database elastico](sql-database-elastic-scale.md) del database SQL di Azure.
  
@@ -31,7 +33,7 @@ La definizione degli oggetti database per le query su database elastico si basa 
 
 * [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
+* [CREARE/ELIMINARE ORIGINE DATI ESTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 
 * [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -236,6 +238,7 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

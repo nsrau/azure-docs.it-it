@@ -98,13 +98,13 @@ foreach (UserProfile activeUser in query)
 ## Resolver della partizione hash
 Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o usati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things").
 
-**Partizionamento hash:** ![Diagramma che illustra come il partizionamento hash distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-hash.png "Partizionamento hash")
+**Partizionamento hash:** ![Diagramma che illustra come il partizionamento hash distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-hash.png)
 
 Un semplice schema di partizionamento hash in *N* raccolte consiste nel prendere un documento e nel calcolare *hash(d) mod N* per determinare in quale raccolta si trova. Questa semplice tecnica però non funziona bene quando si aggiungono nuove raccolte o si rimuovono le raccolte perché in questo caso sarebbe necessario riprodurre con sequenza casuale quasi tutti i dati. L'[hashing coerente](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) è un noto algoritmo che risolve questo problema implementando uno schema di hashing che riduce al minimo la quantità di dati da spostare durante l'aggiunta o la rimozione di raccolte.
 
 La classe [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) implementa la logica per compilare una sequenza di hash coerenti sulla funzione hash specificata nell'interfaccia [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx). Per impostazione predefinita, HashPartitionResolver usa una funzione hash MD5, ma è possibile sostituirla con la propria implementazione di hashing. HashPartitionResolver crea internamente 16 hash o "nodi virtuali" nella sequenza di hash per ogni raccolta per ottenere una distribuzione più uniforme dei documenti nelle raccolte, ma è possibile variare questo numero in modo compensare l'asimmetria dei dati con la quantità di calcoli lato client.
 
-**Hashing coerente con HashPartitionResolver:** ![Diagramma che illustra come HashPartitionResolver crei una sequenza di hash](media/documentdb-sharding/HashPartitionResolver.JPG "Hashing coerente")
+**Hashing coerente con HashPartitionResolver:** ![Diagramma che illustra come HashPartitionResolver crei una sequenza di hash](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## Resolver della partizione a intervalli
 
@@ -114,7 +114,7 @@ Nel partizionamento per intervalli le partizioni vengono assegnate in base alla 
 
 **Partizionamento per intervalli:**
 
-![Diagramma che illustra come il partizionamento per intervalli distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-range.png "Partizionamento per intervalli")
+![Diagramma che illustra come il partizionamento per intervalli distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-range.png)
 
 Un caso speciale di partizionamento per intervalli si ha quando l'intervallo è un solo valore discreto, denominato a volte "partizionamento basato su ricerca". Questo approccio viene in genere usato per il partizionamento in base all'area (ad esempio, la partizione per la Scandinavia contiene Norvegia, Danimarca e Svezia) o per il partizionamento di tenant in un'applicazione multi-tenant.
 
@@ -167,4 +167,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
 	description="Utilizzare l’interfaccia della riga di comando di Azure per Mac, Linux e Microsoft Azure per distribuire più risorse come un gruppo di risorse."
@@ -32,7 +33,7 @@ In questo articolo viene descritto come creare e gestire le risorse di Azure tra
 
 Usare Gestione risorse di Azure per creare e gestire un gruppo di _risorse_ (entità gestite dall'utente quali una macchina virtuale, un server di database, un database o un sito Web) come una singola unità logica o _gruppo di risorse_.
 
-Un vantaggio della Gestione risorse di Azure, è che è possibile creare le risorse di Azure in un modo _dichiarativo_: si descrivono la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello individua i parametri che possono essere completati inline quando si esegue un comando oppure essere archiviati in un file JSON azuredeploy-parameters.json a parte. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
+Un vantaggio di Gestione risorse di Azure consiste nel fatto che è possibile creare le risorse di Azure in modo _dichiarativo_: si descrivono la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello individua i parametri che possono essere completati inline quando si esegue un comando oppure essere archiviati in un file JSON azuredeploy-parameters.json a parte. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
 
 Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Gestione risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
@@ -68,7 +69,7 @@ Un gruppo di risorse è un raggruppamento logico di risorse di rete, di archivia
 
 	azure group create -n "testRG" -l "West US"
 
-È quindi possibile iniziare ad aggiungere risorse al gruppo e usarlo per configurare una risorsa come ad esempio una nuova macchina virtuale.
+La distruzione al gruppo di risorse "testRG" verrà eseguita in un secondo momento, quando si usa un modello per avviare una VM di Ubuntu. Dopo aver creato un gruppo di risorse è possibile aggiungere risorse, ad esempio macchine virtuali e reti o risorse di archiviazione.
 
 
 ## Utilizzo di modelli di gruppo di risorse
@@ -79,48 +80,50 @@ Quando si lavora con i modelli, è possibile [crearne uno personalizzato](resour
 
 La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi iniziare con l’utilizzo del modello _101-simple-vm-from-image_ disponibile da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
 
-* Un nome dell'account di archiviazione univoco.
-* Un nome utente dell'amministratore per la macchina virtuale
-* Una password
-* Un nome di dominio per la macchina virtuale
+* Nome utente dell'amministratore per la macchina virtuale = `adminUsername`
+* Password = `adminPassword`
+* Nome di dominio per la macchina virtuale = `dnsLabelPrefix`
 
 >[AZURE.TIP]Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Scaricare i file .azuredeploy.json e .azuredeploy.parameters.json da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) a una cartella di lavoro nel computer locale.
+1. Scaricare i file .azuredeploy.json e .azuredeploy.parameters.json da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) a una cartella di lavoro nel computer locale.
 
 2. Aprire il file azuredeploy.parameters.json in un editor di testo e immettere i valori dei parametri appropriati per l'ambiente (lasciando invariato il valore **ubuntuOSVersion**).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. Dopo aver salvato il file azuredeploy.parameters.json, utilizzare il seguente comando per creare un nuovo gruppo di risorse in base al modello. L’opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. Sostituire *testRG* con il nome del gruppo che si desidera usare e *testDeploy* con un nome di distribuzione a scelta. La località dovrebbe corrispondere a quella specificata nel file dei parametri del modello.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  Dopo aver modificato i parametri della distribuzione si distribuirà la VM di Ubuntu nel gruppo di risorse creato in precedenza. Scegliere un nome per la distribuzione e quindi usare il comando seguente per avviarla.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	Questo esempio crea una distribuzione denominata _testRGDeploy_ che viene distribuita nel gruppo di risorse _testRG_. L’opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. L'opzione `-f` specifica il file modello azuredeploy.json.
 
 	Questo comando restituirà OK dopo che la distribuzione viene caricata, ma prima che venga applicata la distribuzione alle risorse del gruppo.
 
 4. Per verificare lo stato della distribuzione, usare il comando seguente.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	La voce **ProvisioningState** mostra lo stato della distribuzione.
 
@@ -163,7 +166,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi in
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
 
-> [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità _raw_ quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su **Raw**.
+> [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
 
 ## Utilizzo delle risorse
 
@@ -210,4 +213,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0107_2016-->

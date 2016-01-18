@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | Berlina familiare
 3.	Eseguire l'applicazione **CarEventGenerator.exe**.
 
 ### Riferimenti
-[Soluzione Vehicle Telematics Simulator di Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) [Hub eventi di Azure](http://azure.microsoft.com/services/event-hubs/) [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Soluzione Vehicle Telematics Simulator di Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Hub eventi di Azure](http://azure.microsoft.com/services/event-hubs/)
+
+[Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## Inserimento
@@ -149,7 +154,12 @@ Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" 
 *Figura 10: Output di PrepareSampleDataPipeline*
 
 ### Riferimenti
-[SDK dell'Hub eventi di Azure per l'inserimento dei flussi](event-hubs-csharp-ephcs-getstarted.md), [funzionalità di spostamento dei dati di Data factory di Azure](data-factory-data-movement-activities.md), [attività .Net di Data factory di Azure](data-factory-use-custom-activities.md), [soluzione di Visual Studio per l'attività .Net di Data factory di Azure per la preparazione dei dati di esempio](http://go.microsoft.com/fwlink/?LinkId=717077).
+
+[Azure Event Hub SDK per l'inserimento di flussi](event-hubs-csharp-ephcs-getstarted.md)
+
+[Funzionalità di spostamento dei dati di Data factory di Azure](data-factory-data-movement-activities.md) [Attività DotNet di Data factory di Azure](data-factory-use-custom-activities.md)
+
+[Soluzione di Visual Studio per l'attività DotNet di Data factory di Azure per la preparazione dei dati di esempio](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## Preparazione
@@ -696,4 +706,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

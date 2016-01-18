@@ -13,40 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/16/2015"
 	ms.author="jaime-espinosa"/>
 
-# Informazioni di riferimento per l'esplorazione del portale della classe
+# Informazioni di riferimento per l'esplorazione del portale di Azure
 
 Siti Web di Azure è ora denominato [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). Stiamo aggiornando tutta la documentazione per evidenziare questo cambiamento di nome e per fornire istruzioni per il Portale di Azure. Fino al completamento di tale processo, è possibile usare questo documento come guida per lavorare con le app Web nel portale di Azure.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
-## Il futuro del portale classico
+## Il futuro del portale di Azure classico
 
-Sebbene le modifiche al marchio siano visibili anche nel portale classico, è in corso la sostituzione di quest'ultimo con il Portale di Azure. Il portale classico verrà eventualmente eliminato e tutte le nuove attività correlate allo sviluppo verranno spostate e proseguiranno nel portale di Azure. Tutte le nuove funzionalità per app Web in arrivo verranno ospitate nel portale di Azure. Iniziare subito a usare il portale di Azure per sfruttare i vantaggi offerti dalle ultime e migliori app Web.
+Sebbene le modifiche di personalizzazione siano visibili anche nel portale di Azure classico, è in corso la sostituzione di quest'ultimo con il portale di Azure. Il portale classico verrà eventualmente eliminato e tutte le nuove attività correlate allo sviluppo verranno spostate e proseguiranno nel portale di Azure. Tutte le nuove funzionalità per app Web in arrivo verranno ospitate nel portale di Azure. Iniziare subito a usare il portale di Azure per sfruttare i vantaggi offerti dalle ultime e migliori app Web.
 
-## Differenze del layout tra il portale classico e il portale di Azure
+## Differenze del layout tra il portale di Azure classico e il portale di Azure
 
 Nel portale classico, tutti i servizi di Azure sono elencati nella parte sinistra. La navigazione nel portale classico segue una struttura ad albero, in cui si inizia dal servizio e si naviga all'interno di ogni elemento. Questa struttura funziona bene quando si gestiscono componenti indipendenti. Le applicazioni create in Azure, tuttavia, sono una raccolta di servizi interconnessi e questa struttura ad albero non risulta ideale per lavorare con raccolte di servizi.
 
-Il portale di Azure semplifica la creazione di applicazioni end-to-end con componenti provenienti da più servizi. Il portale di Azure è organizzato in *esplorazioni*. Un'*esplorazione* è una serie di *pannelli*, ovvero contenitori per i diversi componenti. La configurazione della scalabilità automatica per un'app Web, ad esempio, è un *esplorazione* che ospita diversi pannelli, come illustrato nell'esempio seguente: il pannello del **sito Web** (con il titolo non ancora aggiornato alla nuova terminologia), il pannello **Impostazioni** e il pannello **Scalabilità**. In questo esempio la scalabilità automatica viene configurata secondo l'uso della CPU ed è pertanto presente anche un pannello **Percentuale CPU**. I componenti all'interno dei *pannelli* sono denominati *parti* e assomigliano a titoli.
+Il portale di Azure semplifica la creazione di applicazioni end-to-end con componenti provenienti da più servizi. Il portale è organizzato in *esplorazioni*. Un'*esplorazione* è una serie di *pannelli*, ovvero contenitori per i diversi componenti. La configurazione della scalabilità automatica per un'app Web, ad esempio, è un'*esplorazione* che ospita diversi pannelli, come illustrato nell'esempio seguente: il pannello del **sito Web** (con il titolo non ancora aggiornato alla nuova terminologia), il pannello **Impostazioni** e il pannello **Scalabilità**. In questo esempio la scalabilità automatica viene configurata secondo l'uso della CPU ed è pertanto presente anche un pannello **Percentuale CPU**. I componenti all'interno dei *pannelli* sono denominati *parti* e assomigliano a titoli.
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
 ## Esempio di navigazione: creare un'app Web
 
-La creazione di app Web resta un'operazione semplicissima. La figura seguente mostra il portale classico e il portale di Azure affiancati e dimostra che ben poco è cambiato quanto al numero di passaggi necessario per creare un'app Web e renderla operativa.
+La creazione di app Web resta un'operazione semplicissima. La figura seguente illustra il portale classico e il portale affiancati e dimostra che ben poco è cambiato quanto al numero di passaggi necessari per creare un'app Web e renderla operativa.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
 
-Nel portale di Azure è possibile scegliere tra i tipi di app Web più comuni, comprese applicazioni popolari da raccolte come WordPress. Per un elenco completo delle applicazioni disponibili, visitare [Azure Marketplace].
+Nel portale è possibile scegliere tra i tipi di app Web più comuni, comprese applicazioni note da raccolte come WordPress. Per un elenco completo delle applicazioni disponibili, visitare [Azure Marketplace].
 
-Per creare un'app Web si specificano l'URL, il piano di servizio app e la posizione nel portale di Azure nello stesso modo in cui lo si faceva nel portale classico.
+Per creare un'app Web si specificano l'URL, il piano di servizio app e la posizione nel portale esattamente come avviene nel portale classico.
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)
 
-Nel portale di Azure è inoltre possibile definire altre impostazioni comuni. Ad esempio i [gruppi di risorse](../resource-group-overview.md) semplificano la visualizzazione e la gestione delle risorse di Azure correlate.
+Nel portale è inoltre possibile definire altre impostazioni comuni. Ad esempio i [gruppi di risorse](../resource-group-overview.md) semplificano la visualizzazione e la gestione delle risorse di Azure correlate.
 
 ## Esempio di navigazione: impostazioni e funzionalità
 
@@ -70,7 +70,7 @@ Per configurare le impostazioni dell'applicazione, fare clic su **Impostazioni a
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinominati o raggruppati in modo diverso per semplificarne l'individuazione. Ad esempio, quello riportato di seguito è una schermata della pagina corrispondente a quella delle impostazioni dell'applicazione (**Configura**) nel portale precedente.
+Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinominati o raggruppati in modo diverso per semplificarne l'individuazione. Ad esempio, quella riportata di seguito è una schermata della pagina corrispondente a quella delle impostazioni dell'app (**Configura**) nel portale classico.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -87,4 +87,4 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

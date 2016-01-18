@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory (Azure AD) B2B Collaboration
@@ -50,7 +50,7 @@ Per altre informazioni sul funzionamento di B2B Collaboration, guardare [questo 
 
 Il file CSV deve avere il formato seguente. Aggiungere tutte le virgole richieste, anche se non si specificano una o più opzioni.
 
-**Email:** indirizzo di posta elettronica dell'utente invitato.<br/> **DisplayName:** nome visualizzato dell'utente invitato, in genere nome e cognome.<br/> **InviteAppID:** ID dell'applicazione da usare per personalizzare l'invito tramite posta elettronica e le pagine di accettazione.<br/> **InviteReplyURL:** URL a cui indirizzare gli utenti invitati dopo l'accettazione dell'invito. Deve essere un URL specifico della società, ad esempio [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/). Se questo campo facoltativo non viene specificato, viene generato l’URL del pannello di accesso della società invitante (questo URL è nel formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/> **InviteAppResources:** AppID a cui le applicazioni possono assegnare gli utenti. Per recuperare gli AppID, chiamare `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** ObjectID dei gruppi a cui aggiungere gli utenti. Per recuperare gli ObjectID, chiamare `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl:** URL "Contattaci" da includere negli inviti tramite posta elettronica, qualora l'utente invitato desideri contattare l'organizzazione.<br/>
+**Email:** indirizzo di posta elettronica dell'utente invitato.<br/> **DisplayName:** nome visualizzato dell'utente invitato, in genere nome e cognome.<br/> **InviteAppID:** ID dell'applicazione da usare per personalizzare l'invito tramite posta elettronica e le pagine di accettazione.<br/> **InviteReplyURL:** URL a cui indirizzare gli utenti invitati dopo l'accettazione dell'invito. Deve essere un URL specifico della società, ad esempio [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/). Se questo campo facoltativo non viene specificato, viene generato l’URL del pannello di accesso della società invitante (questo URL è nel formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/> **InviteAppResources:** AppID a cui le applicazioni possono assegnare gli utenti. Per recuperare gli AppID, chiamare `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** ObjectID dei gruppi a cui aggiungere gli utenti. Per recuperare gli ID oggetto, chiamare `Get-MsolGroup | fl DisplayName, ObjectId`<br/>. **InviteContactUsUrl:** URL "Contattaci" da includere negli inviti tramite posta elettronica, qualora l'utente invitato desideri contattare l'organizzazione.<br/>
 
 ## File CSV di esempio
 Qui è riportato un file CSV di esempio che è possibile modificare in base alle proprie esigenze. Salvarlo con il nome file che si preferisce, ma assicurarsi che abbia un'estensione di file '.csv'.
@@ -72,4 +72,4 @@ Vedere gli altri articoli su Azure B2B Collaboration.
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

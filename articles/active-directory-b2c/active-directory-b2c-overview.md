@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni
@@ -28,7 +28,7 @@ Azure Active Directory B2C è in anteprima. Durante questo periodo, siamo felici
 
 Per costruire un'applicazione che accetta l’iscrizione e l’accesso dell’utente, è innanzitutto necessario registrarla con un tenant di Azure Active Directory B2C. Ottenere il tenant utilizzando la procedura descritta in questo [articolo](active-directory-b2c-get-started.md).
 
-È possibile scrivere l'applicazione con il servizio di Azure Active Directory B2C o scegliendo di inviare direttamente messaggi di protocollo, utilizzando [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) o [Open ID connessione](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) oppure utilizzando le librerie per svolgere il lavoro (scegliere di seguito la piattaforma e iniziare a usarla).
+È possibile scrivere l'applicazione con il servizio di Azure Active Directory B2C o scegliendo di inviare direttamente messaggi di protocollo, utilizzando [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) o [Open ID connessione](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow) oppure utilizzando le librerie per svolgere il lavoro (scegliere di seguito la piattaforma e iniziare a usarla).
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
@@ -43,7 +43,7 @@ Visitare spesso questa pagina per rimanere aggiornati sulle modifiche all'antepr
 
 Informazioni su come utilizzare funzionalità di anteprima di Azure Active Directory B2C specifiche:
 
-- Configurare gli account ([Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) e [LinkedIn](active-directory-b2c-setup-li-app.md)) per l'utilizzo nelle applicazioni degli utenti.
+- Configurare gli account [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) e [LinkedIn](active-directory-b2c-setup-li-app.md) per l'uso nelle applicazioni destinate agli utenti.
 - [Utilizzare attributi personalizzati per raccogliere informazioni sugli utenti](active-directory-b2c-reference-custom-attr.md).
 - [Abilitare Multi-Factor Authentication nelle applicazioni degli utenti](active-directory-b2c-reference-mfa.md).
 - [Installazione la reimpostazione self-service della password per gli utenti](active-directory-b2c-reference-sspr.md).
@@ -54,13 +54,13 @@ Informazioni su come utilizzare funzionalità di anteprima di Azure Active Direc
 
 I collegamenti seguenti sono utili per un'esplorazione più approfondita del servizio:
 
-- Vedere le [Informazioni sui prezzi di Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
-- Per ottenere supporto sull’Overflow dello stack, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
+- Vedere le [Informazioni sui prezzi di Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c).
+- Per ottenere supporto su Stack Overflow, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 - Per inviare i commenti e i suggerimenti sulla versione di anteprima, è possibile usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory). Specificare "AzureADB2C:" nel titolo del post per permetterci di individuarlo.
 - Azure Active Directory B2C supporta protocolli standard del settore, OpenID Connect e OAuth 2.0, utilizzando un modello di registrazione dell'applicazione chiamato "Modello App v 2.0".
   - [Riferimento al protocollo di Modello app 2.0](active-directory-b2c-reference-protocols.md)
   - [Riferimento al token di Modello app 2.0](active-directory-b2c-reference-tokens.md)
 - [Domande frequenti Azure Active Directory B2C](active-directory-b2c-faqs.md)
-- [Richieste di supporto del file su Azure Active Directory B2C](active-directory-b2c-support.md)
+- [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

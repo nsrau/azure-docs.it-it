@@ -25,7 +25,7 @@ Il supporto per l'autenticazione della firma di accesso condiviso è inclusa in 
 
 Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa del bus di servizio. I client richiedono l'accesso alle risorse del bus di servizio presentando un token di firma di accesso condiviso. Questo token è costituito dall'URI della risorsa a cui si accede e da una scadenza firmata con la chiave configurata.
 
-È possibile configurare le regole di autorizzazione di firma di accesso condiviso in [Hub eventi](service-bus-fundamentals-hybrid-solutions.md/#relays), [code](service-bus-fundamentals-hybrid-solutions.md/#queues), [argomenti](service-bus-fundamentals-hybrid-solutions.md/#topics) e [inoltri](https://azure.microsoft.com/documentation/services/event-hubs/) del bus di servizio.
+È possibile configurare le regole di autorizzazione di firma di accesso condiviso in [Hub eventi](service-bus-fundamentals-hybrid-solutions.md#relays), [code](service-bus-fundamentals-hybrid-solutions.md#queues), [argomenti](service-bus-fundamentals-hybrid-solutions.md#topics) e [inoltri](https://azure.microsoft.com/documentation/services/event-hubs/) del bus di servizio.
 
 L'autenticazione della firma di accesso condiviso usa gli elementi seguenti:
 
@@ -258,4 +258,4 @@ Vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authent
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modello di gestione risorse per i blocchi della risorsa | Microsoft Azure"
-   description="Mostra lo schema di gestione della risorsa per i blocchi della risorsa."
+   pageTitle="Modello di gestione risorse per i blocchi di risorse | Microsoft Azure"
+   description="Mostra lo schema di Gestione risorse per la distribuzione di blocchi di risorse tramite un modello."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Blocchi di risorse - schema del modello
+# Blocchi di risorse - Schema del modello
 
 Crea un nuovo blocco su una risorsa e le risorse figlio.
 
@@ -46,9 +46,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sì | Per le risorse: <br />**{namespace}/{type}/providers/locks**<br /><br />per gruppi di risorse:<br />**Microsoft.Authorization/locks** | Il tipo di risorsa da creare. |
 | apiVersion | enum | Sì | **01/01/2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. |
-| dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. |
-| proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
+| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | | dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | | proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
 
 ### oggetto delle proprietà
 
@@ -135,4 +133,4 @@ Nell'esempio seguente viene applicato un blocco di sola lettura al gruppo di ris
 - Per informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sui blocchi, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

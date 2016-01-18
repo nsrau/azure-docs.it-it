@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurare cluster HDInsight con Archivio Azure Data Lake tramite PowerShell | Azure" 
-   description="Usare Azure PowerShell per configurare e usare cluster Hadoop di HDInsight con Azure Data Lake" 
+   pageTitle="Creare cluster HDInsight con Archivio Data Lake di Azure tramite PowerShell | Azure" 
+   description="Usare Azure PowerShell per creare e usare cluster Hadoop di HDInsight con Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
+# Creare un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight (Hadoop, HBase o Storm) perché funzioni con Archivio Azure Data Lake. Alcune considerazioni importanti per questa versione:
+Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight (Hadoop, HBase o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
 
 * **Per i cluster Hadoop e Storm (Windows e Linux)**, Archivio Data Lake può essere usato solo come account di archiviazione aggiuntivo. L'account di archiviazione predefinito per tali cluster continuerà a essere WASB (BLOB di Archiviazione di Azure).
 
@@ -44,7 +44,7 @@ La configurazione di HDInsight perché funzioni con Archivio Data Lake tramite P
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/it-IT/downloads). Usarlo per creare un certificato di sicurezza.
 
 
@@ -73,7 +73,7 @@ Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 		# Import Azure Service Management module
 		Import-Module Azure
 
-	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/).
+	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
 
 - [Installazione guidata piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
@@ -118,7 +118,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 	L'output di questa operazione deve essere **True**.
 
-4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [repository Git di Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -325,4 +325,4 @@ Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data La
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

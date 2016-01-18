@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # Indicazioni specifiche del servizio per la ripetizione di tentativi
@@ -489,7 +489,7 @@ Per informazioni dettagliate sull'uso del Blocco di applicazioni per la gestione
 
 * [Uso del Blocco di applicazioni per la gestione degli errori temporanei con SQL Azure](http://msdn.microsoft.com/library/hh680899.aspx)
 * [Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719.aspx)
-* [Livello di accesso ai dati di Cloud Service Fundamentals e gestione degli errori temporanei](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
+* [Livello di accesso ai dati di Cloud Service Fundamentals e gestione degli errori temporanei.](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
 Per indicazioni generali su come sfruttare al meglio le potenzialità del database SQL, vedere:
 
@@ -679,7 +679,7 @@ namespace RetryCodeSamples
 
 ## Altre informazioni
 
-* [Modelli di messaggistica asincrona e disponibilità elevata](http://msdn.microsoft.com/library/azure/dn292562.aspx).
+* [Modelli di messaggistica asincrona e disponibilità elevata.](http://msdn.microsoft.com/library/azure/dn292562.aspx)
 
 ## Cache (Redis) - Linee guida per la ripetizione di tentativi
 
@@ -1121,4 +1121,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

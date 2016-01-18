@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Collegamento a una macchina virtuale di SQL Server | Microsoft Azure"
+	pageTitle="Connettersi a una macchina virtuale di SQL Server (Classica) | Microsoft Azure"
 	description="Questo argomento utilizza le risorse create con il modello di distribuzione classica e descrive come connettersi a SQL Server in esecuzione in una macchina virtuale in Azure. Gli scenari variano a seconda della configurazione di rete e della posizione del client."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="jroth" />
 
-# Connettersi a una macchina virtuale di SQL Server in Azure
+# Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)
+
+> [AZURE.SELECTOR]
+- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Classic](virtual-machines-sql-server-connectivity.md)
 
 ## Panoramica
 
@@ -54,7 +58,7 @@ Seguire innanzitutto la [procedura descritta in questo articolo per configurare 
 
 	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Sebbene in questo modo venga abilitata la connettività per i client tramite Internet, ciò non significa che chiunque può connettersi all'istanza di SQL Server. I client esterni dovranno disporre del nome utente e della password corretti. Per una maggiore sicurezza, non usare la nota porta 1433 per l'endpoint pubblico della macchina virtuale. Se possibile, è consigliabile aggiungere un ACL all'endpoint per limitare il traffico ai soli client autorizzati. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)
+Sebbene in questo modo venga abilitata la connettività per i client tramite Internet, ciò non significa che chiunque può connettersi all'istanza di SQL Server. I client esterni dovranno disporre del nome utente e della password corretti. Per una maggiore sicurezza, non usare la nota porta 1433 per l'endpoint pubblico della macchina virtuale. Se possibile, è consigliabile aggiungere un ACL all'endpoint per limitare il traffico ai soli client autorizzati. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint).
 
 >[AZURE.NOTE]È importante tenere presente che quando si usa questa tecnica per comunicare con SQL Server, tutti i dati restituiti vengono considerati come traffico in uscita dal data center. Questa tecnica è soggetta ai normali [prezzi dei trasferimenti di dati in uscita](http://azure.microsoft.com/pricing/details/data-transfers). Ciò vale anche se si usa questa tecnica da un altro computer o da un servizio cloud nello stesso data center di Azure, poiché il traffico passa comunque attraverso il servizio pubblico di bilanciamento del carico di Azure.
 
@@ -74,7 +78,27 @@ Si noti che in questo scenario è possibile anche specificare l'indirizzo IP del
 
 ## Procedura per la configurazione della connettività di SQL Server in una macchina virtuale di Azure
 
+I passaggi seguenti illustrano come connettersi all'istanza di SQL Server su Internet mediante SQL Server Management Studio (SSMS). Tuttavia, gli stessi passaggi si applicano per rendere accessibile la macchina virtuale di SQL Server per le applicazioni in esecuzione sia in locale che in Azure.
+
+Prima di poter eseguire la connessione all'istanza di SQL Server da un’altra VM o da Internet, è necessario completare le seguenti attività, come descritto nelle seguenti sezioni:
+
+- [Creare un endpoint TCP per la macchina virtuale](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Aprire le porte TCP in Windows Firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configurare SQL Server per l'ascolto sul protocollo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configurare SQL Server per l'autenticazione in modalità mista](#configure-sql-server-for-mixed-mode-authentication)
+- [Creare gli account di accesso di SQL Server](#create-sql-server-authentication-logins)
+- [Determinare il nome DNS della macchina virtuale](#determine-the-dns-name-of-the-virtual-machine)
+- [Eseguire la connessione al motore di database da un altro computer](#connect-to-the-database-engine-from-another-computer)
+
+Il percorso di connessione è riepilogato nel seguente diagramma:
+
+![Connessione a una macchina virtuale di SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [Connettersi a SQL Server in una macchina virtuale - Endpoint TCP classico](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [Connettersi a SQL Server in una macchina virtuale](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [Connettersi a SQL Server in una macchina virtuale - Procedura classica](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## Passaggi successivi
 
@@ -86,4 +110,4 @@ Se si intende anche usare gruppi di disponibilità AlwaysOn per la disponibilit�
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

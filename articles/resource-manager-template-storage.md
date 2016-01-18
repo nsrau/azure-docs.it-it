@@ -1,6 +1,6 @@
 <properties
    pageTitle="Modello di gestione risorse per l’archiviazione | Microsoft Azure"
-   description="Mostra lo schema di gestione delle risorse per gli account di archiviazione."
+   description="Mostra lo schema di Gestione risorse per la distribuzione di account di archiviazione tramite un modello."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Account di archiviazione - schema del modello
+# Account di archiviazione - Schema del modello
 
 Crea un account di archiviazione.
 
@@ -78,9 +78,22 @@ L'esempio seguente consente di distribuire un account di archiviazione con ridon
 	    "outputs": {}
     }
 
+## Modelli di Guida introduttiva
+
+Sono disponibili numerosi modelli di Guida introduttiva che includono un account di archiviazione. I modelli seguenti illustrano alcuni scenari comuni:
+
+- [Creare un account di archiviazione standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+- [Distribuzione semplice di una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Distribuzione semplice di una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [Creare un profilo di rete CDN, un endpoint di rete CDN con un account di archiviazione come origine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+- [Creare una farm di SharePoint a disponibilità elevata con nove macchine virtuali usando l'estensione DSC PowerShell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [Distribuzione semplice di un cluster di Service Fabric sicuro a cinque nodi con WAD abilitato](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Creare una macchina virtuale da un'immagine di Windows con quattro dischi dati vuoti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
+
+
 ## Passaggi successivi
 
 - Per altre informazioni sull’archiviazione, vedere [Introduzione ad Archiviazione di Microsoft Azure](./storage/storage-introduction.md).
 - Ad esempio modelli che utilizzano un nuovo account di archiviazione con una macchina virtuale, vedere [distribuire una semplice VM Linux](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) o [distribuire una macchina virtuale Windows semplice](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

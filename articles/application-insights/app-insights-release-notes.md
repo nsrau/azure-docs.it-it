@@ -21,6 +21,7 @@
 Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agli SDK:
 
 * [.NET](app-insights-release-notes-dotnet.md)
+* [Adattatori di registrazione .NET](app-insights-release-notes-dotnet-logging.md)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -32,4 +33,4 @@ Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agl
 
 Leggere anche [Aggiornamenti dei servizi](http://azure.microsoft.com/updates/?service=application-insights) in cui vengono riepilogati i principali miglioramenti apportati all'intero servizio Application Insights.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Tipi di applicazioni
@@ -23,7 +23,7 @@ Azure AD B2C supporta l'autenticazione di un'ampia gamma di architetture di app 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Nozioni di base
-Ogni applicazione che usa Azure AD B2C dovrà essere registrata nella [directory B2C](active-directory-b2c-get-started.md) tramite il [portale di anteprima di Azure](https://portal.azure.com). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
+Ogni applicazione che usa Azure AD B2C dovrà essere registrata nella [directory B2C](active-directory-b2c-get-started.md) tramite il [portale di Azure](https://portal.azure.com). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
 - Un **ID applicazione** che identifica l'app in modo univoco
 - Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app
@@ -128,4 +128,4 @@ Molte architetture includono un'API Web che deve chiamare un'altra API Web downs
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

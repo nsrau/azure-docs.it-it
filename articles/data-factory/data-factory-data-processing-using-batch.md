@@ -447,7 +447,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 		
 		return blobDataset.FolderPath;
 
-5.	Il codice chiama il metodo **GetFileName** per recuperare il nome del file, ovvero il nome del BLOB. Il codice è simile a quello visto in precedenza per ottenere il percorso della cartella.
+5.	Il codice chiama il metodo **GetFileName** per recuperare il nome del file (nome del BLOB). Il codice è simile a quello visto in precedenza per ottenere il percorso della cartella.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		
@@ -466,7 +466,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 		outputBlob.UploadText(output);
 
 
-### Creare la data factory
+## Creare la data factory
 
 La sezione [Creare l'attività personalizzata](#create-the-custom-activity) ha illustrato come creare un'attività personalizzata e caricare il file ZIP con i file binari e il file PDB in un contenitore BLOB di Azure. Questa sezione illustra come creare una **data factory** di Azure con una **pipeline** che usa l'**attività personalizzata**.
 
@@ -935,4 +935,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
     -   [Introduzione alla libreria di Azure Batch per .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

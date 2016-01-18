@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: esempi di codice e procedure dettagliate
@@ -28,7 +28,7 @@ Questo articolo illustra esempi di codice relativi all'uso di [Application Insig
 ## Servizi Web
 
 * [Aggiungere dati di telemetria a ruoli Web e di lavoro di Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService).
-* [App universale di Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/).
+* [App universale di Windows 8.1.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/)
 
 ## Esportazione continua
 
@@ -42,7 +42,9 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 
 ## Automatizzare le attività
 
+* [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell.md)
 * [Script per creare una nuova risorsa di Application Insights](app-insights-powershell-script-create-resource.md)
+* [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -53,4 +55,4 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

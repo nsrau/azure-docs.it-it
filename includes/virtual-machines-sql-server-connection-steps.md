@@ -1,40 +1,3 @@
-I passaggi seguenti illustrano come connettersi all'istanza di SQL Server su Internet mediante SQL Server Management Studio (SSMS). Tuttavia, gli stessi passaggi si applicano per rendere accessibile la macchina virtuale di SQL Server per le applicazioni in esecuzione sia in locale che in Azure.
-
-Prima di poter eseguire la connessione all'istanza di SQL Server da un’altra VM o da Internet, è necessario completare le seguenti attività, come descritto nelle seguenti sezioni:
-
-- [Creare un endpoint TCP per la macchina virtuale](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Aprire le porte TCP in Windows Firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configurare SQL Server per l'ascolto sul protocollo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configurare SQL Server per l'autenticazione in modalità mista](#configure-sql-server-for-mixed-mode-authentication)
-- [Creare gli account di accesso di SQL Server](#create-sql-server-authentication-logins)
-- [Determinare il nome DNS della macchina virtuale](#determine-the-dns-name-of-the-virtual-machine)
-- [Eseguire la connessione al motore di database da un altro computer](#connect-to-the-database-engine-from-another-computer)
-
-Il percorso di connessione è riepilogato nel seguente diagramma:
-
-![Connessione a una macchina virtuale di SQL Server](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
-
-### Creare un endpoint TCP per la macchina virtuale
-
-Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere presente un endpoint per l'ascolto delle comunicazioni TCP in entrata. In questo passaggio di configurazione di Azure, il traffico della porta TCP in ingresso viene indirizzato a una porta TCP accessibile alla macchina virtuale.
-
->[AZURE.NOTE]Se ci si connette all'interno della stesso servizio cloud o rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
-
-1. Nel portale di gestione di Azure fare clic su **VIRTUAL MACHINES**.
-	
-2. Fare clic sulla macchina virtuale appena creata. Verranno visualizzate le informazioni sulla macchina virtuale.
-	
-3. Nella parte superiore della pagina selezionare **ENDPOINT** e quindi fare clic su **AGGIUNGI** nella parte inferiore della pagina.
-	
-4. Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic su **Aggiungi un endpoint autonomo**, quindi fare clic sulla freccia Avanti per continuare.
-	
-5. Nella pagina **Specify the details of the endpoint** specificare le informazioni seguenti:
-
-	- Nella casella **NAME** specificare un nome per l'endpoint.
-	- Nella casella **PROTOCOL** selezionare **TCP**. È possibile digitare **57500** nella casella **PUBLIC PORT**. Analogamente, è possibile immettere la porta di ascolto predefinita di SQL Server **1433** nella casella **Private Port**. Si noti che molte organizzazioni selezionano numeri di porta diversi per evitare attacchi dannosi al sistema di sicurezza. 
-
-6. Fare clic sul segno di spunta per continuare. La creazione dell'endpoint è completata.
-
 ### Aprire le porte TCP in Windows Firewall per l'istanza predefinita del motore di database
 
 1. Connettersi alla macchina virtuale tramite Desktop remoto. Una volta effettuato l'accesso, nella schermata Start digitare **WF.msc** e premere INVIO. 
@@ -46,7 +9,7 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 
 3. Nella finestra di dialogo **Creazione guidata nuova regola connessioni in entrata**, nella sezione **Tipo di regola**, selezionare **Porta** e quindi fare clic su **Avanti**.
 
-4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio relativo all'endpoint).
+4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio di creazione dell'endpoint).
 
 	![Porta TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 
@@ -161,26 +124,4 @@ Per connettersi al motore di database da un altro computer, configurare almeno u
 
 Per ulteriori informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).
 
-### Determinare il nome DNS della macchina virtuale
-
-Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale. (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
-
-1. Nel portale di gestione di Azure (o dal passaggio precedente) selezionare **VIRTUAL MACHINES**. 
-
-2. Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **Riepilogo rapido**, trovare e copiare il nome DNS per la macchina virtuale.
-
-	![Nome DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
-	
-
-### Eseguire la connessione al motore di database da un altro computer
- 
-1. In un computer connesso a Internet aprire SQL Server Management Studio.
-2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella **Server name** immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numeroporta*, ad esempio **tutorialtestVM.cloudapp.net,57500**. Per ottenere il numero di porta, accedere al portale di gestione di Azure e trovare la macchina virtuale. Nel dashboard fare clic su **ENDPOINTS** e usare il valore di **PUBLIC PORT** assegnato a **MSSQL**. ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
-5. Nella casella **Account di accesso** digitare il nome di un account di accesso creato in una delle attività precedenti.
-6. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
-7. Fare clic su **Connect**.
-
-	![Connessione tramite SQL Server Management Studio](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

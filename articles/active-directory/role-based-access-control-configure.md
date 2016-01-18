@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Controllo degli accessi in base al ruolo di Azure
@@ -22,7 +22,7 @@
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
 
 ### Nozioni fondamentali della gestione degli accessi in Azure
-Ogni sottoscrizione di Azure è associata a un’istanza di Azure Active Directory. Solo utenti, gruppi e applicazioni di tale directory possono ottenere l'accesso per gestire le risorse nella sottoscrizione di Azure, usando il portale di Azure, gli strumenti da riga di comando di Azure e le API di gestione di Azure.
+Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. Solo utenti, gruppi e applicazioni di tale directory possono ottenere l'accesso per gestire le risorse nella sottoscrizione di Azure, usando il portale di Azure, gli strumenti da riga di comando di Azure e le API di gestione di Azure.
 
 L’accesso viene concesso assegnando i ruoli RBAC appropriati a utenti, gruppi e applicazioni nell'ambito corretto. Per concedere l'accesso all'intera sottoscrizione, assegnare un ruolo nell'ambito della sottoscrizione. Per concedere l'accesso a un gruppo di risorse specifico all'interno di una sottoscrizione, assegnare un ruolo nell'ambito del gruppo di risorse. È possibile assegnare ruoli anche a risorse specifiche, quali siti Web, macchine virtuali e subnet, per concedere l'accesso solo a una risorsa.
 
@@ -70,7 +70,6 @@ Selezionare le impostazioni di accesso nella sezione Essentials del pannello del
 
 > [AZURE.NOTE]Le assegnazioni ereditate non possono essere rimosse dagli ambiti figlio. Passare all'ambito padre e rimuovere tali assegnazioni.
 
-
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Gestire l'accesso tramite Azure PowerShell
@@ -98,6 +97,9 @@ L'accesso può essere gestito con i comandi di Azure RBAC nell'interfaccia della
 -	Usare `azure role assignment delete` per rimuovere l'accesso.
 
 Vedere [Gestire l'accesso tramite l’interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) per esempi più dettagliati di gestione dell'accesso tramite l’interfaccia di riga di comando di Azure.
+
+## Gestire l'accesso tramite l'API REST
+Vedere l'articolo relativo alla [gestione del controllo degli accessi in base al ruolo con l'API REST](role-based-access-control-manage-access-rest.md) per esempi più dettagliati di gestione dell'accesso con l'API REST.
 
 ## Usare il Rapporto della cronologia di modifica degli accessi
 Tutte le modifiche dell’accesso in corso nelle sottoscrizioni di Azure vengono registrate negli eventi di Azure.
@@ -173,10 +175,12 @@ Usare i comandi `Get-AzureRmProviderOperation` o `azure provider operations show
 ### NotActions
 Se il set di operazioni da consentire può essere espresso facilmente escludendo operazioni specifiche, invece di includere tutte le operazioni ad eccezione di quelle da escludere, usare la proprietà **NotActions** di un ruolo personalizzato. L'accesso effettivo concesso da un ruolo personalizzato viene calcolato escludendo le operazioni **NotActions** dalle operazioni di tipo Actions.
 
-Si noti che se a un utente a cui è assegnato un ruolo che esclude un'operazione in **NotActions** viene assegnato un secondo ruolo che concede l'accesso alla stessa operazione, l'utente sarà autorizzato a eseguire l'operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
+> [AZURE.NOTE]Se a un utente a cui è assegnato un ruolo che esclude un'operazione in **NotActions** viene assegnato un secondo ruolo che concede l'accesso alla stessa operazione, l'utente sarà autorizzato a eseguire l'operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 
 ### AssignableScopes
-La proprietà **AssignableScopes** di un ruolo personalizzato specifica gli ambiti, ovvero sottoscrizioni, gruppi di risorse o risorse, entro cui il ruolo personalizzato è disponibile per l'assegnazione a utenti, gruppi e applicazioni. Usando **AssignableScopes** è possibile rendere disponibile il ruolo personalizzato per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse. La proprietà **AssignableScopes** di un ruolo personalizzato controlla anche chi può visualizzare, aggiornare ed eliminare il ruolo. Ecco alcuni ambiti assegnabili validi:
+La proprietà **AssignableScopes** di un ruolo personalizzato specifica gli ambiti, ovvero sottoscrizioni, gruppi di risorse o risorse, entro cui il ruolo personalizzato è disponibile per l'assegnazione a utenti, gruppi e applicazioni. Usando **AssignableScopes** è possibile rendere disponibile il ruolo personalizzato per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse.
+
+> [AZURE.NOTE]È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID risorsa.* Anche la proprietà **AssignableScopes** di un ruolo personalizzato controlla chi può visualizzare, aggiornare ed eliminare il ruolo. Ecco alcuni ambiti assegnabili validi:
 
 -	"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624": rende disponibile il ruolo per l'assegnazione in due sottoscrizioni.
 -	"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e": rende disponibile il ruolo per l'assegnazione in una singola sottoscrizione.
@@ -191,4 +195,4 @@ La proprietà **AssignableScopes** dei ruoli personalizzati indica gli utenti au
 
 **È necessario specificare gli utenti autorizzati a visualizzare i ruoli personalizzati disponibili per l'assegnazione a livello di ambito.** Gli utenti che possono eseguire l'operazione `Microsoft.Authorization/roleDefinition/read` a livello di ambito possono visualizzare i ruoli del Controllo degli accessi in base al ruolo disponibili per l'assegnazione in tale ambito. Tutti i ruoli predefiniti nel Controllo degli accessi in base al ruolo di Azure consentono la visualizzazione dei ruoli disponibili per l'assegnazione.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

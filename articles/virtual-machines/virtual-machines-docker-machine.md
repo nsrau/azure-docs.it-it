@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # Come usare Docker Machine in Azure
@@ -39,7 +39,7 @@ Il modo più rapido per procedere con **Docker Machine** consiste nello scaricar
 
 È anche possibile compilare autonomamente la propria **Docker Machine** seguendo i passaggi per [contribuire a machine](https://github.com/docker/machine#contributing). Per eseguire la compilazione sarà necessario scaricare 1 GB o più, ma in questo modo sarà possibile personalizzare la propria esperienza nel modo desiderato.
 
-> [AZURE.NOTE]Sarà inoltre possibile creare un [collegamento simbolico ](http://en.wikipedia.org/wiki/Symbolic_link) alla versione della piattaforma in uso, anche se in questa esercitazione verrà usato direttamente il nome binario per illustrare il funzionamento in modo chiaro. Di conseguenza, anziché comandi come `docker-machine env` riportati nella documentazione di **Docker Machine**, in questa esercitazione verrà usato il comando `docker-machine_linux-amd64 env`. La creazione di un collegamento simbolico o l'uso del nome binario direttamente è vantaggioso per l'utente, ma se si modifica il nome utilizzato è necessario modificare il nome anche nelle istruzioni seguenti.
+> [AZURE.NOTE]Sarà inoltre possibile creare un [collegamento simbolico](http://en.wikipedia.org/wiki/Symbolic_link) alla versione della piattaforma in uso, anche se questa esercitazione usa direttamente il nome binario per illustrare il comportamento nel modo più chiaro possibile. Di conseguenza, anziché comandi come `docker-machine env` riportati nella documentazione di **Docker Machine**, in questa esercitazione verrà usato il comando `docker-machine_linux-amd64 env`. La creazione di un collegamento simbolico o l'uso del nome binario direttamente è vantaggioso per l'utente, ma se si modifica il nome utilizzato è necessario modificare il nome anche nelle istruzioni seguenti.
 
 <br />
 
@@ -201,7 +201,7 @@ Aprire il browser preferito e dare uno sguardo.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/) e creare alcune applicazioni in Microsoft Azure. In alternativa, iniziare a usare [**Docker** e Swarm](https://github.com/docker/swarm) in Azure (virtual-machines-docker-swarm) e scoprire come Swarm può essere usato con Docker e Azure.
+Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/) e creare alcune applicazioni in Microsoft Azure. In alternativa, iniziare a usare [**Docker** e Swarm](https://github.com/docker/swarm) in Azure (virtual-machines-docker-swarm.md) e scoprire come Swarm può essere usato con Docker e Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@ Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

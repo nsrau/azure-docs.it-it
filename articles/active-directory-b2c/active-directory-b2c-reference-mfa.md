@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: abilitare l'autenticazione a più fattori nelle applicazioni dei consumatori
@@ -31,7 +31,7 @@ Utilizzando questa funzionalità, le applicazioni possono gestire degli scenari 
 
 ## Modificare i criteri di iscrizione per abilitare la Multi-Factor Authentication
 
-1. [Passare al pannello delle funzionalità B2C nel portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di iscrizione**.
 3. Aprire il criterio di iscrizione (ad esempio, "B2C\_1\_SiUp") facendo clic su di esso.
 4. Fare clic su **autenticazione a più fattori** e impostare lo **stato** su **ON**. Fare clic su **OK**.
@@ -43,7 +43,7 @@ Un account utente viene creato nella directory prima che si verifichi il passagg
 
 ## Modificare i criteri di accesso per abilitare la Multi-Factor Authentication
 
-1. Passare al pannello delle funzionalità B2C nel [portale di anteprima di Azure](htts://portal.azure.com/). Leggere [qui](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) per sapere come eseguire questa operazione.
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di accesso**.
 3. Aprire il criterio di iscrizione (ad esempio, "B2C\_1\_SiIn") facendo clic su di esso. Fare clic su **Modifica** nella parte superiore del pannello.
 4. Fare clic su **autenticazione a più fattori** e impostare lo **stato** su **ON**. Fare clic su **OK**.
@@ -53,4 +53,4 @@ Un account utente viene creato nella directory prima che si verifichi il passagg
 
 Quando l’utente si iscrive (utilizzando un account locale o social), se un numero di telefono verificato è collegato all'account utente, viene richiesto di verificarlo. Se non è collegato alcun numero di telefono, all’utente viene richiesto di fornirne uno e di verificarlo. Una volta verificato, il numero di telefono è collegato all'account utente per un utilizzo successivo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

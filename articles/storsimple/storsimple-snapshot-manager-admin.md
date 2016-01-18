@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
@@ -39,6 +39,8 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 - Per le procedure di distribuzione di gestione Snapshot StorSimple, visitare [Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
 
+>[AZURE.NOTE]Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
+
 ## Flussi di lavoro e attività di gestione Snapshot StorSimple
 
 È possibile utilizzare Gestione Snapshot StorSimple per monitorare e gestire processi di backup correnti, pianificati e completati. Gestione snapshot StorSimple fornisce inoltre un catalogo di fino a 64 backup completati. È possibile utilizzare il catalogo per individuare e ripristinare volumi o singoli file.
@@ -60,4 +62,4 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

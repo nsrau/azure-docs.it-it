@@ -65,7 +65,7 @@ Installare la versione più recente di Azure PowerShell, accedendo alle pagine d
 ### Passaggio 2
 Accedere all'account Azure.
 
-	PS C:\> Login-AzureRmAccopunt
+	PS C:\> Login-AzureRmAccount
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
@@ -141,12 +141,13 @@ Ad esempio, per modificare il valore TTL del profilo:
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## Aggiungere endpoint di Gestione traffico [](#adding-traffic-manager-endpoints)
+## Aggiungere endpoint di Gestione traffico
 Sono disponibili tre tipi di endpoint di Gestione traffico: 1. Endpoint di Azure: rappresentano i servizi ospitati in Azure. 2. Endpoint esterni: rappresentano i servizi ospitati all'esterno di Azure. 3. Endpoint annidati: usati per costruire gerarchie annidate di profili di Gestione traffico, per abilitare configurazioni avanzate dell'indirizzamento del traffico per applicazioni più complesse. Non sono ancora supportati tramite l'API ARM.
 
 In tutti e tre i casi è possibile aggiungere gli endpoint in due modi: 1. Mediante un processo in tre passaggi simile a quello descritto in [Aggiornare un profilo di Gestione traffico](#update-traffic-manager-profile): recupero dell'oggetto profilo mediante Get-AzureRmTrafficManagerProfile, aggiornamento dell'oggetto offline per aggiungere un endpoint mediante Add-AzureRmTrafficManagerEndpointConfig e caricamento delle modifiche in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nel fatto che è possibile apportare alcune modifiche agli endpoint in un singolo aggiornamento. 2. Mediante il cmdlet New-AzureRmTrafficManagerEndpoint. Questo metodo aggiunge un endpoint a un profilo di Gestione traffico esistente in una singola operazione.
 
 ### Aggiunta di endpoint di Azure
+
 Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure: 1. App Web di Azure 2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS) 3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
 
 In ogni caso: - Il servizio viene specificato mediante il parametro 'targetResourceId' di Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint. - I valori 'Target' e 'EndpointLocation' non devono essere specificati, perché sono impliciti nel valore TargetResourceId specificato in precedenza. - Il valore per 'Weight' è facoltativo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è '1'. - Il valore 'Priority' è facoltativo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
@@ -228,7 +229,7 @@ Per abilitare un endpoint di Gestione traffico, usare Enable-AzureRmTrafficManag
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-Analogamente, per disabilitare un profilo di Gestione traffico:
+Analogamente, per disabilitare un endpoint di Gestione traffico:
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 
@@ -264,4 +265,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Informazioni sul prezzo e la fatturazione del Bus di servizio
 
 Il Bus di servizio è disponibile nei livelli Basic, Standard, e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del Bus di servizio che si crea e si applica questa selezione del livello in tutte le code, argomenti/sottoscrizioni, inoltri e hub di eventi creati all'interno di tale spazio dei nomi.
 
->[AZURE.NOTE]Per informazioni sui prezzi correnti di Service Bus, vedere le [domande frequenti sui prezzi di Service Bus](service-bus-pricing-faq.md).
+>[AZURE.NOTE]Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
 
 I Bus di servizio utilizzano i due controlli seguenti per le code e gli argomenti/sottoscrizioni:
 
@@ -39,19 +39,19 @@ Nella tabella seguente vengono riepilogate le differenze funzionali tra i livell
 
 |Funzionalità|Basic|Standard/Premium|
 |---|---|---|
-|Hub eventi|SÌ|SÌ|
-|Queues|SÌ|SÌ|
-|Messaggi pianificati|SÌ|SÌ|
-|Argomenti/sottoscrizioni|NO|SÌ|
-|Inoltri|NO|SÌ|
-|Transazioni|NO|SÌ|
-|Deduplicazione|NO|SÌ|
-|Sessioni|NO|SÌ|
-|Messaggi di grandi dimensioni|NO|SÌ|
-|ForwardTo|NO|SÌ|
-|SendVia|NO|SÌ|
+|Hub eventi|Sì|Sì|
+|Code|Sì|Sì|
+|Messaggi pianificati|Sì|Sì|
+|Argomenti/sottoscrizioni|No|Sì|
+|Inoltri|No|Sì|
+|Transazioni|No|Sì|
+|Deduplicazione|No|Sì|
+|Sessioni|No|Sì|
+|Messaggi di grandi dimensioni|No|Sì|
+|ForwardTo|No|Sì|
+|SendVia|No|Sì|
 |Connessioni negoziate (incluse)|100 per ogni spazio dei nomi del bus di servizio|1\.000 per ogni sottoscrizione di Azure|
-|Connessioni negoziate (importo consentito)|NO|SI (fatturabile)|
+|Connessioni negoziate (importo consentito)|No|Sì (fatturabile)|
 
 ## Operazioni di messaggistica
 
@@ -85,7 +85,7 @@ I prezzi di seguito sono validi a partire dall’1 novembre 2014:
 
 ## Connessioni negoziate
 
-*Connessioni negoziate* adattare i modelli di utilizzo cliente che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" per le code, argomenti/sottoscrizioni o gli hub eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
+*Connessioni negoziate* adatta i modelli di utilizzo cliente che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" relativamente a code, argomenti/sottoscrizioni o hub eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
 In precedenza, le code e gli argomenti/sottoscrizioni avevano un limite previsto di 100 connessioni simultanee per ciascun URL. Lo schema di fatturazione corrente rimuove il limite per ogni URL per le code e gli argomenti/sottoscrizioni e implementa quote e misurazione sulle connessioni negoziate ai livelli di sottoscrizione di Azure dello spazio dei nomi del Bus di servizio.
 
@@ -143,10 +143,10 @@ Ad esempio:
 
 Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. La ricezione di eventi con HTTP utilizzando un timeout maggiore di zero, talvolta denominato "polling prolungato" genera costi di connessione negoziata. Le connessioni AMQP generano costi di connessione negoziata indipendentemente dal fatto che le connessioni vengano utilizzate per inviare o ricevere. Si noti che sono consentite 100 connessioni negoziate gratuitamente in uno spazio dei nomi Basic. Questo è il numero massimo di connessioni negoziate consentite per la sottoscrizione di Azure. Le prime 1.000 connessioni negoziate tra tutti gli spazi dei nomi Standard in una sottoscrizione di Azure sono incluse senza alcun costo aggiuntivo (oltre i costi di base). Poiché queste quote sono sufficienti per coprire molti scenari di messaggistica service to service, i costi della connessione negoziata sono in genere rilevanti solo se si prevede di utilizzare il polling prolungato di AMQP o HTTP con un numero elevato di client; ad esempio, per ottenere un flusso di eventi più efficiente o abilitare la comunicazione bidirezionale con molti dispositivi o istanze di applicazione.
 
-## Vedere anche
+## Passaggi successivi
 
-[Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md)
+Per altre informazioni sui prezzi del bus di servizio, vedere [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

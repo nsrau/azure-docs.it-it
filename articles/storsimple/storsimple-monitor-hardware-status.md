@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare le componenti hardware e lo stato
@@ -21,7 +21,9 @@
 
 In questo articolo vengono descritti i vari componenti fisici e logici del dispositivo StorSimple in locale. Viene inoltre spiegato come monitorare lo stato di componente del dispositivo utilizzando la pagina **Manutenzione** nel servizio StorSimple Manager.
 
-Nella pagina **Manutenzione** è indicato lo stato dell'hardware di tutti i componenti del dispositivo StorSimple. Nell'elenco dei componenti per 8100, sono disponibili tre sezioni che descrivono:
+Nella pagina **Manutenzione** è indicato lo stato dell'hardware di tutti i componenti del dispositivo StorSimple.
+
+Nell'elenco dei componenti per 8100, sono disponibili tre sezioni che descrivono:
 
 - **Componenti condivisi**: questi non fanno parte dei controller, ad esempio unità disco, chassis, componenti PCM e sensori di temperatura PCM, tensione linea e corrente linea.
 
@@ -44,8 +46,9 @@ Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chas
 
 Per visualizzare lo stato dell'hardware di un componente del dispositivo, procedere come segue:
 
-1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Fare clic per passare nel menu a livello di dispositivo e quindi scegliere la scheda **Manutenzione**. 
+1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Fare clic per passare al menu a livello di dispositivo e quindi fare clic su **Manutenzione**. 
 2. Individuare la sezione **Stato hardware** e scegliere tra i componenti disponibili (come descritto in precedenza). Fare clic su una freccia che precede l'etichetta del componente per espandere l'elenco e visualizzare lo stato dei vari componenti del dispositivo. Vedere l'[elenco dettagliato dei componenti per lo chassis principale](#component-list-for-primary-enclosure-of-storsimple-device) e l'[elenco dettagliato dei componenti per lo chassis EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
+
 2. Utilizzare il seguente schema di codifica a colori per interpretare lo stato del componente:
 	-  **Segno di spunta verde**: indica che il componente è **Integro** oppure **OK**.
 	-  **Giallo**: indica un componente in stato di **avviso**.
@@ -125,7 +128,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Connessione al controller del dispositivo|I/O|Fisico|Controller|No|Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo.|
 
 ## Passaggi successivi
-- Per ulteriori informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Per usare il servizio StorSimple Manager per la gestione del dispositivo, passare all'articolo relativo all'[uso del servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 - Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Indicatori di monitoraggio di StorSimple](storsimple-monitoring-indicators.md).
 
@@ -133,4 +136,4 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 - Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

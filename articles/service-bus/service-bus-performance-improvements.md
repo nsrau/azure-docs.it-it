@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio
@@ -142,7 +142,7 @@ Se un messaggio contenente informazioni critiche che non devono andare perdute v
 
 ## Uso di code o argomenti partizionati
 
-Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una coda o un argomento partizionato, al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere [Partizionamento delle entità di messaggistica][].
+Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una coda o un argomento partizionato, al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere [Entità di messaggistica partizionate][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
 
 ## Passaggi successivi
 
-Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Partizionamento delle entità di messaggistica][].
+Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Entità di messaggistica partizionate][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,7 +288,7 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [Partizionamento delle entità di messaggistica]: service-bus-partitioning.md
+  [Entità di messaggistica partizionate]: service-bus-partitioning.md
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
 
 ## Panoramica
 
-Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. (È possibile conservare un massimo di 64 snapshot). Per ulteriori informazioni sui criteri di backup, vedere [Tipi e criteri di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies).
+Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. (È possibile conservare un massimo di 64 snapshot). Per altre informazioni sui criteri di backup, vedere [Tipi di backup](storsimple-what-is-snapshot-manager.md#backup-type) nell'articolo relativo a [StorSimple serie 8000: una soluzione cloud ibrida](storsimple-overview.md).
 
 In questa esercitazione viene illustrato come:
 
@@ -47,7 +47,7 @@ Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
    1. Nella casella di testo **Nome**, digitare un nome per il criterio.
 
-   2. Nella casella di testo** Gruppo di volumi**, digitare il nome del gruppo di volumi associati al criterio.
+   2. Nella casella di testo **Gruppo di volumi** digitare il nome del gruppo di volumi associati ai criteri.
 
    3. Selezionare **Snapshot locale** o **Snapshot cloud**.
 
@@ -109,7 +109,8 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 2. Nel riquadro **Ambito**, fare clic sul nodo **Criteri di backup**. Nel riquadro **Risultati** vengono visualizzati tutti i criteri di backup.
 
-3. Fare clic con il pulsante destro del mouse sul criterio di backup che si desidera eliminare, quindi fare clic su **Elimina**.
+3. Fare clic con il pulsante destro del mouse sui criteri di backup da eliminare e quindi fare clic su **Elimina**.
+
 4. Quando viene visualizzato il messaggio di conferma, fare clic su **Sì**.
 
     ![Eliminazione della conferma dei criteri di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
@@ -119,4 +120,4 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 - Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Informazioni su come [utilizzare Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC: Ruoli predefiniti
@@ -133,9 +133,7 @@ I collaboratori possono gestire tutto ad eccezione degli accessi.
 | **Actions** ||
 | ------- | ------ |
 | * | È in grado di creare e gestire ogni tipo di risorsa |
-| ****Non azioni |  |
-| Microsoft.Authorization/*/Write | Impossibile creare ruoli e assegnazioni di ruoli |
-| Microsoft.Authorization/*/Delete | Impossibile eliminare ruoli e assegnazioni di ruoli |
+| ****Non azioni | | | Microsoft.Authorization/*/Write | Impossibile creare ruoli e assegnazioni di ruoli | | Microsoft.Authorization/*/Delete | Impossibile eliminare ruoli e assegnazioni di ruoli |
 
 ### Collaboratore Data Factory
 È in grado gestire le Data factory
@@ -381,8 +379,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. |
-| Microsoft.Authorization/* | Autorizzazione Lettura |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | | Microsoft.Authorization/* | Autorizzazione Lettura |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore macchine virtuali classiche
@@ -483,4 +480,4 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 ## Argomenti RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
@@ -130,7 +130,8 @@ Per inviare un flusso, le emittenti professionali usano in genere codificatori l
 
 Considerazioni:
 
-- È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS). È tuttavia supportato l'uso di tracce audio in più lingue.
+- È consigliabile usare l'input di un singolo flusso di trasporto del programma (SPTS). 
+- È tuttavia possibile immettere fino a otto flussi audio usando MPEG-2 TS su RTP. 
 - Il flusso video dovrà avere una velocità in bit media inferiore a 15 Mbps.
 - La velocità in bit media aggregata dei flussi video e audio dovrà essere inferiore a 1 Mbps.
 - Di seguito sono elencati i codec supportati:
@@ -244,7 +245,7 @@ I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consen
 
 Una volta che il canale inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
-**Nota**: attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di Azure classico.
+>[AZURE.NOTE]Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. Per testare il flusso Smooth Streaming, è possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor). Per visualizzare il flusso, è inoltre possibile usare un lettore ospitato nel portale di Azure classico.
 
 ###Indirizzi IP consentiti
 
@@ -253,6 +254,8 @@ Una volta che il canale inizia a inserire i dati, è possibile visualizzare in a
 ##Impostazioni per la codifica live
 
 Questa sezione descrive come è possibile modificare le impostazioni del codificatore live all'interno del canale, quando **Tipo di codifica** di un canale è impostato su **Standard**.
+
+>[AZURE.NOTE]Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione venga inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 
 ###Origine del marcatore di annunci
 
@@ -397,7 +400,7 @@ Quando è abilitata la codifica live, ora è possibile ottenere un'anteprima del
 
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
-- **Arrestato**. Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+- **Arrestato** Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
 - **Avvio in corso**. È in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 - **In esecuzione**. Il canale è in grado di elaborare flussi live.
 - **Arresto in corso**. È in corso l'interruzione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
@@ -427,6 +430,7 @@ Arrestato|Arrestato|No
 - Il costo viene addebitato solo quando il canale è nello stato **In esecuzione**. Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
 - Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
 - Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+- Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione venga inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 - Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione. 
 
 ##Problemi noti
@@ -466,4 +470,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

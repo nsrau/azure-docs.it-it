@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Informazioni sul flusso di lavoro PowerShell"
-   description="Tutti i Runbook in Automazione di Azure sono basati su un flusso di lavoro di Windows PowerShell. Questo articolo è concepito come una lezione rapida per autori che hanno familiarità con PowerShell per comprendere le differenze specifiche tra PowerShell e il flusso di lavoro PowerShell."
+   description="Questo articolo è concepito come una lezione rapida per autori che hanno familiarità con PowerShell per comprendere le differenze specifiche tra PowerShell e il flusso di lavoro PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -25,9 +25,9 @@ Per informazioni dettagliate sugli argomenti inclusi in questo articolo, vedere 
 
 ## Tipi di Runbook
 
-Esistono due tipi di Runbook in Automazione di Azure: *testuale* e *grafico*. È possibile definire il tipo di Runbook durante la creazione e non è possibile convertirlo in altro tipo al termine della creazione.
+Esistono tre tipi di Runbook in Automazione di Azure: Runbook del *flusso di lavoro PowerShell*, di *PowerShell* e *grafici*. È possibile definire il tipo di Runbook durante la creazione e non è possibile convertirlo in altro tipo al termine della creazione.
 
-I Runbook testuali sono per gli utenti che preferiscono utilizzare direttamente con il codice del flusso di lavoro di PowerShell mediante l'editor di testo in Automazione di Azure o un editor offline, ad esempio PowerShell ISE. Se si sta creando un Runbook testuale, è necessario comprendere le informazioni contenute in questo articolo.
+I Runbook del flusso di lavoro PowerShell e i Runbook di PowerShell sono destinati agli utenti che preferiscono utilizzare direttamente il codice di PowerShell mediante l'editor di testo in Automazione di Azure o un editor offline, ad esempio PowerShell ISE. Se si sta creando un Runbook del flusso di lavoro di PowerShell, è necessario comprendere le informazioni contenute in questo articolo.
 
 I Runbook grafici consentono di creare un Runbook mediante gli stessi cmdlet e attività, ma utilizzando un'interfaccia grafica che nasconde la complessità del flusso di lavoro PowerShell sottostante. I concetti illustrati in questo articolo, ad esempio i checkpoint e l'esecuzione parallela vengono mantenuti per Runbook con interfaccia grafica, ma non sarà necessario preoccuparsi di una sintassi dettagliata.
 
@@ -249,4 +249,4 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta 
 
 - [Introduzione al flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

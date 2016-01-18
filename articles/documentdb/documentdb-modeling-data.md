@@ -383,7 +383,7 @@ Il concetto principale espresso in questo articolo è che la modellazione dei da
 
 Come non esiste un solo modo per rappresentare i dati in una schermata, così non esiste un solo modo per modellare i dati. È necessario conoscere l'applicazione e come genererà, userà ed elaborerà i dati. Quindi, applicando alcune delle linee guida presentate qui, è possibile iniziare a creare un modello che risponda alle esigenze immediate dell'applicazione. Quando le applicazioni devono essere modificate, è possibile sfruttare la flessibilità di un database senza schema per accettare la modifica e far evolvere facilmente il modello di dati.
 
-Per altre informazioni su Azure DocumentDB, fare riferimento alla pagina della [documentazione](../../services/documentdb/) del servizio.
+Per altre informazioni su Azure DocumentDB, fare riferimento alla pagina della [documentazione](https://azure.microsoft.com/documentation/services/documentdb/) del servizio.
 
 Per informazioni sull'ottimizzazione degli indici in Azure DocumentDB, fare riferimento all'articolo sui [criteri di indicizzazione](documentdb-indexing-policies.md).
 
@@ -392,4 +392,4 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 E infine, per informazioni aggiuntive sulla modellazione e la condivisione di dati per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

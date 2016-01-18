@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/04/2016" 
 	ms.author="ccompy"/>
 
 
@@ -33,7 +33,7 @@ In generale, un ambiente del servizio app è costituito da vari componenti princ
 - Una rete virtuale classica “v1” con almeno una subnet
 - Subnet con il servizio ospitato Ambiente del servizio app in esecuzione al suo interno
 
-Le risorse di calcolo vengono usate per i 4 pool di risorse. Ogni ambiente del servizio app contiene un set di server front-end e 3 pool di lavoro. Non è necessario usare tutti e 3 i pool di lavoro. Se si vuole è possibile usarne solo uno. I front-end sono gli endpoint HTTP per le app contenute nell'ambiente del servizio app. I ruoli di lavoro è dove le app vengono effettivamente eseguite. Per determinare quando è necessario aggiungere front-end o ruoli di lavoro è necessario conoscere le prestazioni delle app nell'ambiente del servizio app. Ad esempio, si supponga che nell'ambiente del servizio app sia presente un'app hello world che riceve un numero elevato di richieste. In questo caso, sarà necessario aumentare i front-end per gestire il carico HTTP ma non è necessario aumentare i ruoli di lavoro. Gestire tutto questo manualmente può risultare complesso, in particolare se si considera che è probabile che ogni ambiente del servizio app contenga una combinazione di applicazioni con criteri per le prestazioni eterogenei. Tuttavia, per semplificare le operazioni, agli ambienti del servizio app è stata aggiunta la funzionalità di scalabilità automatica. Per informazioni dettagliate sul ridimensionamento e sulla scalabilità degli ambienti del servizio app, vedere [Come configurare la scalabilità automatica in un ambiente del servizio app][ASEAutoscale]
+Le risorse di calcolo vengono usate per i 4 pool di risorse. Ogni ambiente del servizio app contiene un set di server front-end e 3 pool di lavoro. Non è necessario usare tutti e 3 i pool di lavoro. Se lo si desidera, è possibile usarne solo uno. I front-end sono gli endpoint HTTP per le app contenute nell'ambiente del servizio app. I ruoli di lavoro è dove le app vengono effettivamente eseguite. Per determinare quando è necessario aggiungere front-end o ruoli di lavoro è necessario conoscere le prestazioni delle app nell'ambiente del servizio app. Ad esempio, si supponga che nell'ambiente del servizio app sia presente un'app hello world che riceve un numero elevato di richieste. In questo caso, sarà necessario aumentare i front-end per gestire il carico HTTP ma non è necessario aumentare i ruoli di lavoro. Gestire tutto questo manualmente può risultare complesso, in particolare se si considera che è probabile che ogni ambiente del servizio app contenga una combinazione di applicazioni con criteri per le prestazioni eterogenei. Tuttavia, per semplificare le operazioni, agli ambienti del servizio app è stata aggiunta la funzionalità di scalabilità automatica. Per informazioni dettagliate sul ridimensionamento e sulla scalabilità degli ambienti del servizio app, vedere [Come configurare la scalabilità automatica in un ambiente del servizio app][ASEAutoscale]
 
 Ogni ambiente del servizio app è configurato con 500 GB di spazio di archiviazione. Questo spazio viene usato da tutte le app incluse nell'ambiente. Questo spazio di archiviazione rappresenta una parte dell'ambiente del servizio app e non è possibile cambiare l'impostazione per usare lo spazio di archiviazione del cliente.
 
@@ -200,4 +200,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

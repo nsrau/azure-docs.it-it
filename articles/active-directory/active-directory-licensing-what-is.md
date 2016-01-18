@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="12/01/2015"
+    ms.date="01/05/2016"
     ms.author="curtand"/>
 
 # Che cosa sono le licenze di Microsoft Azure Active Directory?
@@ -101,7 +101,7 @@ Durante l'assegnazione delle licenze di Azure AD, possono verificarsi errori di 
 
 ###Visualizzare licenze assegnate
 
-Nella scheda **Licenze** viene visualizzata una panoramica di riepilogo delle licenze assegnate che include l'evento del ciclo di vita di sottoscrizione disponibile, assegnato e successivo.
+Nella scheda **Licenze** viene visualizzata una panoramica di riepilogo delle licenze assegnate che include l’evento del ciclo di vita di sottoscrizione disponibile, assegnato e successivo.
 
 ![Visualizzazione del numero di licenze assegnate](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
@@ -132,4 +132,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

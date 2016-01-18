@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -74,7 +74,7 @@ Il primo passaggio consiste nell'estrarre il token dall'intestazione di autorizz
     <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
 ### Invio della richiesta di convalida
-Dopo aver ottenuto il token di autorizzazione, è possibile inviare la richiesta per la convalida del token. Lo standard RFC 7662 definisce questa procedura "introspezione" e richiede che venga eseguito il `POST` di un modulo HTML nella risorsa di introspezione. Il modulo HTML deve contenere almeno una coppia chiave/valore con la chiave `token`. La richiesta al server di autorizzazione deve essere autenticata anche per assicurarsi che client non autorizzati non vengano passati come token validi.
+Dopo aver ottenuto il token di autorizzazione, è possibile inviare la richiesta per la convalida del token. Lo standard RFC 7662 definisce questa procedura introspezione e richiede che venga inviata una richiesta `POST` per un modulo HTML alla risorsa di introspezione. Il modulo HTML deve contenere almeno una coppia chiave/valore con la chiave `token`. La richiesta al server di autorizzazione deve essere autenticata anche per assicurarsi che client non autorizzati non vengano passati come token validi.
 
     <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
       <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
@@ -264,4 +264,9 @@ Nella configurazione dell'operazione segnaposto è possibile impostare la risors
 ## Riepilogo
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 
-<!---HONumber=AcomDC_1210_2015-->
+## Video contenente una panoramica di questi criteri
+Per altre informazioni sui criteri [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) e [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) presentati in questo articolo, guardare il video seguente.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

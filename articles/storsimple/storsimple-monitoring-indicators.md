@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
@@ -31,7 +31,7 @@ Nel promemoria del presente articolo vengono descritti i vari indicatori LED di 
 
 ## Indicatori LED sul pannello anteriore
 
-Il pannello anteriore, noto anche come *pannello operativo* o *pannello delle operazioni.*, visualizza lo stato aggregato di tutti i moduli del sistema. Il pannello anteriore è identico sia sul dispositivo StorSimple che sullo chassis EBOD e viene illustrato di seguito.
+Il pannello anteriore, noto anche come *pannello operativo* o *pannello delle operazioni.*, visualizza lo stato aggregato di tutti i moduli del sistema. Il pannello anteriore è identico sia nell'alloggiamento principale sia in quello EBOD del dispositivo StorSimple e viene illustrato di seguito.
 
    ![Pannello anteriore del dispositivo][1]
  
@@ -256,4 +256,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

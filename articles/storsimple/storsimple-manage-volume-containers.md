@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="12/31/2015"
    ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per gestire i contenitori di volume StorSimple.
@@ -25,7 +25,7 @@ Un contenitore del volume in un dispositivo StorSimple di Microsoft Azure contie
 
 Un contenitore del volume ha i seguenti attributi:
 
-- **Volumi** – i thin provisioning volumi StorSimple di cui sono contenuti all'interno del contenitore del volume. Un contenitore del volume può contenere fino a 256 volumi StorSimple di thin provisioning.
+- **Volumi**: i volumi StorSimple a livelli o aggiunti in locale all'interno del contenitore del volume. Un contenitore del volume può includere fino a 256 volumi StorSimple.
 
 - **Crittografia** : una chiave di crittografia che può essere definita per ogni contenitore del volume. Questa chiave viene utilizzata per crittografare i dati inviati dal dispositivo StorSimple nel cloud. Una chiave a livello militare AES-256 bit viene utilizzata con la chiave immesso dall'utente. Per proteggere i dati, è consigliabile abilitare sempre la crittografia di archiviazione cloud.
 
@@ -66,4 +66,4 @@ Un contenitore del volume ha volumi all'interno di esso. Può essere eliminato s
 - Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md). 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
@@ -30,7 +30,7 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 
 - **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012 con Visual C++ installato** 
 - **Microsoft Azure SDK per .NET versione 2.7.1 o successiva**. Installarlo usando il [programma di installazione della piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
-- **[Data Lake Tools per Visual Studio](http://aka.ms/adltoolsvs)**. 
+- **[Strumenti di Data Lake per Visual Studio](http://aka.ms/adltoolsvs)**. 
 
     Dopo aver installato Strumenti di Data Lake per Visual Studio, in Visual Studio verrà visualizzato il menu Data Lake:
     
@@ -79,7 +79,7 @@ Nel caso in cui si preferisca usare dati personali, di seguito sono riportate le
 
 ## Sviluppare script U-SQL 
 
-I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure](data-lake-analytics-u-sql-get-started.md) e [Riferimento al linguaggio SQL U](http://go.microsoft.com/fwlink/?LinkId=691348).
+I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL](data-lake-analytics-u-sql-get-started.md) e [Informazioni di riferimento sul linguaggio U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Per creare e inviare un processo di Analisi Data Lake**
 
@@ -88,6 +88,8 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
 	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	>[AZURE.NOTE]Attualmente, Strumenti di Data Lake non supporta i percorsi di progetto UNC in esecuzione locale.
+	
 3. Fare clic su **OK**. Visual Studio crea una soluzione con un file **Script.usql**.
 4. Immettere lo script seguente in **Script.usql**:
 
@@ -130,8 +132,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
  
     - **Espandere le colonne con il simbolo dell'asterisco * **
 
-        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.
-    	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso. ! [Strumenti di Data Lake per Visual Studio espande l'asterisco] (./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
     
@@ -220,6 +221,10 @@ Verrà visualizzato un account *locale* in Visual Studio e il programma di insta
 - Per un determinato script: se si fa riferimento a un percorso relativo nei percorsi di input/output, si cercherà il DataRoot (nonché il percorso dello script se è quello di input)
 - NON si farà riferimento alla cartella DataRoot se si sta tentando di registrare un assembly e di utilizzare un percorso relativo (vedere "Usare assembly quando si effettua l’esecuzione in locale" per ulteriori dettagli)
 
+Il video seguente illustra la funzionalità di esecuzione in locale di U-SQL:
+
+>[AZURE.VIDEO usql-localrun]
+
 ### Problemi noti e limitazioni
 
 - L’esecuzione in locale U-SQL non supporta i set di file di query in locale. Vedere [Set di file U SQL](https://msdn.microsoft.com/library/azure/mt621294.aspx). Questo aspetto verrà risolto in futuro.
@@ -255,21 +260,15 @@ Esistono due modi per eseguire i file C# personalizzati:
 
 È possibile eseguire il debug delle assembly C# senza inviarle e registrarle al servizio di Analisi Azure Data Lake. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.
 
-**Per eseguire il debug del codice locale nel file code-behind**
-1.	Impostare dei punti di interruzione nel file dietro il codice. 
-2.	Premere **F5** per eseguire il debug dello script in locale.
+**Per eseguire il debug del codice locale nel file code-behind** 1. Impostare dei punti di interruzione nel file dietro il codice. 2. Premere **F5** per eseguire il debug dello script in locale.
 
 La procedura seguente funziona solo in Visual Studio 2015. Nella versione precedente di Visual Studio potrebbe essere necessario aggiungere manualmente i file .pdb.
 
-**Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento**
-1.	Creare un progetto Assembly C# e compilarlo per generare l’output dll.
-2.	Registrare la dll utilizzando un'istruzione U-SQL:
+**Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento** 1. Creare un progetto Assembly C# e compilarlo per generare l’output dll. 2. Registrare la dll utilizzando un'istruzione U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Impostare i punti di interruzione nel codice C#.
 4.	Premere **F5** per eseguire il debug dello script con riferimento al dll C# in locale.  
- 
-
 
 ##Vedere anche
 
@@ -277,7 +276,7 @@ Per iniziare a usare Analisi Data Lake usando vari tipi di strumenti, vedere:
 
 - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Introduzione ad Analisi Data Lake con .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Introduzione ad Analisi Data Lake mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 
 Per visualizzare altri argomenti relativi allo sviluppo:
 
@@ -358,4 +357,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/29/2015"
 	ms.author="jgao"/>
 
 
@@ -58,7 +58,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 > [AZURE.NOTE]Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
-###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
+###<a id="xplatcli">Interfaccia della riga di comando di Azure</a>
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
@@ -96,9 +96,9 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 > [AZURE.NOTE]Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
-> * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCOUNT**: nome dell'account di archiviazione
 >
-> * **AZURE_STORAGE_ACCESS_KEY**: chiave dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCESS\_KEY**: chiave dell'account di archiviazione
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -123,8 +123,7 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
-		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
-
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
@@ -285,4 +284,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

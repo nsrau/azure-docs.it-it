@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Lotus Domino
@@ -34,7 +34,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 
 | Funzionalità | Supporto |
 | --- | --- |
-| Origine dati connessa | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Origine dati connessa | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 9.x</li> |
 | Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione dei gruppi</li><li>Gestione delle password</li> |
 | Operazioni | <li>Importazione completa e delta</li><li>Esportazione</li><li>Impostazione e modifica di password nella password HTTP</li> |
 | Schema | <li>Person (utente mobile, contatto ovvero persone senza certificato)</li><li>Group</li><li>Resource (risorsa, chat room, riunione online)</li><li>Mail-in database</li><li>Individuazione dinamica di attributi per gli oggetti supportati</li> |
@@ -539,4 +539,4 @@ Esistono diverse modalità in Domino per estendere lo schema in modo che venga v
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

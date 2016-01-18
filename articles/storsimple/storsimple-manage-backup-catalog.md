@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/14/2015"
+   ms.date="12/30/2015"
    ms.author="v-sharos" />
 
 # Per gestire il catalogo di backup, è possibile usare il servizio StorSimple Manager.
 
 ## Panoramica
 
-Nella pagina **Catalogo di backup** del servizio StorSimple Manager vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
+La pagina **Catalogo di backup** del servizio StorSimple Manager visualizza tutti i set di backup creati quando si eseguono backup manuali o programmati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
 In questa esercitazione viene illustrato come elencare, selezionare ed eliminare un set di backup. Per scoprire come ripristinare il dispositivo dal backup, vedere [Ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md). Per scoprire come clonare un volume, vedere [Clonare un volume StorSimple](storsimple-clone-volume.md).
 
@@ -39,11 +39,11 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 - **Dimensioni**: dimensione effettiva del set di backup.
 
-- **Creato il** - data e ora di creazione dei backup.
+- **Creato il**: data e ora di creazione dei backup.
 
 - **Tipo**: i set di backup possono essere snapshot in locale o del cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
 
-- **Avviato da** - i backup possono essere avviati automaticamente da una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile usare un criterio di backup. In alternativa, è possibile usare l'opzione **Esegui backup** per eseguire un backup interattivo.
+- **Avviato da**: i backup possono essere avviati automaticamente da una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile usare un criterio di backup. In alternativa, è possibile usare l'opzione **Esegui backup** per eseguire un backup manuale.
 
 ## Elencare i set di backup per un volume
  
@@ -85,7 +85,7 @@ Completare i passaggi seguenti per selezionare un set di backup per un volume o 
 
     I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 
-3. Selezionare ed espandere un set di backup Le opzioni **Ripristina ed Elimina** sono visualizzate nella parte inferiore della pagina. È possibile eseguire queste azioni sul set di backup selezionato.
+3. Selezionare ed espandere un set di backup Le opzioni **Ripristina** ed **Elimina** sono visualizzate nella parte inferiore della pagina. È possibile eseguire queste azioni sul set di backup selezionato.
 
 ## Eliminare un set di backup
 
@@ -107,7 +107,7 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
     I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 
-3. Selezionare ed espandere un set di backup Le opzioni **Ripristina ed Elimina** sono visualizzate nella parte inferiore della pagina. Fare clic su **Elimina**.
+3. Selezionare ed espandere un set di backup Le opzioni **Ripristina** ed **Elimina** sono visualizzate nella parte inferiore della pagina. Fare clic su **Elimina**.
 
 4. Verrà visualizzata una notifica dell'operazione di eliminazione in corso e del corretto completamento. Al termine dell'eliminazione, aggiornare la query nella pagina. Il set di backup eliminato non verrà più visualizzato nell'elenco dei set di backup.
 
@@ -117,4 +117,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

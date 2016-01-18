@@ -59,7 +59,7 @@ L'output ottenuto sarà il seguente:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Se non è disponibile un account Azure, verrà visualizzato un messaggio di errore che indica la necessità di un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](../resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Se non è disponibile un account Azure, verrà visualizzato un messaggio di errore che indica la necessità di un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Aprire [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in un browser e immettere il codice indicato nell'output del comando.
 
@@ -326,7 +326,7 @@ Se vengono visualizzati errori come `Deployment provisioning state was not succe
 
     	azure group log show new_res_group --last-deployment
 
-    Vedere quindi [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-group-deploy-debug.md) per altre informazioni.
+    Vedere quindi [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../virtual-machines/resource-group-deploy-debug.md) per altre informazioni.
 
 - Le informazioni sull'errore sono disponibili anche nel portale di Azure, come illustrato nella schermata seguente. Per passare alle informazioni sull'errore: fare clic su Gruppi di risorse nell'indice, selezionare il gruppo di risorse in cui si è verificato l'errore, quindi nell'area Informazioni di base del pannello del gruppo di risorse, selezionare la data dell'ultima distribuzione e, nel pannello Cronologia distribuzioni, selezionare la distribuzione non riuscita, infine nel pannello Distribuzione, fare clic su Dettagli operazione con un punto esclamativo rosso. Nel pannello Dettagli operazione, viene visualizzato il messaggio di stato per la distribuzione non riuscita.
 
@@ -338,11 +338,11 @@ Ora che avete un account di DocumentDB, il passaggio successivo consiste nel cre
 
 - Portale di Azure, come descritto in [Creare un database DocumentDB usando il portale di Azure](documentdb-create-database.md).
 - Esempi di C# .NET nel progetto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repository [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) su GitHub.
-- [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
+- Gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
 
 Dopo avere creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database e quindi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte.
 
-Quando una raccolta contiene documenti, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) ed [eseguire query](documentdb-sql-query.md#executing-queries) sui documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Quando una raccolta contiene documenti, è possibile utilizzare [DocumentDB SQL](documentdb-sql-query.md) ed [eseguire query](documentdb-sql-query.md#executing-queries) rispetto ai documenti mediante [Esplora query](documentdb-query-collections-query-explorer.md) nel portale di anteprima, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
@@ -351,4 +351,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
 Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

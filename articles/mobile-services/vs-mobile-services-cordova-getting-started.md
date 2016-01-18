@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione al progetto dei servizi di Cordova (Servizi relativi a Visual Studio)"
+	pageTitle="Introduzione a un progetto di servizi mobili Cordova (servizi correlati a Visual Studio) | Microsoft Azure"
 	description="Descrive i primi passaggi da eseguire dopo la connessione del progetto Cordova ai servizi mobili di Azure utilizzando i servizi relativi a Visual Studio."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Introduzione a Servizi mobili (progetti Cordova)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##Primi passaggi
 Il primo passaggio da eseguire per attenersi al codice riportato in questi esempi dipende dal tipo di servizio mobile a cui si è connessi.
@@ -33,8 +26,6 @@ Il primo passaggio da eseguire per attenersi al codice riportato in questi esemp
 - Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem. Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
 
 - Se si è connessi a un servizio mobile back-end .NET, nel modello di progetto predefinito creato da Visual Studio è già presente una tabella TodoItem, che deve però essere pubblicata in Azure. Per eseguire la pubblicazione, aprire il menu di scelta rapida per il progetto del servizio mobile in Esplora soluzioni e scegliere **Pubblica sito Web**. Accettare le impostazioni predefinite, quindi scegliere **Pubblica**.
-
-
 
 ##Creare un riferimento a una tabella
 
@@ -99,4 +90,4 @@ Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il met
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	editor="monicar"    
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
+	ms.date="01/06/2015"
 	ms.author="jroth"/>
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
@@ -468,7 +468,7 @@ Una strategia per il tempo di inattività minimo consiste nel rimuovere una repl
 - La riconnessione del client potrebbe essere rimandata a seconda della configurazione client/DNS.
 - Un ulteriore tempo di inattività si verifica se si sceglie di portare offline il gruppo di cluster AlwaysOn per sostituire gli indirizzi IP. È possibile evitare questa situazione utilizzando una dipendenza OR e possibili proprietari per la risorsa indirizzo IP aggiunto. Vedere la sezione 'Aggiunta della risorsa indirizzo IP nella stessa subnet' in [Appendice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE]Quando si desidera che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un Endpoint di Azure con un riferimento al set con bilanciamento del carico. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuni verificare questa durata.
+> [AZURE.NOTE]Quando si desidera che il nodo aggiunto partecipi come partner di failover AlwaysOn, è necessario aggiungere un Endpoint di Azure con un riferimento al set con bilanciamento del carico. Quando si esegue il comando **Add-AzureEndpoint** per eseguire questa operazione, le connessioni correnti restano aperte, ma non sarà possibile stabilire nuove connessioni fino a quando non viene aggiornato il servizio di bilanciamento del carico. Nel test questo processo è durato 90-120 secondi; è opportuno verificare questa durata.
 
 ##### Vantaggi
 
@@ -1149,4 +1149,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="yochayk"/>
 
 
@@ -61,7 +61,7 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 <td align="left">App per dispositivi mobili</td>
 <td align="left"><p><li>Servizi mobili continua ad essere disponibile come servizio autonomo e rimane completamente supportato.</p>
 <p><li>App per dispositivi mobili è un nuovo tipo di app nel servizio app che integra tutte le funzionalità di Servizi mobili e ne aggiunge di ulteriori. App per dispositivi mobili è disponibile nella versione di anteprima pubblica.</p>
-<p><li>La <a href="http://azure.microsoft.com/documentation/articles/app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview/">migrazione da Servizi mobili ad App per dispositivi mobili</a> è molto semplice. Poiché App per dispositivi mobili si trova ancora in versione di anteprima, non è consigliabile usare il servizio per l'esecuzione di app in ambiente di produzione.</p>
+<p><li>È facile [eseguire la migrazione da Servizi mobili ad App per dispositivi mobili](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Poiché App per dispositivi mobili si trova ancora in versione di anteprima, non è consigliabile usare il servizio per l'esecuzione di app in ambiente di produzione.</p>
 <p><li>Come parte del servizio app, App per dispositivi mobili offre nuove funzionalità oltre a quelle di Servizi mobili, come l'integrazione con sistemi locali e SaaS, slot di gestione temporanea, Processi Web, opzioni di scalabilità migliorate e altro ancora.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Altre informazioni su App per dispositivi mobili</a>.</p>
 </tr>
@@ -93,4 +93,4 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 Per altre informazioni, vedere la [documentazione relativa al servizio app](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

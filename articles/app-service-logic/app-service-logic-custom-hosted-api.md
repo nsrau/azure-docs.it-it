@@ -7,15 +7,18 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags ms.service="app-service-logic" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na"
-	
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Uso dell'API personalizzata ospitata nel servizio app con App per la logica
 
-Anche se la funzionalità App per la logica include un set completo di oltre 40 connettori, è possibile chiamare l'API personalizzata che può eseguire il codice personalizzato. Uno dei modi più semplici e scalabili per ospitare un'API Web personalizzata consiste nell'usare il servizio app. Questo articolo illustra come chiamare un'API Web ospitata in un'app Web del servizio app.
+Anche se le app per la logica includono un set completo di oltre 40 connettori per una vasta gamma di servizi, è possibile chiamare l'API personalizzata che può eseguire il codice personalizzato. Uno dei modi più semplici e scalabili per ospitare un'API Web personalizzata consiste nell'uso del servizio app. Questo articolo illustra come chiamare un'API Web ospitata in un'app per le API, in un'app Web o in un'app per dispositivi mobili del servizio app.
 
 ## Distribuire l'app Web
 
@@ -25,19 +28,19 @@ Assicurarsi di ottenere l'**URL** dell'app Web, visualizzato in **Informazioni d
 
 ## Chiamata all'API
 
-Iniziare dalla creazione di una nuova app per la logica vuota. Dopo aver creato un'app per la logica vuota, fare clic su **Modifica** o **Trigger e azioni** e selezionare **Crea da zero**.
+Iniziare dalla creazione di una nuova app per la logica vuota. Dopo aver creato un'app per la logica vuota, fare clic su **Edit** o **Triggers and actions** e selezionare **Create from Scratch**.
 
 Prima di tutto è opportuno usare un trigger di ricorrenza oppure fare clic su **Esegui app per la logica manualmente**. Si eseguirà quindi la chiamata all'API effettiva. A questo scopo, fare clic sull'azione **HTTP** verde sul lato destro.
 
-1. Scegliere il **Metodo**, che sarà definito nel codice dell'API.
-2. Nella sezione **URL** incollare l'**URL** dell'app Web distribuita.
-3. Se sono richieste eventuali **Intestazioni**, includerle nel formato JSON simile al seguente: `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. Se l'API è pubblica, lasciare vuoto il campo **Autenticazione**. Se si vuole proteggere le chiamate all'API, vedere le sezioni seguenti.
+1. Scegliere il **metodo** definito nel codice dell'API
+2. Nella sezione **URL** incollare l'**URL** dell'app Web distribuita
+3. Se sono richieste eventuali **intestazioni**, includerle nel formato JSON simile al seguente: `{"Content-type" : "application/json", "Accept" : "application/json" }`
+4. Se l'API è pubblica, lasciare vuoto il campo **Authentication**. Se si vuole proteggere le chiamate all'API, vedere le sezioni seguenti.
 5. Infine includere il **Corpo** della domanda definita nell'API.
 
 Fare clic su **Salva** nella barra dei comandi. Se si fa clic su **Esegui adesso**, dovrebbe essere visualizzata la chiamata all'API e la risposta nell'elenco di esecuzione.
 
-Ciò funziona in modo ottimale se l'API è pubblica, ma se si vuole proteggere l'API, ci sono un paio di modi diversi per eseguire questa operazione:
+Questa configurazione risulta ottimale se l'API è pubblica, ma se si vuole proteggere l'API, esistono altri modi per eseguire questa operazione:
 
 1. *Non è richiesta alcuna modifica del codice*: per proteggere l'API è possibile usare Azure Active Directory senza richiedere modifiche del codice o la ridistribuzione.
 2. Applicare l'autenticazione di base, l'autenticazione AAD o l'autenticazione del certificato nel codice dell'API. 
@@ -48,7 +51,7 @@ In questa sezione si creeranno due applicazioni di Azure Active Directory, una p
 
 ### Parte 1: Configurazione dell'identità applicazione per l'app per la logica
 
-Ecco ciò che userà l'app per la logica per autenticarsi con Active Directory. È *necessario* eseguire questa operazione una sola volta per la directory. Ad esempio, si può scegliere di usare la stessa identità per tutte le app per la logica, anche se è possibile crearne una univoca per ogni app per la logica, se necessario. A questo scopo, è possibile usare l'interfaccia utente oppure PowerShell.
+Ecco ciò che usa l'app per la logica per autenticarsi con Active Directory. È *necessario* eseguire questa operazione una sola volta per la directory. Ad esempio, si può scegliere di usare la stessa identità per tutte le app per la logica, anche se è possibile creare identità univoche per ogni app per la logica, se necessario. A questo scopo, è possibile usare l'interfaccia utente oppure PowerShell.
 
 #### Creare l'identità dell'applicazione tramite il portale di Azure classico
 
@@ -79,7 +82,7 @@ Se l'app Web è già stata distribuita, si può semplicemente abilitarla nel por
 2. Fare clic su **Autorizzazione/Autenticazione**. 
 3. Impostare su **Attivata**.
 
-A questo punto verrà creata automaticamente un'applicazione. L'ID client di questa applicazione sarà necessario nella parte 3, quindi si dovrà:
+A questo punto viene creata automaticamente un'applicazione. L'ID client di questa applicazione è necessario nella parte 3, quindi sarà necessario:
 
 1. Passare ad [Active Directory nel portale di Azure classico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selezionare la directory. 
 2. Cercare l'app nella casella di ricerca.
@@ -93,7 +96,7 @@ Prima di tutto, è necessario creare un'applicazione per l'app Web. Dovrà esser
 
 >[AZURE.NOTE]Quando si crea l'applicazione per l'app Web, è necessario usare l'[approccio basato sul portale di Azure classico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), poiché il cmdlet di PowerShell non configura le autorizzazioni necessarie per l'accesso degli utenti a un sito Web.
 
-Una volta che si avranno l'ID client e l'ID tenant, includere il codice seguente come risorsa secondaria dell'app Web nel modello di distribuzione:
+Dopo aver ottenuto l'ID client e l'ID tenant, includere il codice seguente come risorsa secondaria dell'app Web nel modello di distribuzione:
 
 ```
 "resources" : [
@@ -115,7 +118,7 @@ Una volta che si avranno l'ID client e l'ID tenant, includere il codice seguente
 ]
 ```
 
-Per eseguire automaticamente la distribuzione di un'app Web vuota e un'app per la logica insieme che usano AAD, fare clic sul pulsante seguente: [![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+Per eseguire automaticamente e nello stesso momento la distribuzione di un'app Web vuota e di un'app per la logica che usano AAD, fare clic sul pulsante seguente: [![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 Per un modello completo, vedere [Chiamate dell'app per la logica un'API personalizzata ospitata in un servizio app e protetta da AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
@@ -152,7 +155,7 @@ Nella sezione *Autorizzazione* è necessario fornire: `{"type": "clientcertifica
 
 Per convalidare le richieste in ingresso, è possibile usare l'autenticazione di base, ovvero nome utente e password. L'autenticazione di base è un modello comune ed è possibile eseguirla in qualsiasi linguaggio usato per compilare l'app.
 
-Nella sezione *Autorizzazione* è necessario fornire: `{"type": "basic","username": "test","password": "test"}`.
+Nella sezione *Autorizzazione* è necessario specificare: `{"type": "basic","username": "test","password": "test"}`.
 
 | Elemento | Descrizione |
 |---------|-------------|
@@ -168,6 +171,6 @@ Se si vuole limitare l'API solo all'app per la logica, ad esempio nel codice, è
 
 Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la funzionalità del portale, è possibile leggere questo articolo: [Usare Active Directory per l'autenticazione nel servizio app di Azure](web-sites-authentication-authorization.md).
 
-Sarà comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
+È comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

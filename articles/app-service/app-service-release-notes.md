@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="09/30/2015"
+   ms.date="01/03/2016"
    ms.author="juliako"/>
 
 
@@ -68,4 +68,4 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

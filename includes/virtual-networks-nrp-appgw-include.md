@@ -1,14 +1,6 @@
 ## Gateway applicazione
 
-Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico applicazioni consente di usare le regole di routing per il traffico di rete basato su HTTP.
-
-| Proprietà | Descrizione | 
-|---|---|
-| **backendAddressPools** | L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici o indirizzi IP privati. |
-| **backendHttpSettingsCollection** | Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool. |
-| **frontendPorts** | Questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end. |
-| **httpListeners** | Il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). |
-| **requestRoutingRules** | La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico. Attualmente è supportato solo come Round-robin |
+Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico dell'applicazione consente di usare le regole di routing per il traffico di rete basato su HTTP. <BR> | Proprietà | Descrizione | |---|---| | **backendAddressPools** | Elenco degli indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici o indirizzi IP privati | | **backendHttpSettingsCollection** | Per ogni pool è presente una serie di impostazioni, tra cui porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server inclusi nel pool | | **frontendPorts** | Porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e viene quindi reindirizzato a uno dei server back-end | | **httpListeners** | Il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL) | | **requestRoutingRules** | La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico. È attualmente supportata solo in modalità round-robin |
 
 
 Esempio di un modello Json del gateway applicazione:
@@ -221,4 +213,4 @@ Esempio di un modello Json del gateway applicazione:
 
 Leggere [API REST del gateway applicazione](https://msdn.microsoft.com/library/azure/mt299388.aspx) per altre informazioni.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

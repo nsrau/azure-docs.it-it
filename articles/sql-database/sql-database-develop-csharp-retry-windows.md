@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Logica di ripetizione dei tentativi C# per connettersi al database SQL | Microsoft Azure" 
-	description="L’esempio C# include una logica di ripetizione dei tentativi per un'interazione affidabile con database SQL di Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Logica di ripetizione dei tentativi C# per connettersi al database SQL | Microsoft Azure"
+	description="L’esempio C# include una logica di ripetizione dei tentativi per un'interazione affidabile con database SQL di Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
@@ -22,10 +22,7 @@
 
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 
@@ -225,7 +222,7 @@ SELECT TOP 3
 ### Eseguire il programma
 
 
-Il **RetryAdo2.exe** eseguibile non invia parametri. Per eseguire il file exe in Visual Studio:
+L’eseguibile **RetryAdo2.exe** non invia parametri. Per eseguire il file exe in Visual Studio:
 
 
 1. Impostare un punto di interruzione sull’istruzione **return;** nel metodo **Main**.
@@ -289,4 +286,4 @@ Eseguirebbe il programma con il parametro "test" e verificherebbe che ha dapprim
 
 - [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

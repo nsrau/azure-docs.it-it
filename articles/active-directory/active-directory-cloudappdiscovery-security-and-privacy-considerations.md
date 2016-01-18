@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2015"
 	ms.author="markusvi"/>
 
 # Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
@@ -91,6 +91,8 @@ Informazioni HTTP seguenti:
 > [AZURE.NOTE]Le informazioni HTTP precedenti vengono raccolte per tutte le connessioni non crittografate. Per le connessioni TLS queste informazioni vengono acquisite solo se l'impostazione Ispezione approfondita è attivata nel portale. Questa impostazione è attivata per impostazione predefinita. Per informazioni dettagliate, vedere di seguito e vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
+Oltre ai dati sull'attività di rete, l'agente raccoglie anche informazioni anonime sulla configurazione software e hardware, segnalazioni errori e informazioni sull'uso dell'agente.
+
 <br><br>
 ### Funzionamento dell'agente
 
@@ -156,7 +158,7 @@ Se l'agente non riesce a comunicare con il servizio Cloud App Discovery per qual
 
 ## Ricezione dei dati sul lato servizio
 
-Gli agenti eseguono l'autenticazione per il servizio Cloud App Discovery usando il certificato di autenticazione client specifico del computer indicato in precedenza e inoltrano i dati su un canale crittografato. <br> La pipeline di analisi del servizio Cloud App Discovery elabora i metadati separatamente per ogni cliente, suddividendoli in modo logico in tutte le fasi della pipeline di analisi. I metadati analizzati sono alla base dei diversi report disponibili nel portale.
+Gli agenti eseguono l'autenticazione per il servizio Cloud App Discovery usando il certificato di autenticazione client specifico del computer indicato in precedenza e inoltrano i dati su un canale crittografato. <br> La pipeline di analisi del servizio Cloud App Discovery elabora i metadati separatamente per ogni cliente, partizionandoli logicamente in tutte le fasi della pipeline di analisi. I metadati analizzati sono alla base dei diversi report disponibili nel portale.
 
 I metadati non elaborati e i metadati analizzati vengono archiviati per un massimo di 180 giorni. I clienti possono anche scegliere di acquisire i metadati analizzati nell'account di archiviazione BLOB di Azure desiderato. Ciò risulta utile per l'analisi offline dei metadati, oltre che per la conservazione più duratura dei dati.
 
@@ -177,4 +179,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

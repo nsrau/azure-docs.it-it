@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -37,7 +37,17 @@ Informazioni su come installare i notebook di Zeppelin in cluster Spark e su com
 
 ## Installare Zeppelin come parte della creazione del cluster
 
->[AZURE.NOTE]Ignorare questo passaggio se è stato creato il cluster Spark tramite il portale. Questo passaggio è necessario solo se la creazione avviene tramite HDInsight .NET SDK o Azure PowerShell.
+È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. Lo script personalizzato per installare Zeppelin in un cluster Spark è disponibile all'indirizzo ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+### Uso del portale di Azure
+
+Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
+
+* È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+* È necessario eseguire l'azione script solo sul nodo head.
+
+* Per lo script non sono necessari parametri.
 
 ### Utilizzo di .NET SDK per HDInsight
 
@@ -89,7 +99,7 @@ Si userà il tunnel SSH per accedere ai notebook di Zeppelin in esecuzione sul c
 
 ### Creare un tunnel con il comando SSH (Linux)
 
-Usare il comando seguente per creare un tunnel SSH usando il comando `ssh`. Sostituire __USERNAME__ con un utente SSH per il cluster HDInsight e sostituire __CLUSTERNAME__ con il nome del cluster HDInsight
+Usare il comando seguente per creare un tunnel SSH usando il comando `ssh`. Sostituire __NOME UTENTE__ con un utente SSH per il cluster HDInsight e sostituire __NOME CLUSTER__ con il nome del cluster HDInsight
 
 	ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -203,7 +213,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 	* **myspar** sono le prime cinque lettere del cluster Spark.
 	* **9995** è la porta da cui il notebook di Zeppelin è accessibile.
 
-2. Creare un nuovo notebook. Dal riquadro di intestazione fare clic su **Notebook** e quindi su **Crea nuova nota**.
+2. Creare un nuovo notebook. Dal riquadro intestazione fare clic su **Notebook** quindi fare clic su **Creare una nuova nota**.
 
 	![Creare un nuovo notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "Creare un nuovo notebook Zeppelin")
 
@@ -242,14 +252,14 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 	È inoltre possibile fornire un titolo a ogni paragrafo. Nell'angolo superiore destro fare clic sull'icona **Impostazioni** e quindi su **Mostra titolo**.
 
-5. È ora possibile eseguire istruzioni Spark SQL nella tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di generazione e la differenza tra la destinazione e le temperature effettive per ogni creazione di una determinata data. Premere **MAIUSC+INVIO**.
+5. È ora possibile eseguire istruzioni SQL Spark su tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di compilazione e la differenza tra le temperature effettive e quelle di destinazione per ogni compilazione di una determinata data. Premere **MAIUSC + INVIO**.
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date 
 		from hvac
 		where date = "6/1/13" 
 
-	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete Spark SQL. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
+	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete SQL Spark. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
 
 	Nella schermata riportata di seguito sono illustrate questo output.
 
@@ -258,7 +268,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 	 Scegliere le opzioni di visualizzazione (evidenziate nel rettangolo) per passare tra diverse rappresentazioni per lo stesso output. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave e la media di **temp\_diff** come valore.
 
 	
-6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il frammento di codice seguente illustra come definire una variabile **Temp** nella query con i valori possibili con cui si vuole eseguire una query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
+6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il seguente frammento di codice illustra come definire una variabile**Temp**nella query con i valori possibili che si vuole eseguire. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
@@ -269,9 +279,9 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Eseguire un'istruzione SQL Spark usando il notebook")
 
-	Per le query successive, è possibile selezionare un nuovo valore dall'elenco a tendina e quindi eseguire nuovamente la query. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave, la media di **temp\_diff** come valore e **targettemp** come gruppo.
+	Per le query successive, è possibile selezionare un nuovo valore dall'elenco a tendina e quindi eseguire nuovamente la query. Fare clic su**impostazioni**per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave, la media di **temp\_diff** come valore e **targettemp** come gruppo.
 
-7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Fare clic sulla scheda **Interprete** nella parte superiore e, per l'interprete Spark, fare clic su **Riavvia**.
+7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Scegliere la scheda **Interprete** nella parte superiore e per l'interprete Spark fare clic su **Riavvia**.
 
 	![Riavviare l'interprete Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.zeppelin.restart.interpreter.png "Riavviare l'interprete Zeppelin")
 
@@ -285,11 +295,11 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark: usare Spark in HDInsight per creare applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -303,7 +313,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-### Gestire risorse
+### Gestire le risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
@@ -318,4 +328,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

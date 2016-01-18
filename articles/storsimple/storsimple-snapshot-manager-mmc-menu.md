@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
@@ -128,4 +128,4 @@ In questa esercitazione vengono descritte tali azioni e viene illustrato come ut
 - Ulteriori informazioni sull'[interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 - Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Utilizzare il dashboard del dispositivo StorSimple Manager
@@ -21,7 +21,7 @@
 
 Il dashboard del dispositivo StorSimple Manager offre una panoramica delle informazioni per un determinato dispositivo StorSimple, a differenza del dashboard del servizio che fornisce informazioni su tutti i dispositivi inclusi nella soluzione Microsoft Azure StorSimple.
 
-![Pagina dashboard del dispositivo](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![Pagina dashboard del dispositivo](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 La scheda dashboard contiene le informazioni seguenti:
 
@@ -100,4 +100,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 - Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

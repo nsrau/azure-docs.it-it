@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+	ms.date="12/16/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Azure Marketplace contiene modelli per i framework Bottle, Django e Flask. Se si
 
 Per seguire questa esercitazione è necessaria una sottoscrizione di Azure e l'accesso al portale di Azure.
 
-Se non si dispone di un'app Web esistente, è possibile crearne una dal [portale di Azure](https://portal.azure.com). Fare clic sul pulsante NUOVO nell'angolo inferiore sinistro e quindi su **Web e dispositivi mobili** > **App Web**.
+Se non si dispone di un'app Web esistente, è possibile crearne una dal [portale di Azure](https://portal.azure.com). Fare clic sul pulsante NUOVO nell'angolo superiore sinistro e quindi su **Web e dispositivi mobili** > **App Web**.
 
 ## Pubblicazione Git
 
@@ -385,4 +385,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

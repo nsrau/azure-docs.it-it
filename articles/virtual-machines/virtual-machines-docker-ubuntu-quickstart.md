@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/04/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Come iniziare a usare rapidamente Docker in Azure Marketplace
@@ -25,7 +25,7 @@ Il modo più rapido per iniziare a utilizzare [Docker] consiste nell’andare in
 
 È possibile connettersi immediatamente alla VM usando SSH e iniziare a lavorare con Docker direttamente, senza che sia necessario intraprendere altre azioni.
 
-> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Usare l’estensione Docker VM dal portale di Azure classico](virtual-machines-docker-with-portal.md) o [Usare l’estensione Docker VM dall’interfaccia della riga di comando di Azure](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Se si desidera automatizzare la macchina virtuale Docker di Azure da Windows, è possibile [installare la casella degli strumenti Docker](https://docs.docker.com/installation/windows/) o ottenere Docker.exe [da Chocolatey](https://chocolatey.org/packages/docker).
+> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Usare l’estensione Docker VM dal portale di Azure classico](virtual-machines-docker-with-portal.md) o [Usare l’estensione Docker VM dall’interfaccia della riga di comando di Azure](virtual-machines-docker-with-xplat-cli.md). <!-- --> Se si desidera automatizzare la macchina virtuale Docker di Azure da Windows, è possibile [installare la casella degli strumenti Docker](https://docs.docker.com/installation/windows/) o ottenere Docker.exe [da Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Accedere al portale
 
@@ -78,4 +78,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

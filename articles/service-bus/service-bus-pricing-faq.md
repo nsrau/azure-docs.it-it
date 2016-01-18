@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Domande frequenti sui prezzi del bus di servizio
@@ -111,9 +111,9 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-- [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

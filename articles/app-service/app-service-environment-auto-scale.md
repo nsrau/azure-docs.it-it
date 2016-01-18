@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/05/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -170,7 +170,7 @@ L'intervallo di destinazione definito nel profilo è calcolato in base al numero
 
 L'intervallo massimo corrisponde alla somma di tutti gli intervalli massimi per tutti i **piani di servizio app** ospitati nel **pool di lavoro**.
 
-L'opzione Aumenta numero di per le regole di aumento deve essere impostata su un valore pari ad almeno 1 volta il **tasso di inflazione per il piano di servizio app** per l'operazione di aumento.
+L'aumento del numero per le regole di aumento deve essere impostato su un valore pari ad almeno 1 volta il **tasso di inflazione per il piano di servizio app** per l'operazione di aumento.
 
 L'opzione Riduci numero di può essere impostata su un valore compreso tra la metà o una volta il **tasso di inflazione del piano di servizio app** per l'operazione di riduzione.
 
@@ -227,4 +227,4 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

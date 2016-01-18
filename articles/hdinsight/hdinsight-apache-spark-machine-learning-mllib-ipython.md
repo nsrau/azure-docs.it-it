@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 
@@ -57,13 +57,13 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
-2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Jupyter**. Se richiesto, immettere le credenziali per il cluster.
+2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
 	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **Python 2**.
+2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Python2**.
 
 	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
@@ -108,7 +108,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///example/data/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -278,7 +278,7 @@ MLLib consente di eseguire facilmente questa operazione. Prima di tutto, si sudd
 Il frammento di codice seguente crea un nuovo frame di dati, **predictionsDf** contenente la stima generata dal modello.
 
 
-	testData = sc.textFile('wasb:///example/data/Food_Inspections2.csv')\
+	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -351,7 +351,7 @@ In questo grafico un risultato positivo indica il controllo degli alimenti non s
 
 ## Arrestare il notebook
 
-Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, scegliere **Close and Halt** dal menu **File** del notebook. Questo arresterà e chiuderà il notebook.
+Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questa operazione consente di arrestare e chiudere il notebook.
 
 
 ## <a name="seealso"></a>Vedere anche
@@ -367,7 +367,7 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Analisi dei log del sito Web con Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Creare ed eseguire applicazioni
 
@@ -377,12 +377,12 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 ### Estensioni
 
-* [Usare i notebook Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernel disponibili per il notebook Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Gestire le risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#Creare cluster basati su Linux in HDInsight
+#Creare cluster Hadoop basati su Linux in HDInsight
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -186,12 +186,12 @@ Una [rete virtuale di Azure](http://azure.microsoft.com/documentation/services/v
 
 Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete virtuale, vedere la [panoramica della rete virtuale di Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima di creare un cluster. Per alte informazioni, vedere [Come creare una rete virtuale](virtual-networks-create-vnet.md).
+> [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima di creare un cluster. Per altre informazioni, vedere [Come creare una rete virtuale](virtual-networks-create-vnet.md).
 >
 > Azure HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su set di affinità. Usare il cmdlet Get-AzureVNetConfig di Azure PowerShell per verificare se una rete virtuale esistente di Azure è basata sulla posizione. Se la rete virtuale non è basata sulla posizione, saranno disponibili le opzioni seguenti:
 >
 > - Esportare la configurazione di rete virtuale esistente, quindi creare una nuova rete virtuale. Per impostazione predefinita, tutte le nuove reti virtuali sono basate sulla posizione.
-> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere la pagina relativa alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere il blog relativo alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > È consigliabile designare una singola subnet per un cluster.
 >
@@ -282,4 +282,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

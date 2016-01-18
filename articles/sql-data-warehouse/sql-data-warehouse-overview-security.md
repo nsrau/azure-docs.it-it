@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Proteggere un database in SQL Data Warehouse
@@ -33,7 +33,7 @@ Per autenticazione si intende il modo in cui viene dimostrata la propria identit
 
 Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Utilizzando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo".
 
-Tuttavia, come procedura consigliata, gli utenti dell'organizzazione dovrebbero utilizzare un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. Per creare un utente di database basato sull’accesso al server:
+Tuttavia, come procedura consigliata, è opportuno che gli utenti dell'organizzazione usino un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. Per creare un utente di database basato sull’accesso al server:
 
 Innanzitutto, connettersi al database master sul proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.
 
@@ -119,4 +119,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
