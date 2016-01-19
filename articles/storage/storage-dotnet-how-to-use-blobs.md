@@ -292,7 +292,7 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefiss
 ## Scrittura in un blob di Accodamento
 
 Un blob di accodamento è un nuovo tipo di blob, introdotto con la versione 5. x della libreria client di archiviazione di Azure per .NET. Un blob di accodamento è ottimizzato per le operazioni di accodamento, ad esempio la registrazione. Come un blob in blocchi, un blob di accodamento è costituito da blocchi, ma quando si aggiunge un nuovo blocco in un blob di accodamento, viene aggiunto sempre alla fine del blob. È possibile aggiornare o eliminare un blocco esistente in un blob di Accodamento. L'ID di blocco per un blob di accodamento non vengono esposte come in un blob in blocchi.
-
+ 
 Ogni blocco di un blob di accodamento può avere dimensioni diverse, con un massimo di 4 MB e un blob di accodamento può includere un massimo di 50.000 blocchi. La dimensione massima di un blob di accodamento è pertanto leggermente superiore a 195 GB (4 MB X 50.000 blocchi).
 
 Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono alcuni dati, per simulare un'operazione di registrazione semplice.
@@ -307,7 +307,7 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist.
+    //Create the container if it does not already exist. 
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -323,7 +323,7 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-
+        
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {

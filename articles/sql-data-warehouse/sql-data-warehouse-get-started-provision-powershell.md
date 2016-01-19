@@ -19,7 +19,7 @@
 # Creare SQL Data Warehouse con PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Portale di Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
