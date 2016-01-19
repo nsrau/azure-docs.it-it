@@ -2,7 +2,7 @@
 	pageTitle="Introduzione a Azure Mobile Engagement per app di Windows universali"
 	description="Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app di Windows universali."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -114,7 +114,7 @@ Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necess
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. Sostituire la classe base **MainPage** da **Page** a **EngagementPageOverlay**:
+2. Sostituire la classe di base **MainPage** da **Page** a **EngagementPageOverlay**:
 
 		class MainPage : EngagementPageOverlay
 
@@ -169,7 +169,7 @@ Ora la configurazione per l’invio di popup è pronta. Ora è necessario verifi
 
 	![][11]
 
-4. Nella sezione relativa alle notifiche push, fare clic sul collegamento relativo al **sito servizi Live**.
+4. Nella sezione relativa alle notifiche push, fare clic sul collegamento relativo al sito **servizi Live**.
 
 	![][12]
 
@@ -213,4 +213,4 @@ Se l'app era in esecuzione verrà visualizzata una notifica all'interno dell'app
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

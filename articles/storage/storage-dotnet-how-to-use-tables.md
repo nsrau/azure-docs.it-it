@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Come usare l'archiviazione tabella da .NET | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione tabelle di Microsoft Azure per creare ed eliminare tabelle e per inserire ed eseguire query su entità di una tabella."
+	description="Usare l'archivio tabelle per archiviare i dati non strutturati, senza schema. L'archivio tabelle è un archivio di chiavi/attributi NoSQL. La libreria client di archiviazione per .NET fornisce le API per la creazione e l'eliminazione di tabelle e per l'inserimento, l'aggiornamento, l'eliminazione di dati, nonché l'esecuzione di query."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 
@@ -440,4 +440,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

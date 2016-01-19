@@ -2,7 +2,7 @@
 	pageTitle="Introduzione a Azure Mobile Engagement per iOS in Objective C"
 	description="Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per iOS."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -43,7 +43,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##<a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 
-Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nelle procedure di [integrazione iOS SDK per Azure Mobile Engagement](../mobile-engagement-ios-sdk-overview/)
+Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione completa relativa all'integrazione è disponibile nella [integrazione di Mobile Engagement iOS SDK](../mobile-engagement-ios-sdk-overview/)
 
 Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
@@ -53,7 +53,7 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 ###Connettere l'app al back-end di Mobile Engagement
 
-1. Scaricare [Mobile Engagement iOS SDK].
+1. Scaricare [Mobile Engagement SDK per iOS].
 2. Estrarre il file .tar.gz in una cartella nel computer.
 3. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi file**.
 
@@ -77,7 +77,7 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 		#import "EngagementAgent.h"
 
-9. Ora incollare la stringa di connessione nel delegato `didFinishLaunchingWithOptions`.
+9. A questo punto, incollare la stringa di connessione nel delegato `didFinishLaunchingWithOptions`.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -94,7 +94,7 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Activity) al back-end di Mobile Engagement.
 
-1. Aprire il file **ViewController.h** e importare **EngagementViewController.h**:
+1. Aprire il file **viewcontroller. H** e importare **EngagementViewController.h**:
 
     `# import "EngagementViewController.h"`
 
@@ -176,7 +176,6 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
@@ -185,4 +184,4 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

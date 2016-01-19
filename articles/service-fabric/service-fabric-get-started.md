@@ -17,27 +17,27 @@
    ms.author="seanmck"/>
 
 # Preparare l'ambiente di sviluppo
- Per compilare ed eseguire [applicazioni dell'infrastruttura di servizi][1] nel computer di sviluppo, è necessario installare il runtime, l'SDK e gli strumenti e configurare un cluster locale.
+ Per compilare ed eseguire [applicazioni di Service Fabric][1] nel computer di sviluppo, è necessario installare il runtime, l'SDK e gli strumenti, nonché configurare un cluster locale.
 
 ## Prerequisiti
 ### Versioni del sistema operativo supportate
 Sono supportati i sistemi operativi seguenti:
 
-- Windows 8/8.1
+- Windows 8 e Windows 8.1
 - Windows Server 2012 R2
 - Windows 10
 
 ### Visual Studio 2015
 
-Gli strumenti per Service Fabric dipendono da Visual Studio 2015, disponibile [qui][2].
+Gli strumenti per Service Fabric dipendono da Visual Studio 2015, disponibile sul [sito Web Visual Studio][2].
 
-> [AZURE.NOTE]Se non si esegue uno dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio PC, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati usando un'immagine della raccolta di macchine virtuali di Azure.
+> [AZURE.NOTE]Se non si esegue una delle versioni dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio computer, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati, usando un'immagine della raccolta di macchine virtuali di Azure.
 
 ## Installare il runtime, l'SDK e gli strumenti
 
-L'installazione dei componenti di Service Fabric viene eseguita mediante l'Installazione guidata piattaforma Web. Per effettuare l'installazione, seguire queste istruzioni:
+L'Installazione guidata piattaforma Web esegue l'installazione dei componenti di Service Fabric. Per effettuare l'installazione, seguire queste istruzioni:
 
-1. [Scaricare l'SDK][3] mediante l'Installazione guidata piattaforma Web.
+1. [Scaricare l'SDK][3] usando l'Installazione guidata piattaforma Web.
 
 2. Fare clic su **Installa** per avviare il processo di installazione.
 
@@ -59,11 +59,11 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 - [Creare la prima applicazione Infrastruttura di servizi in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale](service-fabric-get-started-with-a-local-cluster.md)
 - [Informazioni sui modelli di programmazione Reliable Actors e Reliable Services](service-fabric-choose-framework.md)
-- [Prendere visione degli esempi di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
+- [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 - [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

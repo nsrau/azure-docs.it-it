@@ -28,7 +28,7 @@
 
 Per completare questa attività, assicurarsi di disporre di un servizio di Ricerca di Azure pronto da utilizzare. Vedere [creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) per assistenza su come impostarlo.
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
 	- Nell'indice, fare clic su **Home page**. La home page dispone di sezioni per ogni servizio incluso nella sottoscrizione. Fare clic sull'icona per aprire il dashboard del servizio.
@@ -44,7 +44,7 @@ Per completare questa attività, assicurarsi di disporre di un servizio di Ricer
 
      ![][2]
 
-5. Per creare un nuovo indice nel portale, fare clic su **Aggiungi indice** e assegnargli un nome, ad esempio *hotel*.
+5. Per creare un nuovo indice nel portale, fare clic su **Aggiungi indice** e assegnarvi un nome, ad esempio *hotel*.
 
 	Potrebbe occorrere un minuto per creare l'indice, ma quando sarà pronto da utilizzare, verrà visualizzato nell'elenco degli indici.
 
@@ -85,7 +85,7 @@ Il portale è diverso. Nel portale i comportamenti di ricerca sono disattivati p
 	- **Ordinabile** consente l'uso del campo come opzione di ordinamento.
 	- **Con facet** consente l'uso di un campo in una struttura di esplorazione in base a facet per i filtri autoindirizzati. In genere i campi contenenti valori ricorrenti che è possibile utilizzare per raggruppare più documenti (ad esempio, più documenti che rientrano in un singolo prodotto o una categoria di servizi) funzionano meglio come facet.
 	- **Chiave** è l'ID univoco di ogni documento usato per la ricerca dei documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.
-	- **Ricercabile** contrassegna il campo per la ricerca full-text.
+	- **Ricercabile** il campo viene contrassegnato come full-text è possibile eseguire ricerche.
 
 3. Per rimuovere i campi che non si vuole usare, fare clic con il pulsante destro del mouse e scegliere **Elimina**.
 
@@ -105,4 +105,4 @@ Una volta acquisita familiarità con l'indice di base, prendere in considerazion
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

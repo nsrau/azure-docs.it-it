@@ -34,8 +34,8 @@ In questa tabella sono riepilogati gli scenari di replica supportati da Site Rec
 
 **OGGETTO REPLICA** | **SORGENTE REPLICA** | **DESTINAZIONE REPLICA** | **ARTICOLO**
 ---|---|---|---
-Macchine virtuali VMware | Server VMware locale | Archiviazione di Azure | [Distribuire](site-recovery-vmware-to-azure.md)
-Server fisico Windows/Linux | Server fisico locale | Archiviazione di Azure | [Distribuire](site-recovery-vmware-to-azure.md)
+Macchine virtuali VMware | Server VMware locale | Archiviazione di Azure | [Distribuire](site-recovery-vmware-to-azure-classic.md)
+Server fisico Windows/Linux | Server fisico locale | Archiviazione di Azure | [Distribuire](site-recovery-vmware-to-azure-classic.md)
 Macchine virtuali Hyper-V | Server host Hyper-V locale nel cloud VMM | Archiviazione di Azure | [Distribuire](site-recovery-vmm-to-azure.md)
 Macchine virtuali Hyper-V | Sito Hyper-V locale (uno o più server host Hyper-V) | Archiviazione di Azure | [Distribuire](site-recovery-hyper-v-site-to-azure.md)
 Macchine virtuali Hyper-V locali| Server host Hyper-V locale nel cloud VMM | Server host Hyper-V locale nel cloud VMM del data center secondario | [Distribuire](site-recovery-vmm-to-vmm.md)
@@ -68,4 +68,4 @@ Per saperne di più, vedere [Quali carichi di lavoro può proteggere Site Recove
 Una volta completata questa panoramica, è possibile [approfondire](site-recovery-components.md) l'architettura di Site Recovery.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

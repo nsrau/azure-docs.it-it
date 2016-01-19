@@ -163,7 +163,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 		    }
 		} 
 
-	Nell'esempio precedente si crea un set di dati denominato **AzureBlobOutput**, si specifica il frammento di codice JSON e si crea un set di dati denominato **AzureBlobInput** che rappresenta i dati di input per un'attività nella pipeline. Si specifica anche che i dati di input si trovano nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **inputdata**.
+	Il codice JSON precedente definisce un set di dati denominato **AzureBlobInput**, che rappresenta dati di input per un'attività nella pipeline. Specifica anche che i dati di input si trovano nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **inputdata**.
 
 	La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
@@ -205,7 +205,7 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 		  }
 		}
 
-	Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobOutput** e si specifica la struttura dei dati che verranno generati dallo script Hive. Si specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
+	Il codice JSON precedente definisce un set di dati denominato **AzureBlobOutput**, che rappresenta dati di output per un'attività nella pipeline. Specifica anche che i risultati vengono archiviati nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **partitioneddata**. La sezione **availability** specifica che il set di dati di output viene generato su base mensile.
 
 2. Eseguire il comando seguente in Azure PowerShell per creare il set di dati di Data factory.
 
@@ -342,4 +342,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

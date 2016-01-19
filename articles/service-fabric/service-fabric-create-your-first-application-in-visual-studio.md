@@ -13,30 +13,36 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="01/11/2016"
    ms.author="seanmck"/>
 
-# Creare la prima applicazione Infrastruttura di servizi in Visual Studio
+# Creare la prima applicazione di Azure Service Fabric in Visual Studio
 
 Service Fabric SDK include un componente aggiuntivo per Visual Studio che fornisce i modelli e gli strumenti per creare, eseguire il debug e distribuire applicazioni di Service Fabric. Questo argomento descrive la procedura per creare la prima applicazione in Visual Studio.
 
 ## Prerequisiti
 
-Prima di iniziare, assicurarsi di aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md).
+Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo](service-fabric-get-started.md).
 
-## Creare l'applicazione
+## Procedura dettagliata video
 
-Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. La Creazione guidata nuovo progetto consente di creare un progetto di applicazione insieme al primo progetto di servizio. Sarà possibile aggiungere altri servizi in un secondo momento.
+Il video seguente illustra i passaggi di questa esercitazione:
 
-1. Avviare Visual Studio come amministratore.
+>[AZURE.VIDEO creating-your-first-service-fabric-application-in-visual-studio]
+
+## Creazione dell'applicazione
+
+Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Con la Creazione guidata nuovo progetto si può creare un progetto di applicazione insieme al primo progetto di servizio. Sarà possibile aggiungere altri servizi in un secondo momento.
+
+1. Avviare Visual Studio come amministratori.
 
 2. Scegliere **File > Nuovo progetto > Cloud > Applicazione Infrastruttura di servizi**.
 
-3. Assegnare un nome all'applicazione e fare clic su OK.
+3. Assegnare un nome all'applicazione e fare clic su **OK**.
 
 	![Finestra di dialogo Nuovo progetto in Visual Studio][1]
 
-4. Nella finestra di dialogo successiva verrà richiesto di scegliere il primo tipo di servizio da includere nell'applicazione. Ai fini di questa esercitazione, verrà selezionata l'opzione "Servizio con stato". Assegnargli un nome e fare clic su OK.
+4. Nella pagina successiva verrà richiesto di scegliere il primo tipo di servizio da includere nell'applicazione. Ai fini di questa esercitazione, si selezionerà **Stateful**. Assegnare un nome al servizio e fare clic su **OK**.
 
 	![Finestra di dialogo Nuovo servizio in Visual Studio][2]
 
@@ -46,15 +52,15 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 
 	![Esplora soluzioni dopo la creazione dell'applicazione con servizio con stato][3]
 
-	Il progetto di applicazione non contiene direttamente il codice, ma fa riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
+	Il progetto di applicazione non contiene codice direttamente, ma fa riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
 
 	- **Profili di pubblicazione**: usati per gestire le preferenze relative agli strumenti per diversi ambienti.
 
-	- **Script**: uno script PowerShell per distribuire/aggiornare l'applicazione. Questo script viene eseguito in background da Visual Studio e può essere richiamato direttamente tramite la riga di comando.
+	- **Script**: includono uno script di PowerShell per distribuire o aggiornare l'applicazione. Questo script viene eseguito in background da Visual Studio e può essere richiamato direttamente tramite la riga di comando.
 
-	- **Definizione dell'applicazione**: il manifesto dell'applicazione e i file dei parametri dell'applicazione associati definiscono l'applicazione e consentono di configurarla appositamente per un ambiente specifico.
+	- **Definizione di applicazione**: include il manifesto dell'applicazione e i file di parametri dell'applicazione associati che definiscono l'applicazione e consentono di configurarla appositamente per un ambiente specifico.
 
-    Per una panoramica dei contenuti del progetto di servizio, vedere la [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md).
+    Per una panoramica del contenuto del progetto di servizio, vedere la [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Distribuire ed eseguire il debug dell'applicazione
 
@@ -62,9 +68,9 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 1. Premere F5 in Visual Studio per compilare l'applicazione per il debug.
 
-	>[AZURE.NOTE]Poiché si tratta della prima volta, l'operazione richiederà del tempo perché Visual Studio creerà un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che verrà creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
+	>[AZURE.NOTE]La prima volta questa operazione richiederà alcuni minuti, perché Visual Studio crea un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che verrà creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster sarà visualizzato nella finestra di output di Visual Studio.
 
-	Quando il cluster è pronto, si riceverà una notifica dall'applicazione di gestione della barra delle applicazioni inclusa nell'SDK.
+	Quando il cluster è pronto, l'applicazione di gestione dell'area di notifica del cluster locale inclusa nell'SDK visualizzerà un messaggio.
 
 	![Notifica della barra delle applicazioni per il cluster locale][4]
 
@@ -74,23 +80,23 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 	Nel caso del servizio con stato, i messaggi indicheranno semplicemente il valore del contatore che viene incrementato nel metodo `RunAsync` del file MyStatefulService.cs.
 
-3. Espandere uno degli eventi per visualizzare informazioni dettagliate, ad esempio il nodo in cui è in esecuzione il codice. Nel caso di questo esempio, si tratta del nodo 2, ma questo numero può variare a seconda del computer usato.
+3. Espandere uno degli eventi per visualizzare altri dettagli, incluso il nodo in cui viene eseguito il codice. In questo caso, è il nodo 2, anche se nel computer locale potrebbe essere diverso.
 
 	![Dettaglio del visualizzatore eventi di diagnostica][6]
 
-	Il cluster locale è costituito da 5 nodi ospitati in una singola macchina virtuale, per simulare un cluster a 5 nodi ognuno dei quali risiede in una macchina virtuale diversa. Verrà quindi portato offline uno dei nodi del cluster locale per simulare la perdita di una macchina virtuale e provare a eseguire il debugger di Visual Studio.
+	Il cluster locale include cinque nodi ospitati in un singolo computer. Simula un cluster di cinque nodi, ognuno dei quali risiede in un computer distinto. Verrà quindi portato offline uno dei nodi del cluster locale per simulare la perdita di una macchina virtuale e provare a eseguire il debugger di Visual Studio.
 
-    >[AZURE.NOTE]Gli eventi di diagnostica dell'applicazione inviati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere l'argomento che illustra [come monitorare e diagnosticare i servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)
+    >[AZURE.NOTE]Gli eventi di diagnostica dell'applicazione generati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere l'articolo che illustra [come monitorare e diagnosticare i servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
 
-4. Nel progetto di servizio individuare la classe che deriva da StatefulService (ad esempio MyStatefulService) e impostare un punto di interruzione sulla prima riga del metodo `RunAsync`.
+4. Nel progetto di servizio trovare la classe che deriva da StatefulService, ad esempio MyStatefulService, e impostare un punto di interruzione sulla prima riga del metodo `RunAsync`.
 
 	![Punto di interruzione nel metodo RunAsync del servizio con stato][7]
 
-5. Fare clic con il pulsante destro del mouse sull'app della barra delle applicazioni Local Cluster Manager e scegliere Manage Local Cluster per avviare Service Fabric Explorer.
+5. Fare clic con il pulsante destro del mouse sull'app dell'area di notifica Local Cluster Manager e scegliere **Manage Local Cluster** per avviare Service Fabric Explorer.
 
     ![Avvio di Service Fabric Explorer da Local Cluster Manager][systray-launch-sfx]
 
-    Service Fabric Explorer offre una rappresentazione visiva del cluster, inclusi il set di applicazioni distribuite al suo interno e il set di nodi fisici che lo costituiscono. Per altre informazioni su Service Fabric Explorer, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster).
+    Service Fabric Explorer offre una rappresentazione visiva del cluster, inclusi il set di applicazioni distribuite al suo interno e il set di nodi fisici che lo costituiscono. Per altre informazioni su Service Fabric Explorer, vedere [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 6. Nel riquadro sinistro espandere **Cluster > Nodes** e trovare il nodo in cui è in esecuzione il codice.
 
@@ -100,28 +106,28 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 	Verrà visualizzato il raggiungimento del punto di interruzione in Visual Studio mentre viene effettuato il failover del calcolo eseguito su un nodo in un altro nodo.
 
-8. Tornare al visualizzatore eventi di diagnostica e osservare i messaggi. Si noti che il contatore ha continuato ad aumentare anche se gli eventi provengono effettivamente da un nodo diversi.
+8. Tornare al visualizzatore eventi di diagnostica e osservare i messaggi. Si noti che il contatore ha continuato ad aumentare anche se gli eventi provengono in effetti da un nodo diverso.
 
     ![Visualizzatore eventi di diagnostica dopo il failover][diagnostic-events-viewer-detail-post-failover]
 
 ### + Cleaning up
 
-  Prima di concludere, è importante ricordare che il cluster locale è molto reale. Anche dopo l'interruzione del debugger e la chiusura di Visual Studio, le applicazioni continueranno a essere eseguite in background. A seconda della natura delle app, questa attività in background può richiedere risorse significative del computer. A questo scopo, sono disponibili diverse opzioni di gestione:
+  Prima di concludere, è importante ricordare che il cluster locale è molto reale. Anche dopo l'arresto del debugger e la chiusura di Visual Studio, le applicazioni rimarranno in esecuzione in background. A seconda della natura delle app, questa attività in background può richiedere risorse significative del computer. A questo scopo, sono disponibili diverse opzioni di gestione:
 
   1. Per rimuovere una singola applicazione e tutti i relativi dati, usare l'azione **Remove application** in Service Fabric Explorer.
 
   2. Per arrestare il cluster mantenendo i dati dell'applicazione e le tracce, fare clic su **Stop Cluster** nell'app sulla barra delle applicazioni.
 
-  3. Per eliminare completamente il cluster, fare clic su **Remove Cluster** nell'app sulla barra delle applicazioni. Si noti che questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio ed è opportuno usarla solo se non si prevede di usare il cluster locale per qualche tempo oppure se è assolutamente necessario disperatamente è necessario recuperare risorse.
+  3. Per eliminare completamente il cluster, fare clic su **Remove Cluster** nell'app sulla barra delle applicazioni. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Usarla solo se non si prevede di usare il cluster locale per un certo periodo o se è necessario recuperare risorse.
 
 
 
 ## Passaggi successivi
 
-- [Informazioni su come è possibile esporre i servizi in Internet con l'API Web](service-fabric-add-a-web-frontend.md)
+- [Informazioni su come è possibile esporre i servizi in Internet con un front-end di servizio Web](service-fabric-add-a-web-frontend.md)
 - [Informazioni su come creare un cluster in Azure](service-fabric-cluster-creation-via-portal.md)
-- [Informazioni su come creare servizi con il modello di programmazione Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Provare a creare un servizio usando il modello di programmazione Reliable Actors](service-fabric-reliable-actors-get-started.md)
+- [Altre informazioni su Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Provare a creare un servizio con il modello di programmazione Reliable Actors](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
 
@@ -136,4 +142,4 @@ A questo punto, è possibile provare a eseguire l'app creata.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

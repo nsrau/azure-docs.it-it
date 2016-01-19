@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Il dashboard di Ricerca di Azure nel portale di Azure classico include un comando **Importa dati** che facilita l'inserimento di dati in Ricerca di Azure. Il comando si basa sulla funzionalità predefinita Indicizzatori che effettua una ricerca per indicizzazione in un'origine dati esistente, creando e caricando documenti in base al set di righe trovato nell'origine dati.
+Il dashboard di Ricerca di Azure nel portale di Azure include un comando **Importa dati** che facilita l'inserimento di dati in Ricerca di Azure. Il comando si basa sulla funzionalità predefinita Indicizzatori che effettua una ricerca per indicizzazione in un'origine dati esistente, creando e caricando documenti in base al set di righe trovato nell'origine dati.
 
 Con la procedura guidata l'importazione dei dati si compone di 3 parti:
 
@@ -39,7 +39,7 @@ Per usare un indicizzatore o il comando **Importa dati**, l'origine dati primari
 
 ##Configurare l'importazione dei dati
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
 	- Nell'indice, fare clic su **Home page**. La home page dispone di sezioni per ogni servizio incluso nella sottoscrizione. Fare clic sull'icona per aprire il dashboard del servizio.
@@ -74,4 +74,4 @@ L'operazione di importazione dei dati appena completata ha creato un indicizzato
 
 Nel dashboard del servizio fare doppio clic sul riquadro Indicizzatore per visualizzare un elenco di tutti gli indicizzatori creati per la sottoscrizione. Fare doppio clic su uno degli indicizzatori per eseguirlo, modificarlo o eliminarlo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

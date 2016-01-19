@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="12/11/2015"
@@ -27,7 +27,7 @@ Azure SDK per Node. js è utilizzabile per gestire account, processi e cataloghi
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Un **account di Azure Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-get-started-portal.md) per creare un account.
 - **Un'entità servizio con autorizzazioni per accedere all'account Data Lake Analytics**. Vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 
@@ -36,7 +36,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 Utilizzare la procedura seguente per installare l’SDK:
 
 1. Installare [Node.js](https://nodejs.org/).
-2. Eseguire i comandi seguenti dalla finestra del prompt dei comandi , del terminale o della bash:
+2. Eseguire i comandi seguenti dalla finestra del prompt dei comandi, del terminale o della bash:
 
 		npm install async
 		npm install adal-node
@@ -105,4 +105,4 @@ Nell'esempio seguente si ottiene l'elenco dei processi per un determinato accoun
 - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

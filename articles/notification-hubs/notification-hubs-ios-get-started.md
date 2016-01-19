@@ -80,9 +80,9 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 	![][11]
 
-3. In **Targets** fare clic sul nome del progetto, quindi scegliere la scheda **Build Settings** ed espandere **Code Signing Identity**, quindi in **Debug** impostare l'identità di firma del codice. Modificare l'impostazione **Levels** da **Basic** a **All**, quindi impostare **Provisioning Profile** sul profilo di provisioning creato in precedenza.
+3. In **Targets** fare clic sul nome del progetto, quindi scegliere la scheda **Build Settings** ed espandere **Code Signing Identity**, quindi in **Debug** impostare l'identità di firma del codice. Impostare **Levels** da **Basic** a **All**, quindi impostare **Provisioning Profile** sul profilo di provisioning creato in precedenza.
 
-	Se il profilo di provisioning creato in Xcode non viene visualizzato, provare ad aggiornare i profili per l'identità di firma. Fare clic su **Xcode** sulla barra dei menu, quindi su **Preferences**, selezionare la scheda **Account**, fare clic su **View Details**, selezionare la propria identità di firma e infine fare clic sul pulsante di aggiornamento nell'angolo inferiore destro.
+	Se il profilo di provisioning creato in Xcode non viene visualizzato, provare ad aggiornare i profili per l'identità di firma. Fare clic su **Xcode** nella barra dei menu, quindi fare clic su **Preferences**, selezionare la scheda **Account**, fare clic sul pulsante **View Details**, selezionare la propria identità di firma e infine fare clic sul pulsante di aggiornamento nell'angolo in basso a destra.
 
    	![][9]
 
@@ -174,7 +174,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 1. In XCode aprire Main.storyboard e aggiungere i seguenti componenti dell'interfaccia utente dalla libreria di oggetti per consentire all'utente di inviare notifiche push nell'app.
 
 	- Etichetta senza testo. Sarà usata per segnalare errori di invio di notifiche. La proprietà **Lines** deve essere impostata su **0**, in modo da limitare automaticamente le dimensioni ai margini destro e sinistro e alla parte superiore della visualizzazione.
-	- Un campo di testo con testo **segnaposto** impostato su **Enter Notification Message**. Vincolare il campo sotto l'etichetta, come illustrato di seguito. Impostare il controller di visualizzazione come delegato di uscita.
+	- Campo di testo con testo **segnaposto** impostato su **Enter Notification Message**. Vincolare il campo sotto l'etichetta, come illustrato di seguito. Impostare il controller di visualizzazione come delegato di uscita.
 	- Pulsante denominato **Send Notification** vincolato, appena sotto il campo di testo e al centro nell'area orizzontale.
 
 	La visualizzazione dovrebbe apparire come segue:
@@ -212,7 +212,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. In ViewController.m aggiungere il codice seguente all'implementazione dell'interfaccia. Questo codice analizza la stringa di connessione *DefaultFullSharedAccessSignature*. Come indicato nel [riferimento all'API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), queste informazioni analizzate verranno usate per generare un token di firma di accesso condiviso per l'intestazione della richiesta **Authorization**.
+5. In ViewController.m aggiungere il codice seguente all'implementazione dell'interfaccia. Questo codice analizzerà la stringa di connessione *DefaultFullSharedAccessSignature*. Come indicato nel [riferimento all'API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), queste informazioni analizzate verranno usate per generare un token di firma di accesso condiviso per l'intestazione della richiesta **Authorization**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -324,7 +324,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 		}
 
 
-8. Premere CTRL e trascinare dal pulsante **Send Notification** a ViewController.m per aggiungere un'azione denominata **SendNotificationMessage** per **Touch Down**. Aggiornare il metodo con il codice seguente per inviare la notifica con l'API REST.
+8. Premere CTRL e trascinare dal pulsante **Send Notification** a ViewController.m per aggiungere un'azione denominata **SendNotificationMessage** per l'evento **Touch Down**. Aggiornare il metodo con il codice seguente per inviare la notifica con l'API REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -462,9 +462,9 @@ In caso di problemi o suggerimenti per migliorare questa esercitazione per tutti
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
+In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi iOS. Come passaggio successivo del percorso di apprendimento, è consigliabile passare all'esercitazione [Usare Hub di notifica per inviare notifiche push agli utenti]. Questa esercitazione illustra in dettaglio la creazione di un back-end per l'invio delle notifiche tramite tag.
 
-Se si vuole segmentare gli utenti per gruppi di interesse, è possibile vedere anche [Uso di Hub di notifica per inviare le ultime notizie].
+Se si vuole segmentare gli utenti per gruppi di interesse, è possibile vedere anche [Usare Hub di notifica per inviare le ultime notizie].
 
 Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
@@ -503,9 +503,9 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
+[Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

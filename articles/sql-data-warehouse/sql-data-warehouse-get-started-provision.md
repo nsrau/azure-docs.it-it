@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare un SQL Data Warehouse
 
@@ -54,12 +54,7 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 
 Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un server e ogni server viene assegnato a una posizione geografica. Il server è definito server SQL logico.
 
-> [AZURE.NOTE]<a name="note"></a>Un server SQL logico:
-  >
-  > + Fornisce un sistema coerente per configurare più database nella stessa posizione geografica.
-  > + Non è un hardware fisico come avviene invece per i server locali. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*.
-  > + Può ospitare più database senza rallentarne le prestazioni.
-  > + Usa una *s* minuscola per il nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un server SQL logico: > > + Fornisce un sistema coerente per configurare più database nella stessa posizione geografica. > + Non è un hardware fisico come avviene invece per i server locali. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*. > + Può ospitare più database senza rallentarne le prestazioni. > + Usa una *s* minuscola per il nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
 
 1. Fare clic su **Server** > **Crea un nuovo server**. Non è previsto alcun addebito per il server. Se si ha già un server SQL logico versione 12 che si vuole usare, scegliere il server esistente e andare al passaggio successivo. 
 
@@ -135,4 +130,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

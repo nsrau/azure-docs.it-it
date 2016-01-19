@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Come usare l'archiviazione coda da .NET | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione di accodamento di Microsoft Azure per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda."
+	description="Informazioni su come usare il servizio di archiviazione code per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # Come usare l'archiviazione di accodamento da .NET
 
@@ -222,7 +222,7 @@ In questo esempio viene illustrato come utilizzare il modello Async-Await con AP
 
 ## Eliminare una coda
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Delete** sull'oggetto coda.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Elimina** sull'oggetto coda.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,7 +246,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
 - Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    - Per archiviare dati strutturati, usare [Archiviazione tabelle](storage-dotnet-how-to-use-tables.md). 
+    - Per archiviare dati strutturati, usare [Archiviazione tabelle](storage-dotnet-how-to-use-tables.md).
     - Per archiviare dati non strutturati, usare [Archiviazione BLOB](storage-dotnet-how-to-use-blobs.md).
     - Per archiviare dati relazionali, usare [Database SQL](sql-database-dotnet-how-to-use.md).
 
@@ -259,6 +259,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

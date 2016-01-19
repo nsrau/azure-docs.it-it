@@ -14,17 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc"/>
 
 # Configurare una connessione VPN da punto a sito a una rete virtuale
 
+> [AZURE.SELECTOR]
+- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
 
-Questo articolo si applica alle connessioni Gateway VPN da punto a sito alla rete virtuale create con il modello di distribuzione classico (Gestione dei servizi). Le connessioni da punto a sito per le reti virtuali create con il modello di distribuzione di Gestione risorse di Azure sono ora disponibili attraverso le API REST e PowerShell. È in preparazione un articolo che descrive in modo dettagliato i passaggi per l'uso di PowerShell. Questa pagina verrà aggiornata con il relativo collegamento quando l'articolo sarà pronto. La pubblicazione è prevista per l'inizio di gennaio.
+Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. È la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulle connessioni cross-premise](vpn-gateway-cross-premises-options.md).
 
-**Informazioni sui modelli di distribuzione di Azure**
+Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione classico** (Gestione dei servizi). Per configurare una connessione da punto a sito per una rete virtuale creata con Gestione risorse, vedere [questo articolo](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
 
 ## Informazioni sulla creazione di una connessione da punto a sito
  
@@ -88,7 +92,8 @@ Passaggio 4: Esportare e installare il certificato client.
 
 Se non si usa una soluzione aziendale per la creazione di certificati, è necessario generare un certificato radice autofirmato. I passaggi seguenti funzionano in Windows 8. È in corso il processo di aggiornamento con nuovi passaggi per Windows 10.
 
-1. Una modalità per creare un certificato X.509 consiste nell'utilizzare lo strumento di creazione certificati (makecert.exe). Per usare makecert, scaricare e installare [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), disponibile gratuitamente.
+Una modalità per creare un certificato X.509 consiste nell'utilizzare lo strumento di creazione certificati (makecert.exe). Per usare makecert, scaricare e installare [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), disponibile gratuitamente.
+
 2. Individuare la cartella Strumenti di Visual Studio e avviare il prompt dei comandi come Amministratore.
 3. Il comando nell'esempio seguente crea e installa un certificato radice nell'archivio certificati personali del computer e crea anche un file con estensione *cer* corrispondente da caricare in seguito nel portale di Azure classico.
 4. Passare alla directory in cui si vuole inserire il file con estensione cer ed eseguire il comando seguente, dove *RootCertificateName* è il nome che si vuole usare per il certificato. Se si esegue l'esempio riportato di seguito senza modifiche, il risultato sarà un certificato radice e il file *RootCertificateName.cer* corrispondente.
@@ -113,7 +118,7 @@ La procedura seguente consente di generare un certificato client dal certificato
 2. Passare alla posizione in cui si desidera salvare il file del certificato client. *RootCertificateName* fa riferimento al certificato radice autofirmato generato. Se si esegue l'esempio riportato di seguito (sostituendo RootCertificateName con il nome del certificato radice), il risultato sarà un certificato client denominato "ClientCertificateName" nell'archivio certificati personale.
 3. Digitare il seguente comando:
 
-    Makecert.exe - n "CN = ClientCertificateName"-pe-sky exchange -m 96 -ss My - in "RootCertificateName" - è my-sha1
+    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
 
 4. Tutti i certificati vengono archiviati nell'archivio certificati Personale nel computer. Controllare *certmgr* per verificare. È possibile generare tutti i certificati client necessari in base a questa procedura. È consigliabile creare certificati client univoci per ogni computer che si desidera connettere alla rete virtuale.
 
@@ -151,10 +156,10 @@ Sono supportati i sistemi operativi client seguenti:
  - Windows 10
 
 1. Selezionare il pacchetto di download corrispondente al sistema operativo del client in cui verrà eseguita l'installazione:
- - Per i client a 32 bit selezionare **Scarica pacchetto VPN client a 32 bit**.
- - Per i client a 64 bit selezionare **Scarica pacchetto VPN client a 64 bit**.
+ - Per i client a 32 bit, selezionare **Scarica pacchetto VPN client a 32 bit**.
+ - Per i client a 64 bit, selezionare **Scarica pacchetto VPN client a 64 bit**.
 1. Per la creazione del pacchetto client saranno necessari alcuni minuti. Una volta completato il pacchetto, sarà possibile scaricare il file. Il file *.exe* scaricato può essere archiviato nel computer locale in modo sicuro.
-1. Dopo avere generato e scaricato il pacchetto client VPN dal portale di Azure classico, è possibile installare il pacchetto client sul computer client da cui si vuole connettersi alla rete virtuale. Se si prevede di installare il pacchetto client VPN in più computer client, assicurarsi che ognuno abbia anche un certificato client installato. Nel pacchetto client VPN sono contenute le informazioni per configurare il software client VPN incorporato in Windows. Tramite il pacchetto non viene installato del software aggiuntivo.
+1. Dopo avere generato e scaricato il pacchetto client VPN dal portale di Azure classico, è possibile installare il pacchetto client nel computer client da cui ci si vuole connettere alla rete virtuale. Se si prevede di installare il pacchetto client VPN in più computer client, assicurarsi che ognuno abbia anche un certificato client installato. Nel pacchetto client VPN sono contenute le informazioni per configurare il software client VPN incorporato in Windows. Tramite il pacchetto non viene installato del software aggiuntivo.
 
 ### Installazione del pacchetto di configurazione VPN nel client e avvio della connessione
 
@@ -162,7 +167,7 @@ Sono supportati i sistemi operativi client seguenti:
 2. Nel computer client passare alle connessioni VPN e individuare quella appena creata. Avrà lo stesso nome della rete virtuale. Fare clic su **Connect**.
 3. Verrà visualizzato un messaggio popup utilizzato per creare un certificato autofirmato per l'endpoint del gateway. Fare clic su **Continua** utilizzare privilegi elevati.
 4. Nel **connessione** pagina di stato, fare clic su **Connect** per avviare la connessione.
-5. Se viene visualizzata una pagina **Seleziona certificato**, verificare che il certificato client visualizzato sia quello da usare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
+5. Se viene visualizzato un **Seleziona certificato** dello schermo, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
 6. A questo punto si è connessi alla rete virtuale e si dispone dell'accesso completo a qualsiasi servizio e macchina virtuale ospitati nella rete virtuale.
 
 ### Verificare la connessione VPN
@@ -191,4 +196,4 @@ Esempio:
 
 Per altre informazioni sulle reti virtuali, vedere la pagina relativa alla [documentazione sulle reti virtuali](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->
