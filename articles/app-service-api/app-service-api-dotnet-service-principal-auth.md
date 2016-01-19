@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticazione dell'entità servizio per app per le API nel servizio app di Azure
@@ -304,4 +304,4 @@ Questa è l'ultima esercitazione della serie introduttiva alle app per le API. Q
 	* [Configurare un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md)
 	* [Abilitare HTTPS per un sito Web di Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestire più ambienti nell'infrastruttura di servizi | Microsoft Azure"
-   description="Le applicazioni di infrastruttura di servizi possono essere eseguite su cluster con dimensioni comprese tra un computer e migliaia di computer. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,"
+   description="Le applicazioni di Service Fabric possono essere eseguite su cluster le cui dimensioni variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -16,19 +16,19 @@
    ms.date="11/25/2015"
    ms.author="seanmck"/>
 
-# Gestione dei parametri dell'applicazione per più ambienti
+# Gestire i parametri dell'applicazione per più ambienti
 
-I cluster di infrastruttura di servizi possono essere creati usando da uno a molte migliaia di computer. Anche se i file binari dell'applicazione possono essere eseguiti senza modifiche nei diversi ambienti disponibili, è spesso possibile che si voglia configurare l'applicazione in modo diverso, in base al numero di computer in cui si effettua la distribuzione.
+I cluster di Azure Service Fabric possono essere creati usando un solo computer fino a molte migliaia. Anche se i file binari dell'applicazione possono essere eseguiti senza modifiche in questa varietà di ambienti, spesso è consigliabile configurare l'applicazione in modo diverso, in base al numero di computer in cui si esegue la distribuzione.
 
-Come semplice esempio, si consideri `InstanceCount` per un servizio senza stato. Durante l'esecuzione in Azure, si imposterà in genere questo parametro sul valore speciale -1, per assicurare che il servizio sia in esecuzione in ogni nodo del cluster. Questa configurazione non è appropriata per un cluster con un singolo computer, tuttavia, perché non è possibile avere più processi in attesa sullo stesso endpoint in un singolo computer. In genere si imposta invece `InstanceCount` su 1.
+Come semplice esempio, si consideri `InstanceCount` per un servizio senza stato. Quando si eseguono applicazioni in Azure, in genere è consigliabile impostare questo parametro sul valore speciale "-1", per assicurare che il servizio sia eseguito in ogni nodo del cluster. Questa configurazione non è tuttavia appropriata per un cluster con un singolo computer, perché non è possibile avere più processi in ascolto sullo stesso endpoint in un singolo computer. In genere si imposta invece `InstanceCount` su 1.
 
 ## Definizione dei parametri specifici dell'ambiente
 
-La soluzione per questo problema consiste in un set di servizi predefiniti con parametri e di file di parametri dell'applicazione che compilano i valori relativi ai parametri per un determinato ambiente.
+La soluzione per questo problema di configurazione è costituita da un set di servizi predefiniti con parametri e file di parametri dell'applicazione che compilano i valori dei parametri per un determinato ambiente.
 
 ### Servizi predefiniti
 
-Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di istanze del servizio. Anche se è possibile creare un'applicazione vuota e quindi creare dinamicamente tutte le istanze del servizio, la maggior parte delle applicazioni ha un set di servizi di base che devono essere creati sempre quando si creano istanze dell'applicazione. Questi servizi sono definiti "servizi predefiniti" e vengono specificati nel manifesto dell'applicazione, con segnaposto relativi alla configurazione specifica per il singolo ambiente inclusi in parentesi supplementari:
+Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di istanze del servizio. Anche se è possibile creare un'applicazione vuota e quindi tutte le istanze del servizio dinamicamente, la maggior parte delle applicazioni include un set di servizi di base che devono essere sempre creati quando si creano istanze dell'applicazione. Questi servizi sono detti "servizi predefiniti" e vengono specificati nel manifesto dell'applicazione, con i segnaposto per la configurazione specifica dei singoli ambienti racchiusi tra parentesi quadre:
 
     <DefaultServices>
         <Service Name="Stateful1">
@@ -53,12 +53,12 @@ Ogni parametro denominato deve essere definito nell'elemento Parameters del mani
 
 L'attributo DefaultValue specifica il valore da usare in assenza di un parametro più specifico per un determinato ambiente.
 
->[AZURE.NOTE]Non tutti i parametri di istanza del servizio sono idonei alla configurazione specifica per il singolo ambiente. Nell'esempio precedente i valori LowKey e HighKey per lo schema di partizionamento del servizio vengono definiti in modo esplicito per tutte le istanze del servizio, perché l'intervallo di partizione è una funzione del dominio di dati, non dell'ambiente.
+>[AZURE.NOTE]Non tutti i parametri di istanza del servizio sono idonei alla configurazione specifica per il singolo ambiente. Nell'esempio precedente i valori LowKey e HighKey per lo schema di partizionamento del servizio sono definiti in modo esplicito per tutte le istanze del servizio, perché l'intervallo di partizione è una funzione del dominio di dati, non dell'ambiente.
 
 
 ### Impostazioni della configurazione del servizio specifica per il singolo ambiente
 
-Il [modello applicativo di infrastruttura di servizi](service-fabric-application-model.md) consente ai servizi di includere pacchetti di configurazione che contengono coppie di chiave-valore personalizzate, che possono essere lette in fase di esecuzione. È anche possibile differenziare i valori di queste impostazioni in base all'ambiente, specificando un valore `ConfigOverride` nel manifesto dell'applicazione.
+Il [modello applicativo di Service Fabric](service-fabric-application-model.md) consente ai servizi di includere pacchetti di configurazione che contengono coppie chiave-valore personalizzate leggibili in fase di esecuzione. È anche possibile differenziare i valori di queste impostazioni in base all'ambiente, specificando un valore `ConfigOverride` nel manifesto dell'applicazione.
 
 Si supponga che il file Config\\Settings.xml per il servizio `Stateful1` includa l'impostazione seguente:
 
@@ -67,7 +67,7 @@ Si supponga che il file Config\\Settings.xml per il servizio `Stateful1` includa
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
 
-Per eseguire l'override di questo valore per una coppia specifica di applicazione/ambiente, creare un valore `ConfigOverride` durante l'importazione del manifesto del servizio nel manifesto dell'applicazione.
+Per eseguire l'override di questo valore per una coppia applicazione/ambiente specifica, creare un valore `ConfigOverride` durante l'importazione del manifesto del servizio nel manifesto dell'applicazione.
 
     <ConfigOverrides>
      <ConfigOverride Name="Config">
@@ -79,14 +79,14 @@ Per eseguire l'override di questo valore per una coppia specifica di applicazion
      </ConfigOverride>
   </ConfigOverrides>
 
-Questo parametro può essere configurato mediante l'ambiente, come illustrato in precedenza, mediante la dichiarazione nella sezione Parameters del manifesto dell'applicazione e mediante la definizione di valori specifici per il singolo ambiente nel file di parametri dell'applicazione.
+Questo parametro può quindi essere configurato dall'ambiente, come illustrato in precedenza, dichiarandolo nella sezione Parameters del manifesto dell'applicazione e definendo i valori specifici per il singolo ambiente nel file di parametri dell'applicazione.
 
->[AZURE.NOTE]Nel caso delle impostazioni di configurazione del servizio, è possibile impostare il valore di una chiave in tre posizioni, ovvero nel pacchetto di configurazione del servizio, nel manifesto dell'applicazione e nel file di parametri dell'applicazione. L'infrastruttura di servizi effettuerà sempre la scelta prima di tutto dal file di parametri dell'applicazione, quindi dal manifesto dell'applicazione e infine dal pacchetto di configurazione.
+>[AZURE.NOTE]Nel caso delle impostazioni di configurazione del servizio, è possibile impostare il valore di una chiave in tre posizioni, ovvero nel pacchetto di configurazione del servizio, nel manifesto dell'applicazione e nel file di parametri dell'applicazione. Service Fabric sceglierà sempre prima di tutto dal file di parametri dell'applicazione, se specificato, quindi dal manifesto dell'applicazione e infine dal pacchetto di configurazione.
 
 
 ### File di parametri dell'applicazione
 
-Il progetto di applicazione di infrastruttura di servizi può includere uno o più file di parametri dell'applicazione, ognuno dei quali definisce valori specifici per i parametri definiti nel manifesto dell'applicazione:
+Il progetto di applicazione di Service Fabric può includere uno o più file di parametri dell'applicazione, ognuno dei quali definisce i valori specifici per i parametri definiti nel manifesto dell'applicazione:
 
     <!-- ApplicationParameters\Local.xml -->
 
@@ -98,35 +98,35 @@ Il progetto di applicazione di infrastruttura di servizi può includere uno o pi
         </Parameters>
     </Application>
 
-Per impostazione predefinita, una nuova applicazione include due file di parametri, denominati Local.xml e Cloud.xml:
+Per impostazione predefinita, una nuova applicazione include due file di parametri dell'applicazione, denominati Local.xml e Cloud.xml:
 
 ![File di parametri dell'applicazione in Esplora soluzioni][app-parameters-solution-explorer]
 
-Per creare un nuovo file di parametri, è sufficiente copiare e incollare un file esistente e specificare un nuovo nome.
+Per creare un nuovo file di parametri, è sufficiente copiarne e incollarne uno esistente e specificare un nuovo nome.
 
 ## Identificazione di parametri specifici per il singolo ambiente durante la distribuzione
 
-In fase di distribuzione è necessario scegliere il file di parametri appropriato da applicare con l'applicazione. È possibile eseguire questa operazione tramite la finestra di dialogo Pubblica in Visual Studio o in PowerShell.
+In fase di distribuzione è necessario scegliere il file di parametri appropriato da usare con l'applicazione. È possibile eseguire questa operazione nella finestra di dialogo Pubblica in Visual Studio o in PowerShell.
 
-### Distribuzione da Visual Studio
+### Eseguire una distribuzione da Visual Studio
 
-È possibile scegliere dall'elenco di file di parametri disponibili durante la pubblicazione dell'applicazione in Visual Studio.
+Si può scegliere dall'elenco dei file di parametri disponibili quando si pubblica l'applicazione in Visual Studio.
 
 ![Scelta di un file di parametri nella finestra di dialogo Pubblica][publishdialog]
 
-### Distribuzione da PowerShell
+### Distribuire da PowerShell
 
-Lo script `DeployCreate-FabricApplication.ps1` di PowerShell accetta un file di parametri come parametro.
+Lo script di PowerShell `DeployCreate-FabricApplication.ps1` accetta un file di parametri come parametro.
 
     ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
 
 ## Passaggi successivi
 
-Per altre informazioni su alcuni concetti fondamentali illustrati in questo argomento, vedere [Informazioni tecniche su Infrastruttura di servizi](service-fabric-technical-overview.md). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi](service-fabric-manage-application-in-visual-studio.md).
+Per altre informazioni su alcuni concetti di base illustrati in questo argomento, vedere [Panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per informazioni su altre funzionalità di gestione delle app disponibili in Visual Studio, vedere [Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni di Service Fabric](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

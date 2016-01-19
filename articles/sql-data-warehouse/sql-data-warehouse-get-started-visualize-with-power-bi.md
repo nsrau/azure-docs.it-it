@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm" />
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualizzare i dati con Power BI
 
@@ -111,4 +111,4 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

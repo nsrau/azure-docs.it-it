@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/07/2015"
@@ -60,7 +60,7 @@ Alcuni dati sono già stati caricati nell'ambito della sezione **Prerequisiti** 
 
 Nel caso in cui si preferisca usare dati personali, di seguito sono riportate le procedure da seguire per caricare dati da Strumenti di Data Lake.
 
-**Per caricare il file nell'account di Azure Data Lake dipendente**
+**Per caricare file nell'account Azure Data Lake dipendente**
 
 1. Da **Esplora server** espandere **Azure**, quindi **Analisi Data Lake**, l'account di Analisi Data Lake personale e infine **Account di archiviazione**. Verrà visualizzato l'account di archiviazione predefinito di Data Lake, con gli account di archiviazione di Data Lake e gli account di Archiviazione di Azure collegati. L'account di archiviazione predefinito di Data Lake è contraddistinto dall'etichetta "Account di archiviazione predefinito".
 2. Fare doppio clic sull'account di archiviazione predefinito di Data Lake e quindi fare clic su **Esplora**. Viene visualizzato il pannello di esplorazione relativo a Strumenti di Data Lake per Visual Studio. Nella parte sinistra è presente una visualizzazione albero, mentre la visualizzazione contenuto è disponibile sulla destra.
@@ -69,11 +69,11 @@ Nel caso in cui si preferisca usare dati personali, di seguito sono riportate le
 
 	![Progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Per caricare un file in un account di archiviazione BLOB di Azure**
+**Per caricare file in un account di archiviazione BLOB di Azure collegato**
 
 1. Da **Esplora server** espandere **Azure**, quindi **Analisi Data Lake**, l'account di Analisi Data Lake personale e infine **Account di archiviazione**. Verrà visualizzato l'account di archiviazione predefinito di Data Lake, con gli account di archiviazione di Data Lake e gli account di Archiviazione di Azure collegati. 
 2. Espandere l'account di Archiviazione di Azure.
-3. Fare clic con il pulsante destro del mouse sul contenitore in cui si vuole caricare i file e quindi fare clic su **Esplora**.
+3. Fare clic con il pulsante destro del mouse sul contenitore in cui si vuole caricare i file e quindi fare clic su **Esplora**. Se non è disponibile, creare prima di tutto un contenitore usando il portale di Azure, Azure PowerShell o altri strumenti.
 4. Selezionare la cartella in cui si desidera caricare i file. 
 5. Fare clic con il pulsante destro del mouse su uno spazio vuoto e fare clic su **Carica**. 
 
@@ -88,8 +88,6 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
 	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE] Attualmente, Strumenti di Data Lake non supporta i percorsi di progetto UNC in esecuzione locale.
-	
 3. Fare clic su **OK**. Visual Studio crea una soluzione con un file **Script.usql**.
 4. Immettere lo script seguente in **Script.usql**:
 
@@ -362,4 +360,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

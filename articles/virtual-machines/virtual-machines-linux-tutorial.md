@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creare una macchina virtuale che esegue Linux | Microsoft Azure"
-	description="Informazioni su come creare una macchina virtuale Linux in Azure o una macchina virtuale Ubuntu in Azure Ubuntu usando un'immagine da Azure e l'interfaccia della riga di comando di Azure."
-	keywords="linux macchina virtuale,macchina virtuale linux,Azure Linux,azure ubuntu" 
+	pageTitle="Creare una macchina virtuale Linux | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale Linux o una macchina virtuale Ubuntu usando un'immagine da Azure e l'interfaccia della riga di comando di Azure."
+	keywords="linux macchina virtuale,macchina virtuale linux,macchina virtuale ubuntu" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -18,18 +18,16 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Creare una macchina virtuale che esegue Linux
+# Creare una macchina virtuale Linux
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
-<br>
-
-La creazione di una macchina virtuale (VM) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure (CLI) per Mac, Linux e Windows per creare rapidamente una VM di Ubuntu Server in esecuzione in Azure, connettersi alla macchina virtuale usando **ssh** e infine creare e montare un nuovo disco. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
+La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure (CLI) per Mac, Linux e Windows per creare rapidamente una VM di Ubuntu Server in esecuzione in Azure, connettersi alla macchina virtuale usando **ssh** e infine creare e montare un nuovo disco. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
@@ -51,7 +49,7 @@ Ancora meglio. [Accedere con l'ID aziendale o dell'istituto di istruzione](../xp
 
 > [AZURE.NOTE]Se si ha un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per eseguire l'accesso senza una sessione interattiva. Se non si ha un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md).
 
-## Creare la macchina virtuale di Azure
+## Creare la macchina virtuale Linux
 
 Digitare `azure group create <my-group-name> westus` sostituendo _&lt;nome gruppo&gt;_ con il nome di un gruppo univoco per l'utente (se si desidera, è possibile utilizzare un'area diversa). Verrà visualizzata una schermata simile alla seguente:
 
@@ -328,4 +326,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

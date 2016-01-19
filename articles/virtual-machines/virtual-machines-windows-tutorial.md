@@ -20,15 +20,11 @@
 # Creare una macchina virtuale con Windows nel portale di Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 Questa esercitazione illustra come è facile creare una macchina virtuale di Azure in pochi minuti nel portale di Azure. Verrà usata un'immagine Windows Server 2012 R2 Datacenter come esempio per creare la macchina virtuale, ma è solo una delle molte immagini offerte da Azure. Le opzioni relative all'immagine dipendono dalla sottoscrizione. Ad esempio, gli abbonati MSDN possono usufruire di immagini desktop.
 
@@ -116,6 +112,6 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 ## Passaggi successivi
 
 * Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
-* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

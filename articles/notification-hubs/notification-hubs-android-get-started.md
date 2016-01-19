@@ -55,10 +55,8 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-<ol start="7">
-<li><p>Fare clic sulla scheda <b>Configure</b> nella parte superiore, immettere il valore <b>API Key</b> ottenuto nella sezione precedente, quindi fare clic su <b>Save</b>.</p>
-</li>
-</ol>
+&emsp;&emsp;7. Fare clic sulla scheda **Configure** nella parte superiore, immettere il valore **API Key** ottenuto nella sezione precedente, quindi fare clic su **Save**.
+
 &emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
 L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle stringhe di connessione per registrare l'app in modo da ricevere e inviare le notifiche push.
@@ -75,7 +73,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
    	![][14]
 
-3. Scegliere **Blank Activity** per l'attività principale, fare clic su **Next** e quindi fare clic su **Finish**.
+3. Scegliere **Blank Activity** per l'attività principale, fare clic su **Next**, quindi fare clic su **Finish**.
 
 ###Aggiungere Google Play Services al progetto
 
@@ -155,10 +153,10 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
             	protected Object doInBackground(Object... params) {
                 	try {
                     	String regid = gcm.register(SENDER_ID);
-                    DialogNotify("Registered Successfully","RegId : " +
+                    ToastNotify("Registered Successfully - RegId : " +
 						hub.register(regid).getRegistrationId());
                 	} catch (Exception e) {
-                    	DialogNotify("Exception",e.getMessage());
+                    	ToastNotify("Registration Exception Message - " + e.getMessage());
                     	return e;
                 	}
                 	return null;
@@ -217,11 +215,11 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
         </receiver>
 
 
-9. In Project View espandere **app** > **src** > **main** > **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
+9. Nella visualizzazione del progetto espandere **app** > **src** > **main** > **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
 
 	![][6]
 
-10. Nel campo **Name** digitare **MyHandler** per la nuova classe e quindi fare clic su **OK**.
+10. Nel campo **Name** digitare **MyHandler** per la nuova classe, quindi fare clic su **OK**.
 
 
 11. Aggiungere le istruzioni di importazione seguenti all'inizio di **MyHandler.java**:
@@ -295,7 +293,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 ## (Facoltativo) Inviare notifiche dall'app
 
 
-1. Nella finestra Project View di Android Studio espandere **App** > **src** > **main** > **res** > **layout**. Aprire il file di layout **activity\_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
+1. Nella visualizzazione del progetto in Android Studio espandere **App** > **src** > **main** > **res** > **layout**. Aprire il file di layout **activity\_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -491,7 +489,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
 Per testare un emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta Google API, verrà generata l'eccezione **SERVICE\_NOT\_AVAILABLE**.
 
-Verificare anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Settings** > **Accounts**. In caso contrario, i tentativi di registrazione con GCM potrebbero generare l'eccezione **AUTHENTICATION\_FAILED**.
+Accertarsi anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Settings** > **Accounts**. In caso contrario, i tentativi di registrazione con GCM potrebbero generare l'eccezione **AUTHENTICATION\_FAILED**.
 
 ####Testare l'app
 
@@ -509,11 +507,11 @@ Verificare anche di avere aggiunto l'account Google all'emulatore in esecuzione 
 
 ##Passaggi successivi
 
-In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows tramite il portale o un'app console. Come passaggio successivo è consigliabile vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Verrà illustrato come inviare notifiche da un back-end ASP.NET destinate a utenti specifici.
+In questo semplice esempio le notifiche di trasmissione sono state inviate a tutti i dispositivi Windows tramite il portale o un'app console. Come passaggio successivo, è consigliabile vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Verrà illustrato come inviare notifiche da un back-end ASP.NET destinate a utenti specifici.
 
 Se si desidera segmentare gli utenti per gruppi di interesse, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie].
 
-Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di notifica].
+Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
 
 
@@ -552,4 +550,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

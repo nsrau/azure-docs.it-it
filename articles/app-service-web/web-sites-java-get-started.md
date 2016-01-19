@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Creazione di un'app Web Java nel servizio app di Azure
@@ -29,7 +29,7 @@ Questa esercitazione illustra come creare un'[app Web Java nel servizio app di A
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio][] oppure [iscriversi per ottenere una versione di valutazione gratuita][].
 >
-> Per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Opzioni dell'applicazione Java
 
@@ -86,7 +86,7 @@ Questa sezione illustra come usare Azure Marketplace per creare un'app Web Java.
 
 	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
-9. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
+9. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
 	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -130,7 +130,7 @@ Questa sezione illustra come creare un'app Web e configurarla per l'uso del pann
 
 	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
-6. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
+6. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
 	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -174,6 +174,6 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 
-[provare il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

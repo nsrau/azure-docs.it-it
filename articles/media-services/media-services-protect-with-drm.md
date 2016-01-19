@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.date="01/10/2016" 
 	ms.author="juliako"/>
 
 
@@ -86,14 +86,14 @@ Per informazioni dettagliate, vedere [Caricare file in un account di Servizi mul
 
 Con la crittografia dinamica, è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto e del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere l'argomento [Panoramica della creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
-Per istruzioni sulla modalità di codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+Per istruzioni su come eseguire la codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 	
 
 ##<a id="create_contentkey"></a>Creare una chiave simmetrica e associarla all'asset codificato
 
 In Servizi multimediali, la chiave simmetrica contiene la chiave con cui si desidera crittografare un asset.
 
-Per informazioni dettagliate, vedere [Creare entità ContentKey](media-services-dotnet-create-contentkey.md).
+Per informazioni dettagliate, vedere [Creare una chiave simmetrica](media-services-dotnet-create-contentkey.md).
 
 
 ##<a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica.
@@ -136,7 +136,7 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-Per testare il flusso, è possibile usare il [lettore AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+È possibile utilizzare il [lettore AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per testare il flusso.
 
 ##<a id="example"></a>Esempio
 
@@ -631,4 +631,4 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Annuncio dell'anteprima pubblica dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

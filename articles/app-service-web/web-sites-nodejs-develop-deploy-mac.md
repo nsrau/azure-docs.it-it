@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Creare un'app Web Node.js nel servizio app di Azure
@@ -39,7 +39,7 @@ L'applicazione completata scrive una breve stringa "hello world" nel browser.
 
 Per esercitazioni ed esempi di codice con applicazioni Node.js più complesse o per altri argomenti relativi all'uso di Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non è disponibile un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/it-IT/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -67,7 +67,7 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 
 	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
-7. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
+7. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
 
 	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -109,13 +109,13 @@ Seguire questa procedura per creare un'app Web nel servizio app di Azure e abili
 
 ## Creazione e test dell'applicazione in locale
 
-In questa sezione verrà creato un file **server.js** contenente una versione leggermente modificata dell'esempio 'Hello World' di [nodejs.org]. Il codice aggiunge process.env.PORT come porta su cui rimanere in ascolto durante l'esecuzione in un'app Web di Azure.
+In questa sezione verrà creato un file **server.js** che contiene una versione lievemente modificata dell'esempio 'Hello World' di [nodejs.org]. Il codice aggiunge process.env.PORT come porta su cui rimanere in ascolto durante l'esecuzione in un'app Web di Azure.
 
 1. Creare una directory denominata *helloworld*.
 
-2. Usare un editor di testo per creare un nuovo fine denominato **server.js** nella directory *helloworld*.
+2. Usare un editor di testo per creare un nuovo file denominato **server.js** nella directory *helloworld*.
 
-2. Copiare il codice seguente nel file **server.js** e quindi salvare il file:
+2. Copiare il codice seguente nel file **server.js**, quindi salvare il file:
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -212,7 +212,7 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 
 Questo articolo usa il portale di Azure per creare un'app Web. Per eseguire le stesse operazioni, è anche possibile usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../install-configure-powershell.md).
 
-Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere il [Centro per sviluppatori Node.js](/develop/nodejs/).
+Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
@@ -224,4 +224,4 @@ Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere 
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->
