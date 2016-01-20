@@ -38,11 +38,11 @@ Lo scopo di queste linee guida è descrivere i problemi da prendere in considera
 
 Nella sua dissertazione del 2000, Roy Fielding ha proposto un approccio architetturale alternativo per strutturare le operazioni esposte da servizi Web, denominato REST. REST è uno stile architetturale per la creazione di sistemi distribuiti basati su ipermedia. Uno dei principali vantaggi del modello REST sta nel fatto che è basato su standard aperti e che non vincola l'implementazione del modello o le applicazioni client che vi accedono a nessuna implementazione specifica. Ad esempio, un servizio Web REST può essere implementato usando l’API Web Microsoft ASP.NET e le applicazioni client possono essere sviluppate usando qualsiasi linguaggio e set di strumenti in grado di generare richieste HTTP e analizzare le risposte HTTP.
 
-> [AZURE.NOTE]In realtà REST è indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
+> [AZURE.NOTE] In realtà REST è indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
 
 Il modello di REST utilizza uno schema di spostamento per rappresentare gli oggetti e i servizi, denominati _risorse_, in una rete. Molti sistemi che implementano REST in genere usano il protocollo HTTP per trasmettere le richieste di accesso a queste risorse. In questi sistemi, un'applicazione client invia una richiesta sotto forma di un URI che identifica una risorsa e un metodo HTTP (i più comuni sono GET, POST, PUT o DELETE) che indica l'operazione da eseguire su tale risorsa. Il corpo della richiesta HTTP contiene i dati necessari per eseguire l'operazione. Il punto importante da comprendere è che REST definisce un modello di richiesta senza stato. Le richieste HTTP devono essere indipendenti e possono verificarsi in qualsiasi ordine, per cui il tentativo di mantenere le informazioni di stato temporaneo tra due richieste non è realizzabile. L'unico punto in cui sono memorizzate le informazioni sono le risorse stesse e ogni richiesta deve essere un'operazione atomica. In effetti, un modello REST implementa una macchina a stati finiti in cui una richiesta passa una risorsa da uno stato non temporaneo ben definito a un altro.
 
-> [AZURE.NOTE]La natura senza stato delle singole richieste nel modello REST consente a un sistema costituito dai seguenti principi di essere altamente scalabile. Non è necessario conservare l’affinità tra un'applicazione client che effettua una serie di richieste e i server Web specifici che gestiscono queste richieste.
+> [AZURE.NOTE] La natura senza stato delle singole richieste nel modello REST consente a un sistema costituito dai seguenti principi di essere altamente scalabile. Non è necessario conservare l’affinità tra un'applicazione client che effettua una serie di richieste e i server Web specifici che gestiscono queste richieste.
 
 Un altro punto fondamentale nell'implementazione di un modello REST efficace consiste nel comprendere le relazioni tra le varie risorse a cui il modello fornisce l'accesso. Queste risorse sono in genere organizzate in raccolte e relazioni. Ad esempio, si supponga che una rapida analisi di un sistema di e-commerce mostri che le raccolte a cui le applicazioni client possono essere interessate sono due: ordini e clienti. Ogni ordine e ogni cliente deve avere la propria chiave univoca per l'identificazione. L’URI per accedere alla raccolta di ordini può essere semplice come _/orders_, e allo stesso modo, l'URI per il recupero di tutti i clienti può essere _/customers._. L’invio di una richiesta HTTP GET all’URI _/orders_ deve restituire un elenco che rappresenta tutti gli ordini nella raccolta codificati come risposta HTTP:
 
@@ -75,7 +75,7 @@ Content-Length: ...
 {"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE]Per semplicità, questi esempi mostrano le informazioni nelle risposte restituite come dati di testo JSON. Non esiste tuttavia alcuna ragione per cui le risorse non debbano contenere qualsiasi altro tipo di dati supportato da HTTP, ad esempio informazioni binarie o crittografate. Il tipo di contenuto nella risposta HTTP deve specificare il tipo. Un modello REST può anche essere in grado di restituire gli stessi dati in formati diversi, ad esempio XML o JSON. In questo caso, il servizio Web deve essere in grado di eseguire la negoziazione del contenuto con il client che effettua la richiesta. La richiesta può includere un’intestazione _Accept_ che specifica il formato che il client vuole ricevere. Il servizio Web deve tentare di rispettare questo formato, se possibile.
+> [AZURE.NOTE] Per semplicità, questi esempi mostrano le informazioni nelle risposte restituite come dati di testo JSON. Non esiste tuttavia alcuna ragione per cui le risorse non debbano contenere qualsiasi altro tipo di dati supportato da HTTP, ad esempio informazioni binarie o crittografate. Il tipo di contenuto nella risposta HTTP deve specificare il tipo. Un modello REST può anche essere in grado di restituire gli stessi dati in formati diversi, ad esempio XML o JSON. In questo caso, il servizio Web deve essere in grado di eseguire la negoziazione del contenuto con il client che effettua la richiesta. La richiesta può includere un’intestazione _Accept_ che specifica il formato che il client vuole ricevere. Il servizio Web deve tentare di rispettare questo formato, se possibile.
 
 Si noti che la risposta da una richiesta REST standard utilizza i codici di stato HTTP standard. Ad esempio, una richiesta che restituisce dati validi deve includere il codice di risposta HTTP 200 (OK), mentre una richiesta che non riesce a trovare o eliminare una risorsa specificata deve restituire una risposta che include il codice di stato HTTP 404 (Non trovato).
 
@@ -87,21 +87,21 @@ Un'API Web RESTful è incentrata sull’esposizione di un set di risorse conness
 
 ### Organizzazione dell'API Web in base alle risorse
 
-> [AZURE.TIP]Gli URI esposti da un servizio Web REST devono essere basati sui nomi (i dati a cui l'API Web fornisce l'accesso) e non sui verbi (le operazioni che un'applicazione può eseguire con i dati).
+> [AZURE.TIP] Gli URI esposti da un servizio Web REST devono essere basati sui nomi (i dati a cui l'API Web fornisce l'accesso) e non sui verbi (le operazioni che un'applicazione può eseguire con i dati).
 
 Concentrarsi sulle entità di business esposte dall'API Web. Ad esempio, in un’API Web progettata per supportare il sistema di e-commerce descritto in precedenza, le entità primarie sono customers e orders. Processi quali l'atto di emettere un ordine possono essere eseguiti fornendo un'operazione HTTP POST che aggiunge le informazioni relative all’ordine all'elenco di ordini per il cliente. Internamente, questa operazione POST può eseguire attività quali il controllo dei livelli di scorte e la fatturazione del cliente. La risposta HTTP può indicare se l'ordine è stato inserito correttamente o meno. Si noti inoltre che non è necessario che una risorsa sia basata su un singolo elemento di dati fisici. Ad esempio, una risorsa ordine può essere implementata internamente usano le informazioni aggregate da molte righe distribuite in varie tabelle in un database relazionale, ma presentate al client come una singola entità.
 
-> [AZURE.TIP]Evitare di progettare un'interfaccia REST che rispecchi o dipenda dalla struttura interna dei dati esposti. REST consiste in qualcosa di più della semplice implementazione di operazioni CRUD (Create, Retrieve, Update, Delete) in tabelle separate in un database relazionale. Lo scopo di REST è eseguire il mapping delle entità business e delle operazioni che un'applicazione può eseguire su tali entità all'implementazione fisica di queste entità, ma un client non deve essere esposto a questi dettagli fisici.
+> [AZURE.TIP] Evitare di progettare un'interfaccia REST che rispecchi o dipenda dalla struttura interna dei dati esposti. REST consiste in qualcosa di più della semplice implementazione di operazioni CRUD (Create, Retrieve, Update, Delete) in tabelle separate in un database relazionale. Lo scopo di REST è eseguire il mapping delle entità business e delle operazioni che un'applicazione può eseguire su tali entità all'implementazione fisica di queste entità, ma un client non deve essere esposto a questi dettagli fisici.
 
 L’esistenza di singole entità business in isolamento è rara (sebbene esistano alcuni oggetti singleton), piuttosto queste entità tendono a essere raggruppate in raccolte. Nella terminologia REST, ogni entità e ogni raccolta costituiscono una risorsa. In un’API Web RESTful, ogni raccolta ha un URI specifico all'interno del servizio Web, e l'esecuzione di una richiesta HTTP GET tramite un URI per una raccolta recupera un elenco di elementi in tale raccolta. Anche ogni singolo elemento ha un URI specifico, e un'applicazione può inviare un'altra richiesta HTTP GET con lo stesso URI per recuperare i dettagli di tale elemento. È necessario organizzare gli URI per le raccolte e gli elementi in modo gerarchico. Nel sistema di e-commerce l'URI _/customers_ indica la raccolta del cliente e _/customers/5_ recupera i dettagli per il singolo cliente con ID 5 da questa raccolta. Questo approccio consente di mantenere l'API Web intuitiva.
 
-> [AZURE.TIP]Adottare una convenzione di denominazione coerente all’interno degli URI. In generale, per gli URI che fanno riferimento alle raccolte è utile usare nomi plurali.
+> [AZURE.TIP] Adottare una convenzione di denominazione coerente all’interno degli URI. In generale, per gli URI che fanno riferimento alle raccolte è utile usare nomi plurali.
 
 È anche necessario prendere in considerazione le relazioni tra diversi tipi di risorse e il modo in cui esporre queste associazioni. Ad esempio, i clienti possono effettuare zero o più ordini. Un modo semplice per rappresentare questa relazione è un URI, ad esempio _/customers/5/orders_ per trovare tutti gli ordini per il cliente 5. È inoltre possibile prendere in considerazione l’idea di rappresentare l’associazione da un ordine a un cliente specifico tramite un URI come _/orders/99/customer_ per trovare il cliente dell’ordine 99. Tuttavia l’estensione eccessiva di questo modello può risultare complessa da implementare. Una soluzione migliore consiste nel fornire collegamenti esplorabili alle risorse associate, ad esempio il cliente, nel corpo del messaggio di risposta HTTP restituito quando viene eseguita una query sull'ordine. Questo meccanismo viene descritto in maggiore dettaglio nella sezione Uso dell’approccio HATEOAS per consentire lo spostamento a risorse correlate, più avanti in queste linee guida.
 
 Nei sistemi più complessi possono essere presenti molti altri tipi di entità e si può essere tentati di fornire URI che consentono a un'applicazione client di spostarsi tra diversi livelli di relazioni, ad esempio _/customers/1/orders/99/products_ per ottenere l'elenco di prodotti nell’ordine 99 eseguito dal cliente 1. Tuttavia questo livello di complessità può essere difficile da mantenere e non è flessibile se le relazioni tra le risorse cambiano in futuro. Cercare invece di mantenere gli URI relativamente semplici. Tenere presente che, una volta che un'applicazione contiene un riferimento a una risorsa, è possibile usare questo riferimento per trovare gli elementi correlati a tale risorsa. La query precedente può essere sostituita con l'URI _/customers/1/orders_ per trovare tutti gli ordini per il cliente 1 e quindi eseguire una query all'URI _/orders/99/products_ per trovare i prodotti in questo ordine (presupponendo che l’ordine 99 sia stato eseguito dal cliente 1).
 
-> [AZURE.TIP]Evitare di richiedere URI di risorse più complessi di _collection/item/collection_.
+> [AZURE.TIP] Evitare di richiedere URI di risorse più complessi di _collection/item/collection_.
 
 Un altro punto da considerare è che tutte le richieste Web impongono un carico sul server Web e che il carico aumenta in modo proporzionale alle richieste. È necessario provare a definire le risorse in modo da evitare API Web "frammentate" che espongono un numero elevato di risorse piccole. Questo tipo di API può richiedere che un'applicazione client invii più richieste per trovare tutti i dati che richiede. Può essere utile denormalizzare i dati e combinare le informazioni correlate tra loro in risorse più grandi che possono essere recuperate tramite l'esecuzione di una singola richiesta. Tuttavia, è necessario bilanciare questo approccio rispetto al sovraccarico del recupero di dati che potrebbero non essere richiesti spesso dal client. Il recupero di oggetti di grandi dimensioni può aumentare la latenza di una richiesta e comportare costi di larghezza di banda aggiuntivi a fronte di un piccolo vantaggio se i dati aggiuntivi non vengono utilizzati spesso.
 
@@ -123,7 +123,7 @@ Il protocollo HTTP definisce una serie di metodi che assegnano un significato se
 
 - **DELETE**, per rimuovere la risorsa nell’URI specificato.
 
-> [AZURE.NOTE]Il protocollo HTTP definisce anche altri metodi usati meno comunemente, ad esempio PATCH che viene usato per richiedere aggiornamenti selettivi a una risorsa, HEAD che viene utilizzato per richiedere una descrizione di una risorsa, OPTIONS che consente a un client di ottenere informazioni sulle opzioni di comunicazione supportate dal server e TRACE che consente a un client di richiedere informazioni utilizzabili a scopo di test e di diagnostica.
+> [AZURE.NOTE] Il protocollo HTTP definisce anche altri metodi usati meno comunemente, ad esempio PATCH che viene usato per richiedere aggiornamenti selettivi a una risorsa, HEAD che viene utilizzato per richiedere una descrizione di una risorsa, OPTIONS che consente a un client di ottenere informazioni sulle opzioni di comunicazione supportate dal server e TRACE che consente a un client di richiedere informazioni utilizzabili a scopo di test e di diagnostica.
 
 L'effetto di una richiesta specifica è diverso a seconda che la risorsa a cui viene applicata sia una raccolta o un singolo elemento. La tabella seguente riepiloga le convenzioni comuni adottate dalla maggior parte delle implementazioni RESTful usando l’esempio dell’e-commerce. Si noti che potrebbe non essere possibile implementare tutte queste richieste. L’implementazione dipende dallo scenario specifico.
 
@@ -137,11 +137,11 @@ Sebbene lo scopo delle richieste GET e DELETE sia relativamente semplice, la fin
 
 Una richiesta POST ha lo scopo di creare una nuova risorsa con dati forniti nel corpo della richiesta. Nel modello REST spesso le richieste POST si applicano alle risorse costituite da raccolte. La nuova risorsa viene aggiunta alla raccolta.
 
-> [AZURE.NOTE]È anche possibile definire richieste POST che attivano alcune funzionalità e che non necessariamente restituiscono dati. Questi tipi di richieste possono essere applicati alle raccolte. È possibile, ad esempio, usare una richiesta POST per passare una scheda attività a un servizio di elaborazione delle retribuzioni e ottenere le tasse calcolate come risposta.
+> [AZURE.NOTE] È anche possibile definire richieste POST che attivano alcune funzionalità e che non necessariamente restituiscono dati. Questi tipi di richieste possono essere applicati alle raccolte. È possibile, ad esempio, usare una richiesta POST per passare una scheda attività a un servizio di elaborazione delle retribuzioni e ottenere le tasse calcolate come risposta.
 
 Lo scopo di una richiesta PUT è modificare una risorsa esistente. Se la risorsa specificata non esiste, la richiesta PUT può restituire un errore (in alcuni casi potrebbe effettivamente creare la risorsa). Le richieste PUT vengono applicate con maggiore frequenza a risorse costituite da singoli elementi, ad esempio un cliente o un ordine specifico, ma possono essere applicate anche alle raccolte, sebbene questo scenario sia meno frequente. Si noti che le richieste PUT sono idempotenti, mentre le richieste POST non lo sono. Se un'applicazione invia la stessa richiesta PUT più volte i risultati saranno gli stessi (la stessa risorsa verrà modificata con gli stessi valori), ma se un'applicazione ripete la stessa richiesta POST il risultato sarà la creazione di più risorse.
 
-> [AZURE.NOTE]In modo più specifico, una richiesta HTTP PUT sostituisce una risorsa esistente con la risorsa specificata nel corpo della richiesta. Se si intende modificare una selezione di proprietà in una risorsa, lasciando però invariate le altre proprietà, questa operazione deve essere implementata mediante una richiesta HTTP PATCH. Tuttavia, molte implementazioni RESTful non applicano questa regola in modo rigido e usano PUT per entrambi i casi.
+> [AZURE.NOTE] In modo più specifico, una richiesta HTTP PUT sostituisce una risorsa esistente con la risorsa specificata nel corpo della richiesta. Se si intende modificare una selezione di proprietà in una risorsa, lasciando però invariate le altre proprietà, questa operazione deve essere implementata mediante una richiesta HTTP PATCH. Tuttavia, molte implementazioni RESTful non applicano questa regola in modo rigido e usano PUT per entrambi i casi.
 
 ### Elaborazione di richieste HTTP
 I dati inclusi da un'applicazione client in molte richieste HTTP e i corrispondenti messaggi di risposta dal server Web possono essere presentati in diversi formati o tipi di supporti. I dati che specificano i dettagli per un cliente o un ordine, ad esempio, possono essere forniti come XML, JSON o un altro formato codificato e compresso. Un'API Web RESTful deve supportare tipi di supporti diversi, come richiesto dall'applicazione client che invia una richiesta.
@@ -157,7 +157,7 @@ Accept: application/json
 
 Se il server Web supporta questo tipo di supporto, può rispondere con una risposta che include l'intestazione Content-Type che specifica il formato dei dati nel corpo del messaggio:
 
-> [AZURE.NOTE]Per garantire la massima interoperabilità, i tipi di supporti cui si fa riferimento nelle intestazioni Accept e Content-Type devono essere tipi MIME riconosciuti piuttosto che un tipo di supporto personalizzato.
+> [AZURE.NOTE] Per garantire la massima interoperabilità, i tipi di supporti cui si fa riferimento nelle intestazioni Accept e Content-Type devono essere tipi MIME riconosciuti piuttosto che un tipo di supporto personalizzato.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -214,11 +214,11 @@ Location: http://adventure-works.com/orders/1
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 ```
 
-> [AZURE.TIP]Se i dati in un messaggio di richiesta HTTP PUT includono informazioni su data e ora, verificare che il servizio Web accetti la data e l’ora formattate in base allo standard ISO 8601.
+> [AZURE.TIP] Se i dati in un messaggio di richiesta HTTP PUT includono informazioni su data e ora, verificare che il servizio Web accetti la data e l’ora formattate in base allo standard ISO 8601.
 
 Se la risorsa da aggiornare non esiste, il server Web può rispondere con una risposta Non trovato, come descritto in precedenza. In alternativa, se il server crea effettivamente l'oggetto stesso può restituire i codici di stato HTTP 200 (OK) o HTTP 201 (Creato) e il corpo della risposta può contenere i dati per la nuova risorsa. Se nell’intestazione Content-Type della richiesta è specificato un formato di dati che il server Web non è in grado di gestire, risponderà con il codice di stato HTTP 415 (Tipo di supporto non utilizzabile).
 
-> [AZURE.TIP]Prendere in considerazione l’implementazione di operazioni HTTP PUT in blocco in grado di eseguire aggiornamenti in batch di più risorse in una raccolta. La richiesta PUT deve specificare l'URI della raccolta e il corpo della richiesta deve specificare i dettagli delle risorse da modificare. Questo approccio consente di ridurre la frammentarietà e migliorare le prestazioni.
+> [AZURE.TIP] Prendere in considerazione l’implementazione di operazioni HTTP PUT in blocco in grado di eseguire aggiornamenti in batch di più risorse in una raccolta. La richiesta PUT deve specificare l'URI della raccolta e il corpo della richiesta deve specificare i dettagli delle risorse da modificare. Questo approccio consente di ridurre la frammentarietà e migliorare le prestazioni.
 
 Il formato delle richieste HTTP POST che consentono di creare nuove risorse è simile a quello delle richieste PUT. Il corpo del messaggio contiene i dettagli della nuova risorsa da aggiungere. Tuttavia, in genere l’URI specifica la raccolta a cui deve essere aggiunta la risorsa. L'esempio seguente crea un nuovo ordine che viene aggiunto alla raccolta di ordini:
 
@@ -245,7 +245,7 @@ Content-Length: ...
 {"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
-> [AZURE.TIP]Se i dati forniti da una richiesta PUT o POST non sono validi, il server Web deve rispondere con un messaggio con codice di stato HTTP 400 (Richiesta errata). Il corpo di questo messaggio può contenere informazioni aggiuntive sul problema con la richiesta e i formati attesi oppure può contenere un collegamento a un URL in cui vengono forniti altri dettagli.
+> [AZURE.TIP] Se i dati forniti da una richiesta PUT o POST non sono validi, il server Web deve rispondere con un messaggio con codice di stato HTTP 400 (Richiesta errata). Il corpo di questo messaggio può contenere informazioni aggiuntive sul problema con la richiesta e i formati attesi oppure può contenere un collegamento a un URL in cui vengono forniti altri dettagli.
 
 Per rimuovere una risorsa, una richiesta HTTP DELETE fornisce semplicemente l'URI della risorsa da eliminare. L'esempio seguente prova a rimuovere l’ordine 99:
 
@@ -264,7 +264,7 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 
 Se la risorsa non viene trovata, il server Web deve restituire, invece, un messaggio 404 (Non trovato).
 
-> [AZURE.TIP]Se tutte le risorse in una raccolta devono essere eliminate, consentire di specificare una richiesta HTTP DELETE per l'URI della raccolta piuttosto che forzare un'applicazione a rimuovere ciascuna risorsa, a turno, dalla raccolta.
+> [AZURE.TIP] Se tutte le risorse in una raccolta devono essere eliminate, consentire di specificare una richiesta HTTP DELETE per l'URI della raccolta piuttosto che forzare un'applicazione a rimuovere ciascuna risorsa, a turno, dalla raccolta.
 
 ### Filtro e paginazione dei dati
 
@@ -282,7 +282,7 @@ Alcune richieste HTTP GET semplici sulle risorse della raccolta potrebbero resti
 
 È possibile estendere questo approccio per limitare (proiettare) i campi restituiti se un singolo elemento risorsa contiene una grande quantità di dati. Ad esempio, è possibile utilizzare un parametro di stringa di query che accetta un elenco di campi delimitato da virgole, come _/orders?fields=ProductID,Quantity_.
 
-> [AZURE.TIP]Assegnare valori predefiniti significativi a tutti i parametri facoltativi nelle stringhe di query. Ad esempio, impostare il parametro `limit` su 10 e il parametro `offset` su 0 se si implementa la paginazione, impostare il parametro Sort sulla chiave della risorsa se si implementa l’ordinamento e impostare il parametro `fields` su tutti i campi della risorsa se si supportano le proiezioni.
+> [AZURE.TIP] Assegnare valori predefiniti significativi a tutti i parametri facoltativi nelle stringhe di query. Ad esempio, impostare il parametro `limit` su 10 e il parametro `offset` su 0 se si implementa la paginazione, impostare il parametro Sort sulla chiave della risorsa se si implementa l’ordinamento e impostare il parametro `fields` su tutti i campi della risorsa se si supportano le proiezioni.
 
 ### Gestione di risorse binarie di grandi dimensioni
 
@@ -349,7 +349,7 @@ Content-Range: bytes 2500-4580/4580
 
 Una delle principali motivazioni alla base dell’approccio REST è che dovrebbe essere possibile spostarsi nell'intero set di risorse senza conoscere a priori lo schema URI. Ogni richiesta HTTP GET deve restituire le informazioni necessarie a trovare le risorse correlate direttamente all'oggetto richiesto tramite collegamenti ipertestuali inclusi nella risposta e deve anche contenere informazioni che descrivono le operazioni disponibili in ciascuna di queste risorse. Tale principio è noto come HATEOAS o Hypertext as the Engine of Application State. Il sistema è in realtà una macchina a stati finiti e la risposta a ogni richiesta contiene le informazioni necessarie per passare da uno stato all’altro. Non dovrebbero essere necessarie altre informazioni.
 
-> [AZURE.NOTE]Attualmente non esistono standard o specifiche che definiscono come modellare il principio HATEOAS. Gli esempi mostrati in questa sezione illustrano una possibile soluzione.
+> [AZURE.NOTE] Attualmente non esistono standard o specifiche che definiscono come modellare il principio HATEOAS. Gli esempi mostrati in questa sezione illustrano una possibile soluzione.
 
 Ad esempio, per gestire la relazione tra clienti e ordini, i dati restituiti nella risposta per un ordine specifico devono contenere gli URI sotto forma di un collegamento ipertestuale che identifica il cliente che ha effettuato l'ordine e le operazioni che possono essere eseguite su tale cliente.
 
@@ -359,7 +359,7 @@ Accept: application/json
 ...
 ```
 
-Il corpo del messaggio di risposta contiene una matrice `links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (\__http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. La matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
+Il corpo del messaggio di risposta contiene una matrice `links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (_http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. La matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +395,7 @@ Il controllo delle versioni consente a un’API Web di indicare le funzionalità
 
 Si tratta dell'approccio più semplice e può essere accettabile per alcune API interne. Grandi cambiamenti potrebbero essere rappresentati come nuove risorse o nuovi collegamenti. L’aggiunta di contenuto alle risorse esistenti potrebbe non presentare una modifica sostanziale in quanto le applicazioni client che non prevedono di visualizzare che questo contenuto lo ignoreranno semplicemente.
 
-Ad esempio, una richiesta all'URI \__http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `id`, `name`, e `address` previsti dall'applicazione client:
+Ad esempio, una richiesta all'URI _http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `id`, `name`, e `address` previsti dall'applicazione client:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -406,7 +406,7 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-> [AZURE.NOTE]Ai fini della semplicità e della chiarezza, le risposte di esempio illustrate in questa sezione non includono collegamenti HATEOAS.
+> [AZURE.NOTE] Ai fini della semplicità e della chiarezza, le risposte di esempio illustrate in questa sezione non includono collegamenti HATEOAS.
 
 Se il campo `DateCreated` viene aggiunto allo schema della risorsa customer, la risposta sarà simile alla seguente:
 
@@ -440,11 +440,11 @@ Questo meccanismo di controllo delle versioni è molto semplice, ma dipende dal 
 
 ### Controllo delle versioni tramite la stringa di query
 
-Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio \__http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
+Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio _http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
 
 Questo approccio ha il vantaggio semantico che la stessa risorsa viene sempre recuperata dallo stesso URI, ma dipende dal codice che gestisce la richiesta analizzare la stringa di query e inviare la risposta HTTP appropriata. Questo approccio presenta anche le stesse complicazioni per l'implementazione di HATEOAS del meccanismo di controllo delle versioni tramite URI.
 
-> [AZURE.NOTE]Alcuni Web browser e proxy Web meno recenti non memorizzano nella cache le risposte per le richieste che includono una stringa di query nell'URL. Ciò può avere un impatto negativo sulle prestazioni per le applicazioni Web che utilizzano un'API Web e che vengono eseguite dall'interno di questo tipo di Web browser.
+> [AZURE.NOTE] Alcuni Web browser e proxy Web meno recenti non memorizzano nella cache le risposte per le richieste che includono una stringa di query nell'URL. Ciò può avere un impatto negativo sulle prestazioni per le applicazioni Web che utilizzano un'API Web e che vengono eseguite dall'interno di questo tipo di Web browser.
 
 ### Controllo delle versioni tramite l’intestazione
 
@@ -514,7 +514,7 @@ Se l'intestazione Accept non specifica alcun tipo di supporto noto, il server We
 
 Questo approccio è senza dubbio il meccanismo di controllo delle versioni più puro e si presta naturalmente a HATEOAS, che può includere il tipo MIME dei dati correlati nei collegamenti alle risorse.
 
-> [AZURE.NOTE]Quando si seleziona una strategia di controllo delle versioni, è consigliabile tenere in considerazione anche le implicazioni sulle prestazioni, soprattutto la memorizzazione nella cache sul server Web. Il controllo delle versioni tramite URI e gli schemi di controllo delle versioni tramite la stringa di query sono adatti alla cache perché la stessa combinazione URI/stringa di query fa riferimento ogni volta agli stessi dati.
+> [AZURE.NOTE] Quando si seleziona una strategia di controllo delle versioni, è consigliabile tenere in considerazione anche le implicazioni sulle prestazioni, soprattutto la memorizzazione nella cache sul server Web. Il controllo delle versioni tramite URI e gli schemi di controllo delle versioni tramite la stringa di query sono adatti alla cache perché la stessa combinazione URI/stringa di query fa riferimento ogni volta agli stessi dati.
 
 > I meccanismi di controllo delle versioni tramite intestazione e tipo di supporto in genere richiedono logica aggiuntiva per esaminare i valori nell’intestazione personalizzata o nell'intestazione Accept. In un ambiente su larga scala, la presenza di molti client che usano versioni diverse di un'API Web può comportare una notevole quantità di dati duplicati in una cache lato server. Questo problema può diventare evidente se un'applicazione client comunica con un server Web tramite un proxy che implementa la memorizzazione nella cache e che inoltra una richiesta al server Web solo se attualmente non mantiene una copia dei dati richiesti nella propria cache.
 
@@ -524,4 +524,3 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 - L’[elenco di controllo delle API Web](https://mathieu.fenniak.net/the-api-checklist/) contiene un utile elenco di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
 
 <!---HONumber=AcomDC_1223_2015-->
-<!---Line 109, delete "under break"-->
