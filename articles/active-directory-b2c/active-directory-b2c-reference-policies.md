@@ -74,7 +74,8 @@ Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri 
 4. Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione. Ad esempio, immettere "SiUp".
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 
-    > [AZURE.NOTE]Per gli account locali, i criteri di sottoscrizione di AD B2C di Azure utilizzano password "Complesse" (che sono impostate su "Nessuna scadenza"). Vedere [criteri password di Microsoft Azure](https://msdn.microsoft.com/library/azure/jj943764.aspx) per altre impostazioni (attualmente non utilizzati da Azure AD B2C).
+    > [AZURE.NOTE]
+    Per gli account locali, i criteri di sottoscrizione di AD B2C di Azure utilizzano password "Complesse" (che sono impostate su "Nessuna scadenza"). Vedere [criteri password di Microsoft Azure](https://msdn.microsoft.com/library/azure/jj943764.aspx) per altre impostazioni (attualmente non utilizzati da Azure AD B2C).
 
 6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
@@ -82,7 +83,8 @@ Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri 
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUp**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
 
-    > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > [AZURE.NOTE]
+    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
 ## Come creare i criteri di accesso
 
@@ -98,7 +100,8 @@ Per abilitare l'accesso nell'applicazione, sarà necessario creare i criteri di 
 8. Aprire il criterio facendo clic su "**B2C\_1\_SiIn**".
 9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
 
-    > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > [AZURE.NOTE]
+    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
 ## Come creare i criteri di modifica del profilo
 
@@ -115,6 +118,7 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiPe**".
 10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
 
-    > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    > [AZURE.NOTE]
+    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
 <!---HONumber=AcomDC_0107_2016-->

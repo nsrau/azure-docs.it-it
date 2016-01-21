@@ -276,11 +276,11 @@ Il server di configurazione viene distribuito in un servizio cloud di Azure crea
 	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo, la porta e le credenziali.
 	- Gli URL seguenti dovranno essere accessibili tramite il proxy:
 		- *.hypervrecoverymanager.windowsazure.com
-- *.accesscontrol.windows.net
-- *.backup.windowsazure.com
-- *.blob.core.windows.net
-- *. store.core.windows.net
-- Se sono presenti regole firewall basate sull'indirizzo IP, verificare che siano impostate per autorizzare la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e per il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *. store.core.windows.net
+	- Se sono presenti regole firewall basate sull'indirizzo IP, verificare che siano impostate per autorizzare la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e per il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 	![Registrazione del proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -780,3 +780,4 @@ The information in Section B is regarding Third Party Code components that are b
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=AcomDC_0107_2016-->
+
