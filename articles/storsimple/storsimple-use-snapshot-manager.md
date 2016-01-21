@@ -490,7 +490,8 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 | V | Consente di aprire il menu **Visualizza**. |
 | W | Consente di aprire una nuova console di Gestione snapshot StorSimple incentrata sul nodo **Gruppi di volumi**.|
 | F | Consente di aggiornare la console di Gestione snapshot StorSimple.|
-| L | Consente di aprire la pagina **Esporta elenco**. | H | Consente di aprire la guida in linea.|
+| L | Consente di aprire la pagina **Esporta elenco**.
+| H | Consente di aprire la guida in linea.|
  
 #### Tasti di scelta rapida del nodo Catalogo di backup
 

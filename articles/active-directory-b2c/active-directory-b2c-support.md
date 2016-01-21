@@ -30,6 +30,7 @@
 
     ![Supporto - Cambio di directory](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. Dopo aver cambiato la directory, fare clic su **Guida + supporto**.
 
     ![Supporto -Supporto](./media/active-directory-b2c-support/support-support.png)
