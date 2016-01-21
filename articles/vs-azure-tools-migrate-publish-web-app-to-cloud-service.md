@@ -47,7 +47,7 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
   >[AZURE.IMPORTANT]Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.
 
-  >[AZURE.NOTE]Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
+>[AZURE.NOTE]Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
 
   Se si dispone di più progetti Web nell'applicazione web e si desidera creare ruoli Web per ciascun progetto Web, è necessario eseguire i passaggi in questa procedura per ciascun progetto Web. Questo crea progetti Azure distinti per ogni ruolo Web. Ciascun progetto Web può essere pubblicato separatamente. In alternativa, è possibile aggiungere manualmente un altro ruolo Web a un progetto Azure esistente nell'applicazione Web. A tale scopo, aprire il menu di scelta rapida per la cartella **Ruoli** nel progetto Azure, scegliere **Aggiungi**, quindi **Progetto ruolo Web nella soluzione**, scegliere il progetto da aggiungere come ruolo Web e quindi scegliere il pulsante **OK**.
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->

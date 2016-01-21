@@ -132,7 +132,12 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 La tabella seguente illustra i limiti imposti sull'assegnazione degli indirizzi IP in Azure per ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
 
-||Limite predefinito|Limite massimo| |---|---|---| |Indirizzi IP pubblici (dinamici)|5|contattare il supporto tecnico| |Indirizzi IP pubblici riservati|20|contattare il supporto tecnico| |Indirizzo VIP pubblico per distribuzione (servizio cloud)|5|contattare il supporto tecnico| |VIP privato (ILB) per distribuzione (servizio cloud)|1|1|
+||Limite predefinito|Limite massimo|
+|---|---|---|
+|Indirizzi IP pubblici (dinamici)|5|contattare il supporto tecnico|
+|Indirizzi IP pubblici riservati|20|contattare il supporto tecnico|
+|Indirizzo VIP pubblico per distribuzione (servizio cloud)|5|contattare il supporto tecnico|
+|VIP privato (ILB) per distribuzione (servizio cloud)|1|1|
 
 Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure-subscription-service-limits.md#networking-limits) in Azure.
 
@@ -143,7 +148,16 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 ## Differenze tra le distribuzioni di Gestione risorse e le distribuzioni classiche
 Di seguito è riportato un confronto tra la funzione di assegnazione degli indirizzi IP in Gestione risorse e quella usata nel modello di distribuzione classico.
 
-|| Risorsa| Classico| Gestione risorse| |---|---|---|---| |**Indirizzo IP pubblico**|VM|Definito come un ILPIP (solo dinamico)|Definito come un indirizzo IP pubblico (dinamico o statico)| |||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda di interfaccia di rete della VM| ||Servizio di bilanciamento del carico con connessione Internet|Definito indirizzo VIP (dinamico) o indirizzo IP riservato (statico)|Definito come un indirizzo IP pubblico (dinamico o statico| ||| Assegnato a un servizio cloud|Associato alla configurazione front-end del servizio di bilanciamento del carico| |||| |**Indirizzo IP privato**|VM|Definito come DIP|Definito come indirizzo di IP privato| |||Assegnato a una VM IaaS o a un'instanza del ruolo PaaS|Assegnato a una scheda di interfaccia di rete della macchina virtuale| ||Servizio di bilanciamento del carico interno|Assegnato al servizio di bilanciamento del carico interno (statico o dinamico)|Assegnato alla configurazione front-end del servizio di bilanciamento del carico interno (dinamico o statico)|
+|| Risorsa| Classico| Gestione risorse|
+|---|---|---|---|
+|**Indirizzo IP pubblico**|VM|Definito come un ILPIP (solo dinamico)|Definito come un indirizzo IP pubblico (dinamico o statico)|
+|||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda di interfaccia di rete della VM|
+||Servizio di bilanciamento del carico con connessione Internet|Definito indirizzo VIP (dinamico) o indirizzo IP riservato (statico)|Definito come un indirizzo IP pubblico (dinamico o statico|
+||| Assegnato a un servizio cloud|Associato alla configurazione front-end del servizio di bilanciamento del carico|
+||||
+|**Indirizzo IP privato**|VM|Definito come DIP|Definito come indirizzo di IP privato|
+|||Assegnato a una VM IaaS o a un'instanza del ruolo PaaS|Assegnato a una scheda di interfaccia di rete della macchina virtuale|
+||Servizio di bilanciamento del carico interno|Assegnato al servizio di bilanciamento del carico interno (statico o dinamico)|Assegnato alla configurazione front-end del servizio di bilanciamento del carico interno (dinamico o statico)|
 
 ## Passaggi successivi
 - [Distribuire una macchina virtuale con un indirizzo IP pubblico statico](virtual-network-deploy-static-pip-classic-ps.md)
@@ -153,4 +167,4 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 - [Creare un gateway applicazione con PowerShell](application-gateway-create-gateway.md)
 - [Creare un gateway applicazione interno con PowerShell](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
