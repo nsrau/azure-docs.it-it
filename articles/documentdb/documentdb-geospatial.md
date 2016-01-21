@@ -43,7 +43,7 @@ Un **punto** indica una posizione singola nello spazio. In dati geospaziali, un 
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180° e 180,0° gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0° e 90,0°.
+>[AZURE.NOTE]GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180 e 180,0 gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0 e 90,0.
 >
 > DocumentDB interpreta le coordinate come rappresentate secondo il sistema di riferimento WGS-84. Per ulteriori informazioni sui sistemi di coordinate di riferimento, vedere di seguito.
 
