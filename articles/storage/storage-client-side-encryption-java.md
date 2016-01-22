@@ -248,6 +248,3 @@ Scaricare i pacchetti Maven [Core](http://www.nuget.org/packages/Microsoft.Azure
 Visitare la [documentazione dell'insieme di credenziali delle chiavi di Azure](../articles/key-vault-whatis.md)  
 
 <!-----HONumber=AcomDC_0107_2016-->
-
-
-
