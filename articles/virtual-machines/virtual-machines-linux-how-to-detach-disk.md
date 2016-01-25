@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Informazioni su come scollegare un disco da una macchina virtuale Linux
@@ -30,4 +30,4 @@
 
 [Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

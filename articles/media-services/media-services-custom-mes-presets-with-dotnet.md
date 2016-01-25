@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 - [Tagliare un video (ritaglio)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Creare una sovrimpressione](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Inserire una traccia audio silenziosa quando l'input è privo di audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [Disabilitare il deinterlacciamento automatico](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>Codifica con Media Services .NET SDK
 
@@ -37,7 +37,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare il set di impostazioni [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json) in un file e usare il codice seguente per caricare il file.
+- Caricare il set di impostazioni XML o JSON personalizzato. È possibile salvare XML o JSON (ad esempio [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) in un file e usare il codice seguente per caricare il file.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -216,7 +216,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 ##<a id="thumbnails"></a>Generare anteprime
 
-Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile eseguire uno dei set di impostazioni per Media Encoder Standard documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
+Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
 
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
@@ -420,14 +420,20 @@ Si applicano le considerazioni seguenti:
 
 ##<a id="trim_video"></a>Tagliare un video (ritaglio)
 
-Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ritagliare o tagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per Media Encoder Standard documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
+Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
 
 ###<a id="json"></a>Set di impostazioni JSON
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -535,20 +541,132 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per Medi
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###Set di impostazioni XML
+	
+Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
 ##<a id="overlay"></a>Creare una sovrimpressione
 
-Media Encoder Standard consente di sovrapporre un'immagine (ad esempio in formato JPG o GIF) a un video esistente. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
+Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
 >[AZURE.NOTE]Attualmente, l'impostazione di opacità della sovrimpressione non è supportata.
 
@@ -703,7 +821,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
 
-È possibile eseguire uno dei set di impostazioni per Media Encoder Standard documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+È possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
 
 ###Set di impostazioni JSON
 
@@ -723,6 +841,39 @@ Per forzare la generazione di un asset contenente una traccia audio silenziosa d
       <Bitrate>96</Bitrate>
     </AACAudio>
 
+##<a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
+
+I clienti non devono eseguire alcuna operazione se desiderano che il contenuto interlacciato sia automaticamente deinterlacciato. Quando il deinterlacciamento automatico è attivato (impostazione predefinita) il MES rileva automaticamente i fotogrammi interlacciati e deinterlaccia solo i fotogrammi contrassegnati come interlacciati.
+
+È possibile disattivare il deinterlacciamento automatico. Questa opzione non è consigliata.
+
+###Set di impostazioni JSON
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###Set di impostazioni XML
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
+
 ##Percorsi di apprendimento di Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -735,4 +886,4 @@ Per forzare la generazione di un asset contenente una traccia audio silenziosa d
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

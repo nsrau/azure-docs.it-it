@@ -57,13 +57,13 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	![Nome del cluster, tipo di cluster e tipo di sistema operativo](./media/hdinsight-administer-use-portal-linux/clustername.png)
 
-4. Se si dispone di più di una sottoscrizione, selezionare la voce __Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
+4. Se si dispone di più di una sottoscrizione, selezionare la voce__Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà utilizzata per il cluster.
 
 5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
 	> [AZURE.NOTE]Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Selezionare __Credenziali__ e quindi immettere una __Password dell'account di accesso del cluster__ per il __Nome utente dell'account di accesso del cluster__. È anche necessario specificare un __Nome utente SSH__ e una __PASSWORD__ o una __CHIAVE PUBBLICA__, che verranno usati per autenticare l'utente SSH. Infine, usare il pulsante __Seleziona__ per impostare le credenziali. Il desktop remoto non verrà utilizzato in questo documento, pertanto è possibile lasciarlo disabilitato.
+6. Selezionare __Credenziali__ e quindi immettere una __password dell'account di accesso del cluster__ per il __nome utente dell'account di accesso del cluster__. È anche necessario specificare un __Nome utente SSH__ e una __PASSWORD__ o una __CHIAVE PUBBLICA__, che verranno usati per autenticare l'utente SSH. Infine, usare il pulsante __Seleziona__ per impostare le credenziali. Il desktop remoto non verrà utilizzato in questo documento, pertanto è possibile lasciarlo disabilitato.
 
 	![Pannello credenziali del cluster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
     
@@ -79,7 +79,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	![Pannello di origine dati](./media/hdinsight-administer-use-portal-linux/datasource.png)
 
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Utilizzare quanto segue per comprendere le voci nel pannello __Origine dati__.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Usare le informazioni seguenti per comprendere le voci nel pannello __Origine dati__.
 
 	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Tasto di scelta__ se si desidera immettere il __Nome di archiviazione__ e il __Tasto di scelta__ di un account di archiviazione esistente.
 
@@ -87,14 +87,14 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	- __Scegli contenitore predefinito__: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
-	- __Percorso__: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
+	- __Località__: l'area geografica in cui si trova o in cui verrà creato l'account di archiviazione.
 
 		> [AZURE.IMPORTANT]La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l’origine dati predefinita devono trovarsi nella stessa area.
 
-	- __Seleziona__: per salvare la configurazione dell’origine dati.
+	- __Seleziona__: per salvare la configurazione dell'origine dati.
 
 	
-8. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, verrà impostato il numero di nodi di lavoro su __4__.
+8. Selezionare __Piani tariffari per il nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, verrà impostato il numero di nodi di lavoro su __4__.
 
 
 	Verrà visualizzato il costo stimato del cluster in fondo al pannello.
@@ -109,15 +109,9 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	* __Metastore esterni__: consente di selezionare un Database SQL, che verrà utilizzato per archiviare informazioni di configurazione per Oozie e Hive. In questo modo è possibile riutilizzare la configurazione quando si elimina e si ricrea un cluster, anziché dover ricreare la configurazione Hive e Oozie ogni volta.
 
-	* __Rete virtuale__: consente di posizionare il cluster HDInsight nella stessa rete virtuale delle altre risorse, ad esempio il database SQL o una macchina virtuale di Azure. Se le risorse si trovano in una rete virtuale possono comunicare direttamente l'una con l'altra, ignorando i gateway pubblici che gestiscono il traffico in ingresso da Internet. Per altre informazioni sui vantaggi delle reti virtuali di Azure su HDInsight, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
-
-		> [AZURE.IMPORTANT]È necessario creare la rete virtuale di Azure prima di creare il cluster HDInsight, perché non è possibile creare una nuova rete dalla configurazione di HDInsight.
-		>
-		> Al momento (25/08/2015) è prevista una limitazione in base alla quale può essere presente un solo cluster HDInsight basato su Linux in una rete virtuale di Azure.
-        >
-        > Non è possibile usare una rete virtuale di Azure v1 (classica) con HDInsight basato su Linux. La rete virtuale deve essere v2 (Gestione risorse di Azure) per poter essere elencata come opzione durante il processo di creazione di cluster HDInsight nel portale di Azure o possa essere usata durante la creazione di un cluster mediante l'interfaccia della riga di comando di Azure o Azure PowerShell.
-        >
-        > Se si dispone di risorse in una rete v1 e si desidera rendere HDInsight direttamente accessibile a tali risorse attraverso una rete virtuale, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md) per informazioni su come connettere una rete virtuale v2 a una rete virtuale v1. Una volta stabilita la connessione, è possibile creare il cluster HDInsight nella rete virtuale v2.
+	* __Rete virtuale__: consente di posizionare il cluster HDInsight nella stessa rete virtuale delle altre risorse, ad esempio il database SQL o una macchina virtuale di Azure. Se le risorse si trovano in una rete virtuale possono comunicare direttamente l'una con l'altra, ignorando i gateway pubblici che gestiscono il traffico in ingresso da Internet.
+    
+        Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 	* __Azioni script__: consente di specificare script Bash per personalizzare il cluster HDInsight durante il provisioning. Ad esempio, è disponibile uno [script che installa Hue](hdinsight-hadoop-hue-linux.md), un client grafico per l'utilizzo di Hadoop. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -133,7 +127,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 	| ------------------ | --------------------- |
 	| ![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro nella Schermata iniziale o la voce __Notifiche__ nella parte sinistra della pagina per controllare il processo di provisioning.
+	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
 
 ## Gestire un cluster
 
@@ -141,7 +135,7 @@ Selezionando un cluster dal portale di Azure verranno visualizzate le informazio
 
 ![Dettagli cluster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
-Utilizzare quanto segue per comprendere le icone nella parte superiore di questo pannello e nelle sezioni __Essentials__ e __Collegamenti rapidi__:
+Usare le informazioni seguenti per comprendere le icone nella parte superiore di questo pannello e nelle sezioni __Informazioni di base__ e __Collegamenti__:
 
 * __Impostazioni__ e __Tutte le impostazioni__: consentono di visualizzare il pannello__Impostazioni__ per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
 
@@ -149,11 +143,11 @@ Utilizzare quanto segue per comprendere le icone nella parte superiore di questo
 
 * __Secure Shell__: informazioni necessarie per accedere al cluster tramite SSH.
 
-* __Scala Cluster__: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
+* __Ridimensiona cluster__: consente di modificare il numero di nodi di lavoro per questo cluster.
 
 * __Elimina__: consente di eliminare il cluster HDInsight.
 
-* __Guide rapide (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))__: Visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
+* __Guide rapide__ (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a utilizzare HDInsight.
 
 * __Utenti (![icona utenti](./media/hdinsight-administer-use-portal-linux/users.png))__: consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
 
@@ -167,7 +161,7 @@ Utilizzare quanto segue per comprendere le icone nella parte superiore di questo
 
 ### <a name="scaling"></a>Ridimensionamento
 
-Per ridimensionare un cluster tramite il portale, selezionare il cluster HDInsight e quindi __Ridimensiona cluster__. Specificare il __Numero di nodi del ruolo di lavoro__ da impostare per il cluster e quindi fare clic su __Salva__.
+Per ridimensionare un cluster tramite il portale, selezionare il cluster HDInsight e quindi __Ridimensiona cluster__. Specificare il __Numero di nodi di lavoro__ da impostare per il cluster e quindi fare clic su __Salva__.
 
 ![immagine dell'interfaccia utente di ridimensionamento](./media/hdinsight-administer-use-portal-linux/scaling.png)
 
@@ -179,7 +173,7 @@ La sezione __Utilizzo__ del pannello del cluster HDInsight visualizza informazio
 
 ![Informazioni sull'utilizzo](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per ulteriori informazioni sull'utilizzo di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## Passaggi successivi
 In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale di Azure e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
@@ -193,4 +187,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

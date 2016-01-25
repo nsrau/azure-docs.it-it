@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+	ms.author="robinsh;prkhad"/>
 
 
 # Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure
@@ -72,7 +72,7 @@ Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un accoun
 - Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi. Ad esempio, una macchina virtuale del tipo STANDARD\_DS1 è dotata di 32 MB al secondo destinati alla larghezza di banda disponibili per il traffico dei dischi di Archiviazione Premium. Ciò significa che un disco di Archiviazione Premium P10 collegato a questa macchina virtuale può raggiungere i 32 MB al secondo, ma non può superare i 100 MB al secondo che il disco P10 può fornire. Analogamente, una macchina virtuale del tipo STANDARD\_DS13 può raggiungere 256 MB al secondo in tutti i dischi. Attualmente, la macchina virtuale di dimensioni maggiori nella serie DS è STANDARD\_DS14 e può fornire fino a 512 MB al secondo in tutti i dischi. La macchina virtuale di dimensioni maggiori nella serie GS è STANDARD\_GS5 e può fornire fino a 2000 MB al secondo in tutti i dischi.
 
 	Si noti che questi limiti riguardano solo il traffico su disco, esclusi riscontri nella cache e traffico di rete. Esiste una larghezza di banda separata per il traffico di rete delle macchine virtuali che è diversa dalla larghezza di banda dedicata per i dischi di Archiviazione Premium.
-	
+
 	Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali della serie DS e GS, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
 
 > [AZURE.NOTE]I riscontri nella cache non sono limitati da IOPS/velocità di trasmissione del disco allocati. In altri termini, quando si usa un disco dati con l'impostazione della cache ReadOnly in una macchina virtuale della serie DS o della serie GS, le letture servite dalla cache non sono soggette ai limiti relativi ai dischi di Archiviazione Premium. Di conseguenza, è possibile ottenere una velocità di trasmissione molto elevata da un disco se il carico di lavoro è prevalentemente composto da letture. Si noti che la cache è soggetta a limiti di velocità effettiva/IOPS separati a livello della macchina virtuale in base alle dimensioni della macchina virtuale. Le macchine virtuali della serie DS hanno circa 4000 IOPS e 33 MB/sec per core per la cache e gli IO dell’unità SSD locale.
@@ -335,6 +335,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Documentazione di Archiviazione](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

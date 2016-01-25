@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute tramite Gestione risorse di Azure e PowerShell
@@ -63,7 +63,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 	Prima di creare un circuito ExpressRoute, è necessario disporre di un elenco dei provider di connettività, delle località supportate e delle opzioni di larghezza di banda. Il cmdlet *Get-AzureRmExpressRouteServiceProvider* di PowerShell restituisce queste informazioni, che verranno usate successivamente.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Verificare se sia presente anche il proprio provider di connettività. Prendere nota dei valori seguenti, poiché saranno necessari per la creazione dei circuiti.
 	
@@ -93,13 +93,13 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 	La risposta conterrà la chiave di servizio. È possibile ottenere descrizioni dettagliate di tutti i parametri eseguendo questo comando:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **Elencare tutti i circuiti ExpressRoute.**
 
 	Per ottenere un elenco di tutti i circuiti ExpressRoute creati, è possibile eseguire il comando *Get-AzureRmExpressRouteCircuit*.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	La risposta sarà simile a quella riportata nel seguente esempio:
@@ -159,7 +159,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 	È possibile ottenere descrizioni dettagliate di tutti i parametri eseguendo questo comando:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Inviare la chiave di servizio al provider di connettività per il provisioning.**
 
@@ -215,17 +215,22 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 6. **Creare la configurazione di routing.**
 	
-	Per istruzioni dettagliate, vedere la pagina relativa alla [configurazione di routing del circuito ExpressRoute (creazione e modifica dei peering del circuito)](expressroute-howto-routing-arm.md).
+	Fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md) per istruzioni dettagliate.
 
-7. **Collegare una rete virtuale a un circuito ExpressRoute.**
+>[AZURE.IMPORTANT]Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
 
-	Collegare ora una rete virtuale a un circuito ExpressRoute. È possibile usare [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) quando si usa la modalità di distribuzione di Gestione risorse di Azure. Si sta attualmente lavorando ai passaggi di PowerShell.
+
+7. **Collegare una rete virtuale a un circuito ExpressRoute.** 
+
+	Collegare ora una rete virtuale a un circuito ExpressRoute. Fare riferimento a [Collegamento di reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-arm.md) per istruzioni dettagliate.
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
 È possibile recuperare queste informazioni in qualsiasi momento usando il cmdlet *Get-AzureRmExpressRouteCircuit*. Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti.
 
 		Get-AzureRmExpressRouteCircuit
+
+La risposta sarà simile a quella riportata nel seguente esempio:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+La risposta sarà simile a quella riportata nel seguente esempio:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 È possibile ottenere descrizioni dettagliate di tutti i parametri eseguendo questo comando:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Per modificare un circuito ExpressRoute
 
@@ -351,10 +357,10 @@ Si noti che è necessario scollegare tutte le reti virtuali da ExpressRoute perc
 
 Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
 
-Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *senza provisioning*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
 
 ## Passaggi successivi
 
 - [Configurare il routing](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

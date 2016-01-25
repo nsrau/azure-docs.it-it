@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio" />
 
 # Distribuire l'offerta in Azure Marketplace
@@ -45,4 +45,4 @@ Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per conva
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

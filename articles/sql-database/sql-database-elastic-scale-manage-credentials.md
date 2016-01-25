@@ -70,11 +70,11 @@ Come con le credenziali di amministratore, nessun valore sotto forma di "usernam
 ## Vedere anche
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-[Come aggiungere un utente a un pool elastico di database](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Protezione del Database SQL](sql-database-security.md)
 
 [Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

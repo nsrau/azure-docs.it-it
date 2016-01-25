@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Installazione dei processi di database elastici (panoramica)
+
 I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure classico. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
 Se sono già stati installati i **Processi database elastici** tramite il portale da un’esistente **pool di database elastici**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
@@ -178,13 +179,13 @@ Se è necessaria la disinstallazione, eliminare il gruppo di risorse. Vedere [Co
 
 ## Passaggi successivi
 
-Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo, per ulteriori informazioni, vedere [come aggiungere utenti a tutti i database nel gruppo di database](sql-database-elastic-jobs-add-logins-to-dbs.md). Per un’introduzione, vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
+Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo e vedere [Protezione del Database SQL](sql-database-security.md) per ulteriori informazioni. Per un’introduzione, vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

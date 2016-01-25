@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Analisi di flusso di Azure e Power BI: dashboard di analisi in tempo reale per una visibilità in tempo reale dei flussi di dati
@@ -27,13 +27,13 @@ Questo articolo descrive come creare strumenti di business intelligence personal
 
 > [AZURE.NOTE]L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
 
-## Prerequisiti ##
+## Prerequisiti
 
 * Account di Microsoft Azure
 * Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.  
 * Account aziendale o dell'istituto di istruzione per Power BI
 
-## Creare processi di Analisi di flusso di Azure ##
+## Creare processi di analisi di flusso di Azure
 
 Dal [portale di Azure](https://manage.windowsazure.com), fare clic su **Nuovo, Servizi dati, Analisi dei flussi, Creazione rapida**.
 
@@ -49,7 +49,7 @@ Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un el
 
 > [AZURE.TIP]Il nuovo processo verrà visualizzato nell'elenco con lo stato **Non avviato**. Si noti che il pulsante **Avvia** nella parte inferiore della pagina è disabilitato. Questo è un comportamento previsto, poiché è necessario configurare input, output, query del processo e così via, prima di avviare il processo.
 
-## Specificare l'input del processo ##
+## Specificare l'input del processo
 
 Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di eventi come input con serializzazione JSON e codifica UTF-8.
 
@@ -74,7 +74,7 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
   *	**Codifica** - UTF8
 *	Fare clic sul pulsante con il segno di spunta per aggiungere l'origine e per verificare che Analisi dei flussi possa connettersi all'hub eventi.
 
-## Aggiungere l’output Power BI ##
+## Aggiungere l’output Power BI
 
 1.  Fare clic su **Output** nella parte superiore della pagina, quindi scegliere **Aggiungi output**. Verrà visualizzato Power BI come opzione di output nell’elenco.
 
@@ -106,7 +106,7 @@ Fornire i valori come mostrato di seguito:
 >	[AZURE.WARNING] Inoltre, tenere presente che se Power BI dispone già di un seti di dati e di una tabella caratterizzati dal nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
 
 
-## Scrivere query ##
+## Scrivere query
 
 Andare nella scheda **Query** del processo. Scrivere la query, l’output che si desidera avere in Power BI. Ad esempio, potrebbe essere simile alla query SQL seguente:
 
@@ -127,7 +127,7 @@ Andare nella scheda **Query** del processo. Scrivere la query, l’output che si
     
 Avviare il processo. Confermare che l’hub eventi riceve eventi e che la query genera i risultati previsti. Se la query produce 0 righe, il set di dati e le tabelle Power BI non verranno creati automaticamente.
 
-## Creare il dashboard in Power BI ##
+## Creare il dashboard in Power BI
 
 Andare al sito [Powerbi.com](https://powerbi.com) e accedere con l’account aziendale o dell’istituto di istruzione. Se la query del processo di Analisi di flusso produce risultati, verrà visualizzato il set di dati già creato:
 
@@ -163,14 +163,19 @@ Tenere presente che in questa esercitazione è stato mostrato come creare solo u
 
 Per altre informazioni sulla configurazione di un output di Power BI e per usare i gruppi di Power BI, vedere la [sezione Power BI](stream-analytics-define-outputs.md#power-bi) di [Informazioni sugli output di analisi di flusso](stream-analytics-define-outputs.md "Informazioni sugli output di analisi di flusso"). Un’altra risorsa utile per ulteriori informazioni su come creare dashboard con Power BI è [Dashboard nell’anteprima Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Limitazioni e procedure consigliate ##
+## Limitazioni e procedure consigliate
+
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
 A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
-È consigliabile usare TumblingWindow o HoppingWindow per garantire che il push di dati sia al massimo di 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi: ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
-
-Ad esempio se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si usa la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desidera ottenere i dati medi per dispositivo su Power BI, è possibile effettuare al massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito): ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-
+Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+  
+![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+  
+Ad esempio, se si dispone di 1.000 dispositivi che inviano dati ogni secondo, si utilizza la SKU di Power BI Pro che supporta 1.000.000 righe/ora e si desidera ottenere i dati medi per dispositivo su Power BI, è possibile effettuare massimo un push ogni 4 secondi per dispositivo (come mostrato di seguito):
+  
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+  
 Pertanto sarà necessario modificare la query originale in:
 
     SELECT
@@ -186,7 +191,13 @@ Pertanto sarà necessario modificare la query originale in:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
-## Rinnovo di autorizzazione
+### Aggiornamento di visualizzazione di Power BI
+
+Una domanda comune è: "Perché il dashboard non si aggiorna automaticamente in Power BI?".
+
+Per farlo, utilizzare in Power BI domande e risposte, porre una domanda come "Valore massimo per temp dove timestamp è oggi" e aggiungere il riquadro sul dashboard.
+
+## Rinnovare l'autorizzazione
 
 Esiste una limitazione temporanea in cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con l'output di Power BI. È necessario anche autenticare nuovamente l'account Power BI se la password è stata modificata dopo il processo di creazione o dopo l'ultima autenticazione. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
@@ -196,10 +207,10 @@ Per risolvere questo problema, arrestare il processo in esecuzione e passare all
 
 ![graphic13][graphic13]
 
-## Ottenere aiuto ##
+## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
-## Passaggi successivi ##
+## Passaggi successivi
 
 - [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
@@ -222,4 +233,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

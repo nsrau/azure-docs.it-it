@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-Questa esercitazione spiega come codificare e configurare un'[app per le API](app-service-api-apps-why-best-platform.md) che si connette a una [piattaforma Software-as-a-Service (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con [App Service API app SDK per .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). L'esercitazione spiega anche come chiamare l'app per le API da un client .NET tramite [Servizio app SDK per .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al termine dell'esercitazione, si disporrà di un client app console .NET che chiama un'app per le API .NET in esecuzione nel servizio app di Azure. L'app per le API chiama l'API Dropbox e restituisce un elenco di file e cartelle nell'account Dropbox dell'utente.
+Questa esercitazione spiega come codificare e configurare un'[app per le API](app-service-api-apps-why-best-platform.md) che si connette a una [piattaforma Software-as-a-Service (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con [App Service API app SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). L'esercitazione spiega anche come chiamare l'app per le API da un client .NET tramite [Servizio app SDK per .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al termine dell'esercitazione, si disporrà di un client app console .NET che chiama un'app per le API .NET in esecuzione nel servizio app di Azure. L'app per le API chiama l'API Dropbox e restituisce un elenco di file e cartelle nell'account Dropbox dell'utente.
 
 Invece di scrivere il codice che chiama un'API SaaS direttamente da un'app per le API personalizzata, è possibile chiamare un'[app per le API di un connettore](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) predefinita. Per informazioni in proposito, vedere [Distribuire e configurare un'app per le API del connettore SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
@@ -221,7 +221,7 @@ In questa sezione si crea un progetto app console che usa il codice client gener
 
 2. Impostare un riferimento a System.Windows.Forms.
  
-	* In **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Aggiungi riferimento**.
+	* In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti**, quindi scegliere **Aggiungi riferimento**.
 
 	* Selezionare la casella di controllo a sinistra di **System.Windows.Forms** e quindi fare clic su **OK**.
 	 
@@ -427,7 +427,7 @@ Se viene visualizzato l'errore HTTP 405 quando il codice chiama GetConsentLinkAs
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-L'errore 405 (Metodo non concesso) viene visualizzato perché il client tenta di eseguire una richiesta POST HTTP non SSL, il gateway reindirizza a **https://* e il reindirizzamento genera una richiesta GET. L'URL per recuperare un collegamento di consenso accetta solo richieste POST.
+L'errore 405 (Metodo non concesso) viene visualizzato perché il client tenta di eseguire una richiesta POST HTTP non SSL, il gateway reindirizza a *https://* e il reindirizzamento genera una richiesta GET. L'URL per recuperare un collegamento di consenso accetta solo richieste POST.
 
 ### <a id="400"></a>Errore HTTP 400 invece della pagina di accesso di Dropbox
 
@@ -451,7 +451,7 @@ Se si rimuove %3d%3d dalla fine del valore querystring `error`, si ottiene una s
 
 È stato illustrato come codificare e configurare un'app per le API che si connette a una piattaforma SaaS. Per i collegamenti ad altre esercitazioni su come gestire l'autenticazione nelle app per le api, vedere [Autenticazione per app per le API e per dispositivi mobili - Passaggi successivi](../app-service/app-service-authentication-overview.md#next-steps).
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[portale di anteprima di Azure]: https://portal.azure.com/
+[portale di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

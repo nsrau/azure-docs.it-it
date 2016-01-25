@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 # Passaggi successivi e come gestire Azure AD Connect
@@ -28,7 +28,7 @@ Dopo avere sincronizzato gli utenti nel cloud, occorre assegnare loro una licenz
 1. Accesso al portale di Azure come amministratore.
 2. A sinistra, selezionare **Active Directory**.
 3. Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.
-4. Nella parte superiore della pagina della directory selezionare **Licenze**.
+4. Nella parte superiore della pagina della directory selezionare **Licenses**.
 5. Nella pagina Licenze selezionare Active Directory Premium o Enterprise Mobility Suite e quindi fare clic su **Assegna**.
 6. Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.
 
@@ -69,4 +69,4 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

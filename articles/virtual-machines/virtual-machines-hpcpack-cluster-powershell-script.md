@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # Creare un cluster HPC (High Performance Computing) nelle macchine virtuali di Azure con lo script di distribuzione IaaS di HPC Pack
@@ -39,7 +39,7 @@ Per informazioni generali sulla pianificazione di un cluster HPC Pack, vedere gl
 * **Computer client Windows in cui è stato installato e configurato Azure PowerShell 0.8.7 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Lo script viene eseguito in Gestione del servizio Azure.
 
 
-* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dal [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.0.
+* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dal [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Controllare la versione dello script eseguendolo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.0.
 
 * **File di configurazione script**: sarà necessario creare un file XML usato dallo script per configurare il cluster HPC. Per informazioni ed esempi, vedere le sezioni più avanti in questo argomento.
 
@@ -69,13 +69,13 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 * **NoCleanOnFailure** (facoltativo): specifica che le macchine virtuali di Azure distribuite non correttamente non verranno rimosse. È necessario rimuovere manualmente queste macchine virtuali prima di eseguire nuovamente lo script per continuare la distribuzione. In caso contrario, la distribuzione potrebbe non riuscire.
 
-* **PSSessionSkipCACheck** (facoltativo): per ogni servizio cloud con macchine virtuali distribuite da questo script, viene automaticamente generato da Azure un certificato autofirmato, che viene usato da tutte le macchine virtuali nel servizio cloud come certificato di Gestione remota Windows (WinRM) predefinito. Per distribuire funzionalità HPC in queste macchine virtuali di Azure, per impostazione predefinita lo script installa temporaneamente questi certificati nell'archivio Computer locale\\Autorità di certificazione radice attendibili del computer client, in modo da eliminare l'errore di sicurezza "CA non attendibile" durante l'esecuzione dello script. I certificati vengono rimossi al termine dello script. Se questo parametro è specificato, i certificati non vengono installati nel computer client e l'avviso di sicurezza viene eliminato.
+* **PSSessionSkipCACheck** (facoltativo): per ogni servizio cloud con macchine virtuali distribuite da questo script, viene automaticamente generato da Azure un certificato autofirmato che viene usato da tutte le macchine virtuali nel servizio cloud come certificato di Gestione remota Windows (WinRM) predefinito. Per distribuire funzionalità HPC in queste macchine virtuali di Azure, per impostazione predefinita lo script installa temporaneamente questi certificati nell'archivio computer locale\\autorità di certificazione radice attendibile del computer client, in modo da eliminare l'errore di sicurezza "CA non attendibile" durante l'esecuzione dello script. I certificati vengono rimossi al termine dello script. Se questo parametro è specificato, i certificati non vengono installati nel computer client e l'avviso di sicurezza viene eliminato.
 
     >[AZURE.IMPORTANT]Questo parametro non è consigliato per distribuzioni di produzione.
 
 ### Esempio
 
-L'esempio seguente crea un nuovo cluster HPC Pack usando il file di configurazione MyConfigFile.xml e specifica le credenziali amministrative per l'installazione del cluster.
+L'esempio seguente crea un nuovo cluster HPC Pack usando il file di configurazione *MyConfigFile.xml* e specifica le credenziali amministrative per l'installazione del cluster.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -86,7 +86,6 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 * Lo script usa l'immagine di macchina virtuale HPC Pack in Azure Marketplace per creare il nodo head del cluster. L'immagine corrente è basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 installato.
 
 * Lo script può facoltativamente consentire l'invio di processi tramite il portale Web di HPC Pack o l'API REST HPC Pack.
-
 
 * Se si vuole installare altro software o configurare altre impostazioni, lo script può facoltativamente eseguire script di preconfigurazione e post-configurazione personalizzati nel nodo head.
 
@@ -99,7 +98,7 @@ Il file di configurazione per lo script di distribuzione è un file XML. Il file
 
 ### Esempio 1
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali e 12 nodi di calcolo con l'estensione BGInfo applicata. L'installazione automatica degli aggiornamenti di Windows è disabilitata per tutte le macchine virtuali nella foresta di domini. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo vengono creati in 3 servizi cloud e 3 account di archiviazione (ad esempio, da MyHPCCN-0001 a MyHPCCN-0005 in MyHPCCNService01 e mycnstorage01, da MyHPCCN-0006 a MyHPCCN0010 in MyHPCCNService02 e mycnstorage02 e da MyHPCCN-0011 a MyHPCCN-0012 in MyHPCCNService03 e mycnstorage03). I nodi di calcolo vengono creati da un'immagine privata esistente acquisita da un nodo di calcolo. Il servizio di aumento e riduzione automatico è abilitato con intervalli di aumento e riduzione predefiniti.
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali e 12 nodi di calcolo con l'estensione BGInfo applicata. L'installazione automatica degli aggiornamenti di Windows è disabilitata per tutte le macchine virtuali nella foresta di domini. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo vengono creati in 3 servizi cloud e 3 account di archiviazione (ovvero, da _MyHPCCN-0001_ a _MyHPCCN-0005_ in _MyHPCCNService01_ e _mycnstorage01_; da _MyHPCCN-0006_ a _MyHPCCN0010_ in _MyHPCCNService02_ e _mycnstorage02_; da _MyHPCCN-0011_ a _MyHPCCN-0012_ in _MyHPCCNService03_ e _mycnstorage03_). I nodi di calcolo vengono creati da un'immagine privata esistente acquisita da un nodo di calcolo. Il servizio di aumento e riduzione automatico è abilitato con intervalli di aumento e riduzione predefiniti.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 ### Esempio 2
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster contiene 1 nodo head, 1 server di database con un disco dati da 500 GB, 2 nodi broker che eseguono il sistema operativo Windows Server 2012 R2 e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2012 R2. Il servizio cloud MyHPCCNService viene creato nel gruppo di affinità MyIBAffinityGroup e tutti gli altri servizi cloud vengono creati nel gruppo di affinità MyAffinityGroup. L'API REST del pianificatore di processi HPC e il portale Web di HPC sono abilitati nel nodo head.
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster contiene 1 nodo head, 1 server di database con un disco dati da 500 GB, 2 nodi broker che eseguono il sistema operativo Windows Server 2012 R2 e 5 nodi di calcolo che eseguono il sistema operativo Windows Server 2012 R2. Il servizio cloud MyHPCCNService viene creato nel set di affinità *MyIBAffinityGroup* e tutti gli altri servizi cloud vengono creati nel set di affinità *MyAffinityGroup*. L'API REST del pianificatore di processi HPC e il portale Web di HPC sono abilitati nel nodo head.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 ### Esempio 3
 
-Il file di configurazione seguente crea una nuova foresta di domini e distribuisce un cluster HPC Pack con 1 nodo head con database locali e 20 nodi di calcolo Linux. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo Linux vengono creati in 4 servizi cloud e 4 account di archiviazione (ad esempio, da MyLnxCN-0001 a MyHPCCN-0005 in MyLnxCNService01 e mylnxstorage01, da MyLnxCN-0006 a MyLnxCN-0010 in MyLnxCNService02 e mylnxstorage02, da MyLnxCN-0011 a MyLnxCN-0015 in MyLnxCNService03 e mylnxstorage03 e da MyLnxCN-0016 a MyLnxCN-0020 in MyLnxCNService04 e mylnxstorage04). I nodi di calcolo sono creati da un'immagine OpenLogic CentOS versione 7.0.
+Il file di configurazione seguente crea una nuova foresta di domini e distribuisce un cluster HPC Pack con 1 nodo head con database locali e 20 nodi di calcolo Linux. Tutti i servizi cloud vengono creati direttamente nell'area Asia orientale. I nodi di calcolo Linux vengono creati in 4 servizi cloud e 4 account di archiviazione (ovvero da _MyLnxCN-0001_ a _MyLnxCN-0005_ in _MyLnxCNService01_ e _mylnxstorage01_, da _MyLnxCN-0006_ a _MyLnxCN-0010_ in _MyLnxCNService02_ e _mylnxstorage02_, da _MyLnxCN-0011_ a _MyLnxCN-0015_ in _MyLnxCNService03_ e _mylnxstorage03_, da _MyLnxCN-0016_ a _MyLnxCN-0020_ in _MyLnxCNService04_ e _mylnxstorage04_). I nodi di calcolo sono creati da un'immagine OpenLogic CentOS versione 7.0.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack che include 
 
 ### Esempio 5
 
-Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali, vengono creati 2 modelli di nodo di Azure e vengono creati 3 nodi di Azure di dimensione Medium per il modello di nodo di Azure AzureTemplate1. Un file di script verrà eseguito sul nodo head una volta configurato il nodo.
+Il file di configurazione seguente distribuisce un cluster HPC Pack in una foresta di domini esistente. Il cluster include 1 nodo head con database locali, vengono creati 2 modelli di nodo di Azure e 3 nodi di Azure di dimensione Medium per il modello di nodo di Azure _AzureTemplate1_. Un file di script verrà eseguito sul nodo head una volta configurato il nodo.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 
 * Provare gli strumenti di HPC Pack per avviare, arrestare e rimuovere nodi di calcolo da un cluster. Vedere [Gestire i nodi di calcolo in un cluster HPC Pack in Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

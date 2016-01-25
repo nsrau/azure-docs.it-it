@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Come usare il servizio di archiviazione BLOB (C++) | Microsoft Azure" 
-    description="Informazioni su come usare il servizio di archiviazione BLOB in Azure. Gli esempi sono scritti in C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Come usare il servizio di archiviazione BLOB (C++) | Microsoft Azure"
+    description="Informazioni su come usare il servizio di archiviazione BLOB in Azure. Gli esempi sono scritti in C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Come usare l'archiviazione BLOB da C++  
 
@@ -78,7 +78,7 @@ Successivamente, ottenere un riferimento alla classe **cloud\_blob\_client**, in
 
 In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chi
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/01/2015" 
+    ms.date="01/07/2016" 
     ms.author="elizapo" />
 
 
@@ -44,4 +44,4 @@ Usare le informazioni seguenti per la condivisione di QuickBooks come app in Azu
 
 ![QuickBooks + distribuzione di Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

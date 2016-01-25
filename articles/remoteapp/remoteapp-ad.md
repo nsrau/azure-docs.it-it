@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/28/2015" 
+    ms.date="01/07/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Inoltre, è necessario creare i seguenti oggetti di Active Directory locali:
 
 Entrambi questi oggetti sono necessari quando si crea la raccolta di RemoteApp, sarà dunque necessario innanzitutto eseguire questi passaggi.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

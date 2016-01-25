@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Samanage
@@ -128,13 +128,13 @@ Per consentire agli utenti di Azure AD di accedere a Samanage, è necessario ese
 
     ![Impostazione](./media/active-directory-saas-samanage-tutorial/IC771724.png "Impostazione")
 
-3.  Fare clic sulla scheda **Users**.
+3.  Fare clic sulla scheda **Utenti**.
 
     ![Utenti](./media/active-directory-saas-samanage-tutorial/IC771725.png "Utenti")
 
 4.  Fare clic su **Nuovo utente**.
 
-    ![New User](./media/active-directory-saas-samanage-tutorial/IC771726.png "Nuovo utente")
+    ![Nuovo utente](./media/active-directory-saas-samanage-tutorial/IC771726.png "Nuovo utente")
 
 5.  Digitare l’**indirizzo di posta elettronica** e il **nome** dell’account Azure AD di cui si desidera eseguire il provisioning e fare clic su **Crea utente**.
 
@@ -156,10 +156,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-samanage-tutorial/IC771728.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-samanage-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

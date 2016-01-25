@@ -212,7 +212,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{
@@ -266,4 +266,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

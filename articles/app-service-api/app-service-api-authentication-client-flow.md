@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Chiamare un'app per le API di Azure da un client di app Web autenticato da Azure Active Directory
@@ -91,7 +91,7 @@ Questa pagina verrà modificata successivamente mediante l'aggiunta di una sezio
 
 1. Scaricare il progetto Web dal [repository WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)
  
-2. Seguire le istruzioni relative a **Come eseguire l'esempio** nel [file Leggimi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con le eccezioni seguenti:
+2. Seguire le istruzioni per **Come eseguire l'esempio** nel [file Leggimi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con le eccezioni seguenti:
  
 	* È possibile usare Visual Studio 2015, anche se il file Leggimi richiede l'uso di Visual Studio 2013. 
 
@@ -155,14 +155,14 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
 
 	In questo codice `ConfigHelper.Authority` si risolve in "https://login.microsoftonline.com/{tenant}", ad esempio: "https://login.microsoftonline.com/contoso.onmicrosoft.com".
 
-2.	Aggiungere il codice immediatamente prima dell'istruzione `return View()` alla fine del metodo `About` per chiamare l'app per le API. Nel passaggio successivo il codice verrà aggiunto alla visualizzazione `About` per mostrare i dati restituiti.
+2.	Aggiungere il codice immediatamente prima dell'istruzione `return View()` alla fine del metodo `About` per chiamare l'app per le API. Nel passaggio successivo verrà aggiunto codice alla visualizzazione `About` per mostrare i dati restituiti.
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
 		var contacts = client.Contacts.Get();
 		ViewData["contacts"] = contacts;
 
-3. In *Views/Home/About.cshtml* aggiungere il codice immediatamente dopo l'intestazione `h2` per visualizzare le informazioni di contatto.
+3. In *Views/Home/About.cshtml* aggiungere codice immediatamente dopo l'intestazione `h2` per visualizzare le informazioni di contatto.
 
 		<h3>Contacts</h3>
 		<table class="table table-striped table-bordered table-condensed table-hover">
@@ -223,9 +223,9 @@ Si ringrazia Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))
 
 ## Passaggi successivi
 
-È stato illustrato come eseguire l'autenticazione del flusso client per le app per le API del servizio app. Per informazioni su altri modi per gestire l'autenticazione nelle app per le API, vedere [Autenticazione per le app per le API e dispositivi mobili](../app-service/app-service-authentication-overview.md).
+È stato illustrato come eseguire l'autenticazione del flusso client per le app per le API del servizio app. Per informazioni su altri modi per gestire l'autenticazione nelle app per le API, vedere [Autenticazione per le app per le API e per dispositivi mobili](../app-service/app-service-authentication-overview.md).
 
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

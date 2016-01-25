@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="micurd" 
 	manager="jahogg" 
-	editor="cgronlun"/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -837,7 +837,7 @@ Oltre alla copia asincrona, è possibile anche specificare l'opzione `/SyncCopy`
 
 Durante la copia da Archiviazione file ad Archiviazione BLOB, il tipo di BLOB predefinito è il BLOB in blocchi. Per modificare il tipo di BLOB di destinazione, è possibile specificare l'opzione `/BlobType:page`.
 
-Notare che `/SyncCopy` potrebbe generare ulteriori costi in uscita rispetto alla copia asincrona. Per evitare costi di uscita, è dunque consigliabile usare questa opzione nella macchina virtuale di Azure che si trova nella stessa area dell'account di archiviazione di origine.
+Notare che `/SyncCopy` potrebbe generare ulteriori costi in uscita rispetto alla copia asincrona. Per evitare costi di uscita, è dunque consigliabile usare questa opzione nella VM di Azure che si trova nella stessa area dell'account di archiviazione di origine.
 
 
 ## Copiare le entità in una tabella di Azure con AzCopy
@@ -982,4 +982,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

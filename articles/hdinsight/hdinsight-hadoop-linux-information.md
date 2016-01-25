@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
@@ -196,16 +196,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 	* __Interfaccia utente Storm__: usare la procedura seguente per ribilanciare una topologia tramite l'interfaccia utente Storm.
 
-		1. [Creare un tunnel SSH al cluster e aprire l'interfaccia utente Web Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
-
-		2. Dall'elenco dei servizi nella parte sinistra della pagina selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
-
-
-			![Voce Storm UI in Quick Links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			Verrà visualizzata l'interfaccia utente Storm:
-
-			![interfaccia utente Storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. Aprire \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ nel Web browser, dove CLUSTERNAME è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
 
 		3. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante __Rebalance__. Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.
 
@@ -256,4 +247,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Zoho Mail
@@ -52,7 +52,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zoho
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -111,7 +111,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     6.  In **Algorithm** selezionare **RSA**.
     7.  Fare clic su **OK**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configura accesso Single Sign-On")
 
@@ -152,10 +152,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer | Microsoft Azure" 
-	description="Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer | Microsoft Azure"
+	description="Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer"
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
@@ -364,7 +364,5 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 - [Come monitorare un account di archiviazione](storage-monitor-storage-account.md)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

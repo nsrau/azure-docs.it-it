@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Panoramica delle app per le API
@@ -57,4 +57,4 @@ Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

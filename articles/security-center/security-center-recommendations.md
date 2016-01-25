@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
@@ -70,7 +70,7 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 
 | Raccomandazione | Descrizione |
 |----- |-----|
-| Abilitare la raccolta dati per le sottoscrizioni/macchine virtuali | Consiglia di attivare l'opzione Raccolta dati in Criteri di sicurezza per le macchine virtuali selezionate |
+| Abilitare la raccolta dati per le sottoscrizioni/macchine virtuali | Si consiglia di attivare la raccolta dei dati nei criteri di sicurezza per ogni sottoscrizione o per le VM selezionate. |
 | Risolvere la mancata corrispondenza alle regole della linea di base | Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password. |
 | Applicare gli aggiornamenti di sistema | Consiglia di distribuire nelle macchine virtuali gli aggiornamenti di sistema mancanti (solo macchine virtuali Windows). |
 | Configurare gli elenchi di controllo di accesso per gli endpoint | Consiglia di configurare un elenco di controllo di accesso per limitare l'accesso in ingresso solo alle macchine virtuali (solo macchine virtuali classiche). |
@@ -108,7 +108,7 @@ Una raccomandazione potrebbe essere quella di distribuire una soluzione di sicur
 6. Selezionare **Configurazione macchina virtuale**. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che eseguirà il WAF. ![][8]
 7. Tornare al pannello **Nuovo Web Application Firewall** e selezionare **Informazioni WAF**. Nel pannello **Informazioni WAF** è possibile configurare il Web Application Firewall. Il passaggio 6 consente di configurare la macchina virtuale che eseguirà il firewall, mentre con il passaggio 7 si esegue il provisioning del firewall.
 
-8. Tornare al pannello **Raccomandazioni**. Dopo la creazione del WAF è stata aggiunta una nuova voce: **Finalizzare la configurazione del Web Application Firewall**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione del WAF all'interno della rete virtuale di Azure in modo che possa proteggere l'applicazione. ![][9]
+8. Tornare al pannello **Raccomandazioni**. Dopo la creazione del Web Application Firewall è stata aggiunta una nuova voce: **Finalizzare la configurazione del Web Application Firewall**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione del WAF all'interno della rete virtuale di Azure in modo che possa proteggere l'applicazione. ![][9]
 
 9. Selezionare **Finalizzare la configurazione del Web Application Firewall**. Viene visualizzato un nuovo pannello, in cui è presente un'applicazione Web per la quale è necessario reindirizzare il traffico.
 10. Selezionare l'applicazione Web. Viene visualizzato un pannello in cui è possibile eseguire la procedura per finalizzare la configurazione del Web Application Firewall. Completare la procedura e fare clic su **Limita il traffico**. Il Centro sicurezza di Azure eseguirà automaticamente le operazioni di connessione. ![][10]
@@ -121,7 +121,7 @@ Questo documento ha affrontato il tema delle raccomandazioni relative alla sicur
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
 <!--Image references-->
@@ -135,4 +135,4 @@ Questo documento ha affrontato il tema delle raccomandazioni relative alla sicur
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

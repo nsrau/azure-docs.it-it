@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SAP HANA Cloud Platform
@@ -114,7 +114,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  In **Configuration Type** selezionare **Custom**.
     3.  In **Local Provider Name** lasciare il valore predefinito.
     4.  Per generare una **chiave per la firma** e una coppia di chiavi del **certificato di firma**, fare clic su**Generate Key Pair**.
-    5.  In **Principal Propagation** selezionare **Disabled**.
+    5.  In **Propagazione entità** selezionare **Disabilitato**.
     6.  In **Force Authentication** selezionare **Disabled**.
     7.  Fare clic su **Save**.
 
@@ -194,4 +194,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -20,11 +20,11 @@
 # Creazione di una macchina virtuale che esegue Linux tramite il portale di Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -61,7 +61,7 @@ Andare in Azure Marketplace nel portale di anteprima per individuare l'immagine 
 
 Dopo aver selezionato l'immagine, è possibile utilizzare le impostazioni predefinite di Azure per la maggior parte della configurazione e creare rapidamente la macchina virtuale.
 
-1. Nel pannello **Crea macchina virtuale** fare clic su **Informazioni di base**. Immettere un **Nome** per la macchina virtuale e un file di chiave pubblica (nel formato **ssh-rsa**, in questo caso dal file `~/.ssh/id_rsa.pub`). Se si dispone di più sottoscrizioni, specificarne una per la nuova macchina virtuale, nonché un **Gruppo di risorse** nuovo o esistente e una **Posizione** per il datacenter di Azure.
+1. Nel pannello **Crea macchina virtuale**, fare clic su **Informazioni di base**. Immettere un **Nome** per la macchina virtuale e un file di chiave pubblica (nel formato **ssh-rsa**, in questo caso dal file `~/.ssh/id_rsa.pub`). Se si dispone di più sottoscrizioni, specificarne una per la nuova macchina virtuale, nonché un **gruppo di risorse** nuovo o esistente e una **posizione** per il datacenter di Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
@@ -138,4 +138,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

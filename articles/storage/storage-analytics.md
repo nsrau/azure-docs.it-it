@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Analisi di Archiviazione | Microsoft Azure"
-	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file"
+	pageTitle="Usare Analisi archiviazione per raccogliere dati di log e metriche | Microsoft Azure"
+	description="Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l'archiviazione di BLOB, code e tabelle."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Analisi archiviazione
@@ -206,4 +206,4 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 - [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

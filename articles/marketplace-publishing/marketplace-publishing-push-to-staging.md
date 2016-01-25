@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -146,7 +146,7 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 
 || Immagine di macchina virtuale | Servizio per sviluppatori | Servizio dati | Modello di soluzione |
 |----|----|----|----|----|
-| **Passaggio 3. Eseguire il push dell'offerta in gestione temporanea** | [Testare l'offerta della VM in gestione temporanea](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per sviluppatori in gestione temporanea | [Testare l'offerta del servizio dati in gestione temporanea](marketplace-publishing-data-service-test-in-staging.md) | [Testare il modello di soluzione in gestione temporanea](marketplace-publishing-solution-template-test-in-staging.md)
+| **Passaggio 3. Eseguire il push dell'offerta in gestione temporanea** | [Testare l'offerta della VM in gestione temporanea](marketplace-publishing-vm-image-test-in-staging.md) | [Testare l'offerta del servizio sviluppatori in gestione temporanea](marketplace-publishing-dev-service-test-in-staging.md) | [Testare l'offerta del servizio dati in gestione temporanea](marketplace-publishing-data-service-test-in-staging.md) | [Testare il modello di soluzione in gestione temporanea](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

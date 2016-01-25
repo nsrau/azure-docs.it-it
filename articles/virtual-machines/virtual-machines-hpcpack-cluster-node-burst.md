@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro) come risorse di calcolo a un cluster HPC Pack in Azure
@@ -21,11 +21,11 @@ ms.service="virtual-machines"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-In questo articolo viene illustrato come aggiungere nodi "burst" di Azure (istanze del ruolo di lavoro in esecuzione in un servizio cloud) su richiesta come risorse di calcolo in un nodo head HPC Pack esistente in Azure. Ciò supporta la scalabilità della capacità di calcolo del cluster HPC in Azure, senza dover gestire un set di macchine virtuali dei nodi di calcolo preconfigurate.
+In questo articolo viene illustrato come aggiungere nodi "burst" di Azure (istanze del ruolo di lavoro in esecuzione in un servizio cloud) su richiesta come risorse di calcolo in un nodo head HPC Pack esistente in Azure. Questo consente la scalabilità della capacità di calcolo del cluster HPC in Azure su richiesta, senza dover gestire un set di macchine virtuali dei nodi di calcolo preconfigurate.
 
 ![Nodi burst][burst]
 
->[AZURE.TIP]Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata.
+>[AZURE.TIP]Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
 
 I passaggi descritti in questo articolo consentiranno di aggiungere nodi di Azure rapidamente a una macchina virtuale del nodo head HPC Pack basato su cloud per una distribuzione di test o con modello di verifica. La procedura è essenzialmente identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -83,9 +83,9 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere l'ar
 
 ## Passaggi successivi
 
-* Se si desidera disporre di un modo per aumentare o ridurre automaticamente le risorse di elaborazione di Azure in base al carico di lavoro corrente dei processi e delle attività del cluster, vedere [Aumentare e ridurre le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Se si desidera disporre di un modo per aumentare o ridurre automaticamente le risorse di calcolo di Azure in base al carico di lavoro corrente dei processi e delle attività del cluster, vedere [Aumentare e ridurre automaticamente le risorse di calcolo di Azure in un cluster HPC Pack in base al carico di lavoro del cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

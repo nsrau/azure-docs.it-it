@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Progettazione di tabelle in SQL Data Warehouse #
 SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Archivia i dati in molte posizioni diverse, dette **distribuzioni**. Ogni **distribuzione** è simile a un bucket: archivia un subset univoco dei dati nel data warehouse. Distribuendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse è in grado di offrire un'enorme scalabilità, ben oltre qualsiasi sistema singolo.
@@ -306,4 +306,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

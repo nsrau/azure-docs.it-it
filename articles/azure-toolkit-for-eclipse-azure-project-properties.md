@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
@@ -38,7 +38,7 @@ Nella pagina delle proprietà, è possibile modificare gli elementi seguenti:
 
 [Toolkit di Azure per Eclipse][]
 
-[Installare il Toolkit di Azure per Eclipse][].
+[Installare il Toolkit di Azure per Eclipse.][]
 
 [Creare un'applicazione Hello World per Azure in Eclipse][]
 
@@ -55,10 +55,10 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Proprietà del ruolo di Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Elenco di Account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installare il Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

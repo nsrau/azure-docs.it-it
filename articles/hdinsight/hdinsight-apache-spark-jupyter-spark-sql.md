@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/13/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,8 +23,6 @@
 Informazioni su come creare un cluster Apache Spark in HDInsight e quindi usare il notebook di [Jupyter](https://jupyter.org) per eseguire query interattive Spark SQL nel cluster Spark.
 
    ![Introduzione all'uso di Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Introduzione al tutorial di Apache Spark in HDInsight. Passaggi illustrati: creare un account di archiviazione, creare un cluster, eseguire istruzioni Spark SQL")
-
->[AZURE.NOTE]Per un elenco di problemi noti e limitazioni della versione corrente, vedere [Problemi noti di Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 **Prerequisiti:**
 
@@ -211,7 +209,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -235,6 +233,10 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
+### Problemi noti
+
+* [Problemi noti di Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-known-issues.md)
+
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
@@ -246,4 +248,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

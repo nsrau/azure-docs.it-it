@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2016" 
+	ms.date="01/08/2016" 
 	ms.author="mimig"/>
 
 
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET Samples](documentdb-dotnet-samples.md)
 - [Node.js Samples](documentdb-nodejs-samples.md)
+- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Il repository [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) di GitHub include soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comuni su risorse di DocumentDB. Questo articolo include:
 
@@ -105,4 +106,4 @@ Attività | Informazioni di riferimento sulle API
 
 Per altre informazioni sulla programmazione lato server, vedere [Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

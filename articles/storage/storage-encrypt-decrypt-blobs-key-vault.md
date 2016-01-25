@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="adhurwit"
    manager=""
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/17/2015"
-   ms.author="adhurwit"/>
+   ms.date="01/06/2016"
+   ms.author="lakasa"/>
 
 # Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali chiave di Azure
 
 ## Introduzione
- 
+
 Questa esercitazione illustra come usare la crittografia di archiviazione lato client con l'insieme di credenziali delle chiavi di Azure. Illustra come crittografare e decrittografare un BLOB in un'applicazione console mediante queste tecnologie.
 
 **Tempo previsto per il completamento:** 20 minuti
 
-Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault/key-vault-whatis.md)
+Per informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault/key-vault-whatis.md).
 
-Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere l'articolo di [introduzione alla crittografia lato client per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
+Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
 
 
 ## Prerequisiti
@@ -35,7 +35,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Un account di archiviazione Azure
 - Visual Studio 2013 o versioni successive
-- Azure PowerShell 
+- Azure PowerShell
 
 
 ## Panoramica della crittografia lato client
@@ -69,13 +69,13 @@ In Visual Studio creare una nuova applicazione console.
 
 Aggiungere i pacchetti NuGet necessari nella console Gestione pacchetti.
 
-	Install-Package WindowsAzure.Storage 
+	Install-Package WindowsAzure.Storage
 
 	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
-	Install-Package Microsoft.Azure.KeyVault.Extensions 
+	Install-Package Microsoft.Azure.KeyVault
+	Install-Package Microsoft.Azure.KeyVault.Extensions
 
 
 Aggiungere AppSettings al file App.Config.
@@ -108,13 +108,13 @@ Il metodo seguente viene usato dalle classi dell'insieme di credenziali delle ch
 	{
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(
-	        ConfigurationManager.AppSettings["clientId"], 
+	        ConfigurationManager.AppSettings["clientId"],
 	        ConfigurationManager.AppSettings["clientSecret"]);
 		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	
+
 	    if (result == null)
 	        throw new InvalidOperationException("Failed to obtain the JWT token");
-	
+
 	    return result.AccessToken;
 	}
 
@@ -148,14 +148,14 @@ Nella funzione Main aggiungere il codice seguente.
 ## Crittografare un BLOB ed eseguire il caricamento
 Aggiungere il codice seguente per crittografare un BLOB e caricarlo nell'account di Archiviazione di Azure. Il metodo **ResolveKeyAsync** usato restituisce un'interfaccia IKey.
 
-	
+
 	// Retrieve the key that you created previously.
 	// The IKey that is returned here is an RsaKey.
 	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
-	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy. 
+	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -202,9 +202,9 @@ Per usare un segreto con la crittografia lato client, usare la classe SymmetricK
 - La chiave in una classe SymmetricKey deve essere con codifica Base64.
 - Un segreto dell'insieme di credenziali delle chiavi da usare come SymmetricKey deve avere come tipo di contenuto "application/octet-stream" nell'insieme di credenziali delle chiavi.
 
-Di seguito è riportato un esempio di PowerShell per la creazione di un segreto nell'insieme di credenziali delle chiavi che può essere usato come SymmetricKey.
+Di seguito è riportato un esempio di PowerShell per la creazione di un segreto nell'insieme di credenziali delle chiavi che può essere usato come SymmetricKey. NOTA: il valore hardcoded $key è solo a scopo dimostrativo. È possibile generare questa chiave nel codice personale.
 
-	// Here we are making a 128-bit key so we have 16 characters. 
+	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are
 	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
@@ -218,7 +218,7 @@ Di seguito è riportato un esempio di PowerShell per la creazione di un segreto 
 Nell'applicazione console è possibile usare la stessa chiamata descritta precedentemente per recuperare questo segreto come SymmetricKey.
 
 	SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/", 
+    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
 È tutto. pronta per essere usata.
@@ -235,4 +235,4 @@ Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare i
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -4,7 +4,7 @@
    services="sql-data-warehouse" 
    documentationCenter="" 
    authors="twounder" 
-   manager="" 
+   manager="barbkess" 
    editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Introduzione al controllo del database SQL Data Warehouse 
 Il servizio di controllo di Azure SQL Data Warehouse tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di Archiviazione di Azure.
@@ -141,4 +141,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

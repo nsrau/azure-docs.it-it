@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Scenari di autenticazione per Azure AD
 
 Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che permettono di iniziare rapidamente a creare codice. Questo documento include informazioni utili per comprendere i diversi scenari supportati da Azure AD, oltre a illustrare come iniziare. Il documento è suddiviso nelle sezioni seguenti:
 
-- [Nozioni di base sull'autenticazione in Azure AD](#basics-of-authentication-in-azure-ad).
+- [Nozioni di base sull'autenticazione in Azure AD.](#basics-of-authentication-in-azure-ad)
 
 - [Attestazioni nei token di sicurezza di Azure AD](#claims-in-azure-ad-security-tokens)
 
@@ -467,4 +467,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

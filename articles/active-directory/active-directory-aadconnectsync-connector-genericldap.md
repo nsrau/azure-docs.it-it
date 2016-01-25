@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/14/2015"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic LDAP
@@ -49,13 +49,13 @@ Directory supportate per l'importazione delta e la gestione delle password:
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Supporta tutte le operazioni per l'importazione delta
-    - Supporta l'impostazione e la modifica delle password
+    - Supporta l'impostazione della password
 - Catalogo globale Microsoft Active Directory
     - Supporta tutte le operazioni per l'importazione delta
-    - Supporta l'impostazione e la modifica delle password
+    - Supporta l'impostazione della password
 - 389 Directory Server
     - Supporta tutte le operazioni per l'importazione delta
-    - Supporta l'impostazione della password
+    - Supporta l'impostazione e la modifica delle password
 - Apache Directory Server
     - Non supporta l'importazione delta perché questa directory non ha un registro delle modifiche persistenti
     - Supporta l'impostazione della password
@@ -71,10 +71,10 @@ Directory supportate per l'importazione delta e la gestione delle password:
     - Supporta l'impostazione e la modifica delle password
 - Open DJ
     - Supporta tutte le operazioni per l'importazione delta
-    - Supporta l'impostazione della password
+    - Supporta l'impostazione e la modifica delle password
 - Open DS
     - Supporta tutte le operazioni per l'importazione delta
-    - Supporta l'impostazione della password
+    - Supporta l'impostazione e la modifica delle password
 - Open LDAP (openldap.org)
     - Supporta tutte le operazioni per l'importazione delta
     - Supporta l'impostazione della password
@@ -211,13 +211,13 @@ Di seguito è riportato un elenco di DN del log delle modifiche predefiniti:
 | Apache Directory Server | Non disponibile. |
 | Directory 389 | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
 | IBM Tivoli DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
-| Isode Directory | Log delle modifiche. Valore predefinito da usare: **cn=ChangeLog**
+| Isode Directory | Log delle modifiche. Valore predefinito da usare: **cn=changelog**
 | Novell/NetIQ eDirectory | Non disponibile. TimeStamp. Il connettore userà data/ora dell'ultimo aggiornamento per ottenere i record aggiunti e aggiornati. |
-| Open DJ/DS | Log delle modifiche. Valore predefinito da usare: **cn=Changelog** |
+| Open DJ/DS | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
 | Open LDAP | Log di accesso. Valore predefinito da usare: **cn=accesslog** |
 | Oracle DSEE | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
 | RadiantOne VDS | Directory virtuale. Dipende dalla directory connessa a VDS. |
-| Sun One Directory Server | Log delle modifiche. Valore predefinito da usare: **cn=Changelog** |
+| Sun One Directory Server | Log delle modifiche. Valore predefinito da usare: **cn=changelog** |
 
 L'attributo password è il nome dell'attributo che il connettore dovrà usare per impostare la password nelle operazioni di modifica e impostazione della password. Per impostazione predefinita il valore è **userPassword**, ma può essere modificato se necessario per un particolare sistema LDAP.
 
@@ -279,4 +279,4 @@ Per le directory con un log delle modifiche delta basato su data/ora, è consigl
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

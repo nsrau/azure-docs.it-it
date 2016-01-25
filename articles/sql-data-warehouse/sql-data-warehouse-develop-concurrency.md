@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
 Per garantire prestazioni stimabili in scala, SQL Data Warehouse implementa meccanismi per la gestione della concorrenza del carico di lavoro e dell’assegnazione delle risorse di calcolo.
@@ -452,4 +452,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

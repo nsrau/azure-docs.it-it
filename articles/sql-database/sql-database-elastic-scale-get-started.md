@@ -61,7 +61,7 @@ L'applicazione di esempio **Introduzione al database elastico con SQL di Azure**
 ### Altre operazioni di scalabilità elastica
 
 1. **Suddivisione di un partizionamento esistente**: la possibilità di suddividere partizionamenti viene fornita tramite lo **strumento di suddivisione/unione**. È possibile trovare ulteriori informazioni su questo strumento nella pagina [Panoramica sullo strumento di suddivisione/unione](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Unione di partizionamenti esistenti**: le unioni di partizioni esistenti vengono inoltre eseguite tramite lo **strumento di suddivisione/unione**. Per ulteriori informazioni, vedere [Panoramica sullo strumento di suddivisione/unione](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Unione di partizionamenti esistenti**: le unioni di partizioni esistenti vengono inoltre eseguite tramite lo **strumento di suddivisione/unione**. Per ulteriori informazioni, vedere [Panoramica sullo strumento di suddivisione/unione](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Costi
@@ -98,4 +98,4 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

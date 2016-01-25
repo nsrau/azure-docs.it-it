@@ -21,7 +21,7 @@ Questo documento illustra come configurare le query su database elastico per sce
 
 ![Eseguire una query tra partizioni][1]
 
-Questa funzionalità è inclusa nel [set di funzionalità del database elastico](sql-database-elastic-scale.md) del database SQL di Azure.
+Questa funzionalità è inclusa nel [set di funzionalità del database elastico](sql-database-elastic-scale-introduction.md) del database SQL di Azure.
  
 ## Creazione di oggetti di database
 
@@ -241,4 +241,4 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

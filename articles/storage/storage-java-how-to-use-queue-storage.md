@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Come usare l'archiviazione di accodamento da Java | Microsoft Azure" 
-	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Come usare l'archiviazione di accodamento da Java | Microsoft Azure"
+	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Come usare l'archiviazione di accodamento da Java
 
@@ -46,18 +46,18 @@ Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desi
 
 ## Configurare una stringa di connessione di archiviazione di Azure
 
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, utilizzando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](portal.azure.com) per i valori di *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, utilizzando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](portal.azure.com) per i valori *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
@@ -71,7 +71,7 @@ Usare l'oggetto**CloudQueueClient**t per ottenere un riferimento alla coda da us
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
 	   // Create the queue client.
@@ -96,7 +96,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -125,7 +125,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -133,10 +133,10 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
-			
+
     	// Peek at the next message.
     	CloudQueueMessage peekedMessage = queue.peekMessage();
-			
+
     	// Output the message value.
     	if (peekedMessage != null)
     	{
@@ -158,7 +158,7 @@ L'esempio di codice seguente consente di eseguire una ricerca nella coda di mess
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -167,7 +167,7 @@ L'esempio di codice seguente consente di eseguire una ricerca nella coda di mess
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // The maximum number of messages that can be retrieved is 32. 
+        // The maximum number of messages that can be retrieved is 32.
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
 
         // Loop through the messages in the queue.
@@ -179,7 +179,7 @@ L'esempio di codice seguente consente di eseguire una ricerca nella coda di mess
                 // Modify the content of the first matching message.
                 message.setMessageContent("Updated contents.");
                 // Set it to be visible in 30 seconds.
-                EnumSet<MessageUpdateFields> updateFields = 
+                EnumSet<MessageUpdateFields> updateFields =
                     EnumSet.of(MessageUpdateFields.CONTENT,
                     MessageUpdateFields.VISIBILITY);
                 // Update the message.
@@ -199,7 +199,7 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -210,13 +210,13 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage message = queue.retrieveMessage();
-			
+
     	if (message != null)
     	{
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
-            EnumSet<MessageUpdateFields> updateFields = 
+            EnumSet<MessageUpdateFields> updateFields =
                 EnumSet.of(MessageUpdateFields.CONTENT,
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
@@ -236,7 +236,7 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -250,7 +250,7 @@ In alternativa, l'esempio di codice seguente consente di aggiornare solo il prim
 
     	// Retrieve the newly cached approximate message count.
     	long cachedMessageCount = queue.getApproximateMessageCount();
-			
+
     	// Display the queue length.
     	System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
@@ -267,7 +267,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
     	    CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -278,7 +278,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-			
+
     	if (retrievedMessage != null)
     	{
     		// Process the message in less than 30 seconds, and then delete the message.
@@ -301,7 +301,7 @@ Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per r
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.
@@ -312,7 +312,7 @@ Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per r
 
         // Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
         for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
-            // Do processing for all messages in less than 5 minutes, 
+            // Do processing for all messages in less than 5 minutes,
             // deleting each message after processing.
             queue.deleteMessage(message);
         }
@@ -357,7 +357,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.
@@ -392,4 +392,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Configurare un nome di dominio per i dati BLOB in un account di archiviazione | Microsoft Azure" 
-	description="Informazioni su come configurare un dominio personalizzato per l'accesso ai dati BLOB in un account di archiviazione di Azure." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Configurare un nome di dominio per l'endpoint di archiviazione BLOB | Microsoft Azure"
+	description="Scoprire come eseguire il mapping di un dominio utente personalizzato all'endpoint di archiviazione BLOB per un account di archiviazione di Azure."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/07/2015"
 	ms.author="tamram"/>
 
 
-# Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure
+# Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB
 
 ## Panoramica
 
-È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per il servizio BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
+È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
 
 
 > [AZURE.NOTE]Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.
@@ -44,7 +44,7 @@ Eseguire questa procedura per registrare il dominio personalizzato se il fatto c
 
 Se invece il dominio personalizzato supporta un'applicazione per cui non sono consentiti tempi di inattività, eseguire la procedura descritta in <a href="#register-asverify">Registrazione di un dominio personalizzato per l'account di archiviazione usando il sottodominio intermedio asverify</a>.
 
-Per configurare un nome di dominio personalizzato, è necessario creare un nuovo record CNAME con il proprio registrar. Il record CNAME specifica un alias per il nome di dominio. In questo caso viene utilizzato per eseguire il mapping dell'indirizzo del dominio personalizzato all'endpoint del servizio BLOB per l'account di archiviazione.
+Per configurare un nome di dominio personalizzato, è necessario creare un nuovo record CNAME con il proprio registrar. Il record CNAME specifica un alias per un nome di dominio. In questo caso, viene usato per eseguire il mapping dell'indirizzo del dominio personalizzato all'endpoint dell'archiviazione BLOB per l'account di archiviazione.
 
 Ogni registrar prevede un metodo simile ma leggermente diverso per specificare un record CNAME. Il concetto di base è tuttavia identico. Si noti che molti pacchetti di base di registrazione dei domini non offrono la configurazione dei DNS, quindi può essere necessario aggiornare il pacchetto prima di creare il record CNAME.
 
@@ -115,6 +115,5 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 ## Risorse aggiuntive
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

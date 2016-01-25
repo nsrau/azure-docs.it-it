@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Veracode
@@ -122,7 +122,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
         -   **Team Memberships**
         -   **Default Team**
 
-10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la pagina **Configura accesso Single Sign-On**.
+10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configura accesso Single Sign-On")
 
@@ -142,7 +142,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     1.  Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.
     
-	2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per la riga.
+	2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per quella riga.
 
     3.  Nella casella di testo **Valore attributo**, selezionare il valore dell'attributo indicato per la riga.
 
@@ -170,10 +170,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-veracode-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

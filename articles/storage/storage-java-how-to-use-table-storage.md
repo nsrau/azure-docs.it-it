@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Come usare l'archiviazione tabelle da Java | Microsoft Azure" 
-	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Come usare l'archiviazione tabelle da Java | Microsoft Azure"
+	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # Come usare l'archiviazione tabelle da Java
@@ -51,15 +51,15 @@ Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si user
 I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, utilizzando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](portal.azure.com) per i valori *AccountName* e *AccountKey*. In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
@@ -128,19 +128,19 @@ Per eseguire il mapping di entità a oggetti Java viene utilizzata una classe pe
 
         String email;
         String phoneNumber;
-        
+
         public String getEmail() {
             return this.email;
         }
-        
+
         public void setEmail(String email) {
             this.email = email;
         }
-        
+
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-        
+
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
@@ -156,15 +156,15 @@ Per le operazioni su tabella che interessano entità è necessario un oggetto **
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
     	// Create a cloud table object for the table.
     	CloudTable cloudTable = tableClient.getTableReference("people");
-			
+
     	// Create a new customer entity.
     	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     	customer1.setEmail("Walter@contoso.com");
     	customer1.setPhoneNumber("425-555-0101");
-			
+
     	// Create an operation to add the new customer to the people table.
     	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
@@ -247,13 +247,13 @@ Per eseguire una query su una tabella relativa alle entità in una partizione è
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
 	   // Create a cloud table object for the table.
 	   CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
@@ -265,7 +265,7 @@ Per eseguire una query su una tabella relativa alle entità in una partizione è
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
-                " " + entity.getRowKey() + 
+                " " + entity.getRowKey() +
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
 	   }
@@ -286,7 +286,7 @@ Se non si desidera eseguire una query su tutte le entità di una partizione, è 
     	final String PARTITION_KEY = "PartitionKey";
     	final String ROW_KEY = "RowKey";
     	final String TIMESTAMP = "Timestamp";
-			
+
     	// Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
@@ -299,18 +299,18 @@ Se non si desidera eseguire una query su tutte le entità di una partizione, è 
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
     	// Create a filter condition where the row key is less than the letter "E".
     	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
+	       ROW_KEY,
 	       QueryComparisons.LESS_THAN,
 	       "E");
 
     	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter,
 	        Operators.AND, rowFilter);
 
     	// Specify a range query, using "Smith" as the partition key,
@@ -350,13 +350,13 @@ Per recuperare una singola entità specifica, è possibile scrivere una query. I
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
 	   // Submit the operation to the table service and get the specific entity.
 	   CustomerEntity specificEntity =
     		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
+
     	// Output the entity.
     	if (specificEntity != null)
     	{
@@ -389,7 +389,7 @@ Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggett
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
     	// Submit the operation to the table service and get the specific entity.
@@ -428,7 +428,7 @@ Mediante una query su una tabella è possibile recuperare solo alcune proprietà
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
+    	TableQuery<CustomerEntity> projectionQuery =
 	       TableQuery.from(CustomerEntity.class)
 	       .select(new String[] {"Email"});
 
@@ -441,7 +441,7 @@ Mediante una query su una tabella è possibile recuperare solo alcune proprietà
         };
 
         // Loop through the results, displaying the Email values.
-        for (String projectedString : 
+        for (String projectedString :
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
         }
@@ -563,6 +563,5 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

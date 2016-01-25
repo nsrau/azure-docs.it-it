@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
@@ -162,9 +162,8 @@ Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica C
 |----|----|
 | **d:Regex** *(facoltativo)* | Istruzione regex utilizzata per convalidare il valore di input per il parametro. Se il valore di input non corrisponde all'istruzione il valore viene rifiutato. Questo attributo consente inoltre di specificare un set di valori possibili, ad esempio ^[0-9]+?$ per consentire solo numeri. **Esempio:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(facoltativo)* | Elenco di valori validi per il parametro, separati da una barra verticale. Il tipo dei valori deve corrispondere al tipo definito per il parametro. Esempio: `english|metric|raw`. All'interno dell'interfaccia utente (service explorer) l'attributo Enum viene visualizzato come un elenco a discesa selezionabile di parametri. **Esempio:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d: Nullable** *(facoltativo)* | Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. **Esempio:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(facoltativo)* | Valore di esempio da visualizzare come nota nell'interfaccia utente del client. È possibile aggiungere più valori, separati da barra verticale, "|”. **Esempio:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d: Nullable** *(facoltativo)* | Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. **Esempio:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(facoltativo)* | Valore di esempio da visualizzare come nota nell'interfaccia utente del client. È possibile aggiungere più valori separati da una barra verticale, ad esempio `a|b|c` **Esempio:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## Nodo EntityType
 
@@ -258,7 +257,7 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 | Boolean | Rappresenta il concetto matematico di logica a valori binari|
 | Byte | Valore intero senza segno a 8 bit|
 |DateTime| Rappresenta una data e un'ora con valori compresi tra le ore 0.00.00 del 1° gennaio 1753 d. C. e le 23.59.59 del dicembre 9999 d.C.|
-|Decimal | Rappresenta valori numerici con precisione e scala fisse. Questo tipo può descrivere un valore numerico compreso tra - 10 ^ 255 + 1 e + 10 ^ 255 -1|
+|Decimal | Rappresenta valori numerici con precisione e scalabilità fisse. Questo tipo può descrivere un valore numerico compreso tra - 10 ^ 255 + 1 e + 10 ^ 255 -1|
 | Double | Rappresenta un numero a virgola mobile con precisione a 15 cifre che può rappresentare valori compresi approssimativamente tra approssimativo compreso tra ± 2,23e -308 e ± 1,79e +308. **Utilizzare Decimal a causa di un problema di esportazione di Excel**|
 | Single | Rappresenta un numero a virgola mobile con precisione a 7 cifre che può rappresentare valori compresi approssimativamente tra approssimativo compreso tra ± 1,18e -38 e ± 3,40e +38.|
 |Guid |Rappresenta un valore di identificatore univoco a 16 byte (128 bit) |
@@ -271,6 +270,6 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 ## Vedere anche
 - Per comprendere meglio nel suo complesso il processo del mapping OData e il suo scopo, nonché per esaminare le definizioni, le strutture e le istruzioni, leggere l'articolo [relativo al mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md).
 - Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
-- Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere l'articolo di [guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
+- Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

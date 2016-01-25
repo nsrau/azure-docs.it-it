@@ -53,7 +53,7 @@ Per istruzioni sull'installazione, vedere [Installazione dei processi di databas
 ## Processi di database elastici: end-to-end 
 1.	Installare i componenti dei **processi di database elastici**. Per altre informazioni, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md). Se l'installazione non riesce, vedere [come disinstallare](sql-database-elastic-jobs-uninstall.md).
 2.	Utilizzare le API di PowerShell per accedere a ulteriori funzionalità, ad esempio la creazione di raccolte di database personalizzati, l’aggiunta di pianificazioni e/o la raccolta di set di risultati. Usare il portale per un'installazione semplice e la creazione o il monitoraggio dei processi limitati all'esecuzione in un **pool di database elastici**. 
-3.	Creare credenziali crittografate per l'esecuzione del processo e [aggiungere l'utente (o il ruolo) a ogni database nel gruppo](sql-database-elastic-jobs-add-logins-to-dbs.md).
+3.	Creare credenziali crittografate per l'esecuzione del processo e [aggiungere l'utente (o il ruolo) a ogni database nel gruppo](sql-database-security.md).
 4.	Creare uno script T-SQL idempotente che può essere eseguito su ogni database nel gruppo. 
 5.	Seguire questi passaggi per creare processi tramite il portale di Azure: [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md) 
 6.	In alternativa, usare script di PowerShell: [Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)](sql-database-elastic-jobs-powershell.md).
@@ -116,7 +116,7 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 4.	Dopo aver completato tutte le attività di processo, il controller aggiorna i processi nello stato ‘completato’. In qualsiasi momento durante l'esecuzione del processo, l'API di PowerShell può essere utilizzata per visualizzare lo stato corrente dell'esecuzione del processo. Tutte le volte restituite dalle API PowerShell sono rappresentate in formato UTC. Se si desidera, è possibile avviare una richiesta di annullamento per interrompere un processo. 
 
 ## Passaggi successivi
-[Installare i componenti](sql-database-elastic-jobs-service-installation.md), quindi [creare e aggiungere un log a ciascun database nel gruppo di database](sql-database-elastic-jobs-add-logins-to-dbs.md). Per comprendere la creazione e la gestione del processo, vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
+[Installare i componenti](sql-database-elastic-jobs-service-installation.md), quindi [creare e aggiungere un log a ciascun database nel gruppo di database](sql-database-security.md). Per comprendere la creazione e la gestione del processo, vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/08/2016"
 	ms.author="bruceper"/>
 
 # Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando #
@@ -54,7 +54,7 @@ In caso di dubbi sui parametri necessari per un comando, fare riferimento alla G
 
 È consigliabile di leggere anche le seguenti esercitazioni per acquisire familiarità con Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure:
 
-- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli-install.md).
+- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure.](xplat-cli-install.md)
 - [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md)
 
 
@@ -193,7 +193,7 @@ Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segr
 
 ## Per usare un modulo di protezione hardware ##
 
-Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
+Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
 
 Per creare queste chiavi HSM protette, è necessaria una sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette.
 
@@ -213,7 +213,7 @@ Il comando successivo importa un pacchetto "bring your own key" (BYOK). Ciò con
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali chiave di Azure](key-vault-hsm-protected-keys.md).
+Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).
 
 
 ## Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati
@@ -256,4 +256,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

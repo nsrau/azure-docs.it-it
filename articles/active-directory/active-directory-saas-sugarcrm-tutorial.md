@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SugarCRM
@@ -52,7 +52,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -92,11 +92,11 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Amministratore](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Amministratore")
 
-7.  Nella sezione **Administration**, fare clic su **Password Management**.
+7.  Nella sezione **Amministrazione**, fare clic su **Gestione password**.
 
     ![Amministrazione](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Amministrazione")
 
-8.  Selezionare **Enable SAML authentication**.
+8.  Selezionare **Abilita autenticazione SAML**.
 
     ![Amministrazione](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Amministrazione")
 
@@ -137,7 +137,7 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario es
 
     ![Creare nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Creare nuovo utente")
 
-5.  Nella scheda **User Profile** eseguire la procedura seguente:
+5.  Nella scheda **Profilo utente** eseguire la procedura seguente:
 
     ![Nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "Nuovo utente")
 
@@ -166,10 +166,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

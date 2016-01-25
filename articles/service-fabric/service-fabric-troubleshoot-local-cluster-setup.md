@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # Risolvere i problemi di configurazione del cluster di sviluppo locale
 
-Se si verifica un problema durante l'interazione con il cluster di sviluppo locale, esaminare i suggerimenti seguenti per possibili soluzioni.
+Se si verifica un problema durante l'interazione con il cluster di sviluppo di Service Fabric di Azure locale, esaminare i suggerimenti seguenti per possibili soluzioni.
 
 ## Errori di configurazione del cluster
 
@@ -37,19 +37,29 @@ Quando si esegue lo script DevClusterSetup, viene visualizzato un errore simile 
 
 #### Soluzione
 
-Chiudere la finestra di Powershell corrente e avviare una nuova finestra di Powershell come amministratore. Ora dovrebbe essere possibile eseguire correttamente lo script.
+Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore. Ora dovrebbe essere possibile eseguire correttamente lo script.
 
 ## Errori di connessione del cluster
+
+### Cmdlet di PowerShell di Service Fabric non sono riconosciute in Azure PowerShell
+
+#### Problema
+
+Se si tenta di eseguire cmdlet di PowerShell di Service Fabric, ad esempio `Connect-ServiceFabricCluster` in una finestra di Azure PowerShell, l'operazione non va a buon fine e si viene informati del mancato riconoscimento del cmdlet. Il motivo è che Azure PowerShell utilizza la versione a 32 bit di Windows PowerShell (anche le versioni del sistema operativo a 64 bit), mentre i cmdlet di Service Fabric funzionano solo in ambienti a 64 bit.
+
+#### Soluzione
+
+Eseguire sempre i cmdlet di Service Fabric direttamente da Windows PowerShell.
 
 ### Eccezione di inizializzazione del tipo
 
 #### Problema
 
-Quando ci si connette al cluster in PowerShell o in Esplora infrastruttura di servizi, viene visualizzata un’eccezione TypeInitializationException per System.Fabric.Common.AppTrace.
+Quando ci si connette al cluster in PowerShell, viene visualizzato l'errore TypeInitializationException per System.Fabric.Common.AppTrace.
 
 #### Soluzione
 
-La variabile di percorso non è stata impostata correttamente durante l'installazione. Effettuare la disconnessione da Windows e accedere di nuovo. In tal modo il percorso verrà aggiornato.
+La variabile di percorso non è stata impostata correttamente durante l'installazione. Disconnettersi da Windows e accedere nuovamente. In tal modo il percorso verrà aggiornato.
 
 ### La connessione del cluster ha esito negativo con il messaggio "L’oggetto è chiuso"
 
@@ -66,13 +76,13 @@ Una chiamata a Connect-ServiceFabricCluster ha esito negativo con un errore simi
 
 #### Soluzione
 
-Chiudere la finestra di Powershell corrente e avviare una nuova finestra di Powershell come amministratore. Ora dovrebbe essere possibile effettuare la connessione.
+Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore. Ora dovrebbe essere possibile effettuare la connessione.
 
-### FabricConnectionDeniedException
+### Eccezione di connessione a Fabric negata
 
 #### Problema
 
-Durante il debug da Visual Studio, è possibile che si verifichi un’eccezione FabricConnectionDeniedException.
+Durante il debug da Visual Studio, si verifica un errore FabricConnectionDeniedException.
 
 #### Soluzione
 
@@ -84,6 +94,6 @@ Assicurarsi di non disporre di progetti di servizio impostati come progetti di a
 ## Passaggi successivi
 
 - [Comprendere e risolvere i problemi del cluster con report di integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualizzazione del cluster con Esplora Infrastruttura di servizi](service-fabric-visualizing-your-cluster.md)
+- [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

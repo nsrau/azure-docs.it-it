@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -382,4 +382,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

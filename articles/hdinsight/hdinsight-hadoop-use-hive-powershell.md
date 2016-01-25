@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/02/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di query Hive usando PowerShell
@@ -114,12 +114,14 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
     
 7. Quando viene completato, il processo dovrebbe restituire informazioni simili alle seguenti:
 
-		Display the standard output...
-		[ERROR]	3
+        Display the standard output...
+        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
 4. Come accennato in precedenza, **Invoke-Hive** può essere usato per eseguire una query e attendere la risposta. Usare i seguenti comandi e sostituire **CLUSTERNAME** con il nome del cluster:
 
-        Use-AzureRmHDInsightCluster -ClusterName $clusterName
+        Use-AzureRmHDInsightCluster -ClusterName $clusterName -HttpCredential $creds
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -130,7 +132,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
         Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
@@ -184,4 +186,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

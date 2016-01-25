@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Slack
@@ -66,7 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Slac
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Slack tramite il loro account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Slack tramite il loro account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -104,7 +104,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Slack** del portale di Azure, copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione provider di identità**.
     3.  Creare un file **con codifica Base 64** dal certificato scaricato.
     
-        >[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato pubblico**.
     5.  Deselezionare **Consenti agli utenti di modificare l'indirizzo di posta elettronica**.
@@ -140,4 +140,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

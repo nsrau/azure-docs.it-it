@@ -1,6 +1,6 @@
 
 
-<properties 
+<properties
    pageTitle="Panoramica del monitoraggio dell'integrità per il gateway applicazione di Azure | Microsoft Azure"
    description="Informazioni sulle funzionalità di monitoraggio nel gateway applicazione di Azure"
    services="application-gateway"
@@ -19,7 +19,7 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Panoramica del monitoraggio dell'integrità del gateway applicazione 
+# Panoramica del monitoraggio dell'integrità del gateway applicazione
 
 
 Per impostazione predefinita, il gateway applicazione di Azure monitora l'integrità di tutte le risorse nel pool back-end e rimuove automaticamente dal pool le risorse considerate non integre. Il gateway applicazione continua a monitorare le istanze non integre e le riaggiunge al pool back-end integro, dopo che sono diventate disponibili e rispondono ai probe di integrità.
@@ -42,11 +42,11 @@ Il probe predefinito esamina solo http://127.0.0.1:<port> per determinare lo sta
 |---|---|---|
 | URL probe| http://127.0.0.1/ | Percorso URL |
 | Interval | 30 | Intervallo di probe in secondi |
-| Timeout | 30 | Timeout del probe in secondi |
-| Soglia non integra | 3 | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra |
+| Timeout | 30 | Timeout di probe in secondi |
+| Soglia non integra | 3 | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 
-## Probe di integrità personalizzato 
+## Probe di integrità personalizzato
 
 I probe personalizzati consentono un controllo più granulare sul monitoraggio dell'integrità. Quando si usano i probe personalizzati, è possibile configurare l'intervallo di probe, l'URL e il percorso da testare e il numero di risposte non riuscite da accettare prima di contrassegnare l'istanza del pool back-end come non integra.
 
@@ -55,16 +55,16 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 |Proprietà probe| Descrizione|
 |---|---|
-| Nome | Nome del probe Questo nome viene usato per fare riferimento al probe nelle impostazioni Http back-end |
-| Protocollo | Protocollo usato per inviare il probe. Http è il solo protocollo valido |
-| Host | Nome host per inviare il probe |
+| Nome | Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Protocollo | Protocollo usato per inviare il probe. HTTP è il solo protocollo valido |
+| Host | Nome host per inviare il probe. |
 | Path | Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a <protocol>://<host>:<port><path> |
-| Interval | Intervallo di probe in secondi. Si tratta dell'intervallo di tempo tra due probe consecutivi| 
+| Interval | Intervallo di probe in secondi. Si tratta dell'intervallo di tempo tra due probe consecutivi.|
 | Timeout | Timeout del probe in secondi. Il probe viene contrassegnato come non riuscito se non viene ricevuta una risposta valida entro questo periodo di timeout |
-| Soglia non integra | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra |
+| Soglia non integra | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 ## Passaggi successivi
 
 Dopo avere acquisito familiarità con il monitoraggio dell'integrità del gateway applicazione, è possibile configurare un [probe di integrità personalizzato](application-gateway-create-probe-ps.md) per Gestione risorse di Azure o un [probe di integrità personalizzato](application-gateway-create-probe-classic-ps.md) per il modello di distribuzione classica di Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

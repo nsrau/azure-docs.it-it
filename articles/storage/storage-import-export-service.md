@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure" 
-	description="Informazioni su come creare ed esportare processi nel portale classico di Azure per trasferire dati all'archiviazione BLOB." 
-	authors="robinsh" 
-	manager="carmonm" 
-	editor="" 
-	services="storage" 
+<properties
+	pageTitle="Uso del servizio di importazione/esportazione per trasferire dati nell'archiviazione BLOB | Microsoft Azure"
+	description="Informazioni su come creare ed esportare processi nel portale classico di Azure per trasferire dati all'archiviazione BLOB."
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"
+	services="storage"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/22/2015" 
-	ms.author="robinsh"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
+	ms.author="renash"/>
 
 
 # Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob
@@ -69,7 +69,7 @@ Prima di creare un processo di importazione, preparare le unità con lo strument
 Per preparare le unità, seguire questi tre passaggi:
 
 1.	Determinare i dati da importare e il numero di unità necessarie.
-2.	Identificare i Blob di destinazione per i dati nel servizio Blob di Azure.
+2.	Identificare i BLOB di destinazione per i dati nell'archiviazione BLOB.
 3.	Usare lo strumento di importazione/esportazione di Microsoft Azure per copiare i dati in uno o più dischi rigidi.
 
 Lo strumento di importazione/esportazione di Microsoft Azure genera un *file journal dell'unità* per ogni unità preparata. Il file journal dell'unità viene archiviato nel computer locale, non nell'unità stessa. Il file journal verrà caricato quando si creerà il processo di importazione. Un file journal di unità include l'ID unità e la chiave BitLocker, nonché altre informazioni sull'unità.
@@ -267,7 +267,6 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - Spedire solo i dischi rigidi. Non inserire oggetti come cavi di alimentazione o cavi USB.
 
-
 ## Vedere anche
 
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
@@ -276,6 +275,5 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
- 
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

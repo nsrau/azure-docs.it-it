@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Strumenti di gestione per SQL Data Warehouse
 Questo argomento presenta e confronta gli strumenti e le opzioni per la gestione di SQL Data Warehouse per facilitare la scelta dello strumento più adatto per le proprie esigenze. La scelta dello strumento appropriato dipende dal numero di database gestiti, dall'attività e dalla frequenza con cui viene eseguita un'attività.
@@ -48,4 +48,4 @@ Per iniziare a usare questi strumenti, vedere l'argomento relativo alla [conness
 <!--Other web references-->
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

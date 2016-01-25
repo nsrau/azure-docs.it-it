@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
@@ -121,13 +121,13 @@ Per consentire agli utenti di Azure AD di accedere a XMatters OnDemand, è neces
 
     ![Users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Users")
 
-4.  Selezionare **Attivo**.
+4.  Selezionare **Active**.
 
 5.  Nella sezione **Aggiungi un utente** eseguire la procedura seguente:
 
     ![Add a User](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Add a User")
 
-    1.  Nelle apposite caselle di testo immettere i valori di **ID utente**, **Nome**, **Cognome** e **Sito** di un account Azure AD valido di cui si vuole eseguire il provisioning.
+    1.  Nelle apposite caselle di testo immettere i valori di **UserID**, **First name**, **Last name** e **Site** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da XMatters OnDemand per eseguire il provisioning degli account utente Azure AD.
@@ -144,10 +144,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 #Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
@@ -61,4 +61,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
  
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

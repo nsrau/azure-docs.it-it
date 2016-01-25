@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter="php"
 	authors="tfitzmac"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -478,4 +478,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	services=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 #Come creare un database MySQL in Azure
@@ -27,4 +27,4 @@ Un esempio che illustra come usare MySQL con PHP in Azure è disponibile all'ind
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

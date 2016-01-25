@@ -3,7 +3,7 @@
    description="Elenco di partner di terze parti con soluzioni che interagiscono con SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="joliang"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="joliang"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Partner di soluzioni per SQL Data Warehouse
 
@@ -101,4 +101,4 @@ Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare 
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

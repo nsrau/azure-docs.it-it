@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Ambienti di test basati su cloud ibrido
@@ -49,14 +49,8 @@ Il [server di Office 365 DirSync in un ambiente cloud ibrido](../virtual-network
 Per le organizzazioni e individui per cui una connessione diretta a Internet e l'indirizzo IP pubblico non sono immediatamente disponibili, l’[ambiente di test basato su cloud ibrido simulato](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) consente di implementare la rete locale semplificata in una rete virtuale di Azure separata, quindi consente di connettere le due reti virtuali con una connessione VPN VNet-to-VNet.
 
 
-## Risorse aggiuntive
+## Passaggio successivo
 
-[Farm di SharePoint ospitate nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Scopri le [linee guida di implementazione](virtual-machines-infrastructure-services-implementation-guidelines.md) per progettare una distribuzione personalizzata di sviluppo/test o produzione nei servizi di infrastruttura di Azure.
 
-[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

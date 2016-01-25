@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Come usare Hudson con il servizio BLOB di Azure | Microsoft Azure"
+	pageTitle="Come usare Hudson con l'archiviazione BLOB | Microsoft Azure"
 	description="Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 
 ## Panoramica
 
-L'articolo seguente descrive come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati dalla soluzione di Integrazione continuata Hudson (CI) o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
+L'articolo seguente descrive il modo di usare l'archiviazione BLOB come archivio di elementi di compilazione creati dalla soluzione di integrazione continua (CI) Hudson o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
 In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Hudson reso disponibile da Microsoft.
 
@@ -177,4 +177,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

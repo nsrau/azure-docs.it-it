@@ -67,7 +67,7 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 | [Creare e gestire un database SQL con la libreria di database SQL di Azure per .NET](sql-database-elastic-pool-powershell.md) | Creare e gestire un pool di database elastici utilizzando C# |
 | [Panoramica dei processi dei database elastici](sql-database-elastic-jobs-overview.md) | Panoramica del servizio dei processi elastici, che consente l'esecuzione di script T-SQL in tutti i database elastici in un pool |
 | [Installazione del componente del processo di database elastico](sql-database-elastic-jobs-service-installation.md) | Come installare il servizio del processo di database elastico |
-| [Creazione dell'utente richiesto per il servizio dei processi elastici](sql-database-elastic-jobs-add-logins-to-dbs.md) | Per eseguire uno script del processo di database elastico, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database nel pool. |
+| [Protezione del Database SQL](sql-database-security.md) | Per eseguire uno script del processo di database elastico, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database nel pool. |
 | [Come disinstallare i componenti del processo di database elastico](sql-database-elastic-jobs-uninstall.md) | Recupero dagli errori quando si tenta di installare il servizio processo di database elastico |
 
 
@@ -150,7 +150,6 @@ Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per la creazione e la gestione dei pool elastici: Per informazioni dettagliate ed esempi di codice, vedere [Creare un pool di database elastici con PowerShell per la scalabilità orizzontale delle risorse per più database SQL](sql-database-elastic-pool-powershell.md) e [Creazione e gestione di database SQL con C#](sql-database-client-library.md).
 
 
-
 | [Cmdlet PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandi API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
 | [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Creare un pool di database elastici](https://msdn.microsoft.com/library/mt163596.aspx) |
@@ -211,4 +210,4 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

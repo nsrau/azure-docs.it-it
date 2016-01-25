@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 
@@ -116,4 +116,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
   [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

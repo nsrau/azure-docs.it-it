@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Public
@@ -44,15 +44,15 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -92,7 +92,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Aprire il file dei metadati e quindi individuare il nodo **AssertionConsumerService**. ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copiare il valore di **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configure App URL** più avanti in questa esercitazione.
+        >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configura URL app** più avanti in questa esercitazione.
 
 6.  In un'altra finestra del Web browser accedere al portale di **Azure Active Directory** come amministratore.
 
@@ -104,7 +104,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configura accesso Single Sign-On")
 
-9.  Nella pagina **Configure App URL** seguire questa procedura:
+9.  Nella pagina **Configura URL app** seguire questa procedura:
 
     ![Configura URL app](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configura URL app")
 
@@ -174,7 +174,7 @@ Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necess
 
     1.  Fare clic sulla scheda General.
     2.  Nella casella di testo Surname digitare il cognome di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
-    3.  Selezionare un **Site** per l'account.
+    3.  Selezionare un **sito** per l'account.
     4.  Fare clic su **Save**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da TOPdesk - Public per eseguire il provisioning degli account utente Azure AD.
@@ -197,4 +197,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

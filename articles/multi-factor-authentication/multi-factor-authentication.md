@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -124,20 +124,21 @@ MFA per applicazioni locali che utilizzano il server MFA| | | *
 
 ## Come ottenere Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication fa parte di Azure Active Directory Premium ed Enterprise Mobility Suite. Se si dispone già di questi due componenti, si dispone anche di Azure Multi-Factor Authentication.
+Se si desiderano tutte le funzionalità offerte da Azure Multi-Factor Authentication, anziché solo quelle fornite per gli utenti di Office 365 e gli amministratori di Azure, sono disponibili diverse opzioni:
 
-Se si è un utente di Office 365 o si possiede una sottoscrizione Azure e si desidera sfruttare le funzionalità aggiuntive fornite da Azure Multi-Factor Authentication, continuare la lettura.
+1.	Acquistare le licenze di Azure Multi-Factor Authentication e assegnarle agli utenti.
+2.	Acquistare licenze con Azure Multi-Factor Authentication incluso nel pacchetto, ad esempio Azure Active Directory Premium, Enterprise Mobility Suite o Enterprise Cloud Suite e assegnarle agli utenti.
+3.	Creare un provider Azure Multi-Factor Authentication all'interno di una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una sottoscrizione di valutazione. Le sottoscrizioni di valutazione devono essere convertite in sottoscrizioni regolari prima della scadenza.
 
-Se nessuna delle situazioni precedenti è vera, per iniziare a utilizzare Azure Multi-Factor Authentication, è necessaria innanzitutto una sottoscrizione Azure o una [sottoscrizione di valutazione Azure](http://azure.microsoft.com/pricing/free-trial/).
+Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure:
 
-Quando si utilizza Azure Multi-Factor Authentication sono disponibili due opzioni di fatturazione disponibili:
 
 - **Per utente**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
 - **Per autenticazione**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
 
 Per ulteriori informazioni sui prezzi, vedere [Prezzi - Multi-Factor Authentication (MFA).](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Scegliere il modello adatto alla propria organizzazione. Quindi, per iniziare vedere [Introduzione](multi-factor-authentication-get-started.md)
+Scegliere il modello per postazione o basato sul consumo più adatto per l'organizzazione. Quindi, per iniziare vedere [Introduzione.](multi-factor-authentication-get-started.md)
 
 ## Scegliere la soluzione di sicurezza Multi-Factor più adatta
 
@@ -205,4 +206,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ridimensionamento di un cluster di infrastruttura di servizi | Microsoft Azure"
-   description="Ridimensionare i cluster di infrastruttura di servizi per soddisfare esigenze specifiche aggiungendo o rimuovendo macchine virtuali"
+   pageTitle="Ridimensionamento di un Service Fabric Cluster | Microsoft Azure"
+   description="Ridimensionare i Service Fabric Cluster per soddisfare esigenze specifiche aggiungendo o rimuovendo macchine virtuali"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,63 +13,108 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="01/11/2016"
    ms.author="chackdan"/>
 
-# Ridimensionamento di un cluster di infrastruttura di servizi mediante l'aggiunta o la rimozione di macchine virtuali (VM)
+# Ridimensionamento di un Service Fabric Cluster mediante l'aggiunta o la rimozione di macchine virtuali (VM)
 
-È possibile ridimensionare i cluster di infrastruttura di servizi per soddisfare esigenze specifiche aggiungendo o rimuovendo macchine virtuali.
+È possibile ridimensionare i Service Fabric Cluster per soddisfare esigenze specifiche aggiungendo o rimuovendo macchine virtuali.
 
 >[AZURE.NOTE]Si presuppone che la sottoscrizione preveda un numero di core sufficienti per aggiungere le nuove VM che costituiranno questo cluster.
 
 
-## Ridimensionamento manuale di un cluster di infrastruttura di servizi
+## Ridimensionamento manuale di un Service Fabric Cluster
 
-### Scelta del tipo di nodo da ridimensionare
+Se il cluster include più tipi di nodo, sarà necessario aggiungere VM in specifici tipi di nodo o rimuoverle da questi ultimi. È possibile aggiungere VM a un tipo di nodo e rimuoverle da un altro nella stessa distribuzione.
 
-Se il cluster dispone di più tipi di nodo, sarà necessario aggiungere o rimuovere le VM da tipi di nodo specifici.
+### Aggiornamento di un cluster distribuito tramite il portale
 
-1. Accedere al portale di Azure all'indirizzo [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+Si tratta di un processo complesso che viene eseguito da un modulo PowerShell caricato in un repository Git.
 
-2. Passare al cluster di infrastruttura di servizi ![BrowseServiceFabricClusterResource][BrowseServiceFabricClusterResource]
+**Passaggio 1**: copiare la cartella nel computer da questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-3. Selezionare il cluster che si desidera ridimensionare.
+**Passaggio 2**: assicurarsi che nel computer sia installato Azure SDK 1.0 o versione successiva.
 
-4. Passare al pannello delle impostazioni nel dashboard del cluster. Se non viene visualizzato il pannello delle impostazioni, fare clic su "Tutte le impostazioni" nella parte essenziale nel dashboard del cluster.
+**Passaggio 3**: aprire una finestra di PowerShell e importare il file ServiceFabricRPHelpers.psm.
 
-5. Fare clic su NodeTypes. Verrà aperto il pannello contenente l'elenco di tipi di nodo.
+```
+Remove-Module ServiceFabricRPHelpers
+```
 
-7. Fare clic sul tipo di nodo che si desidera ridimensionare. Verrà aperto il pannello contenente i dettagli relativi al tipo di nodo.
+Importare il modulo PowerShell appena copiato. È possibile copiare solo il comando seguente e sostituire il percorso con quello del file con estensione psm1 nel computer.
 
-### Ridimensionamento mediante l'aggiunta di nodi
+```
+Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+```
 
-Modificare il numero di VM aggiungendo macchine virtuali fino a raggiungere il numero desiderato e quindi salvare. I nodi/VM verranno aggiunti al completamento della distribuzione.
+ **Passaggio 4**: accedere con il proprio account Azure
 
-### Ridimensionamento mediante la rimozione di nodi
+```
+Login-AzureRmAccount
+```
 
-La rimozione di nodi è un processo che si articola in due passaggi:
+Eseguire il comando Invoke-ServiceFabricRPClusterScaleUpgrade e assicurarsi che il nome del gruppo di risorse e la sottoscrizione di cui si dispone siano corretti.
 
-1. Modificare il numero di VM fino a raggiungere il numero desiderato e quindi salvare. L'estremità inferiore del dispositivo di scorrimento indica il requisito minimo relativo al numero di macchine virtuali per il tipo di nodo specifico.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName <string> -SubscriptionId <string>
+```
 
-  >[AZURE.NOTE]È necessario conservare un minimo di 5 macchine virtuali per il tipo di nodo primario.
+Di seguito è riportato un esempio compilato dello stesso comando di PowerShell.
 
-	Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName chackod02 -SubscriptionId 18ad2z84-84fa-4798-ad71-e70c07af879f
+```
 
-2. Tornare al dashboard del cluster e fare clic sul gruppo di risorse. Verrà aperto il pannello relativo al gruppo di risorse.
+  **Passaggio 5**: il comando recupera ora informazioni sul cluster ed esamina tutti i tipi di nodo, prima specificando il numero di VM/nodi esistenti per quel tipo di nodo e quindi chiedendo di specificare quale deve essere il nuovo numero di VM/nodi.
 
-3. Controllare nell'area Riepilogo o aprire l'elenco di risorse facendo clic su "..."
+ **Per aumentare il numero di istanze di questo tipo di nodo**, specificare una quantità maggiore di macchine virtuali rispetto al numero attuale.
 
-4. Fare clic sul nome della macchina virtuale che il sistema indica come eliminabile.
+**Per ridurre il numero di istanze di questo tipo di nodo**, specificare una quantità minore di VM rispetto al numero attuale.
 
-5. Fare clic sull'icona Elimina per eliminare la macchina virtuale.
+Verranno esaminati in ciclo tutti i tipi di nodo. Se il cluster dispone di un solo tipo di nodo, verrà visualizzato un solo prompt.
+ 
+  **Passaggio 6**: se si aggiungono nuove VM, verrà visualizzato un prompt in cui sarà necessario specificare l'ID utente e la password di desktop remoto per le VM che si stanno aggiungendo.
+ 
+**Passaggio 7**: nella finestra di output vengono ora visualizzati dei messaggi con cui si informa l'utente dello stato di avanzamento della distribuzione. Al termine del processo di distribuzione, il cluster deve avere il numero di nodi specificato nel passaggio 5.
 
-## Ridimensionamento automatico del cluster di infrastruttura di servizi
 
-Attualmente i cluster di infrastruttura di servizi non supportano il ridimensionamento automatico. Nel prossimo futuro i cluster si baseranno su set di scalabilità di macchine virtuali. Ciò renderà possibile il ridimensionamento automatico, che avrà un comportamento simile a quello del ridimensionamento automatico disponibile nei servizi cloud.
+![Aumento/diminuzione uscita PS][ScaleupDownPSOut]
 
-## Ridimensionamento mediante PowerShell/CLI
 
-Questo articolo descrive come ridimensionare i cluster tramite il portale. Tuttavia, è possibile eseguire le stesse azioni dalla riga di comando usando i comandi ARM sulla risorsa del cluster. La risposta del comando GET sulla risorsa del cluster restituisce l'elenco di nodi che sono stati disabilitati.
+**Passaggio 8**: se era stata eseguita una richiesta di riduzione del numero di istanze, è necessario eseguire un passaggio aggiuntivo per l'eliminazione di VM. Lo script disattiva tutte le VM da rimuovere, sulle quali quindi non saranno più disponibili repliche di applicazioni o sistemi. È ora possibile eliminare queste VM.
+
+**NOTA**: anche se i nodi disattivati non vengono più usati dal cluster di Service Fabric, è comunque necessario eliminare le VM disattivate, in modo che non vengono addebitate.
+
+**Passaggio 8.1**: accedere al portale di Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+
+**Passaggio 8.2**: selezionare la risorsa cluster di cui si sta riducendo il numero di istanze e fare clic su "Tutte le impostazioni" nella Web part Essentials.
+
+**Passaggio 8.3**: fare clic su Tipi di nodo per visualizzare l'elenco dei nodi disattivati. In questa immagine, chackodnt15, chackodnt24, chackodnt25 e chackodnt26 sono le VM che è ora necessario eliminare.
+
+![Elenco nodi disattivati][DeactivatedNodeList]
+
+**Passaggio 8.4**: eliminare le VM tramite PowerShell o il portale. Con questa eliminazione termina il processo di riduzione del numero di istanze del cluster.
+
+```
+Remove-AzureRmResource -ResourceName <Deactivated Node name without the understore> -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName <Resource Group name> -ApiVersion <Api version>
+```
+Di seguito è riportato un esempio compilato del comando
+
+```
+Remove-AzureRmResource -ResourceName chackodnt26 -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName chackod02 -ApiVersion 2015-05-01-preview
+```
+
+### Aggiornamento di un cluster distribuito tramite ARM, PowerShell o l'interfaccia della riga di comando
+
+Se il cluster era stato originariamente distribuito usando un modello di ARM, è necessario modificare il numero di VM relative a un determinato tipo di nodo, nonché tutte le risorse che supportano la VM. Il numero minimo di VM per un tipo di nodo primario è 5 (per i cluster non di test), mentre per i cluster di test è 3.
+
+Dopo aver creato il nuovo modello, è ora possibile distribuirlo tramite ARM usando lo stesso gruppo di risorse del cluster che si sta aggiornando.
+
+
+## Ridimensionamento automatico del Service Fabric Cluster
+
+Attualmente i Service Fabric Cluster non supportano il ridimensionamento automatico. Nel prossimo futuro i cluster si baseranno su set di scalabilità di macchine virtuali. Ciò renderà possibile il ridimensionamento automatico, che avrà un comportamento simile a quello del ridimensionamento automatico disponibile nei servizi cloud.
+
 
 ## Passaggi successivi
 
@@ -78,6 +123,7 @@ Questo articolo descrive come ridimensionare i cluster tramite il portale. Tutta
 
 
 <!--Image references-->
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
+[ScaleupDownPSOut]: ./media/service-fabric-cluster-scale-up-down/ScaleupDownPSOut.png
+[DeactivatedNodeList]: ./media/service-fabric-cluster-scale-up-down/DeactivatedNodeList.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

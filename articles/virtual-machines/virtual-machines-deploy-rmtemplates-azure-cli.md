@@ -20,12 +20,8 @@
 # Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-<br>
-
-
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
@@ -1272,7 +1268,7 @@ Selezionare quindi myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
-In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
+In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 
@@ -1305,8 +1301,8 @@ Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o i
 
 ## Passaggi successivi
 
-Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
+Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
 
 Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

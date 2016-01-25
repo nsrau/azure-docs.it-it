@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -155,4 +155,4 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 - [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

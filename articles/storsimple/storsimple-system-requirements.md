@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/18/2015"
+   ms.date="01/08/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -118,7 +118,7 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 - L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
 	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
 	Questo può essere spiegato dall'esempio seguente.
 
@@ -175,7 +175,7 @@ I dispositivi StorSimple includono moduli di alimentazione e raffreddamento (PCM
 - Collegare i PCM a fonti di alimentazione differenti per garantire la disponibilità in caso di interruzione dell'alimentazione.
 - In caso di errore di un PCM, richiedere immediatamente una sostituzione.
 - Rimuovere un PCM non funzionante solo quando il modulo sostitutivo è disponibile e si è pronti a effettuare l'installazione.
-- Non rimuovere tutti e due i PCM contemporaneamente. Il modulo PCM include il modulo batteria di backup. La rimozione di entrambi i PCM comporterà un arresto non protetto dalla batteria e lo stato del dispositivo non verrà salvato. Per altre informazioni sulla batteria, vedere l'articolo relativo alla [manutenzione del modulo della batteria di backup](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Non rimuovere tutti e due i PCM contemporaneamente. Il modulo PCM include il modulo batteria di backup. La rimozione di entrambi i PCM comporterà un arresto non protetto dalla batteria e lo stato del dispositivo non verrà salvato. Per altre informazioni sulla batteria, vedere [Mantenere il modulo della batteria di backup](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### Moduli controller
 
@@ -255,10 +255,10 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 
 ## Passaggi successivi
 
-- [Informazioni sui limiti del sistema StorSimple](storsimple-limits.md).
+- [Ulteriori informazioni sui Limiti di StorSimple](storsimple-limits.md).
 - [Informazioni su come distribuire la soluzione StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

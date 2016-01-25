@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Elenco delle risorse di archiviazione di Azure con la libreria Client di archiviazione di Microsoft Azure per C++ | Microsoft Azure" 
-    description="Imparare a utilizzare le API elencate nella libreria Client di archiviazione di Microsoft Azure per C++ per enumerare contenitori, BLOB, code, tabelle ed entità." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="Elenco delle risorse di archiviazione di Azure con la libreria Client di archiviazione di Microsoft Azure per C++ | Microsoft Azure"
+    description="Imparare a utilizzare le API elencate nella libreria Client di archiviazione di Microsoft Azure per C++ per enumerare contenitori, BLOB, code, tabelle ed entità."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Elenco delle risorse di archiviazione di Azure in C++
 
@@ -54,7 +54,7 @@ Pertanto non è pratico elencare tutti gli oggetti in un'unica risposta. Al cont
 
 La risposta per un'operazione elenco segmentato include:
 
--	<i>\_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API. 
+-	<i>\_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API.
 -	*continuation\_token*che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
 
 Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri[esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -75,15 +75,15 @@ Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un con
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 Si noti che il numero di risultati restituiti in una pagina può essere controllato dal parametro*max\_results*nell'overload di ogni API, ad esempio:
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 Se non si specifica il parametro*max\_results*, il valore massimo predefinito di 5000 risultati viene restituito in un'unica pagina.
@@ -124,7 +124,7 @@ Se il codice chiama tali API greedy:
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -184,4 +184,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

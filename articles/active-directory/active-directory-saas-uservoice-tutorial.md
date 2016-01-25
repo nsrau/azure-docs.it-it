@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con UserVoice
@@ -92,11 +92,11 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
 
-7.  Nella sezione **Autenticazione utente** della scheda **portale Web** fare clic su **Modifica** per aprire la finestra di dialogo **Modifica autenticazione utente**.
+7.  Nella sezione **User authentication** della scheda **Web portal** fare clic su **Edit** per aprire la finestra di dialogo **Edit User Authentication**.
 
     ![Web portal](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
 
-8.  Nella finestra di dialogo **Modifica autenticazione utente** seguire questa procedura:
+8.  Nella finestra di dialogo **Edit User Authentication** seguire questa procedura:
 
     ![Edit user authentication](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
 
@@ -127,7 +127,7 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 
 3.  Fare clic su **Generale**.
 
-4.  Fare clic su **Agenti e autorizzazioni**.
+4.  Fare clic su **Agents and permissions**.
 
     ![Agents and permissions](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
 
@@ -139,7 +139,7 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 
     ![Invite admins](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
 
-    1.  Nella casella di testo Emails digitare l'indirizzo di posta elettronica dell'account di cui si vuole eseguire il provisioning e quindi fare clic su **Aggiungi**.
+    1.  Nella casella di testo Emails digitare l'indirizzo di posta elettronica dell'account di cui si vuole eseguire il provisioning e quindi fare clic su **Add**.
     2.  Fare clic su **Invita**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da UserVoice per eseguire il provisioning degli account utente Azure AD.
@@ -156,10 +156,10 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

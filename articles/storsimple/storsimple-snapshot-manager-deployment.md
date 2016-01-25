@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # Distribuire lo snap-in di StorSimple Snapshot Manager
@@ -23,11 +23,15 @@ StorSimple Snapshot Manager è uno snap-in Microsoft Management Console (MMC) ch
 
 In questa esercitazione vengono descritti i requisiti di configurazione, nonché le procedure per installare, rimuovere e aggiornare StorSimple Snapshot Manager.
 
+>[AZURE.NOTE]
+>
+>- Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
+>
+>- Se si prevede di installare l'aggiornamento 2 di StorSimple sul dispositivo StorSimple, assicurarsi di scaricare la versione più recente di StorSimple Snapshot Manager e installarla **prima di installare l'aggiornamento 2 di StorSimple**. La versione più recente di StorSimple Snapshot Manager è compatibile con le versioni precedenti e funziona con tutte le versioni rilasciate di Microsoft Azure StorSimple. Se si utilizza la versione precedente di StorSimple Snapshot Manager, è necessario aggiornarla (non è necessario disinstallare la versione precedente prima di installare la nuova versione).
+
 ## Installazione di StorSimple Snapshot Manager
 
-StorSimple Snapshot Manager può essere installato nei computer che eseguono il sistema operativo Windows Server ® 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
-
->[AZURE.NOTE]Nei server che eseguono Windows 2008 R2, è necessario installare Windows Server 2008 SP1 e Windows Management Framework 3.0.
+StorSimple Snapshot Manager può essere installato nei computer che eseguono il sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. Nei server che eseguono Windows 2008 R2, è necessario installare Windows Server 2008 SP1 e Windows Management Framework 3.0.
 
 Prima di installare o aggiornare lo StorSimple Snapshot Manager per Microsoft Management Console (MMC), assicurarsi che il dispositivo di Microsoft Azure StorSimple e l'host siano configurati correttamente.
 
@@ -49,7 +53,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
+    Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
 
 3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere[Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -121,7 +125,7 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
     - Il riquadro**Risultati** (riquadro centrale) contiene informazioni dettagliate sul nodo, vista o dati selezionati nel riquadro**Ambito**.
 
-    - Il pannello **Azioni** elenca le operazioni che è possibile eseguire sul nodo, vista o i dati selezionati nel riquadro**Ambito**.
+    - Il pannello **Azioni** elenca le operazioni che è possibile eseguire sul nodo, visualizzazione o i dati selezionati nel riquadro **Ambito**.
 
     Per una descrizione completa dell'interfaccia utente di Gestione snapshot StorSimple, vedere[interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
@@ -129,11 +133,11 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
     ![Configurare un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. Nella casella di riepilogo**Dispositivo**, selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password**digitare la password di StorSimple Snapshot Manager creata per il dispositivo nel portale di gestione di Microsoft Azure. Fare clic su **OK**.
+3. Nella casella di riepilogo**Dispositivo**, selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password**, digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di Azure classico. Fare clic su **OK**.
 
 4. StorSimple Snapshot Manager esegue la ricerca del dispositivo identificato. Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione. È possibile[verificare la connessione al dispositivo](#to-verify-the-connection)per verificare che la connessione sia stata aggiunta correttamente.
 
-    Se il dispositivo non è disponibile per qualsiasi motivo, StorSimple Snapshot Manager restituisce un messaggio di errore. Fare clic su **OK** per chiudere il messaggio di errore, quindi fare clic su **Annulla** per chiudere la finestra di dialogo **Configura un dispositivo**.
+    Se il dispositivo non è disponibile per qualsiasi motivo, StorSimple Snapshot Manager restituisce un messaggio di errore. Fare clic su**OK**per chiudere il messaggio di errore e quindi fare clic su**Annulla**per chiudere la finestra di dialogo **Configurare un dispositivo**.
 
 5. Quando si connette a un dispositivo, StorSimple Snapshot Manager importa ogni gruppo di volumi configurato per il dispositivo, purché il gruppo di volumi abbia associati i backup. I gruppi di volumi che non dispongono di backup associati non vengono importati. Inoltre, non vengono importati i criteri di backup creati per un gruppo di volumi. Per visualizzare i gruppi importati, fare doppio clic sul nodo **Gruppi di volumi**nel riquadro **Ambito** e fare clic su**attivare o disattivare i gruppi importati**.
 
@@ -257,4 +261,4 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 - Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

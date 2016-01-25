@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/13/2015"
    ms.author="larryfr"/>
 
 
@@ -59,14 +59,29 @@ Rete virtuale di Azure permette di estendere le soluzioni Hadoop in modo da aggi
 Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete virtuale, vedere la [panoramica della rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE]È necessario creare la rete virtuale di Azure prima del provisioning di un cluster HDInsight. Per altre informazioni, vedere [Attività di configurazione della rete virtuale](http://azure.microsoft.com/documentation/services/virtual-network/).
->
-> Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
->
-> È consigliabile definire una singola subnet per ogni cluster.
->
-> I cluster basati su Windows richiedono una rete virtuale v1 (classica), mentre i cluster basati su Linux richiedono una rete virtuale v2 (Gestione risorse di Azure). Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
->
-> Se si dispone di risorse in una rete virtuale non utilizzabile da parte del cluster che si intende creare, creare una nuova rete virtuale che può essere utilizzata dal cluster e connetterla alla rete virtuale non compatibile. È quindi possibile creare il cluster nella versione della rete che richiede e questo sarà in grado di accedere alle risorse nell'altra rete, poiché le due sono unite. Per ulteriori informazioni sulla connessione di reti virtuali classiche e nuove, vedere [Connessione di VNet classiche a VNet nuove](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+## Requisiti della rete virtuale
+
+> [AZURE.IMPORTANT]La creazione di un cluster HDInsight su una rete virtuale richiede configurazioni di rete virtuale specifiche, come descritto in questa sezione.
+
+* Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità. 
+
+* È consigliabile creare una singola subnet per ogni cluster HDInsight.
+
+* I cluster basati su Windows richiedono una rete virtuale v1 (classica), mentre i cluster basati su Linux richiedono una rete virtuale v2 (Gestione risorse di Azure). Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
+
+    Se si dispone di risorse in una rete virtuale non utilizzabile da parte del cluster che si intende creare, creare una nuova rete virtuale che può essere utilizzata dal cluster e connetterla alla rete virtuale non compatibile. È quindi possibile creare il cluster nella versione della rete che richiede e questo sarà in grado di accedere alle risorse nell'altra rete, poiché le due sono unite. Per ulteriori informazioni sulla connessione di reti virtuali classiche e nuove, vedere [Connessione di VNet classiche a VNet nuove](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+* HDInsight non è supportato sulle reti virtuali di Azure che limitano in modo esplicito l'accesso da e verso Internet. Ad esempio, l'uso di gruppi di sicurezza di rete o ExpressRoute per bloccare il traffico Internet alle risorse nella rete virtuale. Il servizio HDInsight è un servizio gestito e richiede l'accesso a Internet durante il provisioning e durante l'esecuzione per consentire ad Azure di monitorare l'integrità del cluster, avviare il failover di risorse cluster e altre attività di gestione automatizzate.
+
+    Se si desidera usare HDInsight su una rete virtuale che blocca il traffico Internet, è possibile eseguire le operazioni seguenti:
+
+    1.	Creare una nuova subnet all'interno della rete virtuale. Questa subnet verrà usata da HDInsight.
+
+    2.	Definire una tabella di routing e creare una route definita dall'utente (UDR) per la subnet che consente la connettività Internet in ingresso e in uscita. È possibile farlo usando * route. In questo modo si abilita la connettività Internet solo per le risorse che si trovano sulla subnet. Per ulteriori informazioni sull'uso di UDR, vedere https://azure.microsoft.com/it-IT/documentation/articles/virtual-networks-udr-overview/ e https://azure.microsoft.com/it-IT/documentation/articles/virtual-networks-udr-how-to/.
+    
+    3.	Quando si crea il cluster HDInsight, selezionare la subnet creata nel passaggio 1. Il cluster verrà distribuito nella subnet che ha accesso a Internet.
+
 
 Per altre informazioni sul provisioning di un cluster HDInsight in una rete virtuale, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md).
 
@@ -176,4 +191,4 @@ Gli esempi seguenti mostrano come usare HDInsight con Rete virtuale di Azure.
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

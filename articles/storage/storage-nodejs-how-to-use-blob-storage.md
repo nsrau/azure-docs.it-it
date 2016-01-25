@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Come usare l'archiviazione BLOB da Node.js | Microsoft Azure"
-	description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Node.js."
+	description="Scoprire come usare l'archiviazione BLOB per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Panoramica
 
-Questa guida illustra diversi scenari d'uso comuni del servizio BLOB di Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati illustrano come caricare, elencare, scaricare ed eliminare i BLOB.
+Questo articolo illustra scenari comuni relativi all'uso dell'archiviazione BLOB. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati illustrano come caricare, elencare, scaricare ed eliminare i BLOB.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,7 @@ Per usare Archiviazione di Azure, è necessario disporre di Azure Storage SDK pe
 
 ### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) per passare alla cartella in cui è stata creata l'applicazione di esempio.
+1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) per spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 
 2.  Digitare **npm install azure-storage** nella finestra di comando. L'output da questo comando sarà simile all'esempio di codice seguente.
 
@@ -146,7 +146,7 @@ Per caricare i dati in un BLOB in blocchi, usare le operazioni seguenti:
 
 * **createBlockBlobFromStream**: crea un nuovo BLOB in blocchi e carica il contenuto di un flusso
 
-* **createBlockBlobFromText**: crea un nuovo BLOB in blocchi e carica il contenuto di una stringa
+* **createBlockBlobFromText**: crea un nuovo BLOB in blocchi e carica il contenuti di una stringa
 
 * **createWriteStreamToBlockBlob**: fornisce un flusso di scrittura a un BLOB in blocchi
 
@@ -166,9 +166,9 @@ Per caricare i dati in un BLOB di pagine, usare le operazioni seguenti:
 
 * **createPageBlob**: crea un nuovo BLOB di pagine con una lunghezza specifica
 
-* **createPageBlobFromLocalFile**: crea un nuovo BLOB di pagine e carica il contenuto di un file
+* **createPageBlobFromLocalFile**: crea un nuovo BLOB di pagine e carica i contenuti di un file
 
-* **createPageBlobFromStream**: crea un nuovo BLOB di pagine e carica il contenuto di un flusso
+* **createPageBlobFromStream**: crea un nuovo BLOB di pagine e carica i contenuti di un flusso
 
 * **createWriteStreamToExistingPageBlob**: fornisce un flusso di scrittura a un BLOB di pagine esistente
 
@@ -234,7 +234,7 @@ Per eliminare un BLOB, infine, chiamare **deleteBlob**. L'esempio di codice segu
 
 Per supportare l'accesso simultaneo a un BLOB da più client o da più istanze di processo, è possibile usare gli **ETag** o **lease**
 
-* **Etag**: consente di rilevare se il BLOB o il contenitore è stato modificato da un altro processo
+* **Etag**: fornisce un modo per rilevare le eventuali modifiche apportate al BLOB o contenitore da un altro processo
 
 * **Lease**: consente di ottenere accesso esclusivo, rinnovabile, in scrittura o eliminazione a un BLOB per un periodo di tempo
 
@@ -362,11 +362,11 @@ Per altre informazioni, vedere le risorse seguenti:
 
 -   [Riferimento per le API di Azure Storage SDK per Node.js][]
 -   [Blog del team di Archiviazione di Azure][]
--   Repository [Azure Storage SDK per Node][] su GitHub
+-   Repository [Azure Storage SDK for Node][] su GitHub
 -   [Centro per sviluppatori di Node. js](/develop/nodejs/)
 -   [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-[Azure Storage SDK per Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [App Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
@@ -377,4 +377,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -18,7 +18,7 @@
 
 # Eseguire la migrazione del database del server SQL al database SQl tramite la replica transazionale
 
-Quando non è possibile rimuovere il database SQL Server dalla produzione quando è in corso la migrazione, è possibile usare la replica transazionale di SQL Server come soluzione di migrazione. Con la replica transazionale, tutte le modifiche ai dati o agli schemi che si verificano tra il momento in cui inizia la migrazione e quello in cui viene completata vengono visualizzate nel database SQL di Azure. Una volta completata la migrazione, è sufficiente modificare la stringa di connessione delle applicazioni in modo che puntino al database SQL di Azure anziché al database locale. Una volta che la replica transazionale completa le eventuali modifiche rimaste nel database locale e tutte le applicazioni puntano al database di Azure, è possibile disinstallare la replica lasciando il database SQL di Azure come sistema di produzione.
+Quando non è possibile rimuovere il database SQL Server dalla produzione durante la migrazione, è possibile usare la replica transazionale di SQL Server come soluzione di migrazione. Con la replica transazionale, tutte le modifiche ai dati o agli schemi che si verificano tra il momento in cui inizia la migrazione e quello in cui viene completata vengono visualizzate nel database SQL di Azure. Una volta completata la migrazione, è sufficiente modificare la stringa di connessione delle applicazioni in modo che puntino al database SQL di Azure anziché al database locale. Una volta che la replica transazionale completa le eventuali modifiche rimaste nel database locale e tutte le applicazioni puntano al database di Azure, è possibile disinstallare la replica lasciando il database SQL di Azure come sistema di produzione.
 
  ![Diagramma di SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
@@ -33,4 +33,4 @@ La replica transazionale è una tecnologia integrata in SQL Server a partire dal
 
 È inoltre possibile usare la replica transazionale per eseguire la migrazione di un subset del database locale. La pubblicazione di cui si esegue la replica nel database SQL di Azure può essere limitata a un subset delle tabelle nel database replicato. Inoltre, per ogni tabella replicata, è possibile limitare i dati a un subset di righe e/o di colonne.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

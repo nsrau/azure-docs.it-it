@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/12/2016"
 	ms.author="juliako"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -29,7 +29,7 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 - [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Uno degli SDK client disponibili: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- Uno degli SDK client disponibili: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - Strumenti esistenti: [portale di Azure classico](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -155,7 +155,7 @@ Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmet
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
-Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
+Un **Canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
 
 
 - Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
@@ -231,4 +231,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

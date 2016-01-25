@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/06/2015"
+ms.date="01/08/2016"
 ms.author="larryfr"/>
 
 #Elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight
@@ -58,4 +58,4 @@ Una soluzione completa e automatizzata per questo scenario è disponibile nel re
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

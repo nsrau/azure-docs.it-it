@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Come usare l'archiviazione BLOB da Java
 
@@ -54,7 +54,7 @@ I client di archiviazione di Azure usano le stringhe di connessione di archiviaz
         "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file cscfg:
+In un'applicazione in esecuzione in un ruolo di Microsoft Azure, questa stringa può essere archiviata nel file di configurazione del servizio *ServiceConfiguration.cscfg* ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
     // Retrieve storage account from connection-string.
     String storageConnectionString =
@@ -268,4 +268,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

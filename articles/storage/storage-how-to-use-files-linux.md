@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,10 +13,10 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Come usare l'archiviazione file di Azure con Linux 
+# Come usare l'archiviazione file di Azure con Linux
 
 ## Panoramica
 
@@ -24,7 +24,7 @@ L'archiviazione file di Azure offre condivisioni file nel cloud usando il protoc
 
 È possibile creare condivisioni file di Azure tramite il [portale di Azure](portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le API del file system standard.
 
-Il servizio di archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e i limiti dell’archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per archiviazione di Azure](storage-scalability-targets.md).
+Il servizio di archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e sui limiti di Archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
 Il servizio di archiviazione file è ora disponibile a livello generale e supporta entrambi i protocolli SMB 2.1 ed SMB 3.0. Per ulteriori informazioni sull'archiviazione file, vedere [API REST per il servizio file](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
@@ -40,10 +40,10 @@ Ecco un video che illustra come creare e usare Condivisioni file di Azure in Lin
 
 Quando si crea una macchina virtuale Linux in Azure, è possibile specificare un'immagine Linux che supporta SMB 2.1 o versione successiva dalla raccolta di immagini di Azure. Di seguito si trova un elenco di immagini Linux consigliate:
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -60,7 +60,7 @@ Successivamente, è necessario creare un punto di montaggio (mkdir mymountpoint)
 È inoltre possibile aggiungere le impostazioni a /etc/fstab per montare la condivisione.
 
 Si noti che qui 0777 rappresenta un codice di autorizzazione file/directory che concede autorizzazioni di esecuzione/lettura/scrittura a tutti gli utenti. È possibile sostituirlo con un altro codice di autorizzazione file seguendo il documento di autorizzazione dei file Linux.
- 
+
 Inoltre, per mantenere una condivisione di file montata dopo il riavvio, è possibile aggiungere un'impostazione come indicato di seguito a /etc/fstab:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -98,15 +98,15 @@ Il [portale di Azure](portal.azure.com) offre ora un'interfaccia utente per la g
 - Caricare i file nella condivisione file e scaricarli.
 - Monitorare l'uso effettivo di ogni condivisione file.
 - Rettificare la quota delle dimensioni della condivisione file.
-- Copiare il comando `net use` da usare per montare la condivisione file da un client Windows. 
+- Copiare il comando `net use` da usare per montare la condivisione file da un client Windows.
 
 È inoltre possibile usare l'interfaccia della riga di comando multipiattaforma di Azure da Linux per gestire la condivisione file. L'interfaccia della riga di comando di Azure offre un set di comandi multipiattaforma open source per l'uso con Archiviazione di Azure, inclusa l'archiviazione di file. Fornisce gran parte delle funzionalità disponibili nel portale di Azure, nonché funzionalità di accesso ai dati complessi. Per alcuni esempi, vedere [Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione Azure](storage-azure-cli.md).
 
 ## Sviluppare con Archiviazione file ##
 
-Gli sviluppatori possono creare un'applicazione con l'archiviazione file usando la [libreria client di archiviazione Azure per Java](https://github.com/azure/azure-storage-java). Per esempi di codice, vedere [Come usare l'archiviazione file da Java](storage-java-how-to-use-file-storage.md).
+Gli sviluppatori possono creare un'applicazione con l'archiviazione di file usando la [libreria client di Archiviazione di Azure per Java](https://github.com/azure/azure-storage-java). Per esempi di codice, vedere [Come usare l'archiviazione file da Java](storage-java-how-to-use-file-storage.md).
 
-È inoltre possibile usare la [libreria client di archiviazione Azure per Node.js](https://github.com/Azure/azure-storage-node) da sviluppare per l'archiviazione file.
+È inoltre possibile usare la [libreria client di Archiviazione di Azure per Node.js](https://github.com/Azure/azure-storage-node) da sviluppare per l'archiviazione di file.
 
 ## Commenti e suggerimenti e altre informazioni ##
 
@@ -136,8 +136,8 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 ### Post di BLOG
 
 - [Archiviazione file di Azure è attualmente disponibile a livello generale](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Approfondimenti su Archiviazione file di Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Approfondimenti su Archiviazione file di Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

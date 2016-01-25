@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Zscaler Two
@@ -53,7 +53,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Zsca
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-zscaler-two-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -99,28 +99,28 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Manage Users & Authentication](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Manage Users & Authentication")
 
-8.  Nella sezione **Scegli le opzioni di autenticazione per la tua organizzazione** seguire la procedura seguente:
+8.  Nella sezione **Choose Authentication Options for your Organization** seguire questa procedura:
 
     ![Autenticazione](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "Autenticazione")
 
-    1.  Selezionare **Autenticazione tramite SAML Single Sign-On**.
-    2.  Fare clic su **Configura i parametri di SAML Single Sign-On**.
+    1.  Selezionare **Authenticate using SAML Single Sign-On**.
+    2.  Fare clic su **Configure SAML Single Sign-On Parameters**.
 
-9.  Nella pagina della finestra di dialogo **Configura i parametri di SAML Single Sign-On** procedere come descritto di seguito e quindi fare clic su **Fatto**:
+9.  Nella pagina della finestra di dialogo **Configure SAML Single Sign-On Parameters** procedere come descritto di seguito e quindi fare clic su **Done**:
 
     ![Single Sign-On](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Single Sign-On")
 
     1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Zscaler Two** del portale di Azure, copiare il valore **URL richiesta di autenticazione** e quindi incollarlo nella casella di testo **URL del portale SAML al quale si reindirizzano gli utenti per l’autenticazione**.
     2.  Nella casella di testo **Attributo che contiene il nome di accesso** digitare **ID nome**.
-    3.  Per caricare il certificato scaricato fare clic su **Zscaler pem**
-    4.  Selezionare **Abilita il provisioning automatico di SAML**.
+    3.  Per caricare il certificato scaricato fare clic su **Zscaler pem**.
+    4.  Selezionare **Enable SAML Auto-Provisioning**.
 
-10. Nella pagina della finestra di dialogo **Configura Autenticazione dell’utente** seguire la procedura seguente:
+10. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
     ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Amministrazione")
 
     1.  Fare clic su **Save**.
-    2.  Fare clic su **Attiva subito**.
+    2.  Fare clic su **Activate Now**.
 
 11. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Zscaler Two** del portale di Azure selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa**.
 
@@ -162,15 +162,15 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Two, è necessario 
 
 1.  Accedere al tenant **Zscaler**.
 
-2.  Fare clic su **Amministrazione**.
+2.  Fare clic su **Administration**.
 
     ![Amministrazione](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Amministrazione")
 
-3.  Fare clic su **Gestione utente**.
+3.  Fare clic su **User Management**.
 
     ![Aggiungi](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Aggiungi")
 
-4.  Nella scheda **Utenti** fare clic su **Aggiungi**.
+4.  Nella scheda **Users** fare clic su **Add**.
 
     ![Aggiungi](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Aggiungi")
 
@@ -178,7 +178,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Two, è necessario 
 
     ![Aggiunta di un utente](./media/active-directory-saas-zscaler-two-tutorial/IC781038.png "Aggiunta di un utente")
 
-    1.  Digitare **ID utente**, **Nome utente visualizzato**, **Password** e **Conferma Password** e quindi selezionare **Gruppi** e **Reparto** di un account Azure AD valido di cui si vuole eseguire il provisioning.
+    1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Salva**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler Two per eseguire il provisioning degli account utente Azure AD.
@@ -201,4 +201,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

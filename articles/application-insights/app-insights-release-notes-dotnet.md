@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="01/12/2016" 
 	ms.author="abaranch"/>
  
 # Note sulla versione per Application Insights SDK per NET
@@ -32,6 +32,18 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-asp-net.md).
 * Confrontare ApplicationInsights.config con la copia precedente. La maggior parte delle modifiche visualizzate è dovuta al fatto che alcuni moduli sono stati rimossi e altri sono stati resi parametrizzabili. Ripristinare eventuali personalizzazioni apportate al file precedente.
 * Ricompilare la soluzione.
 
+## Versione 2.0.0-beta4
+
+- I metodi di estensione UseSampling e UseAdaptiveSampling sono stati spostati in Microsoft.ApplicationInsights.Extensibility
+- Rimozione del supporto per le applicazioni universali Windows Phone e Store
+- Aggiornamento di ```DependencyTelemetry``` per avere nuove proprietà ```ResultCode``` e ```Id```. ```ResultCode``` sarà usato per fornire un codice di risposta HTTP per le dipendenze HTTP e un codice di errore per le dipendenze SQL. ```Id``` sarà usato per la correlazione tra componenti. 
+- Se si esegue l'inizializzazione di ```ServerTelemetryChannel``` a livello di codice ora è necessario chiamare il metodo ```ServerTelemetryChannel.Initialize()```. In caso contrario non verrà inizializzato un archivio permanente (ciò significa che, se i dati di telemetria non possono essere inviati in caso di problemi di connettività temporanei, verranno eliminati).
+- ```ServerTelemetryChannel``` ha una nuova proprietà ```StorageFolder``` che può essere impostata tramite codice o tramite configurazione. Se questa proprietà è impostata, ApplicationInsights usa il percorso fornito per archiviare i dati di telemetria non inviati in caso di problemi di connettività temporanei. Se la proprietà non è impostata o la cartella fornita non è accessibile, ApplicationInsights tenterà di usare LocalAppData o le cartelle Temp come in precedenza.
+- Il metodo di estensione ```TelemetryConfiguration.GetTelemetryProcessorChainBuilder``` viene eliminato. Invece di questo metodo, utilizzare il metodo di istanza ```TelemetryConfiguration.TelemetryProcessorChainBuilder```.
+- La classe ```TelemetryConfiguration``` ha una nuova proprietà ```TelemetryProcessors``` che fornisce l'accesso di sola lettura alla raccolta ```TelemetryProcessors```.
+- ```Use```, ```UseSampling``` e ```UseAdaptiveSampling``` mantengono ```TelemetryProcessors``` caricato dalla configurazione.
+- Due processori di telemetria sono integrati nel file di configurazione: il processore di telemetria del filtro dell'agente utente e il processore di telemetria del gestore della richiesta. È possibile personalizzarne il comportamento. È possibile aggiungere una stringa dell'agente utente che si desidera escludere nel file AI.config. Per impostazione predefinita viene esclusa la stringa agente utente ```AllwaysOn```. Il comportamento corrente confronta le stringhe nel file di configurazione con la stringa dell'agente utente mediante un confronto completo che non fa distinzione tra minuscole e maiuscole. È inoltre possibile personalizzare l'elenco dei gestori per il quale si desidera escludere le richieste. 
+- La versione NuGet di Dependent Microsoft.ApplicationInsights.Agent.Intercept è stata aggiornata a 1.2.1. Include correzioni di bug della raccolta della dipendenza SQL.
 
 ## Versione 2.0.0-beta3
 
@@ -72,9 +84,9 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-asp-net.md).
 
 ## Versione 1.2
 
-- Gli inizializzatori di telemetria che non hanno dipendenze sulle librerie ASP.NET sono stati spostati da `Microsoft.ApplicationInsights.Web` al nuovo pacchetto Nuget della dipendenza `Microsoft.ApplicationInsights.WindowsServer`
+- Gli inizializzatori di telemetria che non hanno dipendenze sulle librerie ASP.NET sono stati spostati da `Microsoft.ApplicationInsights.Web` al nuovo pacchetto NuGet della dipendenza `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` è stato rinominato in `Microsoft.AI.Web.dll`
-- Nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` è stato rinominato in `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. Assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` è stato rinominato in `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` è stata rinominata in `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- `Microsoft.ApplicationInsights.Web.TelemetryChannel`NuGet è stato rinominato in`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`assembly è stato rinominato in`Microsoft.AI.ServerTelemetryChannel.dll`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`class è stato rinominato in`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Tutti gli spazi dei nomi che fanno parte dell'SDK Web sono stati modificati per escludere la parte `Extensibility`. Ciò include tutti gli inizializzatori di telemetria in ApplicationInsights.config e il modulo `ApplicationInsightsWebTracking` nel file web.config.
 - Le dipendenze raccolte tramite l'agente di strumentazione runtime (abilitato tramite Status Monitor o estensione del sito Web di Azure) non saranno contrassegnate come asincrone se non sono presenti HttpContext.Current nel thread.
 - La proprietà `SamplingRatio` di `DependencyTrackingTelemetryModule` non esegue alcuna operazione ed è contrassegnata come obsoleta.
@@ -124,4 +136,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0114_2016--->

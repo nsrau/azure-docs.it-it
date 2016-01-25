@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con TimeOffManager
@@ -53,7 +53,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-timeoffmanager-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-timeoffmanager-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -95,11 +95,11 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di TimeOffManager come amministratore.
 
-6.  Andare a **Account > Account Options > Single Sign-On Settings**.
+6.  Andare a **Account > Opzioni account >Impostazioni Single Sign-On**.
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "Impostazioni Single Sign-On")
 
-7.  Nella sezione **Single Sign-On Settings**, eseguire la procedura seguente:
+7.  Nella sezione **Impostazioni Single Sign-On**, eseguire la procedura seguente:
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Impostazioni Single Sign-On")
 
@@ -110,8 +110,8 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     2.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509**.
     3.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Idp Issuer**.
     4.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IdP Endpoint URL**.
-    5.  Per **Enforce SAML**, selezionare **No**.
-    6.  Per **Auto-Create Users**, selezionare **Yes**.
+    5.  Per **Applica SAML**, selezionare **No**.
+    6.  Per **Crea utenti automaticamente**, selezionare **Sì**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL**.
     8.  Fare clic su **Salva modifiche**.
 
@@ -119,13 +119,13 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configura accesso Single Sign-On")
 
-9.  Nel menu in alto fare clic su **Attributes** per aprire la finestra di dialogo **SAML token Attributes**.
+9.  Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
 
     ![Attributi](./media/active-directory-saas-timeoffmanager-tutorial/IC795920.png "Attributi")
 
 10. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
-    ![Attributi token SAML](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "Attributi token SAML")
+    ![attributi token saml](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "attributi token saml")
 
     |Nome attributo|Valore attributo|
 	|---|---|
@@ -133,8 +133,8 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 	|Lastname|User.surname|
 
     1.  Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.
-    2.  Nella casella di testo **Nome Attributo**, digitare il nome dell'attributo indicato per quella riga.
-    3.  Nella casella di testo **Attribute Value**, selezionare il valore dell'attributo indicato per la riga.
+    2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per quella riga.
+    3.  Nella casella di testo **Valore attributo**, selezionare il valore dell'attributo indicato per la riga.
     4.  Fare clic su **Complete**.
 
 11. Fare clic su **Applica modifiche**.
@@ -159,10 +159,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

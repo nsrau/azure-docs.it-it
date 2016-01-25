@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)
@@ -341,7 +341,7 @@ Il file JAR creato da questo progetto contiene due topologie, __com.microsoft.ex
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Se è stata usata una password per l'account SSH, verrà richiesto di immetterla. Se è stata usata una chiave SSH con l'account, potrebbe essere necessario usare il parametro `-i` per specificare il percorso del file di chiave. Nell'esempio seguente la chiave privata verrà caricata da `~/.ssh/id_rsa`:
+    > [AZURE.NOTE]Se è stata usata una password per l'account SSH, verrà richiesto di immetterla. Se si utilizza una chiave SSH con l'account, è necessario utilizzare il parametro `-i` per specificare il percorso del file di chiave. Nell'esempio seguente la chiave privata verrà caricata da `~/.ssh/id_rsa`:
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -476,4 +476,4 @@ Per altre informazioni sull'uso dell'Interfaccia utente di Storm, vedere gli arg
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

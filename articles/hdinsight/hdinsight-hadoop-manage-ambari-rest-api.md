@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'API REST Ambari
@@ -135,4 +135,4 @@ Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle
 
 > [AZURE.NOTE]Alcune funzionalità di Ambari sono disabilitate, perché vengono gestite dal servizio cloud HDInsight, ad esempio, l'aggiunta o la rimozione di host dal cluster o l'aggiunta di nuovi servizi.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

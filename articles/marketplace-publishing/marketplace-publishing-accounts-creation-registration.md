@@ -1,6 +1,6 @@
 <properties
    pageTitle="Processo di creazione e registrazione dell’account di pubblicazione | Microsoft Azure"
-   description="Sono disponibili istruzioni per la creazione di un account venditore Microsoft in modo che, dopo l'approvazione, un utente possa vendere diversi tipi di offerte in Azure Marketplace."
+   description="Istruzioni per la creazione di un account Microsoft Developer per consentire all'utente, dopo l'approvazione, di vendere diversi tipi di offerte in Azure Marketplace."
    services="Azure Marketplace"
    documentationCenter=""
    authors="HannibalSII"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="12/17/2015"
    ms.author="hascipio"/>
 
-# Creazione di un account del venditore Microsoft
-In questo articolo viene illustrata la creazione e la registrazione dell’account necessario per diventare un venditore Microsoft approvato per Azure Marketplace.
+# Creare un account di Microsoft Developer
+In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
 
 ## 1\. Creare un account Microsoft
-> [AZURE.WARNING]Per avviare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà usato per registrarsi e per accedere a **Microsoft Developer Center** e al **portale di pubblicazione di Azure**. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. Essi non devono essere specifici per servizi oppure offerte.
+> [AZURE.WARNING] Per avviare il processo di pubblicazione, è necessario creare un account Microsoft. Questo account verrà usato per registrarsi e per accedere a **Microsoft Developer Center** e al **portale di pubblicazione di Azure**. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico per servizi oppure offerte.
 
 L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed essere controllato dal team IT, ad esempio publishing@example.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
 
@@ -47,17 +47,17 @@ L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed 
 ## 2\. Creare l'account Microsoft Developer Center
 Microsoft Developer Center viene usato per registrare le informazioni della società una sola volta. La persona che effettua la registrazione deve essere un rappresentante della società valido e deve fornire le informazioni personali come metodo per convalidare la propria identità. La persona che esegue la registrazione deve usare un account Microsoft condiviso per la società ** e questo account deve essere usato anche nel portale di pubblicazione di Azure**. Assicurarsi che l'azienda non possieda già un account Microsoft Developer Center prima di provare a crearne uno. Durante il processo, Microsoft raccoglierà informazioni sull'indirizzo dell'azienda, sul conto bancario e sui dati fiscali. Tali informazioni possono generalmente essere ottenute da contatti finanziari o aziendali.
 
-> [AZURE.IMPORTANT]I seguenti componenti del profilo del venditore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell’offerta.
+> [AZURE.IMPORTANT] I seguenti componenti del profilo sviluppatore devono essere completati per l'avanzamento attraverso le diverse fasi della creazione e della distribuzione dell'offerta.
 
 
-| Profilo del venditore | Per iniziare la bozza | Staging | Pubblica modello gratuito e di soluzione | Pubblica offerta commerciale |
+| Profilo sviluppatore | Per iniziare la bozza | Staging | Pubblica modello gratuito e di soluzione | Pubblica offerta commerciale |
 |----|----|----|----|----|
 |Registrazione della società | Necessario | Necessario | Necessario | Necessario |
 |ID del profilo fiscale | Facoltativo | Facoltativo | Facoltativo | Necessario |
 |Conto bancario | Facoltativo | Facoltativo | Facoltativo | Necessario |
 
 
-> [AZURE.NOTE]Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un'offerta **gratuita**.
+> [AZURE.NOTE] Bring Your Own License (BYOL) è supportato solo per le macchine virtuali e viene considerato un’offerta **gratuita**.
 
 
 ### Registrare l'account della società
@@ -79,7 +79,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 6. Selezionare "Tipo di account", **utente singolo** o **aziendale**.
 
-    <!-- Insert screenshot -->> [AZURE.IMPORTANT]Per comprendere meglio i tipi di account e quale sia più adatto per le proprie esigenze, visitare la pagina [Tipi di account, aree geografiche e tariffe](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
+    > [AZURE.IMPORTANT] Per comprendere meglio i tipi di account e quale sia più adatto per le proprie esigenze, visitare la pagina [Tipi di account, aree geografiche e tariffe](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
 7. Immettere il **Nome visualizzato dell'editore**, in genere il nome della società.
 
@@ -198,4 +198,4 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

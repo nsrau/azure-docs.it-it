@@ -24,7 +24,7 @@ In questo articolo viene descritto come iniziare a utilizzare l'archiviazione ta
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
-L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
+L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e aggiunge la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
 Per ulteriori informazioni generali sull'utilizzo dell'archiviazione tabelle di Azure, vedere [Come utilizzare l'archiviazione delle tabelle da .NET](storage-dotnet-how-to-use-tables.md).
 
@@ -150,9 +150,6 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
         }
     } while (token != null);
 
-    return View();
-
-
 ## Ottenere una singola entità
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **tabelle**.
 
@@ -202,4 +199,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

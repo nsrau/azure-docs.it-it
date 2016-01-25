@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Workday
@@ -60,7 +60,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Sale
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Workday tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Workday tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -103,9 +103,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Redirection URLs](./media/active-directory-saas-workday-tutorial/IC7829581.png "Redirection URLs")
 
-     9\.1. Fare clic su **Add Row**.
+     9\.1. Fare clic su **Aggiungi riga**.
 
-     9\.2. Nelle caselle di testo **Login Redirect URL** e **Mobile Redirect URL** digitare il valore di **Workday Tenant URL** immesso nella pagina **Configura URL app** del portale di Azure.
+     9\.2. Nelle caselle di testo **URL di reindirizzamento dell’accesso** e **URL di reindirizzamento dispositivi mobili** digitare il valore **URL del Tenant di Workday** immesso nella pagina **Configura URL app** del portale di Azure.
     
      9\.3. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Logout Redirect URL**.
 
@@ -114,7 +114,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
        >[AZURE.NOTE]Il valore dell'attributo di ambiente è associato al valore dell'URL del tenant: >>: se il nome di dominio dell’URL del tenant Workday inizia con impl (ad esempio: *https://impl.workday.com/\<tenant>/login-saml2.htmld*), l’attributo **Environment** deve essere impostato su Implementazione. >- Se il nome di dominio inizia con un altro elemento, è necessario contattare Workday per ottenere il valore**Environment** corrispondente.
 
-10. Nella sezione**SAML Setup** seguire questa procedura:
+10. Nella sezione **configurazione SAML**, attenersi alla procedura seguente:
 
     ![SAML Setup](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML Setup")
 
@@ -139,7 +139,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
      11\.4. Fare clic su **Create x509 Public Key**.<br><br>![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
 
-     11\.5. Nella sezione **View x509 Public Key** seguire questa procedura:<br><br>![View x509 Public Key](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key")<br>
+     11\.5. Nella sezione **Visualizza chiave pubblica x509** seguire questa procedura:<br><br>![View x509 Public Key](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key")<br>
 
       1.  Nella casella di testo **Name** digitare un nome per il certificato (ad esempio, *PPE\_SP*).
       2.  Nella casella di testo **Valid From** digitare il valore dell'attributo di inizio validità del certificato.
@@ -147,7 +147,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 		
            >[AZURE.NOTE]Per individuare la data di inizio e di fine validità, fare doppio clic sul certificato scaricato. Le date sono elencate nella scheda **Details**.
 
-      4.  Creare un file **con codifica Base 64** dal certificato scaricato.
+      4.  Creare un file con **codifica Base 64** dal certificato scaricato.
 
 		>[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -161,9 +161,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
      12\.2. Nella casella di testo **Service Provider ID** digitare ****http://www.workday.com**.
 
-     12\.3. Selezionare **Enable SP Initiated SAML Authentication**.
+     12\.3. Selezionare **Abilita autenticazione SAML SP initiated**.
 
-     12\.4. Nella finestra di dialogo **Configura accesso Single Sign-On in Workday** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **IdP SSO Service URL**.
+     12\.4. Nella finestra di dialogo **Configura accesso Single Sign-On in Workday** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **URL servizio IdP SSO**.
      
      12\.5 Selezionare **Do Not Deflate SP-initiated Authentication Request**.
 
@@ -203,4 +203,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

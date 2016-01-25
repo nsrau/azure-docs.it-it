@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # Abilitazione del proxy dell’applicazione di Azure AD
@@ -51,21 +51,25 @@ Se il firewall impone il traffico in base agli utenti di origine, aprire queste 
 2. Passare ad Active Directory e selezionare la directory in cui si desidera abilitare il proxy dell'applicazione.
 3. Fare clic su **Configura**, scorrere fino al proxy dell'applicazione e selezionare **Abilitato** in Abilita servizi proxy dell'applicazione per questa directory.
 
-	![Abilitare il proxy dell’applicazione](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
+	![Abilitare il proxy dell’applicazione](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
+
 4. Fare clic su **Scarica ora** nella parte inferiore della schermata. Verrà visualizzata la pagina di download. Leggere e accettare le condizioni di licenza e fare clic su **Download** per salvare il file di Windows Installer (con estensione txt) per il connettore del proxy dell'applicazione.
 
 ##Passaggio 2: installare e registrare il connettore
 1. Eseguire `AADApplicationProxyConnectorInstaller.exe` sul server preparato (vedere la sezione precedente Prerequisiti del proxy dell'applicazione).
 2. Seguire le istruzioni della procedura guidata da installare.
-3. Durante l'installazione verrà richiesto di registrare il connettore con l'account del proxy dell’applicazione attivo.
-<p>- Fornire le credenziali di amministratore globale di Azure AD.
-<p>- Assicurarsi che l'amministratore che registra il connettore sia nella stessa directory in cui è stato abilitato il servizio proxy dell’applicazione, ad esempio se il dominio del tenant è contoso.com, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio. Assicurarsi inoltre di essere un amministratore globale del tenant di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
-<p>- Se la Sicurezza avanzata di Internet Explorer è impostata su Attiva nel server in cui si desidera installare il connettore di Azure AD, la schermata di registrazione potrebbe essere bloccata. In questo caso, seguire le istruzioni nel messaggio di errore per consentire l'accesso. Assicurarsi che la protezione avanzata di Internet Explorer sia disattivata.
-<p>- Se la registrazione del connettore non ha esito positivo, vedere la [Risoluzione dei problemi del proxy dell’applicazione](active-directory-application-proxy-troubleshoot.md).
+3. Durante l'installazione verrà richiesto di registrare il connettore con il proxy dell'applicazione del tenant di Azure AD.
 
-4. Al termine dell'installazione, due nuovi servizi vengono aggiunti al server, come illustrato di seguito. Si tratta del servizio del connettore, che consente la connettività e di un servizio di aggiornamento automatico, che verifica periodicamente la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze. Fare clic su Fine nella finestra di installazione per completare l'installazione
-	![Servizio del connettore proxy dell’applicazione](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
-5. A questo punto si è pronti per pubblicare le applicazioni con il proxy dell'applicazione.
+<p>- Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
+<p>- Assicurarsi che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione, ad esempio se il dominio del tenant è contoso.com, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias del dominio.
+<p>- Se la Sicurezza avanzata di Internet Explorer è impostata su **Attiva** nel server in cui si desidera installare il connettore di Azure AD, la schermata di registrazione potrebbe essere bloccata. In questo caso, seguire le istruzioni nel messaggio di errore per consentire l'accesso. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+<p>- Se la Registrazione del connettore non riesce, vedere [Risolvere i problemi del Proxy applicazione](active-directory-application-proxy-troubleshoot.md).  
+
+4. Al termine dell'installazione, due nuovi servizi vengono aggiunti al server, come illustrato di seguito. Si tratta del servizio del connettore, che consente la connettività e di un servizio di aggiornamento automatico, che verifica periodicamente la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze. Fare clic su **Fine** nella finestra di installazione per completare l'installazione
+
+	![Servizi del connettore proxy dell'applicazione](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+
+5. A questo punto si è pronti per [pubblicare le applicazioni con il proxy dell'applicazione](active-directory-application-proxy-publish.md).
 
 Per ottenere una disponibilità elevata, è necessario distribuire almeno un connettore aggiuntivo. Per distribuire un connettore aggiuntivo, ripetere i passaggi 2 e 3 descritti in precedenza. Ogni connettore deve essere registrato separatamente.
 
@@ -83,7 +87,6 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
 
 ## Ulteriori informazioni sul proxy dell’applicazione
-- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -92,4 +95,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Identità di Azure](fundamentals-identity.md)
 * [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

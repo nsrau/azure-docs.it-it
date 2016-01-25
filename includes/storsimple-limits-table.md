@@ -8,7 +8,7 @@
 | Numero massimo di pianificazioni per ogni modello di larghezza di banda | 168 | Una pianificazione per ogni ora, ogni giorno della settimana (24*7). |
 | Dimensioni massime di un volume a livelli nei dispositivi fisici | 64 TB per 8100 e 8600 | 8100 e 8600 sono dispositivi fisici. |
 | Dimensioni massime di un volume a livelli su dispositivi virtuali di Azure | 30 TB per 8010 <br></br> 64 TB per 8020 | 8010 e 8020 sono dispositivi virtuali di Azure che usano rispettivamente archiviazione Standard e Premium. |
-| Dimensioni massime di un volume aggiunto in locale nei dispositivi fisici | 10 TB per 8100 <br></br> 25 TB per 8600 | 8100 e 8600 sono dispositivi fisici. |
+| Dimensioni massime di un volume aggiunto in locale nei dispositivi fisici | 9 TB per 8100 <br></br> 24 TB per 8600 | 8100 e 8600 sono dispositivi fisici. |
 | Numero massimo di connessioni iSCSI | 512 | |
 | Numero massimo di connessioni iSCSI dagli iniziatori | 512 | |
 | Numero massimo di record di controllo di accesso per dispositivo | 64 | |
@@ -27,4 +27,4 @@
 
 &#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Come usare l'archivio BLOB da Xamarin (anteprima) | Microsoft Azure" 
-	description="La libreria client di Archiviazione di Azure per l'anteprima di Xamarin consente agli sviluppatori di creare app per Windows Store, iOS e Android con le proprie interfacce utente native. In questa esercitazione viene illustrato come utilizzare Xamarin per creare un'applicazione Android che utilizza l'archivio BLOB di Azure." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="Come usare l'archivio BLOB da Xamarin (anteprima) | Microsoft Azure"
+	description="La libreria client di Archiviazione di Azure per l'anteprima di Xamarin consente agli sviluppatori di creare app per Windows Store, iOS e Android con le proprie interfacce utente native. In questa esercitazione viene illustrato come utilizzare Xamarin per creare un'applicazione Android che utilizza l'archivio BLOB di Azure."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Come usare l'archivio BLOB da Xamarin (anteprima)
 
@@ -179,4 +179,4 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 [Come usare l'archiviazione code da .NET](storage-dotnet-how-to-use-queues.md)
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

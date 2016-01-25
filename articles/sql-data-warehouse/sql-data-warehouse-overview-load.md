@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati in SQL Data Warehouse
 SQL Data Warehouse presenta numerose opzioni per il caricamento dei dati tra cui:
@@ -201,4 +201,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [Documentazione di archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/
 [documentazione di ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -67,11 +67,11 @@ Gli articoli seguenti illustrano l'uso del Toolkit di Azure per Eclipse per aggi
 
 [Novità nel Toolkit di Azure per Eclipse][]
 
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
+Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure][].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Proprietà del progetto di Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Proprietà del ruolo di Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Endpoint del servizio di Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
@@ -93,4 +93,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Usare la libreria di runtime di servizio di Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novità nel Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

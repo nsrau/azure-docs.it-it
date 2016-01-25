@@ -1,18 +1,19 @@
 <properties
 	pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Microsoft Azure"
-	description="Informazioni su come usare BLOB, code e tabelle di Azure per archiviare i dati per un'app di Windows Store."
+	description="Scoprire come creare un'applicazione di Windows Store che usa l'archiviazione BLOB, code, tabelle o file di Azure."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # Come usare l'archiviazione di Azure nelle app di Windows Store
 
 ## Panoramica
@@ -86,4 +87,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

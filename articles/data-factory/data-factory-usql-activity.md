@@ -125,6 +125,7 @@ degreeOfParallelism | Il numero massimo di nodi che verranno usati contemporanea
 priority | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No 
 parameters | Parametri per lo script U-SQL | No 
 
+Vedere [SearchLogProcessing.txt Script Definition](#script-definition) per la definizione dello script.
 
 ### Set di dati di input e output di esempio
 
@@ -187,4 +188,35 @@ Ecco la definizione del servizio collegato dell'archivio di Azure Data Lake di e
 
 Vedere [Spostare dati da e verso l'archivio di Azure Data Lake](data-factory-azure-datalake-connector.md) per una descrizione delle proprietà JSON nel servizio collegato dell'archivio di Azure Data Lake e negli snippet JSON dei set di dati precedenti.
 
-<!---HONumber=Nov15_HO2-->
+### Definizione dello script
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+I valori per i parametri **@in** e **@out** nello script U-SQL riportato sopra vengono passati in modo dinamico da ADF mediante la sezione 'parameters'. Vedere la sezione 'parameters' riportata sopra nella definizione della pipeline.
+
+È possibile specificare anche altre proprietà come degreeOfParallelism, priorità e così via nella definizione della pipeline per i processi in esecuzione sul servizio di Analisi Azure Data Lake.
+
+<!---HONumber=AcomDC_0114_2016-->

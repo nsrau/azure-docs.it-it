@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="01/08/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: rilevamento proattivo
@@ -22,9 +22,20 @@
 
 Application Insights esegue un'analisi approfondita dei dati di telemetria dell'app e può segnalare potenziali problemi di prestazioni. È probabile che si stia leggendo questo articolo perché si è ricevuto un avviso proattivo tramite posta elettronica.
 
+
 ## Che cos'è il rilevamento proattivo?
 
-Il rilevamento proattivo usa algoritmi di Machine Learning e data mining per rilevare modelli anomali che influiscono sulle prestazioni dell'applicazione. Il rilevamento proattivo analizza automaticamente i dati di telemetria delle prestazioni raccolti da Application Insights. Invia un messaggio di posta elettronica relativo a eventuali prestazioni anomale riscontrate nell'applicazione. Non è necessario impostare regole di soglia. Le notifiche di rilevamento proattivo vengono integrate dalle funzionalità di analisi di Application Insights in modo da consentire una rapida valutazione e diagnosi dei problemi.
+Il rilevamento proattivo individua le anomalie di prestazione nell'app analizzando i dati di telemetria inviati ad Application Insights.
+
+In particolare, rileva i problemi di prestazione che riguardano solo alcuni utenti o che riguardano gli utenti solo in alcuni casi.
+
+Ad esempio, è possibile avvisare l'utente se le pagine dell'app si caricano molto più lentamente su un tipo di browser rispetto ad altri o se le richieste vengono eseguite più lentamente da un server specifico. Inoltre è possibile rilevare problemi legati alle combinazioni di proprietà, ad esempio caricamenti lenti della pagine in un'area geografica in orari specifici del giorno.
+
+Anomalie come queste sono molto difficili da rilevare semplicemente esaminando i dati, ma sono più comuni di quanto si pensi. Spesso emergono solo quando i clienti si lamentano. A quel punto è troppo tardi: gli utenti interessati sono già passati alla concorrenza.
+
+Attualmente, gli algoritmi esaminano i tempi di caricamento delle pagine, i tempi di risposta richiesti al server e i tempi di risposta delle dipendenze.
+
+Non è necessario impostare regole di soglia o configurare regole. Per rilevare modelli anomali vengono utilizzati Machine Learning e algoritmi di data mining.
 
 Il rilevamento proattivo è disponibile in anteprima e non è ancora disponibile per tutti gli utenti di Application Insights. Se si desidera provarlo, contattare AppInsightsML@microsoft.com per configurarlo.
 
@@ -45,17 +56,17 @@ Il rilevamento proattivo è disponibile in anteprima e non è ancora disponibile
 * *Quali tipi di anomalie vengono rilevati?*
  * Vengono analizzati quegli schemi che sarebbe troppo lungo verificare manualmente, ad esempio prestazioni insufficienti per una combinazione specifica di località, ora del giorno e piattaforma.
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
- * Attualmente no. Attualmente, vengono analizzati il tempo di risposta alla richiesta e il tempo di caricamento della pagina. L'analisi di altre metriche verrà implementata a breve. 
+ * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta e il tempo di caricamento della pagina. L'analisi di altre metriche verrà implementata a breve. 
 * *Si possono creare regole personalizzate di rilevamento delle anomalie?*
  * Per il momento no. È però possibile:
  * [Impostare avvisi](app-insights-alerts.md) per essere informati quando una determinata metrica supera una soglia.
  * [Esportare dati di telemetria](app-insights-export-telemetry.md) in un [database](app-insights-code-sample-export-sql-stream-analytics.md) o in [PowerBI](app-insights-export-power-bi.md) oppure in [altri](app-insights-code-sample-export-telemetry-sql-database.md) strumenti, in cui è possibile analizzare personalmente i dati.
 * *Con quale frequenza viene eseguita l'analisi?*
- * Eseguire l'analisi giornaliera sui dati di telemetria dal giorno precedente.
+ * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente.
 * **Ciò sostituisce gli [avvisi delle metriche](app-insights-alerts.md)?
  * No. Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
-## Analisi dei problemi rilevati dal rilevamento proattivo
+## Analisi dei problemi evidenziati dal rilevamento proattivo
 
 Aprire il report delle anomalie dal messaggio di posta elettronica o dall'elenco delle anomalie.
 
@@ -66,9 +77,9 @@ Aprire il report delle anomalie dal messaggio di posta elettronica o dall'elenco
 * Nell'area **Informazioni approfondite** vengono visualizzate le informazioni seguenti:
  * Il problema rilevato;
  * Le caratteristiche della serie di eventi in cui è stato rilevato il comportamento anomalo.
-* Nella tabella viene confrontata la serie di eventi caratterizzata da prestazioni scadenti con comportamento medio di tutti gli altri eventi.
+* Nella tabella viene confrontata la serie di eventi caratterizzata da prestazioni scadenti con il comportamento medio di tutti gli altri eventi.
 
-Fare clic sui collegamenti per aprire Esplora metrica ed eseguire ricerche nei report rilevanti, filtrati in base all'ora e alle proprietà della serie di eventi con prestazioni scadenti.
+Fare clic sui collegamenti per aprire Esplora metriche ed eseguire ricerche nei report rilevanti, filtrati in base all'ora e alle proprietà della serie di eventi con prestazioni scadenti.
 
 Modificare l'intervallo di tempo e i filtri per esplorare i dati di telemetria.
 
@@ -112,6 +123,8 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
  * Fare clic sul collegamento di annullamento della sottoscrizione nell'avviso o nel messaggio di posta elettronica. 
  
     Attualmente vengono inviate agli utenti che hanno [accesso in scrittura alla risorsa Application Insights](app-insights-resources-roles-access-control.md).
+
+    È inoltre possibile modificare l'elenco dei destinatari nel pannello Rilevamento proattivo.
 * *Non voglio ricevere un numero elevato di messaggi.*
  * Ogni giorno viene ricevuto al massimo un messaggio senza alcuna ripetizione dello stesso messaggio.
 * *Se non eseguo alcuna operazione, riceverò un promemoria?*
@@ -128,4 +141,4 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
 * [Esplora ricerche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

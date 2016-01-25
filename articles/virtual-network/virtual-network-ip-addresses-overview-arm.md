@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Indirizzi IP in Azure
@@ -23,9 +23,7 @@ Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi 
 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet) e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
-
-Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
 
 ## Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs), [Database SQL](sql-database-technical-overview.md) e [Archiviazione di Azure](storage-introduction.md).
@@ -139,7 +137,7 @@ Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure
 
 ## Prezzi
 
-Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È prevista una tariffa nominale se si vuole usare indirizzi IP pubblici statici e/o aggiuntivi. Accertarsi di aver compreso la [struttura dei prezzi per gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/).
+Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È prevista una tariffa nominale per l'uso di indirizzi IP pubblici statici e/o aggiuntivi. Accertarsi di aver compreso la [struttura dei prezzi per gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 In sintesi, la struttura di prezzi seguenti si applica a risorse IP pubbliche:
 
@@ -152,12 +150,8 @@ In sintesi, la struttura di prezzi seguenti si applica a risorse IP pubbliche:
 	- L'utilizzo viene calcolato in base al numero totale di indirizzi IP pubblici statici nella sottoscrizione.
 
 ## Passaggi successivi
-- [Distribuire una macchina virtuale con un indirizzo IP pubblico statico](virtual-network-deploy-static-pip-arm-template.md)
-- [Creare un indirizzo IP pubblico per un servizio di bilanciamento del carico con connessione Internet tramite l'interfaccia della riga di comando di Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Creare un indirizzo IP pubblico per un gateway applicazione usando PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Creare un indirizzo IP pubblico per un gateway VPN usando PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Distribuire una macchina virtuale con un indirizzo IP privato statico](virtual-networks-static-private-ip-arm-pportal.md)
-- [Creare un indirizzo IP privato statico front-end per un servizio di bilanciamento del carico interno tramite PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Creare un pool back-end con indirizzi IP statici privati per un gateway applicazione usando PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Distribuire una VM con un IP pubblico statico](virtual-network-deploy-static-pip-arm-portal.md) tramite il portale di Azure.
+- Scoprire come [distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md).
+- [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-arm-pportal.md) tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

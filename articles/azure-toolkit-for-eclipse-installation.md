@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Installare il Toolkit di Azure per Eclipse."
-    description="Informazioni su come installare il Toolkit di Azure per Eclipse"
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Installare il Toolkit di Azure per Eclipse."
+	description="Informazioni su come installare il Toolkit di Azure per Eclipse"
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,23 +26,7 @@ Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di 
 
 La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
-## Prerequisiti ##
-
-* IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
-* Un kit Java Developer (JDK) v1.7 o versione successiva. 
-* Sistemi operativi - il Toolkit di Azure per Eclipse è stato testato nei seguenti sistemi operativi:
-    * Windows 10
-    * Windows 8 e Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT]Se si utilizza il Toolkit di Azure per Eclipse su Windows, è necessario installare Azure SDK 2.7 o versione successiva. Sono disponibili due opzioni per l'installazione dell’SDK di Azure:
-> 
-> * È possibile scaricare e l’SDK di Azure mediante l’[Installazione guidata piattaforma Web (WebPI)][].
-> * Se L’SDK di Azure non è installata al momento della creazione del primo progetto di distribuzione di Azure, verrà richiesto di scaricarla automaticamente e di installare la versione necessaria di Azure SDK.
-> 
-> Si noti che l’SDK di Azure è necessaria solo per Windows.
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## Per installare il Toolkit di Azure per Eclipse ##
 
@@ -71,15 +55,15 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
 [Novità nel Toolkit di Azure per Eclipse][]
 
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
+Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure][].
 
 <!-- URL List -->
 
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Installazione guidata piattaforma Web (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Novità nel Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -87,4 +71,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

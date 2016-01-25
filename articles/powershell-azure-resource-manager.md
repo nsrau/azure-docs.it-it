@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -302,6 +302,9 @@ Si noti anche la sezione dei parametri. Questa sezione definisce i valori che è
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -342,7 +345,7 @@ Vengono specificati il gruppo di risorse e il percorso del modello. Se il modell
 
 ###Parametri del modello dinamici
 
-Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet lo recupera, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
+Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
 
 Di seguito viene riportato il comando completo con i parametri inclusi. È possibile specificare i propri valori per i nomi delle risorse.
 
@@ -382,9 +385,9 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
 
 - Per ottenere tutti i gruppi di risorse della sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +395,38 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
 		
 		...
 
+      Se si desidera ottenere un determinato gruppo di risorse, fornire il parametro **Nome**.
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - Per ottenere le risorse nel gruppo di risorse, usare il cmdlet **Find-AzureRmResource** e il relativo parametro **ResourceGroupNameContains**. Senza parametri, Find-AzureRmResource recupera tutte le risorse nella sottoscrizione di Azure.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- Il modello precedente include un tag di una risorsa. È possibile usare i tag per organizzare logicamente tutte le risorse nella sottoscrizione. Usare i comandi **Find-AzureRmResource** e **Find-AzureRmResourceGroup** per eseguire una query delle risorse in base ai tag.
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      I tag consentono di eseguire numerose operazioni. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
 ## Aggiungere un gruppo di risorse
 
@@ -437,8 +457,8 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 ## Passaggi successivi
 
 - Per informazioni sulla creazione di modelli di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
-- Per informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](./resource-group-template-deploy.md).
+- Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](./resource-group-template-deploy.md).
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

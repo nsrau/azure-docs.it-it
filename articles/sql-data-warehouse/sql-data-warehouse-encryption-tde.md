@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguent
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

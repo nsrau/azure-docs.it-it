@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
@@ -275,4 +275,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

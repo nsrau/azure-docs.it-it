@@ -44,6 +44,7 @@ L'API Recommendations di Azure Machine Learning può essere suddivisa nei seguen
 ##2\. Limitazioni
 
 - Il numero massimo di modelli per ogni sottoscrizione è 10.
+- Il numero massimo di compilazioni per ogni modello è 20.
 - Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
 - Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
 - Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
@@ -796,10 +797,23 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 
-
-
 ##7\. Modello Business Rules
-Questi sono i tipi di regole supportati: - <strong>BlockList</strong>: Blocklist consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni.. - <strong>FeatureBlockList</strong>: FeatureBlockList consente di bloccare gli elementi in base ai valori delle relative funzionalità. - <strong>Upsale</strong>: Upsale consente di imporre gli elementi da restituire nei risultati delle raccomandazioni. - <strong>WhiteList</strong>: WhiteList consente di suggerire solo raccomandazioni da un elenco di elementi. - <strong>FeatureWhiteList</strong>: FeatureWhiteList consente di raccomandare solo elementi con valori di funzionalità specifici. - <strong>PerSeedBlockList</strong>: PerSeedBlockList consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
+
+Ecco i tipi di regole supportate: <strong>BlockList</strong>: consente di specificare un elenco di elementi che non dovranno essere restituiti nei risultati delle raccomandazioni.
+
+- <strong>FeatureBlockList</strong>: consente di bloccare gli elementi in base ai valori delle funzionalità.
+
+*Non inviare più di 1000 elementi in una singola regola blocklist o si rischia il timeout della chiamata. Se si desidera bloccare più di 1000 elementi, è possibile effettuare diverse chiamate in blocklist.*
+
+- <strong>Upsale</strong>: consente di imporre gli elementi da restituire nel risultati delle raccomandazioni.
+
+- <strong>WhiteList</strong>: consente di fornire indicazioni solo da un elenco di elementi.
+
+- <strong>FeatureWhiteList</strong>: consente di indicare solo gli elementi che dispongono di valori di funzionalità specifici.
+
+- <strong>PerSeedBlockList</strong>: consente di specificare un elenco, per tipo di elemento, degli elementi che non possono essere restituiti come risultati delle raccomandazioni.
+
+
 
 
 ###7\.1. Ottenere le regole del modello
@@ -872,8 +886,9 @@ XML OData
 |	apiVersion | 1\.0 |
 ||| 
 | Corpo della richiesta | 
-<ins>Ogni volta che si forniscono gli ID degli elementi per le regole di business, assicurarsi di utilizzare l'Id esterno dell'elemento (lo stesso Id utilizzato nel file di catalogo)</ins><br> 
-<ins>Per l'aggiunta della regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Per l'aggiunta della regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Ogni volta che si forniscono gli ID degli elementi per le regole di business, assicurarsi di usare l'Id esterno dell'elemento (lo stesso Id utilizzato nel file di catalogo)</ins><br> 
+<ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+
 
 **Risposta**:
 
@@ -2811,7 +2826,7 @@ Recuperare l'elenco di elementi usati nella compilazione attiva o nella compilaz
 
 Codice stato HTTP: 200
 
-La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti: - `Feed\entry\content\properties\Id`: ID elemento consigliato. - `Feed\entry\content\properties\Name`: nome dell'elemento. - `Feed\entry\content\properties\Rating`: N/D. - `Feed\entry\content\properties\Reasoning`: N/D.
+La risposta include una voce per ogni elemento raccomandato. Ogni voce dispone dei dati seguenti: - `Feed\entry\content\properties\Id`: ID elemento consigliato. - `Feed\entry\content\properties\Name`: nome dell'elemento. - `Feed\entry\content\properties\Rating`: N/D. - `Feed\entry\content\properties\Reasoning`: N/D.
 
 XML OData
 
@@ -2940,4 +2955,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->
