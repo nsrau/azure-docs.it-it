@@ -19,7 +19,7 @@
 
 # Creare cluster Apache Spark in HDInsight usando le opzioni personalizzate (Windows)
 
-> [AZURE.NOTE]HDInsight offre ora cluster Spark su Linux. Per informazioni su come creare un cluster Spark personalizzato in Linux per HDInsight, vedere [Creare cluster basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come creare un cluster Spark personalizzato in Linux per HDInsight, vedere [Creare cluster basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Per la maggior parte degli scenari, è possibile creare un cluster Spark usando il metodo veloce come descritto in [Introduzione ad Apache Spark in HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). In alcuni scenari, è possibile creare un cluster personalizzato. Ad esempio, è possibile collegare un archivio di metadati esterno per conservare i metadati Hive in modo persistente oltre la durata di un cluster o è possibile utilizzare ulteriore spazio di archiviazione con il cluster.
 

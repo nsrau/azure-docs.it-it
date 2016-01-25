@@ -44,11 +44,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.
 
     ![Applicazioni](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Applicazioni")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Fare clic su **Aggiungi** nella parte inferiore della pagina.
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
@@ -92,7 +92,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Aprire il file dei metadati e quindi individuare il nodo **AssertionConsumerService**. ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copiare il valore di **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configure App URL** più avanti in questa esercitazione.
+        >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configura URL app** più avanti in questa esercitazione.
 
 6.  In un'altra finestra del Web browser accedere al portale di **Azure Active Directory** come amministratore.
 
@@ -108,9 +108,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configura URL app")
 
-    1.  Nella casella di testo **TOPdesk - Public Sign On URL** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Public (ad esempio,"**https://qssolutions.topdesk.net*")).
-2.  Nella casella di testo **TOPdesk - Public Reply URL** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
-3.  Fare clic su **Next**.
+    1.  Nella casella di testo **URL di accesso TOPdesk - Public** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Public (ad esempio,"*https://qssolutions.topdesk.net*")).
+    2.  Nella casella di testo **URL di risposta TOPdesk - Public** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
+    3.  Fare clic su **Avanti**.
 
 10. Nella pagina **Configura accesso Single Sign-On in TOPdesk - Public** per scaricare il file dei metadati, fare clic su **Download metadati** e quindi salvarlo in locale nel computer.
 
@@ -174,7 +174,7 @@ Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necess
 
     1.  Fare clic sulla scheda General.
     2.  Nella casella di testo Surname digitare il cognome di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
-    3.  Selezionare un **Site** per l'account.
+    3.  Selezionare un **sito** per l'account.
     4.  Fare clic su **Save**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da TOPdesk - Public per eseguire il provisioning degli account utente Azure AD.

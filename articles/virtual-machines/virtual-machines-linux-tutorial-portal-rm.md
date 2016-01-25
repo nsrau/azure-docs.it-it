@@ -35,6 +35,8 @@ La creazione di una macchina virtuale di Azure che esegue Linux è un'operazione
 
 > [AZURE.NOTE]In questa esercitazione viene creata una macchina virtuale di Azure gestita dall'API del gruppo di risorse di Azure. Per informazioni dettagliate, vedere [Panoramica del gruppo di risorse di Azure](resource-group-overview.md).
 
+</br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Selezione dell'immagine

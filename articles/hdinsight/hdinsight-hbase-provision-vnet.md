@@ -78,7 +78,7 @@ Per poter effettuare il provisioning di un cluster HBase, è necessario disporre
 2. Fare clic su **NUOVO**, fare clic su **Rete**, quindi fare clic su **Rete virtuale**.
 3. In **Selezionare un modello di distribuzione**, selezionare **Classico** se si utilizza un cluster HDInsight basato su Windows; **Gestione risorse** se si utilizza un cluster HDInsight basato su Linux. Infine, fare clic su **Crea**.
 
-    > [AZURE.NOTE]I cluster basati su Windows richiedono una rete virtuale v1 (classica), mentre i cluster basati su Linux richiedono una rete virtuale v2 (Gestione risorse di Azure). Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
+    > [AZURE.NOTE] I cluster basati su Windows richiedono una rete virtuale v1 (classica), mentre i cluster basati su Linux richiedono una rete virtuale v2 (Gestione risorse di Azure). Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
     >
     > Se si dispone di risorse in una rete virtuale non utilizzabile da parte del cluster che si intende creare, creare una nuova rete virtuale che può essere utilizzata dal cluster e connetterla alla rete virtuale non compatibile. È quindi possibile creare il cluster nella versione della rete che richiede e questo sarà in grado di accedere alle risorse nell'altra rete, poiché le due sono unite. Per ulteriori informazioni sulla connessione di reti virtuali classiche e nuove, vedere [Connessione di VNet classiche a VNet nuove](../virtual-network/virtual-networks-arm-asm-s2s.md).
     
@@ -87,13 +87,14 @@ Per poter effettuare il provisioning di un cluster HBase, è necessario disporre
 	- **Nome**: nome della rete virtuale.
 	- **Spazio degli indirizzi**: scegliere uno spazio degli indirizzi per la rete virtuale di dimensioni sufficienti per fornire indirizzi per tutti i nodi del cluster. In caso contrario, il provisioning avrà esito negativo. Per questa esercitazione, è possibile utilizzare i valori predefiniti. Fare clic su **OK** per salvare le modifiche.
     
-        > [AZURE.NOTE]Se si utilizzerà questa rete virtuale con più cluster HDInsight, è consigliabile designare una sola subnet per ogni cluster.
+        > [AZURE.NOTE] Se si utilizzerà questa rete virtuale con più cluster HDInsight, è consigliabile designare una sola subnet per ogni cluster.
          
 	- **Gruppo di risorse**: selezionare il gruppo di risorse creato in precedenza nell'esercitazione.
 	- In **Sottoscrizione** selezionare la sottoscrizione di Azure che si desidera utilizzare per rete virtuale.
 	- **Percorso**: il percorso deve essere uguale a quello del cluster HBase che sarà creato.
     
-        > [AZURE.NOTE]> Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
+        > [AZURE.NOTE]
+	> Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
         
     Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 

@@ -39,7 +39,7 @@ Di seguito è riportato un elenco di aspetti importanti da considerare prima o d
 
 - Archiviazione Premium è disponibile nel [portale di Azure](portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive) e [Azure PowerShell](../install-configure-powershell.md) (versione 0.8.10 o successive).
 
-- Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere [Servizi di Azure in base all'area](http://azure.microsoft.com/regions/#services).
+- Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere[servizi di Azure in base all'area](http://azure.microsoft.com/regions/#services).
 
 - Archiviazione Premium supporta solo i BLOB di pagine di Azure, che vengono usati per conservare dischi persistenti per Macchine virtuali di Azure. Per informazioni sui BLOB di pagine di Azure, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx). Archiviazione Premium non supporta i BLOB in blocchi di Azure, i file di Azure, le tabelle di Azure o le code di Azure.
 

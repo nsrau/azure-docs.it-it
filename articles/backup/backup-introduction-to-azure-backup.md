@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="trinadhk;jimpark"/>
+	ms.author="trinadhk"; "jimpark"/>
 
 # Informazioni su Backup di Azure
 Backup di Azure è il servizio che consente di eseguire il backup e il ripristino dei dati in Microsoft Cloud. Sostituisce la soluzione di backup locale o esterno esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Consente anche di proteggere gli asset in esecuzione nel cloud. Backup di Azure fornisce servizi di ripristino basati su un'infrastruttura di altissimo livello che garantisce scalabilità, durabilità e disponibilità elevata.
@@ -48,7 +48,7 @@ Backup di Azure è una soluzione di backup ibrida, costituita da più componenti
 | Azure Backup Agent | <p>\*\*Sì\*\*</p> <p>Azure Backup Agent può essere distribuito in qualsiasi macchina virtuale Windows Server in esecuzione in Azure.</p> | <p>\*\*Sì\*\*</p> <p>Azure Backup Agent può essere distribuito in qualsiasi computer fisico o macchina virtuale Windows Server.</p> | Insieme di credenziali di Backup di Azure |
 | System Center Data Protection Manager \(SCDPM\) | <p>\*\*Sì\*\*</p> <p>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>\*\*Sì\*\*</p> <p>Altre informazioni sulla [protezione dei carichi di lavoro e delle macchine virtuali nel data center](https://technet.microsoft.com/library/hh758173.aspx). | Disco collegato al computer locale</p> <p>Insieme di credenziali di Backup di Azure</p> <p>Nastro \(solo in locale\)</p> |
 | Server di backup di Azure | <p>\*\*Sì\*\*</p> <p>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con il server di Backup di Azure](backup-azure-microsoft-azure-backup.md).</p> | <p>\*\*Sì\*\*</p> <p>Altre informazioni sulla [protezione dei carichi di lavoro in Azure con il server di Backup di Azure](backup-azure-microsoft-azure-backup.md).</p> | Insieme di credenziali di Backup di Azure |
-| Backup di Azure \(estensione VM\) | <p>Sì</p> <p>Specializzato per il [backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md).</p> | <p>\*\*No\*\*</p> <p>Usare SCDPM per il backup delle macchine virtuali nel data center. | Insieme di credenziali di Backup di Azure</p> |
+| Backup di Azure (estensione VM) | <p>Sì</p> <p>Specializzato per il [backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Usare SCDPM per il backup delle macchine virtuali nel data center. | Insieme di credenziali di Backup di Azure</p> |
 
 ## Applicazioni e carichi di lavoro
 

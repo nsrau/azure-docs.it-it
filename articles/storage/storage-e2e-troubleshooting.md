@@ -15,7 +15,7 @@
 	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
-# Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
+# Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
@@ -32,12 +32,12 @@ Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzion
 Per risolvere i problemi relativi alle applicazioni client mediante Archiviazione di Microsoft Azure, è possibile usare una combinazione di strumenti per determinare quando si è verificato un problema e quale potrebbe essere la sua causa. Questi strumenti comprendono:
 
 - **Analisi archiviazione di Azure**. [Analisi archiviazione di Azure](http://msdn.microsoft.com/library/azure/hh343270.aspx) fornisce metriche e registrazioni per Archiviazione di Azure.
-	- Le **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343264.aspx).
+	- Le **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343264.aspx). 
 
 	- La **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343259.aspx).
 
 - **Portale di Azure**. Nel [portale di Azure](portal.azure.com) è possibile configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
-
+	
 	Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
 
 - **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Come usare AzCopy Archiviazione di Microsoft Azure](storage-use-azcopy.md).
@@ -64,15 +64,15 @@ Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Pe
 
 Si verifica quando un'operazione di lettura in un contenitore o BLOB non riesce perché non viene trovato il BLOB o il contenitore.
 
-- Si verifica se un contenitore o BLOB è stato eliminato da un altro client prima di questa richiesta.
+- Si verifica se un contenitore o BLOB è stato eliminato da un altro client prima di questa richiesta. 
 - Si verifica se si usa una chiamata API che crea il contenitore o il BLOB dopo averne controllato l'esistenza. Le API CreateIfNotExists effettuano una chiamata HEAD per verificare l'esistenza del contenitore o del BLOB. Se non esiste, viene restituito un errore 404 e quindi viene eseguita una seconda chiamata PUT per scrivere il contenitore o il BLOB.
 
 **Esempi di codice di stato 409 (Conflitto)**
 
-- Si verifica se si usa un'API di creazione per creare un nuovo contenitore o BLOB, senza controllarne prima l'esistenza, ed esiste già un contenitore o BLOB con lo stesso nome.
+- Si verifica se si usa un'API di creazione per creare un nuovo contenitore o BLOB, senza controllarne prima l'esistenza, ed esiste già un contenitore o BLOB con lo stesso nome. 
 - Si verifica se è in corso l'eliminazione di un contenitore e si tenta di crearne uno nuovo con lo stesso nome prima del completamento dell'operazione di eliminazione.
 - Si verifica se si specifica un lease in un contenitore o BLOB ed è già presente un lease.
-
+ 
 **Esempi di codice di stato 412 (Condizione preliminare non riuscita)**
 
 - Si verifica quando la condizione specificata da un'intestazione condizionale non viene soddisfatta.
@@ -83,7 +83,7 @@ Si verifica quando un'operazione di lettura in un contenitore o BLOB non riesce 
 In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi tipi di file di log, anche se è possibile scegliere di utilizzarne uno:
 
 - Il **log del server**, che viene creato quando abilita la registrazione di Archiviazione di Azure. Il log del server contiene dati relativi a ogni operazione chiamata in uno dei servizi di Archiviazione di Azure, ovvero BLOB, accodamento, tabelle e file. Il log del server indica l'operazione che è stato chiamata e il codice di stato restituito, nonché altri dettagli sulla richiesta e risposta.
-- Il **log del client .NET**, che viene creato quando si abilita la registrazione sul lato client dall'applicazione .NET. Il log del client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
+- Il **log del client .NET**, che viene creato quando si abilita la registrazione sul lato client dall'applicazione .NET. Il log del client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta. 
 - Il **log di traccia di rete HTTP**, che raccoglie i dati relativi alle richieste e risposte HTTP/HTTPS, anche per le operazioni in Archiviazione di Azure. In questa esercitazione, la traccia di rete verrà generata mediante Message Analyzer.
 
 ### Configurare le metriche e la registrazione sul lato server
@@ -113,19 +113,19 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 	```
 	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount'
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+	$StorageAccountName = 'yourstorageaccount' 
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
 	```
 
 4. Abilitare la registrazione di archiviazione per il servizio BLOB:
-
+ 
 	```
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
 	```
 5. Abilitare la metrica di archiviazione per il servizio BLOB, assicurandosi di impostare **-MetricsType** su `Minute`:
 
 	```
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
 	```
 
 ### Configurare la registrazione sul lato client .NET
@@ -157,9 +157,9 @@ Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyz
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
 5. Nella finestra di dialogo **Impostazioni avanzate**, fare clic sulla scheda **Provider**.
 6. Nel campo **Filtro Hostname Filter**, specificare gli endpoint di archiviazione, separati da spazi. Ad esempio, è possibile specificare gli endpoint nel modo seguente, specificando il nome del proprio account di archiviazione al posto di `storagesample`:
-
-	```
-	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
+	
+	```	
+	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
 	```
 
 7. Chiudere la finestra di dialogo e fare clic su **Riavvia** per avviare la raccolta della traccia con il filtro relativo al nome host impostato, in modo da includere nella traccia solo il traffico di rete di Archiviazione di Azure.
@@ -201,7 +201,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 1. Scaricare [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) dall'Area download Microsoft ed eseguire il programma di installazione.
 2. Avviare Message Analyzer.
 3. Nella pagina **Avvia** passare a **Download**, quindi impostare il filtro relativo ad **Archiviazione di Azure**. Verranno visualizzate le risorse per Archiviazione di Azure, come mostrato nell'immagine seguente.
-4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono:
+4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono: 
 	- **Regole dei colori di Archiviazione di Azure:** le regole dei colori di Archiviazione di Azure consentono di definire filtri speciali che usano il colore, il testo e il tipo di carattere per evidenziare i messaggi contenenti specifiche informazioni in una traccia.
 	- **Grafici di Archiviazione di Azure:** i grafici di Archiviazione di Azure sono grafici predefiniti in cui vengono riportati i dati di log del server. Si noti che, per utilizzare grafici di Archiviazione di Azure in questa fase, è possibile unicamente caricare il log del server nella griglia di analisi.
 	- **Parser di Archiviazione di Azure:** i parser di Archiviazione di Azure analizzano i log HTTP, client e server di Archiviazione di Azure per visualizzarli nella griglia di analisi.
@@ -217,8 +217,8 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 
 È possibile importare tutti i file di log salvati (lato server, lato client e rete) in un'unica sessione di Microsoft Message Analyzer per l'analisi.
 
-1. Scegliere **Nuova sessione** dal menu **File** in Microsoft Message Analyzer, quindi fare clic su **Sessione vuota**. Nella finestra di dialogo **Nuova sessione** immettere un nome per la sessione di analisi. Nel pannello **Dettagli sessione**, fare clic sul pulsante **File**.
-1. Per caricare i dati della traccia di rete generati da Message Analyzer, fare clic su **Aggiungi file**, passare al percorso in cui è stato salvato il file MATP della sessione di traccia Web, selezionare il file MATP e fare clic su **Apri**.
+1. Scegliere **Nuova sessione** dal menu **File** in Microsoft Message Analyzer, quindi fare clic su **Sessione vuota**. Nella finestra di dialogo **Nuova sessione** immettere un nome per la sessione di analisi. Nel pannello **Dettagli sessione**, fare clic sul pulsante **File**. 
+1. Per caricare i dati della traccia di rete generati da Message Analyzer, fare clic su **Aggiungi file**, passare al percorso in cui è stato salvato il file MATP della sessione di traccia Web, selezionare il file MATP e fare clic su **Apri**. 
 1. Per caricare i dati di log lato server, fare clic su **Aggiungi file**, passare al percorso in cui sono stati scaricati i log lato server, selezionare i file di log relativi all'intervallo di tempo che si vuole analizzare e fare clic su **Apri**. Quindi, nel pannello **Dettagli sessione**, selezionare **AzureStorageLog** nell'elenco a discesa **Configurazione log di testo** per ogni file di log lato server, per assicurarsi che Microsoft Message Analyzer possa analizzare correttamente il file di log.
 1. Per caricare i dati di log lato client, fare clic su **Aggiungi file**, passare al percorso in cui sono stati salvati i log lato client, selezionare i file di log da analizzare e fare clic su **Apri**. Quindi, nel pannello **Dettagli sessione** selezionare **AzureStorageClientDotNetV4** nell'elenco a discesa **Configurazione log di testo** per ogni file di log lato client per assicurarsi che Microsoft Message Analyzer possa analizzare correttamente il file di log.
 1. Fare clic su **Avvia** nella finestra di dialogo **Nuova sessione** per caricare e analizzare i dati di log. I dati di log vengono visualizzati nella griglia di analisi di Message Analyzer.
@@ -302,7 +302,7 @@ Le risorse di archiviazione includono filtri predefiniti che possono essere usat
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.
 
-		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
+		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
 		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
@@ -317,8 +317,8 @@ L'immagine seguente mostra una richiesta specifica in cui un'operazione Get Blob
 
 Successivamente, questo ID richiesta client verrà correlato con i dati del log del client per mostrare le azioni che il client stava effettuando quando si è verificato l'errore. È possibile ottenere una nuova visualizzazione della griglia di analisi per la sessione corrente per visualizzare i dati del log del client, che viene aperto in una seconda scheda:
 
-1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e quindi scegliere **Copia 'ClientRequestId**.
-1. Sulla barra multifunzione selezionare **Nuovo visualizzatore**, quindi selezionare **Griglia analisi** per aprire una nuova scheda. Nella nuova scheda sono visualizzati tutti i dati presenti dei file di log, senza raggruppamenti, filtri o regole colore.
+1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e quindi scegliere **Copia 'ClientRequestId**. 
+1. Sulla barra multifunzione selezionare **Nuovo visualizzatore**, quindi selezionare **Griglia analisi** per aprire una nuova scheda. Nella nuova scheda sono visualizzati tutti i dati presenti dei file di log, senza raggruppamenti, filtri o regole colore. 
 2. Sulla barra multifunzione selezionare **Visualizza layout**, quindi selezionare **Tutte le colonne del client .NET** nella sezione **Archiviazione di Azure **. In questo layout di visualizzazione sono presenti dati tratti dal log del client, nonché dal log del server e dal log della traccia di rete. Per impostazione predefinita, è ordinato in base alla colonna **MessageNumber**.
 3. Cercare quindi l'ID richiesta client nel log del client. Sulla barra multifunzione selezionare **Trova messaggi**, quindi specificare un filtro personalizzato in base all'ID richiesta client nel campo **Trova**. Usare questa sintassi per il filtro, specificando il proprio ID richiesta client:
 
@@ -339,9 +339,20 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
-| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Aumento di PercentTimeoutError (tutti) |    *StatusCode == 500 | All |
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
+| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
+| 404 (all) | *StatusCode == 404 | All |
+| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
+| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
+| 409 (all) | *StatusCode == 409 | All |
+| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
+| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
+| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
+| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Passaggi successivi

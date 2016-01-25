@@ -121,7 +121,7 @@ Notare che la definizione di compilazione creata da queste istruzioni non suppor
     5.	Selezionare **Calcolo** -> **Macchina virtuale** -> **Da raccolta**.
     6.	Scegliere l'immagine **Visual Studio Enterprise 2015 con Azure SDK 2.7 in Windows Server 2012 R2**.
 
-        >[AZURE.NOTE]Azure SDK non è un componente obbligatorio, ma non sono disponibili immagini con la sola installazione di Visual Studio 2015.
+        >[AZURE.NOTE] Azure SDK non è un componente obbligatorio, ma non sono disponibili immagini con la sola installazione di Visual Studio 2015.
 
     7.	Seguire le istruzioni nella finestra di dialogo per creare la VM. È consigliabile scegliere una VM serie D per prestazioni del disco e della CPU ottimali.
 
@@ -140,7 +140,7 @@ Installare [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fa
 
 3.	Se NuGet.config non è già presente, crearlo con il contenuto seguente. Sostituire`<path to service fabric SDK>` con il percorso di Service Fabric SDK nel computer di compilazione.
 
->[AZURE.NOTE]Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] Per impostazione predefinita, `<path to service fabric SDK>` è `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 

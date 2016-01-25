@@ -90,7 +90,7 @@ La crittografia dei dati della tabella funziona nel modo seguente:
 
 	Si noti che solo le proprietà di stringa possono essere crittografate. Se devono essere crittografati altri tipi di proprietà, essi devono essere convertiti in stringhe. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.
 
-	Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] (per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
+	Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [Encrypt] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
 
 ### Operazioni batch  
 Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell’operazione batch, perché la libreria client consente un solo oggetto options (e pertanto un criterio/KEK) per ogni operazione batch. Tuttavia, la libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.
@@ -166,16 +166,16 @@ Creare un oggetto **QueueEncryptionPolicy** e impostarlo nelle opzioni di richie
 
 	// Create the IKey used for encryption.
 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+	
 	// Create the encryption policy to be used for upload and download.
 	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-
+	
 	// Add message
 	QueueRequestOptions options = new QueueRequestOptions();
 	options.setEncryptionPolicy(policy);
-
+	
 	queue.addMessage(message, 0, 0, options, null);
-
+	
 	// Retrieve message
 	CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 
@@ -186,11 +186,11 @@ Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richi
 
 	// Create the IKey used for encryption.
 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+	
 	// Create the encryption policy to be used for upload and download.
 	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-
-	TableRequestOptions options = new TableRequestOptions()
+	
+	TableRequestOptions options = new TableRequestOptions() 
 	options.setEncryptionPolicy(policy);
 	options.setEncryptionResolver(new EncryptionResolver() {
 	    public boolean encryptionResolver(String pk, String rk, String key) {
@@ -201,15 +201,15 @@ Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richi
         	return false;
     	}
 	});
-
+	
 	// Insert Entity
 	currentTable.execute(TableOperation.insert(ent), options, null);
-
+	
 	// Retrieve Entity
 	// No need to specify an encryption resolver for retrieve
-	TableRequestOptions retrieveOptions = new TableRequestOptions()
+	TableRequestOptions retrieveOptions = new TableRequestOptions() 
 	retrieveOptions.setEncryptionPolicy(policy);
-
+	
 	TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
 	TableResult result = currentTable.execute(operation, retrieveOptions, null);
 
@@ -222,7 +222,7 @@ Come indicato in precedenza, se l'entità implementa TableEntity, il getter e il
 	public String getEncryptedProperty1 () {
 	    return this.encryptedProperty1;
 	}
-
+	
 	@Encrypt
 	public void setEncryptedProperty1(final String encryptedProperty1) {
 	    this.encryptedProperty1 = encryptedProperty1;

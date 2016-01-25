@@ -23,9 +23,7 @@ Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi 
 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet) e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
-
-Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
 
 ## Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs), [Database SQL](sql-database-technical-overview.md) e [Archiviazione di Azure](storage-introduction.md).
@@ -128,7 +126,12 @@ La tabella seguente illustra ogni tipo di risorsa con i metodi di allocazione po
 
 La tabella seguente illustra i limiti imposti sugli indirizzi IP in Azure per ogni area e ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
 
-||Limite predefinito|Limite massimo| |---|---|---| |Indirizzi IP pubblici (dinamici)|60|Contattare il supporto tecnico| |Indirizzi IP pubblici (statici)|20|Contattare il supporto tecnico| |IP del front-end pubblico per ogni servizio di bilanciamento del carico|5|Contattare il supporto tecnico| |IP del front-end privato per ogni servizio di bilanciamento del carico|1|Contattare il supporto tecnico|
+||Limite predefinito|Limite massimo|
+|---|---|---|
+|Indirizzi IP pubblici (dinamici)|60|Contattare il supporto tecnico|
+|Indirizzi IP pubblici (statici)|20|Contattare il supporto tecnico|
+|IP del front-end pubblico per ogni servizio di bilanciamento del carico|5|Contattare il supporto tecnico|
+|IP del front-end privato per ogni servizio di bilanciamento del carico|1|Contattare il supporto tecnico|
 
 Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure-subscription-service-limits.md#networking-limits) in Azure.
 

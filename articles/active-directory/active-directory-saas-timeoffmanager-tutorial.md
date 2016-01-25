@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con TimeOffManager
   
-In questa esercitazione verrà illustrata l'integrazione di Azure e TimeOffManager. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+In questa esercitazione verrà illustrata l'integrazione di Azure e TimeOffManager.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di TimeOffManager abilitata per l'accesso Single Sign-On
@@ -66,7 +67,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a TimeOffManager tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant TimeOffManager. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a TimeOffManager tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant TimeOffManager.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -92,11 +95,11 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di TimeOffManager come amministratore.
 
-6.  Andare a **Account > Account Options > Single Sign-On Settings**.
+6.  Andare a **Account > Opzioni account >Impostazioni Single Sign-On**.
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "Impostazioni Single Sign-On")
 
-7.  Nella sezione **Single Sign-On Settings**, eseguire la procedura seguente:
+7.  Nella sezione **Impostazioni Single Sign-On**, eseguire la procedura seguente:
 
     ![Impostazioni Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Impostazioni Single Sign-On")
 
@@ -107,8 +110,8 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509**.
     3.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Idp Issuer**.
     4.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IdP Endpoint URL**.
-    5.  Per **Enforce SAML**, selezionare **No**.
-    6.  Per **Auto-Create Users**, selezionare **Yes**.
+    5.  Per **Applica SAML**, selezionare **No**.
+    6.  Per **Crea utenti automaticamente**, selezionare **Sì**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in TimeOffManager** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL**.
     8.  Fare clic su **Salva modifiche**.
 
@@ -122,7 +125,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 10. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
-    ![Attributi token SAML](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "Attributi token SAML")
+    ![attributi token saml](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "attributi token saml")
 
     |Nome attributo|Valore attributo|
 	|---|---|
@@ -138,7 +141,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a TimeOffManager, è necessario eseguirne il provisioning in TimeOffManager. TimeOffManager supporta solo il provisioning just in time dell'utente. Non è necessario eseguire alcuna operazione. Gli utenti vengono aggiunti automaticamente durante l'utilizzo di Single Sign-on primo accesso.
+Per consentire agli utenti di Azure AD di accedere a TimeOffManager, è necessario eseguirne il provisioning in TimeOffManager.  
+TimeOffManager supporta solo il provisioning just in time dell'utente. Non è necessario eseguire alcuna operazione.  
+Gli utenti vengono aggiunti automaticamente durante l'utilizzo di Single Sign-on primo accesso.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da TimeOffManager per eseguire il provisioning degli account utente di Azure AD.
 
