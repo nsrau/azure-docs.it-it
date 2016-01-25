@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -194,7 +194,7 @@ Per convalidare il pacchetto scaricato:
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]Il software Thales include python nel percorso %NFAST\_HOME%\\python\\bin.
-	
+
 2.	Assicurarsi di visualizzare il risultato positivo seguente, che indica il completamento della convalida: **Result: SUCCESS**
 
 Questo script consente di convalidare la catena di firmatari fino alla chiave radice di Thales. La funzione hash di questa chiave radice è incorporata nello script e il relativo valore deve essere **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Si può anche confermare questo valore separatamente sul [sito Web di Thales](http://www.thalesesec.com/).
@@ -215,7 +215,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 
 - L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la documentazione di Thales.
 
-Questo comando crea un file di chiave in formato token nella cartella %NFAST\_KMDATA%\\local con un nome che inizia con **key\_simple\_** seguito dall'elemento ident specificato nel comando. Ad esempio, **key\_simple\_contosokey**. Questo file contiene una chiave crittografata.
+Questo comando crea un file di chiave in formato token nella cartella %NFAST\_KMDATA%\\local con un nome che inizia con **key\_simple\_** seguito dall'elemento ident specificato nel comando. Ad esempio: **key\_simple\_contosokey**. Questo file contiene una chiave crittografata.
 
 Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
@@ -301,7 +301,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 
 Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente sarà presente un nuovo file con il nome TransferPackage-*ContosoFirstHSMkey*.byok
 
-###Passaggio 4.4: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet 
+###Passaggio 4.4: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet
 
 Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiare il file di output creato nel passaggio precedente (KeyTransferPackage-ContosoFirstHSMkey.byok) nella workstation connessa a Internet.
 
@@ -317,4 +317,4 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM) ** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

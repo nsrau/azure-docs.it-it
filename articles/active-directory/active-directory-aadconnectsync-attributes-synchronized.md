@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attri
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Derivato da cloudAnchor in Azure AD.|
+| msDS-ExternalDirectoryObjectID| X| | | Derivato da cloudAnchor in Azure AD. Questa è una novità di Exchange 2016.|
 | msExchArchiveStatus| X| | | Archivio online: consente ai clienti di archiviare la posta elettronica.|
 | msExchBlockedSendersHash| X| | | Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client.|
 | msExchSafeRecipientsHash| X| | | Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client.|
@@ -431,8 +431,8 @@ Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attri
 
 
 ## Passaggi successivi
-Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

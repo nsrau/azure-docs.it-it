@@ -1,6 +1,6 @@
 <properties
 pageTitle="Utilizzare DataFu con Pig in HDInsight"
-description="DataFu è una raccolta di librerie da utilizzare con Hadoop. Informazioni su come utilizzare DataFu con Pig sul cluster HDInsight."
+description="DataFu è una raccolta di librerie da usare con Hadoop. Informazioni su come utilizzare DataFu con Pig sul cluster HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/06/2015"
+ms.date="01/08/2016"
 ms.author="larryfr"/>
 
 #Utilizzare DataFu con pig in HDInsight
@@ -107,4 +107,4 @@ Per altre informazioni su DataFu o Pig, vedere i seguenti documenti:
 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

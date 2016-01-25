@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Come collegare un disco dati a una macchina virtuale Linux
@@ -22,13 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso. Questo articolo fa riferimento alle macchine virtuali create tramite il metodo di distribuzione classico.
+È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
 > [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso sarà necessario suddividere in partizioni, formattare e montare tale risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Procedura: Inizializzare un nuovo disco dati in Linux
+
+È possibile usare le stesse istruzioni per inizializzare più dischi di dati con l'identificatore di dispositivo corretto come illustrato di seguito.
 
 1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Linux][Logon].
 
@@ -86,7 +88,7 @@
 
 	![Creare un nuovo dispositivo](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Quando richiesto, digitare **p** per impostare la partizione come primaria, digitare **1** per impostarla come prima partizione e quindi premere INVIO per accettare il valore predefinito per il cilindro.
+5. Quando richiesto, digitare **p** per impostare la partizione come primaria, digitare **1** per impostarla come prima partizione e quindi premere INVIO per accettare il valore predefinito per il cilindro. In alcuni sistemi, è possibile visualizzare i valori predefiniti del primo e dell'ultimo settore e non del cilindro. È possibile scegliere di accettare questi valori predefiniti.
 
 
 	![Creare la partizione](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -105,7 +107,7 @@
 
 	![Scrivere le modifiche sul disco](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. Creare il file system nella nuova partizione. Ad esempio, digitare il comando seguente e quindi immettere la password dell'account:
+8. Creare il file system nella nuova partizione. Aggiungere il numero della partizione (1) all'id del dispositivo. Ad esempio, digitare il comando seguente, quindi immettere la password dell'account:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -139,7 +141,7 @@
 		/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 
 
-	>[AZURE.NOTE]Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, vedere la documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+	>[AZURE.NOTE]Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
 	Successivamente, aprire il file **/etc/fstab** in un editor di testo. Si noti che /etc/fstab è un file system, quindi per apportare modifiche a questo file è necessario usare `sudo`, ad esempio:
 
@@ -160,9 +162,11 @@
 
 	Se il comando `mount` restituisce un errore, verificare che la sintassi del file /etc/fstab sia corretta. Anche le eventuali altre unità o partizioni dati create dovranno essere inserite separatamente in /etc/fstab.
 
-	Sarà necessario rendere modificabile l'unità tramite questi comandi: # cd /datadrive # sudo chmod go+w /datadrive
+	È necessario rendere scrivibile l'unità tramite questo comando:
 
->[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni fstab `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di errore di montaggio in fase di avvio. Per altre informazioni su tali parametri, vedere la documentazione della distribuzione.
+		# sudo chmod go+w /datadrive
+
+>[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni fstab `nofail` e/o `nobootwait`, che consentono l'avvio di un sistema anche in caso di errore di montaggio in fase di avvio. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
 ## Risorse aggiuntive
 [Come accedere a una macchina virtuale che esegue Linux][Logon]
@@ -175,4 +179,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

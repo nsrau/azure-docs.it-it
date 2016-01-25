@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
@@ -52,7 +52,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -96,7 +96,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
 
-8.  Fare clic sulla scheda **Security & Authentication**.
+8.  Fare clic sulla scheda **Protezione e autenticazione**.
 
     ![Protezione e autenticazione](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Protezione e autenticazione")
 
@@ -131,11 +131,11 @@ Per consentire agli utenti di Azure AD di accedere a ThousandEyes, è necessario
 
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
 
-4.  Fare clic sulla scheda **Accounts & Users**.
+4.  Fare clic sulla scheda **Account e utenti**.
 
     ![Utenti e account](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Utenti e account")
 
-5.  Nella sezione **Add Users & Accounts** seguire questa procedura:
+5.  Nella sezione **Aggiungi utenti e account**, eseguire la procedura seguente:
 
     ![Aggiungi account utente](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Aggiungi account utente")
 
@@ -164,4 +164,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

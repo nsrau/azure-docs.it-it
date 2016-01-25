@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/06/2015"
+  ms.date="12/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
@@ -45,9 +45,9 @@ Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare 
 
 | Immagine di macchina virtuale | Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
 |-----|-----|-----|-----|
-| [Prerequisiti tecnici per le VM](marketplace-publishing-vm-image-creation-prerequisites.md) | Prerequisiti tecnici per il servizio per gli sviluppatori | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Prerequisiti tecnici per le VM](marketplace-publishing-vm-image-creation-prerequisites.md) | [Prerequisiti tecnici per il servizio per gli sviluppatori](marketplace-publishing-dev-service-creation-prerequisites.md) | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

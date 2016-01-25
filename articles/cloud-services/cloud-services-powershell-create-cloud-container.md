@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/13/2015"
    ms.author="cawa"/>
 
 # Come usare il prompt dei comandi di Azure PowerShell per creare un contenitore del servizio cloud vuoto
-1. Installare i cmdlet di Microsoft Azure PowerShell dal [download di Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409). Per altre istruzioni sull'installazione del cmdlet di Azure PowerShell e sulla connessione alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1. Installare i cmdlet di Microsoft Azure PowerShell dal [download di Azure PowerShell](http://aka.ms/webpi-azps). Aprire un prompt dei comandi di PowerShell. Usare [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) per accedere
+
+> [AZURE.NOTE]Per altre istruzioni sull'installazione del cmdlet di Azure PowerShell e sulla connessione alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 2. **New-AzureService** è il cmdlet per la creazione di un contenitore del servizio cloud vuoto.
 
@@ -41,4 +43,4 @@ Get-help New-AzureService
     - Per pubblicare il progetto servizio cloud in Azure, fare riferimento all’esempio di codice **PublishCloudService.ps1** riportato nell'articolo [Recapito continuo per Servizi cloud in Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

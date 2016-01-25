@@ -13,13 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 
 # Rinnovo dei certificati di federazione per Office 365 e Azure AD
 
 Se viene ricevuto un messaggio e-mail o una notifica tramite il portale in cui viene richiesto di rinnovare il certificato per Office 365, questo articolo è destinato a risolvere il problema ed evitare che si ripresenti. In questo articolo si presuppone che si utilizza AD FS come server federativo.
+
+>[AZURE.IMPORTANT]Tenere presente che l'autenticazione tramite il proxy potrebbe non riuscire in Windows Server 2012 o Windows Server 2008 R2 dopo aver eseguito una delle seguenti operazioni:
+>
+- Rinnovo del token di protezione da parte del prozy dopo il rollover dei certificati in AD FS
+- Sostituzione manuale dei certificati di AD FS
+>     
+Un aggiornamento rapido è disponibile per risolvere il problema. Vedere [L'autenticazione tramite proxy ha esito negativo in Windows Server 2012 o Windows Server 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
 ## Verificare se è necessario eseguire operazioni
 
@@ -85,4 +92,4 @@ A questo punto dovrebbero essere elencati due certificati, uno dei quali ha una 
 
 >[AZURE.NOTE]Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per ulteriori informazioni, vedere Supporto per più domini di primo livello. Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con l'aggiornamento cumulativo [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy potrebbero non essere aggiornati con il nuovo certificato, con una conseguente interruzione.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="trinadhk;aashishr;jimpark"/>
+	ms.date="01/09/2016"
+	ms.author="trinadhk;jimpark;aashishr"/>
 
 
 # Risolvere i problemi relativi al backup delle macchine virtuali di Azure
@@ -42,7 +42,7 @@
 | Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
 | Backup | Si è verificato il timeout della copia dei dischi rigidi virtuali dall'insieme di credenziali per il backup. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore si verifica quando la quantità di dati da copiare è eccessiva. Controllare se sono disponibili meno di 16 dischi dati. |
-| Backup | Non è stato possibile comunicare con l'agente di macchine virtuali per ottenere lo stato dello snapshot. Timeout della sottoattività della macchina virtuale snapshot. Per risolvere il problema, vedere la Guida alla risoluzione dei problemi. | Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. <ul><li>Altre informazioni sul [debug dei problemi dell'agente di macchine virtuali](#vm-agent) <li>Altre informazioni sul [debug dei problemi di rete](#networking) </ul><br>Se l'agente di macchine virtuali non causa problemi, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
+| Backup | Non è stato possibile comunicare con l'agente di macchine virtuali per ottenere lo stato dello snapshot. Timeout della sottoattività della macchina virtuale snapshot. Per risolvere il problema, vedere la Guida alla risoluzione dei problemi. | Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. <ul> <li>Altre informazioni sul [debug dei problemi dell'agente di macchine virtuali](#vm-agent) <li>Altre informazioni sul [debug dei problemi di rete](#networking) <li>Se l'agente di macchine virtuali funziona, ottenere altre informazioni sulla [risoluzione dei problemi relativi allo snapshot della macchina virtuale ](#Troubleshoot-VM-Snapshot-Issues)</ul><br>Se l'agente di macchine virtuali non causa problemi, riavviare la macchina virtuale. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |
 | Backup | Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | Questo errore si può verificare per due motivi: <ol><li> La quantità di dati da copiare è eccessiva. <li>La VM originale è stata eliminata e non è quindi possibile eseguire il backup. Per mantenere i dati di backup per una VM eliminata ma evitare gli errori di backup, annullare la protezione della VM e scegliere l'opzione relativa alla conservazione dei dati. La pianificazione del backup verrà interrotta e non verranno più visualizzati i messaggi di errore ricorrenti. |
 | Backup | Non è stato possibile installare l'estensione Servizi di ripristino di Azure nell'elemento selezionato. L'agente di VM è un prerequisito dell'estensione Servizi di ripristino di Azure. Installare l'agente di VM di Azure e riavviare l'operazione di registrazione. | <ol> <li>Controllare se l'agente di VM è stato installato correttamente. <li>Assicurarsi che il flag sul file di configurazione della VM sia impostato correttamente.</ol> [Altre informazioni](#validating-vm-agent-installation) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
 | Backup | L'esecuzione del comando non è riuscita. In questo elemento è attualmente in corso un'altra operazione. Attendere il completamento dell'operazione precedente, quindi riprovare. | È in esecuzione un processo di backup o ripristino esistente per la VM e non è possibile avviare un nuovo processo mentre è in esecuzione il processo esistente. |
@@ -65,7 +65,7 @@
 | Operazione | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
 | Ripristino | Ripristino non riuscito con errore interno del cloud | <ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se è presente un indirizzo configurato, le impostazioni DNS sono configurate.<br> <li>Il servizio cloud che si sta tentando di ripristinare è configurato con ReservedIP e le macchine virtuali che si trovano nel servizio cloud sono state arrestate.<br>È possibile controllare che un servizio cloud abbia un IP riservato tramite i seguenti cmdlet di powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Si sta tentando di ripristinare una macchina virtuale con le seguenti configurazioni di rete speciali nello stesso servizio cloud. <br>- Le macchine virtuali nella configurazione del servizio di bilanciamento del carico (ADN interno ed esterno)<br>- Macchine virtuali con più indirizzi IP riservati<br>- Macchine virtuali con più schede di rete<br>Si prega di selezionare un nuovo servizio cloud nell'interfaccia utente o di fare riferimento a [ripristinare le considerazioni](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) per macchine virtuali con configurazioni di rete speciali</ol> |
-| Ripristino | Il nome DNS selezionato è già in uso. Specificare un nome DNS diverso e riprovare. | Il nome DNS fa riferimento al nome del servizio cloud, che in genere termina con .cloudapp.net. Questo nome deve essere univoco. Se si verifica questo errore, è necessario scegliere un altro nome di macchina virtuale durante il ripristino. <br><br> Si noti che questo errore viene visualizzato solo dagli utenti del portale di Azure. L'operazione di ripristino tramite PowerShell riuscirà perché ripristina solo i dischi e non crea la macchina virtuale. L'errore viene restituito quando la macchina virtuale viene creata in modo esplicito dall'utente dopo l'operazione di ripristino dei dischi. |
+| Ripristino | Il nome DNS selezionato è già in uso. Specificare un nome DNS diverso e riprovare. | Il nome DNS fa riferimento al nome del servizio cloud, che in genere termina con .cloudapp.net. Questo nome deve essere univoco. Se si verifica questo errore, è necessario scegliere un altro nome di macchina virtuale durante il ripristino. <br><br> Questo errore viene visualizzato solo dagli utenti del portale di Azure. L'operazione di ripristino tramite PowerShell riuscirà perché ripristina solo i dischi e non crea la macchina virtuale. L'errore viene restituito quando la macchina virtuale viene creata in modo esplicito dall'utente dopo l'operazione di ripristino dei dischi. |
 | Ripristino | La configurazione di rete virtuale specificata non è corretta. Specificare un'altra configurazione di rete virtuale e riprovare. | Nessuno |
 | Ripristino | Il servizio cloud specificato usa un indirizzo IP riservato che non corrisponde alla configurazione della macchina virtuale in fase di ripristino. Specificare un altro servizio cloud che non usa un indirizzo IP riservato o scegliere un altro punto di ripristino da cui eseguire l'operazione. | Nessuno |
 | Ripristino | Il servizio cloud ha raggiunto il limite consentito per il numero di endpoint di input. Ripetere l'operazione specificando un altro servizio cloud o usando un endpoint esistente. | Nessuno |
@@ -94,7 +94,7 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-- Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da github.
+- Installare l'[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da Github.
 - [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
 
@@ -112,7 +112,23 @@ Per le macchine virtuali Linux:
 Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
 1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\\WindowsAzure\\Packages*, che dovrebbe includere il file WaAppAgent.exe.
-2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà**, e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
+2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
+
+## Risoluzione dei problemi relativi allo snapshot della macchina virtuale
+Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'archiviazione sottostante. Non disporre dell'accesso all'archiviazione o il ritardo nell'esecuzione dell'attività dello snapshot può causare il fallimento del backup. I seguenti elementi possono causare il fallimento dell'attività di backup.
+
+1. L'accesso alla rete per l'archiviazione è bloccato mediante NSG<br> Altre informazioni su come [abilitare l'accesso alla rete](backup-azure-vms-prepare.md#2-network-connectivity) per l'archiviazione tramite entrambi gli elenchi di indirizzi IP consentiti o server proxy. 
+2.  Le macchine virtuali con backup di SQL Server configurato possono causare ritardi nelle attività di snapshot <br> Per impostazione predefinita, il backup delle macchine virtuali genera un backup VSS completo sulle VM Windows. In VM che eseguono SQL Server e in cui è configurato il backup di SQL Server, potrebbero verificarsi ritardi nell'esecuzione di snapshot. Impostare la seguente chiave del Registro di sistema se si verificano errori di backup a causa di problemi di snapshot. 
+
+	```
+	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+	"USEVSSCOPYBACKUP"="TRUE"
+	```
+3.  Stato della VM segnalato in modo non corretto poiché la VM viene arrestata in RDP. <br> Se la macchina virtuale è stata arrestata in RDP, verificare nel portale che lo stato della VM venga indicato correttamente. In caso contrario, arrestare la VM nel portale tramite l'opzione ''Shutdown'' nel dashboard della VM. 
+4.  Diverse VM dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento.<br> È consigliabile distribuire le VM dallo stesso servizio cloud per avere diverse pianificazioni di backup. 
+5.  La VM è in esecuzione con un uso elevato della CPU/della memoria.<br> Se la macchina virtuale è in esecuzione con un uso elevato della CPU (> 90%) o della memoria, l'attività di snapshot viene messa in coda, ritardata e infine messa in timeout. In tali situazioni, provare a eseguire un backup su richiesta.
+
+<br>
 
 ## Rete
 Analogamente a tutte le estensioni, per il funzionamento delle estensioni di Backup è necessario l'accesso a Internet pubblico. L'assenza di accesso a Internet pubblico può manifestarsi in diversi modi:
@@ -133,4 +149,4 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
     - Se si dispone di alcune limitazioni di rete (un gruppo di sicurezza di rete, ad esempio) distribuire un server proxy HTTP per indirizzare il traffico. I passaggi per distribuire un server proxy HTTP sono reperibili [qui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Aggiungere regole al gruppo di sicurezza di rete (se esistente) per consentire l'accesso a INTERNET dal proxy HTTP.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

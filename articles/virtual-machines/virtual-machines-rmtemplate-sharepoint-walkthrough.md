@@ -3,7 +3,7 @@
 	description="Esaminare la struttura del modello di gestione risorse di Azure per la farm di SharePoint a tre server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # Il modello di gestione risorse di farm di SharePoint a tre server
 
@@ -366,14 +366,8 @@ Un modello JSON per compilare un'infrastruttura a più livelli in Azure deve seg
 1.	Creare il comune (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) e macchina virtuale specifico (indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
 2.	Per ogni livello dell'applicazione (ad esempio l'autenticazione web, database), creare e configurare i server in tale livello mediante comuni (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) ed elementi specifici della macchina virtuale (indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico).
 
-Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+## Passaggio successivo
 
-## Risorse aggiuntive
+- Scopri il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md) e creane uno personalizzato.
 
-[Azure compute, rete e provider di archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)[Panoramica di gestione risorse di Azure](../resource-group-overview.md)
-
-[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
-
-[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

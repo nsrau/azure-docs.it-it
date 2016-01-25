@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Gestione della concorrenza nell'archiviazione di Microsoft Azure" 
-	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="Gestione della concorrenza nell'archiviazione di Microsoft Azure"
+	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file"
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
-## Panoramica 
+## Panoramica
 
 Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:
 
@@ -34,7 +34,7 @@ Il servizio di archiviazione di Azure supporta tutte e tre le strategie, sebbene
 
 Oltre a scegliere una strategia di concorrenza appropriata, gli sviluppatori devono inoltre conoscere il modo in cui una piattaforma di archiviazione isola le modifiche, in particolare quelle apportate allo stesso oggetto in più transazioni. Il servizio di archiviazione di Azure usa l'isolamento degli snapshot per consentire l'esecuzione simultanea di operazioni di lettura e operazioni di scrittura nell'ambito di una singola partizione. A differenza di altri livelli di isolamento, l'isolamento degli snapshot garantisce che tutte le letture vedano uno snapshot coerente dei dati persino durante l'esecuzione di aggiornamenti, essenzialmente restituendo gli ultimi valori di cui è stato eseguito il commit durante l'elaborazione di una transazione di aggiornamento.
 
-## Gestione della concorrenza nel servizio BLOB
+## Gestione della concorrenza nell'archiviazione BLOB
 È possibile scegliere di usare modelli di concorrenza ottimistica o pessimistica per gestire l'accesso a BLOB e contenitori nel servizio BLOB. Se non specifica esplicitamente una strategia, per impostazione predefinita prevale l'ultima scrittura.
 
 ### Concorrenza ottimistica per BLOB e contenitori  
@@ -52,18 +52,18 @@ Il processo è il seguente:
 Il frammento C# seguente (che usa Client Storage Library 4.2.0) mostra un esempio semplice di come costruire una **If-Match AccessCondition** in base al valore ETag al quale viene effettuato l'accesso dalle proprietà di un BLOB precedentemente recuperato o inserito. Usa quindi l'oggetto **AccessCondition** quando aggiorna il BLOB: l'oggetto **AccessCondition** aggiunge l'intestazione **If-Match** alla richiesta. Se un altro processo ha aggiornato il BLOB, il servizio BLOB restituisce un messaggio di stato HTTP 412 (Condizione preliminare non riuscita). È possibile scaricare l'esempio completo [qui](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -121,13 +121,13 @@ Il seguente frammento C# mostra un esempio relativo all'acquisizione di un lease
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +182,7 @@ Per altre informazioni, vedere:
 
 - [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Gestione della concorrenza nel servizio tabelle
 Il servizio tabelle usa i controlli della concorrenza ottimistica come comportamento predefinito quando si usano entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire controlli di concorrenza ottimistica. L'altra differenza tra il servizio tabelle e il servizio BLOB risiede nel fatto che con il primo è possibile gestire solo il comportamento di concorrenza delle entità, mentre con il servizio BLOB è possibile gestire la concorrenza sia dei contenitori sia dei BLOB.
@@ -211,7 +211,7 @@ Il seguente frammento C# mostra un'entità del cliente precedentemente creata o 
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 Per disabilitare esplicitamente il controllo della concorrenza, è necessario impostare la proprietà **ETag** dell'oggetto **employee** su “*” prima di eseguire l'operazione di sostituzione.
@@ -228,7 +228,7 @@ Update Entity|	Sì|	Sì|
 Merge Entity|	Sì|	Sì|
 Delete Entity|	No|	Sì|
 Insert or Replace Entity|	Sì|	No|
-Insert or Merge Entity|	Sì|	No 
+Insert or Merge Entity|	Sì|	No
 
 SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** *non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.
 
@@ -271,6 +271,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Introduzione all'archiviazione per [BLOB](storage-dotnet-how-to-use-blobs.md), [tabelle](storage-dotnet-how-to-use-tables.md) e [code](storage-dotnet-how-to-use-queues.md)
 - Architettura di archiviazione - [Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -128,7 +128,9 @@ Se il programma client dispone di logica di ripetizione dei tentativi, è possib
 Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 
-Per esempi di codice che illustrino la logica di ripetizione dei tentativi, vedere: [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
+Per esempi di codice che illustrano la logica di ripetizione dei tentativi, vedere:
+
+- [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### Numeri di errore per gli errori temporanei
@@ -142,7 +144,13 @@ Quando si verifica un errore del database SQL, viene generata un'eccezione [SqlE
  - Riprovare ad esempio se si verifica il numero di errore 40613, con un testo simile a<br/>*Il database 'mydatabase' nel server 'theserver' non è attualmente disponibile.*
 
 
-Per altre informazioni, vedere:- [Sviluppo nel database SQL di Azure: Procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Risoluzione dei problemi di connessione al Database SQL Azure](http://support.microsoft.com/kb/2980233/)
+Per altre informazioni, vedere:
+
+- [Sviluppo per il database SQL di Azure: procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -169,4 +177,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

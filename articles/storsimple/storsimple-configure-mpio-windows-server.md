@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Configurare Multipath I/O per il dispositivo StorSimple
@@ -111,7 +111,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 
 13. Inizializzare il disco e creare un nuovo volume. Durante il processo di formattazione, selezionare una dimensione blocco di 64 KB. ![Gestione disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. In **Gestione disco**, fare clic con il pulsante destro del mouse su **Disco** e selezionare **Proprietà**.
-15. Nella finestra di dialogo **Proprietà dispositivo disco percorsi multipli** di StorSimple Model ####, fare clic sulla scheda **MPIO**. ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. Nella finestra di dialogo **Multi-Path Disk Device Properties** di StorSimple Model ####, fare clic sulla scheda **MPIO**. ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. Nella sezione **Nome DSM**, fare clic su **Dettagli** e verificare che i parametri impostati siano quelli predefiniti. I parametri predefiniti sono:
 
@@ -173,4 +173,4 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

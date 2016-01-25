@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -384,9 +384,9 @@ In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente
 
 ## Vedere anche ##
 
-[Azure Toolkit for Eclipse][]
+[Toolkit di Azure per Eclipse][]
 
-[Installazione di Azure Toolkit for Eclipse][]
+[Installare il Toolkit di Azure per Eclipse.][]
 
 [Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
@@ -394,13 +394,13 @@ In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente
 
 [Elenco di account di archiviazione di Azure][]
 
-Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure][].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
 <!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Proprietà del progetto Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Elenco di account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
@@ -410,7 +410,7 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [Distribuzione di distribuzioni di grandi dimensioni]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Come usare la memorizzazione nella cache con risorse condivise]: http://go.microsoft.com/fwlink/?LinkID=699542
 [come usare l'offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installazione di Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699548
 [Offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
@@ -439,4 +439,4 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

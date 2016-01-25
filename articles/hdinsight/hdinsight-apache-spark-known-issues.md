@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Problemi noti di Apache Spark in Azure HDInsight (Linux)
 
-Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di Spark.
+Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di HDInsight Spark.
 
 ##Livy perde la sessione interattiva
  
@@ -139,4 +139,4 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 - [Panoramica: Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introduzione: eseguire il provisioning di Apache Spark in Azure HDInsight (Linux) ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

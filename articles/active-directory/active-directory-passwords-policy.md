@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 | Scadenza della password | <ul><li>Valore predefinito: **false** (indica che la scadenza della password è abilitata) </li><li>Il valore può essere configurato per singoli account utente mediante il cmdlet Set-MsolUser. </li></ul> |
 | Cronologia delle password | Non è possibile riutilizzare l'ultima password. |
 | Durata della cronologia delle password | Sempre |
-| Blocco account | <ul><li>Dopo dieci tentativi di accesso non riusciti (password errata), l'utente dovrà risolvere una finestra di dialogo CAPTCHA per l'accesso.</li><li>Dopo altri dieci tentativi di accesso non riusciti (password errata) e dopo aver risolto la finestra di dialogo CAPTCHA, l'utente verrà bloccato per un periodo di tempo. L'immissione di altre password errate comporterà un aumento esponenziale del periodo di blocco.</li></ul> |
+| Blocco account | Dopo 10 tentativi di accesso non riusciti (password errata), l'utente verrà bloccato per un minuto. Ulteriori tentativi di accesso non riusciti bloccheranno l'utente per periodi sempre più lunghi. |
 
 
 ## Passaggi successivi
@@ -60,4 +60,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

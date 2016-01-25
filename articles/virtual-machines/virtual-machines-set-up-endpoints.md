@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare gli endpoint in una macchina virtuale in Azure"
+	pageTitle="Configurare gli endpoint in una macchina virtuale classica | Microsoft Azure"
 	description="Informazioni su come configurare gli endpoint nel portale di Azure classico per consentire la comunicazione con una macchina virtuale in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#Come configurare gli endpoint a una macchina virtuale
+# Come configurare gli endpoint in una macchina virtuale di Azure classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. Per la distribuzione di Gestione risorse, vedere [Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md) e l'articolo relativo ai [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
-Tutte le macchine virtuali create in Azure possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale.
+Tutte le macchine virtuali create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale.
 
-Quando si crea una macchina virtuale nel portale di gestione di Azure, vengono creati automaticamente gli endpoint per Desktop remoto, la comunicazione remota di Windows PowerShell e Secure Shell (SSH). È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
+Quando si crea una macchina virtuale nel portale di Azure classico, gli endpoint comuni come quelli per Desktop remoto, comunicazione remota di Windows PowerShell e Secure Shell (SSH) sono in genere creati automaticamente a seconda del sistema operativo scelto. È possibile configurare altri endpoint durante la creazione della macchina virtuale o successivamente all'occorrenza.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md)
-
-Notare che i gruppi di sicurezza di rete controllano l'accesso alla macchina virtuale, ma non forniscono le funzionalità di inoltro di porta. Per l'inoltro di porta, vedere l'articolo seguente:
-
-- [Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md)
-
-Ogni endpoint dispone di una porta pubblica e di una porta privata.
+Ogni endpoint dispone di una *porta pubblica* e di una *porta privata*:
 
 - La porta pubblica viene usata dal servizio di bilanciamento del carico di Azure per restare in attesa di traffico in ingresso sulla macchina virtuale da Internet.
 - La porta privata viene usata dalla macchina virtuale per restare in attesa di traffico in ingresso, in genere destinato a un'applicazione o a un servizio in esecuzione nella macchina virtuale.
@@ -44,7 +36,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 
 > [AZURE.NOTE]La configurazione del firewall per le macchine virtuali di Azure viene eseguita automaticamente per le porte associate a Desktop remoto e a SSH (Secure Shell) e nella maggior parte dei casi per la comunicazione remota di Windows PowerShell. Per le porte specificate per tutti gli altri endpoint, non viene effettuata alcuna configurazione automatica del firewall della macchina virtuale. Quando si crea un endpoint per la macchina virtuale, è necessario assicurarsi che il firewall della macchina virtuale consenta anche il traffico per il protocollo e la porta privata corrispondente alla configurazione dell'endpoint.
 
-##Creare un endpoint
+## Creare un endpoint
 
 1.	Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
 2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
@@ -68,9 +60,9 @@ Il nuovo endpoint verrà elencato nella pagina **Endpoint**.
 
 ![Creazione dell'endpoint completata](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-Per utilizzare un cmdlet di Azure PowerShell per impostare questa funzionalità, vedere [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+Per utilizzare un cmdlet di Azure PowerShell per impostare questa funzionalità, vedere [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Se la CLI di Azure è in uso in modalità Service Management, usare il comando **azure vm endpoint create**.
 
-##Gestire l'elenco di controllo di accesso su un endpoint
+## Gestire l'elenco di controllo di accesso su un endpoint
 
 Per definire il set di computer che può inviare il traffico, l'elenco di controllo di accesso in un endpoint può limitare il traffico in base all'indirizzo IP di origine. Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un endpoint, attenersi alla procedura seguente.
 
@@ -100,4 +92,4 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

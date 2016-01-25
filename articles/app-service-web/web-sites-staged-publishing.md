@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure
@@ -45,7 +45,7 @@ Ciascuna modalità di piano del servizio app supporta un numero diverso di slot 
 Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in modalità **Standard** o **Premium**.
 
 1. Nel [portale di Azure](https://portal.azure.com/), aprire il pannello dell'app Web.
-2. Fare clic su **Slot di distribuzione**. Quindi, nel pannello **Slot di distribuzione**, fare clic su **Aggiungi slot**.
+2. Fare clic su **Impostazioni** e quindi su **Slot di distribuzione**. Quindi, nel pannello **Slot di distribuzione**, fare clic su **Aggiungi slot**.
 
 	![Aggiungi nuovo slot di distribuzione][QGAddNewDeploymentSlot]
 
@@ -65,7 +65,7 @@ Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in
 
 	![Titolo slot di distribuzione][StagingTitle]
 
-5. Fare clic sull'URL dell'app nel pannello dello slot. Si noti che lo slot di distribuzione dispone di un nome host specifico ed è inoltre un'app dal vivo. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Fare clic sull'URL dell'app nel pannello dello slot. Tenere presente che lo slot di distribuzione dispone di un nome host specifico ed è inoltre un'app attiva. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Non è presente alcun contenuto dopo la creazione dello slot di distribuzione. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti. È ad esempio possibile [pubblicare in questo slot con git](web-sites-publish-source-control.md).
 
@@ -130,7 +130,7 @@ La configurazione dello scambio automatico per uno slot è semplice. Attenersi a
 <a name="Multi-Phase"></a>
 ## Utilizzare spazio di swap in più fasi per l'app web ##
 
-Lo swap multifase è disponibile per semplificare la convalida nel contesto di elementi di configurazione progettati per mantenere uno slot come le stringhe di connessione. In questi casi può essere utile applicare tali elementi di configurazione dalla destinazione di swap all’origine di swap e convalidare prima lo swap effettivamente ha effetto. Una volta che gli elementi di configurazione della destinazione di swap vengono applicati all'origine di swap le azioni disponibili sono lo swap di completamento o il ripristino della configurazione originale per l'origine di swap che ha anche l'effetto di annullare lo swap. Degli esempi per i cmdlet PowerShell di Azure disponibili per lo swap multifase sono inclusi nei cmdlet PowerShell di Azure per la sezione relativa agli slot di distribuzione.
+Lo swap multifase è disponibile per semplificare la convalida nel contesto di elementi di configurazione progettati per mantenere uno slot come le stringhe di connessione. In questi casi può essere utile applicare tali elementi di configurazione dalla destinazione di scambio all'origine di scambio e convalidare prima che lo scambio diventi effettivo. Una volta che gli elementi di configurazione della destinazione di swap vengono applicati all'origine di swap le azioni disponibili sono lo swap di completamento o il ripristino della configurazione originale per l'origine di swap che ha anche l'effetto di annullare lo swap. Degli esempi per i cmdlet PowerShell di Azure disponibili per lo swap multifase sono inclusi nei cmdlet PowerShell di Azure per la sezione relativa agli slot di distribuzione.
 
 <a name="Rollback"></a>
 ## Per eseguire il rollback di un'app di produzione dopo lo scambio ##
@@ -259,4 +259,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

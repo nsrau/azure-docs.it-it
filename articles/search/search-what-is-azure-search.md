@@ -11,17 +11,17 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="01/12/2016"
 	ms.author="ashmaka"/>
 
 # Che cos'è la Ricerca di Azure?
-Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e dell'infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire i dati e quindi eseguirvi una ricerca. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice API REST o .NET SDK senza dover gestire l'infrastruttura di ricerca e diventare esperti di ricerca.
+Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire dati e di aggiungere ricerche sulle applicazioni Web o mobili. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) o [.NET SDK](search-howto-dotnet-sdk.md) senza dover gestire l'infrastruttura di ricerca o diventare esperti di ricerca.
 
 ## Offrire agli utenti un'esperienza di ricerca avanzata
 
-È possibile formulare **query efficaci** tramite gli operatori logici, espressioni di confronto e molto altro usando la [sintassi OData](https://msdn.microsoft.com/library/azure/dn798921.aspx) e una [sintassi delle query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). Inoltre, la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (attualmente in anteprima) consente la ricerca fuzzy, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. Ricerca di Azure supporta anche gli analizzatori lessicali personalizzati per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
+**Query efficaci** possono essere formulate mediante una [semplice sintassi di query](https://msdn.microsoft.com/library/azure/dn798920.aspx), in grado di offrire operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza. Inoltre, la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (attualmente in anteprima) consente la ricerca fuzzy, la ricerca di errori di ortografia, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. Ricerca di Azure supporta anche gli analizzatori lessicali personalizzati per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
 
-È incluso il **supporto** per [56 lingue diverse](https://msdn.microsoft.com/library/azure/dn879793.aspx). Tramite gli analizzatori Lucene e gli analizzatori di Microsoft (ridefiniti in base all’esperienza accumulata in anni di elaborazione del linguaggio naturale in Office e Bing), Ricerca di Azure può analizzare il testo usando la suddivisione delle parole, la normalizzazione del testo, la lemmatizzazione e altro ancora. In questo modo la casella di ricerca dell'applicazione può gestire in modo intelligente gli errori di ortografia, la coniugazioni dei verbi, i nomi plurali irregolari (ad esempio 'bue' e 'buoi') e così via.
+È incluso il **supporto** per [56 lingue diverse](https://msdn.microsoft.com/library/azure/dn879793.aspx). Tramite gli analizzatori Lucene e Microsoft (perfezionati da anni di elaborazione del linguaggio naturale in Office e Bing), la Ricerca di Azure può analizzare il testo nella casella di ricerca dell'applicazione per gestire in modo intelligente le funzionalità linguistiche di una lingua specifica, tra cui i tempi verbali, il genere, i sostantivi plurali irregolari (ad esempio, 'uomo' vs. 'uomini'), la scomposizione delle parole, il ritorno a capo (per le lingue senza spazi) e altro.
 
 I **suggerimenti per la ricerca** possono essere abilitati per le barre di ricerca con completamento automatico e le query di digitazione. Agli utenti che immettono un input di ricerca parziale vengono [suggeriti i documenti presenti nell'indice](https://msdn.microsoft.com/library/azure/dn798936.aspx).
 
@@ -29,9 +29,9 @@ L’**evidenziazione** [consente](https://msdn.microsoft.com/library/azure/dn798
 
 L’**esplorazione in base a facet** può essere aggiunta facilmente alle pagine dei risultati della ricerca con Ricerca di Azure. Usando [un singolo parametro di query](https://msdn.microsoft.com/library/azure/dn798927.aspx), Ricerca di Azure restituirà tutte le informazioni necessarie per creare un'esperienza di ricerca basata su facet nell'interfaccia utente dell'applicazione in modo da consentire agli utenti di eseguire il drill-down e filtrare i risultati di ricerca, ad esempio filtrando gli articoli del catalogo per fascia di prezzo o marca.
 
-Con il **supporto** [geospaziale](https://msdn.microsoft.com/library/azure/dn798921.aspx) è possibile elaborare, filtrare e visualizzare le posizioni geografiche in modo intelligente. Ricerca di Azure consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca in una posizione specificata o in base a una specifica area geografica.
+Con il **supporto** [geospaziale](search-create-geospatial.md) è possibile elaborare, filtrare e visualizzare le posizioni geografiche in modo intelligente. Ricerca di Azure consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca in una posizione specificata o in base a una specifica area geografica.
 
-È possibile utilizzare i **filtri** per incorporare l’esplorazione in base a facet (ad esempio, il filtro per categoria o prezzo), migliorare la formulazione delle query e filtrare in base a criteri specificati dall'utente o dallo sviluppatore.
+È possibile utilizzare i **filtri** per incorporare facilmente l'esplorazione in base a facet nell'interfaccia utente dell'applicazione, migliorare la formulazione di query e filtrare in base a criteri specificati dall'utente o dallo sviluppatore. Creare filtri efficaci mediante la [sintassi OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 ## Un servizio facile da usare a disposizione degli sviluppatori
 
@@ -39,9 +39,9 @@ La **disponibilità elevata** garantisce un'esperienza del servizio di ricerca e
 
 Poiché prevede una **gestione completa** come soluzione end-to-end, Ricerca di Azure non richiede assolutamente alcun tipo di gestione dell'infrastruttura. Il servizio può essere facilmente adattato alle proprie esigenze scalando in due dimensioni per gestire più archivi di documenti, carichi di query maggiori o entrambi.
 
-L’**integrazione dei dati** basata sugli [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) consente a Ricerca di Azure di eseguire automaticamente una ricerca per indicizzazione nel database SQL di Azure o in Azure DocumentDB per sincronizzare il contenuto dell'indice di ricerca con l'archivio dati primario.
+L'**integrazione dei dati** basata sugli [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) consente a Ricerca di Azure di eseguire automaticamente una ricerca per indicizzazione nel database SQL di Azure, in Azure DocumentDB o nell'[archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md) per sincronizzare il contenuto dell'indice di ricerca con l'archivio dati primario.
 
-È disponibile la **decifrazione del documento** [per leggere e indicizzare i principali formati di file](search-howto-indexing-azure-blob-storage.md) inclusi Microsoft Office, nonché i documenti PDF e HTML.
+È disponibile la **decifrazione del documento** [ (attualmente in anteprima) per leggere e indicizzare i principali formati di file](search-howto-indexing-azure-blob-storage.md) tra cui Microsoft Office, oltre a documenti PDF e HTML.
 
 I dati sull’**analisi del traffico di ricerca** possono essere [facilmente raccolti e analizzati](search-traffic-analytics.md) per dedurre informazioni sulla base delle parole digitate dagli utenti nella casella di ricerca.
 
@@ -49,7 +49,7 @@ Uno dei vantaggi chiave di Ricerca di Azure è la **semplicità di assegnazione 
 
 L’**ordinamento** è disponibile per più campi tramite lo schema dell'indice e viene attivato o disattivato in fase di query con un solo parametro di ricerca.
 
-Il **paging** e la limitazione dei risultati della ricerca non comportano alcuna difficoltà grazie al controllo accurato che Azure offre sui risultati della ricerca.
+Il **paging** e la limitazione dei risultati della ricerca [non comportano alcuna difficoltà grazie al controllo accurato](search-pagination-page-layout.md) che Ricerca di Azure offre sui risultati della ricerca.
 
 **Esplora ricerche** consente di eseguire query su tutti gli indici direttamente dal portale di Azure dell'account in uso per poter facilmente testare le query e perfezionare i profili di assegnazione punteggi.
 
@@ -82,4 +82,4 @@ Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire qu
 
 Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

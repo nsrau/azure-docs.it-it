@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Sprinklr
   
-Questa esercitazione descrive l'integrazione di Azure e Sprinklr.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Sprinklr. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Un tenant Sprinklr
@@ -53,7 +52,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-sprinklr-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-sprinklr-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -67,9 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -91,7 +88,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Sprinklr come amministratore.
 
-6.  Passare a **Administration > Settings**.
+6.  Passare a **Amministrazione > Impostazioni**.
 
     ![Amministrazione](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Amministrazione")
 
@@ -117,7 +114,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     5.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e quindi incollarlo nella casella di testo **Identity Provider Certificate**.
     6.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Entity Id**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL**.
-    8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Identity Provider Logout URL**.
+    8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sprinklr** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **URL accesso provider di identità**.
     9.  In **SAML User ID Type**, selezionare **Assertion contains User”s sprinklr.com username**.
     10. In **SAML User ID Location**, selezionare **User ID is in the Name Identifier element of the Subject statement**.
     11. Chiudere **Save**.
@@ -136,7 +133,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
 
 1.  Accedere al sito aziendale di Sprinklr come amministratore.
 
-2.  Passare a **Administration > Settings**.
+2.  Passare a **Amministrazione > Impostazioni**.
 
     ![Amministrazione](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Amministrazione")
 
@@ -158,13 +155,13 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
     4.  Selezionare un **User Type**.
     5.  Fare clic su **Update**.
 
-    >[AZURE.IMPORTANT]L’opzione **Password disabled** deve essere selezionata per consentire agli utenti di accedere tramite un provider di identità.
+    >[AZURE.IMPORTANT]L’opzione **Password disabilitata** deve essere selezionata per consentire agli utenti di accedere tramite un provider di identità.
 
 6.  Passare a **Role** ed eseguire la procedura seguente:
 
     ![Ruoli partner](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Ruoli partner")
 
-    1.  Dall’elenco **Global**, selezionare **ALL\_Permissions**.
+    1.  Dall’elenco **Globale**, selezionare **ALL\_Permissions**.
     2.  Fare clic su **Update**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento di creazione di account utente di Sprinklr o API fornita da Sprinklr per eseguire il provisioning degli account utente di Azure AD.
@@ -187,4 +184,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

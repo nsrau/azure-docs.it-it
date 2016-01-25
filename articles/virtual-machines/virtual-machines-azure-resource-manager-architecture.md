@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Architettura di Gestione risorse di Azure
@@ -73,14 +73,6 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 ## Passaggi successivi
 
-[Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+Scopri le risorse che possono essere distribuite con il modello di distribuzione di gestione risorse leggendo [Provider di calcolo, rete e archiviazione nella Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md).
 
-[Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Risorse aggiuntive
-
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Panoramica di Gestione risorse di Azure](resource-group-overview.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

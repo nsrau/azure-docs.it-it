@@ -156,7 +156,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **SqlSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
 
 	{  
@@ -482,6 +482,25 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 | storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
 | sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
 
+## Risoluzione dei problemi di connessione
+
+1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare doppio clic sul **server**, quindi su **Proprietà**. Selezionare **Connessioni** dall'elenco e **Consenti connessioni remote al server**.
+	
+	![Abilitare le connessioni remote](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
+
+	Vedere [Configurare l'opzione di configurazione del server remote access](https://msdn.microsoft.com/library/ms191464.aspx) per la procedura dettagliata. 
+2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza desiderata e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/TP facendo clic con il tasto destro del mouse su **TCP/IP** e facendo clic su **Abilita**.
+
+	![Abilitare TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	Vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx) per informazioni dettagliate e modi alternativi di abilitazione del protocollo TCP/IP. 
+3. Nella stessa finestra, fare doppio clic su **TCP/IP** per avviare la finestra **Proprietà TCP/IP**.
+4. Passare alla scheda **Indirizzi IP**. Scorrere verso il basso per vedere la sezione **IPAll**. Annotare la Porta TCP (il valore predefinito è **1433**).
+5. Creare una **regola per il Windows Firewall** sul computer per consentire il traffico in ingresso tramite questa porta.  
+6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per la connessione a SQL Server tramite nome completo. Ad esempio: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT]Vedere l'articolo relativo alle [considerazioni su porte e sicurezza](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) per informazioni dettagliate.
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -543,4 +562,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

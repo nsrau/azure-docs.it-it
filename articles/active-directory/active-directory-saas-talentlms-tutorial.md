@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con TalentLMS
@@ -52,7 +52,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-talentlms-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-talentlms-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -98,21 +98,21 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Single Sign-On](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Single Sign-On")
 
-    1.  Dall’elenco **SSO integration type** selezionare **SAML 2.0**.
+    1.  Dall’elenco **Tipo integrazione SSO** selezionare **SAML 2.0**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in TalentLMS** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Identity Provider (IdP)**.
     3.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Certificate Fingerprint**.
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-    4.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in UserVoice** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Remote sign-in URL **.
+    4.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On in UserVoice** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **URL accesso remoto **.
     5.  Nella pagina finestra di dialogo **Configura accesso Single Sign-On TalentLMS** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Remote sign-out URL**.
     6.  Nella casella di testo **TargetedID**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
-7.  Nella casella di testo **First name**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+7.  Nella casella di testo **Nome** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
 8.  Nella casella di testo **Last name**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 9.  Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Fare clic su **Salva**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configura accesso Single Sign-On")
 
@@ -147,10 +147,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

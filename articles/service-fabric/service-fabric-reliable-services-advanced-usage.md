@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso avanzato del modello di programmazione Reliable Services"
+   pageTitle="Uso avanzato del modello di programmazione Reliable Services | Microsoft Azure"
    description="Informazioni sull'uso avanzato del modello di programmazione Reliable Services di Service Fabric per una maggiore flessibilità nei servizi."
    services="Service-Fabric"
    documentationCenter=".net"
@@ -17,9 +17,9 @@
    ms.author="jesseb"/>
 
 # Uso avanzato del modello di programmazione Reliable Services
-Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questa guida verrà illustrato l'uso avanzato del modello di programmazione Reliable Services per ottenere più controllo e flessibilità sui servizi. Prima di leggere questa guida, acquisire familiarità con il [modello di programmazione Reliable Services](service-fabric-reliable-services-introduction.md).
+Service Fabric di Azure semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questa guida verrà illustrato l'uso avanzato del modello di programmazione Reliable Services per ottenere più controllo e flessibilità sui servizi. Prima di leggere questa guida, acquisire familiarità con il [modello di programmazione Reliable Services](service-fabric-reliable-services-introduction.md).
 
-## Classi base dei servizi senza stato
+## Classi base per i servizi senza stato
 La classe base StatelessService include CreateServiceInstanceListeners() e RunAsync() e dovrebbe essere sufficiente per la maggior parte dei servizi senza stato. La classe StatelessServiceBase sottostante a StatelessService espone gli eventi aggiuntivi del ciclo di vita del servizio. È possibile derivare da StatelessServiceBase se è necessario ulteriore controllo o flessibilità. Per altre informazioni, vedere la documentazione di riferimento per gli sviluppatori relativa a [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx).
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize è il primo metodo chiamato da Service Fabric. Vengono fornite informazioni relative all'inizializzazione del servizio, ad esempio il nome del servizio, l'ID di partizione, l'ID istanza e le informazioni sul pacchetto di codice. In questa fase non deve essere eseguita alcuna elaborazione complessa. Le operazioni di inizializzazione di lunga durata devono essere eseguite in OnOpenAsync.
@@ -30,12 +30,12 @@ La classe base StatelessService include CreateServiceInstanceListeners() e RunAs
 
 - `void OnAbort()` OnAbort viene chiamato quando l'istanza del servizio senza stato viene arrestata in modo forzato. Questo metodo in genere viene chiamato quando viene rilevato un errore permanente sul nodo o quando Service Fabric non è in grado di gestire in modo affidabile il ciclo di vita dell'istanza del servizio a causa di errori interni.
 
-## Classi base dei servizi con stato
-La classe base StatefulService dovrebbe essere sufficiente per la maggior parte dei servizi con stato. Analogamente ai servizi senza stato, la classe StatefulServiceBase sottostante a StatefulService espone gli eventi aggiuntivi del ciclo di vita del servizio. Consente anche di specificare un provider di stato personalizzato e affidabile e, facoltativamente, di supportare listener di comunicazione nelle repliche secondarie. È possibile derivare da StatefulServiceBase se è necessario ulteriore controllo o flessibilità. Per altre informazioni, vedere la documentazione di riferimento per gli sviluppatori relativa a [StatefulService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservice.aspx) e [StatefulServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservicebase.aspx).
+## Classi base per i servizi con stato
+La classe base StatefulService dovrebbe essere sufficiente per la maggior parte dei servizi con stato. Analogamente ai servizi senza stato, la classe StatefulServiceBase sottostante a StatefulService espone gli eventi aggiuntivi del ciclo di vita del servizio. Consente anche di fornire un provider di stato personalizzato e affidabile e, facoltativamente, di supportare listener di comunicazione nelle repliche secondarie. È possibile derivare da StatefulServiceBase se è necessario ulteriore controllo o flessibilità. Per altre informazioni, vedere la documentazione di riferimento per gli sviluppatori relativa a [StatefulService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservice.aspx) e [StatefulServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservicebase.aspx).
 
-- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync viene chiamato quando il servizio con stato modifica i ruoli, ad esempio in repliche primarie o secondarie. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare e scrivere nelle raccolte Reliable Collections), mentre alle repliche secondarie viene assegnato lo stato di lettura (sono autorizzate solo a leggere dalle raccolte Reliable Collections esistenti). È possibile avviare o aggiornare attività in background in risposta alle modifiche dei ruoli, come l'esecuzione di convalida di sola lettura, la generazione di report o il data mining in una replica secondaria.
+- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync viene chiamato quando il servizio con stato modifica i ruoli, ad esempio su primario o secondario. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare le raccolte Reliable Collections e a scriverci). Alle repliche secondarie viene assegnato lo stato di lettura (possono solo leggere dalle raccolte Reliable Collections esistenti). È possibile avviare o aggiornare attività in background in risposta alle modifiche dei ruoli, come l'esecuzione di convalida di sola lettura, la generazione di report o il data mining in una replica secondaria.
 
-- `IStateProviderReplica CreateStateProviderReplica()` Un servizio con stato deve disporre di un provider di stato affidabile. StatefulService usa la classe ReliableStateManager, che include le raccolte Reliable Collections (ad esempio, dizionari e code). È possibile eseguire l'override di questo metodo per configurare la classe ReliableStateManager passando un ReliableStateManagerConfiguration al relativo costruttore. Ciò consente di fornire serializzatori di stato personalizzato, specificare cosa accade quando i dati vanno persi e configurare i provider di replica/stato.
+- `IStateProviderReplica CreateStateProviderReplica()` Un servizio con stato deve disporre di un provider di stato affidabile. StatefulService usa la classe ReliableStateManager, che include le raccolte Reliable Collections (ad esempio, dizionari e code). È possibile eseguire l'override di questo metodo per configurare la classe ReliableStateManager passando un ReliableStateManagerConfiguration al relativo costruttore. È quindi possibile fornire serializzatori di stato personalizzati, specificare che cosa accade quando i dati vanno persi e configurare i provider di replica/stato.
 
 StatefulServiceBase garantisce anche gli stessi quattro eventi del ciclo di vita di StatelessServiceBase, con la stessa semantica e gli stessi casi d'uso:
 
@@ -45,14 +45,14 @@ StatefulServiceBase garantisce anche gli stessi quattro eventi del ciclo di vita
 - `void OnAbort()`
 
 ## Passaggi successivi
-Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli seguenti.
+Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli seguenti:
 
 - [Configurazione di Reliable Services con stato](service-fabric-reliable-services-configuration.md)
 
 - [Introduzione all'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-- [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Utilizzo dei report di integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 - [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

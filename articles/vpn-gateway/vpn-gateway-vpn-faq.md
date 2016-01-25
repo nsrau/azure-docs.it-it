@@ -84,8 +84,6 @@ Con il gateway dovrebbero funzionare anche altre soluzioni software VPN, purché
 
 ## Connessioni Point-to-Site
 
-Attualmente, le connessioni point-to-site sono disponibili solo per il modello di distribuzione classica (noto anche come Gestione del servizio). Stiamo lavorando a una soluzione point-to-site per il modello di distribuzione di Gestione risorse di Azure. Quando è disponibile, questa pagina verrà aggiornata.
-
 ### Quali sistemi operativi è possibile usare con la connettività Point-to-Site?
 
 Sono supportati i sistemi operativi seguenti:
@@ -269,4 +267,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

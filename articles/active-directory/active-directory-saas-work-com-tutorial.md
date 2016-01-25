@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Work.com
@@ -52,7 +52,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Work
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-work-com-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-work-com-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Setup](./media/active-directory-saas-work-com-tutorial/IC794108.png "Impostazione")
 
-3.  Nella sezione **Administer** del pannello di navigazione a sinistra fare clic su **Domain Management** per espandere la sezione correlata e quindi su **My Domain** per aprire la pagina **My Domain**.
+3.  Nella sezione **Administer** del riquadro di spostamento sinistro fare clic su **Domain Management** per espandere la sezione correlata e quindi su **My Domain** per aprire la pagina **My Domain**.
 
     ![My Domain](./media/active-directory-saas-work-com-tutorial/IC767825.png "My Domain")
 
@@ -118,7 +118,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![SAML Enabled](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML Enabled")
 
-    1.  Selezionare **SAML Enabled**.
+    1.  Selezionare **Abilitato SAML**.
     2.  Fare clic su **New**.
 
 14. Nella sezione **SAML Single Sign-On Setting** seguire questa procedura:
@@ -151,7 +151,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Login Page Branding](./media/active-directory-saas-work-com-tutorial/IC784366.png "Login Page Branding")
 
-18. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+18. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la pagina **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configura accesso Single Sign-On")
 
@@ -171,7 +171,7 @@ Per consentire l'accesso agli utenti di Azure Active Directory, è necessario ch
 
     ![Manage Users](./media/active-directory-saas-work-com-tutorial/IC784369.png "Manage Users")
 
-4.  Fare clic su **New User**.
+4.  Fare clic su **Nuovo utente**.
 
     ![All Users](./media/active-directory-saas-work-com-tutorial/IC794117.png "All Users")
 
@@ -207,4 +207,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

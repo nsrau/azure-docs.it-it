@@ -24,7 +24,7 @@
 
 In questo documento sono disponibili informazioni sui diversi modi per creare un cluster HDInsight basato su Linux in Azure e sulle configurazioni facoltative che possono essere usate con il cluster. HDInsight offre Apache Hadoop, Apache Storm e Apache HBase come servizi nella piattaforma cloud di Azure.
 
-> [AZURE.NOTE] Questo documento fornisce istruzioni sui diversi modi disponibili per creare un cluster. Per informazioni su un approccio rapido alla creazione di un cluster, vedere [Introduzione ad Azure HDInsight su Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE]Questo documento fornisce istruzioni sui diversi modi disponibili per creare un cluster. Per informazioni su un approccio rapido alla creazione di un cluster, vedere [Introduzione ad Azure HDInsight su Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## Informazioni sui cluster HDInsight
 
@@ -45,7 +45,7 @@ Durante la configurazione sarà possibile selezionare uno di questi tipi di clus
 
 Ogni tipo di cluster usa una terminologia specifica per i nodi nel cluster, oltre a un numero di nodi specifico e a dimensioni predefinite per le VM per ogni tipo di nodo:
 
-> [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
 ![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -105,7 +105,7 @@ Il tipo di cluster consente di selezionare configurazioni con finalità specific
 
 - **HDInsight su Linux (Ubuntu 12.04 LTS per Linux)**: selezionare questa opzione se si ha familiarità con Linux o Unix, si esegue la migrazione da una soluzione Hadoop basata su Linux esistente o si vuole un metodo facile per l'integrazione con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
-> [AZURE.NOTE] Le informazioni in questo documento presuppongono che si usi un cluster HDInsight basato su Linux. Per informazioni specifiche per i cluster basati su Windows, vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-provision-clusters.md).
+> [AZURE.NOTE]Le informazioni in questo documento presuppongono che si usi un cluster HDInsight basato su Linux. Per informazioni specifiche per i cluster basati su Windows, vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-provision-clusters.md).
 
 ###Nome sottoscrizione
 
@@ -138,7 +138,7 @@ HDInsight usa l'archivio BLOB di Azure come archivio sottostante per il cluster.
 
 Quando si crea un nuovo cluster, è necessario creare un nuovo account di archiviazione di Azure o usarne uno esistente.
 
-> [AZURE.IMPORTANT] La posizione geografica selezionata per l'account di archiviazione determinerà la posizione del cluster HDInsight, perché il cluster deve trovarsi nello stesso data center dell'account di archiviazione predefinito.
+> [AZURE.IMPORTANT]La posizione geografica selezionata per l'account di archiviazione determinerà la posizione del cluster HDInsight, perché il cluster deve trovarsi nello stesso data center dell'account di archiviazione predefinito.
 >
 > Per un elenco di aree supportate, fare clic sull'elenco a discesa **Area** in [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -148,7 +148,7 @@ HDInsight creerà anche un _contenitore di archiviazione predefinito_ nell'accou
 
 Per impostazione predefinita, questo contenitore ha lo stesso nome del cluster. Per altre informazioni sul funzionamento di HDInsight con l'archivio BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
->[AZURE.WARNING] Non condividere un contenitore tra più cluster. Questa operazione non è supportata.
+>[AZURE.WARNING]Non condividere un contenitore tra più cluster. Questa operazione non è supportata.
 
 ###Dimensioni nodo
 
@@ -156,7 +156,7 @@ Per impostazione predefinita, questo contenitore ha lo stesso nome del cluster. 
 
 Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi. Ad esempio, un cluster Hadoop ha due _nodi head_ e, per impostazione predefinita, quattro _nodi dati_, mentre un cluster di tipo Storm ha due _nodi Nimbus_, tre _nodi Zookeeper_ e, per impostazione predefinita, quattro _nodi supervisore_.
 
-> [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
 Quando si usa il portale di anteprima di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
 
@@ -184,22 +184,7 @@ Una [rete virtuale di Azure](http://azure.microsoft.com/documentation/services/v
     | -------------------------- | --------------------------- |
     | La configurazione da sito a sito consente di connettere più risorse dal data center alla rete virtuale di Azure usando una rete VPN hardware o il servizio Routing e accesso remoto.<br />![Diagramma di una configurazione da sito a sito](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | La configurazione da punto a sito consente di connettere una risorsa specifica alla rete virtuale di Azure usando una rete VPN software.<br />![Diagramma di una configurazione da punto a sito](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Per altre informazioni sulle funzionalità, i vantaggi e le capacità della rete virtuale, vedere la [panoramica della rete virtuale di Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
-
-> [AZURE.NOTE] È necessario creare la rete virtuale di Azure prima di creare un cluster. Per altre informazioni, vedere [Come creare una rete virtuale](virtual-networks-create-vnet.md).
->
-> Azure HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su set di affinità. Usare il cmdlet Get-AzureVNetConfig di Azure PowerShell per verificare se una rete virtuale esistente di Azure è basata sulla posizione. Se la rete virtuale non è basata sulla posizione, saranno disponibili le opzioni seguenti:
->
-> - Esportare la configurazione di rete virtuale esistente, quindi creare una nuova rete virtuale. Per impostazione predefinita, tutte le nuove reti virtuali sono basate sulla posizione.
-> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere il blog relativo alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> È consigliabile designare una singola subnet per un cluster.
->
-> Attualmente (25/08/2015) è possibile creare solo cluster basati su Linux in una rete virtuale di Azure.
->
-> Non è possibile usare una rete virtuale di Azure v1 (classica) con HDInsight basato su Linux. La rete virtuale deve essere v2 (Gestione risorse di Azure) per poter essere elencata come opzione durante il processo di creazione di cluster HDInsight nel portale di anteprima di Azure o possa essere usata durante la creazione di un cluster mediante l'interfaccia della riga di comando di Azure o Azure PowerShell.
->
-> Se si dispone di risorse in una rete v1 e si desidera rendere HDInsight direttamente accessibile a tali risorse attraverso una rete virtuale, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md) per informazioni su come connettersi una rete virtuale v2 a una rete virtuale v1. Una volta stabilita la connessione, è possibile creare il cluster HDInsight nella rete virtuale v2.
+Per ulteriori informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ### Metastore
 
@@ -207,13 +192,13 @@ Il metastore contiene metadati Hive e Oozie, ad esempio informazioni su tabelle 
 
 L'uso dell'opzione di configurazione Metastore consente di specificare un metastore esterno mediante il database SQL. Ciò consente di conservare le informazioni dei metadati quando si elimina un cluster, perché vengono archiviate esternamente nel database. Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo Database di SQL Azure](sql-database-get-started.md).
 
-> [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+> [AZURE.NOTE]La configurazione Metastore non è disponibile per i tipi di cluster HBase.
 
 ###<a id="scriptaction"></a>Azione script
 
 L'uso di script durante il provisioning del cluster consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Questi script vengono richiamati mediante **Azione script**. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [AZURE.IMPORTANT] Non è possibile aggiungere altri componenti dopo la creazione di un cluster, poiché tali componenti non saranno disponibili dopo che è stata ricreata l'immagine di un nodo del cluster. I componenti installati tramite azioni script vengono reinstallati come parte del processo rimanente.
+> [AZURE.IMPORTANT]Non è possibile aggiungere altri componenti dopo la creazione di un cluster, poiché tali componenti non saranno disponibili dopo che è stata ricreata l'immagine di un nodo del cluster. I componenti installati tramite azioni script vengono reinstallati come parte del processo rimanente.
 
 ### Risorse di archiviazione aggiuntive
 
@@ -282,4 +267,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

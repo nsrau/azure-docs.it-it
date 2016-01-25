@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
@@ -25,7 +25,7 @@ Questa versione contiene l'aggiornamento seguente.
 Titolo | Descrizione
 ---|---
 Aggiornamento della versione dell'API REST | La versione dell'API REST è stata aggiornata a 2015-10-01. I dettagli sono disponibili su MSDN nella sezione di [riferimento dell'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integrazione di Machine Learning in Analisi di flusso](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integrazione con Azure Machine Learning | Questa versione offre il supporto per le funzioni definite dall'utente di Azure Machine Learning. È disponibile un'esercitazione [qui](stream-analytics-machine-learning-tutorial.md), nonché l'annuncio generale sul blog [qui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integrazione con Azure Machine Learning | Questa versione offre il supporto per le funzioni definite dall'utente di Azure Machine Learning. È disponibile un'esercitazione [qui](stream-analytics-machine-learning-integration-tutorial.md), nonché l'annuncio generale sul blog [qui](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Note per la versione 12/11/2015 di Analisi di flusso ##
 
@@ -43,7 +43,7 @@ Titolo | Descrizione
 ---|---
 Funzionalità del linguaggio di query aggiuntive | Analisi di flusso ha espanso il linguaggio delle query includendo le funzionalità seguenti: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) e [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Rimuovere le limitazioni di aggregazione | Questa versione consente di rimuovere il limite di 15 aggregazioni in una query. A questo punto non vi sono limiti al numero di aggregazioni per ogni query.
-Nuova funzionalità GROUP BY di System.Timestamp | La funzione [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) ora consente sia window\_type che [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Nuova funzionalità GROUP BY di System.Timestamp | La funzione [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) consente ora sia window\_type sia [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
 OFFSET aggiunto per le finestre a cascata e di salto. | Per impostazione predefinita, le finestre [a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [di salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) sono allineate rispetto al tempo zero (1/1/0001 12:00:00 AM UTC). Il nuovo parametro (facoltativo) 'offsetsize' consente di specificare un offset personalizzato (o allineamento).
 
 
@@ -73,9 +73,9 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 Titolo|Descrizione
 ---|---
-Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi di Analisi di flusso. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
+Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi dell’analisi di flusso. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
 Nuove funzioni di matrice|Ora sono disponibili le funzioni di matrice [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
-Nuove funzioni di record|Ora sono disponibili le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
+Nuove funzioni di record|Le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sono ora disponibili.
 
 ## Note per la versione del 30/07/2015 di Analisi di flusso ##
 
@@ -84,7 +84,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 Titolo|Descrizione
 ---|---
 ID organizzazione di Power BI separato dall'ID di Azure|Questa funzionalità abilita l'[output di Power BI](stream-analytics-power-bi-dashboard.md) per i processi ASA in qualsiasi tipo di account di Azure (Live ID o ID organizzazione). Inoltre, è possibile disporre di un ID organizzazione per l'account Azure e utilizzarne uno diverso per l'autorizzazione dell'output di Power BI.
-Supporto per l'output di code del bus di servizio|Gli output di [code del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ora sono disponibili nei processi di Analisi di flusso.
+Supporto per l'output di code del bus di servizio|Gli output di [Code del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sono ora disponibili nei processi di analisi di flusso.
 Supporto per l'output di argomenti del bus di servizio|Gli output di [argomenti del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ora sono disponibili nei processi di Analisi di flusso.
 
 ## Note per la versione 09/07/2015 di Analisi di flusso ##
@@ -133,4 +133,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

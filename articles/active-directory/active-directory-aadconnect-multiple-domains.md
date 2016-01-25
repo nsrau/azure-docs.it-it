@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 #Supporto domini multipli
 
-Molti clienti hanno chiesto come è possibile configurare domini multipli di primo livello di Office 365 o domini di Azure AD e sotto-domini per la federazione. Sebbene quasi tutto ciò possa essere eseguito in modo piuttosto semplice, grazie ad alcune operazioni che effettuiamo dietro le quinte, esistono alcuni suggerimenti e consigli utili per evitare i problemi seguenti
+Molti clienti hanno chiesto come è possibile configurare domini multipli di primo livello di Office 365 o domini di Azure AD e sottodomini per la federazione. Sebbene quasi tutto ciò possa essere eseguito in modo piuttosto semplice, grazie ad alcune operazioni che effettuiamo dietro le quinte, esistono alcuni suggerimenti e consigli utili per evitare i problemi seguenti
 
 - Messaggi di errore durante il tentativo di configurazione di domini aggiuntivi per la federazione
 - Gli utenti nei sotto-domini non sono in grado di effettuare l'accesso dopo la configurazione di più domini di primo livello per la federazione
@@ -26,7 +26,7 @@ Molti clienti hanno chiesto come è possibile configurare domini multipli di pri
 ## Domini multipli di primo livello
 Verrà illustrata la configurazione di un’organizzazione di esempio contoso.com che desidera un dominio aggiuntivo denominato fabrikam.com.
 
-Si suppone che nel sistema in locale, sia configurato AD FS con il nome di servizio federativo fs.jenfield.com.
+Si suppone che nel sistema in locale sia configurato AD FS con il nome di servizio federativo fs.contoso100.com.
 
 Quando si effettua per la prima volta l'iscrizione a Office 365 o Azure AD, configurare contoso.com come primo dominio di accesso. È possibile farlo tramite Azure AD Connect o Azure AD Powershell utilizzando New-MsolFederatedDomain.
 
@@ -34,8 +34,8 @@ Al termine, esaminare i valori predefiniti per due delle nuove proprietà di con
 
 | Nome proprietà | Valore | Descrizione|
 | ----- | ----- | -----|
-|IssuerURI | http://fs.jenfield.com/adfs/services/trust| Anche se questa proprietà è simile a un URL, è semplicemente un nome per il sistema di autenticazione in locale e pertanto il percorso non deve corrispondere a nessun elemento. Per impostazione predefinita, Azure AD lo imposta al valore dell'identificatore del servizio federativo nella configurazione locale di AD FS.
-|PassiveClientSignInUrl|https://fs.jenfield.com/adfs/ls/|This è il percorso in cui vengono inviate le richieste di accesso passivo e risolve al sistema AD FS effettivo. In realtà esistono diverse proprietà "*Url", ma è sufficiente esaminare un esempio per illustrare la differenza tra questa proprietà e un URI, ad esempio la proprietà IssuerURI.
+|IssuerURI | http://fs.contoso100.com/adfs/services/trust| Anche se questa proprietà è simile a un URL, è semplicemente un nome per il sistema di autenticazione in locale e pertanto il percorso non deve corrispondere a nessun elemento. Per impostazione predefinita, Azure AD lo imposta al valore dell'identificatore del servizio federativo nella configurazione locale di AD FS.
+|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This è il percorso in cui vengono inviate le richieste di accesso passivo e risolve al sistema AD FS effettivo. In realtà esistono diverse proprietà "*Url", ma è sufficiente esaminare un esempio per illustrare la differenza tra questa proprietà e un URI, ad esempio la proprietà IssuerURI.
 
 Supponiamo ora di aggiungere il secondo dominio fabrikam.com. Anche in questo caso è possibile farlo eseguendo una seconda volta la procedura guidata di Azure AD Connect o tramite PowerShell.
 
@@ -51,9 +51,9 @@ si ottiene la seguente configurazione in Azure AD:
 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
-Si noti che mentre IssuerURI è stata impostato su un valore basato sul dominio ed è pertanto univoco, i valori dell'url dell'endpoint sono ancora configurati per fare riferimento al servizio federativo in fs.jenfield.com, come per il dominio contoso.com originale. In questo modo tutti i domini punteranno ancora allo stesso sistema di AD FS.
+Si noti che mentre IssuerURI è stata impostato su un valore basato sul dominio ed è pertanto univoco, i valori dell'url dell'endpoint sono ancora configurati per fare riferimento al servizio federativo in fs.contoso100.com, come per il dominio contoso.com originale. In questo modo tutti i domini punteranno ancora allo stesso sistema di AD FS.
 
 SupportMultipleDomain inoltre garantisce che il sistema di AD FS includa il valore corretto dell'Issuer nei token rilasciati per Azure AD prelevando la porzione del dominio relativa all’upn degli utenti e impostandola come dominio nell’issuerURI, vale a dire https://{upn suffix}/ adfs/services/trust. In questo modo durante l'autenticazione in Azure AD o Office 365, l'elemento Issuer nel token dell'utente viene utilizzato per individuare il dominio in Azure AD. Se non viene rilevata una corrispondenza l'autenticazione avrà esito negativo.
 
@@ -75,10 +75,10 @@ Una volta eseguiti tutti i passaggi, si avranno configurati due domini in Azure 
 
 - DomainName: contoso.com
 - IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
 Ora l'accesso federato per gli utenti da contoso.com e i domini di fabrikam.com sarà funzionante. Rimane ancora un solo problema: l’accesso per gli utenti nei sotto-domini.
 
@@ -91,4 +91,4 @@ Azure AD, genererà un token con un emittente come http://sub.contoso.com/adfs/s
 
 In breve, è possibile avere più domini con nomi diversi, nonché sotto-domini tutti federati nello stesso server AD FS. Questo richiede solo pochi passaggi aggiuntivi per verificare che i valori di Issuer siano impostati correttamente per tutti gli utenti.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configurare una stringa di connessione all'archiviazione di Azure | Microsoft Azure" 
-	description="Imparare come configurare una stringa di connessione in un account di archiviazione di Azure Una stringa di connessione include le informazioni necessarie per autenticare l'accesso a livello di codice alle risorse in un account di archiviazione. La stringa di connessione può incapsulare la chiave di accesso account per un account che si è proprietari o può includere una firma di accesso condiviso per accedere alle risorse in un account senza la chiave di accesso." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+	pageTitle="Configurare una stringa di connessione all'archiviazione di Azure | Microsoft Azure"
+	description="Imparare come configurare una stringa di connessione in un account di archiviazione di Azure Una stringa di connessione include le informazioni necessarie per autenticare l'accesso a livello di codice alle risorse in un account di archiviazione. La stringa di connessione può incapsulare la chiave di accesso account per un account che si è proprietari o può includere una firma di accesso condiviso per accedere alle risorse in un account senza la chiave di accesso."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -52,13 +52,13 @@ Per creare una stringa di connessione nell'account di archiviazione di Azure, us
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Ad esempio, la stringa di connessione dovrebbe somigliare all'esempio seguente:
- 
+
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
 > [AZURE.NOTE]L'archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione. Tuttavia, è consigliabile usare HTTPS.
-    
+
 ## Creazione di una stringa di connessione in un endpoint di archiviazione esplicito
 
 È possibile specificare in modo esplicito gli endpoint di servizio nella stringa di connessione se:
@@ -79,10 +79,10 @@ Per creare una stringa di connessione che specifica un endpoint BLOB esplicito, 
 
 Quando si specificano in modo esplicito gli endpoint di servizio nella stringa di connessione, sono disponibili due opzioni per specificare `credentials`nella stringa precedente:
 
-- È possibile specificare il nome dell'account e la chiave:`AccountName=myAccountName;AccountKey=myAccountKey` 
+- È possibile specificare il nome dell'account e la chiave:`AccountName=myAccountName;AccountKey=myAccountKey`
 - È possibile specificare una firma di accesso condiviso:`SharedAccessSignature=base64Signature`
 
-### Specifica di un endpoint BLOB con un nome di dominio personalizzato 
+### Specifica di un endpoint BLOB con un nome di dominio personalizzato
 
 Se è stato registrato un nome di dominio personalizzato da usare con il servizio BLOB, è possibile decidere di configurare in modo esplicito l'endpoint BLOB nella stringa di connessione. Il valore dell'endpoint elencato nella stringa di connessione, viene usato per costruire gli URI delle richieste per il servizio BLOB, e determina la forma di qualsiasi URI restituito al codice.
 
@@ -91,10 +91,10 @@ Ad esempio, una stringa di connessione in un endpoint BLOB di un dominio persona
 	DefaultEndpointsProtocol=https;
 	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
-	AccountKey=<account-key> 
+	AccountKey=<account-key>
 
 
-### Specifica di un endpoint BLOB con una firma di accesso condiviso 
+### Specifica di un endpoint BLOB con una firma di accesso condiviso
 
 È possibile creare una stringa di connessione con endpoint espliciti per accedere alle risorse di archiviazione tramite una firma di accesso condiviso. In tal caso, è possibile specificare la firma di accesso condiviso come parte della stringa di connessione, piuttosto che le credenziali di nome account e chiave. Il token della firma di accesso condiviso incapsula informazioni sulla risorsa a cui è necessario effettuare l'accesso, il periodo di tempo per il quale è disponibile e le autorizzazioni concesse. Per altre informazioni sulle firme di accesso condiviso, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -119,7 +119,4 @@ Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di 
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

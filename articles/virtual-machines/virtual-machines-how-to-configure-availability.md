@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare un set di disponibilità per le macchine virtuali | Microsoft Azure"
+	pageTitle="Configurare un set di disponibilità per VM classiche | Microsoft Azure"
 	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il Portale di Azure classico e Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. È inoltre possibile configurare i set di disponibilità nelle distribuzioni di Gestione risorse.
 
 
 Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per i dettagli sul funzionamento, vedere [Gestione della disponibilità delle macchine virtuali][].
 
 Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applicazione, è buona norma usare sia set di disponibilità sia endpoint con carico bilanciato. Per informazioni sugli endpoint con bilanciamento del carico, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure][].
 
-È possibile inserire le macchine virtuali in un set di disponibilità usando una di queste due opzioni:
+Nel modello di distribuzione classico, è possibile inserire le macchine virtuali in un set di disponibilità usando una di queste due opzioni:
 
 - [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente][]. Quindi, aggiungere le nuove macchine virtuali al set.
 - [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità][].
 
->[AZURE.NOTE]Le macchine virtuali che si vogliono inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.
+>[AZURE.NOTE]Nel modello classico, le macchine virtuali che si desidera inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.
 
 ## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente.##
 
@@ -45,7 +45,7 @@ Usare il portale di Azure classico.
 
 3. Fare clic su **Virtual Machine**, quindi su **From Gallery**.
 
-4. Usare le prime due schermate per selezionare un'immagine, un nome utente e una password e così via. Per informazioni dettagliate, vedere [Creare una macchina virtuale che esegue Windows][].
+4. Usare le prime due schermate per selezionare un'immagine, un nome utente e una password e così via. Per informazioni dettagliate, vedere [Creazione di una macchina virtuale che esegue Windows][].
 
 5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Eseguire le operazioni seguenti:
 
@@ -108,8 +108,8 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure]: virtual-machines-load-balance.md
 [Gestione della disponibilità delle macchine virtuali]: virtual-machines-manage-availability.md
-[Creare una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
+[Creazione di una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

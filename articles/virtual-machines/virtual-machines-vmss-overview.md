@@ -21,7 +21,7 @@
 
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurate allo stesso modo, i set di scalabilità di macchine virtuali sono progettati per supportare la vera scalabilità automatica (non è necessario il pre-provisioning delle macchine virtuali) e semplificare quindi la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e nei contenitori.
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione ai set di scalabilità di macchine virtuali, vedere questo [annuncio del blog di Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview) recente.
 
@@ -67,7 +67,7 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 	IP pubblico->Porta 50000 -> vmss\_0->Porta 22 IP pubblico->Porta 50001 -> vmss\_1->Porta 22 IP pubblico->Porta 50002-> vmss\_2->Porta 22
 
-	Ecco un esempio di creazione di un set di scalabilità di macchine virtuali che usa le regole NAT per abilitare la connessione SSH a ogni macchina virtuale in un set di scalabilità usando un singolo indirizzo IP pubblico: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+	Ecco un esempio di creazione di un set di scalabilità VM che usa le regole NAT per abilitare la connessione SSH a ogni VM in un set di scalabilità usando un solo IP pubblico: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
 	Ecco un esempio della stessa operazione con RDP e Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
@@ -83,13 +83,13 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 	Un ruolo di lavoro PaaS v1, sebbene limitato in termini di supporto per la piattaforma o il runtime (solo immagini della piattaforma Windows), include anche servizi come lo scambio di indirizzi VIP, impostazioni di aggiornamento configurabili, impostazioni specifiche della distribuzione del runtime o delle app che non sono _ancora_ disponibili nei set di scalabilità di macchine virtuali o che verranno forniti da altri servizi PaaS di livello più elevato come Service Fabric. Tenendo presente questo fatto, è possibile considerare i set di scalabilità di macchine virtuali come un'infrastruttura che supporta la tecnologia di piattaforma distribuita come servizio e quindi le soluzioni PaaS, come Service Fabric o i gestori di cluster come Mesos, possono basarsi sui set di scalabilità di macchine virtuali come un livello di calcolo scalabile.
 
-	Ecco un esempio di cluster Mesos che distribuisce un set di scalabilità di macchine virtuali nella stessa rete virtuale di una macchina virtuale autonoma. La macchina virtuale autonoma è un master Mesos e il set di scalabilità di macchine virtuali rappresenta un set di nodi slave: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Le versioni future del [servizio contenitore di Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) distribuiranno versioni più complesse/avanzate di questo scenario basato sui set di scalabilità di VM.
+	Ecco un esempio di cluster Mesos che distribuisce un set di scalabilità di macchine virtuali nella stessa rete virtuale di una macchina virtuale autonoma. La VM autonoma è un master Mesos e il set di scalabilità VM rappresenta un set di nodi slave: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Le versioni future del [servizio contenitore di Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) distribuiranno versioni più complesse/avanzate di questo scenario basato sui set di scalabilità di VM.
 
 ## Indicazioni sulla scalabilità e le prestazioni dei set di scalabilità di macchine virtuali
 
 - Durante l'anteprima pubblica, non creare più di 500 macchine virtuali in più set di scalabilità di macchine virtuali alla volta.
 - Non pianificare più di 40 macchine virtuali per account di archiviazione.
-- Diversificare il più possibile le prime lettere dei nomi degli account di archiviazione. Per informazioni su come procedere, vedere i modelli di set di scalabilità di macchine virtuali di esempio nei [modelli di Guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates/).
+- Diversificare il più possibile le prime lettere dei nomi degli account di archiviazione. I modelli di set di scalabilità VM di esempio nei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/) offrono esempi di come procedere.
 - Se si usano macchine virtuali personalizzate, non pianificare più di 40 macchine virtuali per set di scalabilità in un singolo account di archiviazione. Sarà necessaria l'immagine copiata in precedenza nell'account di archiviazione prima di poter iniziare a distribuire i set di scalabilità di macchine virtuali. Per altre informazioni, vedere le domande frequenti.
 - Non pianificare più di 2048 macchine virtuali per rete virtuale. Questo limite aumenterà in futuro.
 - Il numero di macchine virtuali che è possibile creare è limitato dalla quota di core di calcolo in ogni area. Potrebbe essere necessario contattare il supporto tecnico per richiedere l'aumento della quota di calcolo anche se l'attuale limite di core da usare con i servizi cloud o IaaS v1 è elevato. Per informazioni sulla quota, è possibile eseguire il comando dell'interfaccia della riga di comando di Azure seguente: _azure vm list-usage_ e il comando di PowerShell seguente: _Get-AzureRmVMUsage_ (se si usa una versione di PowerShell precedente alla 1.0, eseguire il cmdlet _Get-AzureVMUsage_).
@@ -153,4 +153,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **R.** Sì. Un set di scalabilità di macchine virtuali è un set di disponibilità implicito impostato con 3 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

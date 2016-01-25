@@ -1,47 +1,47 @@
 <!--author=alkohli last changed: 01/12/15-->
 
-#### To download hotfixes
+#### Scaricare gli aggiornamenti rapidi
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
+1. Avviare Internet Explorer e accedere al sito [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
 
-2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+2. Se si visita il sito per la prima volta, verrà richiesto di installare Microsoft Update Catalog. Fare clic su **Installa**.
     
-   	![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+   	![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
+3. Verrà visualizzata una schermata che consente di eseguire ricerche nel catalogo. Immettere **3121901** nella casella di ricerca, quindi fare clic su **Ricerca**.
 
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket. 
+4. **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series** viene visualizzato. Fare clic su **Aggiungi**. L'aggiornamento verrà aggiunto al carrello.
 
-5. Click **View Basket**.
+5. Fare clic su **Visualizza carrello**.
  
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a folder (same name as the update) to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
+6. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. L'aggiornamento viene scaricato in una cartella con lo stesso nome dell'aggiornamento nella posizione selezionata. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
        
-	> [AZURE.NOTE] 
+	> [AZURE.NOTE]
 	> 
-	> - You will also need to download **LSI driver update** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900),  **Storport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), **Spaceport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322), and **Disk firmware update** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899) and copy to the same shared folder.
-	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
+	> - È inoltre necessario scaricare l'**aggiornamento del driver LSI** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900), l'**aggiornamento Storport** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), l'**aggiornamento Spaceport** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322) e l'**aggiornamento del firmware del disco** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899), quindi copiarli nella stessa cartella condivisa.
+	> - L'aggiornamento rapido deve essere accessibile da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
 
-#### To install and  verify regular mode hotfixes
+#### Per installare e verificare gli aggiornamenti rapidi in modalità normale
 
-Perform the following steps to install and verify the regular hotfixes.
+Eseguire i passaggi seguenti per installare e verificare gli aggiornamenti rapidi normali.
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+1. Per installare gli aggiornamenti rapidi, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**.
 
-4. Select **Option 1** to log on to the device with full access.
+4. Selezionare l'**opzione 1** per eseguire l'accesso completo al dispositivo.
 
-5. To install the hotfix, at the command prompt, type:
+5. Per installare l'aggiornamento rapido, al prompt dei comandi, digitare:
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share. 
+    Utilizzare l’IP anziché il DNS nel percorso condivisione nel comando precedente. Il parametro di credenziale viene utilizzato soltanto se si accede a una condivisione autenticata.
 
-	We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+	È consigliabile utilizzare il parametro delle credenziali per accedere alle condivisioni. Anche le condivisioni aperte a "tutti" non sono in genere aperte agli utenti non autenticati.
 
-    A sample output is shown below.
+    Di seguito è riportato un output di esempio.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -56,11 +56,11 @@ Perform the following steps to install and verify the regular hotfixes.
 
         ````
  
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. Digitare **Y** quando viene richiesto di confermare l'installazione dell'hotfix.
 
-7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+7. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus`.
 
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    Il seguente output di esempio indica che l'aggiornamento è in corso. Il `RunInprogress` sarà `True` quando l'aggiornamento è in corso.
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -71,7 +71,7 @@ Perform the following steps to install and verify the regular hotfixes.
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     Il seguente output di esempio indica che l'aggiornamento è stato completato. Il `RunInProgress` sarà `False` quando l'aggiornamento è stato completato.
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -85,37 +85,37 @@ Perform the following steps to install and verify the regular hotfixes.
         ````
 		
 
-	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
+	> [AZURE.NOTE]In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 	
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
+8. Al termine dell'aggiornamento del software, ripetere i passaggi da 3 a 5 per installare e monitorare l'agente SaaS e l'agente MDS con `CisMdsAgentUpdateBundle.exe`. Assicurarsi che `HcsMdsSoftwareUpdate.exe` sia installato prima di `CisMdsAgentUpdateBundle.exe`.
 
-9. Verify the system software versions. Type:
+9. Verificare le versioni del software di sistema. Digitare:
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    Dovrebbero essere visualizzate le seguenti versioni:
 
     - HcsSoftwareVersion: 6.3.9600.17673
     - CisAgentVersion: 1.0.9150.0
     - MdsAgentVersion: 30.0.4698.13 
     
-	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
     
-9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
+9. Ripetere i passaggi da 3 a 5 per installare e monitorare il resto degli aggiornamenti rapidi normali.
 
-	- The LSI driver using the `HcsLsiUpdate.exe` package (KB3121900).
-	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
-	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
+	- Il driver LSI con il pacchetto `HcsLsiUpdate.exe` (KB3121900).
+	- La correzione Storport con il pacchetto `Storport-KB3080728-x64.msu` (KB3080728).
+	- La correzione Spaceport con il pacchetto `spaceport-KB3090322-x64.msu` (KB3090322).
 
-#### To install and verify maintenance mode hotfix
+#### Per installare e verificare l'aggiornamento rapido in modalità di manutenzione
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions below.
+Usare il pacchetto `DiskFirmwarePackage.exe` (KB3121899) per installare gli aggiornamenti firmware del disco. Si tratta di aggiornamenti problematici che richiedono circa 30 minuti per il completamento. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo. Per installare gli aggiornamenti firmware del disco, seguire le istruzioni seguenti.
 
-1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
+1. Attivare la modalità di manutenzione per il dispositivo. Notare che non si deve utilizzare Windows PowerShell in remoto quando ci si connette a un dispositivo in modalità di manutenzione. È necessario eseguire questo cmdlet nel controller del dispositivo quando si è connessi tramite console seriale del dispositivo. Digitare:
 		
 	`Enter-HcsMaintenanceMode`
 
-	A sample output is shown below.
+	Di seguito è riportato un output di esempio.
 
 		Controller0>Enter-HcsMaintenanceMode
 		Checking device state...
@@ -138,13 +138,13 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		[4] Change language
 		Please enter your choice>
 
-	Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+	Entrambi i controller vengono riavviati. Dopo aver completato il riavvio, entrambi i controller sono in modalità di manutenzione.
 
-3. To install the disk firmware update, type:
+3. Per installare l'aggiornamento firmware del disco, digitare:
 
 	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-	A sample output is shown below.
+	Di seguito è riportato un output di esempio.
 
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
 		Enter Password:
@@ -155,17 +155,17 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+1.  Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus`. L'aggiornamento è completo quando `RunInProgress` diventa `False`.
  
-2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
+2.  Una volta completata l'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1 con accesso completo e verificare la versione del firmware del disco. Digitare:
 	
 	`Get-HcsFirmwareVersion`
   
-	The expected disk firmware versions are: 
+	Le versioni del firmware del disco previste sono:
 
 	`XMGG, XGEG, KZ50, F6C2, VR08`
 
-	A sample output is shown below.
+	Di seguito è riportato un output di esempio.
 
 
         -----------------------MAINTENANCE MODE------------------------
@@ -221,11 +221,11 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
+	 Eseguire il comando `Get-HcsFirmwareVersion` sul secondo controller per verificare che la versione del software sia stata aggiornata. È quindi possibile chiudere la modalità di manutenzione. Digitare il comando seguente per ogni controller del dispositivo:
 
     `Exit-HcsMaintenanceMode`
      
-1. The controllers will be rebooted when you exit the Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Maintenance mode updates are not updated on the portal until 24 hours have elapsed. 
+1. I controller vengono riavviati quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Gli aggiornamenti in modalità manutenzione non vengono aggiornati nel portale fino a quando non sono trascorse 24 ore.
 
 
 
@@ -235,3 +235,4 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
  
  
 
+<!---HONumber=AcomDC_0114_2016-->

@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
@@ -50,7 +50,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-screensteps-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-screensteps-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -93,7 +93,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Autenticazione remota")
 
-8.  Fare clic su **Create authentication endpoint**.
+8.  Fare clic su **Crea endpoint di autenticazione**.
 
     ![Autenticazione remota](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Autenticazione remota")
 
@@ -111,7 +111,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     1.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL**.
     2.  Nella pagina **Configura accesso Single Sign-On in ScreenSteps** del portale di Azure AD copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Log out URL**.
-    3.  Fare clic su **Choose a file** e quindi caricare il certificato scaricato.
+    3.  Fare clic su **Scegli un file** e caricare il certificato scaricato.
     4.  Fare clic su **Update**.
 
 11. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -167,4 +167,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

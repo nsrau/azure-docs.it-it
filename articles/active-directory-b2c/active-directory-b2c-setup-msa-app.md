@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: fornire la registrazione e l'accesso agli utenti con account Microsoft
@@ -41,11 +41,9 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 
     ![MSA - URL di reindirizzamento](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. Fare clic su **Impostazioni app** a sinistra. Copiare i valori **Client ID** e **Segreto client**. Sono necessari entrambi per configurare un account Microsoft come provider di identità nel tenant.
+6. Fare clic su **Impostazioni app** a sinistra. Copiare i valori **Client ID** e **Segreto client**. Sono necessari entrambi per configurare un account Microsoft come provider di identità nel tenant. Nota: il **segreto client** è un'importante credenziale di sicurezza.
 
-> [AZURE.NOTE]**Segreto client** è una credenziale di sicurezza importante.
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - Segreto client](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## Configurare un account Microsoft come provider di identità nel tenant
 
@@ -57,4 +55,4 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 6. Fare clic su **Imposta provider di identità** e immettere i valori di **ID client** e **Chiave privata client** dell'applicazione dell'account Microsoft creata in precedenza.
 7. Fare clic su **OK** e quindi su **Crea** per salvare la configurazione dell'account Microsoft.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

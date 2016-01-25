@@ -21,7 +21,7 @@ La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.a
 
 La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. A volte si verifica un'interruzione tra questi due tipi di mappe,che è possibile rilevare e ripristinare usando la classe RecoveryManager.
 
-La classe RecoveryManager fa parte della [Libreria client dei database elastici](sql-database-elastic-database-client-library).
+La classe RecoveryManager fa parte della [Libreria client dei database elastici](sql-database-elastic-database-client-library.md).
 
 
 ![Mappa partizioni][1]
@@ -157,4 +157,4 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

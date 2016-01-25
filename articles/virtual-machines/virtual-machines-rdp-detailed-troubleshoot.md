@@ -14,56 +14,48 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="01/08/2016"
 	ms.author="dkshir"/>
 
 # Risoluzione dettagliata dei problemi relativi a connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-In questo articolo vengono fornite procedure dettagliate sulla risoluzione dei problemi per gli errori di Desktop remoto complessi.
+Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
 
-> [AZURE.IMPORTANT]Per eliminare gli errori più comuni di Desktop remoto, assicurarsi di leggere [Risoluzione dei problemi di base per Desktop remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) prima di procedere.
+> [AZURE.IMPORTANT]Per eliminare gli errori più comuni di Desktop remoto, verificare di aver letto l'articolo relativo alla [risoluzione dei problemi di base di Desktop remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) prima di procedere.
 
-## Contattare il supporto tecnico di Azure
+Se viene visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](virtual-machines-troubleshoot-remote-desktop-connections.md), seguire questa procedura e provare a capire perché il client Desktop remoto (o [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) non riesce a connettersi al servizio RDP nella VM di Azure.
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/).
-
-In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
 
 
-## Messaggio di errore generico di Desktop remoto
+## Componenti di una connessione Desktop remoto
 
-A volte può capitare di vedere questo messaggio di errore nella finestra di messaggio di Connessione Desktop remoto: _Impossibile connettersi al computer remoto per uno dei seguenti motivi..._
-
-Questo errore si presenta quando il client Desktop remoto non è in grado di raggiungere il servizio Desktop remoto della macchina virtuale. Possono esserci varie ragioni per questo errore.
-
-Di seguito viene riportato il set dei componenti coinvolti.
+Questi sono i componenti di una connessione RDP:
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_0.png)
 
-Prima di entrare nel processo dettagliato di risoluzione dei problemi, è utile esaminare mentalmente cosa è cambiato da quando si era in grado di creare connessioni Desktop remoto e utilizzare tale cambiamento come base per la correzione del problema. Ad esempio:
+Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. Ad esempio:
 
-- Se si era in grado di creare connessioni Desktop remoto ed è stato modificato l'indirizzo IP pubblico della macchina virtuale o del servizio cloud contenente la macchina virtuale (noto anche come indirizzo IP virtuale [VIP]), nella cache del client DNS potrebbe essere presente una voce per il nome DNS e l’*indirizzo IP precedente*. Scaricare la cache del client DNS e riprovare. In alternativa, provare a effettuare la connessione utilizzando il nuovo indirizzo VIP.
-- Se si è passati dall'utilizzo del portale di Azure classico o del portale di Azure all'uso di un'applicazione per gestire le connessioni Desktop remoto, assicurarsi che la configurazione dell'applicazione includa la porta TCP determinata in modo casuale per il traffico di Desktop remoto.
-
-Nelle sezioni seguenti si passerà dall’isolamento e dalla definizione delle varie cause principali di questo problema, al fornire soluzioni definitive e temporanee.
+- Se l'indirizzo IP pubblico della VM o il servizio cloud contenente la VM (detto anche indirizzo IP virtuale o [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) è cambiato, l'errore RDP potrebbe essere causato dal fatto che la cache del client DNS ha ancora l'*indirizzo IP precedente* registrato per il nome DNS. Svuotare la cache del client DNS e riprovare a connettersi alla VM. Oppure, provare a connettersi direttamente con il nuovo indirizzo VIP.
+- Se si usa un'applicazione di terze parti per gestire le connessioni Desktop remoto, anziché i portali di Azure, verificare che la configurazione dell'applicazione includa la porta TCP corretta per il traffico di Desktop remoto. È possibile controllare questa porta per una macchina virtuale classica nel [portale di Azure](portal.azure.com) facendo clic sulle impostazioni della VM > Endpoint.
 
 
 ## Operazioni preliminari
 
-Eseguire questi passaggi prima di procedere alla risoluzione dei problemi dettagliata.
+Prima di procedere alla risoluzione dei problemi dettagliata
 
-- Verificare lo stato della macchina virtuale nel portale di Azure classico o nel portale di Azure
-- Riavviare la macchina virtuale
-- [Ridimensionare la macchina virtuale](virtual-machines-size-specs.md)
+- Controllare lo stato della macchina virtuale nel portale di Azure classico o nel portale di Azure, per verificare che non siano presenti errori ovvi
+- Seguire i [passaggi di correzione rapida per gli errori RDP comuni nella guida alla risoluzione dei problemi di base](virtual-machines-troubleshoot-remote-desktop-connections.md#quickfixrdp)
 
-Dopo questi passaggi, tentare nuovamente la connessione Desktop remoto.
+
+Provare a riconnettersi alla VM tramite Desktop remoto dopo aver eseguito questi passaggi.
 
 
 ## Risoluzione dettagliata dei problemi
 
-Il client Desktop remoto potrebbe non essere in grado di raggiungere il servizio di Desktop remoto nella macchina virtuale di Azure a causa di problemi o errori di configurazione nelle origini seguenti:
+Il client Desktop remoto potrebbe non essere in grado di raggiungere il servizio Desktop remoto nella VM di Azure a causa di problemi nelle origini seguenti:
 
 - Computer client Desktop remoto
 - Dispositivo periferico dell’Intranet dell’organizzazione
@@ -73,26 +65,26 @@ Il client Desktop remoto potrebbe non essere in grado di raggiungere il servizio
 
 ### Origine 1: computer client Desktop remoto
 
-Per eliminare il computer come fonte di problemi o errori di configurazione, verificare che il computer sia in grado di stabilire connessioni Desktop remoto a un altro computer locale basato su Windows.
+Verificare che il computer sia in grado di stabilire connessioni Desktop remoto a un altro computer locale basato su Windows.
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_1.png)
 
-Se non è possibile, effettuare i seguenti controlli sul computer:
+Se non è possibile stabilire connessioni, eseguire i controlli seguenti sul computer:
 
 - Un'impostazione firewall locale che blocca il traffico di Desktop remoto
 - Software proxy client installato localmente che impedisce le connessioni Desktop remoto
 - Software di monitoraggio della rete installato localmente che impedisce le connessioni Desktop remoto
 - Altri tipi di software di sicurezza che effettuano il monitoraggio del traffico o consentano/non consentano tipi di traffico che impediscano le connessioni Desktop remoto
 
-In tutti questi casi, provare a disabilitare temporaneamente il software e tentare una connessione Desktop remoto a un computer locale per trovare la causa principale. Quindi, contattare l'amministratore di rete per correggere le impostazioni del software in modo da consentire le connessioni Desktop remoto.
+In tutti questi casi, disabilitare temporaneamente il software e provare a connettersi a un computer locale tramite Desktop remoto. Se si riesce a trovare la causa effettiva in questo modo, contattare l'amministratore di rete per correggere le impostazioni del software in modo da consentire le connessioni Desktop remoto.
 
 ### Origine 2: dispositivo periferico dell’Intranet dell’organizzazione
 
-Per eliminare il dispositivo periferico dell’Intranet dell’organizzazione come fonte di problemi o errori di configurazione, verificare che un computer connesso direttamente a Internet sia in grado di effettuare connessioni Desktop remoto alla macchina virtuale di Azure.
+Verificare che un computer connesso direttamente a Internet possa eseguire connessioni Desktop remoto alla macchina virtuale di Azure.
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_2.png)
 
-Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e usare una nuova macchina virtuale di Azure nel suo proprio gruppo di risorse o servizio cloud. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare il gruppo di risorse o la macchina virtuale e il servizio cloud.
+Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
 
 Se è possibile creare una connessione Desktop remoto con un computer collegato direttamente a Internet, controllare se nel dispositivo periferico dell’Intranet dell’organizzazione si verificano le seguenti condizioni:
 
@@ -104,46 +96,44 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni del disposi
 
 ### Origine 3: endpoint del servizio cloud e ACL
 
-Per eliminare l'endpoint del servizio cloud e l'elenco di controllo di accesso come fonti di problemi o errori di configurazione per le macchine virtuali create mediante l'API di Gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di eseguire connessioni Desktop remoto alla macchina virtuale di Azure.
+Per le macchine virtuali create mediante il modello di distribuzione classico, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di stabilire connessioni Desktop remoto alla macchina virtuale di Azure.
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
 > [AZURE.NOTE]Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#nsgs).
 
-Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, è possibile crearne facilmente una nuova. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-tutorial.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
+Se non si ha un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una nuova usando la procedura descritta in [Creare una macchina virtuale che esegue Windows in Azure](virtual-machines-windows-tutorial.md). Eliminare la macchina virtuale aggiuntiva al completamento del test.
 
-Se è possibile creare una connessione Desktop remoto con una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare quanto indicato di seguito:
+Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare quanto segue:
 
-- La configurazione dell'endpoint per il traffico Desktop remoto nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint deve corrispondere alla porta TCP su cui è in ascolto il servizio Servizi Desktop remoto nella macchina virtuale, che per impostazione predefinita è 3389.
-- L’ACL per l'endpoint di traffico Desktop remoto sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Esaminare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../virtual-network/virtual-networks-acl.md)
+- La configurazione dell'endpoint per il traffico di Desktop remoto nella VM di destinazione: la porta TCP privata dell'endpoint deve corrispondere alla porta TCP in cui è in ascolto il servizio Desktop remoto della macchina virtuale (l'impostazione predefinita è 3389).
+- L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../virtual-network/virtual-networks-acl.md)
 
-Per eliminare l'endpoint come fonte del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
+Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
 ### <a id="nsgs"></a>Origine 4: gruppi di sicurezza di rete
 
-I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Esaminare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico di Desktop remoto da Internet.
+I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Verificare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico di Desktop remoto da Internet.
 
-Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
+Per altre informazioni, vedere [Che cos'è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ### Origine 5: macchina virtuale di Azure basata su Windows
 
-L’ultima serie di problemi possibili si verifica sulla macchina virtuale di Azure stessa.
-
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
-L’articolo [risoluzione dei problemi di base di Desktop remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) descrive come utilizzare il [pacchetto diagnostica Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Se il pacchetto di diagnostica non è riuscito a risolvere il problema **connettività RDP a una macchina virtuale di Azure (riavvio necessario)**, seguire le istruzioni in [questo articolo](virtual-machines-windows-reset-password.md) per reimpostare il servizio Servizi Desktop remoto nella macchina virtuale. In tal modo, si verificheranno i seguenti eventi:
+Usare il [pacchetto di diagnostica di IaaS di Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) per verificare se l'errore è dovuto alla macchina virtuale di Azure stessa. Se il pacchetto di diagnostica non riesce a risolvere il problema di **connettività RDP a una VM di Azure (riavvio necessario)**, seguire le istruzioni in [questo articolo](virtual-machines-windows-reset-password.md) per reimpostare il servizio Desktop remoto nella macchina virtuale. In tal modo, si verificheranno i seguenti eventi:
 
 - Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
 - Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections su 0.
 
-Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei problemi possibili sono:
+Provare nuovamente la connessione dal computer. Se non si è ancora in grado di connettersi tramite Desktop remoto, verificare se sono presenti i problemi seguenti:
 
-- Il servizio Servizi Desktop remoto non è in esecuzione nella macchina virtuale di destinazione.
-- Il servizio Servizi Desktop remoto non è in ascolto sulla porta TCP 3389.
+- Il servizio Desktop remoto non è in esecuzione nella VM di destinazione.
+- Il servizio Desktop remoto non è in ascolto sulla porta TCP 3389.
 - Windows Firewall o un altro firewall locale dispone di una regola in uscita che impedisce il traffico di Desktop remoto.
 - Il software di rilevamento delle intrusioni o il software per il monitoraggio della rete in esecuzione nella macchina virtuale di Azure impedisce le connessioni Desktop remoto.
 
-Per risolvere questi problemi per le macchine virtuali create mediante l'API di Gestione dei servizi, è possibile usare una sessione remota di Azure PowerShell nella macchina virtuale di Azure. In primo luogo, sarà necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Andare a [Configurare l’accesso remoto PowerShell protetto alle macchine virtuali di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** in una cartella nel computer locale.
+Per le VM create usando il modello di distribuzione classico, usare una sessione remota di Azure PowerShell per connettersi alla macchina virtuale di Azure. In primo luogo, sarà necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Passare alla pagina dello script per [configurare l'accesso remoto PowerShell protetto alle VM di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** nel computer locale.
 
 Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
@@ -158,7 +148,7 @@ Successivamente, immettere il nome della sottoscrizione di Azure, il nome del se
 
 È possibile ottenere il nome della sottoscrizione corretto dalla proprietà _SubscriptionName_ della visualizzazione del comando **Get-AzureSubscription**. È possibile ottenere il nome del servizio cloud per la macchina virtuale dalla colonna _ServiceName_ della visualizzazione del comando **Get-AzureVM**.
 
-Per dimostrare che si dispone di questo nuovo certificato, aprire uno snap-in Certificati incentrato sull'utente corrente e cercare nella cartella **Autorità di certificazione radice disponibile nell'elenco locale\\Certificati**. Verrà visualizzato un certificato con il nome DNS del servizio cloud nella colonna Rilasciato a (esempio: cloudservice4testing.cloudapp.net).
+Verificare di avere il nuovo certificato, aprire uno snap-in Certificati per l'utente corrente e cercare nella cartella **Autorità di certificazione radice disponibile nell'elenco locale\\Certificati**. Verrà visualizzato un certificato con il nome DNS del servizio cloud nella colonna Rilasciato a (esempio: cloudservice4testing.cloudapp.net).
 
 Successivamente, avviare una sessione remota di Azure PowerShell utilizzando questi comandi.
 
@@ -170,9 +160,7 @@ Dopo aver immesso le credenziali di amministratore valide, verrà visualizzato u
 
 	[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
 
-La prima parte del prompt indica che vengono emessi i comandi Azure PowerShell per il servizio cloud che contiene la macchina virtuale di destinazione. Il nome del servizio cloud sarà diverso da "cloudservice4testing.cloudapp.net".
-
-È ora possibile inviare comandi Azure PowerShell per analizzare i problemi aggiuntivi menzionati in precedenza e apportare correzioni alla configurazione.
+La prima parte di questo prompt è il nome del servizio cloud che contiene la VM di destinazione, che può essere diverso da "cloudservice4testing.cloudapp.net". È ora possibile inviare comandi di Azure PowerShell per questo servizio cloud, per analizzare i problemi aggiuntivi menzionati in precedenza e apportare correzioni alla configurazione.
 
 ### Per correggere manualmente Servizi Desktop remoto in ascolto sulla porta TCP
 
@@ -192,7 +180,7 @@ Chiudere la sessione remota di Azure PowerShell utilizzando questo comando.
 
 	Exit-PSSession
 
-Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure utilizzi la porta TCP 3398 come porta interna. Quindi, riavviare la macchina virtuale di Azure e provare nuovamente la connessione Desktop remoto.
+Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta TCP 3398 come porta interna. Riavviare la VM di Azure e tentare nuovamente la connessione Desktop remoto.
 
 
 ## Risorse aggiuntive
@@ -207,4 +195,4 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

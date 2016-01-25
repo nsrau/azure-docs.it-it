@@ -18,7 +18,7 @@
 
 # Aggiornare l'ambiente di sviluppo di Service Fabric
 
- Service Fabric fornisce periodicamente nuove versioni di runtime, SDK e strumenti da utilizzare nello sviluppo locale. Mantenendo aggiornato l'ambiente di sviluppo locale con tali versioni, l’utente avrà accesso sempre alle funzionalità più recenti, alle correzioni di bug e ai miglioramenti delle prestazioni durante la compilazione e i test delle applicazioni in locale.
+ Service Fabric di Azure fornisce periodicamente nuove versioni di runtime, SDK e strumenti da usare nello sviluppo locale. Mantenendo aggiornato l'ambiente di sviluppo locale con tali versioni, l'utente avrà accesso sempre alle funzionalità più recenti, alle correzioni di bug e ai miglioramenti delle prestazioni durante la compilazione e i test delle applicazioni in locale.
 
 ## Eseguire la pulizia del cluster locale
 
@@ -29,11 +29,11 @@
  È possibile eseguire la pulizia del cluster locale come segue:
 
 
- 1. Chiudere tutte le altre finestre di PowerShell e avviarne una nuova come amministratore.
+ 1. Chiudere tutte le finestre di PowerShell e aprirne una nuova come amministratore.
 
- 2. Passare alla directory di installazione del cluster con `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
+ 2. Passare alla directory di installazione del cluster con `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`.
 
- 3. Eseguire `.\CleanCluster.ps1`
+ 3. Eseguire `.\CleanCluster.ps1`.
 
 
 ## Installare il runtime, l'SDK e gli strumenti
@@ -49,8 +49,8 @@
 
 L'operazione è terminata. È ora possibile avviare Visual Studio e continuare la compilazione delle applicazioni di Service Fabric.
 
->[AZURE.NOTE]La struttura predefinita del progetto è stata modificata in questa versione. Dovrebbe essere possibile aprire ed eseguire i progetti esistenti in Visual Studio. Tuttavia, se si verificano problemi con la compilazione, la distribuzione o il debug delle applicazioni, considerare la creazione di un nuovo progetto e la migrazione del codice.
+>[AZURE.NOTE]La struttura predefinita del progetto è stata modificata in questa versione. Dovrebbe essere possibile aprire ed eseguire i progetti esistenti in Visual Studio. Tuttavia, se si verificano problemi con la compilazione, la distribuzione o il debug delle applicazioni, considerare la creazione di un nuovo progetto e la migrazione del codice su di esso.
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

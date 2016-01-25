@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso | Microsoft Azure" 
-	description="Informazioni sulla delega dell'accesso alle risorse di archiviazione di Azure, tra cui BLOB, code e tabelle, tramite firme di accesso condiviso (SAS). Con firme di accesso condivise, è possibile proteggere la chiave dell’ account di archiviazione durante la concessione dell'accesso alle risorse nell'account ad altri utenti. È possibile controllare le autorizzazioni concesse e l'intervallo in cui la SAS è valida. Se si definisce un criterio di accesso archiviato, è possibile revocare la SAS nel caso si temesse che la sicurezza dell'account sia stata compromessa." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso | Microsoft Azure"
+	description="Informazioni sulla delega dell'accesso alle risorse di archiviazione di Azure, tra cui BLOB, code e tabelle, tramite firme di accesso condiviso (SAS). Le firme di accesso condiviso proteggono la chiave dell‘account di archiviazione, garantendo allo stesso tempo l'accesso alle risorse nell'account ad altri utenti. È possibile controllare le autorizzazioni concesse e l'intervallo in cui la SAS è valida. Se si definisce un criterio di accesso archiviato, è possibile revocare la SAS nel caso si temesse che la sicurezza dell'account sia stata compromessa."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="tamram"/>
 
 
 
-# Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso
+# Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso
 
 ## Panoramica
 
@@ -51,8 +51,6 @@ Inoltre, è necessario utilizzare una firma di accesso condiviso per autenticare
 - Quando si copia un file a un altro file che si trova in un account di archiviazione diverso, è necessario utilizzare una firma di accesso condiviso per autenticare il file di origine. Con la versione 2015-04-05 è anche possibile usare una firma di accesso condiviso per autenticare il file di destinazione.
 - Quando si copia un BLOB in un file o un file in un BLOB, è necessario utilizzare una firma di accesso condiviso (SAS) per autenticare l'oggetto di origine, anche se gli oggetti di origine e di destinazione si trovano nello stesso account di archiviazione.
 
->[AZURE.NOTE]Attualmente l'account SAS è supportato solo per i servizi BLOB e File. Sarà supportato per i servizi tabelle e code nel prossimo futuro.
-
 ## Tipi di firme di accesso condiviso
 
 La versione 2015-04-05 di Archiviazione di Azure introduce un nuovo tipo di firma di accesso condiviso, la firma di accesso condiviso dell'account. È ora possibile creare uno dei due tipi di firme di accesso condiviso seguenti:
@@ -69,12 +67,12 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
 
 ### Parametri comuni per la firma di accesso condiviso dell'account e del servizio
 
-- **Api version** Parametro facoltativo che specifica la versione del servizio di archiviazione da usare per eseguire la richiesta. 
+- **Api version** Parametro facoltativo che specifica la versione del servizio di archiviazione da usare per eseguire la richiesta.
 - **Service version** Parametro obbligatorio che specifica la versione del servizio di archiviazione da usare per autenticare la richiesta.
-- **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa; se omessa, la firma diventa immediatamente valida. 
+- **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa; se omessa, la firma diventa immediatamente valida.
 - **Scadenza.** Si riferisce all'ora dopo la quale la firma di accesso condiviso non è più valida. Secondo le procedure consigliate è preferibile specificare una data di scadenza per una firma di accesso condiviso oppure associarla a criteri di accesso archiviati (vedere più avanti).
 - **Autorizzazione.** Le autorizzazioni specificate per la firma di accesso condiviso indicano le autorizzazioni che il client può eseguire sulla risorsa di archiviazione usando la firma. Le autorizzazioni disponibili per la firma di accesso condiviso dell'account e del servizio sono diverse.
-- **IP.** Un parametro facoltativo che specifica un indirizzo IP o un intervallo di indirizzi IP all'esterno di Azure (vedere la sezione [Stato di configurazione della sessione di Routing](../expressroute/expressroute-workflows.md#routing-session-configuration-state) per Express route) da cui si desidera accettare le richieste. 
+- **IP.** Un parametro facoltativo che specifica un indirizzo IP o un intervallo di indirizzi IP all'esterno di Azure (vedere la sezione [Stato di configurazione della sessione di Routing](../expressroute/expressroute-workflows.md#routing-session-configuration-state) per Express route) da cui si desidera accettare le richieste.
 - **Protocol.** Parametro facoltativo che specifica il protocollo consentito per una richiesta. I valori possibili sono HTTPS e HTTP (https,http), ovvero il valore predefinito, oppure HTTPS only (https). Si noti che HTTP only non è un valore consentito.
 - **Signature.** La firma viene creata dagli altri parametri specificati come parte token e quindi crittografati. Viene quindi usata per autenticare la firma di accesso condiviso.
 
@@ -129,7 +127,7 @@ Poiché le autorizzazioni sono limitate a livello di servizio, le operazioni acc
 
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
-- **SAS ad hoc:**quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente oppure sono implicite, nel caso in cui l'ora di inizio viene omessa. È possibile creare questa firma di accesso condiviso come firma di accesso condiviso dell'account o del servizio. 
+- **SAS ad hoc:**quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente oppure sono implicite, nel caso in cui l'ora di inizio viene omessa. È possibile creare questa firma di accesso condiviso come firma di accesso condiviso dell'account o del servizio.
 
 - **SAS con politica di accesso archiviazione:**i criteri di accesso archiviati vengono definiti per un contenitore di risorse - un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
 
@@ -151,7 +149,7 @@ Di seguito sono riportati alcuni esempi di entrambi i tipi di firma di accesso c
 Per eseguire questi esempi, sarà necessario scaricare e fare riferimento a questi pacchetti:
 
 - [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versione 6.x o versione successiva (per usare l'account SAS).
-- [Gestione configurazione di Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+- [Gestione configurazione di Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 ### Esempio: Account SAS
 
@@ -230,40 +228,39 @@ L'esempio di codice seguente crea un criterio di accesso archiviato in un conten
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-       
+
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-    
+
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
 
     // Clear the container's shared access policies to avoid naming conflicts.
     blobPermissions.SharedAccessPolicies.Clear();
-    
+
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-    
+
     // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
-    
+
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -271,15 +268,15 @@ L'esempio di codice seguente crea un criterio di accesso archiviato in un conten
 Un client in possesso di una firma di accesso condiviso del servizio può usarla dal codice per autenticare una richiesta di lettura o di scrittura in un BLOB nel contenitore. Il codice seguente, ad esempio, usa il token di firma di accesso condiviso per creare un nuovo BLOB in blocchi nel contenitore. Modificare il codice per usare il proprio nome dell’account:
 
     Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
-    
+
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -313,15 +310,10 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
 ## Passaggi successivi ##
 
-- [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md)
+- [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](storage-dotnet-shared-access-signature-part-2.md)
 - [Come usare Archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md)
 - [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md)
 - [Delega dell'accesso con una firma di accesso condiviso](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

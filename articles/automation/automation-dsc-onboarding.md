@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="11/23/2015"
+   ms.date="01/11/2016"
    ms.author="coreyp"/>
 
 # Caricamento di computer per la gestione con Automation DSC per Azure
@@ -28,6 +28,8 @@ Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.co
 *    Macchine virtuali di Azure
 *    Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure
 *    Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
+
+È inoltre possibile generare una **metaconfigurazione DSC** per caricare in modo generico qualsiasi combinazione dei computer specificati in precedenza in Automation DSC per Azure.
 
 Le sezioni seguenti illustrano come caricare ogni tipo di computer in Automation DSC per Azure.
 
@@ -114,7 +116,7 @@ Automation DSC per Azure consente di caricare facilmente macchine virtuali di Az
 
 ### Portale di Azure
 
-Nel [portale di anteprima di Azure](http://portal.azure.com/) passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nel dashboard dell'account di automazione fare clic su **Nodi DSC** -> **Aggiungi VM di Azure**.
+Nel [portale di anteprima di Azure](http://portal.azure.com/) passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nel dashboard dell'account di automazione fare clic su **Nodi DSC** -> **Aggiungi macchina virtuale di Azure**.
 
 In **Seleziona macchine virtuali da caricare** selezionare una o più macchine virtuali di Azure da caricare.
 
@@ -132,31 +134,20 @@ Le macchine virtuali di Azure possono essere distribuite e caricate in Automatio
 
 ### PowerShell
 
-Il cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di anteprima di Azure tramite PowerShell.
+Il cmdlet [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di anteprima di Azure tramite PowerShell.
 
 ## Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure
 
 I computer Windows locali e le macchine virtuali Windows in cloud non di Azure, ad esempio Amazon Web Services, possono essere caricati in Automation DSC per Azure con pochi e semplici passaggi, a condizione che abbiano l'accesso in uscita a Internet:
 
 1. Assicurarsi che nei computer da caricare in Automation DSC per Azure sia installata la versione più recente di [WMF 5](http://www.microsoft.com/it-IT/download/details.aspx?id=48729).
-
-2. Aprire la console di PowerShell o PowerShell ISE come amministratore in un computer nell'ambiente locale. In questo computer deve essere installata anche la versione più recente di WMF 5.
-
-3. Connettersi a Gestione risorse di Azure usando il modulo Azure PowerShell:`Login-AzureRmAccount`
-
-4. Dall'account di automazione in cui si caricheranno i nodi scaricare le metaconfigurazioni di PowerShell DSC per i computer che da caricare:
-
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
-
-5. Facoltativamente, visualizzare e aggiornare le metaconfigurazioni nella cartella di output, se necessario, in modo che corrispondano ai [valori e ai campi di Gestione configurazione locale per PowerShell DSC](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), se i valori predefiniti non corrispondono al proprio caso d'uso.
-
-6. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
+2. Seguire le istruzioni riportate nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) di seguito per generare una cartella contenente le metaconfigurazioni DSC necessarie.
+3. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare. **Nel computer dal quale viene eseguito questo comando deve essere installata la versione più recente di [WMF 5](http://www.microsoft.com/it-IT/download/details.aspx?id=48729)**:
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-7. Se non è possibile applicare le metaconfigurazioni di PowerShell DSC in remoto, copiare la cartella di output dal passaggio 4 in ogni computer da caricare. Chiamare quindi Set-DscLocalConfigurationManager localmente in ogni computer da caricare.
-
-8. Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
+4. Se non è possibile applicare le metaconfigurazioni di PowerShell DSC in remoto, copiare la cartella delle metaconfigurazioni dal passaggio 2 in ogni computer da caricare. Chiamare quindi **Set-DscLocalConfigurationManager** localmente in ogni computer da caricare.
+5. Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
 
 ## Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
 
@@ -164,7 +155,7 @@ I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux
 
 1. Assicurarsi che nei computer da caricare in Automation DSC per Azure sia installata la versione più recente dell'[agente DSC per Linux](http://www.microsoft.com/it-IT/download/details.aspx?id=49150).
 
-2. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) corrispondono al proprio caso d'uso:
+2. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4) corrispondono al caso d'uso corrente e si vuole caricare i computer in modo che **entrambi** eseguano il pull e inviino informazioni ad Automation DSC per Azure:
 
 	*    In tutti i computer Linux da caricare in Automation DSC per Azure usare Register.py per caricarli con i valori predefiniti di Gestione configurazione locale per PowerShell DSC:
 
@@ -172,21 +163,10 @@ I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux
 
 	*    Per trovare la chiave e l'URL di registrazione per l'account di automazione, vedere la sezione [**Registrazione sicura**](#secure-registration) di seguito.
 
-	Se i valori predefiniti di Gestione configurazione locale per PowerShell DSC **non** **corrispondono** al proprio caso d'uso, seguire i passaggi da 3 a 9. In caso contrario, andare direttamente al passaggio 9.
+	Se i valori predefiniti di Gestione configurazione locale per PowerShell DSC **non** corrispondono al caso d'uso corrente o si vuole caricare i computer in modo che inviino informazioni solo ad Automation DSC per Azure, ma non eseguano il pull della configurazione o dei moduli PowerShell, seguire i passaggi compresi tra 3 e 6. In caso contrario, andare direttamente al passaggio 6.
 
-3. Aprire la console di PowerShell o PowerShell ISE come amministratore in un computer Windows nell'ambiente locale. In questo computer deve essere installata la versione più recente di [WMF 5](http://www.microsoft.com/it-IT/download/details.aspx?id=48729).
-
-4. Connettersi a Gestione risorse di Azure usando il modulo Azure Powershell:
-
-	`Login-AzureRmAccount`
-
-5.  Dall'account di automazione in cui si caricheranno i nodi scaricare le metaconfigurazioni di PowerShell DSC per i computer che da caricare:
-	
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
-
-6.  Facoltativamente, visualizzare e aggiornare le metaconfigurazioni nella cartella di output, se necessario, in modo che corrispondano ai [valori e ai campi di Gestione configurazione locale per PowerShell DSC](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), se i valori predefiniti non corrispondono al proprio caso d'uso.
-
-7.  Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
+3.	Seguire le istruzioni riportate nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) di seguito per generare una cartella contenente le metaconfigurazioni DSC necessarie.
+4.  Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
     	
     	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
@@ -197,12 +177,146 @@ I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux
         $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+	
+Nel computer dal quale viene eseguito questo comando deve essere installata la versione più recente di [WMF 5](http://www.microsoft.com/it-IT/download/details.aspx?id=48729).
 
-8.  Se non è possibile caricare le metaconfigurazioni di PowerShell DSC in remoto, per ogni computer Linux da caricare copiare la metaconfigurazione corrispondente a quel computer dalla cartella nel passaggio 5 nel computer Linux. Chiamare quindi `SetDscLocalConfigurationManager.py` localmente in ogni computer Linux da caricare in Automation DSC per Azure:
+5.  Se non è possibile caricare le metaconfigurazioni di PowerShell DSC in remoto, per ogni computer Linux da caricare copiare la metaconfigurazione corrispondente a quel computer dalla cartella nel passaggio 5 nel computer Linux. Chiamare quindi `SetDscLocalConfigurationManager.py` localmente in ogni computer Linux da caricare in Automation DSC per Azure:
 
 	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
-9.  Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
+6.  Tramite il portale di Azure o i cmdlet verificare che ora i computer da caricare siano visualizzati come nodi DSC registrati nell'account di Automazione di Azure.
+
+##Generazione di metaconfigurazioni DSC
+Per caricare in modo generico qualsiasi computer in Automation DSC per Azure, può essere generata una metaconfigurazione DSC che, quando applicata, indichi all'agente DSC nel computer di eseguire il pull e/o inviare informazioni ad Automation DSC per Azure. Le metaconfigurazioni DSC per Automation DSC per Azure possono essere generate tramite una configurazione DSC di PowerShell o tramite i cmdlet PowerShell di Automazione di Azure.
+
+**Nota:** le metaconfigurazioni DSC contengono i segreti necessari per caricare un computer in un account di automazione per la relativa gestione. Assicurarsi di proteggere adeguatamente le metaconfigurazioni DSC create oppure eliminarle dopo l'uso.
+
+###Uso di una configurazione DSC
+1.	Aprire PowerShell ISE come amministratore in un computer nell'ambiente locale. Nel computer deve essere installata la versione più recente di [WMF 5](http://www.microsoft.com/it-IT/download/details.aspx?id=48729).
+
+2.	Copiare localmente lo script seguente. Questo script contiene una configurazione DSC di PowerShell per la creazione delle metaconfigurazioni e un comando per avviare la creazione delle metaconfigurazioni.
+    
+        # The DSC configuration that will generate metaconfigurations
+        [DscLocalConfigurationManager()]
+        Configuration DscMetaConfigs 
+        { 
+            param 
+            ( 
+                [Parameter(Mandatory=$True)] 
+                $RegistrationUrl,
+         
+                [Parameter(Mandatory=$True)] 
+                [String]$RegistrationKey,
+
+                [Parameter(Mandatory=$True)] 
+                [String[]]$ComputerName,
+
+                [Int]$RefreshFrequencyMins = 30, 
+            
+                [Int]$ConfigurationModeFrequencyMins = 15, 
+            
+                [String]$ConfigurationMode = "ApplyAndMonitor", 
+            
+                [String]$NodeConfigurationName,
+
+                [Boolean]$RebootNodeIfNeeded= $False,
+
+                [String]$ActionAfterReboot = "ContinueConfiguration",
+
+                [Boolean]$AllowModuleOverwrite = $False,
+
+                [Boolean]$ReportOnly
+            )
+
+    
+            if(!$NodeConfigurationName -or $NodeConfigurationName -eq "") 
+            { 
+                $ConfigurationNames = $null 
+            } 
+            else 
+            { 
+                $ConfigurationNames = @($NodeConfigurationName) 
+            }
+
+            if($ReportOnly)
+            {
+               $RefreshMode = "PUSH"
+            }
+            else
+            {
+               $RefreshMode = "PULL"
+            }
+
+            Node $ComputerName
+            {
+
+                Settings 
+                { 
+                    RefreshFrequencyMins = $RefreshFrequencyMins 
+                    RefreshMode = $RefreshMode 
+                    ConfigurationMode = $ConfigurationMode 
+                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    RebootNodeIfNeeded = $RebootNodeIfNeeded 
+                    ActionAfterReboot = $ActionAfterReboot 
+                    ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
+                }
+
+                if(!$ReportOnly)
+                {
+                   ConfigurationRepositoryWeb AzureAutomationDSC 
+                    { 
+                        ServerUrl = $RegistrationUrl 
+                        RegistrationKey = $RegistrationKey 
+                        ConfigurationNames = $ConfigurationNames 
+                    }
+
+                    ResourceRepositoryWeb AzureAutomationDSC 
+                    { 
+                       ServerUrl = $RegistrationUrl 
+                       RegistrationKey = $RegistrationKey 
+                    }
+                }
+
+                ReportServerWeb AzureAutomationDSC 
+                { 
+                ServerUrl = $RegistrationUrl 
+                RegistrationKey = $RegistrationKey 
+                }
+            } 
+        }
+        # Create the metaconfigurations
+        # TODO: edit the below as needed for your use case
+        DscMetaConfigs `
+            -RegistrationUrl "<fill me in>" `
+            -RegistrationKey "<fill me in>" `
+            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
+            -NodeConfigurationName "SimpleConfig.webserver" `
+            -RefreshFrequencyMins 30 `
+            -ConfigurationModeFrequencyMins 15 `
+            -RebootNodeIfNeeded $False `
+            -AllowModuleOverwrite $False `
+            -ConfigurationMode "ApplyAndMonitor" `
+            -ActionAfterReboot "ContinueConfiguration" `
+            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+
+3.	Specificare il codice di registrazione e l'URL per l'account di automazione, nonché i nomi dei computer da caricare. Tutti gli altri parametri sono facoltativi. Per trovare la chiave e l'URL di registrazione per l'account di automazione, vedere la sezione [**Registrazione sicura**](#secure-registration) di seguito.
+
+4.	Se si vuole che i computer inviino informazioni sullo stato DSC ad Automation DSC per Azure, ma che non eseguano il pull della configurazione o dei moduli PowerShell, impostare il parametro **ReportOnly** su true.
+
+5.	Eseguire lo script. A questo punto sarà disponibile una cartella denominata **DscMetaConfigs** nella directory di lavoro, contenente le metaconfigurazioni di PowerShell DSC per i computer da caricare.
+
+###Uso dei cmdlet di Automazione di Azure
+Se i valori predefiniti di Gestione configurazione locale per PowerShell DSC corrispondono al caso d'uso corrente e si vuole caricare i computer in modo che entrambi eseguano il pull e inviino informazioni ad Automation DSC per Azure, i cmdlet di Automazione di Azure offrono un metodo semplificato per generare le metaconfigurazioni DSC necessarie:
+
+1.	Aprire la console di PowerShell o PowerShell ISE come amministratore in un computer nell'ambiente locale.
+
+2.	Connettersi a Gestione risorse di Azure tramite **Add-AzureRmAccount**
+
+3.	Dall'account di automazione in cui si caricheranno i nodi, scaricare le metaconfigurazioni di PowerShell DSC per i computer da caricare:
+
+        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+
+A questo punto sarà disponibile una cartella denominata ***DscMetaConfigs***, contenente le metaconfigurazioni di PowerShell DSC per i computer da caricare.
 
 ##Registrazione sicura
 
@@ -236,4 +350,4 @@ Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco 
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Automation DSC per Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

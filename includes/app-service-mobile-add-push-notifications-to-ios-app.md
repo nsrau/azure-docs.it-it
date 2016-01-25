@@ -1,56 +1,53 @@
 
-* In **QSAppDelegate.m** importare iOS SDK e **QSTodoService.h**:
+**Objective-C**:
 
-```
+1. In **QSAppDelegate.m** importare iOS SDK e **QSTodoService.h**:
+        
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-```
 
-* In `didFinishLaunchingWithOptions`, in **QSAppDelegate.m**, inserire le righe seguenti prima di `return YES;`:
+2. In `didFinishLaunchingWithOptions`, in **QSAppDelegate.m**, inserire le righe seguenti prima di `return YES;`:
 
-```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-```
 
-* In **QSAppDelegate.m** aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push. Si noti che UIAlertView è deprecato in iOS9 e nelle destinazioni seguenti di iOS9.
+3. In **QSAppDelegate.m** aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push.
 
-```
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
         didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-
+        
             QSTodoService *todoService = [QSTodoService defaultService];
             MSClient *client = todoService.client;
-
+        
             [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
                 if (error != nil) {
                     NSLog(@"Error registering for notifications: %@", error);
                 }
             }];
         }
-
+        
         // Handle any failure to register
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
-
+        
         // Use userInfo in the payload to display an alert.
         - (void)application:(UIApplication *)application
               didReceiveRemoteNotification:(NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
-
+        
             NSDictionary *apsPayload = userInfo[@"aps"];
             NSString *alertString = apsPayload[@"alert"];
-
+        
             // Create alert with notification content.
             UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Notification"
                                           message:alertString
                                           preferredStyle:UIAlertControllerStyleAlert];
-    
+        
             UIAlertAction *cancelAction = [UIAlertAction
                                            actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
                                            style:UIAlertActionStyleCancel
@@ -79,8 +76,76 @@
             
             // Display alert.
             [currentViewController presentViewController:alertController animated:YES completion:nil];
-
+        
         }
-```
 
-<!---HONumber=AcomDC_1203_2015-->
+**Swift**:
+
+1. Aggiungere il file **ClientManager.swift** con i seguenti contenuti. Sostituire _AppUrl %_ con l'URL del back-end di app per dispositivi mobili di Azure.
+        
+        class ClientManager {
+            static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+        }
+
+2. In **ToDoTableViewController.swift**, sostituire la riga `let client` che inizializza un `MSClient` con la riga seguente:
+
+        let client = ClientManager.sharedClient
+ 
+3. In **AppDelegate.swift**, sostituire il corpo di `func application` come indicato di seguito:
+
+        func application(application: UIApplication,
+           didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+           application.registerUserNotificationSettings(
+               UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
+                   categories: nil))
+           application.registerForRemoteNotifications()
+           return true
+        }
+
+2. In **AppDelegate.swift**, aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push.
+        
+
+        func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken, completion: { (error) -> Void in
+                NSLog("Error registering for notifications: %@", error!.description)
+            })
+        }
+
+            
+        func application(application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+            NSLog("Failed to register for remote notifications: \n%@", error.description)
+        }
+
+        func application(application: UIApplication,
+        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+            
+            NSLog("%@", userInfo)
+            
+            let apsNotification = userInfo["aps"] as! NSDictionary
+            let apsString       = apsNotification["alert"] as! String
+            
+            
+            let alert = UIAlertController(title: "Alert", message:apsString, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
+                NSLog("OK")
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
+                NSLog("Cancel")
+            }
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            var currentViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController
+            while currentViewController?.presentedViewController != nil {
+                currentViewController = currentViewController?.presentedViewController
+            }
+            
+            currentViewController?.presentViewController(alert, animated: true){}
+            
+        }
+    
+
+<!---HONumber=AcomDC_0114_2016-->

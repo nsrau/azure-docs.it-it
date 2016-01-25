@@ -1,4 +1,4 @@
-1. Accedere al [portale di Azure](http://manage.windowsazure.com). Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com). Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 2. Fare clic su **Nuovo** nella barra dei comandi nella parte inferiore della finestra.
 
@@ -6,12 +6,14 @@
 
 	![Passare a Da raccolta nella barra dei comandi](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. Nella prima schermata è disponibile l'opzione **Scegli un'immagine**, che consente di selezionare la macchina virtuale dall’elenco di immagini disponibili. Le immagini visualizzate possono variare in base alla sottoscrizione in uso.
+4. Nella prima schermata è disponibile l'opzione **Scegli un'immagine**, che consente di selezionare la macchina virtuale dall’elenco di immagini disponibili. È possibile scegliere un'immagine dalla raccolta o selezionare le immagini e i dischi caricati. Le immagini disponibili possono variare in base alla sottoscrizione in uso.
 
-5. Nella seconda schermata è possibile scegliere un nome computer, una dimensione e il nome e la password dell'amministratore. Scegliere il livello e la dimensione necessari per eseguire l'app o il carico di lavoro. Di seguito sono riportati alcuni suggerimenti:
+5. Nella seconda schermata è possibile scegliere un nome computer, una dimensione e il nome e la password dell'amministratore. Scegliere il livello e la dimensione necessari per eseguire l'app o il carico di lavoro. Ecco alcuni suggerimenti:
 
-	- **Nuovo nome utente** indica l'account amministrativo da usare per la gestione del server. Creare una password univoca per questo account e annotarla per evitare di dimenticarla. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
+	- **Nome macchina virtuale** può contenere solo lettere, numeri e trattini. Deve inoltre iniziare con una lettera e terminare con una lettera o un numero.
 
+	- **Nuovo nome utente** indica l'account amministrativo da usare per la gestione del server. La password deve avere una lunghezza compresa tra 8 e 123 caratteri e includere almeno 3 degli elementi seguenti: 1 lettera minuscola, 1 lettera maiuscola, 1 numero e 1 carattere speciale. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
+	
 	- La dimensione di una macchina virtuale influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines-size-specs.md).
 
 6. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Di seguito sono riportati alcuni suggerimenti:
@@ -32,4 +34,4 @@
 
 	![Configurare l'agente di macchine virtuali e gli endpoint della macchina virtuale](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

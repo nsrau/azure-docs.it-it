@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #Come creare ruoli Web e di lavoro PHP
@@ -56,7 +56,7 @@ Per un ruolo di lavoro, usare il comando seguente:
 
 ## Specificare la versione PHP incorporata
 
-Quando si aggiunge un ruolo Web o di lavoro PHO a un progetto, i file di configurazione del progetto verranno modificati in modo che PHP venga installato su ciascuna istanza Web o di lavoro dell'applicazione alla sua distribuzione. Per visualizzare la versione di PHP che verrà installata per impostazione predefinite, eseguire il comando seguente:
+Quando si aggiunge un ruolo Web o di lavoro PHO a un progetto, i file di configurazione del progetto verranno modificati in modo che PHP venga installato su ciascuna istanza Web o di lavoro dell'applicazione alla sua distribuzione. Per visualizzare la versione di PHP che verrà installata per impostazione predefinita, eseguire il comando seguente:
 
 	PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
@@ -82,7 +82,7 @@ Il risultato del comando sopra riportato sarà simile al seguente. In questo ese
 
 L'utente dispone del controllo completo sulla configurazione del runtime PHP che viene installato eseguendo la procedura sopra illustrata, incluse le modifiche delle impostazioni `php.ini` e l'abilitazione delle estensioni.
 
-Per personalizzare il runtime PHP incorporato, seguire questa procedura:
+Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
 
 1. Aggiungere una nuova cartella denominata `php` alla directory `bin` del ruolo Web in uso. Per un ruolo di lavoro, aggiungerlo alla directory radice del ruolo.
 2. Nella cartella `php` creare un'altra cartella denominata `ext`. Inserire tutti i file con estensione `.dll` (ad esempio `php_mongo.dll`) da abilitare in questa cartella.
@@ -196,7 +196,7 @@ Per arrestare gli emulatori, eseguire il comando seguente:
 
 ## Pubblicare l'applicazione
 
-Per pubblicare l'applicazione, è necessario prima importare le impostazioni di pubblicazione usando il cmdlet **Import-PublishSettingsFile**. Pubblicare quindi l'applicazione usando il cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Per informazioni sull'accesso, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+Per pubblicare l'applicazione, è necessario prima importare le impostazioni di pubblicazione usando il cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx). Pubblicare quindi l'applicazione usando il cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Per informazioni sull'accesso, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 ## Passaggi successivi
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

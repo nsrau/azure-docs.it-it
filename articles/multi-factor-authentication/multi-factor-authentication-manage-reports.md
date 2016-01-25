@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Report in Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi report sono accessibili tramite il portale di gestione di Multi-Factor Authentication. Di seguito è riportato un elenco dei report disponibili.
+Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi report sono accessibili tramite il portale di gestione Multi-Factor Authentication, che richiede un provider Azure MFA o una licenza di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. Di seguito è riportato un elenco dei report disponibili.
 
 È possibile accedere ai report tramite il portale di gestione di Azure.
 
@@ -33,14 +33,13 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 
 ## Per visualizzare i report
 
-1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
-2. A sinistra selezionare Active Directory.
-3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
-4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello che si desidera per visualizzare il report degli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
-5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra si noterà Visualizza un report. Da lì sarà possibile selezionare i report descritti in precedenza.
+1.	Accedere a http://azure.microsoft.com
+2.	A sinistra selezionare Active Directory.
+3.	Selezionare una delle opzioni seguenti:
+	- **Option 1**: fare clic sulla scheda dei provider Multi-Factor Authentication. Selezionare il provider di MFA e fare clic sul pulsante Gestisci nella parte inferiore.
+	- **Option 2**: selezionare la directory e fare clic sulla scheda Configura. Nella sezione Multi-Factor Authentication, selezionare Gestisci impostazioni del servizio. Nella parte inferiore della pagina delle impostazioni del servizio MFA, fare clic sul collegamento Vai al portale.
+4.	Nel portale di gestione Azure Multi-Factor Authentication, è possibile visualizzare la sezione relativa alla visualizzazione dei report nel riquadro di navigazione a sinistra. Da lì sarà possibile selezionare i report descritti in precedenza.
 
-
- 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 
@@ -50,4 +49,4 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Syncplicity
@@ -52,7 +52,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -124,7 +124,7 @@ Per essere in grado di effettuare l’accesso, è necessario effettuare il provi
 
     ![Gestisci utenti](./media/active-directory-saas-syncplicity-tutorial/IC769764.png "Gestisci utenti")
 
-4.  Digitare l’**indirizzo di posta elettronica** di un account ADD di cui si desidera effettuare il provisioning, selezionare **Utente** come **ruolo**, quindi fare clic su **Avanti**.
+4.  Digitare l’**indirizzo di posta elettronica** di un account AAD di cui si desidera effettuare il provisioning, selezionare **Utente** come **ruolo**, quindi fare clic su **Avanti**.
 
     ![Informazioni account](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Informazioni account")
 
@@ -160,4 +160,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

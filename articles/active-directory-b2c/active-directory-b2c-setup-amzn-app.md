@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: fornire la registrazione e l’accesso agli utenti con account Amazon
@@ -34,21 +34,17 @@ Per utilizzare Amazon come provider di identità in Azure Active Directory (AD) 
 
     ![Amazon - Registra app](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. Nella sezione **Impostazioni Web** copiare i valori di **ID Client** e **Segreto client** (sarà necessario fare clic sul pulsante **Mostra segreto** per visualizzarlo). Sono necessari entrambi per configurare Amazon come provider di identità nel tenant. Fare clic su **Modifica** nella parte inferiore della sezione.
+5. Nella sezione **Impostazioni Web** copiare i valori di **ID Client** e **Segreto client** (sarà necessario fare clic sul pulsante **Mostra segreto** per visualizzarlo). Sono necessari entrambi per configurare Amazon come provider di identità nel tenant. Fare clic su **Modifica** nella parte inferiore della sezione. Nota: il **segreto client** è un'importante credenziale di sicurezza.
 
-> [AZURE.NOTE]**Segreto client** è una credenziale di sicurezza importante.
+    ![Amazon - Segreto client](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-    ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+6. Immettere [https://login.microsoftonline.com](https://login.microsoftonline.com) nel campo **Origini JavaScript consentite** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URL restituiti consentiti**, dove **{tenant}** deve essere sostituito con il nome del tenant, ad esempio contoso.onmicrosoft.com. Fare clic su **Save**. Nota: il valore **{tenant}** distingue tra maiuscole e minuscole.
 
-6. Immettere [https://login.microsoftonline.com](https://login.microsoftonline.com) nel campo **Allowed JavaScript origins** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **Allowed Return URLs**, dove **{tenant}** deve essere sostituito con il nome del tenant, ad esempio contoso.onmicrosoft.com. Fare clic su **Save**.
-
-> [AZURE.NOTE]Il valore **{tenant}** distingue tra maiuscole e minuscole.
-
-    ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+    ![Amazon - URL](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## Configurare Amazon come provider di identità nel tenant
 
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel Portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "Amzn".
@@ -56,4 +52,4 @@ Per utilizzare Amazon come provider di identità in Azure Active Directory (AD) 
 6. Fare clic su **Impostare il provider di identità** e immettere **ID Client** e **Client segreto** dell'applicazione Amazon creata in precedenza.
 7. Fare clic su **OK** e quindi **Crea** per salvare la configurazione di Amazon.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

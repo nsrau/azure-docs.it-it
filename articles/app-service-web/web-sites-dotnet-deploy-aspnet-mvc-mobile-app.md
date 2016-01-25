@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/12/2016" 
 	ms.author="cephalin;riande"/>
 
 
@@ -62,37 +62,45 @@ Sono disponibili alcuni progetti con codice sorgente C\\# a integrazione di que
 
 1.	Scaricare il [progetto iniziale][StarterProject] dell'applicazione di elenco conferenze.
 
-2. 	In Esplora risorse fare quindi clic con il pulsante destro del mouse sul file Mvc5Mobile.zip e scegliere *Proprietà*.
+2. 	In Esplora risorse fare quindi clic con il pulsante destro del mouse sul file ZIP scaricato e scegliere *Proprietà*.
 
-3. 	Nella finestra di dialogo **Proprietà - Mvc5Mobile.zip** fare clic sul pulsante **Sblocca**. L'operazione di sblocco impedisce la visualizzazione dell'avviso di sicurezza quando si tenta di utilizzare un file *ZIP* scaricato dal Web.
+3. 	Nella finestra di dialogo **Proprietà** fare clic sul pulsante **Sblocca**. L'operazione di sblocco impedisce la visualizzazione dell'avviso di sicurezza quando si tenta di utilizzare un file *ZIP* scaricato dal Web.
 
-4.	Fare clic con il pulsante destro del mouse sul file *Mvc5Mobile.zip* e scegliere **Estrai tutto** per decomprimere il file.
+4.	Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto** per decomprimere il file.
 
-5. 	In Visual Studio aprire il file *Mvc5Mobile.sln*.
+5. 	In Visual Studio aprire il file *C#\\Mvc5Mobile.sln*.
 
 6.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
 	![][DeployClickPublish]
 
-7.	In Pubblica sito Web fare clic su **App Web di Microsoft Azure**.
+7.	In Pubblica sito Web fare clic su **Servizio app di Microsoft Azure**.
 
 	![][DeployClickWebSites]
 
-8.	Fare clic su **Accedi**.
+8.	Se non è già stato effettuato l'accesso ad Azure, fare clic su **Aggiungi un account**.
 
 	![][DeploySignIn]
 
 9.	Attenersi alla richiesta per accedere all'account Azure.
 
-11. A questo punto è stato eseguito l'accesso alla finestra di dialogo relativa alla selezione dell'app Web esistente. Fare clic su **New**.
+11. All'accesso viene visualizzata la finestra di dialogo Servizio App. Fare clic su **New**.
 
 	![][DeployNewWebsite]
 
-12. Nel campo **Nome app Web** specificare un prefisso univoco per il nome del sito. Il nome completo dell'app sarà *&lt;prefix>*.azurewebsites.net. Inoltre, configurare il **piano di servizio App**, il **gruppo di risorse** e i campi **Area**. Fare quindi clic su **Crea**.
+12. Nel campo **Nome app Web** specificare un prefisso univoco per il nome dell'app. Il nome completo dell'app sarà *&lt;prefix>*.azurewebsites.net. Selezionare inoltre un gruppo di risorse o specificarne uno nuovo in **Gruppo di risorse**. Quindi fare clic su **Nuovo** per creare un nuovo piano del servizio app.
 
 	![][DeploySiteSettings]
 
-13.	Nella finestra di dialogo Pubblica sito Web verranno inserite le impostazioni relative alla nuova app Web. Fare clic su **Pubblica**.
+13. Configurare il nuovo piano del servizio app e fare clic su **OK**.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
+
+13. Nella finestra di dialogo Crea servizio app, fare clic su **Crea**.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+
+13.	Dopo aver creato le risorse Azure, nella finestra di dialogo Pubblica sito Web verranno inserite le impostazioni relative alla nuova app. Fare clic su **Pubblica**.
 
 	![][DeployPublishSite]
 
@@ -102,7 +110,7 @@ Sono disponibili alcuni progetti con codice sorgente C\\# a integrazione di que
 
 	![][AllTags]
 
->[AZURE.NOTE]Mentre si esegue il debug dell'applicazione MVC 5 da Visual Studio, è possibile pubblicare di nuovo l'app Web in Azure per verificare l'app Web live direttamente dall'emulatore per dispositivi mobili o dall'emulatore del browser.
+>[AZURE.TIP]Mentre si esegue il debug dell'applicazione MVC 5 da Visual Studio, è possibile pubblicare di nuovo l'app Web in Azure per verificare l'app Web live direttamente dall'emulatore per dispositivi mobili o dall'emulatore del browser.
 
 Il display è molto leggibile su un dispositivo mobile. È già possibile vedere alcuni degli effetti grafici applicati dal framework CSS Bootstrap. Fare clic sul collegamento **ASP.NET**.
 
@@ -163,7 +171,7 @@ Passare alla pagina Tags utilizzando un browser desktop e un emulatore di browse
 
 ![][AllTagsMobile_LayoutMobile]
 
-La visualizzazione desktop, invece, non è stata modificata (con i titoli da *\_Layout.cshtml* e *AllTags.cshtml*)
+La visualizzazione desktop, invece, non è stata modificata (con i titoli da *\_Layout.cshtml* e *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -617,4 +625,4 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

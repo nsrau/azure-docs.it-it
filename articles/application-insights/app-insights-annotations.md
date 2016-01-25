@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/12/2016"
     ms.author="awills"/>
 
 # Annotazioni sulla versione in Application Insights
@@ -34,34 +34,43 @@ Per creare le annotazioni sulla versione, sarà necessario installare una delle 
 
 È necessario eseguire questa operazione una sola volta per l'account di Visual Studio Team Services. Le annotazioni sulla versione ora possono essere configurate per qualsiasi progetto nell'account.
 
-
-
-## Aggiungere un'attività di annotazione al modello di versione
+## Ottenere una chiave API da Application Insights.
 
 Questa operazione è necessaria per ogni modello di versione per cui si vogliono creare annotazioni sulla versione.
 
-Aprire (o creare) il modello di versione che gestisce le distribuzioni da Visual Studio Team Services.
-
-Aggiungere un'attività e scegliere l'attività di annotazione sulla versione di Application Insights dal menu.
-
-![Nell'angolo in alto a destra della pagina Web di Team Services aprire il marketplace. Cercare e installare Annotazioni di Application Insights nell'account.](./media/app-insights-annotations/40.png)
-
-Per completare questo passaggio, saranno necessari alcuni dettagli della risorsa di Application Insights usata per monitorare l'applicazione.
-
-Tenere aperta la finestra di Team Services mentre si recuperano i dettagli da Application Insights.
-
-## Copiare una chiave API da Application Insights.
-
-In una finestra del browser separata:
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com) e aprire la risorsa di Application Insights che monitora l'applicazione o [crearne una nuova](app-insights-overview.md), se necessario.
-2. Aprire l'elenco a discesa **Informazioni di base** e copiare l'ID sottoscrizione, il gruppo di risorse e il nome della risorsa nell'attività di annotazione sulla versione. ![](./media/app-insights-annotations/50.png)
-2. Aprire **Impostazioni**, **Chiavi API** e creare una nuova chiave. Copiare quanto indicato sotto. ![](./media/app-insights-annotations/30.png)
+2. Aprire **Impostazioni**, **Accesso all'API**, ed eseguire una copia di **Id di Application Insights**.
 
-Infine fare clic su **Salva** per salvare la definizione della versione.
+    ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare il](./media/app-insights-annotations/20.png)
 
-## Indicatori di distribuzione
+2. In una finestra del browser separata, aprire (o creare) il modello di versione che gestisce le distribuzioni da Visual Studio Team Services.
+
+    Aggiungere un'attività e scegliere l'attività di annotazione sulla versione di Application Insights dal menu.
+
+    Incolla l'**Id di Application Insights** copiato dal Pannello di accesso all'API.
+
+    ![In Visual Studio Team Services, aprire Release, selezionare una versione di rilascio e scegliere Edit. Fare clic su Add Task e scegliere l'annotazione sulla versione di Application Insights. Incollare l'Id di Application Insights.](./media/app-insights-annotations/30.png)
+
+3. Impostare il campo **Chiave API** su una variabile `$(ApiKey)`.
+
+4. Nel Pannello di accesso all'API, creare una nuova chiave API e richiedere una copia.
+
+    ![Nel Pannello di accesso all'API nella finestra di Azure, fare clic su Crea chiave API. Inserire un commento, controllare le annotazioni di scrittura e fare clic su Genera chiave. Copiare la nuova chiave.](./media/app-insights-annotations/40.png)
+
+4. Aprire la scheda Configurazione del modello di versione.
+
+    Creare una definizione di variabile per `ApiKey`.
+
+    Incollare la chiave API per la definizione della variabile della chiave API.
+
+    ![Nella finestra Servizi per i team, selezionare la scheda Configurazione e fare clic su Aggiungi variabile. Impostare il nome della chiave API e incollare la chiave appena generata nel Valore.](./media/app-insights-annotations/50.png)
+
+
+5. Infine fare clic su **Salva** per salvare la definizione della versione.
+
+## Annotazioni di distribuzione
 
 Ora, quando si usa il modello di versione per distribuire una nuova versione, verrà inviata un'annotazione ad Application Insights. Le annotazioni verranno visualizzate nei grafici di Esplora metriche.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

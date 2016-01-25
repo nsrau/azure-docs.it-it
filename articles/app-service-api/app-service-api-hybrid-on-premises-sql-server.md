@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Connettersi a un'istanza di SQL Server locale da un'app per le API nel servizio app di Azure mediante le connessioni ibride
@@ -114,11 +114,11 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 <a name="CreateSQLDB"></a>
 ### Creare un database SQL Server locale
 
-1. In **SQL Server Management Studio** connettersi all'istanza di SQL Server appena installata In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il `sa` nome utente e la password creati in precedenza.
+1. In **SQL Server Management Studio** connettersi all'istanza di SQL Server appena installata. In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il `sa` nome utente e la password creati in precedenza.
 
 	![Connetti al server](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su** Connetti** e quindi fare clic su **Motore di database**.
+	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro a sinistra, fare clic su **Connetti** e quindi su **Motore di database**.
 	
 2. Per creare un nuovo database usando SQL Server Management Studio, fare clic con il pulsante destro del mouse su **Database** in Esplora oggetti, quindi fare clic su **Nuovo database**.
 	
@@ -168,7 +168,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project-api-app.png)
 
-4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Modelli**, quindi scegliere l'opzione **Aggiungi > Classe...** dal menu di scelta rapida.
+4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Modelli**, quindi scegliere l'opzione **Aggiungi > Classe...** dal menu contestuale.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
@@ -202,7 +202,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 
 10. Sostituire il codice nel file `SpeakersController.cs` con il codice seguente. Assicurarsi di specificare valori personalizzati per i segnaposto &lt;serverName> e &lt;password> in `connectionString`. Il valore &lt;serverName> corrisponde al nome del computer in cui si trova SQL Server e il valore &lt;password> corrisponde al valore impostato durante l'installazione e la configurazione di SQL Server.
 
-	> [AZURE.NOTE]Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password (e altri dati sensibili) in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	> [AZURE.NOTE]Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 		using System;
 		using System.Collections.Generic;
@@ -371,7 +371,7 @@ La finestra **Attività del servizio app di Azure** mostra l'avanzamento della d
 	
 	![Connessioni ibride](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
-7. Nel pannello **Connessioni ibride**, fare clic su **Aggiungi** > **Nuova connessione ibrida**.
+7. Nel pannello **Connessioni ibride** fare clic su **Aggiungi** > **Nuova connessione ibrida**.
 	
 8. Nel **pannello Crea connessione ibrida**:
 	- In **Nome** specificare un nome per la connessione.
@@ -432,4 +432,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

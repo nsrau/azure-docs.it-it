@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tabelle temporanee in SQL Data Warehouse
 Le tabelle temporanee sono disponibili esistono a livello di sessione in SQL Data Warehouse. Sono definite come tabelle temporanee locali e, a differenza delle tabelle di SQL Server, è possibile accedervi da un punto qualsiasi della sessione.
@@ -147,4 +147,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

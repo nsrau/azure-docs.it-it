@@ -1,24 +1,28 @@
 <properties
    pageTitle="Esempi di archiviazione Azure | Microsoft Azure"
-   description="Visualizzare, scaricare e provare esempi di archiviazione di Azure. Individuare la Guida introduttiva agli esempi su BLOB, code, tabelle e file, utilizzando le librerie client di archiviazione .NET, Java, Node. js e C++."
+   description="Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare la Guida introduttiva agli esempi su BLOB, code, tabelle e file, utilizzando le librerie client di archiviazione .NET, Java, Node. js e C++."
    services="storage"
    documentationCenter="na"
    authors="tamram"
    manager="na"
-   editor="na" />
+   editor="tysonn" />
 <tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/01/2015"
+   ms.date="01/06/2016"
    ms.author="tamram" />
 
 # Esempi di archiviazione di Azure
 
 ## Panoramica
 Utilizzare i collegamenti seguenti per visualizzare e scaricare esempi di risorse di archiviazione di Azure funzionanti.
+
+## Libreria di esempio di codice Azure
+
+La [libreria degli esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage) include esempi per l'Archiviazione di Azure che è possibile scaricare ed eseguire localmente. La libreria degli esempi di codice fornisce il codice di esempio in formato .zip. In alternativa, è possibile esplorare e clonare l'archivio GitHub per ogni esempio.
 
 ## Esempi .NET
 
@@ -81,4 +85,4 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 - [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
 - [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

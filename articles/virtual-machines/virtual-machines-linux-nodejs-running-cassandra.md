@@ -6,9 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
@@ -32,7 +31,6 @@ La rete di Microsoft Azure consente di distribuire cluster privati isolati, il c
 - Ogni nodo di Cassandra richiede un indirizzo IP interno fisso
 
 Cassandra può essere distribuito in una singola area di Azure o in più aree a seconda della natura distribuita del carico di lavoro. Il modello di distribuzione in più aree può essere usato per gestire gli utenti finali più vicini a una determinata area geografica con la stessa infrastruttura di Cassandra. La replica dei nodi predefiniti di Cassandra consente di sincronizzare le scritture multimaster derivanti da più data center e presenta alle applicazioni una visualizzazione coerente dei dati. La distribuzione in più aree è utile anche per attenuare i rischi causati dalle interruzioni di Servizi di Azure. La coerenza perfezionabile e la topologia di replica di Cassandra saranno di aiuto anche per soddisfare diverse esigenze RPO delle applicazioni.
-
 
 ### Distribuzione in un'area singola
 Si inizierà con una distribuzione in una singola area e si raccoglieranno le istruzioni per creare un modello a più aree. La rete virtuale di Azure verrà usata per creare subnet isolate per poter soddisfare i requisiti di sicurezza della rete citati sopra. Il processo descritto nella creazione della distribuzione in una singola area usa Ubuntu 14.04 LTS e Cassandra 2.08. Il processo può però essere facilmente adottato anche per le altre varianti di Linux. Di seguito sono riportate alcune caratteristiche di sistema della distribuzione in una singola area.
@@ -342,7 +340,7 @@ Per creare l'elenco precedente di macchine virtuali, è necessario eseguire il p
 
 Il processo precedente può essere eseguito dal portale di Azure classico. Usare un computer Windows (ricorrere a una macchina virtuale in Azure se non si ha accesso a un computer Windows) e applicare il seguente script PowerShell per il provisioning automatico di tutte le 8 macchine virtuali.
 
-**List1: script PowerShell per il provisioning delle macchine virtuali**
+**Elenco 1: script di PowerShell per il provisioning delle macchine virtuali**
 		
 		#Tested with Azure Powershell - November 2014	
 		#This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -499,6 +497,7 @@ Nel portale di Azure classico, selezionare ogni rete virtuale, fare clic su "Con
 
 ###Passaggio 4: Creare i gateway nella rete virtuale 1 e nella rete virtuale 2
 Nel dashboard di entrambe le reti virtuali fare clic su CREA GATEWAY per attivare il processo di provisioning dei gateway VPN. Dopo alcuni minuti nel dashboard di ogni rete virtuale verrà visualizzato l'effettivo indirizzo gateway.
+
 ###Passaggio 5: Aggiornare le reti "locali" con i rispettivi indirizzi "gateway"###
 Modificare entrambe le reti locali per poter sostituire l'indirizzo IP gateway segnaposto con il vero indirizzo IP dei gateway di cui è appena stato effettuato il provisioning. Usare il mapping seguente:
 
@@ -511,10 +510,10 @@ Modificare entrambe le reti locali per poter sostituire l'indirizzo IP gateway s
 ###Passaggio 6: Aggiornare la chiave condivisa
 Utilizzare lo script di Powershell seguente per aggiornare la chiave IPSec di ciascun gateway VPN [utilizzare la chiave SAKE per entrambi i gateway]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###Passaggio 6: Stabilire la connessione tra reti virtuali
+###Passaggio 7: Stabilire la connessione tra reti virtuali
 Nel portale di Azure classico, usare il menu "DASHBOARD" di entrambe le reti virtuali per stabilire la connessione da gateway a gateway. Usare le voci del menu "CONNETTI" nella barra degli strumenti in basso. Dopo alcuni minuti nel dashboard apparirà la visualizzazione grafica dei dettagli della connessione.
 
-###Passaggio 7: Creare le macchine virtuali nell'area n. 2 
+###Passaggio 8: Creare le macchine virtuali nell'area n. 2 
 Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo gli stessi passaggi o copiare il file VHD dell'immagine nell'account di archiviazione di Azure dell'area n. 2 e creare l'immagine. Usare questa immagine e creare il seguente elenco di macchine virtuali in un nuovo servizio cloud hk-c-svc-east-us:
 
 
@@ -532,16 +531,19 @@ Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo g
 
 
 Seguire le stesse istruzioni dell'area n. 1, ma usare lo spazio di indirizzi 10.2.xxx.xxx.
-###Passaggio 8: Configurare Cassandra in ogni macchina virtuale
+
+###Passaggio 9: Configurare Cassandra in ogni VM
 Accedere alla macchina virtuale ed eseguire la procedura seguente:
 
 1. Modificare $CASS\_HOME/conf/cassandra-rackdc.properties per specificare le proprietà del centro dati e del rack nel formato: dc =EASTUS rack =rack1
 2. Modificare cassandra.yaml per configurare i nodi dei valori di inizializzazione: Valori di inizializzazione: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###Passaggio 9: Avviare Cassandra
+
+###Passaggio 10: Avviare Cassandra
 Accedere a ogni macchina virtuale e avviare Cassandra in background eseguendo il comando seguente: $CASS\_HOME/bin/cassandra
 
 ## Testare il cluster in più aree
 Per ora Cassandra è stato distribuito in 16 nodi con 8 nodi in ogni area di Azure. Questi nodi sono nello stesso cluster grazie al nome cluster comune e alla configurazione dei nodi dei valori di inizializzazione. Usare il processo seguente per testare il cluster:
+
 ###Passaggio 1: Ottenere l'IP del servizio di bilanciamento del carico interno per entrambe le aree con PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -690,6 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

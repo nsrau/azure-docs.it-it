@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Eseguire il debug di un'app per le API del servizio app di Azure
@@ -138,4 +138,4 @@ In questa esercitazione si è visto come eseguire il debug di app per le API.
 
 Per altre informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Le app per le API sono app Web con funzionalità aggiuntive per l'hosting di servizi Web. È quindi possibile usare gli stessi strumenti per il debug e la risoluzione dei problemi delle app per le API usati per le app Web.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # Creare e caricare un disco rigido virtuale con FreeBSD in Azure
@@ -72,7 +72,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
     5\.1 **Installare python**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5\.2 **Installare wget**
@@ -81,7 +81,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 6. **Installare l'agente di Azure**
 
-    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). Dalla versione 2.0.10, supporta ufficialmente FreeBSD 10 e versioni successive.
+    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). Dalla versione 2.0.10, supporta ufficialmente FreeBSD 10 e versioni successive. La versione più recente dell'agente Azure per FreeBSD è 2.0.16.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -106,7 +106,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 È necessario disporre di un account di archiviazione di Azure per caricare un file .vhd da usare in Azure per la creazione di una macchina virtuale. Per creare un account di archiviazione, è possibile utilizzare il portale classico di Microsoft Azure.
 
-1. Accedere al portale classico di Microsoft Azure.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
 2. Sulla barra dei comandi fare clic su **New**.
 
@@ -186,7 +186,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 1. Nella finestra di Azure PowerShell usata nel passaggio precedente, digitare:
 
-		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
+		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## Passaggio 5: Creare una macchina virtuale con il disco rigido virtuale caricato ##
 Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elenco di immagini personalizzate associate alla propria sottoscrizione e creare una macchina virtuale con questa immagine personalizzata.
@@ -209,4 +209,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

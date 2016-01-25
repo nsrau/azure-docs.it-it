@@ -31,7 +31,7 @@ Non essendo necessario preoccuparsi del server Web o del framework applicazioni,
     - ogni volta che si esegue **git push** da un repository Git configurato,
 	- ogni volta che si esegue **hg push** da un repository Mercurial configurato oppure 
     - ogni volta che un servizio di archiviazione cloud collegato, come Dropbox o OneDrive, viene sincronizzato con il servizio app. 
-- [Distribuzione Web](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): lo stesso strumento che automatizza la distribuzione ai server IIS. Consente di distribuire il codice al servizio app direttamente dagli strumenti Microsoft preferiti, ad esempio Visuall Studio, WebMatrix e Visual Studio Team Services. Questo strumento supporta la distribuzione solo delle differenze, la creazione di database, le trasformazioni delle stringhe di connessione e così via. Distribuzione Web si differenzia da Kudu perché i file binari dell'applicazione vengono compilati prima della distribuzione in Azure. Come FTP, non vengono forniti servizi aggiuntivi dal servizio app.
+- [Distribuzione Web](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): lo stesso strumento che automatizza la distribuzione ai server IIS. Consente di distribuire il codice al servizio app direttamente dagli strumenti Microsoft preferiti, ad esempio Visual Studio, WebMatrix e Visual Studio Team Services. Questo strumento supporta la distribuzione solo delle differenze, la creazione di database, le trasformazioni delle stringhe di connessione e così via. Distribuzione Web si differenzia da Kudu perché i file binari dell'applicazione vengono compilati prima della distribuzione in Azure. Come FTP, non vengono forniti servizi aggiuntivi dal servizio app.
 
 Gli strumenti di sviluppo Web più diffusi supportano uno o più di questi processi di distribuzione. Mentre lo strumento scelto determina i processi di distribuzione che è possibile sfruttare, l'effettiva funzionalità DevOps disponibile dipende dalla combinazione del processo di distribuzione e degli strumenti specifici scelti. Ad esempio, se si esegue Distribuzione Web da [Visual Studio con Azure SDK](#vspros), anche se non si usufruisce l'automazione da Kudu, si ottengono il ripristino del pacchetto e l'automazione di MSBuild in Visual Studio. Azure SDK fornisce anche una procedura guidata facile da usare per creare le risorse di Azure necessarie direttamente dall'interfaccia di Visual Studio.
 
@@ -60,7 +60,7 @@ La copia dei file in Azure comporta alcuni semplici passaggi:
 
 1. Creare le credenziali di distribuzione per l'app nel [portale di Azure](https://portal.azure.com). A questo scopo, nel pannello dell'app fare clic su **Impostazioni** > **Credenziali per la distribuzione**.
 2. Dopo aver configurato le credenziali per la distribuzione, è possibile ottenere le informazioni di connessione FTP tramite **Impostazioni** > **Proprietà** e quindi copiare i valori per **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**.
-3. Dal client FTP usare le informazioni di connessione raccolte per connettersi all'app.
+3. Dal client FTP, usare le informazioni di connessione raccolte per connettersi all'app.
 4. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot** in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) o nella directory **/Data/Jobs** per i processi Web.
 5. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
@@ -70,7 +70,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Utilizzo di script Batch FTP](http://support.microsoft.com/kb/96269).
 
 ## <a name="dropbox"></a>Distribuire tramite la sincronizzazione con una cartella nel cloud
-Una valida alternativa alla [la copia manuale dei file](#ftp) è la sincronizzazione di file e cartelle con il servizio app da un servizio di archiviazione cloud, ad esempio OneDrive e Dropbox. Nel [portale di Azure](https://portal.azure.com) è possibile configurare una cartella speciale nel servizio di archiviazione cloud, utilizzare il codice e il contenuto dell'applicazione disponibile in tale cartella e procedere alla sincronizzazione con il servizio app con un semplice clic del mouse.
+Una valida alternativa alla [copia manuale dei file](#ftp) è la sincronizzazione di file e cartelle con il servizio app da un servizio di archiviazione cloud, ad esempio OneDrive e Dropbox. Nel [portale di Azure](https://portal.azure.com) è possibile configurare una cartella speciale nel servizio di archiviazione cloud, utilizzare il codice e il contenuto dell'applicazione disponibile in tale cartella e procedere alla sincronizzazione con il servizio app con un semplice clic del mouse.
 
 La sincronizzazione con una cartella nel cloud utilizza il processo Kudu per la distribuzione. Vedere [Panoramica dei processi di distribuzione](#overview).
 
@@ -120,7 +120,7 @@ Ecco gli svantaggi della distribuzione con un IDE:
 * [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in App Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Come creare e distribuire un Progetto Applicazione Web MVC ASP.NET con un database SQL utilizzando Visual Studio, Distribuzione Web e Migrazioni Code First di Entity Framework.
 * [Panoramica di Distribuzione Web per Visual Studio e ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Presentazione di base della distribuzione Web con Visual Studio. È un articolo datato, che però include informazioni ancora rilevanti, tra cui una panoramica delle opzioni di distribuzione di un database assieme all'applicazione Web e un elenco delle ulteriori attività di distribuzione che potrebbe essere necessario eseguire oppure far eseguire a Visual Studio configurandolo manualmente. Questo articolo riguarda la distribuzione in generale e non soltanto la distribuzione in App Web.
 * [Distribuzione Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco. Sono state aggiunte alcune funzionalità di distribuzione di Azure dal momento in cui è stata creata l'esercitazione. Tuttavia, le note aggiunte successivamente descrivono gli elementi mancanti.
-* Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto per Git è integrato; pertanto, non è più necessario installare un plug-in.
+* Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto per Git è integrato, pertanto non è più necessario installare un plug-in.
 
 ###<a name="webmatrix"></a>Come distribuire direttamente da WebMatrix
 
@@ -284,4 +284,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

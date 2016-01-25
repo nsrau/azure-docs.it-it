@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD
+
+> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Può essere necessario inviare uno script di installazione a più server Windows o ai server Windows che non hanno l'interfaccia utente abilitata. In questo argomento viene illustrato come creare uno script di Windows PowerShell che consente l'installazione automatica e installa e registra il connettore del proxy di applicazione di Azure AD.
 
@@ -44,14 +46,14 @@ Questa operazione viene eseguita utilizzando uno dei metodi seguenti.
 ### Registrare il connettore con un oggetto credenziali di Windows PowerShell
 
 
-1. Creare l'oggetto credenziali di Windows PowerShell, eseguendo il comando seguente, dove "username" e "password" devono essere sostituiti con il nome utente e la password per la directory:
+1. Creare l'oggetto credenziali di Windows PowerShell, eseguendo il comando seguente, dove "<username>" e "<password>" devono essere sostituiti con il nome utente e la password per la directory:
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. Passare a **Connettore del Proxy dell’app C:\\Program Files\\Microsoft AAD** ed eseguire lo script di PowerShell utilizzando le credenziali oggetto che sono state create: dove $cred è il nome delle credenziali PowerShell oggetto che sono state create:
+2. Passare a **C:\\Programmi\\Microsoft AAD App Proxy Connector** ed eseguire lo script di PowerShell utilizzando le credenziali oggetto che sono state create: dove $cred è il nome delle credenziali PowerShell oggetto che sono state create:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
@@ -133,7 +135,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 
-### Altre informazioni sul proxy dell'applicazione
+### Ulteriori informazioni sul proxy dell’applicazione
 - [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
@@ -142,4 +144,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

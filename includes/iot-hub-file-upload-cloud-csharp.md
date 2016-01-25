@@ -3,7 +3,7 @@ Poiché il dispositivo simulato caricherà un file in un BLOB di archiviazione d
 
 ## Inviare un URI del BLOB di Azure al dispositivo simulato
 
-In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata in [Inviare messaggi da cloud a dispositivo con hub IoT] per includere un URI BLOB di Azure con una firma di accesso condiviso. In questo modo il back-end cloud concede l'accesso in scrittura al blob solo al destinatario del messaggio da cloud a dispositivo.
+In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata in [Inviare messaggi da cloud a dispositivo con hub IoT] per includere un URI BLOB di Azure con una firma di accesso condiviso. In questo modo il cloud back-end concede l'accesso in scrittura al BLOB solo al destinatario del messaggio da cloud a dispositivo.
 
 1. In Visual Studio fare doppio clic sul progetto **SendCloudtoDevice**, quindi fare clic su **Gestisci pacchetti NuGet...**. 
 
@@ -43,7 +43,7 @@ In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata
             return blob.Uri + sasBlobToken;
         }
 
-    Questo metodo crea un nuovo riferimento al BLOB e genera un URI della firma di accesso condiviso, come descritto in [Creare e utilizzare una firma di accesso condiviso con il servizio BLOB](https://azure.microsoft.com/it-IT/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Si noti che il metodo precedente genera un URI della firma valido per 24 ore. Se il dispositivo di destinazione richiede più tempo per caricare il file (ad esempio si connette raramente, dispone di una connettività non affidabile per caricare un file di grandi dimensioni), è possibile considerare tempi di scadenza per le firme.
+    Questo metodo crea un nuovo riferimento al BLOB e genera un URI della firma di accesso condiviso come descritto in [Creare e usare una firma di accesso condiviso con l'archiviazione BLOB](https://azure.microsoft.com/it-IT/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Si noti che il metodo precedente genera un URI della firma valido per 24 ore. Se il dispositivo di destinazione richiede più tempo per caricare il file (ad esempio si connette raramente, dispone di una connettività non affidabile per caricare un file di grandi dimensioni), è possibile considerare tempi di scadenza per le firme.
 
 5. Modificare **SendCloudToDeviceMessageAsync** nel modo seguente:
 
@@ -70,4 +70,4 @@ In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

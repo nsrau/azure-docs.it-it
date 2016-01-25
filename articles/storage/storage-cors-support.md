@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Supporto di condivisione delle risorse multiorigine (CORS) | Microsoft Azure" 
-	description="Informazioni su come attivare il supporto CORS per i servizi di archiviazione di Microsoft Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Supporto di condivisione delle risorse multiorigine (CORS) | Microsoft Azure"
+	description="Informazioni su come attivare il supporto CORS per i servizi di archiviazione di Microsoft Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/07/2016"
+	ms.author="tamram"/>
 
 # Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 
-A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione delle risorse multiorigine (CORS) per i servizi BLOB, tabelle e di accodamento. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per ulteriori [dettagli su CORS](http://www.w3.org/TR/cors/), vedere la specifica CORS.
+A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per ulteriori [dettagli su CORS](http://www.w3.org/TR/cors/), vedere la specifica CORS.
 
 È possibile impostare regole CORS singolarmente per ciascun servizio di archiviazione chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Una volta impostate le regole CORS per il servizio, una richiesta correttamente autenticata, eseguita al servizio e autenticata correttamente, verrà valutata per determinare se è consentita in base alle regole specificate.
 
@@ -194,6 +194,5 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->
