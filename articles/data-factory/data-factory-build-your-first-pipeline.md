@@ -188,7 +188,7 @@ Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetst
 Per eseguire questa operazione è possibile usare strumenti quali Azure Storage Explorer o CloudXPlorer di ClumsyLeaf Software. Questa sezione fornisce istruzioni sull'uso dello strumento AzCopy.
 	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
-	1. Scaricare la [versione più recente di **AzCopy**](http://aka.ms/downloadazcopy) o la [versione di anteprima più recente](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
+	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
 	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -209,7 +209,7 @@ Per eseguire questa operazione è possibile usare strumenti quali Azure Storage 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Ripetere i due passaggi precedenti per caricare il file partitionweblogs.hql nella cartella script del contenitore adfgetstarted. Il comando è il seguente: 
+	1. Eseguire il comando seguente per caricare il file **partitionweblogs.hql** nella cartella **script** del contenitore **adfgetstarted**. Il comando è il seguente: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - Visual Studio
 - Modelli di Gestione risorse di Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -71,7 +71,7 @@ Nelle sezioni seguenti vengono riportate informazioni su come iniziare a usare i
 
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:
 
-- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](virtual-networks-create-vnet.md).
+- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 - È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido, la creazione del dispositivo virtuale avrà esito negativo.
 - Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 
@@ -368,7 +368,7 @@ Per guardare un video che descrive come è possibile ripristinare un dispositivo
 
 Se in precedenza è stato configurato e utilizzato un dispositivo virtuale StorSimple, ma si desidera arrestare l'addebito dei costi di calcolo relativi all'utilizzo, è possibile arrestare il dispositivo virtuale. Se si arresta il dispositivo virtuale, non viene eliminato il sistema operativo o i dischi dati nell'archiviazione. Inoltre, viene interrotto l'addebito di costi di sottoscrizione, ma non quello dei costi per il sistema operativo e per i dischi dati.
 
-Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina Dispositivi del servizio StorSimple Manager. Se si desidera eliminare i backup creati dal dispositivo virtuale, è possibile disattivarlo o eliminarlo come dispositivo. Per ulteriori informazioni, vedere [Disattivazione di un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina **Dispositivi** del servizio StorSimple Manager. Se si desidera eliminare i backup creati dal dispositivo virtuale, è possibile disattivarlo o eliminarlo come dispositivo. Per altre informazioni, vedere [Disattivare ed eliminare un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Per arrestare il dispositivo virtuale StorSimple
 
@@ -382,13 +382,13 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 1. Accedere al portale di Microsoft Azure classico.
 
-- Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
+2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
-- Fare clic su **Elimina** e scegliere di eliminare tutti i dischi di macchina virtuale.
+3. Fare clic su **Elimina** e scegliere di eliminare tutti i dischi di macchina virtuale.
 
 
 ## Passaggi successivi
 
 Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in [Amministrare il dispositivo StorSimple utilizzando il servizio di gestione di StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

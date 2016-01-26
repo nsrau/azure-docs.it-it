@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="01/18/2016"
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 ##Panoramica 
 
@@ -108,7 +107,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 3. Per specificare il numero di unità di streaming, selezionare la scheda RIDIMENSIONA e spostare il dispositivo di scorrimento **capacità riservata**.
 
-![Pagina Scale](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Pagina Scale](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Premere **SALVA** per salvare le modifiche.
 
@@ -130,12 +129,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 
 4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere informazioni sul nome e la chiave dell'account, aprire il portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sul pulsante **GESTISCI CHIAVI**.
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -156,7 +150,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 
 ##Connettersi all'account di Servizi multimediali
 
-Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione di oggetti quali asset, file di asset, processi, criteri di accesso, localizzatori e così via.
+Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via.
 
 Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK per .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
@@ -219,7 +213,7 @@ Il metodo **CreateFromFile** acquisisce **AssetCreationOptions**, che consente d
 
 - **None**: non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale. Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 - **StorageEncrypted**: usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
-- **CommonEncryptionProtected**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM, ad esempio Smooth Streaming protetto con PlayReady DRM.
+- **CommonEncryptionProtected**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 - **EnvelopeEncryptionProtected**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
 Il metodo **CreateFromFile** consente anche di specificare un callback per visualizzare l'avanzamento del caricamento del file.
@@ -452,4 +446,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

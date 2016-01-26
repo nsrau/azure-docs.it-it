@@ -1,19 +1,19 @@
 <properties
 			pageTitle="Come usare File di Azure con Windows | Microsoft Azure"
-            description="Questa esercitazione dettagliata permette di creare una condivisione file di Azure nel cloud. È possibile gestire il contenuto della condivisione file e montare una condivisione file da una macchina virtuale di Azure (VM) o da un'applicazione locale."
+    		description="Questa esercitazione dettagliata permette di creare una condivisione file di Azure nel cloud. È possibile gestire il contenuto della condivisione file e montare una condivisione file da una macchina virtuale di Azure (VM) o da un'applicazione locale."
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="tysonn" />
+            editor="" />
 
 <tags ms.service="storage"
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="12/17/2015"
-      ms.author="jutang" />
+      ms.date="01/12/2015"
+      ms.author="robinsh" />
 
 # Come usare l'archiviazione file di Azure con Windows
 
@@ -21,16 +21,17 @@
 
 ## Panoramica
 
-L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. File di Azure permette di migrare le applicazioni aziendali basate su file server in Azure. Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
+L'archiviazione file di Azure offre condivisioni file nel cloud usando il [Protocollo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Attualmente è disponibile a livello generale e supporta sia SMB 2.1 che SMB 3.0.
 
-È possibile creare condivisioni file di Azure tramite il [portale di Azure](portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le note API del file system standard.
+È possibile creare condivisioni file di Azure usando il [portale di Azure](portal.azure.com), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. Poiché inoltre queste condivisioni file sono condivisioni SMB, è possibile accedervi con le familiari API standard del file system.
 
-Il servizio Archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi offrire le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e sui limiti di Archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
+Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure. Con la disponibilità generale di archiviazione file, è anche possibile montare una condivisione file da un client locale che supporta SMB 3.0, ad esempio, il portatile, il desktop e il server locale.
 
-Il servizio di archiviazione file è ora disponibile a livello generale e supporta entrambi i protocolli SMB 2.1 ed SMB 3.0. Per altre informazioni su Archiviazione file, vedere [API REST per il servizio File](https://msdn.microsoft.com/library/azure/dn167006.aspx).
+Archiviazione file si basa sulla stessa tecnologia dei servizi di archiviazione BLOB, tabelle e code, quindi può sfruttare le funzionalità esistenti di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure.
 
 Per informazioni sull'uso di Archiviazione file con Linux, vedere [Come usare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
 
+Per informazioni sugli obiettivi di scalabilità e prestazioni di archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per archiviazione di Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -46,29 +47,88 @@ Ecco un video che illustra come creare e usare Condivisioni file di Azure in Win
 
 In questa guida introduttiva vengono illustrate le nozioni di base sull'uso dell'archiviazione file di Microsoft Azure. In questa esercitazione si apprenderà come:
 
-- Usare Azure PowerShell per visualizzare le informazioni per creare una nuova condivisione file di Azure, aggiungere una directory, caricare un file locale nella condivisione ed elencare i file nella directory.
-- Montare la condivisione file da una macchina virtuale di Azure, con la stessa procedura usata per una condivisione SMB.
+- Usare il portale di Azure o PowerShell per creare una nuova condivisione file di Azure, aggiungere una directory, caricare un file locale nella condivisione ed elencare i file nella directory.
+- Montare la condivisione file seguendo la stessa procedura usata per una condivisione SMB.
 - Usare la libreria client di archiviazione di Azure per .NET per accedere alla condivisione file da un'applicazione locale. Creare un'applicazione console ed eseguire queste azioni con la condivisione file:
 	- Scrivere il contenuto di un file della condivisione nella finestra della console.
 	- Impostare la quota (dimensione massima) per la condivisione file.
 	- Creare una firma di accesso condiviso per un file che usa un criterio di accesso condiviso definito nella condivisione.
 	- Copiare un file in un altro file nello stesso account di archiviazione.
 	- Copiare un file in un BLOB nello stesso account di archiviazione.
+- Usare la metrica di archiviazione di Azure per la risoluzione dei problemi
 
 Il servizio Archiviazione file è ora supportato per tutti gli account di archiviazione, quindi è possibile usare un account di archiviazione esistente o crearne uno nuovo. Per informazioni su come creare un nuovo account di archiviazione, vedere [Come creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
 ## Usare il portale di Azure per gestire una condivisione file
 
-Il [portale di Azure](portal.azure.com) offre ai clienti un'interfaccia utente per gestire il servizio di archiviazione file. Nel portale di anteprima è possibile:
+Il [portale di Azure](portal.azure.com) offre ai clienti un'interfaccia utente per gestire le condivisioni file. Nel portale è possibile:
 
+- Creare la propria condivisione file
 - Caricare i file nella condivisione file e scaricarli
 - Monitorare l'utilizzo effettivo di ogni condivisione file
 - Rettificare la quota delle dimensioni della condividere
-- Ottenere il comando `net use` da usare per montare la condivisione file da un client Windows
+- Ottenere il comando `net use` da usare per montare la condivisione file da un client Windows 
+
+### Creare la condivisione file
+
+1. Accedere al portale di Azure.
+
+2. Nel menu di navigazione fare clic su **Account di archiviazione** o su **Account di archiviazione (classico)**.
+
+	![Schermata che illustra come creare una condivisione file nel portale](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
+
+3. Scegliere l'account di archiviazione.
+
+	![Schermata che illustra come creare una condivisione file nel portale](./media/storage-dotnet-how-to-use-files/files-create-share-1.png)
+
+4. Scegliere il servizio "File".
+
+	![Schermata che illustra come creare una condivisione file nel portale](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
+
+5. Fare clic su "Condivisioni file" e selezionare il collegamento per creare la prima condivisione file.
+
+	![Schermata che illustra come creare una condivisione file nel portale](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
+
+6. Immettere il nome della condivisione e le dimensioni, fino a 5120 GB, per creare la prima condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0.
+
+	![Schermata che illustra come creare una condivisione file nel portale](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
+
+### Caricare e scaricare file
+
+1. Scegliere una condivisione file già creata.
+
+	![Schermata che illustra come caricare e scaricare file nel portale](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
+
+2. Fare clic su **Carica** per aprire l'interfaccia utente per il caricamento dei file.
+
+	![Schermata che illustra come caricare file nel portale](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
+
+3. Fare clic con il pulsante destro su un file e scegliere **Scarica** per scaricarlo in locale.
+
+	![Schermata che illustra come scaricare file dal portale](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
+
+### Gestire la condivisione file
+
+1. Fare clic su **Quota** per modificare le dimensioni della condivisione file, fino a 5120 GB.
+
+	![Schermata che illustra come configurare la quota della condivisione file](./media/storage-dotnet-how-to-use-files/files-manage-1.png)
+
+2. Fare clic su **Connetti** per ottenere la riga di comando per montare la condivisione file da Windows.
+
+	![Schermata che illustra come montare la condivisione file](./media/storage-dotnet-how-to-use-files/files-manage-2.png)
+
+	![Schermata che illustra come montare la condivisione file](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
+
+	>[AZURE.TIP]Per trovare la chiave di accesso dell'account di archiviazione per il montaggio, fare clic su **Impostazioni** relative all'account di archiviazione e quindi su **Chiavi di accesso**.
+
+	![Schermata che illustra come trovare la chiave di accesso dell'account di archiviazione](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
+
+	![Schermata che illustra come trovare la chiave di accesso dell'account di archiviazione](./media/storage-dotnet-how-to-use-files/files-manage-5.png)
+
 
 ## Usare PowerShell per gestire una condivisione file
 
-A questo punto si utilizzerà PowerShell per creare una condivisione file. Dopo che la condivisione file è stata creata, è possibile montarla da qualsiasi file system che supporti SMB 2.1 o SMB 3.0.
+In alternativa, è possibile usare Azure PowerShell per creare e gestire le condivisioni file.
 
 ### Installare i cmdlet di PowerShell per l'archiviazione di Azure
 
@@ -129,15 +189,15 @@ A partire dalla versione 0.9.7 di Azure PowerShell, è possibile copiare un file
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montare la condivisione file
+## Montare la condivisione file 
 
 Grazie al supporto per SMB 3.0, Archiviazione file ora supporta la crittografia e i punti di controllo persistenti dai client SMB 3.0. Il supporto per la crittografia significa che i client SMB 3.0 possono montare una condivisione file da qualsiasi posizione, ad esempio:
 
 - Macchina virtuale di Azure nella stessa area (anche con SMB 2.1)
 - Macchina virtuale di Azure in un'area diversa (solo SMB 3.0)
-- Applicazione client locale (solo SMB 3.0)
+- Applicazione client locale (solo SMB 3.0) 
 
-Quando un client accede al servizio Archiviazione file, la versione di SMB usata dipende dalla versione di SMB supportata dal sistema operativo. La tabella seguente mostra un riepilogo del supporto per i client Windows. Per informazioni dettagliate, vedere << Which version of the SMB protocol blog post>>.
+Quando un client accede al servizio Archiviazione file, la versione di SMB usata dipende dalla versione di SMB supportata dal sistema operativo. La tabella seguente mostra un riepilogo del supporto per i client Windows. Per altre informazioni, vedere il blog sulle [versioni di SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Client Windows | Supporto versione SMB |
 |------------------------|----------------------|
@@ -186,12 +246,12 @@ A questo punto è possibile usare la condivisione di archiviazione file dalla ma
 
 La condivisione file può essere montata anche da un ruolo in esecuzione in un servizio cloud di Azure eseguendo l'accesso remoto al ruolo.
 
-### Montare la condivisione file da un client locale che esegue Windows
+### Montare la condivisione file da un client locale che esegue Windows 
 
 Per montare la condivisione file da un client locale, è prima necessario seguire questa procedura:
 
-- Installare una versione di Windows che supporta il protocollo SMB 3.0. Windows userà la crittografia SMB 3.0 per eseguire il trasferimento di dati sicuro dal client locale alla condivisione file di Azure nel cloud.
-- Aprire l'accesso a Internet per la porta 445 (TCP in uscita) nella rete locale, come richiesto dal protocollo SMB.
+- Installare una versione di Windows che supporta il protocollo SMB 3.0. Windows userà la crittografia SMB 3.0 per eseguire il trasferimento di dati sicuro dal client locale alla condivisione file di Azure nel cloud. 
+- Aprire l'accesso a Internet per la porta 445 (TCP in uscita) nella rete locale, come richiesto dal protocollo SMB. 
 
 > [AZURE.NOTE]Alcuni provider di servizi Internet bloccano la porta 445, quindi è opportuno verificare con il proprio provider di servizi.
 
@@ -239,7 +299,7 @@ Aprire il file program.cs da Esplora soluzioni e aggiungere le dichiarazioni del
 L'esempio seguente illustra come recuperare le credenziali usando la classe `CloudConfigurationManager` e incapsularle con la classe `CloudStorageAccount`. Aggiungere il codice seguente al metodo `Main()` in program.cs.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
 ### Accedere alla condivisione file a livello di programmazione
 
@@ -472,20 +532,20 @@ Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Graz
 
 ## Domande frequenti su Archiviazione file
 
-1. **L'autenticazione basata su Active Directory è supportata da Archiviazione file?**
+1. **L'autenticazione basata su Active Directory è supportata da Archiviazione file?** 
 
 	Al momento non è supportata l'autenticazione basata su Active Directory o sugli elenchi di controllo di accesso (ACL), ma è inclusa nell'elenco delle richieste di funzionalità. Per ora, per fornire l'autenticazione alla condivisione file vengono usate le chiavi dell'account di archiviazione di Azure. È disponibile una soluzione alternativa che prevede l'uso di firme di accesso condiviso tramite l'API REST o le librerie client. Le firme di accesso condiviso consentono di generare token con autorizzazioni specifiche che restano valide per un periodo di tempo definito. Ad esempio, è possibile generare un token con accesso di sola lettura a un determinato file. Tutti coloro che possiedono il token nel periodo in cui è valido hanno l'accesso in sola lettura a tale file.
 
 	La firma di accesso condiviso è supportata solo tramite l'API REST o le librerie client. Quando si monta la condivisione file tramite il protocollo SMB, non è possibile usare una firma di accesso condiviso per delegare l'accesso al contenuto.
 
 2. **Le condivisioni file di Azure sono visibili pubblicamente su Internet o sono raggiungibili solo tramite Azure?**
-
+ 
 	Se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0, *ovvero*, Windows 8 o Windows Server 2012, la condivisione file è disponibile tramite Internet.
 
 3. **Il traffico di rete tra una macchina virtuale di Azure e una condivisione file viene conteggiato come larghezza di banda esterna e addebitato alla sottoscrizione?**
 
 	Se la condivisione file e la macchina virtuale si trovano in aree diverse, il traffico che viene scambiato viene addebitato come larghezza di banda esterna.
-
+ 
 4. **Se il traffico di rete viene scambiato tra una macchina virtuale di Azure e una condivisione file nella stessa area è gratuito?**
 
 	Sì. Se il traffico viene scambiato all'interno della stessa area, è gratuito.
@@ -497,7 +557,7 @@ Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Graz
 6. **Il "controllo di condivisione file" per un cluster di failover è uno dei casi di utilizzo per Archiviazione file di Azure?**
 
 	Questa funzionalità non è supportata al momento.
-
+ 
 7. **Al momento Archiviazione file supporta solo l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica, è corretto?**
 
 	È previsto il supporto per l'archiviazione con ridondanza geografica e accesso in lettura, ma non sono ancora state definite le date.
@@ -546,8 +606,9 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 ### Post di BLOG
 
 - [Archiviazione file di Azure è attualmente disponibile a livello generale](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Approfondimenti su Archiviazione file di Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Approfondimenti su Archiviazione file di Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

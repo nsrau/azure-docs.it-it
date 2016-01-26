@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -30,7 +30,7 @@ Gestione risorse offre numerosi vantaggi:
 - È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
 - è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
 - È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
-- È ottenere informazioni di fatturazione dettagliate visualizzando i costi aggregati per l'intero gruppo o per un gruppo di risorse che condividono la stessa categoria.  
+- È possibile ottenere informazioni di fatturazione dettagliate visualizzando i costi aggregati per l'intero gruppo o per un gruppo di risorse che condividono la stessa categoria.  
 
 Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](resource-manager-deployment-model.md).
 
@@ -91,11 +91,11 @@ Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere 
 
 ## Tag
 
-Gestione risorse di Azure offre una funzionalità categorizzazione che consente suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. È possibile utilizzare i tag quando si dispone di un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse in modo più significativo per l'utente. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto.
+Gestione risorse di Azure offre una funzionalità di categorizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. È possibile utilizzare i tag quando si dispone di un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse in modo più significativo per l'utente. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto. Senza tag è possibile che gli utenti dell'organizzazione creino più risorse, che possono risultare molto difficili da identificare e gestire in un secondo momento. Ad esempio, è possibile eliminare tutte le risorse per un particolare progetto, ma se tali risorse non sono state contrassegnate per il progetto, sarà necessario trovarle manualmente. L'assegnazione di tag può essere un modo importante per ridurre i costi non necessari nella sottoscrizione.
 
 Non è necessario che le risorse si trovino nello stesso gruppo di risorse per condividere un tag. È possibile creare una propria tassonomia di tag per assicurarsi che tutti gli utenti dell'organizzazione utilizzino tag comuni anziché applichino inavvertitamente tag leggermente diversi (ad esempio "dept" anziché "department").
 
-Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md).
+Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md). È possibile creare [criteri personalizzati](#manage-resources-with-customized-policies) che richiedono l'aggiunta di tag alle risorse durante la distribuzione.
 
 ## Controllo di accesso
 
@@ -111,7 +111,7 @@ Per le procedure consigliate, vedere [Considerazioni sulla sicurezza per Gestion
 
 ## Gestire risorse con criteri personalizzati
 
-Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere scenari, tra cui l'applicazione di una convenzione di denominazione delle risorse, la limitazione sulle aree che possono ospitare un tipo di risorsa o la richiesta di un valore di tag alle risorse per organizzare la fatturazione per reparto. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
+Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere scenari diversi, ad esempio l'applicazione di una convenzione di denominazione alle risorse, la limitazione dei tipi di istanze delle risorse che è possibile distribuire, la limitazione delle aree che possono ospitare un tipo di risorsa o la richiesta di un valore di tag sulle risorse per organizzare la fatturazione per reparto. Creare criteri per ridurre i costi e mantenere la coerenza nella sottoscrizione. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## Livello di gestione coerente
 
@@ -132,10 +132,10 @@ Gestione risorse di Azure supporta la condivisione di risorse tra origini (CORS,
 - Per informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md)
 - Per distribuire il modello creato, vedere [Distribuzione di modelli](resource-group-template-deploy.md)
 - Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni del modello](./resource-group-template-functions.md)
-- Per indicazioni sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
+- Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
 
 Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

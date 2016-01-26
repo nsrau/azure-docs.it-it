@@ -42,7 +42,7 @@ Accesso remoto, ad esempio VPN, RDG| |* |
 
 ## Dove si trovano gli utenti?
 
-Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da utilizzare, ovvero Multi-Factor Authentication nel cloud o locale mediante Server MFA.
+Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da usare, ad esempio Multi-Factor Authentication nel cloud o in locale con il server MFA.
 
 
 
@@ -81,4 +81,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -88,6 +88,8 @@ In questo esempio, alla zona "contoso.com" sono stati assegnati i server dei nom
 
 Ogni registrar prevede i propri strumenti di gestione DNS per modificare i record del server dei nomi per un dominio. Nella pagina di gestione DNS del registrar, modificare i record NS e sostituirli con quelli creati da DNS di Azure.
 
+>[AZURE.NOTE]Quando si delega un dominio a DNS di Azure, è necessario usare i nomi dei server dei nomi forniti da DNS di Azure. È consigliabile non usare "glue record" per puntare agli indirizzi IP del server dei nomi DNS di Azure, perché questi indirizzi IP possono cambiare in futuro. Le deleghe che usano nomi dei server dei nomi nella propria zona, definiti a volte "server dei nomi personalizzati", non sono attualmente supportate in DNS di Azure.
+
 Dopo aver completato la delega, è possibile verificare il corretto funzionamento della risoluzione dei nomi usando uno strumento come "nslookup" per eseguire una query sul record SOA per la zona (che viene creato automaticamente quando viene creata la zona).
 
 Si noti che non è necessario specificare i server dei nomi DNS di Azure, perché il normale processo di risoluzione DNS troverà i server dei nomi automaticamente se la delega è stata configurata correttamente.
@@ -153,10 +155,8 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 
 [Gestire i record DNS](dns-operations-recordsets.md)
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
-
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
 
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

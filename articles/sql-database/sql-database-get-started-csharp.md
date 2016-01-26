@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # Prova del database SQL: usare C&#x23; per creare un database SQL con la libreria di database SQL per .NET 
@@ -93,7 +93,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Aggiungere un URL di reindirizzamento per l'applicazione SQL in C#.][8]
 
-7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client sarà necessario nel codice).
+7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l’**ID CLIENT** (l'ID del client sarà necessario nel codice).
 
     ![Ottenere un ID client per l'applicazione SQL in C#.][9]
 
@@ -414,8 +414,7 @@ Il comando seguente in C# crea un nuovo database SQL di base se nel server non e
 ## Passaggi successivi
 Dopo aver provato il database SQL e aver impostato un database con C#, è possibile leggere gli articoli seguenti:
 
-- [Connettersi al database SQL con C# ed eseguire query](sql-database-connect-query.md)
-- [Connettersi con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
 ## Risorse aggiuntive
 
@@ -436,4 +435,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->
