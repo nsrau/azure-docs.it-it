@@ -102,7 +102,7 @@
 
 [HPC Pack](virtual-machines-hpcpack-cluster-options.md)
 
-[LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
+[LAMP stack](virtual-machines-linux-install-lamp-stack.md)
 
 <!-- [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx) -->
 

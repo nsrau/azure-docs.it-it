@@ -28,7 +28,7 @@ OneDrive è disponibile in due versioni: OneDrive e OneDrive for Business. Solo 
 
 ## Opzioni di configurazione disponibili per OneDrive for Business
 
-- **Installazione tradizionale del motore di sincronizzazione di OneDrive for Business:** il client di sincronizzazione di OneDrive for Business può essere installato in uno SKU server, ad esempio Desktop remoto o una sessione di RemoteApp o di Terminal Server, e nelle cartelle selezionate per la sincronizzazione nella sessione di RemoteApp, come avviene in uno SKU client di Windows. Il percorso predefinito usato da OneDrive for Business per la sincronizzazione dei file è lo stesso percorso del disco del profilo utente usato per archiviare dati utente e impostazioni in Azure RemoteApp, ovvero C:\\utenti<nomeutente>. Questo disco, così come i file ODB, segue l'utente in tutte le VM a cui l'utente accede. L'app OneDrive for Business deve essere pubblicata dall'amministratore per tutti gli utenti e questi ultimi devono avviarla in ogni nuova sessione per essere certi che il motore di sincronizzazione sia attivato. L'avvio può anche essere automatizzato con uno script di accesso. OneDrive for Business scaricherà l'intero file nella VM in cui è in esecuzione la sessione. Durante la sincronizzazione del contenuto di un utente, tutti gli elementi che ne fanno parte, come CPU/dati trasferiti/dati archiviati, richiedono un notevole carico di lavoro che non è semplicemente ottimizzato per i terminali con un numero elevato di utenti che accedono brevemente a ogni computer. Con la sincronizzazione selettiva è possibile ridurre il carico di lavoro, ma il problema persiste.
+- **Installazione tradizionale del motore di sincronizzazione di OneDrive for Business:** il client di sincronizzazione di OneDrive for Business può essere installato in uno SKU server, ad esempio Desktop remoto o una sessione di RemoteApp o di Terminal Server, e nelle cartelle selezionate per la sincronizzazione nella sessione di RemoteApp, come avviene in uno SKU client di Windows. Il percorso predefinito usato da OneDrive for Business per la sincronizzazione dei file è lo stesso percorso del disco del profilo utente usato per archiviare dati utente e impostazioni in Azure RemoteApp, ovvero C:\utenti<nomeutente>. Questo disco, così come i file ODB, segue l'utente in tutte le VM a cui l'utente accede. L'app OneDrive for Business deve essere pubblicata dall'amministratore per tutti gli utenti e questi ultimi devono avviarla in ogni nuova sessione per essere certi che il motore di sincronizzazione sia attivato. L'avvio può anche essere automatizzato con uno script di accesso. OneDrive for Business scaricherà l'intero file nella VM in cui è in esecuzione la sessione. Durante la sincronizzazione del contenuto di un utente, tutti gli elementi che ne fanno parte, come CPU/dati trasferiti/dati archiviati, richiedono un notevole carico di lavoro che non è semplicemente ottimizzato per i terminali con un numero elevato di utenti che accedono brevemente a ogni computer. Con la sincronizzazione selettiva è possibile ridurre il carico di lavoro, ma il problema persiste.
 - **"Virtualizzare" OneDrive for Business/reindirizzarlo dal fat client locale alla sessione:** se si sincronizza OneDrive con una cartella su un'unità del dispositivo client, è possibile scegliere di [reindirizzare](remoteapp-redirection.md) l'unità ad Azure RemoteApp. L'unità deve essere lo stessa nei client di tutti gli utenti e OneDrive deve essere sincronizzato con una cartella di quell'unità. Se gli utenti accedono a RemoteApp da un altro client, questi file potrebbero non essere disponibili. Come soluzione alternativa, gli utenti possono comunque accedere ai file con la versione online di OneDrive. 
 - **Presentare OneDrive for Business come un'unità all'interno dell'ambiente Azure RemoteApp senza memorizzazione nella cache/ sincronizzazione dei file:** eseguire il mapping dell'URL http di OneDrive for Business a un'unità nella VM. Il mapping di OneDrive for Business all'unità di rete nell'ambiente Host sessione Desktop remoto è supportato. Scenari in cui può essere usato: 
 	- Quando si usano thin client, senza archiviazione locale, per accedere ad Azure RemoteApp. L'applicazione richiede che i file siano archiviati in OneDrive for Business, ma questi dovrebbero "apparire" come locali e l'amministratore non vuole sincronizzare i file con una VM.
@@ -47,7 +47,8 @@ Per installare il pacchetto Esperienza desktop:
 
 ### Eseguire il mapping all'URL di OneDrive for Business
 
-Seguire le istruzioni nell'articolo di supporto all'indirizzo [https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
+Seguire le istruzioni nell'articolo di supporto all'indirizzo 
+[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
  
 Un passaggio importante dell'installazione consiste nel verificare che sia selezionato **Mantieni l'accesso**.
 
@@ -59,7 +60,7 @@ A grandi linee ecco le istruzioni:
 2.	Aprire l'URL con un browser nella sessione di RemoteApp e selezionare **Mantieni l'accesso** prima di accedere all'URL dell'account.
 3.	Aprire Esplora risorse ed eseguire il mapping di un'unità all'URL precedente. Se l'URL non viene risolto, è possibile usare la forma abbreviata:
 	
-	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com.
+	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com. 
 
 	Viene creata immediatamente l'unità mappata, che sarà simile alla seguente:
  

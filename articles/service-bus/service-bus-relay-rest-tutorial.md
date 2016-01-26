@@ -300,7 +300,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
 
 	Questo passaggio consente di configurare un servizio che usa il valore predefinito **webHttpRelayBinding** definito in precedenza. Si usa anche il valore predefinito **sbTokenProvider**, definito nel passaggio successivo.
 
-6. Dopo l'elemento `<services>` creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS\_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal [portale di Azure classico][] nel passaggio 1.
+6. Dopo l'elemento `<services>` creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal [portale di Azure classico][] nel passaggio 1.
 
 	```
 	<behaviors>
@@ -570,7 +570,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire l'applicazione:
 
-1. Dal prompt dei comandi, eseguire il servizio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Dal prompt dei comandi, eseguire il servizio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copiare e incollare l'indirizzo dal prompt dei comandi in un browser per visualizzare l'immagine.
 

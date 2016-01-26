@@ -48,8 +48,8 @@ La subnet a.b.c.d/29 verrà divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Micr
 
 Si consideri un caso in cui si selezioni l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.135, tra cui:
 
-- 192\.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
-- 192\.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
+- 192.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
+- 192.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
 
 ### Indirizzi IP per il peering Microsoft e il peering pubblico di Azure
 

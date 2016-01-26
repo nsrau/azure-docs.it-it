@@ -113,8 +113,8 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [Interxion](http://www.interxion.com/)
-	- [NEXTDC](http://www.nextdc.com/)
+	- [InterXion](http://www.interxion.com/)
+	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 - Richiedere al provider di connettività di estendere la rete alla località di peering scelta.
 	- Assicurarsi che il provider di connettività estenda la connettività con disponibilità elevata, in modo che non siano presenti singoli punti di errore.

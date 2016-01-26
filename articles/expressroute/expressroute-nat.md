@@ -25,7 +25,7 @@ Per una panoramica dei diversi domini di routing, vedere la pagina [Circuiti e d
 
 Il percorso di peering pubblico di Azure consente di connettersi a tutti i servizi ospitati in Azure tramite i relativi indirizzi IP pubblici. Sono inclusi tutti i servizi elencati nell'articolo [Domande frequenti su ExpressRoute](expressroute-faqs.md) e tutti i servizi ospitati da ISV in Microsoft Azure. La connettività ai servizi di Microsoft Azure nel peering pubblico viene sempre avviata dalla propria rete nella rete Microsoft. Il traffico destinato a Microsoft Azure nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. La figura seguente riporta come eseguire una configurazione generale della NAT per soddisfare i requisiti elencati precedentemente.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png)
+![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### Annunci di route e pool IP di NAT
 
@@ -39,7 +39,7 @@ Non esistono restrizioni per la lunghezza del prefisso IP NAT annunciato tramite
 
 Il percorso di peering Microsoft consente di connettersi a servizi cloud Microsoft che non sono supportati tramite il percorso di peering pubblico di Azure. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e CRM Online. Microsoft prevede di supportare la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. Il traffico destinato alla propria rete dai servizi cloud Microsoft deve essere inviato tramite SNAT perché possa accedere alla rete. La figura seguente riporta come eseguire una configurazione generale della NAT per il peering Microsoft.
  
-![](./media/expressroute-nat/expressroute-nat-microsoft.png)
+![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 
 #### Traffico proveniente dalla propria rete e destinato a Microsoft

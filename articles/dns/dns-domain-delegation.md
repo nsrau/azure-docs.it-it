@@ -71,8 +71,8 @@ Per configurare la delega, è necessario conoscere i nomi dei server dei nomi pe
 
 È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona).
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com

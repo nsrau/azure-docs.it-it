@@ -27,7 +27,7 @@ Una configurazione da punto a sito consente di creare una singola connessione si
 
 Questo articolo si applica alle connessioni gateway VPN da punto a sito a una rete virtuale creata con il **modello di distribuzione classico** (Gestione dei servizi). Per configurare una connessione da punto a sito per una rete virtuale creata con Gestione risorse, vedere [Configurare una connessione da punto a sito a una rete virtuale con PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ## Informazioni sulla creazione di una connessione da punto a sito

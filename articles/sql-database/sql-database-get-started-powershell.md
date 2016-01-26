@@ -56,7 +56,7 @@ Dopo aver eseguito correttamente il cmdlet **Select-AzureRmSubscription**, si ri
 
 ## Configurazione del database: creare un gruppo di risorse, il server e la regola firewall
 
-È ora possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure selezionata, pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
+È ora possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure selezionata, pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
 
 Usare il comando seguente per creare un nuovo gruppo di risorse:
 
