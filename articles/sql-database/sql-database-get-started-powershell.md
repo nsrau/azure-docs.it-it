@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Creare un nuovo database SQL ed eseguire comuni attività di configurazione del database con i cmdlet di PowerShell 
@@ -56,7 +56,7 @@ Dopo aver eseguito correttamente il cmdlet **Select-AzureRmSubscription**, si ri
 
 ## Configurazione del database: creare un gruppo di risorse, il server e la regola firewall
 
-È ora possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure selezionata, pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
+È ora possibile accedere per eseguire i cmdlet con la sottoscrizione di Azure selezionata, pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il database. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
 
 Usare il comando seguente per creare un nuovo gruppo di risorse:
 
@@ -135,11 +135,11 @@ Dopo aver creato il database, verranno visualizzati i relativi dettagli.
 ## Passaggi successivi
 Dopo aver creato un nuovo database SQL e aver eseguito le attività di configurazione del database di base, è possibile:
 
-- [Connettersi con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
 
 ## Risorse aggiuntive
 
 - [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

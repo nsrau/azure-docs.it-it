@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ L'uso della rete CDN per la memorizzazione dei dati Azure nella cache offre molt
 
 	Un profilo della rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint della rete CDN. Dopo aver creato un profilo della rete CDN, è possibile creare un nuovo endpoint della rete CDN usando l'origine selezionata.
 	
-	>[AZURE.NOTE]Ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a quattro endpoint della rete CDN.
+	>[AZURE.NOTE]Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
 	>
 	> I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si desidera usare una combinazione di funzionalità della rete CDN Standard e Premium, è necessario disporre di più profili della rete CDN.
 	
@@ -147,4 +147,4 @@ La rete CDN di Microsoft Azure può essere gestita a livello di codice usando le
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST del Provider di risorse della rete CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

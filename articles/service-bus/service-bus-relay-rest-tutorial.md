@@ -27,7 +27,7 @@ Il primo passaggio consiste nel creare uno spazio dei nomi del servizio e nell'o
 
 ### Per creare uno spazio dei nomi del servizio e ottenere una chiave di firma di accesso condiviso
 
-1. Per creare uno spazio dei nomi nel [portale di Azure classico][], seguire i passaggi descritti in [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Per creare uno spazio dei nomi del servizio, visitare il [portale di Azure classico][]. Fare clic su **Bus di servizio** sul lato sinistro, quindi fare clic su **Crea**. Digitare un nome per lo spazio dei nomi, quindi fare clic sul segno di spunta.
 
 2. Nella finestra principale del portale fare clic sul nome dello spazio dei nomi del servizio creato nel passaggio precedente.
 
@@ -39,7 +39,7 @@ Il primo passaggio consiste nel creare uno spazio dei nomi del servizio e nell'o
 
 Come con altri servizi del bus di servizio, quando si crea un servizio basato su REST, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che dispone di [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) non dispone di [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), il metodo non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
-La differenza principale tra un contratto del bus di servizio di base e un contratto di tipo REST è costituita dall'aggiunta di una proprietà in [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. In tal caso, si userà [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) per collegare un metodo a HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
+La differenza principale tra un contratto del bus di servizio di base e un contratto di tipo REST è costituita dall'aggiunta di una proprietà per [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. In tal caso, si userà [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) per collegare un metodo a HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
 
 ### Per creare un contratto di bus di servizio con un'interfaccia
 
@@ -53,11 +53,11 @@ La differenza principale tra un contratto del bus di servizio di base e un contr
 
 	a. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Riferimenti** nella cartella di progetto e quindi fare clic su **Aggiungi riferimento**.
 
-	b. Fare clic sulla scheda **.NET** nella finestra di dialogo **Aggiungi riferimento** e scorrere verso il basso fino a visualizzare **System.ServiceModel**. Selezionarlo e quindi fare clic su **OK**.
+	b. Fare clic sulla scheda **.NET** nella finestra di dialogo **Aggiungi riferimento** e scorrere verso il basso fino a visualizzare **System.ServiceModel**. Selezionarlo, quindi fare clic su **OK**.
 
-5. Ripetere il passaggio precedente per aggiungere un riferimento all'assembly **System.ServiceModel.Web.dll**.
+5. Ripetere il passaggio precedente per aggiungere un riferimento all’assembly **System.ServiceModel.Web.dll**.
 
-6. Aggiungere istruzioni `using` per gli spazi dei nomi **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web** e **System.IO**.
+6. Aggiungere le istruzioni `using` per gli spazi dei nomi **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web** e **System.IO**.
 
 	```c
   	using System.ServiceModel;
@@ -120,9 +120,9 @@ La differenza principale tra un contratto del bus di servizio di base e un contr
 	public interface IImageChannel : IImageContract, IClientChannel { }
 	```
 
-	Un canale è l'oggetto WCF tramite il quale il servizio e il client si scambiano le informazioni. In seguito verrà creato il canale nell'applicazione host. Il bus di servizio usa questo canale per passare le richieste HTTP GET dal browser all'implementazione di **GetImage**. Il bus di servizio usa il canale anche per richiedere il valore restituito **GetImage** e convertirlo in una risposta HTTP GETRESPONSE per il browser client.
+	Un canale è l'oggetto WCF tramite il quale il servizio e il client si scambiano le informazioni. In seguito verrà creato il canale nell'applicazione host. Il bus di servizio utilizza questo canale per passare le richieste HTTP GET dal browser per all’implementazione di **GetImage**. Il bus di servizio usa il canale anche per richiedere il valore restituito **GetImage** e convertirlo in una risposta HTTP GETRESPONSE per il browser client.
 
-12. Scegliere **Compila soluzione** dal menu **Compila** per verificare la correttezza del lavoro svolto finora.
+12. Dal menu **Compila** menu, fare clic su **Compila soluzione** per verificare la correttezza del lavoro svolto finora.
 
 ### Esempio
 
@@ -161,7 +161,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Passaggio 3: implementare un contratto di servizio WCF basato su REST per utilizzare il bus di servizio
 
-La creazione di un servizio basato su REST del bus di servizio, è necessario creare innanzitutto il contratto, il quale viene definito utilizzando un'interfaccia. Il passaggio successivo consiste nell'implementazione dell'interfaccia. Ciò comporta la creazione di una classe denominata **ImageService** che implementa l'interfaccia **IImageContract** definita dall'utente. Dopo aver implementato il contratto, è quindi necessario configurare l'interfaccia utilizzando un file App.config. Il file di configurazione contiene le informazioni necessarie per l'applicazione, ad esempio il nome del servizio, il nome del contratto e il tipo di protocollo utilizzato per comunicare con il bus di servizio. Il codice usato per eseguire queste attività viene fornito nell'esempio che segue la procedura.
+La creazione di un servizio basato su REST del bus di servizio, è necessario creare innanzitutto il contratto, il quale viene definito utilizzando un'interfaccia. Il passaggio successivo consiste nell'implementazione dell'interfaccia. Ciò comporta la creazione di una classe denominata **ImageService** che implementa l’interfaccia **IImageContract** definita dall'utente. Dopo aver implementato il contratto, è quindi necessario configurare l'interfaccia utilizzando un file App.config. Il file di configurazione contiene le informazioni necessarie per l'applicazione, ad esempio il nome del servizio, il nome del contratto e il tipo di protocollo utilizzato per comunicare con il bus di servizio. Il codice usato per eseguire queste attività viene fornito nell'esempio che segue la procedura.
 
 Come per i passaggi precedenti, è impercettibile la differenza tra l'implementazione di un contratto di tipo REST e di un contratto di base del bus di servizio.
 
@@ -185,7 +185,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
 	}
 	```
 
-	Come accennato in precedenza, questo spazio dei nomi non è uno spazio dei nomi tradizionale. Infatti, fa parte dell'architettura WCF che identifica il contratto. Per altre informazioni, vedere l'argomento [Nomi di contratto dati](https://msdn.microsoft.com/library/ms731045.aspx) nella documentazione di WCF.
+	Come accennato in precedenza, questo spazio dei nomi non è uno spazio dei nomi tradizionale. Infatti, fa parte dell'architettura WCF che identifica il contratto. Per ulteriori informazioni, vedere l’argomento [Nomi di contratto dati](https://msdn.microsoft.com/library/ms731045.aspx) nella documentazione di WCF.
 
 3. Aggiungere un'immagine con estensione jpg al progetto.
 
@@ -195,7 +195,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
 
 4. Per assicurarsi che il servizio in esecuzione trovi il file di immagine, in **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file di immagine. Nel riquadro **Proprietà**, impostare il valore di **Copia in directory di output** su **Copia se più recente**.
 
-5. Aggiungere al progetto i riferimenti agli assembly **System.Drawing.dll**, **System.Runtime.Serialization.dll** e **Microsoft.ServiceBus.dll** e aggiungere anche le istruzioni `using` associate seguenti.
+5. Aggiungere al progetto i riferimenti agli assembly **System.Drawing.dll**, **Serialization** e **Microsoft.ServiceBus.dll** e aggiungere anche le seguenti istruzioni `using` associate.
 
 	```
 	using System.Drawing;
@@ -300,7 +300,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
 
 	Questo passaggio consente di configurare un servizio che usa il valore predefinito **webHttpRelayBinding** definito in precedenza. Si usa anche il valore predefinito **sbTokenProvider**, definito nel passaggio successivo.
 
-6. Dopo l'elemento `<services>` creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS\_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal [portale di Azure classico][] nel passaggio 1.
+6. Dopo l'elemento `<services>` creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal [portale di Azure classico][] nel passaggio 1.
 
 	```
 	<behaviors>
@@ -570,7 +570,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire l'applicazione:
 
-1. Dal prompt dei comandi, eseguire il servizio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Dal prompt dei comandi, eseguire il servizio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copiare e incollare l'indirizzo dal prompt dei comandi in un browser per visualizzare l'immagine.
 
@@ -584,4 +584,4 @@ A questo punto, dopo aver creato un'applicazione che utilizza il servizio di ino
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configurare connessioni ExpressRoute e VPN da sito a sito per la coesistenza per una rete virtuale
@@ -179,7 +179,7 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 **Prima di iniziare la configurazione:** verificare che nella rete virtuale siano rimasti indirizzi IP sufficienti per aumentare le dimensioni della subnet del gateway.
 
-1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile scaricare e installare i cmdlet di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
+1. Scaricare la versione più recente dei cmdlet di PowerShell. È possibile installare i cmdlet PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
 
 2. Eliminare il gateway VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
 
@@ -211,4 +211,4 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

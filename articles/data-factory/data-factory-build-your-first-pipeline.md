@@ -65,7 +65,7 @@ Quando il file viene elaborato dalla pipeline con attività Hive di HDInsight, l
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-Dalle righe di esempio mostrate sopra, la prima (con 2014-01-01) verrà scritta nel file 000000\_0 nella cartella month=1. Allo stesso modo, la seconda verrà scritta nel file nella cartella month=2 e la terza verrà scritta nel file nella cartella month=3.
+Dalle righe di esempio mostrate sopra, la prima (con 2014-01-01) verrà scritta nel file 000000_0 nella cartella month=1. Allo stesso modo, la seconda verrà scritta nel file nella cartella month=2 e la terza verrà scritta nel file nella cartella month=3.
 
 ## Caricare i file nell'archiviazione di Azure per l'esercitazione
 Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure con i file necessari per l'esercitazione.
@@ -77,7 +77,7 @@ In questa sezione si dovrà:
 
 ### Creare file di script HQL 
 
-1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.  
+1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@ In questa sezione si dovrà:
 		FROM WebLogsRaw
 
 ### Creare un file di input di esempio
-Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetstarted** con il contenuto seguente:
+Usando il Blocco note, creare un file denominato **input.log** in **C:\adfgetstarted** con il contenuto seguente:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -188,12 +188,12 @@ Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetst
 Per eseguire questa operazione è possibile usare strumenti quali Azure Storage Explorer o CloudXPlorer di ClumsyLeaf Software. Questa sezione fornisce istruzioni sull'uso dello strumento AzCopy.
 	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
-	1. Scaricare la [versione più recente di **AzCopy**](http://aka.ms/downloadazcopy) o la [versione di anteprima più recente](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
+	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
 	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Passare alla cartella C:\\adfgetstarted ed eseguire il comando seguente per caricare il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
+	3. Passare alla cartella C:\adfgetstarted ed eseguire il comando seguente per caricare il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@ Per eseguire questa operazione è possibile usare strumenti quali Azure Storage 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Ripetere i due passaggi precedenti per caricare il file partitionweblogs.hql nella cartella script del contenitore adfgetstarted. Il comando è il seguente: 
+	1. Eseguire il comando seguente per caricare il file **partitionweblogs.hql** nella cartella **script** del contenitore **adfgetstarted**. Il comando è il seguente: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - Visual Studio
 - Modelli di Gestione risorse di Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

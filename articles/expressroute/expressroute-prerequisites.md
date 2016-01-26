@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -71,4 +71,4 @@ Esaminare le risorse seguenti per altre informazioni sui requisiti di Office 365
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

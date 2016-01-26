@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 
 # Introduzione all'insieme di credenziali delle chiavi di Azure #
@@ -35,7 +35,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](../../../../pricing/free-trial).
-- Azure PowerShell **versione minima 1.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`. Se sono installate le versioni di Azure PowerShell dalla 0.9.1 alla 0.9.8, è comunque possibile svolgere questa esercitazione, con alcune piccole modifiche. Ad esempio, sarà necessario usare il comando `Switch-AzureMode AzureResourceManager` e alcuni comandi per l'insieme di credenziali delle chiavi di Azure sono cambiati. Per un elenco dei cmdlet per l'insieme di credenziali delle chiavi di Azure per le versioni dalla 0.9.1 alla 0.9.8, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
+- Azure PowerShell ** versione minima 1.1.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`. Se sono installate le versioni di Azure PowerShell dalla 0.9.1 alla 0.9.8, è comunque possibile svolgere questa esercitazione, con alcune piccole modifiche. Ad esempio, sarà necessario usare il comando `Switch-AzureMode AzureResourceManager` e alcuni comandi per l'insieme di credenziali delle chiavi di Azure sono cambiati. Per un elenco dei cmdlet per l'insieme di credenziali delle chiavi di Azure per le versioni dalla 0.9.1 alla 0.9.8, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
 - Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/it-IT/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
 
 
@@ -45,9 +45,9 @@ Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire 
 
 	Get-Help <cmdlet-name> -Detailed
 
-Ad esempio, per informazioni sul cmdlet **Add-AzureAccount**, digitare:
+Ad esempio, per informazioni della Guida per il cmdlet **Login-AzureRmAccount**, digitare:
 
-	Get-Help Add-AzureAccount -Detailed
+	Get-Help Login-AzureRmAccount -Detailed
 
 Si possono anche leggere le esercitazioni seguenti per acquisire familiarità con Gestione risorse di Azure in Azure PowerShell:
 
@@ -60,6 +60,8 @@ Si possono anche leggere le esercitazioni seguenti per acquisire familiarità co
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
     Login-AzureRmAccount 
+
+Si noti che se si usa un'istanza specifica di Azure, ad esempio Azure per enti pubblici, si dovrà usare il parametro -Environment con questo comando. Ad esempio: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
 
@@ -102,7 +104,7 @@ Per usare l'insieme di credenziali chiave di Azure per creare automaticamente un
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
-Se però in un file PFX salvato sull'unità C:\\ e denominato softkey.pfx esiste già una chiave protetta tramite software che si vuole caricare nell'insieme di credenziali chiave di Azure, digitare quanto segue per impostare la variabile **securepfxpwd** per la password **123** per il file PFX:
+Se però in un file PFX salvato sull'unità C:\ e denominato softkey.pfx esiste già una chiave protetta tramite software che si vuole caricare nell'insieme di credenziali chiave di Azure, digitare quanto segue per impostare la variabile **securepfxpwd** per la password **123** per il file PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -182,7 +184,7 @@ Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segr
 
 Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).
 
-Per creare queste chiavi HSM protette, è necessaria una [sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette](../../../pricing/free-trial).
+Per creare queste chiavi HSM protette, è necessaria una [sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette](../../../pricing/free-trial). Inoltre, questa funzionalità non è disponibile per la versione di Azure per la Cina.
 
 
 Quando si crea l'insieme di credenziali, aggiungere il parametro **-SKU**:
@@ -235,9 +237,9 @@ Per un'esercitazione successiva sull'uso dell'insieme di credenziali delle chiav
 
 Per informazioni sull'uso dell'insieme di credenziali delle chiavi, vedere [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md).
 
-Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Per un elenco di cmdlet di Azure PowerShell per l'insieme di credenziali delle chiavi di Azure più recenti, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
-Per i riferimenti alla programmazione, vedere la [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](key-vault-developers-guide.md).
+Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

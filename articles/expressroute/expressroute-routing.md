@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ La subnet a.b.c.d/29 verrà divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Micr
 
 Si consideri un caso in cui si selezioni l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.135, tra cui:
 
-- 192\.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
-- 192\.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
+- 192.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
+- 192.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
 
 ### Indirizzi IP per il peering Microsoft e il peering pubblico di Azure
 
@@ -70,7 +70,6 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati all'utente in uno
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Scambio di route dinamico
@@ -174,4 +173,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

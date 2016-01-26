@@ -30,6 +30,10 @@ Questa esercitazione illustra come è facile creare una macchina virtuale di Azu
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
+<br>
+
+>[AZURE.TIP]Quando si usa il portale, se si vuole che la VM faccia parte di un set di disponibilità, è necessario creare quest'ultimo prima o durante la creazione della prima VM nel set. Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
+
 È inoltre possibile creare macchine virtuali usando le proprie immagini, con modelli di Gestione risorse o con strumenti di automazione. Per altre informazioni sui diversi metodi, vedere [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -62,7 +66,7 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 2. Immettere un **Nome** da assegnare alla macchina virtuale. Il nome non può contenere caratteri speciali.
 
-3. Immettere un **Nome utente** amministratore e una **Password** complessa. La password deve avere una lunghezza compresa tra 8 e 123 caratteri e includere almeno 3 degli elementi seguenti: 1 lettera minuscola, 1 lettera maiuscola, 1 numero e 1 carattere speciale. **Il nome utente e la password sono necessari per accedere alla macchina virtuale**
+3. Immettere un **Nome utente** amministrativo e una **Password** complessa. La password deve avere una lunghezza compresa tra 8 e 123 caratteri e includere almeno 3 degli elementi seguenti: 1 lettera minuscola, 1 lettera maiuscola, 1 numero e 1 carattere speciale. **Il nome utente e la password serviranno per accedere alla macchina virtuale**.
 
 4. Se si hanno più sottoscrizioni, specificare quella per la nuova macchina virtuale, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
 
@@ -114,4 +118,4 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 * Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
 * Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -42,7 +42,7 @@ Accesso remoto, ad esempio VPN, RDG| |* |
 
 ## Dove si trovano gli utenti?
 
-Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da utilizzare, ovvero Multi-Factor Authentication nel cloud o locale mediante Server MFA.
+Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da usare, ad esempio Multi-Factor Authentication nel cloud o in locale con il server MFA.
 
 
 
@@ -79,6 +79,12 @@ Cache | ● | ●
 
 Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario.**
 
-<center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
+<center>
 
-<!---HONumber=AcomDC_1125_2015-->
+
+
+
+[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</center>
+
+<!---HONumber=AcomDC_0121_2016-->

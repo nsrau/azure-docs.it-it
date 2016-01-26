@@ -45,7 +45,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 	- Uno o più cluster o server host Hyper-V in ogni gruppo host.
 	- Una o più macchine virtuali nel server Hyper-V di origine. Le macchine virtuali devono essere di generazione 1.
 - Per altre informazioni sulla configurazione dei cloud VMM:
-	- Per ulteriori informazioni sui cloud privati VMM, leggere [Novità del cloud privato con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e [VMM 2012 e i cloud](http://go.microsoft.com/fwlink/?LinkId=324956).
+	- Per altre informazioni sui cloud privati VMM, leggere [Novità del cloud privato con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e [VMM 2012 e i cloud](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Per altre informazioni, vedere [Configurare l'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- Una volta stabiliti gli elementi dell'infrastruttura cloud, leggere le informazioni su come creare i cloud privati in [Creazione di un cloud privato in VMM](http://go.microsoft.com/fwlink/?LinkId=324953) e [Procedura dettagliata: creazione di cloud privati con System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/?LinkId=324954).
 
@@ -117,14 +117,14 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 2. Eseguire il file nel server VMM di origine. Se VMM viene distribuito in un cluster e si installa il provider per la prima volta, installarlo in un nodo attivo nel cluster e completare l'installazione per registrare il server VMM nell'insieme di credenziali. Quindi, installare il provider sugli altri nodi. Si noti che se si sta aggiornando il provider sarà necessario eseguire l'aggiornamento su tutti i nodi, in quanto dovrebbero eseguire tutti la stessa versione del provider.
 
 
-3. Il programma di installazione effettua una **Verifica prerequisiti** e chiede l'autorizzazione ad arrestare il servizio VMM per avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
+3. Il programma di installazione esegue una **Verifica prerequisiti** e chiede l'autorizzazione ad arrestare il servizio VMM per avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
 
 4. In **Microsoft Update** è possibile fornire il consenso esplicito agli aggiornamenti. Se questa impostazione è abilitata, gli aggiornamenti del provider verranno installati in base ai criteri indicati in Microsoft Update.
 
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  Il percorso di installazione è impostato su **<SystemDrive>\\Programmi\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic sul pulsante di installazione per iniziare a installare il provider.
+1.  Il percorso di installazione è impostato su **<SystemDrive>\Programmi\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Fare clic sul pulsante di installazione per iniziare a installare il provider.
 	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
@@ -159,7 +159,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 
 8. In **Nome server** specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
 
-8. In **Initial cloud metadata** selezionare l'opzione relativa alla sincronizzazione dei metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM.
+8. In **Initial cloud metadata** selezionare l'opzione relativa alla sincronizzazione dei metadati per tutti i cloud presenti sul server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si intende sincronizzare tutti i cloud, è possibile lasciare deselezionata questa impostazione e sincronizzare ogni cloud singolarmente nelle relative proprietà nella console VMM. 
 	![Server registration](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
@@ -184,7 +184,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
   
 #### Elenco dei parametri di installazione dalla riga di comando
 
- - **/Credentials** : parametro obbligatorio che specifica la posizione in cui si trova il file del codice di registrazione.  
+ - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione  
  - **/FriendlyName** : parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
  - **/EncryptionEnabled**: parametro facoltativo da usare solo nello scenario da VMM ad Azure se è necessario che la crittografia delle macchine virtuali sia inattiva in Azure. Assicurarsi che il nome del file specificato abbia l'estensione **pfx**.
  - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
@@ -214,6 +214,13 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure/ASRE2AVMM_AgentPrereqs.png)
 
 4. Nella pagina **Impostazioni di installazione** specificare dove si vuole installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su <b>Installa</b>.
+5. Al termine dell'installazione, fare clic su **Chiudi** per completarla.
+	
+	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure/MarsAgentRegister.png)
+
+>[AZURE.NOTE]È possibile installare l'Agente di Servizi di ripristino di Microsoft Azure dalla riga di comando con il comando seguente
+>
+	marsagentinstaller.exe /q /nu
 
 ## Passaggio 6: configurare le impostazioni di protezione del cloud
 
@@ -311,7 +318,7 @@ Per testare la distribuzione è possibile eseguire un failover di test per una s
 
 ### Creare un piano di ripristino
 
-1. Nella scheda **Piani di ripristino** aggiungere un nuovo piano. Specificare un nome, immettere **VMM** nel campo **Tipo di origine**, specificare il server VMM di origine in **Origine** e digitare Azure nel campo relativo alla destinazione.
+1. Nella scheda **Piani di ripristino** aggiungere un nuovo piano. Specificare un nome, immettere **VMM** nel campo **Tipo origine**, specificare il server VMM di origine in **Origine** e digitare Azure nel campo relativo alla destinazione.
 
 	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RP1.png)
 
@@ -332,7 +339,7 @@ Una volta creato il piano di ripristino, verrà visualizzato nella scheda **Pian
 - Failover di test senza una rete di Azure: questo tipo di failover di test verifica che la macchina virtuale sia rilevata correttamente in Azure. La macchina virtuale non sarà connessa ad alcuna rete di Azure dopo il failover.
 - Failover di test con una rete di Azure: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di cui viene eseguito il failover siano connesse alla rete di Azure di destinazione specificata. Per la gestione della subnet, nel failover di test la subnet della macchina virtuale di test verrà rilevata in base alla subnet della macchina virtuale di replica. Questo comportamento è diverso dalla replica normale quando la subnet della macchina virtuale di replica si basa sulla subnet della macchina virtuale di origine.
 
-Per eseguire un failover di test per una macchina virtuale abilitata per la protezione in Azure senza specificare una rete di Azure di destinazione, non occorre preparare l'ambiente. Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Per altre informazioni dettagliate su come eseguire questa operazione, vedere [Eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
+Per eseguire un failover di test per una macchina virtuale abilitata per la protezione in Azure senza specificare una rete di Azure di destinazione, non occorre preparare l'ambiente. Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Altre informazioni dettagliate su come [eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
 
 
 Sarà anche necessario configurare l'infrastruttura per il corretto funzionamento della macchina virtuale replicata. Ad esempio, una macchina virtuale con DNS e Controller di dominio può essere replicata in Azure utilizzando Azure Site Recovery e può essere creata nella rete di test utilizzando Failover di test. Per altri dettagli, vedere la sezione [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
@@ -371,7 +378,7 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 <LI>Per pianificare e distribuire Azure Site Recovery in un ambiente di produzione completo, vedere la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">guida alla pianificazione per Azure Site Recovery</a> e la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">guida alla distribuzione per Azure Site Recovery</a>.</LI>
 
 
-<LI>in caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum sui Servizi di ripristino di Azure</a>.</LI>
+<LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> 
 </UL>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->
