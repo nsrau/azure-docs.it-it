@@ -24,7 +24,7 @@ Ci sono diversi [esempi](app-insights-export-telemetry.md#code-samples) che illu
 La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsiasi nome di tipo di telemetria: visualizzazione, richiesta e così via.
 
 
-## & lt; telemetryType & gt;
+## &lt;telemetryType&gt;
 
 **<measurement>**
 
@@ -989,4 +989,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
