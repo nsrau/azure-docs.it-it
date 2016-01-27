@@ -196,7 +196,7 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente *
 ### Registrare l'agente di compilazione
 
 1.	Scaricare agent.zip. A tale scopo, seguire questa procedura:
-    1.	Accedere al progetto team, ad esempio ****https://[your-Team-Services-account-name].visualstudio.com**.
+    1.	Accedere al progetto team, ad esempio **https://[your-Team-Services-account-name].visualstudio.com**.
 1.	Fare clic sull'icona a forma di "ingranaggio" nell'angolo in alto a destra della schermata.
     1.	Nel Pannello di controllo scegliere la scheda **Pool di agenti**.
     1.	Scegliere **Scarica agente** per scaricare il file agent.zip.
@@ -348,4 +348,4 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
 - Articolo sulla [distribuzione di un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - Articolo sulla [creazione e configurazione di una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
