@@ -25,6 +25,8 @@ Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una r
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
 
+Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+
 ## Indirizzi IP pubblici
 Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs), [Database SQL](sql-database-technical-overview.md) e [Archiviazione di Azure](storage-introduction.md).
 
