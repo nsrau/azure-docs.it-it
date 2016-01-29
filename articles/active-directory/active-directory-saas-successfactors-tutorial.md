@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
   
-L'obiettivo di questa esercitazione è mostrare l'integrazione di Azure e SuccessFactors in**SP avviato modalità Single Sign-On**. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+L'obiettivo di questa esercitazione è mostrare l'integrazione di Azure e SuccessFactors in**SP avviato modalità Single Sign-On**.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di SuccessFactors abilitata al Single Sign-On nella modalità avviata da SP
@@ -84,10 +85,13 @@ Per configurare l'accesso Single Sign-On, è necessario contattare il team di su
 
     ![Configura URL app](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso a SuccessFactors** digitare l'URL utilizzato dagli utenti per accedere all'applicazione SuccessFactors (ad esempio: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-2.  Nella casella di testo **URL di risposta SuccessFactors** digitare ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    1.  Nella casella di testo **URL di accesso a SuccessFactors** digitare l'URL utilizzato dagli utenti per accedere all'applicazione SuccessFactors (ad esempio: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+	2.  Nella casella di testo **URL di risposta SuccessFactors** digitare **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
-        >[AZURE.NOTE]Questo valore è solo un segnaposto temporaneo. Ottenere il valore effettivo del team di supporto di SuccessFactors. Più avanti in questa esercitazione sono disponibili le istruzioni su come contattare il team di SuccessFactors. Nel contesto della conversazione, viene fornito l'URL di risposta SuccessFactors effettivo.
+        >[AZURE.NOTE]Questo valore è solo un segnaposto temporaneo.  
+        >Ottenere il valore effettivo del team di supporto di SuccessFactors.  
+        >Più avanti in questa esercitazione sono disponibili le istruzioni su come contattare il team di SuccessFactors.  
+        >Nel contesto della conversazione, viene fornito l'URL di risposta SuccessFactors effettivo.
 
 4.  Nella pagina **Configura accesso Single Sign-On in SuccessFactors** per scaricare il file del certificato, fare clic su **Download certificato**, quindi salvare il certificato nel computer.
 
@@ -109,7 +113,8 @@ Per configurare l'accesso Single Sign-On, è necessario contattare il team di su
 
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a SuccessFactors, è necessario eseguirne il provisioning in SuccessFactors. Nel caso di SuccessFactors, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a SuccessFactors, è necessario eseguirne il provisioning in SuccessFactors.  
+Nel caso di SuccessFactors, il provisioning è un'attività manuale.
   
 Per creare utenti in SuccessFactors, è necessario contattare il team di supporto di SuccessFactors.
 
