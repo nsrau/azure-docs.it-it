@@ -93,7 +93,10 @@ Get Container Properties|	Sì|	No|
 Get Container Metadata|	Sì|	No|
 Set Container Metadata|	Sì|	Sì|
 Get Container ACL|	Sì|	No|
-Set Container ACL|	Sì|	Sì (*)|Delete Container| No| Sì|Lease Container| Sì| Sì|List Blobs| No| No 
+Set Container ACL|	Sì|	Sì (*)|
+Delete Container| No| Sì|
+Lease Container| Sì| Sì|
+List Blobs| No| No 
 
 (*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.
 
@@ -107,7 +110,16 @@ Get Blob Properties|	Sì|	Sì|
 Set Blob Properties|	Sì|	Sì|
 Get Blob Metadata|	Sì|	Sì|
 Set Blob Metadata|	Sì|	Sì|
-Lease Blob (*)| Sì| Sì| Snapshot Blob| Sì| Sì| Copy Blob| Sì| Sì (per BLOB di origine e di destinazione)| Abort Copy Blob| No| No| Delete Blob| No| Sì| Put Block| No| No| Put Block List| Sì| Sì| Get Block List| Sì| No| Put Page| Sì| Sì| Get Page Ranges| Sì| Sì
+Lease Blob (*)| Sì| Sì|
+Snapshot Blob| Sì| Sì|
+Copy Blob| Sì| Sì (per BLOB di origine e di destinazione)|
+Abort Copy Blob| No| No|
+Delete Blob| No| Sì|
+Put Block| No| No|
+Put Block List| Sì| Sì|
+Get Block List| Sì| No|
+Put Page| Sì| Sì|
+Get Page Ranges| Sì| Sì
 
 (*) Lease Blob non modifica l'ETag in un BLOB.
 
@@ -271,4 +283,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Introduzione all'archiviazione per [BLOB](storage-dotnet-how-to-use-blobs.md), [tabelle](storage-dotnet-how-to-use-tables.md) e [code](storage-dotnet-how-to-use-queues.md)
 - Architettura di archiviazione - [Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
