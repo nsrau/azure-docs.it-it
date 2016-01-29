@@ -98,4 +98,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->
