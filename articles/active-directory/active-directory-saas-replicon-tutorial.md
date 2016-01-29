@@ -80,10 +80,11 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura URL app](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso a Replicon** digitare l'URL del tenant Replicon (ad esempio, **https://na2.replicon.com/company/saml2/sp-sso/post*)).
-2.  Nella casella di testo **URL di risposta Replicon** digitare l'URL **AssertionConsumerService** di Replicon (ad esempio, **https://global.replicon.com/!/saml2/company/sso/post*).
+    1.  Nella casella di testo **URL di accesso a Replicon** digitare l'URL del tenant Replicon (ad esempio, *https://na2.replicon.com/company/saml2/sp-sso/post*).
+    2.  Nella casella di testo **URL di risposta Replicon** digitare l'URL **AssertionConsumerService** di Replicon (ad esempio, *https://global.replicon.com/!/saml2/company/sso/post*).  
 
-        >[AZURE.NOTE]È possibile ottenere l'URL dai metadati Replicon in: **https://global.replicon.com/!/saml2/\<YourCompanyKey>**.
+        >[AZURE.NOTE]È possibile ottenere l'URL dai metadati Replicon in:
+        **https://global.replicon.com/!/saml2/\<YourCompanyKey>**.
 
     3.  Fare clic su **Avanti**
 
@@ -97,7 +98,10 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Abilita autenticazione SAML](./media/active-directory-saas-replicon-tutorial/IC777805.png "Abilita autenticazione SAML")
 
-    1.  Per visualizzare la finestra di dialogo **EnableSAML Authentication2**, aggiungere il codice seguente all'URL, dopo la chiave della società: **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**. Di seguito è riportato lo schema dell'URL completo:**https://na2.replicon.com/\<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
+    1.  Per visualizzare la finestra di dialogo **EnableSAML Authentication2**, aggiungere il codice seguente all'URL, dopo la chiave della società:  
+        **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**.  
+        Di seguito è riportato lo schema dell'URL completo:  
+        **https://na2.replicon.com/\<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
     2.  Scegliere il segno **+** per espandere la sezione **v20Configuration**.
     3.  Scegliere il segno **+** per espandere la sezione **metaDataConfiguration**.
     4.  Fare clic su **Scegli file** per selezionare il file XML dei metadati del provider di identità, quindi scegliere **Invia**.
@@ -107,7 +111,8 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     ![Configura accesso Single Sign-On](./media/active-directory-saas-replicon-tutorial/IC778418.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario eseguirne il provisioning in Replicon. Nel caso di Replicon, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario eseguirne il provisioning in Replicon.  
+Nel caso di Replicon, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
