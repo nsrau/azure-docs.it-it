@@ -132,7 +132,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer**.
     3.  Per caricare il certificato scaricato, fare clic su **Browse**.
     4.  Nella casella di testo **Entity Id**, digitare ****https://salesforce-work.com**.
-5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
+    5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
     6.  In **SAML Identity Location** selezionare **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL**.
     8.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Identity Provider Logout URL**.
@@ -207,4 +207,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
