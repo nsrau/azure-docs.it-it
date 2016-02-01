@@ -143,11 +143,15 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
 2.	Visitare la pagina [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Accedere con l'account Microsoft di registrazione della società (ad esempio marketplace@example.com)) per aggiungere coamministratori in base alle esigenze.
+3.	Accedere con l'account Microsoft di registrazione della società (ad esempio marketplace@example.com) per aggiungere coamministratori in base alle esigenze.
 
   >[AZURE.TIP]I criteri di partecipazione sono descritti nel [sito Web di Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito: 1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286). 2. Scegliere il **Centro per sviluppatori**. 3. Scegliere **Profilo**. 4. Scegliere un metodo di contatto.
+  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito:
+  1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286).
+  2. Scegliere il **Centro per sviluppatori**. 
+  3. Scegliere **Profilo**.
+  4. Scegliere un metodo di contatto.
 
 
 

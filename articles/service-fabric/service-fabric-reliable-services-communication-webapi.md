@@ -539,7 +539,7 @@ Dopo che tutti gli elementi necessari sono pronti, il progetto sarà simile a un
 Se non lo si è già fatto, [configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 
 
-È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica verrà visualizzato un messaggio che indica che il server Web è aperto in http://localhost:80/webapp/api.
+È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica verrà visualizzato un messaggio che indica che il server Web è aperto in **http://localhost:80/webapp/api**.
 
 
 ![Finestra degli eventi di diagnostica di Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)

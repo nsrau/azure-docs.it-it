@@ -61,7 +61,7 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-asp-net.md).
 
 ## Versione 2.0.0-beta2
 - Aggiunta del supporto per ITelemetryProcessor e possibilità di configurare tramite codice o configurazione. [Abilita il filtro personalizzato nell’SDK](app-insights-api-filtering-sampling/#filtering)
-- Inizializzatori di contesto rimossi. Usare invece [Inizializzatori di telemetria](https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering).
+- Inizializzatori di contesto rimossi. Usare invece [Inizializzatori di telemetria]( https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering).
 - Application Insights aggiornato per .Net framework 4.6. 
 - I nomi degli eventi personalizzati ora possono avere un massimo di 512 caratteri.
 - Proprietà ```OperationContext.Name``` rinominata in ```RootName```.
@@ -136,4 +136,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

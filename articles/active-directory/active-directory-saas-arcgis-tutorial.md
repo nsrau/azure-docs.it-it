@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "**https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "*https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configura URL app")
 
@@ -112,13 +112,14 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS. Nel caso di ArcGIS, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS.  
+Nel caso di ArcGIS, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
 1.  Accedere al tenant **ArcGIS**.
 
-2.  Fare clic su **Invita Membri**.
+2.  Fare clic su **Invita membri**.
 
     ![Invita membri](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members")
 
@@ -126,7 +127,7 @@ Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseg
 
     ![Add Members Automatically](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Add Members Automatically")
 
-4.  Nella finestra di dialogo **Membri** seguire questa procedura:
+4.  Nella finestra di dialogo **membri** seguire questa procedura:
 
     ![Add and review](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Add and review")
 
@@ -137,7 +138,7 @@ Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseg
 
     ![Add member](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Add member")
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
 

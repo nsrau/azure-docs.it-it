@@ -81,7 +81,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configurare le impostazioni dell'app")
 
     1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Aba Sainsburys Connect, ad esempio: "**https://myaba.co.uk/client-access/sainsburys/saml.php*).
-2.  Fare clic su **Avanti**
+    2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in Aba Sainsburys Connect** fare clic su **Scarica metadati** e quindi salvare il file di metadati nel computer.
 

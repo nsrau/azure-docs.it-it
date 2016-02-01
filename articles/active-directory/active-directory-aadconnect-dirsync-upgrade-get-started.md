@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect: eseguire l'aggiornamento dallo strumento Microsoft Azure AD (DirSync) | Microsoft Azure"
-   description="Informazioni su come eseguire l'aggiornamento da DirSync ad Azure AD Connect. Questo articolo descrive i passaggi necessari per aggiornare lo strumento Microsoft Azure AD Sync (DirSync) ad Azure AD Connect."
+   pageTitle="Azure AD Connect: eseguire l'aggiornamento dallo strumento Windows Azure AD (DirSync) | Microsoft Azure"
+   description="Informazioni su come eseguire l'aggiornamento da DirSync ad Azure AD Connect. Questo articolo descrive i passaggi necessari per aggiornare lo strumento Windows Azure AD Sync (DirSync) ad Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -16,7 +16,7 @@
    ms.date="01/11/2016"
    ms.author="shoatman;billmath"/>
 
-# Aggiornamento di Microsoft Azure Active Directory Sync (DirSync) ad Azure AD Connect
+# Aggiornamento di Windows Azure Active Directory Sync (DirSync) ad Azure AD Connect
 
 La documentazione seguente semplifica l'aggiornamento dell'installazione di DirSync esistente ad Azure AD Connect.
 

@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com**" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configura URL app")
 
@@ -110,9 +110,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Save Changes](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
 
-    1.  Nella casella di testo **User id** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Nella casella di testo **Email** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-3.  Fare clic su **Salva modifiche**.
+    1.  Nella casella di testo **User id** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  Nella casella di testo **Email** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+3.  Fare clic su **Save Changes**.
 
 10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
