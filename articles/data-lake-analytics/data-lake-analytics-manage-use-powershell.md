@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/15/2016"
    ms.author="jgao"/>
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -136,9 +136,9 @@ L'eliminazione di un account di Analytics non comporta l'eliminazione dell'accou
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
-	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName 
+	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
 	Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
@@ -156,7 +156,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
 ### Aggiungere altri account di archiviazione BLOB di Azure
@@ -166,7 +166,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### Aggiungere altri account di Data Lake Store
 
@@ -174,15 +174,15 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
 ### Elencare le origini dati:
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DataLakeStoreAccounts
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.StorageAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DataLakeStoreAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.StorageAccounts
 	
 
 
@@ -196,49 +196,49 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### Ottenere i dettagli dei processi
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 	
 ### Inviare i processi
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -247,7 +247,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 
 ### Annullare i processi
 
-	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-JobID $jobID
 
 
@@ -313,7 +313,7 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
 
 ## Usare i gruppi Gestione risorse di Azure
 
-Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
 Un servizio di Data Lake Analtyics può includere i seguenti componenti:
 
@@ -332,64 +332,64 @@ Un account di Data Lake Analytics e gli account di archiviazione dipendenti devo
 
 - [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Appendice A - Modello ARM di Data Lake Analytics
 
-Il seguente modello ARM può essere usato per distribuire un account di Data Lake Analytics e il relativo account di Data Lake Store dipendente. Salvarlo come file con estensione JSON e quindi usare uno script di PowerShell per chiamare il modello. Per altre informazioni, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md#deploy-with-powershell) e [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+Il seguente modello ARM può essere usato per distribuire un account di Data Lake Analytics e il relativo account di Data Lake Store dipendente. Salvarlo come file con estensione JSON e quindi usare uno script di PowerShell per chiamare il modello. Per altre informazioni, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md#deploy-with-powershell) e [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 	{
-		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
-			"adlAnalyticsName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Analytics account to create."
-				}
-			},
-			"adlStoreName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Store account to create."
-				}
-			}
-		},
-		"resources": [{
-			"name": "[parameters('adlAnalyticsName')]",
-			"type": "Microsoft.DataLakeAnalytics/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": ["[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]"],
-			"tags": {
-				
-			},
-			"properties": {
-				"defaultDataLakeAccount": "[parameters('adlStoreName')]"
-				}
-			}
-		},
-		{
-			"name": "[parameters('adlName')]",
-			"type": "Microsoft.DataLakeStore/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": [],
-			"tags": {
-				
-			}
-		}],
-		"outputs": {
-			"adlAnalyticsAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-			},
-			"adlStoreAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-			}
-		}
+	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "adlAnalyticsName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Analytics account to create."
+	      }
+	    },
+	    "adlStoreName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Store account to create."
+	      }
+	    }
+	  },
+	  "resources": [
+	    {
+	      "name": "[parameters('adlStoreName')]",
+	      "type": "Microsoft.DataLakeStore/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ ],
+	      "tags": { }
+	    },
+	    {
+	      "name": "[parameters('adlAnalyticsName')]",
+	      "type": "Microsoft.DataLakeAnalytics/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
+	      "tags": { },
+	      "properties": {
+	        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
+	        "dataLakeStoreAccounts": [
+	          { "name": "[parameters('adlStoreName')]" }
+	        ]
+	      }
+	    }
+	  ],
+	  "outputs": {
+	    "adlAnalyticsAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
+	    },
+	    "adlStoreAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
+	    }
+	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

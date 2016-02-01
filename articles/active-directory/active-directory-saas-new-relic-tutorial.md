@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con New Relic | Microsoft Azure" 
     description="Informazioni su come utilizzare New Relic con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con New Relic
   
@@ -51,7 +51,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -88,7 +88,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di **New Relic** come amministratore.
 
-6.  Nel menu in alto fare clic su **Account Settings**.
+6.  Nel menu in alto fare clic su **Impostazioni account**.
 
     ![Impostazioni account](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Impostazioni account")
 
@@ -102,7 +102,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     1.  Fare clic su **Choose File** per caricare il certificato di Azure Active Directory scaricato.
     2.  Nella pagina **Configura accesso Single Sign-On in New Relic** del portale di Microsoft Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote login URL**.
-    3.  Nella pagina **Configura accesso Single Sign-On in New Relic** del portale di Microsoft Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout landing URL**.
+    3.  Nella pagina **Configura accesso Single Sign-On in New Relic** del portale di Microsoft Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL pagina di destinazione disconnessione**.
     4.  Fare clic su **Save my changes**.
 
 9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -120,7 +120,7 @@ Per consentire agli utenti di Azure Active Directory di accedere a New Relic, è
 
     ![Impostazioni account](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Impostazioni account")
 
-3.  Nel riquadro a sinistra **Account** fare clic su **Summary**, quindi fare clic su **Add user**.
+3.  Nel riquadro a sinistra **Account** fare clic su **Riepilogo**, quindi fare clic su **Aggiungi utente**.
 
     ![Impostazioni account](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Impostazioni account")
 
@@ -152,4 +152,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

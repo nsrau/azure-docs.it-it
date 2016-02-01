@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/05/2016"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
@@ -241,8 +241,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 
 ## Cercare e applicare gli aggiornamenti
 
-L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passaggi seguenti per la ricerca e l’applicazione degli aggiornamenti sul dispositivo.
-<!--can take 1-4 hours-->
+L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passaggi seguenti per la ricerca e l’applicazione degli aggiornamenti sul dispositivo. <!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -285,9 +284,9 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 
 ## Passaggi successivi
 
-Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
+- Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 
-Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
+- Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -34,9 +34,9 @@ Di seguito alcune considerazioni per la scelta di un'offerta cache.
 -	**Cluster Redis**: se si desidera creare cache di dimensioni superiori a 53 GB o si desidera partizionare i dati tra più nodi Redis, è possibile usare la funzionalità di clustering Redis, disponibile nel livello Premium. Ogni nodo è costituito da una coppia di cache primaria/di replica per la disponibilità elevata. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 -	**Protezione avanzata e isolamento della rete**: la distribuzione di Rete virtuale di Azure (VNET) offre maggiore sicurezza e isolamento per Cache Redis di Azure, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso. Per altre informazioni, vedere [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 -	**Configurare Redis**: nei livelli Standard e Premium, è possibile configurare Redis per le notifiche di Keyspace.
--	**Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che può connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. [Per altri dettagli, vedere la pagina relativa a prezzi](https://azure.microsoft.com/pricing/details/cache/).
--	**Core dedicato per il server Redis**: nel livello Premium, per tutte le dimensioni della cache è disponibile un core dedicato per Redis. Nei livelli Basic/Standard, per le dimensioni C1 e superiori è disponibile un core dedicato per il server Redis.
--	Poiché **Redis è a thread singolo**, la disponibilità di più di due core non offre vantaggi ulteriori rispetto alla disponibilità di soli due core, ma in genere dimensioni maggiori della macchina virtuale hanno una larghezza di banda più elevata rispetto alle dimensioni minori. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client.
+-	**Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che possono connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. [Per altri dettagli, vedere la pagina relativa a prezzi](https://azure.microsoft.com/pricing/details/cache/).
+-	**Core dedicato per il server Redis**: nel livello Premium per tutte le dimensioni della cache è disponibile un core dedicato per Redis. Nei livelli Basic/Standard, per le dimensioni C1 e superiori è disponibile un core dedicato per il server Redis.
+-	Poiché **Redis è a thread singolo**, la disponibilità di più di due core non offre vantaggi ulteriori rispetto alla disponibilità di soli due core, ma in genere dimensioni di macchina virtuale maggiori hanno una larghezza di banda più elevata rispetto alle dimensioni minori. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client.
 -	**Miglioramenti delle prestazioni**: le cache nel livello Premium sono distribuite su hardware con processori più veloci e che offrono migliori prestazioni rispetto al livello Basic o Standard. Le cache di livello Premium offrono una velocità effettiva più elevata e minori latenze.
 
 <a name="cache-performance"></a>La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni di cache Standard e Premium usando `redis-benchmark.exe` da una macchina virtuale IaaS nell'endpoint della Cache Redis di Azure. Si noti che questi valori non sono garantiti e che non è disponibile alcun contratto di servizio per questi numeri, che dovrebbero essere tuttavia tipici. È consigliabile testare l'applicazione per determinare le dimensioni di cache ottimali per l'applicazione specifica.
@@ -134,6 +134,46 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
 		-	Impostare la proprietà `ClientName` in ogni multiplexer per semplificare la diagnostica. 
 		-	Si otterrà una latenza semplificata per ogni `ConnectionMultiplexer`.
 
+<a name="threadpool"></a>
+## Informazioni importanti sulla crescita del pool di thread
+
+L'oggetto ThreadPool CLR ha due tipi di thread, i thread di lavoro (WORKER) e i thread IOCP (porta di completamento I/O).
+
+-	I thread di lavoro vengono usati per operazioni come l'elaborazione dei metodi `Task.Run(…)` o `ThreadPool.QueueUserWorkItem(…)`. Questi thread vengono usati anche da vari componenti CLR quando il lavoro deve essere eseguito in un thread in background.
+-	I thread IOCP vengono usati quando si verificano I/O asincroni, ad esempio, durante la lettura dalla rete.  
+
+Il pool di thread fornisce nuovi thread di lavoro o thread di completamento I/O su richiesta, senza alcuna limitazione, fino a quando non viene raggiunta l'impostazione minima per ogni tipo di thread. Per impostazione predefinita, il numero minimo di thread corrisponde al numero di processori in un sistema.
+
+Quando il numero di thread esistenti, o occupati, raggiunge il minimo, l'oggetto ThreadPool limita la frequenza di inserimento dei nuovi thread a uno ogni 500 millisecondi. Ciò significa che se il sistema riceve un picco di lavoro che necessita di un thread IOCP, il lavoro viene elaborato molto rapidamente. Tuttavia, se il picco di lavoro è superiore all'impostazione minima configurata, ci sarà un ritardo nell'elaborazione di una parte del lavoro mentre l'oggetto ThreadPool attende che si verifichi una delle condizioni seguenti.
+
+1. Un thread esistente diventa disponibile per elaborare il lavoro.
+1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
+
+In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
+
+Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.0.450 o versione successiva, si noterà che ora le statistiche dell'oggetto ThreadPool vengono stampate. Di seguito sono riportati i dettagli relativi a IOCP e WORKER.
+
+	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
+
+Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
+
+### Raccomandazione
+
+È consigliabile impostare il numero minimo dei thread IOCP e WORKER su un valore maggiore di quello predefinito. Non è possibile fornire indicazioni universali su questo valore, perché il valore corretto per un'applicazione potrebbe essere troppo alto o troppo basso per un'altra. Questa impostazione può anche influire sulle prestazioni di altre parti di applicazioni complesse. È quindi necessario che venga regolata in base alle esigenze specifiche del cliente. Un buon punto di partenza è 200 o 300, da verificare e modificare a seconda delle necessità.
+
+Come configurare questa impostazione:
+
+-	In ASP.NET, usare l'[impostazione di configurazione "minIoThreads"][] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application\_Start in global.asax.cs.
+
+> **Nota importante:** il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si ha un computer a 4 core e si vuole che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
+
+-	Al di fuori di ASP.NET, usare l'API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
+
 <a name="cache-redis-commands"></a>
 ## Che cosa occorre prendere in considerazione quando si usano i comandi Redis comuni?
 
@@ -167,7 +207,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 <a name="cache-commands"></a>
 ## Come si eseguono i comandi Redis?
 
-È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#), ad eccezione dei comandi elencati nella pagina [Comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
+È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#) ad eccezione dei comandi elencati nella pagina sui [comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
 
 -	Se si ha una cache Standard o Premium, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di Azure.
 -	È anche possibile usare gli strumenti da riga di comando di Redis. A questo scopo, eseguire la procedura seguente.
@@ -215,7 +255,7 @@ Cache di Azure presenta attualmente tre offerte:
 >Per eventuali domande, [contattare Microsoft](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
 
 ### Cache Redis di Azure
-Cache Redis di Azure è in genere disponibile per dimensioni fino a 53 GB e prevede un contratto di servizio con disponibilità del 99,9%. Il nuovo [livello Premium](cache-premium-tier.md) offre dimensioni fino a 530 GB, oltre al supporto per clustering, reti virtuali e persistenza, con Contratti di servizio del 99,9%.
+Cache Redis di Azure è in genere disponibile per dimensioni fino a 53 GB e prevede un contratto di servizio con disponibilità del 99,9%. Il nuovo [livello Premium](cache-premium-tier-intro.md) offre dimensioni fino a 530 GB, oltre al supporto per clustering, reti virtuali e persistenza, con Contratti di servizio del 99,9%.
 
 Cache Redis di Azure permette ai clienti di usare una cache Redis protetta, dedicata e gestita da Microsoft. Con questa offerta è possibile sfruttare i vantaggi delle numerose funzionalità avanzate e dell'ecosistema forniti da Redis, insieme all'hosting e al monitoraggio affidabili offerti da Microsoft.
 
@@ -231,4 +271,6 @@ Servizio cache gestita è destinato al ritiro il 30 novembre 2016.
 ### In-Role Cache
 Cache nel ruolo è destinato al ritiro il 30 novembre 2016.
 
-<!---HONumber=AcomDC_1223_2015-->
+[impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+
+<!---HONumber=AcomDC_0121_2016-->

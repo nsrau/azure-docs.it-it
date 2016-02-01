@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016"
+	ms.date="01/14/2016"
 	ms.author="juliako"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -29,7 +29,10 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 - [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Uno degli SDK client disponibili: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- Uno dei client SDK disponibili: 
+	- [Azure Media Services SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services) 
+	- [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 
+	- [Servizi multimediali di Azure Media per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS. 
 - Strumenti esistenti: [portale di Azure classico](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -231,4 +234,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

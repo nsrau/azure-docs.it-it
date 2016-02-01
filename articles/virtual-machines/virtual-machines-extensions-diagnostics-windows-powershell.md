@@ -1,4 +1,4 @@
-<properties pageTitle="Abilitare la diagnostica in una macchina virtuale di Azure che esegue Windows mediante PowerShell | Microsoft Azure" description="Informazioni sull'uso di PowerShell per abilitare la diagnostica in una macchina virtuale di Azure che esegue Windows" services="virtual-machines" documentationCenter="" authors="sbtron" manager="" editor="""/>
+<properties pageTitle="Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows | Microsoft Azure" services="virtual-machines" documentationCenter="" description="Scoprire come usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows" authors="sbtron" manager="" editor="""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -10,59 +10,59 @@
 	ms.author="saurabh"/>
 
 
-# Abilitare la diagnostica in una macchina virtuale di Azure che esegue Windows mediante PowerShell
+# Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-È possibile raccogliere dati di diagnostica come log delle applicazioni, contatori delle prestazioni e così via da una macchina virtuale di Azure che esegue Windows mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per una macchina virtuale di Azure mediante PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+Diagnostica di Azure è la funzionalità all'interno di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica per raccogliere dati di diagnostica come i log dell'applicazione o i contatori delle prestazioni da una macchina virtuale Azure (VM) che esegue Windows. Questo articolo illustra come usare Windows PowerShell per abilitare l'estensione di diagnostica per una VM. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
-## Abilitare l'estensione Diagnostica di Azure in una macchina virtuale mediante un modello di distribuzione di Gestione risorse
+## Abilitare l'estensione di diagnostica se si usa il modello di distribuzione di Gestione risorse
 
-È possibile abilitare l'estensione di diagnostica durante la creazione di una macchina virtuale Windows con il modello di distribuzione di Gestione risorse aggiungendo la configurazione dell'estensione al modello di Gestione risorse. Vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](virtual-machines-extensions-diagnostics-windows-template.md).
+È possibile abilitare l'estensione di diagnostica durante la creazione di una VM Windows con il modello di distribuzione di Gestione risorse di Azure aggiungendo la configurazione dell'estensione al modello di Gestione risorse. Vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](virtual-machines-extensions-diagnostics-windows-template.md).
 
-Per abilitare l'estensione Diagnostica di Azure in una macchina virtuale esistente creata mediante il modello di distribuzione di Gestione risorse, è possibile usare il cmdlet di PowerShell [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) come illustrato di seguito.
+Per abilitare l'estensione di diagnostica in una VM esistente creata mediante il modello di distribuzione di Gestione risorse, è possibile usare il cmdlet di PowerShell [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) come illustrato di seguito.
 
 
 	$vm_resourcegroup = "myvmresourcegroup"
 	$vm_name = "myvm"
 	$diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
-	
-	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path 
+
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig\_path* è il percorso del file contenente la configurazione di diagnostica in formato xml, come descritto nell'[esempio](#sample-diagnostics-configuration) di seguito.
+*$diagnosticsconfig\_path* è il percorso del file contenente la configurazione di diagnostica in formato XML, come descritto nell'[esempio](#sample-diagnostics-configuration) riportato di seguito.
 
-Se il file di configurazione di diagnostica specifica un elemento **StorageAccount** con il nome di un account di archiviazione, lo script *Set AzureRMVMDiagnosticsExtension* imposterà automaticamente l'estensione di diagnostica per l'invio dei dati di diagnostica a quell'account di archiviazione. Affinché tutto funzioni come previsto, l'account di archiviazione deve trovarsi nella stessa sottoscrizione della macchina virtuale.
+Se il file di configurazione di diagnostica specifica un elemento **StorageAccount** con il nome di un account di archiviazione, lo script *Set-AzureRMVMDiagnosticsExtension* imposterà automaticamente l'estensione di diagnostica per l'invio dei dati di diagnostica a quell'account di archiviazione. A tal fine, l'account di archiviazione deve trovarsi nella stessa sottoscrizione della VM.
 
-Se nella configurazione di diagnostica non è stato specificato un elemento **StorageAccount**, è necessario passare il parametro *StorageAccountName* al cmdlet. Se viene specificato il parametro *StorageAccountName*, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione di diagnostica.
+Se nella configurazione di diagnostica non è stato specificato alcun elemento **StorageAccount**, è necessario passare il parametro *StorageAccountName* al cmdlet. Se viene specificato il parametro *StorageAccountName*, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione di diagnostica.
 
-Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella della macchina virtuale, è necessario passare in modo esplicito i parametri *StorageAccountName* e *StorageAccountKey* al cmdlet. Il parametro *StorageAccountKey* non è necessario quando l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione della macchina virtuale, in quanto il cmdlet può automaticamente eseguire una query e impostare il valore della chiave durante l'abilitazione dell'estensione di diagnostica. Se l'account di archiviazione di diagnostica si trova tuttavia in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave. In tal caso è necessario specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey*.
+Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella della VM, è necessario passare in modo esplicito i parametri *StorageAccountName* e *StorageAccountKey* al cmdlet. Il parametro *StorageAccountKey* non è necessario quando l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione perché il cmdlet può automaticamente eseguire una query e impostare il valore della chiave durante l'abilitazione dell'estensione di diagnostica. Tuttavia, se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave, quindi si deve specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey*.
 
-	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key	
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Dopo aver abilitato l'estensione di diagnostica di Azure in una macchina virtuale, è possibile ottenere le impostazioni correnti mediante il cmdlet [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx).
+Dopo aver abilitato l'estensione di diagnostica in una VM, è possibile ottenere le impostazioni correnti mediante il cmdlet [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx).
 
 	Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-L'oggetto *PublicSettings* restituito dal cmdlet contiene la configurazione xml in un formato con codifica Base64. Per leggere la configurazione xml, sarà necessario decodificarla.
-	
+Il cmdlet restituisce *PublicSettings*, contenente la configurazione XML in un formato con codifica Base64. Per leggere la configurazione XML è necessario decodificarla.
+
 	$publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
 	$encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
 	$xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
 	Write-Host $xmlconfig
- 
-Il cmdlet [Remove AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) può essere usato per rimuovere l'estensione di diagnostica dalla macchina virtuale.
-  
-## Abilitare l'estensione di diagnostica di Azure in una macchina virtuale mediante un modello di distribuzione classica
 
-Il cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) può essere usato per abilitare l'estensione Diagnostica di Azure in una macchina virtuale creata mediante il modello di distribuzione classica. L'esempio seguente illustra come creare una nuova macchina virtuale mediante il modello di distribuzione classica con l'estensione Diagnostica di Azure abilitata.
+Il cmdlet [Remove AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) può essere usato per rimuovere l'estensione di diagnostica dalla macchina virtuale.
+
+## Abilitare l'estensione di diagnostica se si usa il modello di distribuzione classico
+
+È possibile usare il cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) per abilitare un'estensione di diagnostica in una VM creata tramite il modello di distribuzione classico. L'esempio seguente illustra come creare una nuova VM tramite il modello di distribuzione classico con l'estensione di diagnostica abilitata.
 
 	$VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
 	$VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
 	$VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
 	New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Per abilitare l'estensione Diagnostica di Azure in una macchina virtuale esistente (classica) usare innanzitutto il cmdlet [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx) per ottenere la configurazione della macchina virtuale. Aggiornare quindi la configurazione della macchina virtuale per includere l'estensione Diagnostica di Azure mediante il cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). Applicare infine la configurazione aggiornata alla macchina virtuale mediante [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
+Per abilitare l'estensione di diagnostica su una VM esistente creata tramite il modello di distribuzione classico, usare prima il cmdlet [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx) per ottenere la configurazione della VM. Aggiornare quindi la configurazione della VM per includere l'estensione di diagnostica con il cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx). Infine, applicare la configurazione aggiornata alla VM mediante [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
 
 	$VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
 	$VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
@@ -70,21 +70,22 @@ Per abilitare l'estensione Diagnostica di Azure in una macchina virtuale esisten
 
 ## Configurazione di diagnostica di esempio
 
-Per la configurazione pubblica di diagnostica con gli script precedenti, è possibile usare il codice xml seguente. Questa configurazione di esempio trasferirà diversi contatori di prestazioni all'account di archiviazione di diagnostica insieme agli errori dai canali Application, Security e System nei log eventi di Windows e a eventuali errori dai registri dell'infrastruttura di diagnostica.
+Per la configurazione pubblica di diagnostica con gli script precedenti, è possibile usare il codice XML seguente. Questa configurazione di esempio trasferirà diversi contatori delle prestazioni all'account di archiviazione di diagnostica insieme agli errori dai canali Application, Security e System nei registri eventi di Windows e a eventuali errori dai registri dell'infrastruttura di diagnostica.
 
 La configurazione deve essere aggiornata per includere gli elementi seguenti:
 
-- L'attributo *resourceID* dell'elemento **Metrics** deve essere aggiornato con l'ID della risorsa per la macchina virtuale. 
-	- L'ID della risorsa può essere creato mediante il modello seguente: "/subscriptions/{*ID della sottoscrizione con la macchina virtuale*}/resourceGroups/{*Nome del gruppo di risorse per la macchina virtuale*}/providers/Microsoft.Compute/virtualMachines/ {*Nome della macchina virtuale*}". 
-	- Se ad esempio l'ID della sottoscrizione in cui è in esecuzione la macchina virtuale è **11111111-1111-1111-1111-111111111111**, il nome del gruppo di risorse è **MyResourceGroup** e il nome della macchina virtuale è **MyWindowsVM**, il valore di *resourceID* sarà:
-	 
+- L'attributo *resourceID* dell'elemento **Metrics** deve essere aggiornato con l'ID della risorsa per la VM.
+	- L'ID della risorsa può essere creato mediante il modello seguente: "/subscriptions/{*ID della sottoscrizione per la sottoscrizione con la VM*}/resourceGroups/{*Il nome del gruppo di risorse per la VM*}/providers/Microsoft.Compute/virtualMachines/ {*Il nome della VM*}".
+	- Ad esempio, se l'ID della sottoscrizione in cui è in esecuzione la VM è **11111111-1111-1111-1111-111111111111**, il nome del gruppo di risorse è **MyResourceGroup**, il nome della VM è **MyWindowsVM** e quindi il valore di *resourceID* sarà:
+
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
 		```
-	- Per altre informazioni sulla generazione delle metriche in base alla configurazione di metriche e contatori delle prestazioni, vedere la pagina relativa alle [tabelle WADMetrics nell'archiviazione](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage)
+
+	- Per ulteriori informazioni sulla generazione delle metriche in base alla configurazione dei contatori delle prestazioni e delle metriche, vedere la [tabella delle metriche della Diagnostica di Azure nell'archiviazione](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage).
 
 - L'elemento **StorageAccount** deve essere aggiornato con il nome dell'account di archiviazione di diagnostica.
- 
+
 	```
 	<?xml version="1.0" encoding="utf-8"?>
 	<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -189,8 +190,8 @@ La configurazione deve essere aggiornata per includere gli elementi seguenti:
 	</PublicConfig>
 	```
 
-## Passaggi successivi 
-- Per altre istruzioni sull'uso della diagnostica di Azure e di altre tecniche per la risoluzione dei problemi, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md).
-- Lo [schema di configurazione di diagnostica](https://msdn.microsoft.com/library/azure/mt634524.aspx) illustra le varie opzioni di configurazione xml per l'estensione di diagnostica.
+## Passaggi successivi
+- Per ulteriori indicazioni sull'uso della funzionalità di Diagnostica di Azure e altre tecniche per la risoluzione dei problemi, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md).
+- Lo [schema di configurazioni di diagnostica](https://msdn.microsoft.com/library/azure/mt634524.aspx) illustra le varie opzioni per le configurazioni XML per l'estensione di diagnostica.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

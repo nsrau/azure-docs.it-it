@@ -30,7 +30,7 @@ Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Ha
 
 Questo articolo presuppone che l'utente abbia:
 
-1. **Una sottoscrizione di Microsoft Azure**: se non già disponibile è possibile [aprire un account Microsoft Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Microsoft Azure a pagamento e, anche dopo avere esaurito i crediti, sarà possibile mantenere comunque l'account per usare i servizi di Microsoft Azure gratuiti, ad esempio Siti Web. Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. È possibile inoltre [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile utilizzare per i servizi di Microsoft Azure a pagamento.
+1. **Una sottoscrizione di Microsoft Azure**: se non già disponibile è possibile [aprire un account Microsoft Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Microsoft Azure a pagamento e, anche dopo avere esaurito i crediti, sarà possibile mantenere comunque l'account per usare i servizi di Microsoft Azure gratuiti, ad esempio Siti Web. Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. È possibile inoltre [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Microsoft Azure a pagamento.
 
 2. **Microsoft Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l’uso della sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](http://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile [qui](../powershell-install-configure.md). Per caricare il VHD, usare il cmdlet [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) di Azure.
 
@@ -140,7 +140,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 4. Digitare: `Import-AzurePublishSettingsFile <PathToFile>`
 
-	Dove `<PathToFile>` è il percorso completo del file con estensione publishsettings.
+	Dove `<PathToFile>` è il percorso completo del file .publishsettings.
 
 ## Passaggio 4: caricare il file VHD
 
@@ -188,7 +188,7 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 	![immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata che esegue Windows](virtual-machines-windows-create-custom.md).
+	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata](virtual-machines-create-custom.md).
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -203,4 +203,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

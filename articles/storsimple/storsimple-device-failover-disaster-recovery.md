@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -77,9 +77,13 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-		>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.** 1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa. 1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
-1. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
+	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
+
+	1. Infine, esaminare tutte le impostazioni di failover in **Conferma failover**. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+
+1. Viene creato un processo di failover che può essere monitorato tramite la pagina **Processi**. Se nel contenitore del volume di cui è stato eseguito il failover sono presenti volumi locali, i singoli processi di ripristino per ogni volume locale (non per i volumi a livelli) saranno visibili nel contenitore. Per il completamento di questi processi di ripristino può essere necessario molto tempo. È probabile che venga completato prima il processo di failover. Si noti che questi volumi presentano garanzie locali solo dopo il completamento dei processi di ripristino. Dopo aver completato il failover, andare alla pagina **Dispositivi**.
 
 	1. Selezionare il dispositivo utilizzato come dispositivo di destinazione per il processo di failover.
 
@@ -142,7 +146,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 ![Video disponibile](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico di cui si è eseguito il failover in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Ripristino di emergenza di continuità aziendale (BCDR)
 
@@ -153,12 +157,9 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 
 ## Passaggi successivi
 
-Dopo aver eseguito il failover, potrebbe essere necessario:
+- Dopo aver eseguito un failover, può essere necessario [disattivare o eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
-- [Disattivare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0121_2016-->

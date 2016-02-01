@@ -3,12 +3,19 @@
    description="Eseguire il backup di un server Windows Server o client Windows in Azure con questa semplice procedura. È possibile eseguire il backup di file e cartelle di Windows nel cloud in pochi semplici passaggi."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="backup di Windows server; backup server windows"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/19/2016"
+	 ms.author="jimpark;"/>
 
 # Eseguire il backup di file e cartelle Windows Server o Client Windows in Azure
 È facile eseguire il backup di cartelle e file di Windows in Azure con questa semplice procedura. Se non è già stato fatto, completare i [prerequisiti](backup-configure-vault.md#before-you-start) per preparare l'ambiente per il backup del computer Windows prima di procedere.
@@ -45,4 +52,4 @@
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

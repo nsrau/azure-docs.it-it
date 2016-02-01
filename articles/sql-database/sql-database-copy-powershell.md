@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Creare una copia di un database SQL di Azure tramite PowerShell" 
+    pageTitle="Creare una copia di un database SQL di Azure tramite PowerShell | Microsoft Azure" 
     description="Creare una copia di un database SQL di Azure tramite PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -57,7 +57,7 @@ Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) È possibile copiare l'ID sottoscrizione dalle informazioni visualizzate nel passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di altre informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) È possibile copiare l'ID sottoscrizione dalle informazioni visualizzate nel passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di altre informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -136,7 +136,7 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 
 ## Passaggi successivi
 
-- [Connettersi con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 - [Esportare il database in un BACPAC](sql-database-export-powershell.md)
 
 
@@ -146,4 +146,4 @@ Dopo aver eseguito **Start-AzureSqlDatabaseCopy**, è possibile controllare lo s
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

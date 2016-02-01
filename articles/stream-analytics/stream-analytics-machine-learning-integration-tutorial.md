@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esercitazione: Integrazione di Analisi di flusso di Azure e Azure Machine Learning | Microsoft Azure" 
+	pageTitle="Esercitazione: Analisi dei sentimenti con l'analisi di flusso di Azure e Azure Machine Learning | Microsoft Azure" 
 	description="Come sfruttare la funzione definita dall'utente e Machine Learning nei processi di Analisi di flusso"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# Esercitazione: Introduzione all'integrazione tra Analisi di flusso e Machine Learning #
+# Esercitazione: Eseguire l'analisi dei sentimenti con analisi di flusso e Machine Learning #
 
 Questa esercitazione è stata realizzata per consentire la configurazione rapida dell'integrazione di un semplice processo di Analisi di flusso con Machine Learning. Si sfrutterà un modello di Machine Learning per l'analisi dei sentimenti, proveniente dalla raccolta Cortana Analytics, per analizzare il flusso di dati di testo e determinare il punteggio dei sentimenti in tempo reale. Questa esercitazione è utile per comprendere scenari come l'analisi dei sentimenti in tempo reale in un flusso di dati di Twitter, l'analisi dei record delle chat dei clienti con il personale del supporto, i commenti in forum/blog/video e diversi altri scenari di assegnazione punteggi predittivi in tempo reale.
   
@@ -150,4 +150,4 @@ In questa esercitazione è stato creato un processo di Analisi di flusso che leg
 
     ![Visualizzazione monitoraggio ML nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

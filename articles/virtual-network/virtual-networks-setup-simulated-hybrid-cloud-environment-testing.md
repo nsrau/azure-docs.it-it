@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/14/2016" 
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
-
-Questo argomento descrive in modo dettagliato la creazione di un ambiente cloud ibrido simulato con Microsoft Azure per i test, usando due reti virtuali di Azure separate. Usare questa configurazione come alternativa a [ Impostazione di un ambiente cloud ibrido per i test](virtual-networks-setup-hybrid-cloud-environment-testing.md) quando non si dispone di una connessione diretta a Internet e un indirizzo IP pubblico. Di seguito è riportata la configurazione risultante.
+Questo articolo è una guida alla creazione di un ambiente cloud ibrido simulato con Microsoft Azure per eseguire i test che usa due reti virtuali di Azure separate. Usare questa configurazione come alternativa a [ Impostazione di un ambiente cloud ibrido per i test](virtual-networks-setup-hybrid-cloud-environment-testing.md) quando non si dispone di una connessione diretta a Internet e un indirizzo IP pubblico. Di seguito è riportata la configurazione risultante.
 
 ![](./media/virtual-networks-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
 
@@ -47,7 +46,7 @@ La configurazione di questo ambiente di test cloud ibrido comprende quattro fasi
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ridurre i costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi correnti dell'ambiente](#costs) in questo argomento per ulteriori informazioni.
+>[AZURE.NOTE]Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ulteriori informazioni sulla riduzione dei costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi di esercizio dell'ambiente](#costs) in questo articolo.
 
 
 ## Fase 1: Configurare la rete virtuale TestLab
@@ -58,8 +57,8 @@ Dal portale di gestione di Azure nel computer locale connettersi a DC1 con le cr
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet â€“Name "10.0.0.0/8" â€“Site "TestLab"
-	New-ADReplicationSubnet â€“Name "192.168.0.0/16" â€“Site "TestVNET"
+	New-ADReplicationSubnet -Name "10.0.0.0/8" -Site "TestLab"
+	New-ADReplicationSubnet -Name "192.168.0.0/16" -Site "TestVNET"
 
 Questa è la configurazione corrente.
 
@@ -145,7 +144,7 @@ Configurare quindi le reti virtuali TestLabLNet e TestVNETLNet con gli indirizzi
 Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino lo stesso valore, ovvero il valore di chiave determinato dal portale di gestione di Azure per la rete virtuale TestLab. Eseguire questi comandi da un prompt dei comandi di Azure PowerShell nel computer locale, specificando il valore della chiave precondivisa di TestLab.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 Nella pagina Rete del portale di gestione di Azure del computer locale fare quindi clic sulla rete virtuale **TestLab**, selezionare **Dashboard** e infine fare clic su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete virtuale TestLab.
 
@@ -158,14 +157,14 @@ Questa è la configurazione corrente.
 Creare prima di tutto una macchina virtuale di Azure per DC2. Eseguire questi comandi nel prompt dei comandi di Azure PowerShell nel computer locale.
 
 	$ServiceName="<Your cloud service name from Phase 2>"
-	$cred=Get-Credential â€“Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles â€“LUN 0 -HostCaching None
-	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Accedere quindi alla nuova macchina virtuale DC2.
 
@@ -219,23 +218,14 @@ Questa è la configurazione corrente.
  
 L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
-È anche possibile creare queste configurazioni nell'ambiente di test:
+## Passaggi successivi
+
+Impostare i carichi di lavoro seguenti nella rete virtuale TestVNET:
 
 - [Farm intranet di SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Applicazione LOB basata sul Web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+- [Applicazione line-of-business basata sul Web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 - [Server di sincronizzazione della directory (DirSync) di Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-## Risorse aggiuntive
-
-[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-
-[Ambiente di test di configurazione di base](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
-
-[Ambienti di test basati su cloud ibrido di Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## <a id="costs"></a>Ridurre al minimo i costi di esercizio dell'ambiente
 
@@ -271,9 +261,9 @@ Configurare quindi le reti virtuali TestLabLNet e TestVNETLNet con i nuovi indir
 Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino lo stesso valore, ovvero il valore di chiave determinato dal portale di gestione di Azure per la rete virtuale TestLab. Eseguire questi comandi da un prompt dei comandi di Azure PowerShell nel computer locale, specificando il valore della chiave precondivisa di TestLab.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

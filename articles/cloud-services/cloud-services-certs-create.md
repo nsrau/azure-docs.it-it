@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Panoramica sui certificati per i servizi cloud di Azure
-I certificati vengono usati in Azure per i servizi cloud ([certificati di servizio](#what-are-service-certificates)) e per l'autenticazione con l'API di gestione ([certificati di gestione](#what-are-management-certificates)). Questo argomento fornisce informazioni generali sui tipi di certificato, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
+I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione e sono legati all'uso del portale di Azure classico e non di Gestione risorse di Azure. Questo argomento fornisce informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dal creatore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorarlo. I certificati autofirmati dovrebbero essere usati solo dall'utente quando sviluppa e testa i servizi cloud.
 
@@ -31,7 +31,7 @@ I certificati di servizio sono associati ai servizi cloud e consentono la comuni
 I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato modificando la configurazione del servizio senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico per il certificato e il relativo nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
 
 ## Cosa sono i certificati di gestione?
-I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
+I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
 
 >[AZURE.WARNING]Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
 
@@ -80,4 +80,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE]Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

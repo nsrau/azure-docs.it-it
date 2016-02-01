@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise | Microsoft Azure" 
     description="Informazioni su come utilizzare Mozy Enterprise con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2015" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
   
@@ -51,7 +51,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-mozy-enterprise-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-mozy-enterprise-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -94,9 +94,9 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Criteri di autenticazione](./media/active-directory-saas-mozy-enterprise-tutorial/IC777315.png "Criteri di autenticazione")
 
-    1.  Selezionare **Directory Service** come **Provider**.
+    1.  Selezionare **Servizio directory** come **Provider**.
     2.  Selezionare **Use LDAP Push**.
-    3.  Fare clic sulla scheda **SAML Authentication**.
+    3.  Fare clic sulla scheda **Autenticazione SAML**.
     4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure copiare il valore di **URL richiesta di autenticazione** e incollarlo nella casella di testo **Authentication URL**.
     5.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure copiare il valore di **ID provider di identità** e incollarlo nella casella di testo **SAML Endpoint**.
     6.  Creare un file **con codifica Base 64** dal certificato scaricato.  
@@ -104,7 +104,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     7.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **SAML Certificate**.
-    8.  Seleziona **Enable SSO for Admins to log in with their network credentials**.
+    8.  Selezionare **Abilita SSO per consentire agli amministratori di accedere con le proprie credenziali di rete**.
     9.  Fare clic su **Salva modifiche**.
 
 8.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Mozy Enterprise** del portale di Azure selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Completa**.
@@ -130,7 +130,7 @@ Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessa
 
     1.  Dall’elenco **Choose a group** selezionare un gruppo.
     2.  Dall’elenco **What tupe of user** selezionare un tipo.
-    3.  Nella casella di testo **Username** digitare il nome dell'utente di Azure AD.
+    3.  Nella casella di testo **Nome utente** digitare il nome dell'utente di Azure AD.
     4.  Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente di Azure AD.
     5.  Selezionare **Send user instruction email**.
     6.  Fare clic su **Add User(s)**.
@@ -151,10 +151,10 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
     ![Assegna utenti](./media/active-directory-saas-mozy-enterprise-tutorial/IC777319.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-mozy-enterprise-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

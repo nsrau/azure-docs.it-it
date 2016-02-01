@@ -1,6 +1,6 @@
 <properties
-   pageTitle="App C# Api"
-   description="App C# Api"
+   pageTitle="Eseguire espressioni C# in un'app per le API C# in un'app per la logica | Microsoft Azure"
+   description="Connettore o app per le API C#"
    services="app-service\logic"
    documentationCenter=".net"
    authors="jeffhollan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="jehollan"/>
 
 #App C# API
@@ -33,11 +33,11 @@ Per utilizzare l'applicazione dell'API C#, è necessario creare innanzitutto un'
 
 ##Utilizzo di App API C# nell'area di progettazione logica App
 ###Trigger
-È possibile creare un trigger che eseguirà il polling del servizio App logica (su un intervallo è definire), e, se viene restituito qualsiasi elemento diverso da `false`, verrà eseguita l'applicazione di logica, in caso contrario, si attende l'intervallo di polling successivo per poi verificare nuovamente.
+È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se vengono restituiti valori diversi da `false`, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
-Gli input per i trigger sono:-**espressione C#** - verrà valutata un'espressione. Verrà richiamato in una funzione e deve restituire`false`quando non si desidera che l'applicazione logica venga eseguita e può restituire qualsiasi altro elemento quando si desidera che l'applicazione logica venga eseguita. Sarà possibile utilizzare il contenuto della risposta nelle azioni dell'applicazione logica.
+Gli input per il trigger sono:-**Espressione C#** - Espressione che verrà valutata. Viene richiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
 
-Ad esempio, si potrebbe disporre di un semplice trigger che eseguirà l'applicazione di logica tra il: 15 e le: 30 dell'ora:
+Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la logica solo tra i valori :15 e :30 dell'ora:
 
 ```
 var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
@@ -47,7 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Analogamente, è possibile fornire un'azione da eseguire.
 
-Gli input per l'azione sono:-**espressione C#**: sarà valutata un'espressione. È necessario includere una`return`istruzione per visualizzare qualsiasi contenuto. -**Oggetti contesto**- un oggetto di contesto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere un JObject`{ ... }`e gli oggetti possono essere utilizzati nello script tramite il nome della chiave (il valore viene passato come un corrispondente JToken per nome).-**Librerie**- una matrice facoltativa di file con estensione .dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
+Gli input per l'azione sono: - **Espressione C#** - Espressione che verrà valutata. È necessario includere una`return`istruzione per visualizzare qualsiasi contenuto. -**Oggetti contesto**- un oggetto di contesto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere un JObject`{ ... }`e gli oggetti possono essere utilizzati nello script tramite il nome della chiave (il valore viene passato come un corrispondente JToken per nome).-**Librerie**- una matrice facoltativa di file con estensione .dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -105,4 +105,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

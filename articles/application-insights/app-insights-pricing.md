@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -67,7 +67,7 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 * È anche possibile esaminare singoli punti dati all'origine durante il debug:
  * Se si esegue l'app in modalità di debug in Visual Studio, i punti dati vengono registrati nella finestra di output. 
  * Per visualizzare i punti dati client, aprire il riquadro di debug del browser (in genere F12) e aprire la scheda di rete.
-
+* Per impostazione predefinita, la velocità dei dati è ridotta dal [campionamento adattivo](app-insights-sampling). Ciò significa che, con l'aumento dell'utilizzo dell'app, la velocità dei dati di telemetria non aumenta come previsto.
 
 ### Eccedenza
 
@@ -85,6 +85,8 @@ Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei p
 ![Nella parte inferiore del pannello dei prezzi](./media/app-insights-pricing/03-allocation.png)
 
 Fare clic sul grafico per altri dettagli o trascinare e fare clic su (+) per visualizzare i dettagli relativi a un intervallo di tempo.
+
+Il grafico mostra il volume di dati in arrivo nel servizio di Application Insights dopo il [campionamento](app-insights-sampling).
 
 
 ## Velocità dei dati
@@ -114,7 +116,7 @@ In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà 
 
 *Come è possibile ridurre la quantità di dati inviati dall'app personale?*
 
-* Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca. Da ASP.NET SDK 2.0.0-beta3, il campionamento adattivo è abilitato per impostazione predefinita.
+* Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca. Il campionamento adattivo è abilitato per impostazione predefinita dalla versione 2.0.0-beta3 di Application Insights SDK per ASP.NET.
 * [Disattivare gli agenti di raccolta dei dati di telemetria](app-insights-configuration-with-applicationinsights-config.md) che non sono necessari.
 
 
@@ -164,4 +166,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

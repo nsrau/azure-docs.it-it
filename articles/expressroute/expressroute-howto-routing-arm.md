@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare il routing per un circuito ExpressRoute mediante la Gestione risorse di Azure e PowerShell
@@ -395,4 +395,4 @@ Nel passaggio successivo, collegare una rete virtuale a un circuito ExpressRoute
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

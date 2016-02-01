@@ -71,7 +71,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 - Flusso compresso: non supportato, ignorato
 - Flusso di tipo sparse: non supportato, ignorato
 
-**D13. Qual è il requisito di dimensioni minime per la cartella della cache?** <br/> R13. La dimensione della cartella della cache viene determinata dalla quantità di dati sottoposti a backup. In genere, è consigliabile prevedere di allocare alla cartella della cache il 10-15% dello spazio necessario per l'archiviazione dei dati.
+**D13. Qual è il requisito di dimensioni minime per la cartella della cache?** <br/> R13. La dimensione della cartella della cache viene determinata dalla quantità di dati sottoposti a backup. In genere, è consigliabile prevedere di allocare alla cartella della cache il 5% dello spazio necessario per l'archiviazione dei dati.
 
 **D14. Come è possibile isolare dati di server specifici affinché non vengano ripristinati da altri server nell'organizzazione?**<br/> R14. Tutti i server che vengono registrati usando lo stesso insieme di credenziali saranno in grado di ripristinare i dati dei quali è stato effettuato il backup da altri server che usano la stessa passphrase. Per i server per i quali si vuole garantire che il ripristino venga eseguito solo in server specifici nell'organizzazione, è consigliabile usare passphrase separate. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
 
@@ -83,7 +83,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D18. I dati di backup vengono eliminati se si annulla un backup successivamente all'avvio?** <br/> R18: No. Nell'insieme di credenziali per il backup vengono archiviati i dati sottoposti a backup trasferiti fino al momento dell'annullamento. Backup di Azure utilizza un meccanismo di checkpoint in modo che i dati di backup Ottiene il controllo a cui fa riferimento in alcuni casi durante il backup e il successivo processo di backup può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Questo fornisce un migliore utilizzo della larghezza di banda in modo che non è necessario trasferire ripetutamente gli stessi dati.
 
-**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/> R19: Questa situazione può verificarsi quando le impostazioni per la pianificazione del backup archiviate nel server locale non coincidono con quelle archiviate nell'insieme di credenziali per il backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è opportuno riconfigurare i criteri di backup e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
+**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/>A19: Ciò può verificarsi quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'archivio di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è opportuno riconfigurare i criteri di backup e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
 
 **D20. Quali regole del firewall devono essere configurate per il backup di Azure Backup?** <br/> R20. Assicurarsi che le regole del firewall consentano la comunicazione con gli URL seguenti per facilitare il backup locale per la protezione in Azure e la protezione del carico di lavoro in Azure:
 
@@ -123,7 +123,7 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 **D5. È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera ma non annuale e mensile?**<br/> R5. Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
-**D6. È possibile "pianificare un backup" alle 18.00 e specificare i "criteri di conservazione" a un orario diverso?**<br/> R6. No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente vengono specificati i criteri di conservazione per i backup eseguiti a mezzanotte e alle 18.00. <br/>
+**D6. È possibile "pianificare un backup" alle 18.00 e specificare i "criteri di conservazione" a un orario diverso?**<br/> R6. No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18.00. <br/>
 
 ![Pianifica backup e conservazione](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -166,8 +166,8 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 	| Percorso del Registro | Chiave del Registro | Valore |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
 
 
 + Avviare OBEngine eseguendo il seguente comando in un prompt dei comandi con privilegi elevati:
@@ -176,4 +176,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

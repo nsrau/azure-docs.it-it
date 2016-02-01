@@ -34,7 +34,7 @@ Dopo aver inviato gli inviti agli utenti dell’azienda partner, è possibile co
 
 4. Dal punto di vista di Alice, quest’ultima riceverà il seguente messaggio di posta elettronica. ![Email di invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice fa clic sul link e le viene richiesto di accettare l'invito e di accedere utilizzando le credenziali di lavoro. Se Alice non è presente nella directory di Azure AD, dovrà effettuare l'iscrizione. ![Iscrizione su invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
+5. Alice fa clic sul link e le viene richiesto di accettare l'invito e di accedere usando le credenziali di lavoro. Se Alice non è presente nella directory di Azure AD, dovrà effettuare l'iscrizione. ![Iscrizione su invito per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice viene reindirizzata al pannello di accesso dell’App, che resta vuoto fino a quando all'utente viene concesso l'accesso alle app. ![Pannello di accesso per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceAccessPanel.png)
 
@@ -79,4 +79,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

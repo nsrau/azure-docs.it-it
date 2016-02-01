@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
@@ -170,6 +170,6 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all'[elenco 
 
 ## Passaggi successivi
 
-Per altre informazioni sulle specifiche del dispositivo StorSimple, scaricare le [Specifiche della serie StorSimple 8000](http://storsimple.seagate.com/Specifications-8000).
+È ora possibile iniziare la distribuzione di un dispositivo StorSimple nel data center. Per ulteriori informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

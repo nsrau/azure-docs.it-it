@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/19/2016"
 	ms.author="danlep"/>
 
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
@@ -35,9 +35,9 @@ Usare Gestione risorse di Azure per creare e gestire un gruppo di _risorse_ (ent
 
 Un vantaggio di Gestione risorse di Azure consiste nel fatto che è possibile creare le risorse di Azure in modo _dichiarativo_: si descrivono la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello individua i parametri che possono essere completati inline quando si esegue un comando oppure essere archiviati in un file JSON azuredeploy-parameters.json a parte. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
 
-Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Gestione risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](../resource-group-overview.md).
+Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Gestione risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
-Dopo aver creato una distribuzione, è possibile gestire le singole risorse in modo imperativo nella riga di comando, in modo analogo a quello del modello di distribuzione classica (Gestione dei servizi). Ad esempio, utilizzare i comandi CLI di Gestione risorse di Azure per avviare, arrestare o eliminare risorse, ad esempio [le macchine virtuali della Gestione risorse di Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Dopo aver creato una distribuzione, è possibile gestire le singole risorse in modo imperativo nella riga di comando, in modo analogo a quello del modello di distribuzione classica (Gestione dei servizi). Ad esempio, utilizzare i comandi CLI di Gestione risorse di Azure per avviare, arrestare o eliminare risorse, ad esempio [le macchine virtuali della Gestione risorse di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 ## Autenticazione
 
@@ -78,20 +78,19 @@ La distruzione al gruppo di risorse "testRG" verrà eseguita in un secondo momen
 
 Quando si lavora con i modelli, è possibile [crearne uno personalizzato](resource-group-authoring-templates.md) oppure usare uno dei modelli dalla [Raccolta modelli](https://azure.microsoft.com/documentation/templates/) che sono disponibili anche in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi iniziare con l’utilizzo del modello _101-simple-vm-from-image_ disponibile da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
+La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare quindi con l'uso del modello _101-simple-vm-from-image_ disponibile nella [Raccolta modelli](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
 
 * Nome utente dell'amministratore per la macchina virtuale = `adminUsername`
 * Password = `adminPassword`
 * Nome di dominio per la macchina virtuale = `dnsLabelPrefix`
 
->[AZURE.TIP]Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP]Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Scaricare i file .azuredeploy.json e .azuredeploy.parameters.json da [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) a una cartella di lavoro nel computer locale.
+1. Seguire il collegamento "Altre informazioni con GitHub" per scaricare i file azuredeploy.json e azuredeploy.parameters.json da GitHub in una cartella di lavoro nel computer locale. Assicurarsi di selezionare il formato _raw_ formato di ogni file in GitHub.
 
 2. Aprire il file azuredeploy.parameters.json in un editor di testo e immettere i valori dei parametri appropriati per l'ambiente (lasciando invariato il valore **ubuntuOSVersion**).
 
-
-```
+	```
 			{
 			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 			  "contentVersion": "1.0.0.0",
@@ -111,11 +110,12 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi in
 			  }
 			}
 
-```
+	```
+3.  Dopo aver modificato i parametri della distribuzione, si distribuirà la VM di Ubuntu nel gruppo di risorse creato in precedenza. Scegliere un nome per la distribuzione e quindi usare il comando seguente per avviarla.
 
-3.  Dopo aver modificato i parametri della distribuzione si distribuirà la VM di Ubuntu nel gruppo di risorse creato in precedenza. Scegliere un nome per la distribuzione e quindi usare il comando seguente per avviarla.
-
-		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
+	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
 
 	Questo esempio crea una distribuzione denominata _testRGDeploy_ che viene distribuita nel gruppo di risorse _testRG_. L’opzione `-e` specifica il file azuredeploy.parameters.json che è stato modificato nel passaggio precedente. L'opzione `-f` specifica il file modello azuredeploy.json.
 
@@ -123,7 +123,9 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi in
 
 4. Per verificare lo stato della distribuzione, usare il comando seguente.
 
-		azure group deployment show "testRG" "testRGDeploy"
+	```
+	azure group deployment show "testRG" "testRGDeploy"
+	```
 
 	La voce **ProvisioningState** mostra lo stato della distribuzione.
 
@@ -163,7 +165,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, quindi in
 
 È inoltre possibile utilizzare un modello direttamente da [GitHub](https://github.com/Azure/azure-quickstart-templates), invece di scaricarne uno nel computer. A tale scopo, passare l'URL al file azuredeploy.json per il modello nel comando utilizzando l’opzione **--template-url**. Per ottenere l’URL, aprire zuredeploy.json in GitHub in modalità _raw_, e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile utilizzare questo URL direttamente per creare una distribuzione, utilizzando un comando simile al seguente.
 
-	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
+	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
 
 > [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
@@ -206,11 +208,11 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 
 ## Passaggi successivi
 
-* Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+* Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
 * Per informazioni sull'uso di Gestione risorse di Azure dal portale di Azure, vedere [Uso di gruppi di risorse per la gestione risorse di Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

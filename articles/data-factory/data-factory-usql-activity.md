@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Eseguire script U-SQL in Azure Data Lake Analytics da Data factory di Azure 
@@ -56,7 +56,45 @@ subscriptionId | ID sottoscrizione di Azure | No (se non specificata, viene usat
 resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory).
 sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questo valore viene generato automaticamente nell'editor di Data factory. | Sì
 
-   
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
+
+ 
+| Tipo di utente | Scade dopo |
+| :-------- | :----------- | 
+| Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
+| Utente AAD, l'origine basata su OAuth è in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory dell'utente. | 12 ore |
+| Utente AAD, l'origine basata su OAuth è sullo stesso tenant rispetto al tenant di Data factory dell'utente. | <p> Il valore massimo è 90 giorni, se l'utente esegue le sezioni in base all'origine del proprio servizio collegato basato su OAuth almeno una volta ogni 14 giorni. </p><p>Durante i 90 giorni previsti, se l'utente non esegue sezioni basate su tale origine per 14 giorni, le credenziali scadono 14 giorni dopo l'esecuzione dell'ultima sezione.</p> | 
+
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+
+  
+### Per generare valori sessionId e authorization a livello di codice 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Per informazioni dettagliate sulle classi di Data factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
+ 
  
 ## Attività U-SQL di Data Lake Analytics 
 
@@ -125,7 +163,7 @@ degreeOfParallelism | Il numero massimo di nodi che verranno usati contemporanea
 priority | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No 
 parameters | Parametri per lo script U-SQL | No 
 
-Vedere [SearchLogProcessing.txt Script Definition](#script-definition) per la definizione dello script.
+Vedere la sezione [Definizione dello script SearchLogProcessing.txt](#script-definition).
 
 ### Set di dati di input e output di esempio
 
@@ -215,8 +253,8 @@ Vedere [Spostare dati da e verso l'archivio di Azure Data Lake](data-factory-azu
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-I valori per i parametri **@in** e **@out** nello script U-SQL riportato sopra vengono passati in modo dinamico da ADF mediante la sezione 'parameters'. Vedere la sezione 'parameters' riportata sopra nella definizione della pipeline.
+I valori dei parametri **@in** e **@out** nello script U-SQL riportato sopra vengono passati in modo dinamico da ADF usando la sezione "parameters". Vedere la sezione 'parameters' riportata sopra nella definizione della pipeline.
 
 È possibile specificare anche altre proprietà come degreeOfParallelism, priorità e così via nella definizione della pipeline per i processi in esecuzione sul servizio di Analisi Azure Data Lake.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio"/>
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -144,9 +144,9 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono utilizza
 ## Passaggi successivi
 Ora che il contenuto del Marketplace è caricato, è possibile passare al test dell'offerta nella gestione temporanea. Tuttavia, è necessario selezionare il tipo di offerta appropriato dall'elenco riportato di seguito, poiché i passaggi variano in base al tipo di offerta.
 
-|| Immagine di macchina virtuale | Servizio per sviluppatori | Servizio dati | Modello di soluzione |
+||Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
 |----|----|----|----|----|
-| **Passaggio 3. Eseguire il push dell'offerta in gestione temporanea** | [Testare l'offerta della VM in gestione temporanea](marketplace-publishing-vm-image-test-in-staging.md) | [Testare l'offerta del servizio sviluppatori in gestione temporanea](marketplace-publishing-dev-service-test-in-staging.md) | [Testare l'offerta del servizio dati in gestione temporanea](marketplace-publishing-data-service-test-in-staging.md) | [Testare il modello di soluzione in gestione temporanea](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Passaggio 3. Push dell'offerta nella gestione temporanea** | [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per gli sviluppatori nello staging | [Test dell'offerta del servizio dati nello staging](marketplace-publishing-data-service-test-in-staging.md) | [Test del modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

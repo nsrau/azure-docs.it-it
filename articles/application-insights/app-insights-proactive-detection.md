@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: rilevamento proattivo
@@ -37,12 +37,12 @@ Attualmente, gli algoritmi esaminano i tempi di caricamento delle pagine, i temp
 
 Non è necessario impostare regole di soglia o configurare regole. Per rilevare modelli anomali vengono utilizzati Machine Learning e algoritmi di data mining.
 
-Il rilevamento proattivo è disponibile in anteprima e non è ancora disponibile per tutti gli utenti di Application Insights. Se si desidera provarlo, contattare AppInsightsML@microsoft.com per configurarlo.
+I commenti e suggerimenti degli utenti sono molto graditi. Inviare commenti su come migliorare il rilevamento proattivo e le funzionalità aggiuntive da aggiungere. È possibile fornire commenti e suggerimenti tramite Invia smile/Invia faccia imbronciata nel portale o tramite posta elettronica all'indirizzo AppInsightsML@microsoft.com.
 
 ## Informazioni sugli avvisi proattivi
 
 * *Perché ho ricevuto questo messaggio di posta elettronica?*
- * Il rilevamento proattivo ha analizzato i dati di telemetria dell'applicazione inviati ad Application Insights e ha rilevato un problema a livello delle prestazioni dell'applicazione.
+ * Il rilevamento proattivo ha analizzato i dati di telemetria dell'applicazione inviati ad Application Insights e ha rilevato un problema a livello delle prestazioni dell'applicazione. 
 * *La notifica indica la sicura presenza di un problema?*
  * No. Invita semplicemente a controllare con attenzione un determinato componente. 
 * *Cosa devo fare?*
@@ -56,7 +56,7 @@ Il rilevamento proattivo è disponibile in anteprima e non è ancora disponibile
 * *Quali tipi di anomalie vengono rilevati?*
  * Vengono analizzati quegli schemi che sarebbe troppo lungo verificare manualmente, ad esempio prestazioni insufficienti per una combinazione specifica di località, ora del giorno e piattaforma.
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
- * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta e il tempo di caricamento della pagina. L'analisi di altre metriche verrà implementata a breve. 
+ * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi di altre metriche verrà implementata a breve. 
 * *Si possono creare regole personalizzate di rilevamento delle anomalie?*
  * Per il momento no. È però possibile:
  * [Impostare avvisi](app-insights-alerts.md) per essere informati quando una determinata metrica supera una soglia.
@@ -124,13 +124,13 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
  
     Attualmente vengono inviate agli utenti che hanno [accesso in scrittura alla risorsa Application Insights](app-insights-resources-roles-access-control.md).
 
-    È inoltre possibile modificare l'elenco dei destinatari nel pannello Rilevamento proattivo.
+    È anche possibile modificare l'elenco dei destinatari nel pannello relativo al rilevamento proattivo.
 * *Non voglio ricevere un numero elevato di messaggi.*
- * Ogni giorno viene ricevuto al massimo un messaggio senza alcuna ripetizione dello stesso messaggio.
+ * Sono limitati a uno al giorno con il problema più importante che non è ancora stato segnalato. senza alcuna ripetizione dello stesso messaggio.
 * *Se non eseguo alcuna operazione, riceverò un promemoria?*
- * No, il messaggio relativo a un singolo problema viene ricevuto una sola volta.
+ * No, il messaggio relativo a un singolo problema viene ricevuto una sola volta. 
 * *Non trovo più il messaggio di posta elettronica. Dove trovo le notifiche nel portale?*
- * Nel pannello di panoramica dell'app in Application Insights fare clic sul riquadro **Rilevamento proattivo**. 
+ * Nel pannello di panoramica dell'app in Application Insights fare clic sul riquadro **Rilevamento proattivo**. Si potranno trovare tutte le notifiche di backup per 7 giorni precedenti.
 
 
 ## Articoli correlati
@@ -141,4 +141,4 @@ Sul Web sono disponibili molti suggerimenti per migliorare le risposte del serve
 * [Esplora ricerche](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="sdanie"/>
 
 # Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
@@ -31,7 +31,7 @@ Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Red
 
 ![Creare una Cache Redis][redis-cache-new-cache-menu]
 
-Per configurare il supporto della rete virtuale, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il piano tariffario**.
+Per configurare il supporto della rete virtuale, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il livello di prezzo**.
 
 ![Scegliere il livello di prezzo][redis-cache-premium-pricing-tier]
 
@@ -57,7 +57,7 @@ Il campo **indirizzo IP statico** è facoltativo. Se non sono specificati indiri
 
 Dopo la creazione della cache, potranno accedervi solo i client all'interno di stessa rete virtuale.
 
->[AZURE.IMPORTANT]Per accedere all'istanza di Cache Redis di Azure quando si usa una rete virtuale, passare l'indirizzo IP statico della cache nella rete virtuale come primo parametro e passare un parametro `sslhost` con l'endpoint della cache. Nell'esempio seguente l'indirizzo IP statico è `10.10.1.5` e l'endpoint della cache è `contoso5.redis.cache.windows.net`.
+>[AZURE.IMPORTANT]Per accedere all'istanza della cache Redis di Azure quando si utilizza una rete virtuale, passare l'indirizzo IP statico della cache nella rete virtuale come primo parametro e passare un parametro `sslhost` con l'endpoint della cache. Nell'esempio seguente l'indirizzo IP statico è `10.10.1.5` e l'endpoint della cache è `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -78,15 +78,23 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 
 ## Quali sono alcuni problemi comuni di configurazione errata per Cache Redis di Azure e le reti virtuali?
 
-L'elenco seguente include alcuni errori di configurazione comuni che possono impedire il corretto funzionamento di Cache Redis di Azure.
+Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente. Se le porte sono bloccate, la cache potrebbe non funzionare correttamente. Il blocco di una o più di queste porte è il problema di configurazione più comune nell'uso di Cache Redis di Azure in una rete virtuale.
 
--	Mancanza di accesso al DNS. Le istanze di Cache Redis di Azure in una rete virtuale richiedono l'accesso al DNS per le parti del sistema di monitoraggio e di runtime della cache. Se l'istanza della cache non dispone dell'accesso al DNS, il monitoraggio non funzionerà e la cache non funzionerà correttamente.
--	Porte TCP bloccate usate dai client per la connessione a Redis, ad esempio 6379 o 6380.
--	Traffico HTTPS in uscita bloccato o intercettato dalla rete virtuale. Cache Redis di Azure usa il traffico HTTPS in uscita verso i servizi di Azure, in particolare il servizio Archiviazione.
--	Macchine virtuali dell'istanza del ruolo Redis che non possono comunicare tra loro all'interno della subnet. Dovrebbe essere consentita la comunicazione tra le istanze del ruolo Redis tramite TCP su qualsiasi porta usata, soggetta a variazione, ma come minimo su tutte le porte usate nel file CSDEF di Redis.
--	Il servizio di bilanciamento del carico di Azure non può connettersi alle macchine virtuali di Redis sulla porta TCP/HTTP 16001. Cache Redis di Azure dipende dal probe predefinito del servizio di bilanciamento del carico di Azure per determinare quali istanze del ruolo sono attive. Il probe predefinito del servizio di bilanciamento del carico si basa sull'esecuzione del ping dell'agente guest di Azure sulla porta 16001. Solo le istanze del ruolo che rispondono al ping verranno inserite nella rotazione per ricevere il traffico inoltrato da ILB. Quando la rotazione non include alcuna istanza perché il ping non riesce a causa del blocco delle porte, ILB non accetterà connessioni TCP in ingresso.
--	Blocco del traffico Web dell'applicazione client usato per la convalida della chiave pubblica SSL. I client di Redis (all'interno della rete virtuale) devono essere in grado di eseguire il traffico HTTP verso la rete Internet pubblica per scaricare i certificati CA e gli elenchi di revoche di certificati per eseguire la convalida dei certificati SSL quando usano la porta 6380 per connettersi a Redis ed eseguire l'autenticazione server SSL.
--	Il servizio di bilanciamento del carico di Azure non riesce a connettersi alle macchine virtuali di Resid in un cluster tramite TCP sulla porta 1300x (13000, 13001 e così via) o 1500x (15000, 15001 e così via). Le reti virtuali sono configurate nel file csdef con un probe di bilanciamento del carico per aprire queste porte. Il servizio di bilanciamento del carico di Azure deve essere consentito dai gruppi di sicurezza di rete. I gruppi di sicurezza di rete predefiniti gestiscono questa condizione con il tag AZURE\_LOADBALANCER. Il servizio di bilanciamento del carico di Azure dispone di un singolo indirizzo IP statico: 168.63.126.16. Per altre informazioni, vedere [Che cos'è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP remoto |
+|-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
+| 80, 443 | In uscita | TCP | Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | * |
+| 53 | In uscita | TCP/UDP | Dipendenze Redis nel DNS (Internet/rete virtuale) | * |
+| 6379, 6380 | In ingresso | TCP | Comunicazione tra client e Redis, bilanciamento del carico di Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 8443 | In ingresso/In uscita | TCP | Dettaglio di implementazione per Redis | VIRTUAL\_NETWORK |
+| 8500 | In ingresso | TCP/UDP | Bilanciamento del carico di Azure | AZURE\_LOADBALANCER |
+| 10221-10231 | In ingresso/In uscita | TCP | Dettaglio di implementazione per Redis, è possibile limitare l'endpoint remoto a VIRTUAL\_NETWORK | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 13000-13999 | In ingresso | TCP | Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 15000-15999 | In ingresso | TCP | Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 16001 | In ingresso | TCP/UDP | Bilanciamento del carico di Azure | AZURE\_LOADBALANCER |
+| 20226 | In ingresso + In uscita | TCP | Dettaglio di implementazione per cluster Redis | VIRTUAL\_NETWORK |
+
+
+
 
 ## È possibile usare reti virtuali con una cache Standard o Basic?
 
@@ -117,4 +125,4 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

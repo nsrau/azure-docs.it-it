@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="10/14/2015"
+   ms.date="01/13/2016"
    ms.author="cawa"/>
 
 # Come usare Visual Studio per creare un contenitore del servizio cloud
@@ -33,4 +33,4 @@ Per visualizzare **Esplora Server** in Visual Studio, nella barra dei menu scegl
 Ora che si dispone di un contenitore del servizio cloud, è possibile [creare e distribuire](cloud-services-how-to-create-deploy.md) un servizio cloud.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

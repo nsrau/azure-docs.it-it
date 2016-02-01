@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/02/2015"
+   ms.date="01/20/2015"
    ms.author="derrickv"/>
 
 
@@ -26,8 +26,12 @@ Di seguito vi sono gli esempi presenti in GitHub:
 
   Un esempio che illustra come eseguire l'autenticazione con Azure AD per la registrazione, cercare ed eliminare un asset di dati tramite l'API REST del catalogo dati.
 
-- [Catalogo dati di Azure - Caricare, registrare e annotare](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+- [Registrare e annotare in blocco](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
 
-  Un esempio che illustra come caricare e registrare gli asset dei dati da una cartella di lavoro di Excel mediante l'API REST del catalogo dati e Open XML.
+  Un esempio che illustra come registrare in blocco gli asset di dati da una cartella di lavoro di Excel usando l'API REST del catalogo dati e Open XML.
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Strumento di importazione/esportazione](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+
+  Un esempio che illustra come usare l'API REST del catalogo dati per recuperare asset da Catalogo dati di Azure e serializzarli in un file. Dimostra anche come prelevare un set di asset serializzato come json ed eseguirne il push nel catalogo. Supporta l'esportazione di un subset del catalogo usando una query di ricerca.
+
+<!---HONumber=AcomDC_0121_2016-->

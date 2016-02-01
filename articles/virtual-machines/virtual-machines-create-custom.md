@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale personalizzata | Microsoft Azure"
-	description="Come creare una macchina virtuale personalizzata dal portale di Azure classico usando il modello di distribuzione classico."
+	pageTitle="Creare una macchina virtuale Windows personalizzata | Microsoft Azure"
+	description="Scoprire come creare una macchina virtuale Windows personalizzata dal portale di Azure classico con il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
-#Come creare una macchina virtuale personalizzata
+	
+# Creare una macchina virtuale personalizzata che esegue Windows
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
@@ -34,6 +35,10 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 > [AZURE.IMPORTANT]Se si vuole che la macchina virtuale usi una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md).
 
+
+## Per creare la macchina virtuale
+
+
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

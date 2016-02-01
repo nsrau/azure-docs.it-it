@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -151,7 +151,7 @@ Prima di iniziare, tenere presente quanto segue:
 
 ## Memorizzazione nella cache in Azure Multi-Factor Authentication
 
-La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. Questa opzione viene usata principalmente quando i sistemi locali, ad esempio VPN, inviano più richieste di verifica mentre la prima richiesta è ancora in corso. In questo modo, dopo che l'utente ha completato la verifica in corso, le richieste successive hanno automaticamente esito positivo. Si noti che la memorizzazione nella cache non può essere usata per gli accessi a
+La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. Questa opzione viene usata principalmente quando i sistemi locali, ad esempio VPN, inviano più richieste di verifica mentre la prima richiesta è ancora in corso. In questo modo, dopo che l'utente ha completato la verifica in corso, le richieste successive hanno automaticamente esito positivo. Si noti che la memorizzazione nella cache non può essere usata per gli accessi ad Azure AD.
 
 
 ### Per impostare la memorizzazione nella cache in Azure Multi-Factor Authentication
@@ -351,4 +351,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

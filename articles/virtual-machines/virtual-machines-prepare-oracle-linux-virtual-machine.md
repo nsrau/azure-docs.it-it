@@ -44,6 +44,9 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
+- Verificare che l'archivio `Addons` sia abilitato. Modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e modificare la riga `enabled=0` in `enabled=1` sotto **[ol6\_addons]** o **[ol7\_addons]** in questo file.
+
+
 ##Oracle Linux 6.4+
 Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifici passaggi di configurazione nel sistema operativo.
 
@@ -153,7 +156,7 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.  Creare nella directory /etc/sysconfig/network-scripts/ un file denominato **ifcfg-eth0** contenente il testo seguente:
+4.  Nella directory /etc/sysconfig/network-scripts/ creare un file denominato **ifcfg-eth0** contenente il testo seguente:
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -222,4 +225,4 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 15.  Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

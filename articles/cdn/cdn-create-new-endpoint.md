@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,7 +25,7 @@
 
 Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint della rete CDN. Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
 
-> [AZURE.NOTE]Ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a quattro endpoint della rete CDN.
+> [AZURE.NOTE]Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
 >
 > I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si desidera usare una combinazione di funzionalità della rete CDN Standard e Premium, è necessario disporre di più profili della rete CDN.
 
@@ -60,7 +60,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
     
     ![Profilo di rete CDN][cdn-profile-settings]
     
-2. Fare clic sul pulsante **Aggiungi endpoint**.
+2. Fare clic sul pulsante **Aggiungi Endpoint**.
 
     ![Pulsante Aggiungi endpoint][cdn-new-endpoint-button]
 
@@ -74,11 +74,11 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 	
 	![Tipo di origine della rete CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
-5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine. Nell’elenco a discesa compariranno tutte le origini disponibili del tipo specificato nel passaggio 4. Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo origine**, si digiterà nel dominio di origine personalizzato.
+5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine. Nell’elenco a discesa compariranno tutte le origini disponibili del tipo specificato nel passaggio 4. Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
 
 6. Nella casella di testo **Percorso origine** inserire il percorso per le risorse che si desidera memorizzare nella cache oppure lasciare vuoto per consentire la memorizzazione nella cache di qualsiasi risorsa nel dominio specificato nel passaggio 5.
 
-7. Nell’**Intestazione host di origine** inserire l'intestazione dell'host che si desidera che la rete CDN invii con ogni richiesta oppure lasciare il valore predefinito.
+7. Nell’**Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
 
 8. Per **Protocollo** e **Porta origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine. I client continueranno a usare gli stessi protocolli e le stesse porte quando accedono a risorse nella rete CDN. È necessario selezionare almeno un protocollo (HTTP o HTTPS).
 
@@ -101,4 +101,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

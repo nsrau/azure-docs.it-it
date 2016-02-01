@@ -17,7 +17,7 @@
 	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati #
+# Aumentare la velocità effettiva di elaborazione dati con la scalabilità dei processi di analisi di flusso #
 
 Informazioni su come ottimizzare i processi di analisi e calcolare le *unità di streaming* per un processo di Analisi di flusso e su come ridimensionare i processi di questo tipo configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo.
 
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

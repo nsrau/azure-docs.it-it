@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Ruotare le credenziali di accesso
+#Ruotare le credenziali di accesso per input e output nei processi di analisi di flusso
 
 ##Sunto
 Analisi dei flussi di Azure, al momento, non consente di sostituire le credenziali su input/output durante l’esecuzione del processo.
@@ -194,4 +194,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -24,6 +24,8 @@
 
 È possibile utilizzare l’[API REST del Provider di risorse hub IoT][lnk-rest-api] per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come utilizzare l’API REST del Provider di risorse per creare un hub IoT da un programma C#.
 
+> [AZURE.NOTE]Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 - Microsoft Visual Studio 2015
@@ -192,4 +194,4 @@ Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

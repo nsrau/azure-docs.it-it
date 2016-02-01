@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Gestire i controller del dispositivo StorSimple
@@ -181,7 +181,7 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 **R.** Se entrambi i controller del dispositivo sono integri e accesi, verrà richiesto di confermare. È possibile scegliere di:
 
-- **Riavviare il controller attivo** - viene ricevuta una notifica indicante che il riavvio di un controller attivo comporta il failover del dispositivo sul controller passivo. Il controller verrà riavviato.
+- **Riavviare il controller attivo**: viene ricevuta una notifica indicante che il riavvio di un controller attivo comporta il failover del dispositivo sul controller passivo. Il controller verrà riavviato.
 
 - **Arrestare il controller attivo** - viene ricevuta una notifica indicante che l'arresto del controller attivo determina tempi di inattività. Inoltre, è necessario premere il pulsante di alimentazione sul dispositivo per accendere il controller.
 
@@ -189,9 +189,9 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 **R.** Se il controller passivo sul dispositivo non è disponibile o è spento e si sceglie di:
 
-- **Riavviare il controller attivo** - viene ricevuta una notifica indicante che se si continua l'operazione si verificherà un'interruzione temporanea del servizio e verrà richiesto di confermare.
+- **Riavviare il controller attivo**: viene ricevuta una notifica indicante che se si continua l'operazione si verificherà un'interruzione temporanea del servizio e verrà richiesto di confermare.
 
-- **Arrestare il controller attivo** - viene ricevuta una notifica indicante che se si continua l'operazione si verificheranno tempi di inattività e sarà necessario premere il pulsante di alimentazione su uno o entrambi i controller per accendere il dispositivo. Verrà richiesto di confermare.
+- **Arrestare il controller attivo**: viene ricevuta una notifica indicante che se si continua l'operazione si verificheranno tempi di inattività e sarà necessario premere il pulsante di alimentazione su uno o entrambi i controller per accendere il dispositivo. Verrà richiesto di confermare.
 
 **D.** Quand'è che il riavvio o l'arresto del controller non vengono eseguiti?
 
@@ -221,4 +221,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 - Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

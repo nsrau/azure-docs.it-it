@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Annotazioni sulla versione in Application Insights
@@ -28,9 +28,9 @@ Le annotazioni sulla versione sono una funzionalità della build basata sul clou
 Per creare le annotazioni sulla versione, sarà necessario installare una delle numerose estensioni di Team Service disponibili in Visual Studio Marketplace.
 
 1. Accedere al progetto in [Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/setup/sign-up-for-visual-studio-online).
-2. Aprire Visual Studio Marketplace, trovare l'estensione Annotazioni di Application Insights e aggiungerla all'account di Team Services.
+2. Aprire Visual Studio Marketplace, [trovare l'estensione delle annotazioni sulla versione](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) e aggiungerla all'account di Team Services.
 
-![Nell'angolo in alto a destra della pagina Web di Team Services aprire il marketplace. Cercare e installare Annotazioni di Application Insights nell'account.](./media/app-insights-annotations/10.png)
+![Nell'angolo in alto a destra della pagina Web di Team Services aprire il marketplace. Scegliere Visual Studio Team Services, quindi nella sezione relativa a compilazione e rilascio scegliere Altre informazioni.](./media/app-insights-annotations/10.png)
 
 È necessario eseguire questa operazione una sola volta per l'account di Visual Studio Team Services. Le annotazioni sulla versione ora possono essere configurate per qualsiasi progetto nell'account.
 
@@ -40,7 +40,7 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com) e aprire la risorsa di Application Insights che monitora l'applicazione o [crearne una nuova](app-insights-overview.md), se necessario.
-2. Aprire **Impostazioni**, **Accesso all'API**, ed eseguire una copia di **Id di Application Insights**.
+2. Aprire **Impostazioni**, **Accesso all'API**, ed eseguire una copia di **ID di Application Insights**.
 
     ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare il](./media/app-insights-annotations/20.png)
 
@@ -48,7 +48,7 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
     Aggiungere un'attività e scegliere l'attività di annotazione sulla versione di Application Insights dal menu.
 
-    Incolla l'**Id di Application Insights** copiato dal Pannello di accesso all'API.
+    Incollare l'**ID di Application Insights** copiato dal pannello di accesso all'API.
 
     ![In Visual Studio Team Services, aprire Release, selezionare una versione di rilascio e scegliere Edit. Fare clic su Add Task e scegliere l'annotazione sulla versione di Application Insights. Incollare l'Id di Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -73,4 +73,4 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
 Ora, quando si usa il modello di versione per distribuire una nuova versione, verrà inviata un'annotazione ad Application Insights. Le annotazioni verranno visualizzate nei grafici di Esplora metriche.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

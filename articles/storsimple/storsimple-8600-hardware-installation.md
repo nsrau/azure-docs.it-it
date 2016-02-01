@@ -262,9 +262,9 @@ Da tenere presente per prestazioni e disponibilità elevate:
 
 - Se possibile, configurare in ogni controller una coppia di interfacce di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati). 
 
-- Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+- Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Altre informazioni sull’[Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE]Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Per altre informazioni, passare a [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Cablaggio della porta seriale
 
@@ -295,7 +295,7 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 
 ## Passaggi successivi
 
-A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
+A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

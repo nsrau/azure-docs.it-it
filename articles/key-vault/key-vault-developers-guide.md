@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="1/19/2016"
    ms.author="bruceper" />
 
 # Guida per gli sviluppatori dell’insieme di credenziali chiave Azure
@@ -25,7 +25,7 @@ Gli utenti per i quali l'autorizzazione ha esito positivo possono eseguire le op
 
 - Gestire le chiavi di crittografia utilizzando [Crea](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importa](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Aggiorna](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Elimina](https://msdn.microsoft.com/library/azure/dn903611.aspx) e altre operazioni
 
-- Gestire le informazioni riservate utilizzando [Ottieni](https://msdn.microsoft.com/library/azure/dn903633.aspx), [aggiornamento] (https://msdn.microsoft.com/library/azure/dn986818.aspx, [Elimina](https://msdn.microsoft.com/library/azure/dn903613.aspx) e altre operazioni
+- Gestire le chiavi private usando operazioni quali [Get](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Update](https://msdn.microsoft.com/library/azure/dn986818.aspx) e [Delete](https://msdn.microsoft.com/library/azure/dn903613.aspx)
 
 - Utilizzare le chiavi di crittografia con le operazioni [Accedi](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verifica](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) e [Crittografa](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrittografa](https://msdn.microsoft.com/library/azure/dn878097.aspx)
 
@@ -37,7 +37,8 @@ Il sistema di gestione delle credenziali chiave per i programmatori è costituit
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[Documentazione su .NET SDK](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentazione su Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Pacchetto di .NET SDK](https://azure.microsoft.com/it-IT/documentation/api/)|[Pacchetto Node.js SDK](https://www.npmjs.com/package/azure-keyvault)|
 
 ## Gestione delle chiavi degli archivi
 
@@ -65,4 +66,4 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 
 - Le [estensioni dell'insieme di credenziali delle chiavi di Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornisce funzionalità estese per l'insieme di credenziali delle chiavi di Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

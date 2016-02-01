@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Limitazioni e linee guida generali per il database SQL di Azure
@@ -32,12 +32,6 @@ Questo argomento illustra le limitazioni e le linee guida generali per il databa
 ## SQL Server Agent/Processi
 
 Il database SQL di Microsoft Azure non supporta SQL Server Agent o i processi. È possibile, tuttavia, eseguire SQL Server Agent su SQL Server locale e connettersi al database SQL di Microsoft Azure.
-
-## Transazioni
-
-Il database SQL di Azure non supporta le transazioni distribuite, che hanno effetto su diverse risorse. Per altre informazioni, vedere [Transazioni distribuite (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). È possibile che il database SQL non conservi i valori di timestamp non sottoposti a commit del database corrente (DBTS) attraverso i failover.
-
-> [AZURE.NOTE]In alcune situazioni, una transazione può essere automaticamente alzata al livello di transazione distribuita. Per altre informazioni, vedere [Integrazione di System.Transactions con SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
 
 ## Supporto delle regole di confronto di SQL Server
 
@@ -69,4 +63,4 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

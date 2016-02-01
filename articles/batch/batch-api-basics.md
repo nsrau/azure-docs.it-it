@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Cenni preliminari sulle funzionalità di Azure Batch
@@ -61,6 +61,8 @@ Quando si usa il servizio Azure Batch, è possibile sfruttare le risorse seguent
 	- [Attività di gestione dei processi](#jobmanagertask)
 
 	- [Attività di preparazione e rilascio dei processi](#jobpreprelease)
+
+	- [Attività a istanze multiple](#multiinstance)
 
 - [Pianificazione processo](#jobschedule)
 
@@ -145,10 +147,9 @@ Un'attività è un'unità di calcolo associata a un processo ed eseguita in un n
 Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il servizio Batch fornisce le attività speciali seguenti:
 
 - [Attività di avvio](#starttask)
-
 - [Attività di gestione dei processi](#jobmanagertask)
-
 - [Attività di preparazione e rilascio dei processi](#jobmanagertask)
+- [Attività a istanze multiple](#multiinstance)
 
 #### <a name="starttask"></a>Attività di avvio
 
@@ -188,6 +189,18 @@ Batch fornisce l'attività di preparazione del processo per la configurazione de
 Le attività di preparazione e rilascio dei processi consentono di specificare una riga di comando da eseguire quando si richiama l'attività e offrono funzionalità quali download dei file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata di esecuzione massima, numero di nuovi tentativi e periodo di conservazione dei file.
 
 Per altre informazioni sulle attività di preparazione e rilascio dei processi, vedere [Eseguire attività di preparazione e completamento dei processi nei nodi di calcolo di Azure Batch](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Attività a istanze multiple
+
+Un'[attività a istanze multiple][rest_multiinstance] è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari high performance computing, ad esempio MPI (Message Passing), che richiedono l'allocazione di un gruppo di nodi di calcolo per l'elaborazione di un singolo carico di lavoro.
+
+In Batch si crea un'attività a istanze multiple specificando questo tipo di impostazioni per una normale [attività](#task). Le impostazioni includono il numero di nodi di calcolo per eseguire l'attività, una riga di comando per l'attività principale (il "comando dell'applicazione"), un comando di coordinamento e un elenco di file di risorse comuni per ogni attività.
+
+Quando si invia un'attività con impostazioni per istanze multiple a un processo, il servizio Batch esegue le operazioni seguenti:
+
+1. Crea automaticamente un'attività primaria e sufficienti sottoattività che saranno eseguite insieme nel numero totale di nodi specificato. Batch pianifica quindi le attività per l'esecuzione nei nodi, che per prima cosa scaricano i file di risorse comuni specificati.
+2. Una volta scaricati i file di risorse comuni, l'attività primaria e le sottoattività eseguono il comando di coordinamento. Questo comando di coordinamento avvia in genere un servizio in background, ad esempio [MS-MPI][msmpi]\: `smpd.exe`, e verifica che i nodi siano pronti per elaborare i messaggi tra i nodi.
+3. Una volta che l'attività primaria e le sottoattività avranno completato il comando di coordinamento, la riga di comando dell'attività (il "comando dell'applicazione") viene eseguita solo dall'attività primaria, che in genere avvia un'applicazione personalizzata abilitata per MPI che elabora il carico di lavoro nei nodi. Ad esempio, in uno scenario Windows MPI si esegue in genere l'applicazione abilitata per MPI con [MS-MPI][msmpi]\: `mpiexec.exe` usando il comando dell'applicazione.
 
 ### <a name="jobschedule"></a>Processi pianificati
 
@@ -332,6 +345,7 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +356,7 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +366,9 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/it-IT/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

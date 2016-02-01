@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2016"
 	ms.author="v-darmi"/>
 
 
@@ -68,4 +68,9 @@ Gestione API di Azure offre funzionalità di limitazione della frequenza e della
 ## Passaggi successivi
 È possibile inserire commenti e suggerimenti per questo argomento nel thread Disqus. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
 
-<!---HONumber=AcomDC_1217_2015-->
+## Video contenente una panoramica di questi criteri
+Per altre informazioni sui criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) presentati in questo articolo, guardare il video seguente.
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+
+<!---HONumber=AcomDC_0121_2016-->

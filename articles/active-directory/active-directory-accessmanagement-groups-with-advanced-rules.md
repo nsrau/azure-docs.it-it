@@ -153,7 +153,12 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 Per configurare un gruppo come gruppo "Manager"
 --------------------------------------------------------------------------------
 1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
-2. Digitare la regola con la sintassi seguente: Dipendenti diretti per *Dipendenti diretti per {IDutente\_di\_manager}*
+2. Digitare la regola con la sintassi seguente: Dipendenti diretti per *Dipendenti diretti per {IDutente\_di\_manager}*. Un esempio di regola valida per Dipendenti diretti è 
+
+Dipendenti diretti per 62e19b97-8b3d-4d4a-a106-4ce66896a863"
+
+dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile nel portale di amministrazione di AAD nella scheda relativa al profilo della pagina utente dell'utente che rappresenta il manager.
+
 3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Si noti che possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
 
@@ -168,4 +173,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

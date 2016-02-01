@@ -54,32 +54,7 @@ L'edizione Standard del **Catalogo dati di Azure** supporta fino a 100.000 asset
 
 ## D: quali sono i tipi di origine dati e di asset supportati?
 
-Durante l'anteprima, il **Catalogo dati di Azure** supporta attualmente database relazionali di SQL Server (tra cui il database di SQL Azure) e database di SQL Server Analysis Services (multidimensionali e tabulari), nonché SQL Server Reporting Services (solo in modalità nativa) e Database Oracle.
-
-Durante l'anteprima, il **Catalogo dati Azure** supporta la registrazione e l'individuazione dei tipi di risorse seguenti:
-
-- Tabella di SQL Server
-- Visualizzazione SQL Server
-- Dimensione di SQL Server Analysis Services
-- Misura di SQL Server Analysis Services
-- KPI di SQL Server Analysis Services
-- Tabella di SQL Server Analysis Services
-- Report di SQL Server Reporting Services  
-- Tabella di Database Oracle
-- Vista di Database Oracle
-- BLOB di Archiviazione di Azure
-- Directory di archiviazione di Azure
-- File HDFS
-- Directory HDFS
-- Tabella Teradata
-- Visualizzazione Teradata
-
-Oltre alle attività sopra indicate, il **Catalogo dati di Azure** supporta l'individuazione dei contenitori di asset dei dati seguenti:
-
-- Database di SQL Server
-- Oracle Database
-- Cluster HDFS
-- Database Teradata
+Per un elenco delle origini dati attualmente supportate, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
 
 
 ## D: come si richiede il supporto per un'altra origine dati?
@@ -109,7 +84,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 
 <br/>
 
-> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l'applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l'applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
+> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l'applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
 
 ## D: quanto tempo deve trascorrere prima che gli asset appena registrati vengano visualizzati nel Catalogo dati di Azure?
 
@@ -117,9 +92,9 @@ Dopo aver registrato gli asset nel **Catalogo dati di Azure** è possibile che t
 
 ## D: come si annotano e ampliano i metadati per l'asset di dati registrato?
 
-Il modo più semplice di fornire i metadati agli asset registrati consiste nel selezionare l'asset nel portale del **Catalogo dati di Azure** e immettere i valori dei metadati nel riquadro delle proprietà o dello schema per l'oggetto selezionato.
+Il modo più semplice di fornire i metadati agli asset registrati consiste nel selezionare l’asset nel portale del **Catalogo dati di Azure** e immettere i valori dei metadati nel riquadro delle proprietà o dello schema per l'oggetto selezionato.
 
-È inoltre possibile fornire alcuni metadati, ad esempio esperti e tag, durante il processo di registrazione. I valori forniti nel servizio di pubblicazione del **Catalogo dati di Azure** vengono applicati a tutti gli asset che sono al momento in fase di registrazione. Per visualizzare gli oggetti registrati recentemente nel portale per annotazioni aggiuntive, selezionare il pulsante **Visualizza portale** nella schermata finale dell'applicazione di pubblicazione del **Catalogo dati di Azure**.
+È inoltre possibile fornire alcuni metadati, ad esempio esperti e tag, durante il processo di registrazione. I valori forniti nel servizio di pubblicazione del **Catalogo dati di Azure** vengono applicati a tutti gli asset che sono al momento in fase di registrazione. Per visualizzare gli oggetti registrati recentemente nel portale per annotazioni aggiuntive, selezionare il pulsante **Visualizza portale** nella schermata finale dell’applicazione di pubblicazione del **Catalogo dati di Azure**.
 
 ## D: come si eliminano gli oggetti dati registrati?
 
@@ -142,7 +117,7 @@ Stiamo lavorando attivamente per aggiungere più origini dati nel **Catalogo dat
 
 ## D: qual è la correlazione tra il Catalogo dati di Azure e il catalogo dati di Power BI per Office 365?
 
-È possibile pensare al **Catalogo dati di Azure** come a un'evoluzione del catalogo dati. Il **Catalogo dati di Azure** offre funzionalità simili per l'individuazione e la pubblicazione delle origini dati, ma supporta scenari più ampi e non dipende da Office 365. Non appena il **Catalogo dati di Azure** diventa genericamente disponibile, i due cataloghi vengono uniti in un unico servizio.
+È possibile pensare al **Catalogo dati di Azure** come un'evoluzione del catalogo dati. Il **Catalogo dati di Azure** offre funzionalità simili per l'individuazione e la pubblicazione delle origini dati, ma supporta scenari più ampi e non dipende da Office 365. Non appena il **Catalogo dati di Azure** diventa genericamente disponibile, i due cataloghi vengono uniti in un unico servizio.
 
 ## D: di quali autorizzazioni deve disporre un utente per registrare gli asset nel Catalogo dati di Azure?
 
@@ -154,7 +129,7 @@ Il **Catalogo dati di Azure** è un servizio cloud che usa origini dati locali e
 
 ##D: è possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
 
-Stiamo lavorando attivamente per ampliare le funzionalità del **Catalogo dati di Azure**. Se ci sono altri metadati che si desidera estrarre dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerito) nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In futuro verrà consentito a terze parti di aggiungere nuovi tipi di origine dati tramite un'API di estensibilità.
+Stiamo lavorando attivamente per ampliare le funzionalità del **Catalogo dati di Azure**. Se ci sono altri metadati che si desidera estrarre dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerita) nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In futuro verrà consentito a terze parti di aggiungere nuovi tipi di origine dati tramite un'API di estensibilità.
 
 ## D: come si limita la visibilità degli asset di dati registrati, in modo che solo determinati utenti possano individuarli?
 
@@ -172,4 +147,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

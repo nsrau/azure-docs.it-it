@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Cause comuni del riciclo dei ruoli del servizio cloud | Microsoft Azure"
    description="Un ruolo del servizio cloud che viene riciclato improvvisamente può causare tempi di inattività significativi. Ecco alcuni problemi comuni che causano il riciclo dei ruoli, che possono essere utili per migliorare i tempi di inattività."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Problemi comuni che comportano il riciclo dei ruoli
@@ -22,7 +22,7 @@ Vengono descritte alcune delle cause comuni dei problemi di distribuzione e sugg
 
 ## Contattare il supporto tecnico di Azure
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/).
 
 In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -36,7 +36,7 @@ Prima di compilare e includere in un pacchetto l'applicazione, verificare quanto
 - Se si usa Visual Studio, assicurarsi che la proprietà **Copy Local** sia impostata su **True** per ogni assembly di riferimento nel progetto che non fa parte di Azure SDK o .NET Framework.
 
 - Assicurarsi che il file **web.config** non faccia riferimento ad alcun assembly inutilizzato nell'elemento di **compilazione**.
- 
+
 - La proprietà **Build Action** di ciascun file con estensione cshtml è impostata su **Content**. Ciò garantisce che i file vengano visualizzati correttamente nel pacchetto e consente la visualizzazione anche di altri file di riferimento.
 
 
@@ -66,8 +66,8 @@ Se l'applicazione usa Diagnostica Azure, il file cscfg deve specificare l'impost
 Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, prima di distribuire il pacchetto dell'applicazione in Azure, verificare quanto segue:
 
 - L'impostazione `DiagnosticsConnectionString` punti a un account di archiviazione valido in Azure. Per impostazione predefinita, questa impostazione punta all'account di archiviazione emulato, pertanto è necessario modificarla in modo esplicito prima di distribuire il pacchetto dell'applicazione. Se non si modifica questa impostazione, viene generata un'eccezione quando l'istanza del ruolo tenta di avviare il monitoraggio di diagnostica. Ciò potrebbe comportare il riciclo illimitato dell'istanza del ruolo.
-  
-- La stringa di connessione viene specificata nel [formato](storage-configure-connection-string.md) seguente (il protocollo deve essere specificato come HTTPS). Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:
+
+- La stringa di connessione viene specificata nel [formato](../storage/storage-configure-connection-string.md) seguente (il protocollo deve essere specificato come HTTPS). Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -83,7 +83,9 @@ Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato 
 
 ## Passaggi successivi
 
-Consultare altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
+
+Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 
 
@@ -93,4 +95,4 @@ Consultare altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-i
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configurazione di SSL per un'applicazione in Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
-> [AZURE.NOTE]Le procedure descritte in questa attività si applicano a Servizi cloud di Azure. Per Siti Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 In questa attività viene utilizzata una distribuzione di produzione. In fondo a questo argomento vengono fornite informazioni sull'utilizzo di una distribuzione di gestione temporanea.
 
@@ -67,7 +67,7 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
         ...
         </WebRole>
 
-    Nella sezione**Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui è situato. Si è scelto di archiviare il certificato nell'archivio della CA (Autorità di certificazione) ma sono disponibili anche altre opzioni. Per altre informazioni, vedere [Come associare un certificato a un servizio][].
+    Nella sezione**Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui è situato.
 
 2.  Nel file di definizione del servizio aggiungere un elemento **InputEndpoint** all'interno della sezione **Endpoints** per abilitare HTTPS:
 
@@ -157,7 +157,7 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
-* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md)
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

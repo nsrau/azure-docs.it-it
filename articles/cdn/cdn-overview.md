@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -49,6 +49,7 @@ Il livello della rete CDN Standard comprende le seguenti caratteristiche:
 - Bilanciamento del carico
 - Protezione DDOS
 - [Eliminazione veloce](cdn-purge-endpoint.md)
+- [Precaricamento Asset](cdn-preload-endpoint.md)
 - [Gestione tramite l'API REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 
 - [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md)
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
-- [Statistiche in tempo reale](cdn-read-time-stats.md)
+- [Statistiche in tempo reale](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -479,7 +479,7 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING]Non riutilizzare la stessa istanza dell'elemento di telemetria, `event` in questo esempio, per chiamare Track*() più volte. Potrebbe causare l'invio della telemetria con una configurazione errata.
 
 #### <a name="timed"></a> Temporizzazione degli eventi
 
@@ -707,7 +707,7 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 
 * *Esiste un'API REST per ottenere dati dal portale?*
 
-    Sì, sarà disponibile a breve. Nel frattempo, usare [esportazione continua](app-insights-export-telemetry.md).
+    Sì, sarà disponibile a breve. Nel frattempo, usare l'[esportazione continua](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Passaggi successivi
 
@@ -736,4 +736,4 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

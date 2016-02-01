@@ -475,7 +475,7 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
 	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
@@ -678,4 +678,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

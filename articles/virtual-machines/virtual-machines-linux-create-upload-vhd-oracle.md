@@ -228,4 +228,8 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 15. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=Nov15_HO1-->
+
+## Passaggi successivi
+È ora possibile usare il file .vhd Oracle Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+
+<!---HONumber=AcomDC_0121_2016-->

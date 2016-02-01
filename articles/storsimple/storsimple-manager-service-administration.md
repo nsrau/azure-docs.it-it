@@ -57,11 +57,11 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-||Dispositivi →|Monitora|| 
-||Catalogo backup|Contenitori dei volumi→|Volumi| 
-||Configura (servizio)|Criteri di backup|| 
-||Processi|Configura (dispositivo)|| 
-||Avvisi|Manutenzione||
+||Dispositivi →|Monitoraggio|
+||Catalogo di backup|Contenitori di volume →|Volumi|
+||Configura (servizio)|Criteri di backup||
+||Processi|Configura (dispositivo)|
+||Avvisi|Manutenzione|
 
 ![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
 
@@ -101,7 +101,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Configurare CHAP per il dispositivo StorSimple|Servizio StorSimple Manager → Dispositivi → Configura|[Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)|
 |Aggiungere un criterio di backup</br>Aggiungere o modificare una pianificazione</br>Eliminare un criterio di backup</br>Eseguire un backup manuale</br>Creare un criterio di backup personalizzato con più volumi e pianificazioni|Servizio StorSimple Manager → Dispositivi → Criteri di backup|[Gestire i criteri di backup](storsimple-manage-backup-policies.md)|
 |Arrestare i controller dei dispositivi</br>Riavviare i controller dei dispositivi</br>Arrestare i controller dei dispositivi</br>Ripristinare i valori predefiniti di fabbrica del dispositivo</br>(I valori precedenti sono solo per il dispositivo locale)|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Gestire il controller del dispositivo StorSimple](storsimple-manage-device-controller.md)|
-|Informazioni sui componenti hardware di StorSimple</br>Monitorare lo stato dell'hardware</br>(I valori precedenti sono solo per il dispositivo locale)|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Monitorare i componenti hardware](storsimple-monitor-hardware-status.md)|
+|Informazioni sui componenti hardware di StorSimple</br>Monitorare lo stato dell'hardware</br>I valori precedenti sono solo per il dispositivo locale|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Monitorare i componenti hardware](storsimple-monitor-hardware-status.md)|
 |Creare un pacchetto di supporto|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md)|
 |Installare gli aggiornamenti del software|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Aggiornare il dispositivo](storsimple-update-device.md)|
 
@@ -112,8 +112,6 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 - [Risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md)
 - [Utilizzare gli indicatori LED di monitoraggio di StorSimple](storsimple-monitoring-indicators.md)
 
-Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, vedere:
+Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
--  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

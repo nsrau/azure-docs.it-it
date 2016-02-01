@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con InsideView | Microsoft Azure" 
     description="Informazioni su come usare InsideView con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
@@ -10,8 +10,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con InsideView
   
@@ -63,7 +63,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Insi
     ![InsideView](./media/active-directory-saas-insideview-tutorial/IC794130.png "InsideView")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a InsideView con il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a InsideView con il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -100,13 +100,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato STS**.
-    5.  Nella casella di testo **Mapping dell’ID utente Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    5.  Nella casella di testo **Crm User Id Mapping** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 6.  Nella casella di testo **Mapping dell’email Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 7.  Nella casella di testo **Mapping del nome Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 8.  Nella casella di testo **Mapping del cognome Crm** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 9.  Fare clic su **Save**.
 
-8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -135,4 +135,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

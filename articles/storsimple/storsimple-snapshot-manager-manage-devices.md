@@ -194,7 +194,7 @@ Utilizzare la procedura seguente per eliminare la configurazione di un singolo d
 
 #### Per modificare la password scaduta
 
-1. Nel portale di Azure classico accedere al servizio StorSimple Manager.
+1. Nel portale di Azure classico, avviare il servizio StorSimple Manager.
 
 2. Fare clic su **Dispositivi** > **Configura** per il dispositivo.
 
@@ -263,4 +263,4 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 - Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 - Informazioni su come [utilizzare Gestione Snapshot StorSimple per visualizzare e gestire volumi](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

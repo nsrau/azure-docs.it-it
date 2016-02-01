@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Greenhouse | Microsoft Azure" 
     description="Informazioni su come usare Greenhouse con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Greenhouse
   
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Gree
 
 ###Per abilitare l'integrazione dell'applicazione per Greenhouse, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-greenhouse-tutorial/IC700993.png "Active Directory")
 
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso** utilizzando il modello seguente "**https://company.greenhouse.io*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.greenhouse.io*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configura URL app")
 
@@ -99,7 +99,7 @@ Per consentire agli utenti di Azure AD di accedere a Greenhouse, è necessario e
 
 1.  Accedere al sito aziendale di **Greenhouse** come amministratore.
 
-2.  Nel menu in alto fare clic su **Configura** e quindi fare clic su **Utenti**.
+2.  Nel menu in alto fare clic su **Configure** e quindi fare clic su **Users**.
 
     ![Utenti](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Utenti")
 
@@ -136,4 +136,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

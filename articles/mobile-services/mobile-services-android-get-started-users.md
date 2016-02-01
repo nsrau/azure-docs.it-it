@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 # Aggiungere l'autenticazione all'app Android per Servizi mobili (back-end JavaScript)
@@ -106,4 +106,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->
