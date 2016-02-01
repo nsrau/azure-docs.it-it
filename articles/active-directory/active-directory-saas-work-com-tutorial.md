@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Work.com
   
-Questa esercitazione descrive l'integrazione di Azure e Work.com. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Work.com.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Work.com abilitata per l'accesso Single Sign-On
@@ -66,7 +67,8 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Work
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Work.com tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un certificato in Work.com.com.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Work.com tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di caricare un certificato in Work.com.com.
 
 >[AZURE.NOTE]Per configurare l'accesso Single Sign-On, è necessario configurare un nome di dominio personalizzato Work.com. È necessario definire almeno un nome di dominio, testare il nome di dominio e distribuirlo in tutta l'organizzazione.
 
@@ -96,7 +98,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configura accesso Single Sign-On")
 
-8.  Nella casella di testo **URL di accesso Work.com** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Work.com (ad esempio, **http://company.my.salesforce.com*”)) e quindi fare clic su **Avanti**:
+8.  Nella casella di testo **URL di accesso Work.com** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Work.com (ad esempio,” *http://company.my.salesforce.com*”) e quindi fare clic su **Avanti**:
 
     ![Configura URL app](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configura URL app")
 
@@ -131,7 +133,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer**.
     3.  Per caricare il certificato scaricato, fare clic su **Browse**.
-    4.  Nella casella di testo **Entity Id**, digitare ****https://salesforce-work.com**.
+    4.  Nella casella di testo **Entity Id**, digitare **https://salesforce-work.com**.
     5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
     6.  In **SAML Identity Location** selezionare **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Work.com** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL**.
@@ -157,7 +159,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ##Configurazione del provisioning utente
   
-Per consentire l'accesso agli utenti di Azure Active Directory, è necessario che eseguano il provisioning a Work.com. Nel caso di Work.com, il provisioning è un'attività manuale.
+Per consentire l'accesso agli utenti di Azure Active Directory, è necessario che eseguano il provisioning a Work.com.  
+Nel caso di Work.com, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, seguire questa procedura:
 
@@ -207,4 +210,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016-->

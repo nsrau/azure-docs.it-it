@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Public
 
-Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Public. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Public.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di TOPdesk - Public abilitata per l'accesso Single Sign-On
@@ -66,7 +67,8 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TOPdesk - Public tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per TOPdesk - Public richiede il caricamento di un file con l'icona del logo. Per ottenere il file con l'icona, contattare il team di supporto di TOPdesk.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TOPdesk - Public tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+La configurazione dell'accesso Single Sign-On per TOPdesk - Public richiede il caricamento di un file con l'icona del logo. Per ottenere il file con l'icona, contattare il team di supporto di TOPdesk.
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -89,7 +91,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Technical Settings](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Technical Settings")
 
     1.  Fare clic su **Download** per scaricare il file di metadati pubblici e quindi salvarlo in locale nel computer.
-    2.  Aprire il file dei metadati e quindi individuare il nodo **AssertionConsumerService**. ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
+    2.  Aprire il file dei metadati e quindi individuare il nodo **AssertionConsumerService**.
+        ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copiare il valore di **AssertionConsumerService**.  
 
         >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configura URL app** più avanti in questa esercitazione.
@@ -108,7 +111,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso TOPdesk - Public** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Public (ad esempio,"*https://qssolutions.topdesk.net*")).
+    1.  Nella casella di testo **URL di accesso TOPdesk - Public** digitare l'URL usato dagli utenti per accedere all'applicazione TOPdesk - Public (ad esempio,"*https://qssolutions.topdesk.net*").
     2.  Nella casella di testo **URL di risposta TOPdesk - Public** il valore di **TOPdesk - Public AssertionConsumerService URL** (ad esempio, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
     3.  Fare clic su **Avanti**.
 
@@ -148,8 +151,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     1.  Per caricare il file di metadati scaricato, in **Federation Metadata** fare clic su **Browse**.
     2.  Per caricare il file del certificato, in **Certificate (RSA)** fare clic su **Browse**.
     3.  Per caricare il file del logo ottenuto dal team di supporto di TOPdesk, in **Logo icon** fare clic su **Browse**.
-    4.  Nella casella di testo **User name attribute** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
+    4.  Nella casella di testo **User name attribute** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
     6.  Fare clic su **Save**.
 
 17. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -158,7 +161,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necessario eseguirne il provisioning in TOPdesk - Public. Nel caso di TOPdesk - Public, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necessario eseguirne il provisioning in TOPdesk - Public.  
+Nel caso di TOPdesk - Public, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, seguire questa procedura:
 

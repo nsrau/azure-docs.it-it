@@ -31,9 +31,11 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 ## Per installare il Toolkit di Azure per Eclipse ##
 
 1. Avviare Eclipse.
-2. In Eclipse, nel menu fare clic su <strong>Guida</strong>, quindi fare clic su <strong>Installa nuovo Software</strong>, come illustrato nel diagramma seguente. ![][ic590123]
+2. In Eclipse, nel menu fare clic su <strong>Guida</strong>, quindi fare clic su <strong>Installa nuovo Software</strong>, come illustrato nel diagramma seguente.
+    ![][ic590123]
 3. Nella finestra di dialogo <strong>Software disponibile</strong>, all'interno della casella di testo <strong>usare</strong> digitare <strong>http://dl.msopentech.com/eclipse</strong> seguiti dalla chiave <strong>Invio</strong>.
-4. Nel riquadro <strong>Nome</strong>, controllare il <strong>Toolkit di Azure per Eclipse</strong>, e deselezionare <strong>Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto</strong>. L'aspetto della schermata dovrebbe essere simile al seguente: ![][ic719482]
+4. Nel riquadro <strong>Nome</strong>, controllare il <strong>Toolkit di Azure per Eclipse</strong>, e deselezionare <strong>Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto</strong>. L'aspetto della schermata dovrebbe essere simile al seguente:
+    ![][ic719482]
 5. Se si espande il <strong>Toolkit di Azure per Eclipse</strong>, verrà visualizzato quanto segue:
     * **Il filtro Servizio di controllo di accesso di Azure**: fornisce il supporto per l’applicazione dell’autenticazione degli utenti con ACS di Azure.
     * **Plug-in comune di Azure**: questo componente contiene la funzionalità condivisa ritenuta attendibile da altri componenti.
@@ -64,6 +66,7 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Installazione guidata piattaforma Web (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Novità nel Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
