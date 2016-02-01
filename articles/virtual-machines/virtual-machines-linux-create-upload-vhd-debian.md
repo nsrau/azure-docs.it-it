@@ -78,6 +78,6 @@ Se ci sono dei problemi per usare questo script, presentare semplicemente il pro
 
 ## Passaggi successivi
 
-Ora si è pronti a usare il file con estensione vhd. di Debian per creare nuove macchine virtuali di Azure.
+Ora si è pronti a usare il file con estensione vhd. di Debian per creare nuove macchine virtuali di Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

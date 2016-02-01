@@ -17,7 +17,7 @@
 
 # Esercitazione sulla messaggistica inoltrata del bus di servizio
 
-Questa esercitazione descrive come compilare una semplice applicazione client e di servizio del bus di servizio usando le relative funzionalità di "inoltro". Per un'esercitazione corrispondente che descrive come compilare un'applicazione che usa le funzionalità di messaggistica "negoziata" o asincrona del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio .NET](https://msdn.microsoft.com/library/hh367512.aspx). Per un'esercitazione simile che usa la [messaggistica negoziata](service-bus-messaging-overview.md/#Brokered-messaging) del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio .NET](https://msdn.microsoft.com/library/hh367512.aspx).
+Questa esercitazione descrive come compilare una semplice applicazione client e di servizio del bus di servizio usando le relative funzionalità di "inoltro". Per un'esercitazione simile che usa la [messaggistica negoziata](service-bus-messaging-overview.md#Brokered-messaging) del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio .NET](service-bus-brokered-tutorial-dotnet.md).
 
 L'esecuzione di questa esercitazione consente di acquisire una comprensione dei passaggi necessari per creare un'applicazione client e di servizio del bus di servizio. Come per le rispettive controparti WCF, un servizio è un costrutto che espone uno o più endpoint, ognuno dei quali espone a sua volta una o più operazioni del servizio. L'endpoint di un servizio specifica un indirizzo in cui è disponibile il servizio, un binding che contiene le informazioni che un client deve comunicare al servizio e un contratto che definisce la funzionalità fornita dal servizio ai propri client. La differenza principale tra un servizio WCF e un servizio del bus di servizio riguarda l'esposizione dell'endpoint nel cloud invece che localmente nel computer.
 
@@ -31,9 +31,9 @@ Tutti gli argomenti inclusi in questa sezione presuppongono l'uso di Visual Stud
 
 Il primo passaggio consiste nel creare uno spazio dei nomi del servizio per il bus di servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi del servizio fornisce un limite per ogni applicazione esposta tramite il bus di servizio. La combinazione di spazio dei nomi del servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
-Per creare uno spazio dei nomi, seguire i passaggi descritti in [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Per creare uno spazio dei nomi del servizio, visitare il [portale di Azure classico][]. Fare clic su **Bus di servizio** sul lato sinistro, quindi fare clic su **Crea**. Digitare un nome per lo spazio dei nomi, quindi fare clic sul segno di spunta.
 
->[AZURE.NOTE]Non è necessario usare lo stesso spazio dei nomi per le applicazioni client e per le applicazioni del servizio.
+	>[AZURE.NOTE]Non è necessario usare lo stesso spazio dei nomi per le applicazioni client e per le applicazioni del servizio.
 
 1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato nel passaggio precedente.
 
@@ -49,7 +49,7 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 
 1. Aprire Visual Studio come amministratore. Fare clic con il pulsante destro del mouse sul programma nel menu **Start** e quindi scegliere **Esegui come amministratore**.
 
-1. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo**, quindi fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** (se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**). Fare clic sul modello **Applicazione console** e denominarlo **EchoService**. Usare il valore predefinito del campo **Posizione**. Fare clic su **OK** per creare il progetto.
+1. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo**, quindi fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** (se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**). Fare clic sul modello **Applicazione console** e denominarlo **EchoService**. Usare il valore predefinito per **Percorso**. Fare clic su **OK** per creare il progetto.
 
 1. Aggiungere al progetto un riferimento a `System.ServiceModel.dll`: in Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Riferimenti** della cartella del progetto, quindi fare clic su **Aggiungi riferimento**. Selezionare la scheda **.NET** nella finestra di dialogo **Aggiungi riferimento** e scorrere verso il basso fino a visualizzare **System.ServiceModel**. Selezionarlo e quindi fare clic su **OK**.
 
@@ -833,7 +833,7 @@ Assicurarsi che il servizio sia in esecuzione prima di avviare il client.
 
 ## Passaggi successivi
 
-Questa esercitazione ha illustrato come compilare un'applicazione client e di servizio del bus di servizio usando le relative funzionalità di "inoltro". Per un'esercitazione simile che usa la [messaggistica negoziata](service-bus-messaging-overview.md/#Brokered-messaging) del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio .NET](https://msdn.microsoft.com/library/hh367512.aspx).
+Questa esercitazione ha illustrato come compilare un'applicazione client e di servizio del bus di servizio usando le relative funzionalità di "inoltro". Per un'esercitazione simile che usa la [messaggistica negoziata](service-bus-messaging-overview.md#Brokered-messaging) del bus di servizio, vedere [Esercitazione sulla messaggistica negoziata del bus di servizio .NET](service-bus-brokered-tutorial-dotnet.md).
 
 Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 
@@ -843,4 +843,4 @@ Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

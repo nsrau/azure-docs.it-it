@@ -1,20 +1,20 @@
 <properties
-                pageTitle="Informazioni su Azure Active Directory"
-                description="Usare Azure Active Directory per estendere le identità locali esistenti nel cloud o sviluppare le applicazioni integrate di Azure AD."
-                services="active-directory"
-                documentationCenter=""
-                authors="markusvi"
-                manager="stevenpo"
-                editor=""/>
+    pageTitle="Informazioni su Azure Active Directory"
+    description="Usare Azure Active Directory per estendere le identità locali esistenti nel cloud o sviluppare le applicazioni integrate di Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-                ms.service="active-directory"
-                ms.workload="identity"
-                ms.tgt_pltfrm="na"
-                ms.devlang="na"
-                ms.topic="article"
-                ms.date="10/30/2015"
-                ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/14/2016"
+    ms.author="markusvi"/>
 
 
 # Informazioni su Azure Active Directory
@@ -104,4 +104,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

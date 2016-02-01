@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/19/2016"
 	ms.author="tarcher"/>
 # Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure
 
@@ -41,7 +41,7 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 5. Eseguire lo script seguente per abilitare l'estensione RemoteDebug. Sostituire i percorsi e i dati personali con i dati personali dell'utente, ad esempio nome della sottoscrizione, nome del servizio e identificazione personale.
 
-	>[AZURE.NOTE]Questo script è configurato per Visual Studio 2015. Se si usa Visual Studio 2013, usare "RemoteDebugVS2013" per ReferenceName e ExtensionName.
+	>[AZURE.NOTE] Questo script è configurato per Visual Studio 2015. Se si usa Visual Studio 2013, modificare le assegnazioni `$referenceName` e `$extensionName` di seguito per l'uso di `RemoteDebugVS2013` anziché `RemoteDebugVS2015`.
 
 	<pre>
     Add-AzureAccount
@@ -90,4 +90,4 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

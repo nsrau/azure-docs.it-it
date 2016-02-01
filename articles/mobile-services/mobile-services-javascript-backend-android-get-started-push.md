@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -156,4 +156,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

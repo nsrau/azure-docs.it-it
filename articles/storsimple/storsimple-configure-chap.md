@@ -189,6 +189,7 @@ Se la configurazione di CHAP non è corretta, è probabile che venga visualizzat
 ## Passaggi successivi
 
 - Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
+
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

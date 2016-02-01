@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 # Come usare la libreria client iOS per Servizi mobili di Azure
@@ -334,4 +334,4 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestione dei problemi di conflitto]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Come risolvere i problemi comuni degli editori in Azure Marketplace
 Questo articolo spiega come risolvere o ottenere supporto per alcuni scenari comuni relativi al Marketplace.
@@ -63,9 +63,9 @@ In alcuni casi, è necessario convalidare i dettagli della sottoscrizione per un
 
 ## Com'è possibile aggiornare il profilo di pubblicazione?
 
-Per aggiornare il proprio profilo di pubblicazione, usare il Centro per sviluppatori Microsoft:
+Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
-**1. Accedere al Centro per sviluppatori Microsoft**.
+**1. Accedere a Windows Dev Center**.
 
 - Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
 - Passare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -82,7 +82,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare il Centro per sviluppa
 
 ![protectacct][6]
 
-**4. Passare a Dettagli account e Dettagli società**.
+**4. Passare a Dettagli account e Informazioni contatto**.
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

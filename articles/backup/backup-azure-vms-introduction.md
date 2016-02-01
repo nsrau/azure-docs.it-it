@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
 Questo articolo illustra le considerazioni principali da tenere presenti durante la pianificazione dell'infrastruttura di backup delle macchine virtuali. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -120,4 +120,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

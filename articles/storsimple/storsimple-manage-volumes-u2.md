@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
@@ -23,7 +23,7 @@
 
 Questa esercitazione illustra come usare il servizio StorSimple Manager per creare e gestire i volumi nel dispositivo StorSimple e nel dispositivo virtuale StorSimple con l'aggiornamento 2 installato.
 
-Il servizio StorSimple Manager è un’estensione del portale Azure che permette di gestire la soluzione StorSimple da una singola interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
+Il servizio StorSimple Manager è un’estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da una singola interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
 
 ## Tipi di volume
 
@@ -165,7 +165,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
     > [AZURE.NOTE]Non è possibile modificare l’opzione **Abilita backup predefinito** per il volume.
 
-6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Il portale di Azure classico mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
 
@@ -280,8 +280,9 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 ## Passaggi successivi
 
 - Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
+
 - Informazioni su come [usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

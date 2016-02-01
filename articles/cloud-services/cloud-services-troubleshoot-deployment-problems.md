@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/07/2016"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Come risolvere eventuali problemi di distribuzione dei servizi cloud rilevati
@@ -70,7 +70,7 @@ Per determinare se uno scambio VIP viene impedito da un aggiornamento automatico
 
 Questa condizione potrebbe indicare un problema relativo al codice, al pacchetto o al file di configurazione dell'applicazione. Se true, è possibile osservare nel portale di Azure che lo stato cambia ogni pochi minuti, diventando ad esempio **Riciclo in corso**, **Occupato** o **Inizializzazione in corso**, a indicare un errore dell'applicazione che impedisce l'esecuzione dell'istanza del ruolo.
 
-Per altre informazioni sulla risoluzione di questo problema, vedere il post di blog sui [dati di diagnostica del calcolo Azure PaaS] e [Problemi comuni che provocano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Per altre informazioni sulla risoluzione di questo problema, vedere il post di blog sui [dati di diagnostica del calcolo Azure PaaS] e [Problemi comuni che comportano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## Problema: Arresto del funzionamento dell'applicazione
 
@@ -86,7 +86,6 @@ Per altre informazioni sulla risoluzione di questo problema, vedere il post di b
 
 Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&service=cloud-services) per i servizi cloud.
 
+Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-[dati di diagnostica del calcolo Azure PaaS]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

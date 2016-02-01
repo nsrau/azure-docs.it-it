@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Contattare il supporto tecnico Microsoft
@@ -30,7 +30,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 #### Per creare una richiesta di supporto
 
-1. Una richiesta di supporto può essere creata tramite il [portale di Azure classico](http://manage.windowsazure.com/). Nel [portale](http://manage.windowsazure.com/) fare clic sul **Nome account** e quindi fare clic su **Contatta il supporto Microsoft**.
+1. Una richiesta di supporto può essere creata tramite il [portale di Azure classico](https://manage.windowsazure.com/). Nel [portale classico](https://manage.windowsazure.com/) fare clic su **Nome account** e quindi su **Contatta il supporto Microsoft**.
 
 	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -76,4 +76,4 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 > [AZURE.IMPORTANT]È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Eseguire una distribuzione da Visual Studio" 
+	pageTitle="Distribuire da Visual Studio | Microsoft Azure" 
 	description="Creare un progetto in Visual Studio per gestire l'app per la logica." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/19/2016"
 	ms.author="stepsic"/>
 	
 # Eseguire una distribuzione da Visual Studio
@@ -27,29 +27,29 @@ Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.7 
 
 ## Creare un progetto
 
-1. Andare al menu **File** e selezionare **Nuovo** > **Progetto** (in alternativa, è possibile selezionare **Aggiungi** e quindi **Nuovo progetto** per aggiungerlo a una soluzione esistente) ![File menu](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Andare al menu **File** e selezionare **Nuovo** > **Progetto**. In alternativa, è possibile selezionare **Aggiungi** e quindi **Nuovo progetto** per aggiungerlo a una soluzione esistente: ![File menu](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
 2. Nella finestra di dialogo **Cloud** selezionare **Gruppo di risorse di Azure**. Digitare un **Nome** e fare clic su **OK**. ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Ora è necessario selezionare **App per la logica** o **App per la logica + App API**. Se si seleziona **App per la logica** è necessario puntare delle API esistenti. Se si seleziona **App per la logica + App API** è anche possibile creare contemporaneamente un'app API nuova e vuota. ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Ora è necessario selezionare **App per la logica** o **App per la logica + App API**. Se si seleziona **App per la logica** è necessario puntare delle API esistenti. Se si seleziona **App per la logica + App per le API** è anche possibile creare contemporaneamente un'app per le API nuova e vuota. ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-4. Dopo aver selezionato il **Modello** premere **OK**.
+4. Dopo aver selezionato il **Modello** fare clic su **OK**.
 
-A questo punto il progetto di app per la logica verrà aggiunto alla soluzione. Verrà visualizzata la distribuzione in Esplora soluzioni: ![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
+Il progetto di app per la logica viene aggiunto alla soluzione. Verrà visualizzata la distribuzione in Esplora soluzioni: ![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configurazione dell'app per la logica
 
-Dopo aver creato un progetto è possibile modificare la definizione dell'app per la logica all'interno di Visual Studio. Fare clic sul file JSON in Esplora soluzioni. Verrà visualizzata una definizione di segnaposto che è possibile compilare con la logica dell'applicazione.
+Dopo aver creato un progetto è possibile modificare la definizione dell'app per la logica all'interno di Visual Studio. Fare clic sul file JSON in Esplora soluzioni. Viene visualizzata una definizione di segnaposto che è possibile compilare con la logica dell'applicazione.
 
-Si consiglia di usare **parametri** in tutta la definizione. L'uso dei parametri è utile se si vuole effettuare la distribuzione in un ambiente sia di sviluppo che di produzione. In tal caso, è necessario inserire i dati di configurazione di tutte le specifiche dell'ambiente nel file `.param` e i parametri anziché le stringhe effettive.
+Si consiglia di usare **parametri** in tutta la definizione. L'uso dei parametri è utile se si vuole effettuare la distribuzione in un ambiente di sviluppo e di produzione. In tal caso, è necessario inserire i dati di configurazione di tutte le specifiche dell'ambiente nel file `.param` e i parametri anziché le stringhe effettive.
 
-Attualmente Visual Studio non dispone di una finestra di progettazione incorporata JSON; pertanto, se si vuole usare un'interfaccia grafica (anziché la scrittura di JSON), è necessario usare il portale di Azure.
+Attualmente Visual Studio non include di una finestra di progettazione JSON predefinita, quindi se si vuole usare un'interfaccia grafica, invece di usare JSON, è necessario usare il portale di Azure.
 
 Se in precedenza è stata creata un'app per la logica all'interno del portale di Azure e ora si desidera archiviarla nel controllo del codice sorgente, esistono tre possibili modalità per eseguire questa operazione: - Passare a **Visualizzazione Codice** nel portale e copiare la definizione. - Usare le app per la logica [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) per ottenere la definizione. - Usare [la PowerShell di Gestione risorse di Azure](../powershell-azure-resource-manager.md), in particolare il comando [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) per scaricare la definizione.
 
 ## Distribuzione dell'app per la logica
 
-Infine, dopo aver configurato l'app è possibile distribuire direttamente da Visual Studio in pochi passaggi.
+Infine, dopo aver configurato l'app è possibile distribuirla direttamente da Visual Studio in pochi passaggi.
 
 1. Fare clic con il pulsante destro sulla distribuzione in Esplora soluzioni e passare a **Distribuisci** > **Nuova distribuzione...** ![New deployment](./media/app-service-logic-deploy-from-vs/newdeployment.png)
 
@@ -59,10 +59,10 @@ Infine, dopo aver configurato l'app è possibile distribuire direttamente da Vis
 
     Assicurarsi di selezionare il modello e i file dei parametri appropriati per il gruppo di risorse (ad esempio, se si effettua la distribuzione in un ambiente di produzione è opportuno scegliere il file dei parametri di produzione).
     
-4. Lo stato della distribuzione sarà visualizzato nella finestra **Output** (potrebbe essere necessario scegliere **Provisioning Azure**. ![Output](./media/app-service-logic-deploy-from-vs/output.png)
+4. Lo stato della distribuzione viene visualizzato nella finestra **Output**. Potrebbe essere necessario scegliere **Provisioning Azure**. ![Output](./media/app-service-logic-deploy-from-vs/output.png)
 
-In futuro sarà possibile modificare l'app per la logica nel controllo del codice sorgente e usare Visual Studio per distribuire nuove versioni. Si noti che se si modifica la definizione direttamente nel portale di Azure, alla successiva distribuzione da Visual Studio tali modifiche saranno sottoposte a sovrascrittura.
+In futuro sarà possibile modificare l'app per la logica nel controllo del codice sorgente e usare Visual Studio per distribuire nuove versioni. Se si modifica la definizione direttamente nel portale di Azure, alla successiva distribuzione da Visual Studio tali modifiche saranno sovrascritte.
 
 Se non si vuole usare Visual Studio, ma si desidera comunque utilizzare gli strumenti necessari per distribuire l'app per la logica dal controllo di origine, è possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

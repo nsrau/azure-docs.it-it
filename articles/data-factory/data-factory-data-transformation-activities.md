@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Trasformazione e analisi tramite Data factory di Azure
@@ -23,14 +23,14 @@ Le attività di trasformazione in Azure Data factory trasformano ed elaborano i 
 
 
 Attività di trasformazione | Ambiente di calcolo 
------------------------ | --------------------
+:----------------------- | :--------------------
 [Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop Streaming](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[Machine Learning Batch Scoring](data-factory-create-predictive-pipelines.md) | Macchina virtuale di Azure 
-[Stored procedure](data-factory-stored-proc-activity.md) | SQL di Azure | 
-[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) | Azure Data Lake Analytics 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
+[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) | Macchina virtuale di Azure 
+[Stored procedure](data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL Data Warehouse o SQL Server |
+[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) | Azure Data Lake Analytics. 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Batch di Azure
    
 
@@ -41,4 +41,4 @@ Attività di trasformazione | Ambiente di calcolo
 
 Per informazioni sui servizi collegati di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

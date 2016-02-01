@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Come visualizzare l&#39;integrità aggregata delle entità di Service Fabric | Microsoft Azure"
-   description="Descrive come eseguire una query dell&#39;integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali."
+   pageTitle="Come visualizzare l'integrità aggregata delle entità di Service Fabric | Microsoft Azure"
+   description="Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali."
    services="service-fabric"HealthManager
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Come visualizzare i report sull'integrità di Service Fabric
@@ -25,9 +25,9 @@ Service Fabric offre diversi modi per ottenere l'integrità aggregata delle enti
 
 - [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) o altri strumenti di visualizzazione
 
-- Query di integrità \(tramite PowerShell, l'API o REST\)
+- Query di integrità (tramite PowerShell, l'API o REST)
 
-- Query generali che restituiscono un elenco di entità per le quali l'integrità costituisce una proprietà \(tramite PowerShell, l'API o REST\)
+- Query generali che restituiscono un elenco di entità per le quali l'integrità costituisce una proprietà (tramite PowerShell, l'API o REST)
 
 Per illustrare queste opzioni, si userà un cluster locale con 5 nodi. Dopo l'applicazione **fabric:/System** applicazione, disponibile per impostazione predefinita, vengono distribuite altre applicazioni. Una di queste è **fabric:/WordCount**. Questa applicazione contiene un servizio con stato configurato con 7 repliche. Poiché sono presenti solo cinque nodi, i componenti di sistema visualizzano un avviso per indicare la partizione è inferiore al numero di destinazioni.
 
@@ -42,9 +42,9 @@ Per illustrare queste opzioni, si userà un cluster locale con 5 nodi. Dopo l'ap
 ## Integrità in Esplora Infrastruttura di servizi
 Esplora Infrastruttura di servizi fornisce una panoramica visiva del cluster. Nell'immagine seguente è possibile osservare quanto segue:
 
-- L'applicazione **fabric:/WordCount** è di colore rosso \(condizione di errore\), perché per questa applicazione è stato segnalato un evento di errore da **MyWatchdog** per la proprietà **Availability**.
+- L'applicazione **fabric:/WordCount** è di colore rosso (condizione di errore), perché per questa applicazione è stato segnalato un evento di errore da **MyWatchdog** per la proprietà **Availability**.
 
-- Uno dei servizi di questa applicazione, **fabric:/WordCount/WordCount.Service** è di colore giallo \(condizione di avviso\). Come descritto in precedenza, il servizio è configurato con 7 repliche, che non possono essere tutte posizionate perché sono disponibili solo di 5 nodi. Anche se qui non è illustrata, la partizione del servizio è di colore giallo a causa del report di sistema. La partizione gialla avvia il servizio giallo.
+- Uno dei servizi di questa applicazione, **fabric:/WordCount/WordCount.Service** è di colore giallo (condizione di avviso). Come descritto in precedenza, il servizio è configurato con 7 repliche, che non possono essere tutte posizionate perché sono disponibili solo di 5 nodi. Anche se qui non è illustrata, la partizione del servizio è di colore giallo a causa del report di sistema. La partizione gialla avvia il servizio giallo.
 
 - Il cluster è di colore rosso perché è rossa anche l'applicazione.
 
@@ -60,9 +60,9 @@ Visualizzazione del cluster con Service Fabric Explorer:
 > [AZURE.NOTE]Ulteriori informazioni su [Esplora Infrastruttura di servizi](service-fabric-visualizing-your-cluster.md).
 
 ## Query relative all’integrità
-Infrastruttura di servizi espone le query relative all’integrità per ognuno dei [tipi di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy) supportati. È possibile accedere alle query tramite l'API \(i metodi sono disponibili in **FabricClient.HealthManager**\), i cmdlet di PowerShell e REST. Queste query restituiscono informazioni di integrità complete sull'entità, inclusi lo stato aggregato dell'integrità, gli eventi di integrità segnalati nell'entità, gli stati di integrità degli elementi figlio, se applicabili, e valutazioni di non integrità quando l'entità non è integra.
+Infrastruttura di servizi espone le query relative all’integrità per ognuno dei [tipi di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy) supportati. È possibile accedere alle query tramite l'API (i metodi sono disponibili in **FabricClient.HealthManager**), i cmdlet di PowerShell e REST. Queste query restituiscono informazioni di integrità complete sull'entità, inclusi lo stato aggregato dell'integrità, gli eventi di integrità segnalati nell'entità, gli stati di integrità degli elementi figlio, se applicabili, e valutazioni di non integrità quando l'entità non è integra.
 
-> [AZURE.NOTE]Un'entità integra viene restituita all'utente quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva \(non eliminata\) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non è soddisfatta, le query relative all'integrità restituiscono un'eccezione che illustra il motivo per cui l'entità non viene restituita.
+> [AZURE.NOTE]Un'entità integra viene restituita all'utente quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva (non eliminata) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non è soddisfatta, le query relative all'integrità restituiscono un'eccezione che illustra il motivo per cui l'entità non viene restituita.
 
 Le query di integrità richiedono il passaggio nell'identificatore dell'entità, che dipende dal tipo di entità. Le query accettano parametri dei criteri di integrità facoltativi. Se non sono specificati, per la valutazione vengono usati i [criteri di integrità](service-fabric-health-introduction.md#health-policies) dal manifesto del cluster o dell'applicazione. Le query accettano anche filtri per restituire solo elementi figlio o eventi parziali, quelli che rispettano i filtri specificati.
 
@@ -79,11 +79,11 @@ L'integrità di un'entità include le informazioni seguenti:
 - Le valutazioni non integre che puntano al report che ha attivato lo stato dell'entità, se l'entità non è integra.
 
 ## Get cluster health
-Restituisce l'integrità dell'entità cluster e contiene gli stati di integrità di applicazioni e nodi \(elementi figlio del cluster\). Input:
+Restituisce l'integrità dell'entità cluster e contiene gli stati di integrità di applicazioni e nodi (elementi figlio del cluster). Input:
 
-- \[Facoltativo\] Mappa dei criteri di integrità dell'applicazione con criteri di integrità usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Mappa dei criteri di integrità dell'applicazione con criteri di integrità usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per eventi, nodi e applicazioni che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Tutti gli eventi, i nodi e le applicazioni vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
+- [Facoltativo] Filtri per eventi, nodi e applicazioni che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Tutti gli eventi, i nodi e le applicazioni vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità del cluster, creare un oggetto **FabricClient** e chiamare il metodo [**GetClusterHealthAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) sul relativo **HealthManager**.
@@ -176,7 +176,7 @@ HealthEvents            : None
 Il cmdlet PowerShell seguente ottiene lo stato di integrità del cluster con i criteri dell'applicazione personalizzati. Il cmdlet filtra i risultati per ottenere solo le applicazioni e i nodi con stato di errore o avviso. Di conseguenza, non verranno restituiti nodi, perché sono tutti integri. Solo l'applicazione fabric:/WordCount rispetta il filtro delle applicazioni. Poiché i criteri personalizzati specificano di considerare gli avvisi come errori per l'applicazione fabric:/WordCount, questa viene valutata in stato di errore e lo stesso accade per il cluster.
 
 ```powershell
-PS c:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -213,11 +213,11 @@ HealthEvents            : None
 ## Get node health
 Restituisce lo stato di un'entità nodo e contiene gli eventi di integrità segnalati sul nodo. Input:
 
-- \[Obbligatorio\] Nome del nodo che identifica il nodo.
+- [Obbligatorio] Nome del nodo che identifica il nodo.
 
-- \[Facoltativo\] Impostazioni dei criteri di integrità usate per valutare l'integrità.
+- [Facoltativo] Impostazioni dei criteri di integrità usate per valutare l'integrità.
 
-- \[Facoltativo\] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
+- [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetNodeHealthAsync** sul relativo HealthManager.
@@ -279,22 +279,22 @@ Node.3                      Ok
 ## Ottieni lo stato dell'integrità dell'applicazione
 Restituisce lo stato di un'entità applicazione. Contiene gli stati di integrità dell'applicazione distribuita e gli elementi figlio del servizio. Input:
 
-- \[Obbligatorio\] Nome dell'applicazione \(URI\) che identifica l'applicazione.
+- [Obbligatorio] Nome dell'applicazione (URI) che identifica l'applicazione.
 
-- \[Facoltativo\] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per eventi, servizi e applicazioni distribuite che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Tutti gli eventi, i servizi e le applicazioni distribuite vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
+- [Facoltativo] Filtri per eventi, servizi e applicazioni distribuite che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Tutti gli eventi, i servizi e le applicazioni distribuite vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità dell'applicazione, creare un oggetto FabricClient e chiamare il metodo **GetApplicationHealthAsync** sul relativo HealthManager.
 
-La sintassi seguente ottiene l'integrità dell'applicazione per il nome dell'applicazione \(URI\) specificato.
+La sintassi seguente ottiene l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato.
 
 ```csharp
 ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(applicationName).Result;
 ```
 
-La sintassi seguente ottiene l'integrità dell'applicazione per il nome dell'applicazione \(URI\) specificato, indicando filtri e criteri personalizzati tramite **System.Fabric.Description.ApplicationHealthQueryDescription**.
+La sintassi seguente ottiene l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato, indicando filtri e criteri personalizzati tramite **System.Fabric.Description.ApplicationHealthQueryDescription**.
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -328,7 +328,7 @@ Il cmdlet per ottenere l'integrità dell'applicazione è **Get-ServiceFabricAppl
 Il cmdlet seguente restituisce l'integrità dell'applicazione fabric:/WordCount:
 
 ```powershell
-PS c:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -419,20 +419,20 @@ HealthEvents                    : None
 ## Get service health
 Restituisce l'integrità di un'entità servizio. Contiene gli stati di integrità della partizione. Input:
 
-- \[Obbligatorio\] Nome del servizio \(URI\) che identifica il servizio.
-- \[Facoltativo\] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
-- \[Facoltativo\] Filtri per eventi e partizioni che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le partizioni, indipendentemente dal filtro.
+- [Obbligatorio] Nome del servizio (URI) che identifica il servizio.
+- [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Filtri per eventi e partizioni che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le partizioni, indipendentemente dal filtro.
 
 ### API
 Per ottenere lo stato del servizio tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetServiceHealthAsync** sul relativo HealthManager.
 
-L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio \(URI\) specificato:
+L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio (URI) specificato:
 
 ```charp
 ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(serviceName).Result;
 ```
 
-L'esempio seguente ottiene l'integrità del servizio per il nome del servizio \(URI\) specificato, indicando filtri e criteri personalizzati tramite System.Fabric.Description.ServiceHealthQueryDescription.
+L'esempio seguente ottiene l'integrità del servizio per il nome del servizio (URI) specificato, indicando filtri e criteri personalizzati tramite System.Fabric.Description.ServiceHealthQueryDescription.
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -483,11 +483,11 @@ HealthEvents          :
 ## Get partition health
 Restituisce l'integrità di un'entità partizione. Contiene gli stati di integrità della replica. Input:
 
-- \[Obbligatorio\] ID partizione \(GUID\) che identifica la partizione.
+- [Obbligatorio] ID partizione (GUID) che identifica la partizione.
 
-- \[Facoltativo\] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per eventi e repliche che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le repliche, indipendentemente dal filtro.
+- [Facoltativo] Filtri per eventi e repliche che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi e tutte le repliche, indipendentemente dal filtro.
 
 ### API
 Per ottenere lo stato della partizione tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetPartitionHealthAsync** sul relativo HealthManager. Per specificare i parametri facoltativi, creare **System.Fabric.Description.PartitionHealthQueryDescription**.
@@ -542,11 +542,11 @@ HealthEvents          :
 ## Get replica health
 Restituisce l'integrità di una replica. Input:
 
-- \[Obbligatorio\] ID partizione \(GUID\) e ID replica che identificano la replica.
+- [Obbligatorio] ID partizione (GUID) e ID replica che identificano la replica.
 
-- \[Facoltativo\] Parametri dei criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Parametri dei criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
+- [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità della replica tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetReplicaHealthAsync** sul relativo HealthManager. Per specificare parametri avanzati, usare **System.Fabric.Description.ReplicaHealthQueryDescription**.
@@ -583,11 +583,11 @@ HealthEvents          :
 ## Ottieni lo stato dell'integrità delle applicazioni distribuite.
 Restituisce l'integrità di un'applicazione distribuita in un'entità nodo. Contiene gli stati di integrità del pacchetto di servizi distribuito. Input:
 
-- \[Obbligatorio\] Nome dell'applicazione \(URI\) e nome del nodo \(stringa\) che identificano l'applicazione distribuita
+- [Obbligatorio] Nome dell'applicazione (URI) e nome del nodo (stringa) che identificano l'applicazione distribuita
 
-- \[Facoltativo\] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per eventi e pacchetti di servizi distribuiti che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Tutti gli eventi e i pacchetti di servizi distribuiti vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
+- [Facoltativo] Filtri per eventi e pacchetti di servizi distribuiti che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Tutti gli eventi e i pacchetti di servizi distribuiti vengono usati per valutare l'integrità aggregata dell'entità, indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità in un'applicazione distribuita in un nodo tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetDeployedApplicationHealthAsync** sul relativo HealthManager. Per specificare i parametri facoltativi, usare **System.Fabric.Description.DeployedApplicationHealthQueryDescription**.
@@ -633,11 +633,11 @@ HealthEvents                       :
 ## Get deployed service package health
 Restituisce l'integrità di un'entità pacchetto di servizi distribuito. Input:
 
-- \[Obbligatorio\] Nome dell'applicazione \(URI\), nome del nodo \(stringa\) e nome del manifesto del servizio \(stringa\) che identificano il pacchetto di servizi distribuito.
+- [Obbligatorio] Nome dell'applicazione (URI), nome del nodo (stringa) e nome del manifesto del servizio (stringa) che identificano il pacchetto di servizi distribuito.
 
-- \[Facoltativo\] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
+- [Facoltativo] Criteri di integrità dell'applicazione usati per sostituire i criteri del manifesto dell'applicazione.
 
-- \[Facoltativo\] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato \(ad esempio, solo gli errori o avvisi ed errori\). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
+- [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità di entità aggregate, vengono usati tutti gli eventi indipendentemente dal filtro.
 
 ### API
 Per ottenere l'integrità di un pacchetto di servizi distribuito tramite l'API, creare un oggetto FabricClient e chiamare il metodo **GetDeployedServicePackageHealthAsync** sul relativo HealthManager.
@@ -698,7 +698,7 @@ HealthEvents          :
 ```
 
 ## Query generali
-Le query generali restituiscono l'elenco delle entità di Service Fabric di un tipo specificato. Le query vengono esposte tramite l'API \(con metodi su **FabricClient.QueryManager**\), i cmdlet PowerShell e REST. Queste query aggregano sottoquery da più componenti. Uno di questi è l'[archivio integrità](service-fabric-health-introduction.md#health-store), che popola lo stato di integrità aggregato per i risultati di ogni query.
+Le query generali restituiscono l'elenco delle entità di Service Fabric di un tipo specificato. Le query vengono esposte tramite l'API (con metodi su **FabricClient.QueryManager**), i cmdlet PowerShell e REST. Queste query aggregano sottoquery da più componenti. Uno di questi è l'[archivio integrità](service-fabric-health-introduction.md#health-store), che popola lo stato di integrità aggregato per i risultati di ogni query.
 
 > [AZURE.NOTE]Le query generali restituiscono lo stato di integrità aggregato dell'entità e non contengono i dati di integrità complessi. Se un'entità non è integra, è possibile procedere con query di integrità per ottenere tutte le informazioni di integrità, come gli eventi, gli stati di integrità degli elementi figlio e le valutazioni non integre.
 
@@ -839,4 +839,4 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

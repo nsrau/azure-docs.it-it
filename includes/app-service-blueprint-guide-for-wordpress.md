@@ -1,29 +1,31 @@
-## WordPress and Azure App Service
+## WordPress e Servizio app di Azure
 
-* [What is WordPress?](https://wordpress.org/)
-* [How to setup enterprise-class WordPress web app](web-sites-php-enterprise-wordpress.md)
-* [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
-* [Deploy a WordPress web app backed with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
-* [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
-* [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
-* [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/)
-  
-## Chapter 2 : Troubleshooting WordPress Application
+* [Che cos'è WordPress?](https://wordpress.org/)
+* [Come impostare l'app Web WordPress di livello aziendale](web-sites-php-enterprise-wordpress.md)
+* [Come acquistare l'hosting MySQL condiviso ClearDB per l'app WordPress](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
+* [Come acquistare il cluster MySQL dedicato ClearDB per l'app WordPress ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Distribuire un'app Web WordPress supportata da cluster di replica MySQL](/documentation/templates/wordpress-mysql-replication/)
+* [Costruire il proprio cluster MySQL master-master con cluster Percona](/documentation/templates/mysql-ha-pxc/) e [scoprire altre informazioni su come gestire il cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
+* [Distribuire WordPress supportato da cluster di replica MySQL con configurazione master-slave](/documentation/templates/mysql-replication/)
+* [Distribuire un'app WordPress supportata da DB SQL Azure gestito da ProjectNami](/marketplace/partners/projectnami/projectnami/)
+  
+## Capitolo 2: Risoluzione dei problemi dell'applicazione WordPress
 
-* [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
-* [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
-* [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Use Kudu Support portal to diagnose and mitigate issues in real time](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
-* [How to backup your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md)
+* [Come risolvere i problemi dell'app WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
+* [Raccogliere telemetria sull'utilizzo con il servizio di Azure Application Insights](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
+* [Eseguire il profiler Zend Zray sull'app Web per diagnosticare problemi e prestazioni](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
+* [Usare il portale di supporto Kudu per diagnosticare e limitare i problemi in tempo reale](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Usare varie regole di correzione automatica per la risoluzione dei problemi in tempo reale](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Come eseguire il backup dell'app Web](web-sites-backup.md) e [come ripristinare l'app Web](web-sites-restore.md)
 
-## Chapter 3: Performance
+## Capitolo 3: Prestazioni
 
-* [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
-* [How to enabled redis cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
-* [How to enable memcached object cache for WordPress](web-sites-connect-to-redis-using-memcache-protocol.md) using [memcached plugin](https://wordpress.org/plugins/memcached/)
-* [Enable wincache with W3 total cache plugin](https://wordpress.org/plugins/w3-total-cache/)
-* [How to use supercache plugin to speed up WordPress app](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
-* [How to server caching using IIS output caching](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
-* [How to enabled browser caching for static content](http://www.iis.net/configreference/system.webserver/staticcontent)
+* [Come velocizzare l'app Web WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
+* [Come abilitare Cache Redis](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) tramite [plug-in Cache Redis](https://wordpress.org/plugins/wp-redis/)
+* [Come abilitare Memcached Object Cache per WordPress](web-sites-connect-to-redis-using-memcache-protocol.md) tramite [plug-in Memcached](https://wordpress.org/plugins/memcached/)
+* [Abilitare WinCache con plug-in W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/)
+* [Come usare plug-in Supercache per velocizzare l'app WordPress](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
+* [Come eseguire il caching del server tramite caching di output per IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
+* [Come abilitare il caching del browser per il contenuto statico](http://www.iis.net/configreference/system.webserver/staticcontent)
+
+<!---HONumber=AcomDC_0121_2016-->

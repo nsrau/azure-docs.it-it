@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -937,4 +937,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

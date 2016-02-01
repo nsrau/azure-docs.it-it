@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con IdeaScale | Microsoft Azure" 
     description="Informazioni su come usare IdeaScale con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con IdeaScale
   
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Idea
 
 ###Per abilitare l'integrazione dell'applicazione per IdeaScale, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-ideascale-tutorial/IC700993.png "Active Directory")
 
@@ -90,7 +90,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
 
-7.  Passare a **Sicurezza > Impostazioni Single Signon**.
+7.  Passare a **Security > Single Signon Settings**.
 
     ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790848.png "Single Signon Settings")
 
@@ -157,4 +157,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

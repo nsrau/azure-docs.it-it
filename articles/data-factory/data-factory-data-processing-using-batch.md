@@ -1,39 +1,33 @@
-<properties 
-    pageTitle="Elaborazione dati su larga scala con Data factory di Azure e Azure Batch" 
-    description="Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Orchestrazione di HPC e dati con Azure Batch e Data factory"
+    description="Descrive come elaborare elevate quantità di dati in una pipeline di Data factory di Azure usando la funzionalità di elaborazione parallela di Azure Batch."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
     editor="monicar"/>
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="12/16/2015" 
+<tags
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/20/2016"
     ms.author="spelluru"/>
-# Elaborazione dati su larga scala con Data factory di Azure e Azure Batch
+# Orchestrazione di HPC e dati con Azure Batch e Data factory
 
-Questa semplice soluzione di architettura illustra come spostare ed elaborare set di dati su larga scala in modo efficiente nel cloud con **Data Factory** **di Microsoft Azure ** e **Azure** **Batch**. L'architettura è adatta a molti scenari che richiedono l'elaborazione dei dati su larga scala. Include funzionalità per la creazione di report e la modellazione dei rischi per le organizzazioni di servizi finanziari, l'elaborazione e il rendering di immagini e l'analisi genomica.
+In passato l'High Performance Computing (HPC) era confinato in data center locali, in cui un supercomputer elaborava i dati ma era limitato dal numero di computer fisici disponibili. Il servizio Azure Batch rivoluziona questo concetto fornendo l'HPC come servizio e permette di configurare tutti i computer necessari. Azure Batch gestisce anche la pianificazione e il coordinamento del lavoro e permette di concentrarsi sugli algoritmi da eseguire. Data Factory di Azure completa l'azione di Azure Batch semplificando l'orchestrazione dello spostamento dei dati. Con Data factory è possibile specificare movimenti regolari dei dati per operazioni ETL, elaborare i dati e spostare i risultati in una risorsa di archiviazione permanente. Ad esempio, Data factory sposta i dati raccolti dai sensori in un percorso temporaneo in cui Azure Batch elabora i dati e produce un nuovo set di risultati, sotto il controllo di Data factory. Data factory sposta quindi i risultati di un repository finale. La combinazione di questi due servizi permette di usare in modo efficiente l'HPC per elaborare grandi quantità di dati a intervalli regolari.
 
-Un diagramma e una procedura di base offrono una panoramica della soluzione per architetti e decision maker IT. Gli sviluppatori possono usare il codice come punto di partenza per un'implementazione personalizzata. Questo articolo include l'intera soluzione.
+Qui viene fornito un esempio di soluzione end-to-end che consente di spostare ed elabora automaticamente set di dati di grandi dimensioni. L'architettura è adatta a molti scenari, ad esempio la modellazione dei rischi per le organizzazioni di servizi finanziari, l'elaborazione e il rendering di immagini e l'analisi genomica. Un diagramma e una procedura di base offrono una panoramica della soluzione per architetti e decision maker IT. Gli sviluppatori possono usare il codice come punto di partenza per un'implementazione personalizzata. Questo articolo include l'intera soluzione.
 
-## Data factory e Batch
-
-**Data factory di Azure** è un servizio di integrazione dei dati basato sul cloud. Orchestra e automatizza lo spostamento di dati non elaborati e li trasforma in informazioni pronte all'uso. Per imparare rapidamente a usare questo servizio, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) e [Creare la prima pipeline](data-factory-build-your-first-pipeline.md).
-
-Le pipeline, che costituiscono un raggruppamento logico di attività, spostano ed elaborano i dati. Data factory supporta attività predefinite, ad esempio **attività di copia** e **attività Hive di HDInsight**. Per l'elenco completo, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) e [Trasformazione e analisi tramite Data factory di Azure](data-factory-data-transformation-activities.md). È anche possibile creare un'**attività personalizzata** in base a una propria logica di elaborazione, come verrà illustrato nella soluzione.
-
-**Azure Batch** consente di eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. È un servizio di piattaforma che pianifica l'esecuzione del lavoro caratterizzato da elevato utilizzo di calcolo su una raccolta gestita di macchine virtuali (nodi di calcolo) e che può ridimensionare le risorse di calcolo per soddisfare le esigenze del processo. Per altri dettagli, vedere [Nozioni di base su Azure Batch](../batch/batch-technical-overview.md) e [Cenni preliminari sulle funzionalità di Azure Batch](../batch/batch-api-basics.md).
+Prima di eseguire la soluzione di esempio, vedere la documentazione di [Azure Batch](../batch/batch-api-basics.md) e [Data factory](data-factory-introduction.md) se non si ha familiarità con questi servizi.
 
 ## Diagramma dell'architettura
 
-Il diagramma illustra 1) in che modo Data factory orchestra l'elaborazione e lo spostamento dei dati e 2) in che modo Azure Batch elabora i dati in modalità parallela. Scaricare e stampare il diagramma per riferimento (27,9 x 43,2 cm o formato A3): [Microsoft Azure Batch e Data factory di Azure: architettura per l'elaborazione dati su larga scala](http://go.microsoft.com/fwlink/?LinkId=717686).
+Il diagramma illustra 1) in che modo Data factory orchestra l'elaborazione e lo spostamento dei dati e 2) in che modo Azure Batch elabora i dati in modalità parallela. Scaricare e stampare il diagramma per riferimento, 11 x 17 pollici o formato A3: [Orchestrazione di HPC e dati con Azure Batch e Data factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![](./media/data-factory-data-processing-using-batch/image1.png)
+![Diagramma dell'HPC come servizio](./media/data-factory-data-processing-using-batch/image1.png)
 
 Questi sono i passaggi di base del processo. La soluzione include il codice e le spiegazioni per compilare la soluzione end-to-end.
 
@@ -70,17 +64,17 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 4.  Creare un **pool di Azure Batch** con almeno 2 nodi di calcolo.
 
 	 È possibile scaricare il codice sorgente per lo [strumento Azure Batch Explorer](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compilare il codice e usare lo strumento per creare il pool, [un'operazione consigliabile per questa soluzione di esempio](../batch/batch-dotnet-get-started.md), oppure usare la **libreria di Azure Batch per .NET** per creare il pool. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx). Per creare un pool di Azure Batch è anche possibile usare il cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx).
-	
+
 	 Usare Batch Explorer per creare il pool con l'impostazione seguente:
 
 	-   Immettere un ID per il pool (**ID pool**). Prendere nota dell'**ID del pool**, perché sarà necessario durante la creazione della soluzione Data factory.
-	
+
 	-   Specificare **Windows Server 2012 R2** per l'impostazione **Famiglia di sistemi operativi**.
-	
+
 	-   Specificare **2** come valore per l'impostazione del **numero massimo di attività per nodo di calcolo**.
-	
+
 	-   Specificare **2** come valore per l'impostazione del **numero di destinazioni dedicate**.
-	
+
 	 ![](./media/data-factory-data-processing-using-batch/image2.png)
 
 5.  [Azure Storage Explorer 6 (strumento)](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software). Si tratta di strumenti dell'interfaccia utente grafica per esaminare e modificare i dati nei progetti di archiviazione di Azure, inclusi i log delle applicazioni ospitate nel cloud.
@@ -92,7 +86,7 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
  		![](./media/data-factory-data-processing-using-batch/image3.png)
 
 		 **Inputfolder** e **outputfolder** sono cartelle di primo livello in **mycontainer** e **inputfolder** include le sottocartelle con indicatori di data e ora (AAAA-MM-GG-HH).
-		
+
 		 Se si usa **Azure Storage Explorer**, nel passaggio successivo si dovranno caricare file con nomi inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt e così via. Le cartelle verranno create automaticamente.
 
 	3.  Creare un file di testo **file.txt** nel computer con contenuto che include la parola chiave **Microsoft**. Ad esempio: "test attività personalizzata Microsoft testare l'attività personalizzata Microsoft".
@@ -150,10 +144,10 @@ L'attività personalizzata di Data factory è il fulcro della soluzione di esemp
 Per creare un'attività personalizzata .NET da usare in una pipeline di Data factory di Azure, è necessario creare un progetto della **libreria di classi .NET** con una classe che implementa l'interfaccia **IDotNetActivity**. Questa interfaccia ha un solo metodo, **Execute**. Questa è la firma del metodo:
 
 	public IDictionary<string, string> Execute(
-	            IEnumerable<LinkedService> linkedServices, 
-	            IEnumerable<Dataset> datasets, 
-	            Activity activity, 
-	            IActivityLogger logger)        
+	            IEnumerable<LinkedService> linkedServices,
+	            IEnumerable<Dataset> datasets,
+	            Activity activity,
+	            IActivityLogger logger)
 
 È necessario conoscere alcuni dei componenti chiave del metodo.
 
@@ -169,7 +163,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 
 -   Il metodo restituisce un dizionario che può essere usato per concatenare le attività personalizzate. Questa funzionalità non verrà usata in questa soluzione di esempio.
 
-### Procedura: Creare l'attività personalizzata 
+### Procedura: Creare l'attività personalizzata
 
 1.  Creare un progetto Libreria di classi .NET in Visual Studio.
 
@@ -203,10 +197,10 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-		
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -221,7 +215,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 8.  Implementare (aggiungere) il metodo **Execute** dell'interfaccia **IDotNetActivity** nella classe **MyDotNetActivity** e copiare il seguente codice di esempio nel metodo. Per una descrizione della logica usata in questo metodo, vedere la sezione [Metodo Execute](#execute-method).
 
 		/// <summary>
-        /// Execute method is the only method of IDotNetActivity interface you must implement. 
+        /// Execute method is the only method of IDotNetActivity interface you must implement.
         /// In this sample, the method invokes the Calculate method to perform the core logic.  
 		/// </summary>
         public IDictionary<string, string> Execute(
@@ -244,8 +238,8 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(
                 linkedService =>
                 linkedService.Name ==
@@ -271,12 +265,12 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
                                          continuationToken,
                                          null,
                                          null);
-                
-                // Calculate method returns the number of occurrences of 
+
+                // Calculate method returns the number of occurrences of
                 // the search term (“Microsoft”) in each blob associated
-        		// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step. 
+        		// with the data slice.
+        		//
+        	    // definition of the method is shown in the next step.
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
             } while (continuationToken != null);
@@ -292,7 +286,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 
             // create a storage object for the output blob.
             CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-            // write the name of the file. 
+            // write the name of the file.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
@@ -309,7 +303,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 9.  Aggiungere alla classe i metodi helper riportati di seguito. Questi metodi vengono richiamati dal metodo **Execute**. In particolare, il metodo **Calculate** isola il codice che esegue l'iterazione di ogni BLOB.
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 		private static string GetFolderPath(Dataset dataArtifact)
 		{
@@ -317,41 +311,41 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FolderPath;
 		}
-		
+
 		/// <summary>
-		/// Gets the fileName value from the input/output dataset.   
+		/// Gets the fileName value from the input/output dataset.
 		/// </summary>
-		
+
 		private static string GetFileName(Dataset dataArtifact)
 		{
 		    if (dataArtifact == null || dataArtifact.Properties == null)
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FileName;
 		}
-		
+
 		/// <summary>
-		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-		/// and prepares the output text that will be written to the output blob. 
+		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+		/// and prepares the output text that will be written to the output blob.
 		/// </summary>
-		
+
 		public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 		{
 		    string output = string.Empty;
@@ -407,7 +401,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
 		do
-		{   
+		{
 		// Get the list of input blobs from the input storage client object.
 		BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 		    					true,
@@ -418,7 +412,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 		                                  null);
 		// Return a string derived from parsing each blob.
 		    output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-		
+
 		} while (continuationToken != null);
 
 	Per informazioni dettagliate, vedere la documentazione relativa al metodo [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
@@ -433,29 +427,29 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-		
+
 		// Convert to blob location object.
 		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	Il codice chiama anche un metodo helper, **GetFolderPath**, per recuperare il percorso della cartella, ovvero il nome del contenitore di archiviazione.
 
 		folderPath = GetFolderPath(outputDataset);
-		
+
 	**GetFolderPath** esegue il cast dell'oggetto DataSet a un oggetto AzureBlobDataSet, che include una proprietà denominata FolderPath.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FolderPath;
 
 5.	Il codice chiama il metodo **GetFileName** per recuperare il nome del file (nome del BLOB). Il codice è simile a quello visto in precedenza per ottenere il percorso della cartella.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FileName;
 
 6.	Il nome del file viene scritto creando un nuovo oggetto URI. Il costruttore URI usa la proprietà **BlobEndpoint** per restituire il nome del contenitore. Il nome del file e il percorso della cartella vengono aggiunti per creare l'URI del BLOB di output.
 
-		// Write the name of the file. 
+		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	Il nome del file è stato scritto e ora è possibile scrivere la stringa di output del metodo **Calculate** in un nuovo BLOB:
@@ -630,15 +624,15 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 		        "external": true,
 		        "policy": {}
 		    }
-		} 
+		}
 
-	
+
 	 Più avanti in questa procedura dettagliata viene creata una pipeline con ora di inizio: 2015-11-16T00:00:00Z e ora di fine: 2015-11-16T05:00:00Z. Viene pianificata per produrre dati **ogni ora** per ottenere 5 sezioni di input/output, tra **00**.00.00 e **05**.00.00.
-	
+
 	 La **frequenza** e l'**intervallo** per il set di dati di input sono impostati su **Ora** e **1**. Ciò significa che la sezione di input è disponibile ogni ora.
-	
+
 	 Qui sono indicate le ore di inizio per ogni sezione, rappresentate dalla variabile di sistema **SliceStart** nel precedente frammento di codice JSON.
-	
+
 	| **Sezione** | **Ora di inizio** |
 	|-----------|-------------------------|
 	| 1 | 2015-11-16T**00**.00.00 |
@@ -646,9 +640,9 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 	| 3 | 2015-11-16T**02**.00.00 |
 	| 4 | 2015-11-16T**03**.00.00 |
 	| 5 | 2015-11-16T**04**.00.00 |
-	
+
 	 La proprietà **folderPath** viene calcolata usando la parte di anno, mese, giorno e ora dell'ora di inizio sezione (**SliceStart**). Ecco quindi come viene eseguito il mapping di una cartella di input a una sezione.
-	
+
 	| **Sezione** | **Ora di inizio** | **Cartella di input** |
 	|-----------|-------------------------|-------------------|
 	| 1 | 2015-11-16T**00**.00.00 | 2015-11-16-**00** |
@@ -704,7 +698,7 @@ In questo passaggio si creerà un altro set di dati di tipo AzureBlob per rappre
 	| 3 | 2015-11-16T**02**.00.00 | 2015-11-16-**02.txt** |
 	| 4 | 2015-11-16T**03**.00.00 | 2015-11-16-**03.txt** |
 	| 5 | 2015-11-16T**04**.00.00 | 2015-11-16-**04.txt** |
-	
+
 	 Tenere presente che tutti i file in una cartella di input, ad esempio 2015-11-16-00, fanno parte di una sezione con l'ora di inizio 2015-11-16-00. Quando la sezione viene elaborata, l'attività personalizzata esamina ogni file e produce una riga nel file di output con il numero di occorrenze del termine di ricerca ("Microsoft"). Se nella cartella 2015-11-16-00 sono presenti tre file, ci saranno tre righe nel file di output 2015-11-16-00.txt.
 
 3.  Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire **OutputDataset**.
@@ -935,4 +929,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
     -   [Introduzione alla libreria di Azure Batch per .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

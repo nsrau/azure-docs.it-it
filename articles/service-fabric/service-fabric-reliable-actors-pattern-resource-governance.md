@@ -16,25 +16,29 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Modello di progettazione di Reliable Actors: governance delle risorse
+# Modello di progettazione Reliable Actors: governance delle risorse
 
-Questo modello e i relativi scenari sono facilmente riconoscibili dagli sviluppatori (aziendali e non solo) che dispongono di risorse vincolate in locale o nel cloud, non immediatamente scalabili, e che desiderano inviare nel cloud dati e applicazioni su larga scala.
+Questo modello e i relativi scenari sono facilmente riconoscibili dagli sviluppatori (aziendali e non solo) che hanno risorse vincolate in locale o nel cloud, non immediatamente scalabili, o che vogliono inviare nel cloud dati e applicazioni su larga scala.
 
-Nelle organizzazioni, queste risorse vincolate, ad esempio i database, vengono eseguite su hardware ad alta scalabilità verticale. Chiunque disponga di una lunga esperienza in azienda sa che si tratta di una situazione comune a livello locale. A livello di cloud, invece, questa situazione si verifica quando un servizio cloud tenta di superare il limite TCP di 64 KB per le connessioni tra un indirizzo e una tupla di porta o quando si tenta di connettersi a un database basato su cloud che limita il numero di connessioni simultanee.
+Nelle organizzazioni, queste risorse vincolate, ad esempio i database, vengono eseguite su hardware ad alta scalabilità verticale. Chiunque disponga di una lunga esperienza in azienda sa che si tratta di una situazione comune a livello locale. A livello di cloud, questa situazione si verifica quando un servizio cloud tenta di superare il limite TCP di 64.000 connessioni tra un indirizzo e una tupla di porta o quando si tenta di connettersi a un database basato su cloud che limita il numero di connessioni simultanee.
 
-In passato, questo veniva risolto in genere ricorrendo alla limitazione tramite middleware basato su messaggi o a pool personalizzati e meccanismi di facciata. Queste operazioni, tuttavia, risultavano molto complesse, soprattutto se era necessario scalare il livello intermedio mantenendo il numero corretto di connessioni. Operazioni fragili e complesse.
+In passato, questo veniva risolto in genere ricorrendo alla limitazione tramite middleware basato su messaggi o a pool personalizzati e meccanismi di facciata. Queste operazioni, tuttavia, risultavano molto complesse, soprattutto se era necessario scalare il livello intermedio mantenendo il numero corretto di connessioni. Una soluzione fragile e complessa.
 
-In realtà, come il modello Smart Cache, anche questo modello coinvolge più scenari e clienti che dispongono già di sistemi con risorse vincolate e devono creare sistemi in cui è necessario scalare orizzontalmente non solo i servizi ma anche il relativo stato in memoria, nonché lo stato persistente in un archivio stabile.
+Come il modello Smart Cache, anche questo modello coinvolge più scenari e clienti che hanno già sistemi con risorse vincolate. In questo caso, i sistemi devono anche essere in grado di scalare orizzontalmente non solo i servizi ma anche il relativo stato in memoria, nonché lo stato persistente in un archivio stabile.
 
 Il diagramma seguente illustra questo scenario:
 
-![][1]
+![Attori senza stato, partizionamento e risorse vincolate][1]
 
-## Modellazione di scenari di cache con attori
+## Modellare scenari di cache con attori
 
-L'accesso alle risorse viene modellato come un attore o più attori che svolgono la funzione di proxy (ovvero di connessione) in una risorsa o un gruppo di risorse. È quindi possibile gestire direttamente la risorsa tramite singoli attori oppure usare un attore di coordinamento che gestisce gli attori risorsa. Per rendere questo concetto più concreto, si simulerà la necessità di lavorare con un livello di archiviazione partizionato per motivi di prestazioni e scalabilità. La prima opzione è piuttosto semplice: è possibile usare una funzione statica per eseguire il mapping e risolvere gli attori in risorse a valle. Una funzione di questo tipo può restituire, ad esempio, una stringa di connessione con un determinato input. La modalità di implementazione di questa funzione è interamente a propria discrezione. Questo approccio, ovviamente, presenta anche degli svantaggi, ad esempio un'affinità statica che rende molto difficile il ripartizionamento delle risorse o il remapping di un attore in risorse. Di seguito è riportato un esempio molto semplice in cui si usa il modulo aritmetico per determinare il nome di database tramite l'ID utente e si fa riferimento all'area geografica per identificare il server di database.
+È possibile modellare l'accesso alle risorse usando un attore o più attori che svolgono la funzione di proxy di una risorsa o di un gruppo di risorse (ad esempio, una funzione di connessione). È quindi possibile gestire direttamente la risorsa tramite singoli attori oppure usare un attore di coordinamento che gestisce gli attori risorsa.
 
-## Esempio di codice per la governance delle risorse: risoluzione statica
+Per rendere questo concetto più concreto, si simulerà la necessità di lavorare con un livello di archiviazione partizionato (condiviso) per motivi di prestazioni e scalabilità. La prima opzione è piuttosto semplice: è possibile usare una funzione statica per eseguire il mapping e risolvere gli attori in risorse a valle. Una funzione di questo tipo può restituire, ad esempio, una stringa di connessione con un determinato input. La modalità di implementazione di questa funzione è a propria discrezione. Questo approccio, tuttavia, presenta anche degli svantaggi, ad esempio un'affinità statica che rende molto difficile il ripartizionamento delle risorse o il remapping di un attore in risorse.
+
+Di seguito è riportato un esempio molto semplice in cui si usa il modulo aritmetico per determinare il nome di database tramite l'**ID utente** e si fa riferimento all'**area geografica** per identificare il server di database.
+
+### Esempio di codice per la governance delle risorse: risoluzione statica
 
 ```csharp
 private static string _connectionString = "none";
@@ -50,13 +54,17 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Semplice ma non molto flessibile. È possibile, a questo punto, esaminare un approccio più utile e avanzato. È necessario, in primo luogo, modellare l'affinità tra risorse fisiche e attori. Questa operazione può essere eseguita tramite un attore denominato Resolver in grado di riconoscere il mapping tra utenti, partizioni logiche e risorse fisiche. Resolver mantiene i dati in un archivio permanente ma, per agevolarne la ricerca, li trasferisce anche nella cache. Come illustrato nell'esempio del tasso di cambio relativo al modello Smart Cache, Resolver è in grado di recuperare dinamicamente le informazioni più recenti mediante un timer. Dopo aver risolto le risorse che deve usare, l'attore utente le memorizza nella cache in una variabile locale denominata \_resolution e le usa per tutta la propria durata. È stata preferita una risoluzione basata su ricerca (illustrata di seguito) rispetto all'hashing semplice o di intervallo per la flessibilità che è in grado di offrire a livello di scalabilità e di spostamento di un utente da una risorsa a un'altra.
+Soluzione semplice ma non molto flessibile. È possibile, a questo punto, esaminare un approccio più utile e avanzato.
 
-![][2]
+È necessario, in primo luogo, modellare l'affinità tra risorse fisiche e attori. Questa operazione può essere eseguita tramite un attore denominato **resolver** in grado di riconoscere il mapping tra utenti, partizioni logiche e risorse fisiche. Il resolver mantiene i dati in un archivio permanente ma, per agevolarne la ricerca, li trasferisce anche nella cache. Come illustrato nell'[esempio del tasso di cambio relativo al modello Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md), un resolver è in grado di recuperare dinamicamente le informazioni più recenti mediante un timer. Dopo aver risolto la risorsa che deve usare, l'attore utente la memorizza nella cache, in una variabile locale denominata **\_resolution**, e la usa per tutta la propria durata.
 
-Nella figura sopra riportata, l'attore B23 prima risolve la risorsa DB1 (la cosiddetta "risoluzione"), quindi la memorizza nella cache. Nelle operazioni successive sarà quindi possibile usare la risoluzione memorizzata nella cache per accedere alla risorsa vincolata. Poiché gli attori supportano l'esecuzione a thread singolo, inoltre, gli sviluppatori non dovranno più preoccuparsi dei possibili accessi simultanei alla risorsa. Gli utenti User e Resolver avranno il seguente aspetto:
+È stata preferita una risoluzione basata su ricerca (illustrata di seguito) rispetto all'hashing semplice o di intervallo per la flessibilità che è in grado di offrire a livello di scalabilità e di spostamento di un utente da una risorsa a un'altra.
 
-## Esempio di codice per la governance delle risorse: Resolver
+![Soluzione di ricerca basata su resolver][2]
+
+Nella figura sopra riportata, l'attore B23 prima risolve la risorsa **DB1** (la risoluzione), quindi la memorizza nella cache. Nelle operazioni successive sarà quindi possibile usare la risoluzione memorizzata nella cache per accedere alla risorsa vincolata. Poiché gli attori supportano l'esecuzione a thread singolo, inoltre, gli sviluppatori non dovranno più preoccuparsi dei possibili accessi simultanei alla risorsa. Per scoprire di più sugli attori utente e resolver, vedere il codice di esempio seguente.
+
+### Esempio di codice per la governance delle risorse: resolver
 
 ```csharp
 public interface IUser : IActor
@@ -99,7 +107,7 @@ public class User : StatefulActor<UserState>, IUser
 }
 ```
 
-Governance delle risorse: esempio di Resolver
+#### Governance delle risorse: esempio di resolver
 
 ```csharp
 public interface IResolver : IActor
@@ -141,15 +149,17 @@ public class Resolver : StatefulActor<ResolverState>, IResolver
 }
 ```
 
-## Accesso alle risorse con capacità limitata
+## Accedere alle risorse con capacità limitata
 
-Si esaminerà ora un altro esempio: l'accesso esclusivo a risorse preziose, quali database, account di archiviazione e file system, con funzionalità a velocità effettiva limitata. In questo scenario si desidera elaborare gli eventi usando un attore denominato EventProcessor, responsabile di elaborare l'evento e di salvarlo in modo permanente, in questo caso in un file con estensione csv per maggiore semplicità. Sebbene sia possibile scalare orizzontalmente le risorse seguendo l'approccio di partizionamento illustrato in precedenza, rimane comunque la necessità di affrontare i problemi di concorrenza. Ecco perché è stato scelto un esempio basato su file per illustrare questo punto specifico: la presenza di più attori che scrivono in un unico file genera problemi di concorrenza. Per risolvere il problema è possibile introdurre un altro attore denominato EventWriter, che detiene la proprietà esclusiva delle risorse vincolate. Lo scenario è illustrato di seguito:
+Si esaminerà ora un altro esempio: l'accesso esclusivo a risorse preziose, quali database, account di archiviazione e file system, con funzionalità a velocità effettiva limitata. In questo scenario si vuole elaborare gli eventi usando un attore denominato EventProcessor, responsabile di elaborare l'evento e di salvarlo in modo permanente, in questo caso in un file con estensione csv per maggiore semplicità. Sebbene sia possibile scalare orizzontalmente le risorse seguendo l'approccio di partizionamento illustrato in precedenza, rimane comunque la necessità di affrontare i problemi di concorrenza. È stato scelto un esempio basato su file per illustrare questo punto specifico proprio perché la presenza di più attori che scrivono in un unico file genera problemi di concorrenza. Per risolvere il problema, è possibile introdurre un altro attore denominato EventWriter, che detiene la proprietà esclusiva delle risorse vincolate. Lo scenario è illustrato di seguito:
 
-![][3]
+![Scrittura ed elaborazione di eventi usando EventWriter ed EventProcessor][3]
 
-Gli attori EventProcessor vengono contrassegnati come "processi di lavoro senza stato", in modo che il runtime possa eseguirne la scalabilità nel cluster, se necessario. Per questo motivo nell'illustrazione sopra riportata non è stato usato alcun identificatore per gli attori. In altre parole, gli attori senza stato sono costituiti da un pool di processi di lavoro gestiti dal runtime. Nell'esempio di codice seguente, l'attore EventProcessor esegue due operazioni: decide l'EventWriter (risorsa) da usare e richiama l'attore prescelto per scrivere l'evento elaborato. Per semplicità, si sceglierà Event Type come identificatore per l'attore EventWriter. In altre parole, per questo Event Type sarà presente uno e un solo EventWriter, che offrirà un accesso esclusivo e a thread singolo alla risorsa.
+Gli attori EventProcessor vengono contrassegnati come "processi di lavoro senza stato", in modo che il runtime possa eseguirne la scalabilità nel cluster, se necessario. Osservare come nell'illustrazione sopra riportata non sia stato usato alcun identificatore per gli attori. Gli attori senza stato sono costituiti da un pool di processi di lavoro gestiti dal runtime.
 
-## Esempio di codice per la governance delle risorse: processore di eventi
+Nell'esempio di codice seguente, l'attore EventProcessor esegue due operazioni: decide l'EventWriter (quindi, la risorsa) da usare e richiama l'attore prescelto per scrivere l'evento elaborato. Per semplicità, si sceglierà il tipo di evento come identificatore per l'attore EventWriter. Per questo tipo di evento, quindi, sarà presente un solo EventWriter, che offrirà un accesso esclusivo e a thread singolo alla risorsa.
+
+### Esempio di codice per la governance delle risorse: EventProcessor
 
 ```csharp
 public interface IEventProcessor : IActor
@@ -176,8 +186,9 @@ public class EventProcessor : StatelessActor, IEventProcessor
 }
 ```
 
-Si passerà ora a esaminare l'attore EventWriter. Si limita essenzialmente a controllare l'accesso esclusivo alla risorsa vincolata, in questo caso il file, all'interno del quale scrive gli eventi.
-## Esempio di codice per la governance delle risorse: Event Writer
+Si passerà ora a esaminare l'attore EventWriter, che si limita essenzialmente a controllare l'accesso esclusivo alla risorsa vincolata, in questo caso il file, all'interno del quale scrive gli eventi.
+
+### Esempio di codice per la governance delle risorse: EventWriter
 
 ```csharp
 public interface IEventWriter : IActor
@@ -220,8 +231,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
  }
 ```
 
-La presenza di un unico attore responsabile della risorsa consente di aggiungere funzionalità come la memorizzazione nel buffer (buffering). È possibile memorizzare nel buffer gli eventi in ingresso e scriverli a intervalli regolari usando un timer o quando il buffer è pieno. L'esempio seguente usa un timer semplice:
-## Esempio di codice per la governance delle risorse: Event Writer con buffer
+La presenza di un unico attore responsabile della risorsa consente di aggiungere funzionalità come la memorizzazione nel buffer (buffering). È possibile memorizzare nel buffer gli eventi in ingresso e scriverli a intervalli regolari usando un timer o quando il buffer è pieno. L'esempio di codice seguente usa un timer semplice.
+
+### Esempio di codice per la governance delle risorse: EventWriter con buffer
 
 ```csharp
 [DataMember]
@@ -282,9 +294,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Anche se il codice sopra riportato funziona correttamente, i clienti non conoscono l'esito del proprio evento nell'archivio sottostante. Per consentire il buffering e offrire ai clienti la possibilità di sapere cosa sta accadendo alla propria richiesta, si introduce l'approccio seguente che consente ai clienti di attendere che il proprio evento venga scritto nel file con estensione csv.
+Anche se il codice sopra riportato funziona correttamente, i clienti non conoscono l'esito del proprio evento nell'archivio sottostante. Per consentire il buffering e fornire ai clienti informazioni sulla propria richiesta, è possibile adottare l'approccio seguente, che consente ai clienti di attendere che il proprio evento venga scritto nel file con estensione csv.
 
-## Esempio di codice per la governance delle risorse: creazione in batch asincrono
+### Esempio di codice per la governance delle risorse: creazione in batch asincrono
 
 ```csharp
 public class AsyncBatchExecutor
@@ -323,9 +335,11 @@ public class AsyncBatchExecutor
 }
 ```
 
-Si userà questa classe per creare e gestire un elenco di attività non completate (per bloccare i client) e completarle in un'unica operazione dopo che gli eventi memorizzati nel buffer saranno stati scritti nell'archiviazione. Nella classe EventWriter è necessario eseguire tre operazioni: contrassegnare la classe attore come Reentrant, restituire il risultato di SubmitNext() e scaricare il timer. Il codice modificato avrà il seguente aspetto:
+Si userà questa classe per creare e gestire un elenco di attività non completate (per bloccare i client) e completarle in un'unica operazione dopo che gli eventi memorizzati nel buffer saranno stati scritti nell'archiviazione.
 
-## Esempio di codice per la governance delle risorse: buffering con creazione in batch asincrono
+Nella classe EventWriter è necessario eseguire tre operazioni: contrassegnare la classe attore come rientrante, restituire il risultato di **SubmitNext()** e scaricare il timer. Nell'esempio seguente è possibile osservare il codice modificato.
+
+### Esempio di codice per la governance delle risorse: buffering con creazione in batch asincrono
 
 ```csharp
 public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
@@ -387,17 +401,17 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Sembra facile? In effetti, lo è. Ma la semplicità, in questo caso, non deve distogliere l'attenzione dagli straordinari vantaggi che questo modello offre alle aziende. Questa architettura, infatti, offre:
+La semplicità di questo approccio, tuttavia, non deve distogliere l'attenzione dagli straordinari vantaggi che offre alle aziende. In particolare, questa architettura offre:
 
 * Indirizzamento delle risorse indipendente dalla posizione.
 * Dimensioni del pool facilmente adattabili in base al numero di attori che agiscono per conto di una risorsa.
-* Uso coordinato del pool sia dal lato client (come illustrato) sia dal lato server (è sufficiente immaginare un singolo attore davanti a ogni pool presente nell'immagine).
+* Utilizzo coordinato del pool sia dal lato client (come illustrato) sia dal lato server (immaginare un singolo attore davanti a ogni pool presente nell'immagine).
 * Possibilità di aggiungere un pool scalabile (è sufficiente aggiungere attori che rappresentano una nuova risorsa).
-* L'attore (come dimostrato in precedenza) può memorizzare nella cache i risultati provenienti dalla risorsa back-end su richiesta oppure in anticipo usando un timer, in modo da ridurre la necessità di accedere alla risorsa back-end.
+* Come dimostrato in precedenza, gli attori possono memorizzare nella cache i risultati delle risorse back-end su richiesta oppure in anticipo usando un timer, riducendo in questo caso la necessità di accedere alle risorse back-end.
 * Invio asincrono efficiente.
-* Un ambiente di codifica risulterà familiare per qualsiasi sviluppatore, non solo per gli esperti in middleware.
+* Un ambiente di codifica familiare per qualsiasi sviluppatore, non solo per gli esperti in middleware.
 
-Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono delle risorse vincolate necessarie per eseguire attività di sviluppo o creare sistemi a scalabilità orizzontale di grandi dimensioni.
+Questo modello è molto comune negli scenari in cui gli sviluppatori hanno le risorse vincolate necessarie per eseguire attività di sviluppo o devono creare sistemi a scalabilità orizzontale di grandi dimensioni.
 
 
 ## Passaggi successivi
@@ -414,11 +428,11 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 
 [Alcuni anti-modelli](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

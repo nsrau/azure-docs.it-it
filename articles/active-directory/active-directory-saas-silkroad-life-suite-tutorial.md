@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SilkRoad Life Suite."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="markusvi"/>
+	ms.date="01/14/2016"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con SilkRoad Life Suite
@@ -159,19 +159,19 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco utenti, selezionare **Britta Simon**. <br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test nel portale di Azure denominato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente test in Azure AD, seguire questa procedura:**
 
 1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png) <br> 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) <br>
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -189,7 +189,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) <br>
  
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) <br>
   
@@ -218,9 +218,9 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
 2. Nell'elenco delle applicazioni selezionare **SilkRoad Life Suite**. <br><br>![Assegna utente][202] <br>
 1. Scegliere **Utenti** dal menu in alto. <br><br>![Assegna utente][203] <br>
-1. Nell'elenco utenti selezionare **Britta Simon**.
+1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
 
 
@@ -271,4 +271,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

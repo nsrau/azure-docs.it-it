@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Bime | Microsoft Azure" 
     description="Informazioni su come usare Bime con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Bime
 
@@ -94,7 +94,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775559.png "Configura accesso Single Sign-On")
 
-    1.  Selezionare **Abilita autenticazione SAML**.
+    1.  Selezionare **Enable SAML authentication**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Bime** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL**.
     3.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.  
 
@@ -102,7 +102,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     4.  Fare clic su **Save**.
 
-8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775560.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -113,7 +113,7 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
 1.  Accedere al tenant di **Bime**.
 
-2.  Nella barra degli strumenti fare clic su **Admin** e quindi su **Utenti**.
+2.  Nella barra degli strumenti fare clic su **Admin** e quindi su **Users**.
 
     ![Amministratore](./media/active-directory-saas-bime-tutorial/IC775561.png "Amministratore")
 
@@ -142,10 +142,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-bime-tutorial/IC775564.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-bime-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

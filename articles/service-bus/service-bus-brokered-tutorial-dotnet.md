@@ -31,7 +31,7 @@ Di seguito alcuni passaggi amministrativi e prerequisiti, da seguire prima di in
 
 ### Creazione di uno spazio dei nomi del servizio e acquisizione di una chiave SAS
 
-1. Per creare uno spazio dei nomi del servizio, seguire i passaggi descritti in [Procedura: creazione o modifica di uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. Per creare uno spazio dei nomi del servizio, visitare il [portale di Azure classico][]. Fare clic su **Bus di servizio** sul lato sinistro, quindi fare clic su **Crea**. Digitare un nome per lo spazio dei nomi, quindi fare clic sul segno di spunta.
 
 1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
 
@@ -642,7 +642,7 @@ In Visual Studio dal menu **Compila**, fare clic su **Compila soluzione** o prem
 
 ## Passaggi successivi
 
-Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che utilizza la [messaggistica inoltrata](service-bus-messaging-overview.md/#Relayed-messaging) del bus di servizio, consultare [Esercitazione sulla messaggistica inoltrata del bus di servizio](service-bus-relay-tutorial.md).
+Questa esercitazione ha illustrato come creare un'applicazione client del bus di servizio e un servizio utilizzando le funzionalità di messaggistica negoziata del bus di servizio. Per un'esercitazione simile che utilizza la [messaggistica inoltrata](service-bus-messaging-overview.md#Relayed-messaging) del bus di servizio, consultare [Esercitazione sulla messaggistica inoltrata del bus di servizio](service-bus-relay-tutorial.md).
 
 Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
@@ -652,4 +652,4 @@ Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/service
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

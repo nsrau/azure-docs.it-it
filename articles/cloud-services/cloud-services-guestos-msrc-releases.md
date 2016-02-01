@@ -20,6 +20,20 @@
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
+## Sistema operativo guest di gennaio
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| MS16-003 | [3125540] | Aggiornamento cumulativo della sicurezza per JScript e VBScript | 2\.47 | 12 gennaio 2015 |
+| MS16-005 | [3124584] | Aggiornamento della sicurezza per i driver in modalità kernel di Windows per risolvere l'esecuzione di codice in modalità remota | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| MS16-007 | [3124901] | Aggiornamento della sicurezza per Microsoft Windows per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| MS16-008 | [3124605] | Aggiornamento della sicurezza per il kernel risolvere l'elevazione dei privilegi | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| Revisione dell'avviso di sicurezza Microsoft | [2755801] | Aggiornamento per le vulnerabilità in Adobe Flash Player in Internet Explorer (pacchetto KB: da definire), avviso segnaposto | 4\.28, 3.35 | 12 gennaio 2015 |
+| Advisory Microsoft sulla sicurezza | [3109853] | Aggiornamento per migliorare l'interoperabilità TLS | 4\.28, 3.35 | 12 gennaio 2015 |
+| Advisory Microsoft sulla sicurezza | [3123479] | Deprecato l'algoritmo hash SHA-1 per il programma Microsoft Root Certificate | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| Advisory Microsoft sulla sicurezza | [2736233] | Aggiornamenti per ActiveX Killbit | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+
 ## Sistema operativo guest di dicembre
 
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -211,6 +225,15 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
@@ -354,4 +377,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -17,7 +17,7 @@
 	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
-# Analisi di flusso di Azure e Power BI: dashboard di analisi in tempo reale per una visibilità in tempo reale dei flussi di dati
+#  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 
 Analisi di flusso di Azure consente l’uso di uno dei principali strumenti di business intelligence, Microsoft Power BI. Imparare a usare Analisi di flusso di Azure per l'analisi di volumi elevati di flussi di dati e per ottenere informazioni in un dashboard di analisi di Power BI in tempo reale.
 
@@ -197,7 +197,7 @@ Una domanda comune è: "Perché il dashboard non si aggiorna automaticamente in 
 
 Per farlo, utilizzare in Power BI domande e risposte, porre una domanda come "Valore massimo per temp dove timestamp è oggi" e aggiungere il riquadro sul dashboard.
 
-## Rinnovare l'autorizzazione
+### Rinnovare l'autorizzazione
 
 Esiste una limitazione temporanea in cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con l'output di Power BI. È necessario anche autenticare nuovamente l'account Power BI se la password è stata modificata dopo il processo di creazione o dopo l'ultima autenticazione. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
@@ -233,4 +233,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -138,7 +138,7 @@ Sezionamenti giornalieri che iniziano alle 6 AM anziché alla mezzanotte predefi
 
 In questo caso, SliceStart viene spostato di 6 ore e sarà 6 AM.
 
-Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa che ogni anno il 2 o 3 di marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), in base al fatto che l’anno sia anno bisestile o meno.
+Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa ogni anno l'1 o il 2 marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), a seconda che l'anno sia bisestile o meno.
 
 
 
@@ -189,7 +189,7 @@ I set di dati esterni sono quelli che sono non stati prodotti da una pipeline in
 
 #### Ulteriori esempi
 
-Se è necessario eseguire una pipeline su base mensile a una data e ora specifiche (si supponga al 3 di ogni mese alle ore 8:00), è possibile usare il tag **offset** per impostare la data e l'ora di esecuzione.
+Se è necessario eseguire una pipeline su base mensile a una data e ora specifiche (si supponga al 3 di ogni mese alle ore 8:00), è possibile utilizzare il tag **offset** per impostare la data e l’ora di esecuzione.
 
 	{
 	  "name": "MyDataset",
@@ -208,4 +208,4 @@ Se è necessario eseguire una pipeline su base mensile a una data e ora specific
 	  }
 	}
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/14/2016"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@ Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**](http
 * [Informazioni su Azure AD](active-directory-whatis.md)
 * [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

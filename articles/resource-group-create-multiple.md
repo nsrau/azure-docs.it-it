@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Creare più istanze di risorse in Gestione risorse di Azure
@@ -157,17 +157,25 @@ Non è possibile utilizzare un ciclo di copia per una risorsa annidata. Se è ne
 
 Si supponga, ad esempio, di definire in genere un set di dati come una risorsa annidata all'interno di una Data Factory.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "string"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
         "resources": [
         {
             "type": "datasets",
-            "name": "[variables('dataSetName')]",
+            "name": "[parameters('dataSetName')]",
             "dependsOn": [
-                "[variables('dataFactoryName')]"
+                "[parameters('dataFactoryName')]"
             ],
             ...
         }
@@ -175,21 +183,29 @@ Si supponga, ad esempio, di definire in genere un set di dati come una risorsa a
     
 Per creare più istanze di set di dati, è necessario modificare il modello come illustrato di seguito. Si noti che il tipo qualificato come completo e il nome includono il nome della data factory.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "array"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
     },
     {
         "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
         "dependsOn": [
-            "[variables('dataFactoryName')]"
+            "[parameters('dataFactoryName')]"
         ],
         "copy": { 
             "name": "datasetcopy", 
-            "count": "[parameters('count')]" 
+            "count": "[length(parameters('dataSetName'))]" 
         } 
         ...
     }]
@@ -199,4 +215,4 @@ Per creare più istanze di set di dati, è necessario modificare il modello come
 - Per tutte le funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

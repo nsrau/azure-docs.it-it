@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/08/2016"
 	ms.author="dkshir"/>
 
 # Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
@@ -37,11 +37,11 @@ In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico
 
 Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali create con il modello di distribuzione classica, provare a eseguire questi passaggi:
 
-1. **Reimpostare l'accesso remoto** dal [portale di Azure](https://portal.azure.com). Fare clic su **Esplora tutto** > **Macchine virtuali (classiche)** > macchina virtuale Windows > **Reimposta accesso remoto**.
+1. **Reimpostare l'accesso remoto** dal [portale di Azure](https://portal.azure.com). Fare clic su **Sfoglia tutto** > **Macchine virtuali (classico)**, quindi selezionare la macchina virtuale che si desidera reimpostare e fare clic su > **Reimposta accesso remoto**.
 
 	![Schermata che mostra la reimpostazione della configurazione SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Riavviare** la macchina virtuale. Dal [portale di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali (classico)** > macchina virtuale Windows > **Riavvia**. Dal [portale di Azure classico](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+2. **Riavviare** la macchina virtuale. Dal [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classico)**, quindi selezionare la macchina virtuale che si desidera riavviare e fare clic su > **Riavvia**. Dal [portale di Azure classico](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
 
 3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -104,7 +104,7 @@ Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello
 	Switch-AzureMode -Name AzureResourceManager
 	```
 
-	c. Eseguire l'estensione `VMAccessForLinux` per reimpostare la connessione SSH, come illustrato nell'esempio seguente.
+	c. Eseguire l'estensione `VMAccessForLinux` per reimpostare la connessione SSH, come illustrato nell'esempio seguente. (Se si usa Azure PowerShell 1.0 o versioni successive, il seguente commandlet è `Set-AzureRMVMExtension`.)
 
 	```
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
@@ -186,7 +186,7 @@ Nel [portale di Azure classico](https://manage.windowsazure.com), per le macchin
 Nel [portale di Azure](https://portal.azure.com):
 
 1. Per una macchina virtuale creata nel modello di distribuzione classica fare clic su **Sfoglia** > **Macchine virtuali (classico)** > *Nome macchina virtuale*. Per una macchina virtuale basata su Gestione risorse fare clic su **Sfoglia** > **Macchine virtuali** > *Nome VM*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
-2. Fare clic su **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni. Per identificare gli endpoint nelle macchine virtuali create con Gestione risorse, controllare se è stato definito un [gruppo di sicurezza di rete](../traffic-manager/virtual-networks-nsg.md), se gli sono state applicate le regole e se vi si fa riferimento nella subnet.
+2. Fare clic su **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni. Per identificare gli endpoint nelle macchine virtuali create con Gestione risorse, controllare se è stato definito un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), se gli sono state applicate le regole e se vi si fa riferimento nella subnet.
 
 Per verificare la connettività di rete, controllare gli endpoint configurati e determinare se è possibile raggiungere la macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio.
 
@@ -245,7 +245,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 > [AZURE.NOTE]Questa origine si applica solo alle macchine virtuali create con il modello di distribuzione classica. Per le macchine virtuali create in Gestione risorse, passare a [Origine 4: Gruppi di sicurezza di rete](#nsg).
 
-Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md) verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
+Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md), verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
 
 ![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -261,7 +261,7 @@ Per eliminare l'endpoint come origine del problema, rimuovere l'endpoint corrent
 <a id="nsg"></a>
 #### Origine 4: gruppi di sicurezza di rete
 
-I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Controllare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico SSH da Internet. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../traffic-manager/virtual-networks-nsg.md).
+I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Controllare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico SSH da Internet. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
 #### Origine 5: macchina virtuale di Azure basata su Linux
 
@@ -287,4 +287,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
-Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da Archivio Azure Data Lake a un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da Archivio Azure Data Lake in un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
 
 > [AZURE.NOTE]È necessario creare un account Archivio Azure Data Lake prima di creare una pipeline con un'attività di copia per spostare i dati da e in Archivio Azure Data Lake. Per altre informazioni su Archivio Azure Data Lake, vedere [Introduzione ad Archivio Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
@@ -69,9 +69,13 @@ La procedura seguente descrive i passaggi per la creazione di un servizio colleg
 3. Fare clic sul pulsante **Autorizza** sulla barra dei comandi. Verrà visualizzata una finestra popup.
 
 	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. Usare le credenziali per accedere. A questo punto alla proprietà **authorization** in JSON dovrebbe essere assegnato un valore.
 5. (Facoltativo) Specificare i valori per i parametri facoltativi, ad esempio **accountName**, **subscriptionID** e **resourceGroupName** in JSON oppure eliminare queste proprietà da JSON.
 6. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
+
+> [AZURE.IMPORTANT]Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Alla **scadenza del token** è necessario **ripetere l'autorizzazione** con il pulsante **Autorizza** e ridistribuire il servizio collegato. Per informazioni dettagliate, vedere la sezione [Proprietà del servizio collegato dell'Archivio Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+
 
 
 **Set di dati di input del BLOB di Azure:**
@@ -402,8 +406,46 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID sessione è univoco e può essere usato solo una volta. Viene generato automaticamente quando si usa l'editor di Data factory. | Sì |  
 | accountName | Nome dell'account Data Lake | No |
 | subscriptionId | ID sottoscrizione di Azure. | No (se non è specificato, viene usata la sottoscrizione di Data factory). |
-| resourceGroupName | Nome del gruppo di risorse di Azure | No (se non è specificato, viene usato il gruppo di risorse di Data factory). |
+| resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory). |
 
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: "Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
+
+
+| Tipo di utente | Scade dopo |
+| :-------- | :----------- | 
+| Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
+| Utente AAD, l'origine basata su OAuth è in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory dell'utente. | 12 ore |
+| Utente AAD, l'origine basata su OAuth è sullo stesso tenant rispetto al tenant di Data factory dell'utente. | <p> Il valore massimo è 90 giorni, se l'utente esegue le sezioni in base all'origine del proprio servizio collegato basato su OAuth almeno una volta ogni 14 giorni. </p><p>Durante i 90 giorni previsti, se l'utente non esegue sezioni basate su tale origine per 14 giorni, le credenziali scadono 14 giorni dopo l'esecuzione dell'ultima sezione.</p> |
+
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+
+### Per generare valori sessionId e authorization a livello di codice 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Per informazioni dettagliate sulle classi di Data factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
+ 
 
 ## Proprietà del tipo di set di dati di Azure Data Lake
 
@@ -416,11 +458,11 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce
 | folderPath | Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. | Sì |
 | fileName | <p>Nome del file nell'Archivio Azure Data Lake. fileName è facoltativa. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.</p><p>Quando fileName non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione Uso della proprietà partitionedBy di seguito per informazioni dettagliate ed esempi. | No |
-| format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altre informazioni, vedere la sezione [Definizione di TextFormat](#specifying-textformat) disponibile di seguito. | No |
+| format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No |
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 ### Uso della proprietà partitionedBy
-Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data factory e le variabili di sistema SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
+Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data Factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
 
 Per altre informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md).
 
@@ -454,10 +496,10 @@ Se il formato è impostato su **TextFormat**, è possibile specificare le propri
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| columnDelimiter | Caratteri usati come separatori di colonne in un file. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
-| rowDelimiter | Carattere/i usato/i come separatore raw in un file. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
-| escapeChar | <p>Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No | 
-| quoteChar | <p>Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No |
+| columnDelimiter | Carattere usato come separatore di colonne in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
+| rowDelimiter | Carattere usato come separatore di righe in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
+| escapeChar | <p>Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No | 
+| quoteChar | <p>Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No |
 | nullValue | <p>Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".</p><p>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server.</p> | No |
 | encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
 
@@ -490,7 +532,7 @@ Se il formato è impostato su AvroFormat, non è necessario specificare propriet
 	    "type": "AvroFormat",
 	}
 
-Per usare il formato Avro in una tabella Hive, vedere l'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 
 ### Supporto della compressione  
@@ -553,7 +595,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </p><p>**MergeFiles:** (questa funzionalità sarà presto disponibile) unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
+| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</p><p>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +604,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

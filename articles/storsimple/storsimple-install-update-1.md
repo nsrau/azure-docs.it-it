@@ -47,7 +47,6 @@ In base alla versione eseguita dal dispositivo, è possibile determinare se verr
 ## Preparazione per gli aggiornamenti
 È necessario effettuare le seguenti operazioni prima di analizzare e applicare l'aggiornamento:
 
-
 1. Creare uno snapshot cloud dei dati del dispositivo.
 
 2. Assicurarsi che il controller fisso di indirizzi IP sia instradabile e possa connettersi a Internet. Questi indirizzi IP fissi verranno usati per gestire gli aggiornamenti al dispositivo. È possibile effettuare una prova eseguendo il cmdlet seguente su ciascun controller dall'interfaccia di Windows PowerShell del dispositivo:
@@ -152,4 +151,4 @@ Se si è verificato è presente la connettività e continuare a visualizzare que
 
 Altre informazioni sulla [versione dell'aggiornamento 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

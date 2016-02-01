@@ -41,7 +41,7 @@ La tabella seguente riepiloga le caratteristiche dei meccanismi di ripetizione d
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con strategia di rilevamento personalizzata) | Dichiarativa e a livello di codice | Blocchi di codice | Personalizzate |
 **Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies), alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
 
-> [AZURE.NOTE] Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
+> [AZURE.NOTE]Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
 
 ## Archiviazione di Azure - Linee guida per la ripetizione di tentativi
 
@@ -125,7 +125,7 @@ Quando si accede ai servizi di archiviazione di Azure tramite l'API del client d
 | **Contesto** | **Destinazione di esempio E2E<br />latenza massima** | **Criteri di ripetizione** | **Impostazioni** | **Valori** | **Funzionamento** |
 |----------------------|-----------------------------------|------------------|-------------------------|-------------|-----------------------------------------------------------------------------|
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | Lineari | maxAttempt<br />deltaBackoff | 3<br />500 ms | Tentativo di 1 - intervallo di 500 ms<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms |
-| Background<br />o batch            | 30 secondi                        | Esponenziali      | maxAttempt<br />deltaBackoff | 5<br />4 secondi | Tentativo di 1 - intervallo di \~3 sec<br />Tentativo 2 - intervallo di \~7 sec<br />Tentativo 3 - intervallo di \~15 sec |
+| Background<br />o batch | 30 secondi | Esponenziali | maxAttempt<br />deltaBackoff | 5<br />4 secondi | Tentativo di 1 - intervallo di ~3 sec<br />Tentativo 2 - intervallo di ~7 sec<br />Tentativo 3 - intervallo di ~15 sec |
 
 ## Telemetria
 
@@ -300,9 +300,9 @@ Quando si accede al database SQL con Entity Framework 6, tenere presente le line
 | **Contesto** | **Destinazione di esempio E2E<br />latenza massima** | **Criteri di ripetizione** | **Impostazioni** | **Valori** | **Funzionamento** |
 |----------------------|-----------------------------------|--------------------|------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | Esponenziali | MaxRetryCount<br />MaxDelay | 3<br />750 ms | Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 750 ms<br />Tentativo 3 - intervallo di 750 ms |
-| Background<br /> o batch            | 30 secondi                        | Esponenziali        | MaxRetryCount<br />MaxDelay | 5<br />12 secondi | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~1 sec<br />Tentativo 3 - intervallo di \~3 sec<br />Tentativo 4 - intervallo di \~7 sec<br />Tentativo 5 - intervallo di 12 sec |
+| Background<br /> o batch | 30 secondi | Esponenziali | MaxRetryCount<br />MaxDelay | 5<br />12 secondi | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~1 sec<br />Tentativo 3 - intervallo di ~3 sec<br />Tentativo 4 - intervallo di ~7 sec<br />Tentativo 5 - intervallo di 12 sec |
 
-> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ## Esempi (Database SQL con Entity Framework 6)
 
@@ -427,9 +427,9 @@ Quando si accede al database SQL con ADO.NET, tenere presente le linee guida seg
 | **Contesto** | **Destinazione di esempio E2E<br />latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 |----------------------|-----------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | FixedInterval | Numero tentativi<br />Intervallo tra tentativi<br />Primo tentativo rapido | 3<br />500 ms<br />true | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms |
-| Background<br />o batch            | 30 secondi                            | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~2 sec<br />Tentativo 3 - intervallo di \~6 sec<br />Tentativo 4 - intervallo di \~14 sec<br />Tentativo 5 - intervallo di 30 sec |
+| Background<br />o batch | 30 secondi | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
-> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ### Esempi (Database SQL con ADO.NET)
 
@@ -489,7 +489,7 @@ Per informazioni dettagliate sull'uso del Blocco di applicazioni per la gestione
 
 * [Uso del Blocco di applicazioni per la gestione degli errori temporanei con SQL Azure](http://msdn.microsoft.com/library/hh680899.aspx)
 * [Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719.aspx)
-* [Livello di accesso ai dati di Cloud Service Fundamentals e gestione degli errori temporanei](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
+* [Livello di accesso ai dati di Cloud Service Fundamentals e gestione degli errori temporanei.](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
 Per indicazioni generali su come sfruttare al meglio le potenzialità del database SQL, vedere:
 
@@ -517,8 +517,6 @@ I criteri di ripetizione dei tentativi vengono impostati a livello di codice e p
 
 	namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                             maxBackoff: TimeSpan.FromSeconds(30),
-	                                                             deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                             terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                             maxRetryCount: 3);
 
 Per maggiore chiarezza, questo codice usa parametri denominati. In alternativa, è possibile omettere i nomi poiché nessuno dei parametri è facoltativo.
@@ -530,8 +528,6 @@ Per impostare criteri di ripetizione dei tentativi predefiniti per tutti i clien
 
 	messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                    maxBackoff: TimeSpan.FromSeconds(30),
-	                                                    deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                    terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                    maxRetryCount: 3);
 
 Per impostare criteri di ripetizione dei tentativi per un client di messaggistica o per ignorare i criteri predefiniti, impostarne la proprietà **RetryPolicy** usando un'istanza della classe di criteri necessaria:
@@ -539,8 +535,6 @@ Per impostare criteri di ripetizione dei tentativi per un client di messaggistic
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                        maxBackoff: TimeSpan.FromSeconds(30),
-	                                        deltaBackoff: TimeSpan.FromSeconds(2),
-	                                        terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                        maxRetryCount: 3);
 ```
 
@@ -619,8 +613,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(1.75),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(4),
 		                maxRetryCount: 3);
 
 		        // Policies cannot be specified on a per-operation basis.
@@ -644,8 +636,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -664,8 +654,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0.1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -679,7 +667,7 @@ namespace RetryCodeSamples
 
 ## Altre informazioni
 
-* [Modelli di messaggistica asincrona e disponibilità elevata](http://msdn.microsoft.com/library/azure/dn292562.aspx).
+* [Modelli di messaggistica asincrona e disponibilità elevata.](http://msdn.microsoft.com/library/azure/dn292562.aspx)
 
 ## Cache (Redis) - Linee guida per la ripetizione di tentativi
 
@@ -725,7 +713,7 @@ La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizi
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Opzioni di configurazione | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />Massimo 5000 ms più SyncTimeout<br />1000 | Numero di nuovi tentativi di connessione durante l'operazione di connessione iniziale.<br />Timeout (ms) per operazioni di connessione. Non un intervallo tra i tentativi.<br />Tempo (ms) concesso per consentire operazioni sincrone. |
 
-> [AZURE.NOTE] SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE]SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Linee guida sull'uso dei criteri di ripetizione dei tentativi
 
@@ -955,13 +943,11 @@ Quando si usa Azure Active Directory, tenere presente le linee guida seguenti:
 L'esempio di codice seguente illustra come usare il Blocco di applicazioni per la gestione degli errori temporanei (Topaz) per definire una strategia personalizzata di rilevamento degli errori temporanei idonea per il client ADAL. Il codice crea una nuova istanza **RetryPolicy** basata su una strategia di rilevamento personalizzata di tipo **AdalDetectionStrategy**, come definito nel codice riportato di seguito. Le strategie di rilevamento personalizzate per Topaz implementano l'interfaccia **ITransientErrorDetectionStrategy** e restituiscono true se deve essere eseguito un nuovo tentativo, **false** se l'errore sembra non essere temporaneo e, quindi, non deve essere eseguito un nuovo tentativo.
 
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 	using System.Net;
-	using System.Text;
 	using System.Threading.Tasks;
+	using Microsoft.Practices.TransientFaultHandling;
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 	namespace RetryCodeSamples
 	{
@@ -1121,4 +1107,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

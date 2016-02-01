@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
 
+>[AZURE.NOTE]L'impostazione **SceneChangeDetection** nel set di impostazioni seguente può essere impostata su true solo se si sta eseguendo la codifica in un video a velocità in bit singola. Se si sta eseguendo la codifica in un video a più velocità in bit e si imposta **SceneChangeDetection** su true, il codificatore restituirà un errore.
+
+
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
 Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-presets-with-dotnet.md#considerations).
@@ -230,7 +233,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-p
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -886,4 +889,4 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

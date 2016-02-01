@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/13/2016"
+   ms.date="01/18/2016"
    ms.author="yuemlu"/>
 
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
@@ -29,6 +29,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 
 
 ## Novità e aggiornamenti
+
+###### **18 gennaio 2015**
+L'implementazione del sistema operativo guest di gennaio è iniziata il 18 gennaio 2016 e dovrebbe essere rilasciata il 12 febbraio 2016.
 
 ###### **4 gennaio 2016**
 Il sistema operativo guest del 2 novembre 2015 è stato rilasciato per la distribuzione il 4 gennaio 2016. Questa versione del sistema operativo non è impostata come sistema operativo predefinito per l'aggiornamento automatico, quindi i tempi di provisioning della distribuzione del sistema operativo guest alla versione del 2 novembre 2015 sono leggermente più lunghi.
@@ -179,6 +182,7 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4.28 | WA-GUEST-OS-4.28\_201601-01 | Prevista: 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 4.30 | Da definire |
 | 4.27 | WA-GUEST-OS-4.27\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 4.29 | Da definire |
 | 4.26 | WA-GUEST-OS-4.26\_201511-02 | 4 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 4.28 | Da definire |
 | 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 4.28 | Da definire |
@@ -209,6 +213,7 @@ Supporta .NET 4.0, 4.5
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3.35 | WA-GUEST-OS-3.35\_201601-01 | Prevista: 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 3.37 | Da definire |
 | 3.34 | WA-GUEST-OS-3.34\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 3.36 | Da definire |
 | 3.33 | WA-GUEST-OS-3.33\_201511-02 | 4 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 3.35 | Da definire |
 | 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 3.35 | Da definire |
@@ -240,6 +245,7 @@ Supporta .NET 3.5, 4.0
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2.47 | WA-GUEST-OS-2.47\_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 2.49 | Da definire |
 | 2.46 | WA-GUEST-OS-2.46\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 2.48 | Da definire |
 | 2.45 | WA-GUEST-OS-2.45\_201511-02 | 4 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 2.47 | Da definire |
 | 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 dicembre 2015 | Verrà aggiornata al momento del rilascio della versione 2.47 | Da definire |
@@ -408,4 +414,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

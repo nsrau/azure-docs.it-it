@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/05/2016"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
@@ -285,9 +285,9 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 
 ## Passaggi successivi
 
-Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
+- Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 
-Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
+- Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

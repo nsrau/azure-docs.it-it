@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Learningpool | Microsoft Azure" 
     description="Informazioni su come utilizzare Learningpool con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Learningpool
   
@@ -90,7 +90,7 @@ L'applicazione Learningpool prevede le asserzioni SAML in un formato specifico. 
     |urn:oid:2.5.4.4|User.surname
 
     1.  Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.
-    2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per la riga.
+    2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per quella riga.
     3.  Nell’elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
     4.  Fare clic su **Complete**.
 
@@ -147,4 +147,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

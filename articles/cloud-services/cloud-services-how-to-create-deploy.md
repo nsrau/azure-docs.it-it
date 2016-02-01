@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Come creare e distribuire un servizio Cloud
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Nel portale di Azure classico sono disponibili due modi per creare e distribuire un servizio cloud: **Creazione rapida** e **Creazione personalizzata**.
 
@@ -76,13 +76,13 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 
 4. Fare clic su **Crea servizio cloud**.
 
-	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
 
 	Viene visualizzata l'area **Servizi cloud**, con il nuovo servizio cloud. Lo stato Creato indica che la creazione di servizi cloud è stata completata correttamente.
 
-	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Procedura: Caricare un certificato per un servizio cloud
@@ -150,4 +150,4 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

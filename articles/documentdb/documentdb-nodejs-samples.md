@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/20/2016" 
 	ms.author="mimig"/>
 
 
@@ -106,4 +106,4 @@ Attività | Informazioni di riferimento sulle API
 
 Per altre informazioni sulla programmazione lato server, vedere [Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

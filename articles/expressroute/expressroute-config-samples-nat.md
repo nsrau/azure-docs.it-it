@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Esempi di configurazione del router per l'impostazione e la gestione NAT
@@ -319,4 +319,4 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -117,15 +117,15 @@ Come controllare la versione dell'agente di VM nelle macchine virtuali di Window
 ## Risoluzione dei problemi relativi allo snapshot della macchina virtuale
 Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'archiviazione sottostante. Non disporre dell'accesso all'archiviazione o il ritardo nell'esecuzione dell'attività dello snapshot può causare il fallimento del backup. I seguenti elementi possono causare il fallimento dell'attività di backup.
 
-1. L'accesso alla rete per l'archiviazione è bloccato mediante NSG<br> Altre informazioni su come [abilitare l'accesso alla rete](backup-azure-vms-prepare.md#2-network-connectivity) per l'archiviazione tramite entrambi gli elenchi di indirizzi IP consentiti o server proxy. 
-2.  Le macchine virtuali con backup di SQL Server configurato possono causare ritardi nelle attività di snapshot <br> Per impostazione predefinita, il backup delle macchine virtuali genera un backup VSS completo sulle VM Windows. In VM che eseguono SQL Server e in cui è configurato il backup di SQL Server, potrebbero verificarsi ritardi nell'esecuzione di snapshot. Impostare la seguente chiave del Registro di sistema se si verificano errori di backup a causa di problemi di snapshot. 
+1. L'accesso alla rete per l'archiviazione è bloccato mediante NSG<br> Altre informazioni su come [abilitare l'accesso alla rete](backup-azure-vms-prepare.md#2-network-connectivity) per l'archiviazione tramite entrambi gli elenchi di indirizzi IP consentiti o server proxy.
+2.  Le macchine virtuali con backup di SQL Server configurato possono causare ritardi nelle attività di snapshot <br> Per impostazione predefinita, il backup delle macchine virtuali genera un backup VSS completo sulle VM Windows. In VM che eseguono SQL Server e in cui è configurato il backup di SQL Server, potrebbero verificarsi ritardi nell'esecuzione di snapshot. Impostare la seguente chiave del Registro di sistema se si verificano errori di backup a causa di problemi di snapshot.
 
 	```
 	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
-3.  Stato della VM segnalato in modo non corretto poiché la VM viene arrestata in RDP. <br> Se la macchina virtuale è stata arrestata in RDP, verificare nel portale che lo stato della VM venga indicato correttamente. In caso contrario, arrestare la VM nel portale tramite l'opzione ''Shutdown'' nel dashboard della VM. 
-4.  Diverse VM dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento.<br> È consigliabile distribuire le VM dallo stesso servizio cloud per avere diverse pianificazioni di backup. 
+3.  Stato della VM segnalato in modo non corretto poiché la VM viene arrestata in RDP. <br> Se la macchina virtuale è stata arrestata in RDP, verificare nel portale che lo stato della VM venga indicato correttamente. In caso contrario, arrestare la VM nel portale tramite l'opzione ''Shutdown'' nel dashboard della VM.
+4.  Diverse VM dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento.<br> È consigliabile distribuire le VM dallo stesso servizio cloud per avere diverse pianificazioni di backup.
 5.  La VM è in esecuzione con un uso elevato della CPU/della memoria.<br> Se la macchina virtuale è in esecuzione con un uso elevato della CPU (> 90%) o della memoria, l'attività di snapshot viene messa in coda, ritardata e infine messa in timeout. In tali situazioni, provare a eseguire un backup su richiesta.
 
 <br>
@@ -149,4 +149,6 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
     - Se si dispone di alcune limitazioni di rete (un gruppo di sicurezza di rete, ad esempio) distribuire un server proxy HTTP per indirizzare il traffico. I passaggi per distribuire un server proxy HTTP sono reperibili [qui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Aggiungere regole al gruppo di sicurezza di rete (se esistente) per consentire l'accesso a INTERNET dal proxy HTTP.
 
-<!---HONumber=AcomDC_0114_2016-->
+>[AZURE.NOTE]DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. È possibile ottenere altre informazioni sull'impostazione di un indirizzo IP privato interno statico [qui](virtual-networks-reserved-private-ip.md).
+
+<!---HONumber=AcomDC_0121_2016-->

@@ -161,7 +161,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -404,4 +404,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

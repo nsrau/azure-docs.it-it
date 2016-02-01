@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/15/2016"
  ms.author="larryfr"/>
 
 # Esempi di topologie e componenti Storm per Apache Storm in HDInsight
@@ -23,6 +23,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 
 | Descrizione | Dimostra | Linguaggio/framework |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
+| [Scrivere in Archivio Azure Data Lake da Apache Storm](hdinsight-storm-write-data-lake-store.md) | Scrittura in Archivio Azure Data Lake | Java |
 | [Origine per Spout e Bolt dell'hub eventi](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Origine per Spout e Bolt dell'hub eventi | Java |
 | [Sviluppo di topologie basate su Java per Apache Storm in HDInsight][5797064f] | Maven | Java |
 | [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio][16fce2d1] | HDInsight Tools per Visual Studio | C#, Java |
@@ -50,7 +51,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Informazioni su come creare topologie Storm C# usando HDInsight Tools per Visual Studio."
   [5797064f]: hdinsight-storm-develop-java-topology.md "Informazioni su come creare topologie Storm in Java, usando Maven e creando una topologia di conteggio parole di base."
   [94d15238]: hdinsight-storm-power-bi-topology.md "Illustra come scrivere dati in Power BI da una topologia C#, quindi creare un grafico e un dashboard in base ai dati."
-  [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Illustra una topologia Storm di base che esegue un conteggio di parole, implementato in C#. Ciò dimostra anche come creare più flussi di dati all'interno di una topologia C#."
+  [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Illustra una topologia Storm di base che esegue un conteggio di parole, implementata in C#. Ciò dimostra anche come creare più flussi di dati all'interno di una topologia C#."
   [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Informazioni su come leggere e scrivere dati dall'hub eventi di Azure con Storm in HDInsight"
   [ab894747]: hdinsight-storm-sensor-data-analysis.md "Informazioni su come usare Apache Storm in HDInsight per elaborare i dati del sensore dagli hub di eventi di Azure, visualizzarli con D3.js e (facoltativamente) archiviarli in HBase."
   [3c86c7c8]: hdinsight-storm-twitter-trending.md "Informazioni su come usare Trident per creare una topologia Storm in grado di determinare i temi di tendenza in base agli hashtag su Twitter."
@@ -60,4 +61,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

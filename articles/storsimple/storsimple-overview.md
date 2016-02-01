@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
@@ -26,7 +26,7 @@ StorSimple utilizza la [suddivisione in livelli](#automatic-storage-tiering) di 
 
 Con l'aggiornamento 2 di StorSimple, è possibile identificare i volumi appropriati come *aggiunti in locale* per garantire che i dati primari rimangano a livello locale per il dispositivo e non a livello cloud. Questo consente di eseguire carichi di lavoro sensibili alla latenza cloud, ad esempio carichi di lavoro SQL e delle macchine virtuali, su volumi aggiunti in locale, pur continuando a usare il cloud per il backup. Per altre informazioni sui volumi aggiunti in locale, vedere l'articolo relativo all'[uso del servizio StorSimple Manager per gestire i volumi](storsimple-manage-volumes-u2.md).
 
-L'aggiornamento 2 consente anche di creare dispositivi virtuali StorSimple che sfruttano le basse latenze e le alte prestazioni offerte dall'archiviazione Premium di Azure. Per altre informazioni sui dispositivi virtuali Premium StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md). Per altre informazioni sull'archiviazione Premium di Azure, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
+L'aggiornamento 2 consente anche di creare dispositivi virtuali StorSimple che sfruttano le basse latenze e le alte prestazioni offerte dall'archiviazione Premium di Azure. Per altre informazioni sui dispositivi virtuali Premium StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md). Per altre informazioni sull'archiviazione Premium di Azure, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
 
 Oltre alla gestione dell'archiviazione, le funzioni di protezione dei dati di StorSimple consentono di creare backup su richiesta e pianificati e quindi di archiviarli in locale o nel cloud. I backup vengono eseguiti sotto forma di snapshot incrementali, il che significa che possono essere creati e ripristinati rapidamente. Gli snapshot cloud possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
 
@@ -64,7 +64,7 @@ La soluzione Microsoft Azure StorSimple include i componenti seguenti:
 - **Windows PowerShell per StorSimple **– Un’interfaccia della riga di comando che può essere usata per gestire il dispositivo StorSimple. Windows PowerShell per StorSimple include funzionalità che permettono di registrare il dispositivo StorSimple, configurare l'interfaccia di rete nel dispositivo, installare determinati tipi di aggiornamento, risolvere i problemi del dispositivo tramite l'accesso alla sessione di supporto e modificare lo stato del dispositivo. È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale o usando la comunicazione remota di Windows PowerShell.
 - **i cmdlet PowerShell di azure StorSimple** – un insieme di cmdlet Windows PowerShell che consente di automatizzare le attività a livello di servizio e la migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
 - **Gestione snapshot StorSimple **– Snap-in MMC (Microsoft Management Console) che usa gruppi di volumi e il servizio Copia Shadow del volume di Windows per generare backup coerenti con l'applicazione. È possibile usare Gestione snapshot StorSimple anche per creare pianificazioni di backup e clonare o ripristinare volumi. 
-- **Adattatore StorSimple per SharePoint** – Uno strumento che estende in modo trasparente la risorsa di archiviazione di Microsoft Azure StorSimple e la protezione dei dati al server farm SharePoint, rendendo la risorsa di archiviazione di StorSimple visualizzabile e gestibile dal portale di amministrazione di SharePoint.
+- **Adattatore StorSimple per SharePoint** – Uno strumento che estende in modo trasparente la risorsa di archiviazione di Microsoft Azure StorSimple e la protezione dei dati ai server farm SharePoint, rendendo la risorsa di archiviazione di StorSimple visualizzabile e gestibile dal portale di amministrazione centrale di SharePoint.
 
 Nel diagramma seguente viene fornita una panoramica di alto livello dell'architettura e dei componenti di Microsoft Azure StorSimple.
 
@@ -99,7 +99,7 @@ Il dispositivo virtuale presenta le seguenti funzionalità:
 - È possibile creare un numero illimitato di dispositivi virtuali nel cloud e attivarli e disattivarli in base alle esigenze. 
 - Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup. 
 
-Con l'aggiornamento 2 e versioni successive, il dispositivo virtuale StorSimple è disponibile in due modelli: il dispositivo 8010 (precedentemente noto come modello 1100) e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB (l'archiviazione Premium di Azure archivia i dati su unità SSD, mentre l'archiviazione standard archivia i dati nelle unità disco rigido). Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
+Con l'aggiornamento 2 e versioni successive, il dispositivo virtuale StorSimple è disponibile in due modelli: il dispositivo 8010 (precedentemente noto come modello 1100) e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB (l'archiviazione Premium di Azure archivia i dati su unità SSD, mentre l'archiviazione standard archivia i dati nelle unità disco rigido). Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
 
 Per altre informazioni sul dispositivo virtuale StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md).
 
@@ -278,4 +278,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

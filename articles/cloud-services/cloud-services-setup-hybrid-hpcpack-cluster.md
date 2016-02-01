@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack"
+	pageTitle="Configurazione di un cluster HPC ibrido con Microsoft HPC Pack | Microsoft Azure"
 	description="Informazioni su come usare Microsoft HPC Pack e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni (HPC) ibrido"
 	services="cloud-services"
 	documentationCenter=""
@@ -14,28 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="01/13/2016"
 	ms.author="danlep"/>
 
 
-# Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack
+# Configurazione di un cluster di elaborazione ibrido con Microsoft HPC Pack e istanze di Azure su richiesta
 In questa esercitazione viene illustrato come usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster di elaborazione ad alte prestazioni (HPC) ibrido. Il cluster sarà composto da un nodo head locale (un computer che esegue il sistema operativo Windows Server e HPC Pack) e alcuni nodi di calcolo distribuiti su richiesta come istanze del ruolo di lavoro in un servizio cloud di Azure. In seguito sarà possibile eseguire processi di calcolo nel cluster ibrido.
 
 ![Cluster HPC ibrido][Overview]
 
-L'approccio descritto in questa esercitazione, denominato anche "potenziamento nel cloud", consente di usare risorse di calcolo su richiesta in Azure per eseguire applicazioni a elevato utilizzo di calcolo.
+L'approccio descritto in questa esercitazione, denominato anche "potenziamento nel cloud", consente di usare risorse di calcolo scalabili su richiesta in Azure per eseguire applicazioni a elevato utilizzo di calcolo.
 
-Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure per la distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per configurare un cluster HPC Pack interamente in Azure, vedere [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
+Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure per la distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per altri scenari con HPC Pack, inclusa la distribuzione automatica di cluster in macchine virtuali di Azure, vedere [Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE]Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md) per le risorse di calcolo, adatta a diversi carichi di lavoro. Le istanze A8 e A9, ad esempio, combinano prestazioni elevate e accesso a una rete di applicazioni a bassa latenza e velocità effettiva elevata necessaria per determinate applicazioni HPC. Vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Prerequisiti
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni, vedere [Creazione di un account Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
+* **Sottoscrizione Azure**: se non si dispone di un account, è possibile creare un account di prova gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Per completare l'esercitazione, è necessario anche quanto segue.
-
-* Un computer locale che esegue un'edizione di Windows Server 2012 R2 o Windows Server 2012. Questo computer sarà il nodo head del cluster HPC. Se Windows Server non è già in esecuzione, è possibile scaricare e installare una [versione di valutazione](http://technet.microsoft.com/evalcenter/dn205286.aspx).
+* **Un computer locale che esegue Windows Server 2012 R2 o Windows Server 2012**. Questo computer sarà il nodo head del cluster HPC. Se Windows Server non è già in esecuzione, è possibile scaricare e installare una [versione di valutazione](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
 	* Il computer deve essere aggiunto a un dominio Active Directory.
 
@@ -45,11 +43,11 @@ Per completare l'esercitazione, è necessario anche quanto segue.
 
 	* Verificare che siano installati gli aggiornamenti importanti.
 
-* I file di installazione per HPC Pack 2012 R2, disponibile gratuitamente. [Scaricare](http://go.microsoft.com/fwlink/p/?linkid=328024) la versione più recente e copiare i file nel computer nodo head o in un percorso di rete. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
+* **HPC Pack 2012 R2**: [scaricare](http://go.microsoft.com/fwlink/p/?linkid=328024) il pacchetto di installazione della versione più recente gratuita e copiare i file nel computer nodo head o in un percorso di rete. Scegliere i file di installazione nella stessa lingua dell'installazione di Windows Server.
 
-* Un account di dominio con autorizzazioni di amministratore locale sul nodo head.
+* **Account di dominio**: questo account deve essere configurato con autorizzazioni di amministratore locale nel nodo head per installare HPC Pack.
 
-* Connettività TCP sulla porta 443 dal nodo head ad Azure.
+* **Connettività TCP sulla porta 443** dal nodo head ad Azure.
 
 ## Installazione di HPC Pack nel nodo head
 
@@ -59,21 +57,21 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 
 2. Avviare l'installazione guidata di HPC Pack eseguendo Setup.exe dai file di installazione di HPC Pack.
 
-3. Nella schermata **HPC Pack 2012 R2 Setup** fare clic su **New installation or add new features to an existing installation**.
+3. Nella schermata **HPC Pack 2012 R2 Setup** fare clic su **Crea nuova installazione o aggiungi nuove funzionalità a un'installazione esistente**.
 
 	![Installazione di HPC Pack 2012][install_hpc1]
 
-4. Nella pagina **Microsoft Software User Agreement** fare clic su **Next**.
+4. Nella pagina **Microsoft Software User Agreement** fare clic su **Avanti**.
 
-5. Nella pagina **Select Installation Type** fare clic su **Create a new HPC cluster by creating a head node**, quindi su **Next**.
+5. Nella pagina **Seleziona tipo di installazione** fare clic su **Crea un nuovo cluster HPC tramite la creazione di un nodo head**, quindi su **Avanti**.
 
 	![Selezionare il tipo di installazione][install_hpc2]
 
-6. Verranno eseguiti alcuni test pre-installazione. Fare clic su **Next** nella pagina **Installation Rules** se tutti i test hanno esito positivo. In caso contrario, esaminare le informazioni fornite e apportare le modifiche necessarie nell'ambiente. Ripetere quindi i test oppure riavviare l'installazione guidata, se necessario.
+6. Verranno eseguiti alcuni test pre-installazione. Fare clic su **Avanti** nella pagina **Regole installazione** se tutti i test hanno esito positivo. In caso contrario, esaminare le informazioni fornite e apportare le modifiche necessarie nell'ambiente. Ripetere quindi i test oppure riavviare l'installazione guidata, se necessario.
 
 	![Regole di installazione][install_hpc3]
 
-7. Nella pagina **HPC DB Configuration** assicurarsi che sia selezionato **Head Node** per tutti i database HPC, quindi fare clic su **Next**.
+7. Nella pagina **HPC DB Configuration** assicurarsi che sia selezionato **Head Node** per tutti i database HPC, quindi fare clic su **Avanti**.
 
 	![Configurazione di database][install_hpc4]
 
@@ -81,7 +79,7 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 
 	![Installa][install_hpc6]
 
-9. Al termine dell'installazione, deselezionare **Start HPC Cluster Manager** e fare clic su **Finish**. In un passaggio successivo verrà avviato HPC Cluster Manager per completare la configurazione del nodo head.
+9. Al termine dell'installazione, deselezionare **Avvia Gestione cluster HPC** e fare clic su **Fine**. HPC Cluster Manager verrà avviato in un passaggio successivo.
 
 	![Fine][install_hpc7]
 
@@ -94,9 +92,9 @@ Usare il [portale di Azure classico](https://manage.windowsazure.com) per esegui
 
 - Creare un account di archiviazione di Azure
 
-	>[AZURE.NOTE]Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. Questo ID è reperibile nelle <a href="[https://account.windowsazure.com/Subscriptions">informazioni account</a> di Azure.
+	>[AZURE.NOTE]Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. Questo ID è reperibile nelle [informazioni account](https://account.windowsazure.com/Subscriptions)</a> di Azure.
 
-### <a>Caricare il certificato di gestione predefinito</a>
+### Caricare il certificato di gestione predefinito
 HPC Pack installa un certificato autofirmato nel nodo head, denominato Default Microsoft HPC Azure Management, che è possibile caricare come certificato di gestione di Azure. Questo certificato viene fornito a scopo di test e per distribuzioni di prova.
 
 1. Dal computer nodo head, accedere al [portale di Azure classico](https://manage.windowsazure.com).
@@ -113,11 +111,11 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 
 Nell'elenco dei certificati di gestione verrà visualizzato il certificato **Default HPC Azure Management**.
 
-### <a>Creare un servizio cloud di Azure</a>
+### Creazione di un servizio cloud di Azure
 
 >[AZURE.NOTE]Per prestazioni ottimali, creare il servizio cloud e l'account di archiviazione nella stessa area geografica.
 
-1. Sulla barra dei comandi del portale fare clic su **Nuovo**.
+1. Sulla barra dei comandi del portale classico fare clic su **Nuovo**.
 
 2. Fare clic su **Compute**, quindi su **Cloud Service** e infine su **Quick Create**.
 
@@ -125,9 +123,9 @@ Nell'elenco dei certificati di gestione verrà visualizzato il certificato **Def
 
 	![Creazione di un servizio][createservice1]
 
-### <a>Creare un account di archiviazione di Azure</a>
+### Creare un account di archiviazione di Azure
 
-1. Sulla barra dei comandi del portale fare clic su **Nuovo**.
+1. Sulla barra dei comandi del portale classico fare clic su **Nuovo**.
 
 2. Fare clic su **Data Services**, quindi su **Storage** e infine su **Quick Create**.
 
@@ -151,7 +149,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	>[AZURE.NOTE]Questa è la configurazione più semplice a scopo dimostrativo perché il nodo head richiede un'unica scheda di rete per la connessione ad Active Directory e a Internet. In questa esercitazione non vengono trattati scenari di cluster che richiedono reti aggiuntive.
 
-4. Fare clic su **Next** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Configure** per completare la configurazione di rete.
+4. Fare clic su **Avanti** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Configure** per completare la configurazione di rete.
 
 5. In **Deployment To-do List** fare clic su **Provide installation credentials**.
 
@@ -167,29 +165,29 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	![Denominazione dei nodi][config_hpc8]
 
-	>[AZURE.NOTE]La serie di denominazione genera nomi solo per i nodi di calcolo aggiunti al dominio. L'assegnazione dei nomi ai nodi di Azure avviene automaticamente.
+	>[AZURE.NOTE]La serie di denominazione genera nomi solo per i nodi di calcolo aggiunti al dominio. L'assegnazione dei nomi ai nodi di lavoro di Azure avviene automaticamente.
 
-9. In **Deployment To-do List** fare clic su **Create a node template**. Verrà usato il modello di nodo per aggiungere nodi di Azure al cluster.
+9. In **Deployment To-do List** fare clic su **Crea un modello di nodo**. Verrà usato il modello di nodo per aggiungere nodi di Azure al cluster.
 
 10. Nella creazione guidata modello di nodo eseguire le operazioni seguenti:
 
-	a. Nella pagina **Choose Node Template Type** fare clic su **Azure node template**, quindi su **Next**.
+	a. Nella pagina **Choose Node Template Type** fare clic su **Azure node template**, quindi su **Avanti**.
 
 	![Modello di nodo][config_hpc10]
 
-	b. Fare clic su **Next** per accettare il nome di modello predefinito.
+	b. Fare clic su **Avanti** per accettare il nome di modello predefinito.
 
-	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure (disponibile nelle proprie <a href="[https://account.windowsazure.com/Subscriptions">informazioni account</a> di Azure). Quindi, in **Management certificate**, fare clic su **Browse** e selezionare **Default HPC Azure Management.** Quindi fare clic su **Next**.
+	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure, disponibile nelle proprie informazioni account di Azure. Quindi, in **Management certificate**, fare clic su **Browse** e selezionare **Default HPC Azure Management.** Quindi fare clic su **Avanti**.
 
 	![Modello di nodo][config_hpc12]
 
-	d. Nella pagina **Provide Service Information** selezionare il servizio cloud e l'account di archiviazione creato in un passaggio precedente. Quindi fare clic su **Next**.
+	d. Nella pagina **Provide Service Information** selezionare il servizio cloud e l'account di archiviazione creato in un passaggio precedente. Quindi fare clic su **Avanti**.
 
 	![Modello di nodo][config_hpc13]
 
-	e. Fare clic su **Next** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Create** per creare il modello di nodo.
+	e. Fare clic su **Avanti** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Create** per creare il modello di nodo.
 
-	>[AZURE.NOTE]Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio (provisioning) e l'interruzione manuale dei nodi. È anche possibile configurare una pianificazione per l'avvio e l'interruzione automatica dei nodi di Azure.
+	>[AZURE.NOTE]Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio (provisioning) e l'interruzione manuale dei nodi. Facoltativamente, è possibile configurare una pianificazione per l'avvio e l'arresto automatici dei nodi di Azure.
 
 ## Aggiunta di nodi di Azure al cluster
 
@@ -201,26 +199,26 @@ In questa esercitazione verranno aggiunti due piccoli nodi.
 
 	![Aggiunta di un nodo][add_node1]
 
-2. Nella pagina **Select Deployment Method** dell'aggiunta guidata nodi fare clic su **Add Azure nodes** e quindi su **Next**.
+2. Nella pagina **Select Deployment Method** dell'aggiunta guidata nodi fare clic su **Add Azure nodes** e quindi su **Avanti**.
 
 	![Aggiunta di un nodo di Azure][add_node1_1]
 
-3. Nella pagina **Specify New Nodes** selezionare il modello di nodo di Azure creato in precedenza (denominato per impostazione predefinita **Default AzureNode Template**). Specificare quindi **2** nodi di dimensioni **Small**, quindi fare clic su **Next**.
+3. Nella pagina **Specify New Nodes** selezionare il modello di nodo di Azure creato in precedenza (denominato per impostazione predefinita **Default AzureNode Template**). Specificare quindi **2** nodi di dimensioni **Small**, quindi fare clic su **Avanti**.
 
 	![Specifica dei nodi][add_node2]
 
-	Per informazioni dettagliate sulle dimensioni disponibili per le macchine virtuali, vedere [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+	Per informazioni dettagliate sulle dimensioni disponibili, vedere [Dimensioni dei servizi Cloud](../cloud-services/cloud-services-sizes-specs.md).
 
-4. Nella pagina **Completing the Add Node Wizard** fare clic su **Finish**.
+4. Nella pagina **Completing the Add Node Wizard** fare clic su **Fine**.
 
 	 A questo punto, in HPC Cluster Manager saranno presenti due nodi di Azure denominati **AzureCN-0001** e **AzureCN-0002**. Entrambi sono in stato **Not-Deployed**.
 
 	![Nodi aggiunti][add_node3]
 
-## Nodi di Azure
+## Avvio dei nodi di Azure
 Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager per avviare i nodi di Azure (eseguire il provisioning) e portarli online.
 
-1.	In HPC Cluster Manager fare clic su uno o entrambi i nodi in **Node Management**, quindi nel riquadro **Actions** fare clic su **Start**.
+1.	In HPC Cluster Manager fare clic su uno o entrambi i nodi in **Node Management**, **Resource Management** in alcune versioni di HPC Pack, quindi nel riquadro **Actions** fare clic su **Start**.
 
 	![Avvio dei nodi][add_node4]
 
@@ -228,13 +226,13 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 	![Avvio dei nodi][add_node5]
 
-	Per i nodi verrà eseguita la transizione allo stato **Provisioning**. È possibile visualizzare il log di provisioning per tenere traccia dell'avanzamento del provisioning.
+	Per i nodi verrà eseguita la transizione allo stato **Provisioning**. Visualizzare il log di provisioning per tenere traccia dell'avanzamento del provisioning.
 
 	![Provisioning dei nodi][add_node6]
 
 3. Dopo alcuni minuti viene completato il provisioning dei nodi di Azure, che passeranno allo stato **Offline**. In questo stato le istanze del ruolo sono in esecuzione ma non accetteranno ancora processi cluster.
 
-4. Per verificare che le istanze del ruolo siano in esecuzione, nel [portale](https://manage.windowsazure.com) fare clic su **Servizi cloud**, fare clic sul nome del servizio cloud, quindi su **Istanze**.
+4. Per verificare che le istanze del ruolo siano in esecuzione, nel [portale classico](https://manage.windowsazure.com) fare clic su **Servizi cloud**, fare clic sul nome del servizio cloud, quindi su **Istanze**.
 
 	![Esecuzione delle istanze][view_instances1]
 
@@ -247,7 +245,8 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 	HPC Cluster Manager indica che i nodi sono in stato **Online**.
 
 ## Esecuzione di un comando nel cluster
-È possibile usare il comando **clusrun** di HPC Pack per eseguire un comando o un'applicazione in uno o più nodi del cluster. Ad esempio, usare **clusrun** per ottenere la configurazione IP dei nodi di Azure.
+
+Per verificare l'installazione, usare il comando **clusrun** di HPC Pack per eseguire un comando o un'applicazione in uno o più nodi del cluster. Ad esempio, usare **clusrun** per ottenere la configurazione IP dei nodi di Azure.
 
 1. Aprire il prompt dei comandi nel nodo head.
 
@@ -261,7 +260,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 ## Esecuzione di un processo di test
 
-È possibile inviare un processo di test che viene eseguito nel cluster ibrido. In questo esempio si usa un semplice processo "sweep parametrico" (un tipo di calcolo intrinsecamente parallelo) che esegue sottoattività che aggiungono un numero intero a se stesso usando il comando **set /a**. Tutti i nodi nel cluster contribuiscono a completare le sottoattività per i numeri interi da 1 a 100.
+Ora inviare un processo di test che viene eseguito nel cluster ibrido. In questo esempio si usa un semplice processo "sweep parametrico" (un tipo di calcolo intrinsecamente parallelo) che esegue sottoattività che aggiungono un numero intero a se stesso usando il comando **set /a**. Tutti i nodi nel cluster contribuiscono a completare le sottoattività per i numeri interi da 1 a 100.
 
 1. In HPC Cluster Manager, in **Job Management** nel riquadro **Actions**, fare clic su **New Parametric Sweep Job**.
 
@@ -283,7 +282,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 
 ## Interruzione dei nodi di Azure
 
-Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interrompere i nodi di Azure per evitare l'addebito di costi non necessari sul proprio account. In questo modo viene interrotto il servizio cloud e vengono rimosse le istanze del ruolo di Azure.
+Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito di costi non necessari sul proprio account. In questo modo viene interrotto il servizio cloud e vengono rimosse le istanze del ruolo di Azure.
 
 1. In HPC Cluster Manager selezionare entrambi i nodi di Azure in **Node Management**. Quindi, nel riquadro **Actions** fare clic su **Stop**.
 
@@ -305,10 +304,11 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 
 ## Risorse correlate
 
-* [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
-* [Potenziamento in Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
+* [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697
+
+* [Potenziare le istanze del ruolo di lavoro di Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
-* [Big Compute in Azure: Risorse tecniche per Batch e HPC (High Performance Computing)](big-compute-resources.md)
+* [Big Compute in Azure: Risorse tecniche per Batch e HPC (High Performance Computing)](../batch/big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +348,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

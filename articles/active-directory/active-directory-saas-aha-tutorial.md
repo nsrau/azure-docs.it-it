@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Aha! | Microsoft Azure" 
     description="Informazioni su come usare Aha! con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Aha!
 
@@ -98,7 +98,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
 
-9.  Nella sezione **Single Sign-On** selezionare **SAML2.0** per **Provider di identità**.
+9.  Nella sezione **Single Sign-On** selezionare **SAML2.0** per **Identity Provider**.
 
     ![Security and single sign-on](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
 
@@ -106,12 +106,12 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
 
-    1.  Nella casella di testo **Nome** digitare un nome per la configurazione.
+    1.  Nella casella di testo **Name** digitare un nome per la configurazione.
     2.  Per **Uso della configurazione**, selezionare **File di metadati**.
-    3.  Per caricare il file di metadati scaricato, fare clic su **Sfoglia**.
-    4.  Fare clic su **Aggiorna**.
+    3.  Per caricare il file di metadati scaricato, fare clic su **Browse**.
+    4.  Fare clic su **Update**.
 
-11. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+11. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798955.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -134,10 +134,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-aha-tutorial/IC798956.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-aha-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # Informazioni sulle immagini per le macchine virtuali
@@ -42,16 +42,17 @@ Per informazioni sull'utilizzo di questi strumenti con le distribuzioni di gesti
 Per esempi dell'utilizzo di strumenti in una distribuzione classica:
 
 - Per CLI, vedere "Comandi per gestire le immagini di macchina virtuale di Azure" in [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md)
-- Per Azure PowerShell, vedere il seguente elenco di comandi. Per un esempio di ricerca di un'immagine per creare una macchina virtuale, vedere "Passaggio 3: determinare la Imagefamily" in [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- Per Azure PowerShell, vedere il seguente elenco di comandi. Per un esempio di ricerca di un'immagine per creare una macchina virtuale, vedere "Passaggio 3: determinare la family" in [utilizzare Azure PowerShell per creare e preconfigurare le macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
--	**Ottenere tutte le immagini**:`Get-AzureVMImage`restituisce un elenco di tutte le immagini disponibili nella sottoscrizione corrente: le immagini presenti, nonché quelle forniti da Azure o partner. Ciò significa che è possibile ottenere un elenco di grandi dimensioni. Negli esempi successivi viene illustrato come ottenere un elenco più breve.
--	**Recupero delle famiglie di immagine**:`Get-AzureVMImage | select ImageFamily` ottiene un elenco delle famiglie di immagine mostrando stringhe di proprietà **ImageFamily**.
--	**Ottenere tutte le immagini in una famiglia specifica**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
+-	**Ottenere tutte le immagini**:`Get-AzureVMImage`restituisce un elenco di tutte le immagini disponibili nella sottoscrizione corrente: le immagini, nonché quelli forniti da Azure o partner. Ciò significa che è possibile ottenere un elenco di grandi dimensioni. Negli esempi successivi viene illustrato come ottenere un elenco più breve.
+-	**Recupero delle famiglie di immagine**:`Get-AzureVMImage | select ImageFamily` Ottiene un elenco delle famiglie di immagine mostrando stringhe **family** proprietà.
+-	**Ottenere tutte le immagini in un gruppo specifico**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
 -	**Trovare immagini VM**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` funziona filtrando la proprietà DataDiskConfiguration, che si applica solo alle immagini di macchina virtuale. In questo esempio viene inoltre Filtra l'output solo il nome di etichetta e l'immagine.
 -	**Salvare un'immagine generalizzata**: `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
 -	**Salvare un'immagine specializzata**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
 >[Azure.Tip]Il parametro OSState è obbligatorio se si desidera creare un'immagine di macchina virtuale, che include dischi dati, nonché il disco del sistema operativo. Se non si utilizza il parametro, il cmdlet crea un'immagine del sistema operativo. Il valore del parametro indica se l'immagine è generalizzata o specializzata, basati su se il disco del sistema operativo è stato preparato per il riutilizzo.
 -	**Eliminare un'immagine**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
+
 
 ## Risorse aggiuntive
 
@@ -59,4 +60,4 @@ Per esempi dell'utilizzo di strumenti in una distribuzione classica:
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

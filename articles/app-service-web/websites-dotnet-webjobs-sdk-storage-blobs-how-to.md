@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK
@@ -30,7 +30,7 @@ Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visua
 
 Questa sezione illustra come usare l'attributo `BlobTrigger`.
 
-> **Nota:** WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo è particolarmente lento: una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Se l'applicazione deve elaborare BLOB immediatamente, si consiglia di creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) anziché l'attributo `BlobTrigger` sulla funzione che elabora il BLOB.
+> [AZURE.NOTE]WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Inoltre, [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) invece dell'attributo `BlobTrigger` nella funzione che elabora il BLOB.
 
 ### Singolo segnaposto per il nome di BLOB con estensione  
 
@@ -97,7 +97,7 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia nel con
 
 Se si desidera usare direttamente l'account di archiviazione di Azure, è anche possibile aggiungere un parametro `CloudStorageAccount` alla firma del metodo.
 
-Per alcuni esempi, vedere il [codice di associazione BLOB nel repository azure-webjobs-sdk in GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
+Vedere ad esempio il [codice di binding dei BLOB nel repository webjobs-sdk in GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Ottenere contenuti di BLOB di testo tramite associazione alla stringa
 
@@ -238,4 +238,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

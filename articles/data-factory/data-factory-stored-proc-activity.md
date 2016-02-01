@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Attività di stored procedure di SQL Server
 
-È possibile usare l'attività di stored procedure di SQL Server in una [pipeline](data-factory-create-pipelines.md) di Data factory per richiamare una stored procedure in un database **SQL di Azure** o in un **Azure SQL Data Warehouse**. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+È possibile usare l'attività di stored procedure di SQL Server in una [pipeline](data-factory-create-pipelines.md) di Data factory per richiamare una stored procedure in uno degli archivi dati seguenti.
+
+
+- Database SQL di Azure 
+- Azure SQL Data Warehouse  
+- Database SQL Server nell'organizzazione o in una macchina virtuale di Azure. È necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Gateway di gestione dati è un software che connette le origini dati locali o ospitate in macchine virtuali di Azure ai servizi cloud, in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati. 
+
+Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 ## Sintassi
 	{
@@ -86,7 +93,7 @@ storedProcedureParameters | Specificare i valori dei parametri della stored proc
 	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
 4.	Nel pannello **Nuova data factory** immettere **SProcDF** come nome. I nomi di Data factory di Azure sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
 3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, seguire questa procedura:
-	1.	Fare clic su **NOME GRUPPO DI RISORSE**.
+	1.	Fare clic su **NOME DEL GRUPPO DI RISORSE**.
 	2.	Selezionare **Crea un nuovo gruppo di risorse** nel pannello **Gruppo di risorse**.
 	3.	Immettere **ADFTutorialResourceGroup** nel campo **Nome** nel pannello **Crea gruppo di risorse**.
 	4.	Fare clic su **OK**.
@@ -198,4 +205,4 @@ A tale scopo, passare il parametro di Scenario e il valore dall'attività di sto
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Sostituire un modulo controller nel dispositivo StorSimple
@@ -36,7 +36,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 |2|Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e l’enclosure del disco sono integri.|[Sostituzione doppia del controller](#replace-both-controllers), che descrive la [logica alla base della sostituzione doppia del controller](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
 |3|I controller dallo stesso dispositivo o da diversi dispositivi vengono invertiti. Lo chassis, i dischi e l’enclosure del disco sono integri.|Verrà visualizzato un messaggio di avviso di mancata corrispondenza dello slot.|
 |4|Un controller non è presente e l'altro controller ha avuto esito negativo.|[Sostituzione doppia del controller](#replace-both-controllers), che descrive la [logica alla base della sostituzione doppia del controller](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps).|
-|5|Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto.|[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per una procedura di sostituzione manuale del controller.|
+|5|Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto.|[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per una procedura di sostituzione manuale.|
 |6|I controller dispongono di una versione di build diverse, e questo potrebbe essere dovuto a:<ul><li>i controller dispongono di una versione del software diversa.</li><li>I controller dispongono di una versione del firmware diversa.</li></ul>|Se le versioni del software del controller sono diverse, la logica di sostituzione rileva e aggiorna la versione del software sul controller di sostituzione.<br><br>Se le versioni del firmware del controller sono diverse e la precedente versione del firmware è**non**automaticamente aggiornabile, verrà visualizzato un messaggio di avviso nel portale di Azure classico. È necessario analizzare gli aggiornamenti e installare gli aggiornamenti firmware.</br></br>Se le precedenti versioni del firmware sono diverse e la versione precedente del firmware del controller è aggiornabile automaticamente, la logica di sostituzione del controller lo rileverà e dopo che il controller viene avviato, il firmware viene aggiornato automaticamente.|
 
 È necessario rimuovere un modulo controller se non funziona. Uno o entrambi i moduli controller possono avere esito negativo, ciò potrebbe comportare una sostituzione di un singolo controller o una sostituzione di entrambi i controller. Per le procedure di sostituzione e la logica su cui si basano, vedere gli argomenti seguenti:
@@ -44,7 +44,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 - [Sostituire un singolo controller](#replace-a-single-controller)
 - [Sostituire entrambi i controller](#replace-both-controllers)
 - [Rimuovere un controller](#remove-a-controller)
-- [Aggiungere un controller](#insert-a-controller).
+- [Aggiungere un controller.](#insert-a-controller)
 - [Identificare il controller attivo sul dispositivo](#identify-the-active-controller-on-your-device)
 
 >[AZURE.IMPORTANT]Prima di rimuovere e sostituire un controller, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
@@ -75,7 +75,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 #### Per rimuovere un singolo modulo del controller che ha avuto esito negativo
 
-1. Nel portale di Azure classico del servizio StorSimple Manager, fare clic sulla scheda **Dispositivi**e quindi fare clic sul nome del dispositivo che si desidera monitorare.
+1. Nel portale di Azure classico passare al servizio StorSimple Manager, fare clic sulla scheda **Dispositivi** e quindi sul nome del dispositivo da monitorare.
 
 2. Scegliere la scheda **Manutenzione**e quindi passare alla scheda**Stato hardware**. Lo stato del Controller 0 o Controller 1 deve essere rosso, ad indicare un errore.
 
@@ -230,9 +230,9 @@ Ognuna di queste procedure è descritta di seguito.
 
 ### Utilizzare il portale di Azure classico per identificare il controller attivo
 
-Nel portale di gestione, passare a**Dispositivi** > **Manutenzione**e scorrere verso la sezione**Controller**. Qui è possibile verificare quale controller è attivo.
+Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** e scorrere fino alla sezione **Controller**. Qui è possibile verificare quale controller è attivo.
 
-![Identificare il Controller attivo nel portale di gestione](./media/storsimple-controller-replacement/IC752072.png)
+![Identificare il controller attivo nel portale di Azure classico](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figura 6** il portale di Azure classico mostra il controller attivo
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

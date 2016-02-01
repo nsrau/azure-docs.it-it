@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
@@ -70,6 +70,7 @@ Nella schermata Connessione ad Azure AD, immettere un account di amministratore 
 
 ![Accesso utente](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+Se viene visualizzato un errore e si hanno problemi relativi alla connettività, vedere [Risolvere i problemi di connettività](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Pagine della sezione di sincronizzazione
 
@@ -109,7 +110,7 @@ Per usare questa funzionalità, nel percorso personalizzato verrà visualizzata 
 
 >[AZURE.WARNING]Questa funzionalità è destinata solo a una distribuzione pilota e non deve essere usata in una distribuzione di produzione completa.
 
-In un ambiente di distribuzione della produzione completo è difficile mantenere un singolo gruppo con tutti gli oggetti da sincronizzare. È invece necessario utilizzare uno dei metodi in [Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md).
+In un ambiente di distribuzione della produzione completo è difficile mantenere un singolo gruppo con tutti gli oggetti da sincronizzare. È invece necessario usare uno dei metodi in [Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Funzionalità facoltative
 
@@ -121,7 +122,7 @@ Questa schermata consente di selezionare le funzionalità facoltative per gli sc
 
 Funzionalità facoltative | Descrizione
 -------------------    | ------------- |
-Distribuzione ibrida di Exchange |La funzionalità Distribuzione ibrida di Exchange permette l'esistenza simultanea di cassette postali di Exchange sia in locale sia in Azure risincronizzando un set specifico di [attributi](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) da Azure AD alla directory locale.
+Distribuzione ibrida di Exchange |La funzionalità Distribuzione ibrida di Exchange permette l'esistenza simultanea di cassette postali di Exchange sia in locale sia in Azure risincronizzando un set specifico di [attributi](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) da Azure AD alla directory locale.
 Filtro attributi e app di Azure AD|Se si abilita questa opzione, il set di attributi sincronizzati può essere adattato a un set specifico in una pagina successiva della procedura guidata. In questo caso, vengono visualizzate due pagine di configurazione aggiuntive della procedura guidata.  
 Sincronizzazione delle password | Se come soluzione di accesso è stata selezionata la federazione, questa opzione può essere abilitata. La sincronizzazione delle password può quindi essere usata come opzione di backup. Per altre informazioni, vedere [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md).
 Writeback delle password|Se si abilita il writeback delle password, le modifiche delle password generate da Azure AD verranno riscritte nella directory locale. Per altre informazioni, vedere [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md).
@@ -250,4 +251,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

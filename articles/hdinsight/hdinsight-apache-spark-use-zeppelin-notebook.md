@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Usare i notebook di Zeppelin con cluster Spark in HDInsight (Linux)
 
 Informazioni su come installare i notebook di Zeppelin in cluster Spark e su come usare i notebook di Zeppelin.
+
+> [AZURE.IMPORTANT]I notebook di Zeppelin per cluster HDInsight Spark vengono proposti per illustrare l'uso di Zeppelin in un ambiente Azure HDInsight Spark. Se si vogliono usare i notebook con HDInsight Spark, è consigliabile usare i notebook di Jupyter. Anche i notebook di Jupyter offrono varie opzioni kernel, ad esempio Scala, e le funzionalità continuano a migliorare. Per istruzioni su come usare i notebook di Jupyter con HDInsight Spark, vedere [Eseguire query Spark SQL con un notebook di Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Prerequisiti:**
 
@@ -295,7 +297,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -328,4 +330,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

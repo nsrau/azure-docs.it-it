@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con BambooHR | Microsoft Azure" 
     description="Informazioni su come usare BambooHR con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con BambooHR
 
@@ -102,12 +102,12 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     ![Single Sign-On SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Single Sign-On SAML")
 
     1.  Nella finestra di dialogo **Configura accesso Single Sign-On in BambooHR** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SSO Login URL**.
-2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
-    4.  Fare clic su **Save**.
+    4.  Fare clic su **Salva**.
 
 8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -131,7 +131,7 @@ Nel caso di BambooHR, il provisioning è un'attività manuale.
 
 5.  Nelle caselle di testo corrispondenti digitare il nome utente, la password e l'indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
 
-6.  Fare clic su **Save**.
+6.  Fare clic su **Salva**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da BambooHR per eseguire il provisioning degli account utente di Azure AD.
 
@@ -153,4 +153,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 01/15/2016-->
 
-#### Per installare l'aggiornamento 1.2 dal portale di Azure
+#### Per installare l'aggiornamento 1.2 dal portale di Azure classico
 
 1. Nella pagina del servizio StorSimple, selezionare il proprio dispositivo. Andare a **Dispositivi** > **Manutenzione**.
 
@@ -65,4 +65,4 @@
 
 > [AZURE.NOTE]In alcuni casi, il messaggio che indica che gli aggiornamenti in modalità manutenzione sono disponibili può essere visualizzato fino a 24 ore dopo la corretta applicazione di tali aggiornamenti sul dispositivo.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

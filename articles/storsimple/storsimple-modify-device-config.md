@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple
@@ -129,4 +129,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

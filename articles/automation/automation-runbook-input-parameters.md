@@ -99,15 +99,15 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
 4. Creare due parametri con le proprietà seguenti che verranno usate dall'attività **Get-AzureVM**:
 
     * **Parametro1:** 
-    Nome: VMName,
-    Tipo: String,
+    Nome: VMName, 
+    Tipo: String, 
     Obbligatorio: No
-	
+
     * **Parametro2:** 
     Nome: VMNameServiceName, 
-    Tipo: String,
-    Obbligatorio: No,
-    Valore predefinito: Personalizzato,
+    Tipo: String, 
+    Obbligatorio: No, 
+    Valore predefinito: Personalizzato, 
     Valore predefinito personalizzato: <Nome del servizio predefinito che contiene le macchine virtuali>
 
 5. Dopo aver aggiunto i parametri, fare clic su **OK**. Ora è possibile visualizzarli nel pannello **Input e output**. Fare nuovamente clic su **OK**, quindi su **Salva** e **pubblicare** il runbook.
@@ -122,7 +122,7 @@ Ci sono diversi modi per avviare un runbook: dall'interfaccia utente del portale
 
 - **Avviare un runbook pubblicato usando il portale di Azure e assegnare parametri**
 
-Quando si [avvia il runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), viene aperto il pannello **Avvia runbook** ed è possibile configurare i valori per i parametri appena creati.
+Quando si [avvia il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), viene aperto il pannello **Avvia runbook** ed è possibile configurare i valori per i parametri appena creati.
 
 ![Attività iniziali con il portale](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -156,7 +156,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE] Quando si avvia un runbook con i cmdlet di PowerShell, viene creato un parametro predefinito, **MicrosoftApplicationManagementStartedBy**, con il valore **PowerShell**. Questo parametro può essere visualizzato nel pannello **Dettagli processo**.
+>[AZURE.NOTE]Quando si avvia un runbook con i cmdlet di PowerShell, viene creato un parametro predefinito, **MicrosoftApplicationManagementStartedBy**, con il valore **PowerShell**. Questo parametro può essere visualizzato nel pannello **Dettagli processo**.
 
 - **Avviare un runbook usando un SDK e assegnare parametri**
 
@@ -279,4 +279,4 @@ Quando si esegue un runbook con un webhook, insieme ai parametri di input defini
 - Per modificare un runbook testuale, vedere [Modifica di runbook testuali](automation-edit-textual-runbook.md).
 - Per modificare un runbook grafico, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

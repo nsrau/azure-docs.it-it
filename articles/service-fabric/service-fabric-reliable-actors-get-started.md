@@ -17,44 +17,44 @@
    ms.author="vturecek"/>
 
 # Reliable Actors: scenario dettagliato per la creazione di un servizio HelloWorld canonico
-In questo articolo vengono illustrate le nozioni fondamentali di Service Fabric Reliable Actors e le procedure per creare, eseguire il debug e distribuire una semplice applicazione HelloWorld in Visual Studio.
+Questo articolo illustra le nozioni fondamentali di Azure Service Fabric Reliable Actors e le procedure per creare, eseguire il debug e distribuire una semplice applicazione HelloWorld in Visual Studio.
 
 ## Installazione e configurazione
-Prima di iniziare, assicurarsi che nel computer sia configurato l'ambiente di sviluppo di Service Fabric. Istruzioni dettagliate su come configurare l'ambiente di sviluppo sono disponibili [qui](service-fabric-get-started.md).
+Prima di iniziare, assicurarsi che nel computer sia configurato l'ambiente di sviluppo di Service Fabric. Se è necessario configurarlo, vedere le relative istruzioni dettagliate su [come configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 
 ## Concetti di base
-Per iniziare a usare Reliable Actors è sufficiente comprendere quattro concetti di base:
+Per iniziare a usare Reliable Actors, è sufficiente comprendere quattro concetti di base:
 
-* **Servizio attore**. Reliable Actors viene fornito in pacchetti di servizi che possono essere distribuiti nell'infrastruttura Service Fabric. Un servizio può ospitare uno o più attori. Più avanti verranno fornite informazioni più dettagliate sui vantaggi e gli svantaggi legati alla scelta di uno o più attori per servizio. Per il momento si presuppone che sia necessario implementare un solo attore.
-* **Interfaccia attore**. Questa interfaccia viene usata per definire l'interfaccia pubblica di un attore. Nella terminologia relativa al modello Actor, definisce il tipo di messaggi che l'attore è in grado di comprendere ed elaborare. L'interfaccia attore viene usata da altri attori o applicazioni client per inviare messaggi all'attore (in modo asincrono). Reliable Actors può implementare più interfacce, proprio come l'attore HelloWorld descritto più avanti può implementare l'interfaccia IHelloWorld ma anche un'interfaccia ILogging che definisce diversi messaggi o funzionalità.
-* **Registrazione attore**. Nel servizio attore il tipo di attore deve essere registrato in modo che Service Fabric riconosca il nuovo tipo e possa usarlo per creare nuovi attori.
+* **Servizio attore**. Reliable Actors viene fornito in pacchetti di servizi che possono essere distribuiti nell'infrastruttura Service Fabric. Un servizio può ospitare uno o più attori. Di seguito verranno fornite informazioni più dettagliate sui vantaggi e gli svantaggi legati alla scelta di uno o più attori per servizio. Per il momento, si presuppone che sia necessario implementare un solo attore.
+* **Interfaccia attore**. Questa interfaccia viene usata per definire l'interfaccia pubblica di un attore. In base alla terminologia modello di Reliable Actors, questa interfaccia definisce i tipi di messaggi che l'attore può comprendere ed eseguire. L'interfaccia attore viene usata da altri attori o applicazioni client per "inviare" messaggi all'attore (in modo asincrono). Reliable Actors può implementare più interfacce. Come illustrato più avanti, un attore HelloWorld può implementare più interfacce IHelloWorld, ma anche un'interfaccia ILogging che definisce diversi messaggi e/o funzionalità.
+* **Registrazione attore**. Nel servizio Reliable Actors, è necessario registrare il tipo di attore. In questo modo, Service Fabric è a conoscenza del nuovo tipo e può usarlo per creare nuovi attori.
 * **Classe ActorProxy**. La classe ActorProxy viene usata per eseguire il binding a un attore e richiamare i metodi esposti tramite le relative interfacce. La classe ActorProxy fornisce due funzionalità importanti:
-	* Risoluzione dei nomi: la classe è in grado di rilevare l'attore nel cluster, ossia trovare in quale nodo del cluster è ospitato.
-	* Gestione degli errori: la classe può ripetere le chiamate ai metodi e determinare nuovamente la posizione dell'attore, ad esempio dopo un errore che richiede lo spostamento dell'attore in un altro nodo del cluster.
+	* Risolve i nomi. La classe è in grado di individuare l'attore nel cluster, ossia trovare il nodo del cluster in cui è ospitato.
+	* Gestisce gli errori. La classe può ripetere le chiamate al metodo e determinare nuovamente la posizione dell'attore, ad esempio dopo un errore che richiede lo spostamento dell'attore in un altro nodo del cluster.
 
 ## Creare un nuovo progetto in Visual Studio
-Dopo aver installato Service Fabric Tools per Visual Studio, è possibile creare i tipi per un nuovo progetto. Questi tipi sono inclusi nella categoria Cloud della finestra di dialogo Nuovo progetto.
+Dopo aver installato gli strumenti di Service Fabric per Visual Studio, è possibile creare nuovi tipi di progetto. Questi tipi sono inclusi nella categoria **Cloud** della finestra di dialogo **Nuovo progetto**.
 
 
 ![Strumenti di Service Fabric per Visual Studio - nuovo progetto][1]
 
-Nella finestra di dialogo successiva è possibile scegliere il tipo di progetto che si desidera creare.
+Nella finestra di dialogo successiva è possibile scegliere il tipo di progetto che si vuole creare.
 
 ![Modelli di progetto di Service Fabric][5]
 
-Per il progetto HelloWorld si userà Service Fabric Actor Service.
+Per il progetto HelloWorld si userà il servizio Reliable Actors di Service Fabric.
 
-Una volta creata la soluzione, verrà visualizzata la struttura seguente:
+Dopo aver creato la soluzione, verrà visualizzata la struttura seguente:
 
 ![Struttura del progetto di Service Fabric][2]
 
 ## Blocchi predefiniti di base di Reliable Actors
 
-Una tipica soluzione Reliable Actors è costituita da 3 progetti:
+Una tipica soluzione Reliable Actors è costituita da tre progetti:
 
-* Il progetto dell'applicazione (HelloWorldApplication), in cui sono inclusi tutti i servizi per la distribuzione. Contiene il file ApplicationManifest.xml e gli script di PowerShell per gestire l'applicazione.
+* **Il progetto dell'applicazione (HelloWorldApplication)**, in cui sono inclusi tutti i servizi per la distribuzione. Contiene il file **ApplicationManifest.xml** e gli script di PowerShell per gestire l'applicazione.
 
-* Il progetto dell'interfaccia (HelloWorld.Interfaces), in cui è inclusa la definizione dell'interfaccia per l'attore. In questo progetto è possibile definire le interfacce che verranno usate dagli attori nella soluzione.
+* **Il progetto dell'interfaccia (HelloWorld.Interfaces)**, in cui è inclusa la definizione dell'interfaccia per l'attore. Nel progetto HelloWorld.Interfaces è possibile definire le interfacce che verranno usate dagli attori nella soluzione.
 
 ```csharp
 
@@ -71,7 +71,7 @@ namespace MyActor.Interfaces
 
 ```
 
-* Il progetto del servizio (HelloWorld), usato per definire il servizio di Service Fabric che ospiterà l'attore. Contiene codice boilerplate, che nella maggior parte dei casi non richiede modifiche (ServiceHost.cs), e l'implementazione dell'attore. Quest'ultima implica l'implementazione di una classe che deriva da un tipo di base (Actor) e implementa le interfacce definite nel progetto .Interfaces.
+* **Il progetto del servizio (HelloWorld)**, usato per definire il servizio di Service Fabric che ospiterà l'attore. Contiene codice boilerplate, che nella maggior parte dei casi non richiede modifiche (ServiceHost.cs) né l'implementazione dell'attore. L'implementazione dell'attore prevede l'implementazione di una classe che deriva da un tipo di base (Actor). Implementa inoltre le interfacce che sono definite nel progetto HelloWorld.Interfaces.
 
 ```csharp
 
@@ -93,7 +93,7 @@ namespace MyActor
 
 ```
 
-Il progetto Actor Service contiene il codice per creare un servizio di Service Fabric. Nella definizione del servizio sono registrati uno o più tipi di attore che possono essere usati per creare istanze di nuovi attori.
+Il progetto del servizio Reliable Actors contiene il codice per creare un servizio di Service Fabric. Nella definizione del servizio, il tipo o i tipi di attore vengono registrati in modo da poter essere utilizzati per creare nuovi attori.
 
 ```csharp
 
@@ -128,7 +128,7 @@ namespace MyActor
 
 ```
 
-Se si inizia un nuovo progetto in Visual Studio ed è presente una sola definizione di attore, la registrazione viene inclusa per impostazione predefinita nel codice generato da Visual Studio. Se si definiscono altri attori nel servizio, è necessario aggiungere la registrazione attore, come indicato di seguito:
+Se si inizia un nuovo progetto in Visual Studio ed è presente una sola definizione di attore, la registrazione viene inclusa per impostazione predefinita nel codice generato da Visual Studio. Se si definiscono altri attori nel servizio, è necessario aggiungere la registrazione dell'attore, come indicato di seguito:
 
 ```csharp
 
@@ -139,15 +139,17 @@ fabricRuntime.RegisterActor<MyActor>();
 
 ## Debug
 
-In Service Fabric Tools per Visual Studio è supportato il debug nel computer locale. Per avviare una sessione di debug, premere F5. Visual Studio esegue la compilazione (se necessaria), crea i pacchetti, distribuisce l'applicazione nel cluster di Service Fabric locale e infine collega il debugger. L'esperienza è simile al debug di un'applicazione ASP.NET. Durante il processo di distribuzione è possibile visualizzare lo stato di avanzamento nella finestra di output.
+Gli strumenti di Service Fabric per Visual Studio supportano il debug nel computer locale. Per avviare una sessione di debug, premere F5. Visual Studio esegue, se necessario, la compilazione dei pacchetti e la distribuzione dell'applicazione nel cluster locale di Service Fabric e infine collega il debugger. L'esperienza è simile al debug di un'applicazione ASP.NET.
 
-![Finestra di output del debug del Service Fabric][3]
+Durante il processo di distribuzione è possibile visualizzare lo stato di avanzamento nella finestra di **output**.
+
+![Finestra di output del debug di Service Fabric][3]
 
 
 ## Passaggi successivi
 
 - [Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Documentazione di riferimento attori API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
@@ -158,4 +160,4 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

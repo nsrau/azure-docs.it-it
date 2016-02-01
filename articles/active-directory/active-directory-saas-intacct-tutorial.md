@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Intacct | Microsoft Azure" 
     description="Informazioni su come usare Intacct con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Intacct
   
@@ -64,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Inta
     ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Intacct tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Intacct tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -101,7 +101,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     1.  Selezionare **Abilita Single Sign-On**.
     2.  In **Tipo di provider di identità** selezionare **SAML 2.0**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Intacct** del portale di Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **URL autorità di certificazione**.
-    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Intacct** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di accesso**.
+    4.  Nella finestra di dialogo **Configura accesso Single Sign-On in Intacct** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
     5.  Creare un file **con codifica Base 64** dal certificato scaricato.
         
 		>[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
@@ -156,6 +156,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Sì](./media/active-directory-saas-intacct-tutorial/IC767830.png "Sì")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

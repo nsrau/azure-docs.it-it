@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute mediante PowerShell
@@ -29,7 +29,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 ## Prerequisiti di configurazione
 
-- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](http://azure.microsoft.com/downloads). Seguire le istruzioni fornite nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per indicazioni dettagliate su come configurare il computer per l'uso dei moduli di Azure PowerShell. 
+- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](http://azure.microsoft.com/downloads). Per istruzioni dettagliate su come configurare il computer per l'uso dei moduli Azure PowerShell, seguire le istruzioni contenute nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
 - Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md) e ai [flussi di lavoro](expressroute-workflows.md).
 
 ## Per creare un circuito ExpressRoute ed eseguirne il provisioning
@@ -162,7 +162,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider del servizio, mentre lo stato indica lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
+	*ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider del servizio, mentre Status indica lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 5. **Controllare periodicamente lo stato e la condizione della chiave del circuito.**
 
-	In questo modo è possibile sapere quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, il parametro *ServiceProviderProvisioningState* verrà visualizzato come *Con provisioning*, come illustrato nell'esempio seguente.
+	In questo modo è possibile sapere quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, il parametro *ServiceProviderProvisioningState* verrà visualizzato come *Provisioned*, come illustrato nell'esempio riportato di seguito.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -322,10 +322,10 @@ Si noti che è necessario scollegare tutte le reti virtuali da ExpressRoute perc
 
 Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
 
-Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *senza provisioning*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
 
 ## Passaggi successivi
 
 - [Configurare il routing](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

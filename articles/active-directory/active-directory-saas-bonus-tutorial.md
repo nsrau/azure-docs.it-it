@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Bonus.ly | Microsoft Azure" 
     description="Informazioni su come usare Bonus.ly con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Bonus.ly
 
@@ -62,7 +62,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bonu
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Bonus.ly tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Bonus.ly richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Bonus.ly tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Bonus.ly richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -101,7 +101,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-9.  Fare clic su **salva**.
+9.  Fare clic su **save**.
 
 10. Nel portale di Microsoft Azure AD selezionare la conferma della configurazione e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -114,11 +114,11 @@ Per consentire agli utenti di Azure AD di accedere a Bonus.ly, è necessario ese
 
 1.  In una finestra diversa del Web browser accedere al tenant di Bonus.ly.
 
-2.  Fare clic su **Impostazioni**.
+2.  Fare clic su **Settings**
 
     ![Impostazioni](./media/active-directory-saas-bonus-tutorial/IC781041.png "Impostazioni")
 
-3.  Fare clic sulla scheda **Utenti e bonus**.
+3.  Fare clic sulla scheda **Users and bonuses**.
 
     ![Users and bonuses](./media/active-directory-saas-bonus-tutorial/IC781042.png "Users and bonuses")
 
@@ -153,10 +153,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-bonus-tutorial/IC773690.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-bonus-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

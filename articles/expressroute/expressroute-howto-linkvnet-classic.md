@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc" />
 
 # Collegamento della rete virtuale a circuiti ExpressRoute
@@ -150,4 +150,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

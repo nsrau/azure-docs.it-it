@@ -25,7 +25,7 @@ Il primo passaggio consiste nel creare uno spazio dei nomi del servizio e nell'o
 
 ### Creare uno spazio dei nomi e ottenere una chiave privata condivisa
 
-1. Per informazioni complete su come creare uno spazio dei nomi del servizio, vedere l'argomento [Procedura: creare o modificare uno spazio dei nomi del servizio Bus di servizio](https://msdn.microsoft.com/library/azure/hh690931.aspx) nella sezione [Gestione degli spazi dei nomi del servizio Bus di servizio](https://msdn.microsoft.com/library/azure/hh690928.aspx).
+1. Per creare uno spazio dei nomi del servizio, visitare il [portale di Azure classico][]. Fare clic su **Bus di servizio** sul lato sinistro, quindi fare clic su **Crea**. Digitare un nome per lo spazio dei nomi, quindi fare clic sul segno di spunta.
 
 1. Nella finestra principale del [portale di Azure classico][], fare clic sul nome dello spazio dei nomi del servizio creato al passaggio precedente.
 
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 Vedere gli articoli seguenti per ulteriori informazioni:
 
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-- [Dati fondamentali del bus di servizio](fundamentals-service-bus-hybrid-solutions.md)
+- [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Esercitazione sul REST di inoltro del bus di servizio](service-bus-relay-rest-tutorial.md)
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

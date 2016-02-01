@@ -68,7 +68,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 | No. | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfacce di rete | Dopo aver eseguito l'aggiornamento 1, il servizio StorSimple Manager segnalava che le porte Data2 e Data3 restituivano un errore su un controller. Il problema è stato risolto. | Sì | No |
-| 2 | Aggiornamenti | Dopo aver eseguito l'aggiornamento 1, nel portale di Azure erano udibili allarmi su più dispositivi. Il problema è stato risolto. | Sì | No |
+| 2 | Aggiornamenti | Dopo aver eseguito l'aggiornamento 1, si sono attivati degli avvisi acustici nel portale di Azure classico in più dispositivi. Il problema è stato risolto. | Sì | No |
 | 3 | Autenticazione Openstack | Quando si usa Openstack come provider di servizi cloud, potrebbe venire visualizzato un errore che informa che la stringa di autenticazione cloud è troppo lunga. Questo problema è stato risolto. | Sì | No |
 
 
@@ -113,4 +113,4 @@ Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
 
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

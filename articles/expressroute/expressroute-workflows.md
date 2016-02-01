@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
@@ -39,7 +39,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Collegamento di reti virtuali a circuiti ExpressRoute: è possibile collegare reti virtuali al circuito ExpressRoute. Seguire le istruzioni [per collegare reti virtuali](expressroute-howto-linkvnets-classic.md) a un circuito. Queste reti virtuali possono trovarsi nella stessa sottoscrizione di Azure del circuito ExpressRoute oppure in una sottoscrizione diversa.
+5. Collegamento di reti virtuali a circuiti ExpressRoute: è possibile collegare reti virtuali al circuito ExpressRoute. Seguire le istruzioni [per collegare reti virtuali](expressroute-howto-linkvnet-arm.md) a un circuito. Queste reti virtuali possono trovarsi nella stessa sottoscrizione di Azure del circuito ExpressRoute oppure in una sottoscrizione diversa.
 
 
 ## Stati di provisioning del circuito ExpressRoute
@@ -117,8 +117,8 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 
 - Configurare la connessione ExpressRoute.
 
-	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-	- [Configurare il routing](expressroute-howto-routing-classic.md)
-	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
+	- [Configurare il routing](expressroute-howto-routing-arm.md)
+	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

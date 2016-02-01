@@ -91,7 +91,8 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 ## Passaggi successivi
 
 - Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md).
+
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

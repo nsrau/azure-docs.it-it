@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare i log delle operazioni e dei servizi in Analisi di flusso | Microsoft Azure" 
+	pageTitle="Eseguire il debug con i log dell'operazione e del servizio in analisi di flusso | Microsoft Azure" 
 	description="Come usare i log delle operazioni di Analisi di flusso" 
 	keywords="log dei servizi"
 	services="stream-analytics" 
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Informazioni sui log delle operazioni e dei servizi di Analisi di flusso
+# Eseguire il debug dei processi di analisi di flusso con i log del servizio e dell'operazione
 
 Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’eleborazione, fino all’output.
 
@@ -96,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

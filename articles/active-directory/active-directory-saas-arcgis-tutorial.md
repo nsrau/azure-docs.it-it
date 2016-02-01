@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con ArcGIS | Microsoft Azure" 
     description="Informazioni su come usare ArcGIS con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ArcGIS
 
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "**https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "*https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configura URL app")
 
@@ -86,7 +86,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di ArcGIS come amministratore.
 
-6.  Fare clic su **Modifica impostazioni**.
+6.  Fare clic su **Edit Settings**.
 
     ![Edit Settings](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Edit Settings")
 
@@ -112,13 +112,14 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS. Nel caso di ArcGIS, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS.  
+Nel caso di ArcGIS, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
 1.  Accedere al tenant **ArcGIS**.
 
-2.  Fare clic su **Invita Membri**.
+2.  Fare clic su **Invita membri**.
 
     ![Invita membri](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members")
 
@@ -126,7 +127,7 @@ Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseg
 
     ![Add Members Automatically](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Add Members Automatically")
 
-4.  Nella finestra di dialogo **Membri** seguire questa procedura:
+4.  Nella finestra di dialogo **membri** seguire questa procedura:
 
     ![Add and review](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Add and review")
 
@@ -137,7 +138,7 @@ Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseg
 
     ![Add member](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Add member")
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
 
@@ -157,4 +158,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

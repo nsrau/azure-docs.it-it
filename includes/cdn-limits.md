@@ -1,9 +1,10 @@
 
-| Risorsa | Limite flessibile 
---- | ---
-| Endpoint rete CDN | 50
-| Domini personalizzati per cliente| 16
+Risorsa | Limite flessibile
+---------|-----------
+Profili di rete CDN | 4
+Endpoint di rete CDN per profilo | 10
+Domini personalizzati per endpoint | 10 
 
-È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
+Richiedere un aggiornamento sui limiti flessibili della sottoscrizione aprendo un ticket di supporto.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

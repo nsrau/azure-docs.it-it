@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Aggiungere report sull'integrità di Service Fabric personalizzati
@@ -275,4 +275,4 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

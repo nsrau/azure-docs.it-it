@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Note sulla versione di Analisi di flusso Microsoft
+#Note sulla versione di analisi di flusso
 
 ## Note per la versione 10/12/2015 di Analisi di flusso ##
 
@@ -133,4 +133,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

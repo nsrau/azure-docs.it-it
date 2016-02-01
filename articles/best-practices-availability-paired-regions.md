@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Migliorare la continuità aziendale con le coppie di aree di Azure"
-	description="Usare coppie di aree per assicurare la resilienza delle applicazioni in caso di errori del data center."
-	services="multiple"
+	pageTitle="Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure | Microsoft Azure"
+	description="Le coppie di aree di Azure assicurano la resilienza delle applicazioni in caso di errori del data center."
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
     ms.service="backup"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="01/12/2016"
+    ms.author="raynew"/>
 
-# Migliorare la disponibilità usando coppie di aree di Azure
+# Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
-## Descrizione delle aree abbinate di Azure
+## Definizione di aree abbinate
 
 Azure è disponibile in più aree geografiche del mondo. Un'area geografica di Azure è un'area definita del mondo che include almeno un'area di Azure. Un'area di Azure all'interno di un'area geografica include uno o più data center.
 
@@ -43,6 +43,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Brasile | Brasile meridionale (1) | Stati Uniti centro-meridionali |
 | Australia | Australia orientale | Australia sudorientale|
 | Governo degli Stati Uniti | Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
+| India | India centrale | India meridionale |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
@@ -50,7 +51,7 @@ Tabella 1 - Mapping di coppie di aree di Azure
 
 È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.
 
-## Esempio di coppia di aree
+## Esempio di aree abbinate
 La Figura 2 mostra un'ipotetica applicazione che utilizza la coppia internazionali per il ripristino di emergenza. I numeri in verde evidenziano le attività tra aree di tre servizi di Azure (calcolo, archiviazione e database di Azure) e come vengono configurate per la replica tra aree. I vantaggi esclusivi della distribuzione tra aree abbinate sono evidenziali dai numeri in arancione.
 
 
@@ -70,10 +71,10 @@ Come indicato nella figura 2.
 
 ![4Green](./media/best-practices-availability-paired-regions/4Green.png)**Gestione risorse di azure (ARM)**-ARM intrinsecamente fornisce isolamento logico dei componenti di gestione del servizio in aree geografiche. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 
-## Vantaggi di un'area abbinata
+## Vantaggi delle aree abbinate
 Come indicato nella figura 2.
 
-![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Isolamento fisico**: quando possibile, per Azure è preferibile una separazione di almeno 300 km tra i data center di una coppia di aree, anche se ciò non è sempre pratico o possibile in tutte le aree geografiche. La separazione dei data center fisici riduce la possibilità che calamità naturali, agitazioni sociali, interruzioni dell'alimentazione o interruzioni della rete fisica interessino entrambe le aree contemporaneamente. L'isolamento è soggetto ai vincoli presenti all'interno dell'area geografica (dimensioni dell'area geografica, disponibilità dell'infrastruttura di rete/alimentazione, normative e così via).
+![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Isolamento fisico**: quando possibile, per Azure è preferibile una separazione di almeno 480 km tra i data center di una coppia di aree, anche se ciò non è sempre pratico o possibile in tutte le aree geografiche. La separazione dei data center fisici riduce la possibilità che calamità naturali, agitazioni sociali, interruzioni dell'alimentazione o interruzioni della rete fisica interessino entrambe le aree contemporaneamente. L'isolamento è soggetto ai vincoli presenti all'interno dell'area geografica (dimensioni dell'area geografica, disponibilità dell'infrastruttura di rete/alimentazione, normative e così via).
 
 ![6Orange](./media/best-practices-availability-paired-regions/6Orange.png)**Replica fornita dalla piattaforma**-replica automatica per l'area associata di fornire alcuni servizi, ad esempio l'archiviazione con ridondanza geografica.
 
@@ -84,4 +85,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

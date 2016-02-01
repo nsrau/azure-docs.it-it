@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # Esempio 1: Creare una semplice rete perimetrale con gruppi di sicurezza di rete
@@ -541,7 +541,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
 	</NetworkConfiguration>
 
 #### Script di applicazione di esempio
-Se si desidera installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [script di applicazione di esempio][SampleApp].
+Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, tramite il collegamento seguente ne viene fornita una: [Script di applicazione di esempio][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Rete perimetrale in ingresso con gruppo di sicurezza di rete"
@@ -550,4 +550,4 @@ Se si desidera installare un'applicazione di esempio per questo e altri esempi d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

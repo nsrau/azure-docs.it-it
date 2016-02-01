@@ -38,6 +38,8 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
  * Azure DocumentDB, tabelle, archivio BLOB e coda
 * Java
  * Chiamate a un database tramite un driver[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
+* Pagina Web
+ * Chiamate AJAX
 
 Anche in questo caso, è possibile scrivere le proprie chiamate SDK per monitorare altre dipendenze.
 
@@ -129,4 +131,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

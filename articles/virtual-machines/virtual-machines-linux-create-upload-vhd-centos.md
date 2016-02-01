@@ -354,4 +354,8 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 17. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-<!---HONumber=AcomDC_1223_2015-->
+## Passaggi successivi
+È ora possibile usare il file .vhd CentOS Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+ 
+
+<!---HONumber=AcomDC_0121_2016-->

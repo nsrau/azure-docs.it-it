@@ -27,7 +27,7 @@ L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con 
 
 L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-> [AZURE.NOTE]La sintassi **asv://* non è supportata nei cluster HDInsight versione 3.0. Ciò significa che i processi inviati a un cluster HDInsight versione 3.0 che usano esplicitamente la sintassi **asv://* avranno esito negativo. Sarà pertanto necessario usare la sintassi **wasb://*. Avrà inoltre esito negativo qualsiasi processo inviato a un cluster HDInsight 3.0 e creato con un metastore esistente che contiene riferimenti espliciti a risorse che usano la sintassi asv://. Sarà necessario ricreare i metastore in modo da fare riferimento alle risorse utilizzando la sintassi wasb://.
+> [AZURE.NOTE]La sintassi **asv://* non è supportata nei cluster HDInsight versione 3.0. Questo significa che i processi inviati a un cluster HDInsight 3.0 che usano esplicitamente la sintassi **asv://* avranno esito negativo. Sarà pertanto necessario usare la sintassi **wasb://*. Avrà inoltre esito negativo qualsiasi processo inviato a un cluster HDInsight 3.0 e creato con un metastore esistente che contiene riferimenti espliciti a risorse che usano la sintassi asv://. Sarà necessario ricreare i metastore in modo da fare riferimento alle risorse utilizzando la sintassi wasb://.
 
 > In HDInsight sono attualmente supportati solo i BLOB in blocchi.
 
@@ -106,7 +106,7 @@ Se è stata [installata e configurata l’interfaccia della riga di comando di A
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]Il parametro `--type` indica la modalità di replica dell'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](../storage-redundancy.md). Non utilizzare ZRS poiché ZRS non supporta BLOB di pagine, file, tabelle o code.
+> [AZURE.NOTE]Il parametro `--type` indica la modalità di replica dell'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md). Non utilizzare ZRS poiché ZRS non supporta BLOB di pagine, file, tabelle o code.
 
 Verrà richiesto di specificare l'area geografica in cui si troverà l’account di archiviazione. È necessario creare l'account di archiviazione nella stessa area in cui si prevede di creare il cluster HDInsight.
 
@@ -282,7 +282,9 @@ Per altre informazioni, vedere:
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
+* [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight][hdinsight-use-sas]
 
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: ../install-configure-powershell.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
@@ -297,4 +299,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

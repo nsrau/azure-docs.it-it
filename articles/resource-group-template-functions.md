@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Espressioni del modello di Gestione risorse | Microsoft Azure"
+   pageTitle="Funzioni del modello di gestione risorse | Microsoft Azure"
    description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Espressioni del modello di Gestione risorse di Azure
+# Funzioni del modello di Gestione risorse di Azure
 
-Questo argomento descrive tutte le espressioni che è possibile usare in un modello di Gestione risorse di Azure.
+Questo argomento descrive tutte le funzioni che è possibile usare in un modello di Gestione risorse di Azure.
 
-Le espressioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la distinzione tra maiuscole e minuscole sarà mantenuta, a meno che non venga modificata espressamente dall'espressione (ad esempio toUpper o toLower). Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle espressioni.
+Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la distinzione tra maiuscole e minuscole sarà mantenuta, a meno che non venga modificata espressamente dalla funzione (ad esempio toUpper o toLower). Alcuni tipi di risorse possono avere requisiti per le maiuscole e minuscole indipendentemente dalla modalità di valutazione delle funzioni.
 
-## Espressioni numeriche
+## Funzioni numeriche
 
-Gestione risorse fornisce le espressioni seguenti per usare i numeri interi:
+Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
 - [aggiungere](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 Restituisce l'indice corrente di un ciclo di iterazione.
 
-Questa espressione viene sempre usata con un oggetto **copy**. Per esempi di uso di **copyIndex**, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+Questa funzione viene sempre usata con un oggetto **copy**. Per esempi di uso di **copyIndex**, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
 
 <a id="div" />
@@ -157,9 +157,9 @@ Restituisce la sottrazione dei due numeri interi forniti.
 | operand2 | Sì | Numero da sottrarre.
 
 
-## Espressioni stringa
+## Funzioni stringa
 
-Gestione risorse fornisce le espressioni seguenti per usare le stringhe:
+Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@ L'esempio seguente mostra come usare la funzione base64.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combina più valori di stringa e restituisce il valore di stringa risultante. Questa funzione può accettare qualsiasi numero di argomenti.
+Combina più valori e restituisce il risultato concatenato. Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
 
-L'esempio seguente mostra come combinare più valori per restituirne uno solo.
+L'esempio seguente illustra come combinare più valori di stringa per restituire una stringa concatenata.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+L'esempio successivo illustra come combinare due matrici.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@ Nell'esempio seguente viene illustrato come costruire un collegamento a un model
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Funzioni di matrice
 
+Gestione risorse fornisce diverse funzioni per usare i valori di matrice:
 
-## Espressioni valore di distribuzione
+Per combinare più matrici in un'unica matrice, usare [concat](#concat).
 
-Gestione risorse fornisce le espressioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
+Per ottenere il numero di elementi in una matrice, usare [length](#length).
+
+Per dividere un valore di stringa in una matrice di valori di stringa, usare [split](#split).
+
+## Funzioni dei valori della distribuzione
+
+Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-Per ottenere i valori dalle risorse, dai gruppi di risorse o dalle sottoscrizioni, vedere [Espressioni risorsa](#resource-expressions).
+Per ottenere i valori dalle risorse, dai gruppi di risorse o dalle sottoscrizioni, vedere [Funzioni delle risorse](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -449,7 +472,7 @@ Per ottenere i valori dalle risorse, dai gruppi di risorse o dalle sottoscrizion
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
 
-Questa espressione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito varieranno in base a se l'oggetto di distribuzione viene passato come un collegamento o come un oggetto inline. Quando l'oggetto di distribuzione viene passato inline, come quando si usa il parametro **- TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
+Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito varieranno in base a se l'oggetto di distribuzione viene passato come un collegamento o come un oggetto inline. Quando l'oggetto di distribuzione viene passato inline, come quando si usa il parametro **- TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
 
     {
         "name": "",
@@ -528,9 +551,9 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 
 
-## Espressioni risorsa
+## Funzioni delle risorse
 
-Gestione risorse fornisce le espressioni seguenti per ottenere i valori delle risorse:
+Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
 - [listkeys](#listkeys)
 - [provider](#providers)
@@ -539,7 +562,7 @@ Gestione risorse fornisce le espressioni seguenti per ottenere i valori delle ri
 - [resourceId](#resourceid)
 - [sottoscrizione](#subscription)
 
-Per ottenere i valori dai parametri, dalle variabili o dalla distribuzione corrente, vedere [Espressioni valore di distribuzione](#deployment-value-expressions).
+Per ottenere i valori dai parametri, dalle variabili o dalla distribuzione corrente, vedere [Funzioni dei valori della distribuzione](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@ Consente a un'espressione di derivare il valore dallo stato di runtime di un'alt
 
 La funzione **reference** deriva il proprio valore da uno stato di runtime, quindi non può essere usata nella sezione variables. Può essere usata, invece, nella sezione outputs di un modello.
 
-Usando l'espressione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene eseguito all'interno dello stesso modello. Non è necessario usare anche la proprietà **dependsOn**. L'espressione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
+Usando la funzione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene effettuato nello stesso modello. Non è necessario usare anche la proprietà **dependsOn**. La funzione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
 
 L'esempio seguente fa riferimento a un account di archiviazione distribuito nello stesso modello.
 
@@ -634,7 +657,7 @@ L'esempio seguente fa riferimento a un account di archiviazione non distribuito 
 		}
 	}
 
-Se non si vuole specificare direttamente la versione dell'API nel modello, è possibile usare l'espressione **providers** e recuperare uno dei valori, ad esempio la versione più recente, come illustrato di seguito.
+Se non si vuole specificare direttamente la versione dell'API nel modello, è possibile usare la funzione [providers](#providers) e recuperare uno dei valori, ad esempio la versione più recente, come illustrato di seguito.
 
     "outputs": {
 		"BlobUri": {
@@ -767,6 +790,6 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
-- Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
+- Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

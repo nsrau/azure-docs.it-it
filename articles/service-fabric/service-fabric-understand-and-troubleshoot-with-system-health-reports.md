@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

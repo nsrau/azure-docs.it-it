@@ -1,6 +1,6 @@
 <properties
-   pageTitle="BizTalk Rules"
-   description="Questo argomento illustra le funzionalità di BizTalk Rules e fornisce istruzioni sul suo utilizzo"
+   pageTitle="Informazioni su come creare un'app per le API di BizTalk Rules nell'app per la logica | Microsoft Azure"
+   description="Questo argomento illustra le funzionalità del connettore BizTalk Rules e fornisce istruzioni sul suo utilizzo"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/28/2015"
+   ms.date="01/19/2016"
    ms.author="andalmia"/>
 
 #BizTalk Rules
@@ -105,7 +105,7 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
 
    ![Alt text][4]
 
-2\. Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. 3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
+2.Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario. 3. Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario. Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
 ##Definizione Valore letterale
 1.	Dopo aver fatto clic su "Aggiungi", viene visualizzato il pannello "Aggiungi definizione". Immettere i valori seguenti
@@ -113,10 +113,10 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
   2.	Descrizione: campo facoltativo.
   3.	Tipo definizione: sono supportati 2 tipi. In questo esempio scegliere Valore letterale
   4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
-  i. Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio") 
-  ii. Booleano: può essere true o false 
-  iii. Numero: può essere qualsiasi numero decimale 
-  iv. DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\\PM  
+    i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio")  
+    ii.	Booleano: può essere true o false  
+    iii.	Numero: può essere qualsiasi numero decimale  
+    iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM  
   5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
   6. Selezionare *OK*.
 
@@ -137,13 +137,13 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 ##Creazione di criteri
 Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
 	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2.	Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'utente può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB. Più criteri possono risiedere in una singola app per le API delle regole.  
-	3.	Facendo clic sul criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
+	2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole. 
+	3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. 
 	![Alt text][8] 
-	4.	Fare clic su "Aggiungi nuovo" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
+	4. Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
-Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate: 
+Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate: 
 1. 	And: operatore condizionale  
 2. 	Or – operatore condizionale  
 3. 	does_not_exist  
@@ -169,13 +169,15 @@ La casella Azione(Then) può contenere più istruzioni, una per riga, per creare
 6.	null  
 7.	update  
 
-Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta l'utente a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
+Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a creare una regola rapidamente. Questa può essere attivata premendo CTRL+BARRA SPAZIATRICE o semplicemente iniziando a digitare. Le parole chiave corrispondenti ai caratteri digitati verranno automaticamente filtrate e mostrate. La finestra IntelliSense mostrerà tutte le parole chiave e le definizioni del vocabolario. 
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 1. update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione. 2. Halt: questa parola chiave interrompe tutte le esecuzioni di regole
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 
+   1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
+   2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
-##Abilitazione\\disabilitazione di regole
+##Abilitazione\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
 
 ##Priorità delle regole
@@ -201,25 +203,25 @@ Di seguito è riportato un esempio di come è possibile usare questa API in C#
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
-			// This is CASE SENSITIVE.
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
+			// This is CASE SENSITIVE. 
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-
+	
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
 
-Si noti che l'app qui sopra per le API delle regole possiede impostazioni di sicurezza impostate su "Public Anon". Può essere impostato all'interno dell'app per le API usando: Tutte le impostazioni -> Impostazioni applicazione -> Livello di accesso
+Si noti che l'app qui sopra per le API delle regole possiede impostazioni di sicurezza impostate su "Public Anon". Può essere impostato all'interno dell'app per le API usando Tutte le impostazioni -> Impostazioni applicazione -> Livello di accesso.
 
 ![Alt text][11]
 
@@ -239,4 +241,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

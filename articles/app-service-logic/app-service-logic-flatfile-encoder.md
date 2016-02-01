@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="BizTalk Flat File Encoder" 
-   description="BizTalk Flat File Encoder" 
+   pageTitle="Utilizzo di BizTalk Flat File Encoder in un app per la logica | Microsoft Azure" 
+   description="Connettore o app per le API BizTalk Flat File Encoder" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="rajram"/>
 
 # BizTalk Flat File Encoder
@@ -69,4 +69,4 @@ L'azione restituisce l'output sotto forma di stringa - File flat. XML di output 
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

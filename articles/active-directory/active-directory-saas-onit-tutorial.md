@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Onit | Microsoft Azure" 
     description="Informazioni su come utilizzare Onit con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Onit
   
@@ -51,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Onit
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-onit-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-onit-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -123,18 +123,18 @@ L'applicazione Onit prevede un formato specifico per le asserzioni SAML. È quin
 
     ![Modifica informazioni società](./media/active-directory-saas-onit-tutorial/IC791176.png "Modifica informazioni società")
 
-13. Nella scheda **Security** seguire questa procedura:
+13. Nella scheda **Sicurezza** eseguire la procedura seguente:
 
     ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
 
     1.  Come **strategia di autenticazione** selezionare **Single Sign-On e password**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Idp Target URL**.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL di destinazione IDP**.
     3.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Onit** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Idp logout URL**.
     4.  Copiare il valore di **Identificazione personale** dal certificato esportato e incollarlo nella casella di testo relativa a**Idp Cert Fingerprint (SHA1)**.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
-    5.  Come **Type** selezionare **SAML**.
+    5.  Come **tipo SSO** selezionare **SAML**.
     6.  Nella casella di testo relativa al **SSO login button text** digitare il testo desiderato per il pulsante.
     7.  Selezionare **Login with SSO: Required for the following domains/users**, digitare l'indirizzo di posta elettronica di un utente test nella relativa casella di testo, quindi fare clic su **Update**.![Modifica società](./media/active-directory-saas-onit-tutorial/IC791178.png "Modifica società")
 
@@ -153,7 +153,7 @@ Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguir
 
     ![Amministrazione](./media/active-directory-saas-onit-tutorial/IC791180.png "Amministrazione")
 
-3.  Nella pagina della finestra di dialogo **Add User** seguire questa procedura:
+3.  Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
 
     ![Aggiunta di un utente](./media/active-directory-saas-onit-tutorial/IC791181.png "Aggiunta di un utente")
 
@@ -182,4 +182,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

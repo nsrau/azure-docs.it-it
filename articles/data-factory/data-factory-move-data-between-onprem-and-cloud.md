@@ -165,7 +165,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 	> 
 	> Se si usa Chrome, andare al [Chrome Web Store](https://chrome.google.com/webstore/), eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni di ClickOnce e installare.
 	>  
-	> È necessario eseguire la stessa operazione per Firefox (installazione del componente aggiuntivo). Ad esempio, è possibile installarne uno da [qui](https://addons.mozilla.org/firefox/addon/fxclickonce/).
+	> È necessario eseguire la stessa operazione per Firefox (installazione del componente aggiuntivo). Fare clic sul pulsante **Apri menu** sulla barra degli strumenti, ovvero le **tre linee orizzontali** nell'angolo superiore destro. Fare clic su **Componenti aggiuntivi**, eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.
 
 	![Gateway - Pannello Configura](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -643,4 +643,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 5.	Il gateway decrittografa le credenziali tramite lo stesso certificato e quindi si connette all'archivio dati locale con il tipo di autenticazione appropriato.
 6.	Il gateway copia i dati dall'archivio dati locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Nota: per questo passaggio il gateway comunica direttamente con un servizio di archiviazione basato sul cloud, ad esempio BLOB di Azure, database SQL di Azure e così via, su un canale protetto (HTTPS).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 
-Già da tempo, i clienti di Ricerca di Azure possono indicizzare automaticamente alcune popolari origini dati usando gli indicizzatori per [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) e [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
-
-Ora verrà aggiunto il supporto per l'indicizzazione di documenti salvati nell'archivio BLOB di Azure. Molti clienti hanno chiesto di semplificare l'indicizzazione dei documenti archiviati nei BLOB, ad esempio PDF, documenti di Office o pagine HTML. Finora è stato necessario scrivere codice personalizzato, per eseguire l'estrazione del testo, e aggiungere i documenti a un indice di Ricerca di Azure.
+Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio, PDF o file di Office) salvati nell'archivio BLOB di Azure. Con il nuovo indicizzatore BLOB Ricerca di Azure questo processo diventa rapido e facile.
 
 > [AZURE.IMPORTANT]Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
@@ -203,9 +201,10 @@ Testo normale (text/plain) | `metadata_content_type`</br>`metadata_content_encod
 Nome proprietà | Valore proprietà | Spiegazione
 --------------|----------------|------------
 AzureSearch\_Skip | "true" | Indica all'indicizzatore BLOB di ignorare completamente il BLOB. Non verrà tentata l'estrazione dei metadati né del contenuto. È utile quando si vuole ignorare alcuni tipi di contenuto o quando un determinato BLOB ha ripetutamente esito negativo e interrompe il processo di indicizzazione.
+AzureSearch\_SkipContent | "true" | Indica all'indicizzatore BLOB di indicizzare solo i metadati e di ignorare l'estrazione del contenuto del BLOB. Ciò è utile se il contenuto del BLOB non interessa, ma si vuole indicizzare i metadati associati al BLOB.
 
 ## Come contribuire al miglioramento di Ricerca di Azure
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

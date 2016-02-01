@@ -39,6 +39,7 @@ Servizio | Protezione di processi, dati e tabelle in Data Lake Analytics |1| in 
 Servizio | Spostamento di output di SQL Data Warehouse mediante Data factory |1 | in corso | [@mumian](https://github.com/mumian) | 
 Strumenti | Uso di strumenti di diagnostica | 1 | In sospeso | [@mumian](https://github.com/mumian) | 
 U-SQL | Illustrare le tecniche per eseguire operazioni di JOIN basate sull’intervallo | 1 | In sospeso | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | Opzioni di autenticazione ADLS | 1 | In sospeso | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

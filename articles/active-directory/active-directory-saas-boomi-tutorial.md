@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Boomi | Microsoft Azure" 
     description="Informazioni su come usare Boomi con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Boomi
 
@@ -90,7 +90,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Impostazione](./media/active-directory-saas-boomi-tutorial/IC790828.png "Impostazione")
 
-7.  Fare clic su **Opzioni SSO**.
+7.  Fare clic su **SSO Options**.
 
     ![SSO Options](./media/active-directory-saas-boomi-tutorial/IC790829.png "SSO Options")
 
@@ -104,7 +104,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     4.  Come **Federation Id Location** selezionare **Federation Id is in NameID element of the Subject**.
     5.  Fare clic su **Save**.
 
-9.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -115,11 +115,11 @@ Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario esegui
 
 1.  Accedere al sito aziendale di **Boomi** come amministratore.
 
-2.  Passare a **Gestione utente > Utenti**.
+2.  Passare a **User Management > Users**.
 
     ![Utenti](./media/active-directory-saas-boomi-tutorial/IC790831.png "Utenti")
 
-3.  Fare clic su **Aggiungi utente**.
+3.  Fare clic su **Add User**.
 
     ![Aggiunta di un utente](./media/active-directory-saas-boomi-tutorial/IC790832.png "Aggiunta di un utente")
 
@@ -150,4 +150,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

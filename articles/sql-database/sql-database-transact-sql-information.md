@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
@@ -58,7 +58,6 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - Diagrammi di database
 - Posta elettronica database
 - DATABASEPROPERTY (utilizzare invece DATABASEPROPERTYEX)
-- Transazioni distribuite
 - Account di accesso EXECUTE AS
 - Crittografia: EKM
 - Gestione degli eventi: eventi, notifiche degli eventi, notifiche di query
@@ -107,4 +106,4 @@ Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQ
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -36,7 +36,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## <a id="ubuntu"> </a>Ubuntu 12.04: ##
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -112,6 +112,9 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 11. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
+## Passaggi successivi
+È ora possibile usare il file .vhd Ubuntu Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+
 ## Riferimenti ##
 
 Kernel di attivazione (HWE) HardWare Ubuntu
@@ -119,4 +122,4 @@ Kernel di attivazione (HWE) HardWare Ubuntu
 - [http://blog.utlemming.org/2015/01/Ubuntu-1404-Azure-Images-Now-Tracking.HTML](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-Azure-cloud-Images-Now-using-Hwe.HTML](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Preparare l'ambiente per il backup di macchine virtuali di Azure
 Prima di eseguire il backup di una macchina virtuale di Azure, è necessario completare questi prerequisiti per preparare l'ambiente. Se questa operazione è già stata eseguita, è possibile avviare il [backup delle macchine virtuali](backup-azure-vms.md). In caso contrario, seguire questa procedura per assicurarsi che l'ambiente sia pronto.
@@ -178,7 +178,7 @@ L'estensione per il backup viene installata se la macchina virtuale è in esecuz
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 - Il backup di macchine virtuali tramite il servizio Backup di Azure è supportato in tutte le aree pubbliche di Azure (vedere l'[elenco di controllo](http://azure.microsoft.com/regions/#services) delle aree supportate). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - Il backup di macchine virtuali con il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi:
-  - **Linux**: vedere [l'elenco delle distribuzioni approvate da Azure](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
+  - **Linux**: vedere [l'elenco delle distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
 - Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create usando il flusso di lavoro di ripristino nell'interfaccia utente non potranno avere queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -195,4 +195,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

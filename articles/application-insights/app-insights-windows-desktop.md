@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights in app desktop, servizi e ruoli di lavoro di Windows
@@ -23,7 +23,7 @@
 
 Application Insights consente di monitorare un'applicazione distribuita in base all'uso e alle prestazioni.
 
-Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e i ruoli di lavoro, possono usare Application Insights SDK per inviare dati di telemetria ad Application Insights. È anche possibile aggiungere Application Insights SDK a un progetto di tipo libreria di classi.
+Tutte le applicazioni per Windows, incluse le app desktop, i servizi in background e i ruoli di lavoro, possono usare Application Insights SDK per inviare dati di telemetria ad Application Insights. È anche possibile aggiungere Application Insights SDK a un progetto di tipo libreria di classi.
 
 È possibile scegliere quali agenti di raccolta dati standard si desidera utilizzare (ad esempio per il monitoraggio dei contatori delle prestazioni o delle chiamate di dipendenza) oppure usare solo l'API della memoria centrale e scrivere i propri dati di telemetria.
 
@@ -37,9 +37,9 @@ Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e
 
     La scelta del tipo di applicazione imposta il contenuto del pannello Panoramica e le proprietà disponibili nell'[area di esplorazione delle metriche][metrics].
 
-2.  Eseguire una copia della chiave di strumentazione.
+2.  Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa Informazioni di base della nuova risorsa appena creata.
 
-    ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-windows-desktop/02-props.png)
+    ![Fare clic su Informazioni di base, selezionare la chiave e premere CTRL+C](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>Installare SDK nell'applicazione
 
@@ -299,4 +299,4 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

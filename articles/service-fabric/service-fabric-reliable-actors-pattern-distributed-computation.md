@@ -16,24 +16,24 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-# Modello di progettazione di Reliable Actors: calcolo distribuito
-Questo modello è stato realizzato dopo aver osservato un cliente estrarre un calcolo finanziario in Service Fabric Reliable Actors in un intervallo di tempo molto breve: una simulazione Monte Carlo per un calcolo preciso dei rischi.
+# Modello di progettazione Reliable Actors: calcolo distribuito
+Questo modello è stato realizzato dopo aver osservato un cliente creare un calcolo finanziario in Azure Service Fabric Reliable Actors in un intervallo di tempo molto breve: una simulazione Monte Carlo per il calcolo dei rischi.
 
-In un primo momento, per coloro che non dispongono di una conoscenza specifica del dominio, la gestione in Azure Service Fabric di questo tipo di carico di lavoro può non essere immediata, soprattutto se paragonata ad approcci più tradizionali come Map/Reduce o MPI.
+Se non si dispone di conoscenze specifiche del dominio, i vantaggi dell'uso di Service Fabric per gestire questo tipo di carico di lavoro anziché un approccio più tradizionale (ad esempio, MapReduce o Message Passing Interface) potrebbero non essere immediatamente evidenti.
 
-Azure Service Fabric, tuttavia, risulta essere la scelta ideale per la messaggistica asincrona parallela, per il calcolo parallelo e per la semplicità di gestione degli stati distribuiti, come illustrato nel diagramma seguente:
+Service Fabric, tuttavia, è la scelta ideale per la messaggistica asincrona parallela, per il calcolo parallelo e per la semplicità di gestione degli stati distribuiti, come illustrato nel diagramma seguente:
 
-![][1]
+![Messaggistica asincrona parallela, calcolo parallelo e stati distribuiti di Service Fabric][1]
 
 Nell'esempio seguente si calcolerà semplicemente il pi greco eseguendo una simulazione Monte Carlo con gli attori seguenti:
 
-* Processore responsabile del calcolo del pi greco mediante attori PoolTask.
+* Un processore responsabile del calcolo del pi greco mediante attori di attività in pool.
 
-* Responsabile PoolTask della simulazione Monte Carlo e di inviare i risultati all'aggregatore.
+* Un responsabile di attività in pool della simulazione Monte Carlo e dell'invio di risultati all'aggregatore.
 
-* Aggregatore responsabile dell'aggregazione dei risultati e di inviarli al finalizzatore.
+* Un aggregatore responsabile dell'aggregazione dei risultati e dell'invio di questi ultimi al finalizzatore.
 
-* Finalizzatore responsabile di calcolare il risultato finale e di stamparlo su schermo.
+* Un finalizzatore responsabile di calcolare il risultato finale e di stamparlo su schermo.
 
 ## Esempio di codice per il calcolo distribuito: simulazione Monte Carlo
 
@@ -91,7 +91,9 @@ public class PooledTask : StatelessActor, IPooledTask
 }
 ```
 
-I timer costituiscono uno degli strumenti più comuni per aggregare risultati in Azure Service Fabric. Si usano attori senza stato per due motivi principali: il runtime potrà decidere dinamicamente quanti aggregatori sono necessari, offrendo in tal modo una scalabilità su richiesta, e creerà un'istanza degli attori a livello locale, ovvero nello stesso silo dell'attore chiamante, riducendo così gli hop di rete. L'aggregatore e il finalizzatore dovrebbero avere questo aspetto:
+I timer costituiscono uno degli strumenti più comuni per aggregare risultati in Service Fabric. Si usano attori senza stato per due motivi principali: il runtime deciderà dinamicamente quanti aggregatori sono necessari, offrendo in tal modo una scalabilità su richiesta, e creerà un'istanza degli attori a livello "locale". In altri termini, questa operazione si verificherà nello stesso silo dell'attore chiamante, riducendo così gli hop di rete.
+
+L'aggregatore e il finalizzatore dovrebbero avere questo aspetto:
 
 ## Esempio di codice per il calcolo distribuito: aggregatore
 
@@ -185,7 +187,7 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 
 A questo punto è evidente come sia possibile migliorare l'esempio della classifica con un aggregatore per la scalabilità e le prestazioni.
 
-Con questo non si desidera in alcun modo affermare che Azure Service Fabric debba essere considerato un prodotto sostitutivo di altre soluzione per il calcolo distribuito di framework per Big Data o di elaborazione ad alte prestazioni. Alcuni prodotti, semplicemente, sono progettati in modo da poter essere meglio gestiti. È comunque possibile modellare i flussi di lavoro e il calcolo parallelo distribuito in Azure Service Fabric e continuare a usufruire dei vantaggi di semplicità che offre.
+Ciò non vuol dire che Service Fabric debba essere considerato un prodotto sostitutivo di altre soluzioni per il calcolo distribuito di framework per Big Data o di elaborazione ad alte prestazioni. Service Fabric è stato creato per gestire alcuni aspetti meglio di altri strumenti. È comunque possibile modellare i flussi di lavoro e il calcolo parallelo distribuito in Service Fabric e continuare a usufruire dei vantaggi di semplicità che offre.
 
 ## Passaggi successivi
 [Modello: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
@@ -200,10 +202,10 @@ Con questo non si desidera in alcun modo affermare che Azure Service Fabric debb
 
 [Alcuni anti-modelli](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

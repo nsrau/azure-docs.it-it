@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Envoy | Microsoft Azure" 
     description="Informazioni su come usare Envoy con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Envoy
   
@@ -64,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Envo
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Envoy tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Envoy richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Envoy tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Envoy richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -98,7 +98,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![SAML](./media/active-directory-saas-envoy-tutorial/IC776784.png "SAML")
 
-9.  Nella sezione di configurazione **Autenticazione SAML** seguire questa procedura:
+9.  Nella sezione di configurazione **SAML Authentication** seguire questa procedura:
 
     ![SAML Authentication](./media/active-directory-saas-envoy-tutorial/IC776785.png "SAML Authentication")
 
@@ -129,10 +129,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
     ![Assegna utenti](./media/active-directory-saas-envoy-tutorial/IC776787.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna**, quindi fare clic su **Sì** per confermare l'assegnazione.
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
     ![Sì](./media/active-directory-saas-envoy-tutorial/IC767830.png "Sì")
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

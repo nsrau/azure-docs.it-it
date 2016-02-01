@@ -1,15 +1,17 @@
-* [What is Azure App Service?](app-service-value-prop-what-is.md)
-  * [Web App](../app-service-web/app-service-web-overview.md)
-  * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
-  * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
-  * [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-* [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
-* [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md)
-* [Understanding App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-* [Introduction to App Service Environment](../app-service-web/app-service-app-service-environment-intro.md)
-  * [Exercise: Create an App Service Environement](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
+* [Informazioni sul servizio app di Azure](app-service-value-prop-what-is.md)
+  * [App Web](../app-service-web/app-service-web-overview.md)
+  * [App per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md)
+  * [App per le API](../app-service-api/app-service-api-apps-why-best-platform.md)
+  * [App per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+* [Architettura del Servizio app di Azure (presentazione)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
+* [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](../app-service-web/choose-web-site-cloud-service-vm.md)
+* [Informazioni sui piani del servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [Introduzione all'ambiente del servizio app](../app-service-web/app-service-app-service-environment-intro.md)
+  * [Esercizio: Creare un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Supporto degli stack di sviluppo del Servizio app di Azure](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
 
-## Videos
+## Video
 
-* [Azure App Service Architecture](/documentation/videos/why-azure-web-sites-plus-architecture/)
+* [Architettura del Servizio app di Azure](/documentation/videos/why-azure-web-sites-plus-architecture/)
+
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Eseguire la migrazione dello schema in SQL Data Warehouse#
@@ -115,7 +115,7 @@ Invece di:
 - **table**, convertire in tabelle temporanee.
 - **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current\_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare binary(8) o varbinary(8) per i valori di versione di riga NOT NULL o NULL.
 - **varchar(max)**, usare varchar(8000) o un valore inferiore per prestazioni migliori.
-- **uniqueidentifier**, usare varbinary(8).
+- **uniqueidentifier**, usare varbinary(16) o varchar(36) a seconda del formato di input (file binario o carattere) dei valori. Se il formato di input è basato sui caratteri, l'ottimizzazione è possibile. Convertendo il tipo di formato da carattere a binario, è possibile ridurre l'archiviazione delle colonne di oltre il 50%. Nelle tabelle di grandi dimensioni questa ottimizzazione può essere utile.
 - **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile.
 - **xml**, usare varchar(8000) o un valore inferiore per prestazioni migliori. Suddividere in colonne, se necessario.
 
@@ -145,4 +145,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

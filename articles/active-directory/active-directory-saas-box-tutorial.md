@@ -2,7 +2,7 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Box | Microsoft Azure" 
     description="Informazioni su come usare Box con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 
 
@@ -129,7 +129,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 2. Nella pagina di integrazione dell'applicazione **Box** fare clic su **Assegna utenti**. <br><br> ![Assegna utenti](./media/active-directory-saas-box-tutorial/IC769552.png "Assegna utenti")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione. <br><br> ![Sì](./media/active-directory-saas-box-tutorial/IC767830.png "Sì")
+3.  Selezionare l'utente test, fare clic su **Assegna** e quindi fare clic su **Sì** per confermare l'assegnazione. <br><br> ![Sì](./media/active-directory-saas-box-tutorial/IC767830.png "Sì")
   
 
 È ora necessario attendere 10 minuti e verificare che l'account sia stato sincronizzato con Box.
@@ -153,4 +153,4 @@ Nel tenant Box gli utenti sincronizzati sono visualizzati nella sezione **Utenti
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->
