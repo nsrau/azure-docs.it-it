@@ -48,7 +48,7 @@ Per completare l'esercitazione è necessario quanto segue:
 	È possibile utilizzare qualsiasi server Web per ospitare l'app, tuttavia quelli indicati sono i server Web supportati dagli script scaricati.
 
 + Un Web browser che supporta HTML5.
-+ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
@@ -82,7 +82,7 @@ In questa sezione si creerà una nuova app HTML connessa al servizio mobile.
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Utilizzare la condivisione di risorse tra origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+	> [AZURE.IMPORTANT] Se si distribuisce l'app di guida introduttiva in un server Web diverso da localhost, è necessario aggiungere il nome host del server Web all'elenco **Consentire le richieste da nomi host**. Per altre informazioni, vedere [Utilizzare la condivisione di risorse tra origini](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Ospitare ed eseguire l'app HTML
 
@@ -94,7 +94,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
-	> [AZURE.NOTE]In un computer Windows digitare `R` quando PowerShell chiede di confermare l'esecuzione dello script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
+	> [AZURE.NOTE] In un computer Windows digitare `R` quando PowerShell chiede di confermare l'esecuzione dello script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare la nuova app.
 
@@ -106,7 +106,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
    	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
-	> [AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file page.js.
+	> [AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file page.js.
 
 4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
@@ -154,4 +154,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

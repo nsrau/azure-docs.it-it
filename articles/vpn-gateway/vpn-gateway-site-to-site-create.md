@@ -37,7 +37,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 -  Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
 
-- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Creare la rete virtuale
@@ -100,4 +100,4 @@ Configurare quindi il gateway di rete virtuale per creare una connessione da sit
 
 Se si vuole configurare una connessione tra la rete virtuale classica e una rete virtuale creata usando la modalità Gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

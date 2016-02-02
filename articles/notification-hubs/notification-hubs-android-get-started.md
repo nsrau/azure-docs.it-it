@@ -38,7 +38,7 @@ Il codice completo per questa esercitazione è disponibile su GitHub [qui](https
 Per completare questa esercitazione, è necessario disporre di:
 
 + Android Studio, che è possibile scaricare dal <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sito Android</a>.
-+ Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub di notifica relative ad app per Android.
@@ -129,10 +129,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto:
-	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure]( https://manage.windowsazure.com).
-	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure classico]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub, **non** l'URL completo. Ad esempio, usare `"myhub"`.
 
 
 
@@ -204,7 +201,7 @@ L'hub di notifica è ora configurato per l'uso con GCM e si dispone delle string
 
 8. Poiché il sistema operativo Android non consente la visualizzazione di notifiche, è necessario scrivere un apposito ricevitore. In **AndroidManifest.xml** aggiungere l'elemento seguente all'interno dell'elemento `<application>`.
 
-	> [AZURE.NOTE]Sostituire il segnaposto con il nome del pacchetto.
+	> [AZURE.NOTE] Sostituire il segnaposto con il nome del pacchetto.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -550,4 +547,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

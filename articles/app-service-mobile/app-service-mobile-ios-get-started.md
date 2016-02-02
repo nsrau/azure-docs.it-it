@@ -18,9 +18,7 @@
 
 #Creare un'app iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -30,7 +28,7 @@ Questa esercitazione illustra come usare un servizio back-end basato sul cloud (
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un [account Azure attivo](http://azure.microsoft.com/pricing/free-trial/)
+* Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/)
 
 * Un PC in cui sia installato [Visual Studio Community 2013] o versioni successive
 
@@ -69,4 +67,4 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

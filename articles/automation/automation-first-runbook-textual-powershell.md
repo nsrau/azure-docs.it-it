@@ -30,7 +30,7 @@ Questa esercitazione illustra la creazione di un [runbook PowerShell](automation
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti.
 
-- sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [Account di automazione](automation-configuring.md) che conterrà il runbook.
 - Macchina virtuale di Azure. Si arresterà e si avvierà la macchina virtuale in modo che non sia di produzione.
 - [Utente di Azure Active Directory e Asset credenziali di Automazione](automation-configuring.md) per l'autenticazione con le risorse di Azure. Questo utente deve avere l'autorizzazione per arrestare e avviare la macchina virtuale.
@@ -130,4 +130,4 @@ I runbook PowerShell hanno lo stesso ciclo di vita, le stesse funzionalità e la
 - Per saperne di più sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 - Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

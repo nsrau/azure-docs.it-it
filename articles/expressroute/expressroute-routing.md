@@ -38,7 +38,7 @@ Per configurare i peering, è possibile usare sia indirizzi IP privati sia indir
  - Se viene usata una subnet /29, questa verrà divisa in due subnet /30. 
 	 - La prima subnet /30 verrà usata per il collegamento primario e la seconda per il collegamento secondario.
 	 - Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft userà il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
-	 - È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) sia valido.  
+	 - È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.  
 
 #### Esempio per il peering privato
 
@@ -48,8 +48,8 @@ La subnet a.b.c.d/29 verrà divisa in a.b.c.d/30 e a.b.c.d+4/30 e passata a Micr
 
 Si consideri un caso in cui si selezioni l'indirizzo 192.168.100.128/29 per configurare il peering privato. L'intervallo 192.168.100.128/29 include gli indirizzi IP da 192.168.100.128 a 192.168.100.135, tra cui:
 
-- 192.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
-- 192.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
+- 192\.168.100.128/30 che verrà assegnato a link1, con il provider che usa 192.168.100.129 e Microsoft che usa 192.168.100.130.
+- 192\.168.100.132/30 che verrà assegnato a link2, con il provider che usa 192.168.100.133 e Microsoft che usa 192.168.100.134.
 
 ### Indirizzi IP per il peering Microsoft e il peering pubblico di Azure
 
@@ -59,7 +59,7 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 - Se viene usata una subnet /29, questa verrà divisa in due subnet /30. 
 	- La prima subnet /30 verrà usata per il collegamento primario e la seconda per il collegamento secondario.
 	- Per ogni subnet /30, è necessario usare il primo indirizzo IP della subnet /30 nel router. Microsoft userà il secondo indirizzo IP della subnet /30 per configurare una sessione BGP.
-	- È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) sia valido.
+	- È necessario configurare entrambe le sessioni BGP affinché il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) sia valido.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati all'utente in uno dei registri elencati di seguito.
 
@@ -147,7 +147,7 @@ Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato.
 
->[AZURE.IMPORTANT]I prefissi globali verranno contrassegnati con un valore della community appropriato e saranno annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
+>[AZURE.IMPORTANT] I prefissi globali verranno contrassegnati con un valore della community appropriato e saranno annunciati solo quando è abilitato il componente aggiuntivo ExpressRoute Premium.
 
 
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
@@ -163,7 +163,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 
 ### Modifica delle preferenze di routing
 
-Microsoft non riconosce eventuali valori della community BGP impostati dall'utente. È necessario configurare una coppia di sessioni BGP per peering per assicurarsi che i requisiti per il [contratto di servizio per la disponibilità](http://azure.microsoft.com/support/legal/sla/) siano soddisfatti. È tuttavia possibile configurare la propria rete in modo che preferisca un collegamento anziché un altro usando le tecniche di modifica delle route BGP standard. È possibile applicare preferenze locali BGP diverse a ogni collegamento per preferire un collegamento dalla propria rete a Microsoft a un altro. È possibile far precedere il percorso AS agli annunci delle route per influenzare il flusso del traffico da Microsoft alla propria rete.
+Microsoft non riconosce eventuali valori della community BGP impostati dall'utente. È necessario configurare una coppia di sessioni BGP per peering per assicurarsi che i requisiti per il [contratto di servizio per la disponibilità](https://azure.microsoft.com/support/legal/sla/) siano soddisfatti. È tuttavia possibile configurare la propria rete in modo che preferisca un collegamento anziché un altro usando le tecniche di modifica delle route BGP standard. È possibile applicare preferenze locali BGP diverse a ogni collegamento per preferire un collegamento dalla propria rete a Microsoft a un altro. È possibile far precedere il percorso AS agli annunci delle route per influenzare il flusso del traffico da Microsoft alla propria rete.
 
 ## Passaggi successivi
 
@@ -173,4 +173,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

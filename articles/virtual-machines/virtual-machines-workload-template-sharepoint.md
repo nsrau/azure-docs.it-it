@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Distribuzione delle farm di SharePoint con i modelli di Gestione risorse di Azure
@@ -31,7 +31,7 @@ Per una farm di SharePoint Server 2013 base, un modello di gestione risorse crea
 
 È possibile eseguire il modello con il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-> [AZURE.NOTE]È anche possibile creare questa configurazione tramite l'elemento [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) nella sezione Marketplace del portale di Azure.
+> [AZURE.NOTE] È anche possibile creare questa configurazione tramite l'elemento [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) nella sezione Marketplace del portale di Azure.
 
 ### Portale di Azure
 
@@ -39,9 +39,9 @@ Per distribuire il carico di lavoro usando un modello di Gestione risorse e il p
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare i valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 2.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
-3.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **Crearne uno nuovo** per creare un nuovo gruppo di risorse per questo carico di lavoro.
+3.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 4.	Se necessario, fare clic su **Località del gruppo di risorse** e selezionare la località di Azure corretta.
 6.	Fare clic su **Note legali** per esaminare le condizioni e il contratto che regolamentano l'utilizzo del modello e quindi fare clic su **Acquista**.
 7.	Fare clic su **Crea**.
@@ -50,7 +50,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureRMResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -93,7 +93,7 @@ Di seguito è fornito un esempio.
 	azure group create sp3serverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json sp3serverfarm spdevtest
 
-Quando si esegue il comando per la **creazione di un gruppo di distribuzione di Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
+Quando si esegue il comando **Crea gruppo di distribuzione Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
 
 Si avrà ora una nuova farm di SharePoint a tre server nel gruppo di risorse nuove.
 
@@ -103,7 +103,7 @@ Per una farm di SharePoint Server 2013 ad alta disponibilità, un modello di ges
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]È anche possibile creare questa configurazione tramite l'elemento [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) nella sezione Marketplace del portale di Azure.
+> [AZURE.NOTE] È anche possibile creare questa configurazione tramite l'elemento [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) nella sezione Marketplace del portale di Azure.
 
 ### Portale di Azure
 
@@ -111,9 +111,9 @@ Per distribuire il carico di lavoro usando un modello di Gestione risorse e il p
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare i valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 2.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
-3.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **Crearne uno nuovo** per creare un nuovo gruppo di risorse per questo carico di lavoro.
+3.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 4.	Se necessario, fare clic su **Località del gruppo di risorse** e selezionare la località di Azure corretta.
 5.	Fare clic su **Note legali** per esaminare le condizioni e il contratto che regolamentano l'utilizzo del modello e quindi fare clic su **Acquista**.
 6.	Fare clic su **Crea**.
@@ -122,7 +122,7 @@ A seconda del modello, la compilazione del carico di lavoro richiede tempi diver
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Questo articolo contiene i comandi per Azure Powershell Preview 1.0. Per eseguire questi comandi in Azure PowerShell 0.9.8 e nelle versioni precedenti, sostituire **New-AzureRMResourceGroup** con **New-AzureResourceGroup**, sostituire **New-AzureRMResourceGroupDeployment** con **New-AzureResourceGroupDeployment** e quindi aggiungere il comando **Switch-AzureMode AzureResourceManager** prima del comando **New-AzureResourceGroup**. Per altre informazioni, vedere [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Inserire un nome per la distribuzione di Azure, un nuovo nome gruppo di risorse e la posizione del data center di Azure, nel seguente set di comandi. Rimuovere tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >.
 
@@ -150,7 +150,7 @@ Al termine, si disporrà di una nuova farm di SharePoint a nove server nel grupp
 
 ### Interfaccia della riga di comando di Azure
 
-Prima di iniziare, accertarsi di avere la versione corretta di Azure CLI installata, di avere effettuato l'accesso e di avere impostato la nuova modalità di gestione delle risorse. Per informazioni dettagliate, fare clic [qui](virtual-machines-deploy-rmtemplates-azure-cli.md#getting-ready).
+Prima di iniziare, accertarsi di avere la versione corretta di Azure CLI installata, di avere effettuato l'accesso e di avere impostato la nuova modalità di gestione delle risorse. Per i dettagli, fare clic [qui](virtual-machines-deploy-rmtemplates-azure-cli.md#getting-ready).
 
 Fare clic su Crea un nuovo gruppo di risorse. Utilizzare il seguente comando e specificare il nome del gruppo e la posizione del data center di Azure in cui si desidera distribuire.
 
@@ -165,25 +165,13 @@ Di seguito è fornito un esempio.
 	azure group create sphaserverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
-Quando si esegue il comando per la **creazione di un gruppo di distribuzione di Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
+Quando si esegue il comando **Crea gruppo di distribuzione Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
 
 Al termine, si disporrà di una nuova farm di SharePoint Server 2013 a nove server nel gruppo di risorse nuove.
 
 
-## Risorse aggiuntive
+## Passaggio successivo
 
-[Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Trovare altre configurazioni di [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
 
-[Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
-
-[Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

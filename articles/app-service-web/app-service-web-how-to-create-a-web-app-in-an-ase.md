@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # Creare un'app Web in un ambiente del servizio app
@@ -22,7 +22,7 @@
 
 Questa esercitazione illustra come creare app Web e piani di servizio app in un [ambiente del servizio app](app-service-app-service-environment-intro.md).
 
-> [AZURE.NOTE]Se si vuole imparare a creare un'app Web ma non è necessario farlo in un ambiente del servizio app, vedere [Creare un'app Web .NET](web-sites-dotnet-get-started.md) o una delle esercitazioni correlate per altri linguaggi e framework.
+> [AZURE.NOTE] Se si vuole imparare a creare un'app Web ma non è necessario farlo in un ambiente del servizio app, vedere [Creare un'app Web .NET](web-sites-dotnet-get-started.md) o una delle esercitazioni correlate per altri linguaggi e framework.
 
 ## Prerequisiti
 
@@ -118,4 +118,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

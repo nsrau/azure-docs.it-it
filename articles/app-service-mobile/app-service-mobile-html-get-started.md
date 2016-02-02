@@ -19,11 +19,9 @@
 
 #Creare un'app HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Questo argomento non è attualmente supportato da App per dispositivi mobili perché la Guida introduttiva per le applicazioni HTML/JavaScript è stata temporaneamente rimossa dal portale di Azure. Si prevede di ripristinarla nel prossimo futuro. Grazie per la pazienza dimostrata.
+>[AZURE.IMPORTANT] Questo argomento non è attualmente supportato da App per dispositivi mobili perché la Guida introduttiva per le applicazioni HTML/JavaScript è stata temporaneamente rimossa dal portale di Azure. Si prevede di ripristinarla nel prossimo futuro. Grazie per la pazienza dimostrata.
 
 ##Panoramica
 
@@ -39,11 +37,11 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] o versione successiva.
 
->[AZURE.NOTE]Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Creare un nuovo back-end dell'app per dispositivi mobili
 
@@ -65,7 +63,7 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 
 ##Abilitare CORS nel progetto server
 
-La Condivisione di risorse tra le origini (CORS, Cross-Origin Resource Sharing) permette alle app basate sul Web di indicare i domini le cui richieste sono sicure e devono essere autorizzate dal browser. È necessario aggiungere una voce relativa a CORS per ogni sito Web che accederà al back-end dell'app per dispositivi mobili. Per controllare le impostazioni della Condivisione di risorse tra le origini, usare i comportamenti standard delle API Web di ASP.NET. Per altre informazioni, vedere l'articolo relativo all'[abilitazione della condivisione di richieste tra le origini nelle API Web di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
+La Condivisione di risorse tra le origini (CORS, Cross-Origin Resource Sharing) permette alle app basate sul Web di indicare i domini le cui richieste sono sicure e devono essere autorizzate dal browser. È necessario aggiungere una voce relativa a CORS per ogni sito Web che accederà al back-end dell'app per dispositivi mobili. Per controllare le impostazioni della Condivisione di risorse tra le origini, usare i comportamenti standard delle API Web di ASP.NET. Per altre informazioni, vedere [Abilitare la condivisione di richieste tra le origini nelle API Web di ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
 Per impostazione predefinita, il progetto relativo alla guida introduttiva del client che verrà scaricato dal portale è in esecuzione su localhost sulla porta 8000. Sarà quindi necessario abilitare CORS per `http://localhost:8000` nel progetto server.
 
@@ -103,7 +101,7 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 	+ **launch-mac.command** (computer Mac OS X)
 	+ **launch-linux.sh** (computer Linux)
 
-	> [AZURE.NOTE]In un computer Windows digitare `R` quando PowerShell chiede di confermare l'esecuzione dello script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
+	> [AZURE.NOTE] In un computer Windows digitare `R` quando PowerShell chiede di confermare l'esecuzione dello script. Il Web browser potrebbe visualizzare un avviso in cui si consiglia di non eseguire lo script in quanto scaricato da Internet. In questo caso, è necessario richiedere che il browser proceda nel caricamento dello script.
 
 	Verrà quindi avviato un server Web nel computer locale per ospitare la nuova app.
 
@@ -115,7 +113,7 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 
    	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem nello schema dell'app per dispositivi mobili. Gli elementi archiviati nella tabella vengono restituiti dal servizio e i dati vengono visualizzati nella seconda colonna dell'app.
 
-	> [AZURE.TIP]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.
+	> [AZURE.TIP] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file app.js.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -127,4 +125,4 @@ Sarà quindi necessario distribuire il progetto abilitato per CORS in Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -158,7 +158,7 @@ Affinché Woodgrove possa distribuire la replica e gestire gli indirizzi IP, occ
 
 ### Opzione 2: indirizzi IP modificati
 
-Questo approccio sembra essere il più comune e prevede la modifica dell'indirizzo IP di ogni VM in cui viene eseguito il failover. Lo svantaggio principale di questo approccio è che l'infrastruttura di rete deve riconoscere la modifica degli indirizzi IP e che, di solito, occorre modificare o addirittura cancellare le voci DNS in tutta la rete, così come le voci memorizzate nella cache nelle tabelle di rete. Ciò potrebbe causare tempi di inattività, in base alla configurazione dell'infrastruttura DNS. È possibile ridurre questi problemi utilizzando valori TTL bassi nel caso di applicazioni Intranet e utilizzando [Gestione traffico di Azure con Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) per le applicazioni basate su Internet.
+Questo approccio sembra essere il più comune e prevede la modifica dell'indirizzo IP di ogni VM in cui viene eseguito il failover. Lo svantaggio principale di questo approccio è che l'infrastruttura di rete deve riconoscere la modifica degli indirizzi IP e che, di solito, occorre modificare o addirittura cancellare le voci DNS in tutta la rete, così come le voci memorizzate nella cache nelle tabelle di rete. Ciò potrebbe causare tempi di inattività, in base alla configurazione dell'infrastruttura DNS. È possibile ridurre questi problemi utilizzando valori TTL bassi nel caso di applicazioni Intranet e utilizzando [Gestione traffico di Azure con Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) per le applicazioni basate su Internet.
 
 #### Esempio: indirizzi IP modificati
 
@@ -177,17 +177,17 @@ Esaminiamo questo scenario con un esempio che comprende un terzo sito da cui è 
 - Le macchine virtuali aggiorneranno il server DNS in uso dopo l'avvio. Di solito, occorre modificare o cancellare le voci DNS in tutta la rete, così come occorre aggiornare o cancellare le voci memorizzate nella cache nelle tabelle di rete, pertanto non è insolito riscontrare tempi di inattività durante tali modifiche. È possibile ridurre tale problema nei modi seguenti:
 
 	- Utilizzando valori TTL bassi per le applicazioni Intranet.
-	- Utilizzando [Gestione traffico di Azure con Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ per le applicazioni basate su Internet).
+	- Usando [Gestione traffico di Azure con Site Recovery]https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ per le applicazioni basate su Internet.
 	- Utilizzando il seguente script all'interno del piano di ripristino per aggiornare il server DNS, al fine di garantire un aggiornamento tempestivo (lo script non è obbligatorio se è stata configurata la registrazione di DNS dinamici)
 
     [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### Esempio: failover in Azure
 
-[Il post sul blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) dedicato all'installazione dell'infrastruttura di rete per Azure come sito di ripristino di emergenza spiega come configurare l'infrastruttura di rete di Azure necessaria quando non è obbligatorio conservare gli indirizzi IP. L'articolo inizia descrivendo l'applicazione, per poi illustrare le modalità di installazione della rete in locale e in Azure. La conclusione presenta le istruzioni per l'esecuzione di un failover di test e un failover pianificato.
+[Il post sul blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) dedicato all'installazione dell'infrastruttura di rete per Azure come sito di ripristino di emergenza spiega come configurare l'infrastruttura di rete di Azure necessaria quando non è obbligatorio conservare gli indirizzi IP. L'articolo inizia descrivendo l'applicazione, per poi illustrare le modalità di installazione della rete in locale e in Azure. La conclusione presenta le istruzioni per l'esecuzione di un failover di test e un failover pianificato.
 
 ## Passaggi successivi
 
 [Informazioni](site-recovery-network-mapping.md) sulla modalità di mapping delle reti di origine e destinazione di Site Recovery.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

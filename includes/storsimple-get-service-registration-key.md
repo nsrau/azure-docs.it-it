@@ -16,10 +16,10 @@
 
 5. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta di StorSimple](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) per chiudere questa finestra di dialogo e tornare alla pagina **Avvio rapido**.
 
-> [AZURE.NOTE]La chiave di registrazione del servizio viene utilizzata per registrare tutti i dispositivi che è necessario registrare con il servizio StorSimple Manager.
+> [AZURE.NOTE] La chiave di registrazione del servizio viene utilizzata per registrare tutti i dispositivi che è necessario registrare con il servizio StorSimple Manager.
 
 ![Video disponibile](./media/storsimple-get-service-registration-key/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come ottenere la chiave di registrazione di servizio, fare clic [qui](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+Per guardare un video che illustra come ottenere la chiave di registrazione di servizio, fare clic [qui](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

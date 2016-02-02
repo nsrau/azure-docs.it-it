@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # App per le API del servizio app: Modifiche apportate
@@ -21,7 +21,7 @@
 All'evento Connect() di novembre 2015 è stata [annunciata](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) una serie di miglioramenti al servizio app di Azure. Tra i miglioramenti introdotti ci sono modifiche sottostanti alle app per le API, per ottenere un allineamento ottimale con le app Web e per dispositivi mobili, ridurre il numero di concetti e migliorare le prestazioni a livello di runtime e di distribuzione. A partire dal 30 novembre 2015, le nuove app per le API create usando il portale di gestione di Azure o gli strumenti più recenti includono queste modifiche. Questo articolo illustra le modifiche apportate e come ridistribuire le app esistenti per sfruttare le nuove funzionalità.
 
 
-> [AZURE.NOTE]L'anteprima iniziale delle app per le API supporta due scenari principali: 1) API personalizzate per l'uso in app per la logica o in client propri e 2) API Marketplace (spesso connettori SaaS) per l'uso in app per la logica. Questo articolo descrive il primo scenario, ovvero le API personalizzate. Per le API Marketplace, all'inizio del 2016 verranno introdotti miglioramenti all'esperienza di progettazione delle app per la logica e alla connettività sottostante. Le API Marketplace esistenti rimangono disponibili nella finestra di progettazione delle app per la logica.
+> [AZURE.NOTE] L'anteprima iniziale delle app per le API supporta due scenari principali: 1) API personalizzate per l'uso in app per la logica o in client propri e 2) API Marketplace (spesso connettori SaaS) per l'uso in app per la logica. Questo articolo descrive il primo scenario, ovvero le API personalizzate. Per le API Marketplace, all'inizio del 2016 verranno introdotti miglioramenti all'esperienza di progettazione delle app per la logica e alla connettività sottostante. Le API Marketplace esistenti rimangono disponibili nella finestra di progettazione delle app per la logica.
 
 ## Modifiche apportate alle funzionalità
 Le funzionalità principali delle app per le API, vale a dire autenticazione, CORS e metadati API, sono state spostate direttamente nel servizio app. Con questa modifica, le funzionalità sono disponibili in tutte le app Web, le app per dispositivi mobili e le app per le API, che di fatto condividono lo stesso tipo di risorse **Microsoft.Web/sites** in Gestione risorse. Il gateway di app per le API non è più necessario e non viene più fornito con le app per le API. Questo miglioramento semplifica anche l'uso di Gestione API di Azure, perché sarà presente il solo gateway di Gestione API.
@@ -30,7 +30,7 @@ Le funzionalità principali delle app per le API, vale a dire autenticazione, CO
 
 Uno dei principi chiave adottati nella progettazione dell'aggiornamento delle app per le API è la possibilità di usare le API così come sono, nel linguaggio preferito. Se l'API è già distribuita come app Web o come app per dispositivi mobili*, non è necessario ridistribuirla per sfruttare i vantaggi delle nuove funzionalità.
 
-> [AZURE.NOTE]* Se le app per le API vengono usate in anteprima, seguire le istruzioni per la migrazione riportate di seguito.
+> [AZURE.NOTE] * Se le app per le API vengono usate in anteprima, seguire le istruzioni per la migrazione riportate di seguito.
 
 ### Autenticazione
 Le funzionalità di autenticazione di app per le API, servizi mobili o app per dispositivi mobili e app Web pronte all'uso esistenti sono state unificate e sono disponibili in un unico pannello di autenticazione del servizio app di Azure nel portale di gestione. Per un'introduzione ai servizi di autenticazione nel servizio app, vedere il post di blog relativo all'[espansione dell'autenticazione/autorizzazione del servizio app](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
@@ -44,7 +44,7 @@ Per gli scenari di API, sono disponibili varie nuove funzionalità:
 Per altre informazioni sulle nuove funzionalità di autenticazione, vedere [Autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-authentication.md). Per informazioni su come eseguire la migrazione di app per le API esistenti dal modello di app per le API precedente a quello nuovo, vedere [Migrazione delle app per le API esistenti](#migrating-existing-api-apps) più avanti in questo articolo.
  
 ### CORS
-Invece di un'impostazione dell'app **MS\_CrossDomainOrigins** delimitata da virgole, ora è disponibile un pannello nel portale di gestione di Azure per la configurazione di CORS. In alternativa, è possibile eseguirne la configurazione usando strumenti di Gestione risorse come Azure PowerShell, l'interfaccia della riga di comando o [Esplora risorse](https://resources.azure.com/). Impostare la proprietà **cors** sul tipo di risorsa **Microsoft.Web/sites/config** per la risorsa **&lt;nome sito&gt;/web**. Ad esempio:
+Invece di un'impostazione dell'app **MS\_CrossDomainOrigins** delimitata da virgole, ora è disponibile un pannello nel portale di gestione di Azure per la configurazione di CORS. In alternativa, è possibile eseguirne la configurazione usando strumenti di Gestione risorse come Azure PowerShell, l'interfaccia della riga di comando o [Esplora risorse](https://resources.azure.com/). Impostare la proprietà **cors** sul tipo di risorsa **Microsoft.Web/sites/config** per la risorsa **&lt;nome del sito&gt;/web**. Ad esempio:
 
     {
         "cors": {
@@ -91,7 +91,7 @@ Se l'API personalizzata viene distribuita in una versione di anteprima precedent
 ### Hosting e ridistribuzione
 I passaggi per la ridistribuzione sono gli stessi della distribuzione nel servizio app di qualsiasi API Web esistente. Passaggi:
 
-1. Creare un'app per le API vuota. Questa operazione può essere eseguita nel portale selezionando Nuovo > App per le API, dalla pubblicazione in Visual Studio o dagli strumenti di Gestione risorse. Se si usano gli strumenti o i modelli di Gestione risorse, impostare il valore **tipo** su **api** nel tipo di risorsa **Microsoft.Web/sites** per orientare le guide introduttive e le impostazioni nel portale di gestione verso scenari di API.
+1. Creare un'app per le API vuota. Questa operazione può essere eseguita nel portale selezionando Nuovo > App per le API, dalla pubblicazione in Visual Studio o dagli strumenti di Gestione risorse. Se si usano gli strumenti o i modelli di Gestione risorse, impostare il valore del **tipo** su **api** nel tipo di risorsa **Microsoft.Web/sites** per orientare le guide introduttive e le impostazioni nel portale di gestione verso scenari di API.
 2. Connettere e distribuire il progetto nell'app per le API vuota usando uno dei meccanismi di distribuzione supportati dal servizio app. Per altre informazioni, vedere [Documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-sites-deploy.md). 
   
 ### Autenticazione
@@ -122,7 +122,7 @@ Il modello di app per le API precedente contiene API per l'individuazione di alt
 Nella finestra di progettazione delle app per la logica verrà aggiunta l'integrazione con il nuovo modello di app per le API all'inizio del 2016. Il connettore HTTP incorporato nelle app per la logica può richiamare qualsiasi endpoint HTTP e supporta l'autenticazione delle entità servizio, supportata anche in modo nativo dai servizi di autenticazione del servizio app. Per informazioni su come utilizzare un'API ospitata nel servizio app nelle app per la logica, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ### <a id="documentation"></a> Documentazione per il modello di app per le API precedente
-Alcuni articoli su [azure.microsoft.com](https://azure.microsoft.com) scritti per il vecchio modello di app per le API non sono più applicabili al nuovo modello e saranno rimossi dal sito. Gli URL saranno reindirizzati all'equivalente più simile utilizzabile con il nuovo modello, ma è sempre possibile visualizzare gli articoli precedenti nel [repository GitHub della documentazione per azure.microsoft.com](https://github.com/Azure/azure-content). La maggior parte degli articoli che potrebbero essere utili è disponibile nella cartella [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Ecco i collegamenti diretti ad alcuni articoli che probabilmente sono ancora utili se si supportano app per le API precedenti o se si creano nuove app per le API di tipo connettore dal Marketplace.
+Alcuni articoli su [azure.microsoft.com](https://azure.microsoft.com/) scritti per il vecchio modello di app per le API non sono più applicabili al nuovo modello e saranno rimossi dal sito. Gli URL saranno reindirizzati all'equivalente più simile utilizzabile con il nuovo modello, ma è sempre possibile visualizzare gli articoli precedenti nel [repository GitHub della documentazione per azure.microsoft.com](https://github.com/Azure/azure-content). La maggior parte degli articoli che potrebbero essere utili è disponibile nella cartella [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Ecco i collegamenti diretti ad alcuni articoli che probabilmente sono ancora utili se si supportano app per le API precedenti o se si creano nuove app per le API di tipo connettore dal Marketplace.
 
 * [Panoramica dell'autenticazione](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
 * [Proteggere un'app per le API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
@@ -141,4 +141,4 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

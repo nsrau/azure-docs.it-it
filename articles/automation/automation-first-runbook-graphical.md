@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="01/18/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra la creazione di un [runbook grafico](automation-ru
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti.
 
-- sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- sottoscrizione Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-trial/" target="_blank">[iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [Account di automazione](automation-configuring.md) che conterrà il runbook.
 - Macchina virtuale di Azure. Si arresterà e si avvierà la macchina virtuale in modo che non sia di produzione.
 - [Utente di Azure Active Directory e Asset credenziali di Automazione](automation-configuring.md) per l'autenticazione con le risorse di Azure. Questo utente deve avere l'autorizzazione per arrestare e avviare la macchina virtuale.
@@ -170,4 +170,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviarsi, se non è gi�
 - [Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

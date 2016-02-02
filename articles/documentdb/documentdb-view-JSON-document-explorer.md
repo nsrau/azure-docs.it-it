@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/28/2015"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB #
 
-Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare, modificare, creare e caricare documenti JSON con DocumentDB.
+Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare, modificare, creare e caricare documenti JSON con DocumentDB.
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -56,7 +56,7 @@ Esplora documenti consente di creare, modificare ed eliminare facilmente i docum
 
 	![Schermata del comando di salvataggio di Esplora documenti](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE]Se non si specifica una proprietà "ID", Esplora documenti aggiunge automaticamente una proprietà ID e genera un GUID come valore ID.
+	> [AZURE.NOTE] Se non si specifica una proprietà "ID", Esplora documenti aggiunge automaticamente una proprietà ID e genera un GUID come valore ID.
 
 - Se si dispone già di dati di file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure, Amazon DynamoDB, HBase o di altre raccolte di DocumentDB, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati.
 
@@ -84,7 +84,7 @@ Esplora documenti consente di creare, modificare ed eliminare facilmente i docum
 
 	![Schermata di visualizzazione delle proprietà del documento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
+	> [AZURE.NOTE] La proprietà timestamp (\_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
 
 ##<a id="Navigate"></a>Le opzioni di navigazione di Esplora documenti e le impostazioni avanzate##
 
@@ -99,7 +99,7 @@ Esplora documenti supporta numerose opzioni di navigazione e impostazioni avanza
 
 	![Schermata del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
-	> [AZURE.NOTE]Dopo aver modificato le impostazioni di Esplora documenti, è necessario scegliere il comando **Aggiorna** per applicare le nuove impostazioni. Le impostazioni verranno mantenute solo nella sessione del browser corrente.
+	> [AZURE.NOTE] Dopo aver modificato le impostazioni di Esplora documenti, è necessario scegliere il comando **Aggiorna** per applicare le nuove impostazioni. Le impostazioni verranno mantenute solo nella sessione del browser corrente.
 	
 3. Gli elenchi a discesa **Database** e **Raccolta** possono essere usati per modificare facilmente la raccolta da cui sono attualmente visualizzati i documenti senza dover chiudere e riavviare Esplora documenti.
 
@@ -112,7 +112,7 @@ Esplora documenti supporta numerose opzioni di navigazione e impostazioni avanza
 	![Schermata di Esplora documenti con risultati filtrati](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
+	> [AZURE.IMPORTANT] La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
 
 5. Per aggiornare l'elenco dei documenti caricati da Esplora documenti, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
 
@@ -130,7 +130,7 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
 	![Schermata del processo di inserimento in blocco di Esplora documenti](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
 
-	> [AZURE.NOTE]Esplora documenti supporta attualmente fino a 100 documenti JSON per singola operazione di caricamento.
+	> [AZURE.NOTE] Esplora documenti supporta attualmente fino a 100 documenti JSON per singola operazione di caricamento.
 
 3. Dopo aver completato la selezione, fare clic sul pulsante **Carica**. I documenti vengono aggiunti automaticamente alla griglia di Esplora documenti e i risultati del caricamento vengono visualizzati con l'avanzare dell'operazione. Gli errori di importazione vengono segnalati per i singoli file.
 
@@ -145,4 +145,4 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

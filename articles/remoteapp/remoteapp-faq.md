@@ -89,7 +89,7 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
 
 - **Qual è il piano di supporto per RemoteApp?** Il supporto per la fatturazione e la gestione delle sottoscrizioni viene fornito gratuitamente. Il supporto tecnico è disponibile tramite i [piani di servizio di Azure](../../../support/plans/). È anche possibile ottenere supporto gratuito dalla community tramite il [forum di discussione di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
-- **Come è possibile inviare commenti?** Visitare il [forum dei commenti](http://feedback.azure.com/forums/247748-azure-remoteapp).
+- **Come è possibile inviare commenti?** Visitare il [forum dei commenti](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 - **A chi è possibile rivolgersi per altre informazioni su Azure RemoteApp?** Oltre al [forum di discussione](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), nel quale è possibile porre domande, è possibile iscriversi al webinar settimanale [Ask the Experts](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), in cui vengono trattati tutti gli argomenti relativi a RemoteApp.
 - **Qual è la documentazione disponibile per RemoteApp?** È un'ottima domanda. Oltre al contenuto della Guida nel pannello della Guida, disponibile nel portale (è sufficiente fare clic su **?** in qualsiasi pagina del portale), sono disponibili gli articoli seguenti con tutte le informazioni necessarie per imparare a usare RemoteApp:
 	- **Per iniziare:**
@@ -108,10 +108,10 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 		- [Aggiungere utenti](remoteapp-user.md)
 		- [Procedure consigliate per la configurazione e l'uso di RemoteApp](remoteapp-bestpractices.md)	
 
-	Video Sono anche disponibili diversi video su RemoteApp. Alcuni di questi forniscono un'introduzione ([Introduzione a Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) mentre altri forniscono procedure dettagliate per le attività di distribuzione ([distribuzione cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [distribuzione ibrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Si raccomanda di accedere a queste utili risorse.
+	Video Sono anche disponibili diversi video su RemoteApp. Alcuni di questi forniscono un'introduzione ([Introduzione a Azure RemoteApp](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) mentre altri forniscono procedure dettagliate per le attività di distribuzione ([distribuzione cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [distribuzione ibrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Si raccomanda di accedere a queste utili risorse.
 
  
 ### Come contribuire al miglioramento 
-Non tutti sanno che oltre alla classificazione di questo articolo e l'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
+Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

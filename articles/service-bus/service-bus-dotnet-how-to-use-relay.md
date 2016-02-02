@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # Come usare il servizio Inoltro del bus di servizio di Azure
 
-Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Negli esempi, scritti in C#, viene usata l'API di Windows Communication Foundation con le estensioni contenute nell'assembly del bus di servizio che fa parte di Microsoft Azure SDK per .NET Per altre informazioni sul servizio Inoltro del bus di servizio, vedere la panoramica in [Messaggistica inoltrata del bus di servizio](service-bus-relay-overview.md).
+Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Negli esempi, scritti in C#, viene usata l'API di Windows Communication Foundation (WCF) con le estensioni contenute nell'assembly del bus di servizio. Per altre informazioni sul servizio Inoltro del bus di servizio, vedere la panoramica in [Messaggistica inoltrata del bus di servizio](service-bus-relay-overview.md).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@ Per creare uno spazio dei nomi del servizio:
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
-	> [AZURE.IMPORTANT]Selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+	> [AZURE.IMPORTANT] selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6.	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -75,12 +75,12 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una connessione 
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per ottenere l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
 
 Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
-1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Gestisci pacchetti NuGet**.
-2.  Cercare "Bus di servizio" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere la finestra di dialogo successiva.
+1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
+2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -135,7 +135,7 @@ class ProblemSolver : IProblemSolver
 
 ### Configurare un host del servizio a livello di codice
 
-Una volta definiti il contratto e l'implementazione, è ora possibile ospitare il servizio. Per l'hosting viene usato un oggetto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), che si occupa di gestire le istanze del servizio e ospita gli endpoint che sono in ascolto dei messaggi. Il codice seguente configura il servizio sia con un endpoint locale normale che con un endpoint del bus di servizio per illustrare l'aspetto di endpoint interni ed esterni affiancati. Sostituire la stringa *namespace* con il nome dello spazio dei nomi e *yourKey* con la chiave di firma di accesso condiviso ottenuta nel passaggio di configurazione precedente.
+Una volta definiti il contratto e l'implementazione, è ora possibile ospitare il servizio. Per l'hosting viene utilizzato un oggetto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), che si occupa di gestire le istanze del servizio e ospita gli endpoint che sono in ascolto dei messaggi. Il codice seguente configura il servizio sia con un endpoint locale normale che con un endpoint del bus di servizio per illustrare l'aspetto di endpoint interni ed esterni affiancati. Sostituire la stringa *namespace* con il nome dello spazio dei nomi e *yourKey* con la chiave di firma di accesso condiviso ottenuta nel passaggio di configurazione precedente.
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -265,17 +265,13 @@ Le definizioni dell'endpoint vengono spostate nel file App.config. L'esempio seg
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del bus di servizio, usare i collegamenti seguenti per ottenere altre informazioni.
 
-- [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 - Scaricare esempi del bus di servizio da [esempi di Azure][] o vedere la [panoramica degli esempi del bus di servizio][].
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [portale di Azure classico]: http://manage.windowsazure.com
   [Autenticazione della firma di accesso condiviso con il bus di servizio]: service-bus-shared-access-signature-authentication.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [panoramica degli esempi del bus di servizio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -111,9 +111,10 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 ```
 
 
-## Argomenti correlati
+## Vedere anche
 
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](app-insights-cloudservices.md)
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
+* [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

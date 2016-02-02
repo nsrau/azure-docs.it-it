@@ -13,23 +13,22 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/05/2015"
+	ms.date="01/21/2016"
 	ms.author="heidist"/>
 
 # Introduzione alla prima applicazione Ricerca di Azure in .NET
 
-Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, per l'esperienza di ricerca. Nell'esercitazione viene usato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni usate nell'esercizio, nonché l'API REST del servizio Ricerca di Azure.
+Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure per l'esperienza di ricerca. Questa esercitazione fa uso di [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) e dell'API REST per il servizio Ricerca di Azure.
 
 Per eseguire questo esempio, è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 ## Informazioni sui dati
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno usati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L'applicazione di esempio usa dati dello [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) filtrati in base allo stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno usati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
-In questa applicazione, il programma **DataIndexer** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all'origine dati online. Non è necessaria ulteriore configurazione.
+In questa applicazione il programma **DataIndexer** compila e carica l'indice con un [indicizzatore](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati USGS filtrato da un database SQL di Azure pubblico. Le credenziali e le informazioni di connessione all'origine dati online vengono fornite nel codice sorgente. Non è necessaria ulteriore configurazione.
 
-> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si usa un piano tariffario diverso, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](search-limits-quotas-capacity.md).
-
+> [AZURE.NOTE] A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si usa un piano tariffario diverso, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](search-limits-quotas-capacity.md).
 
 <a id="sub-2"></a>
 ## Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure ##
@@ -39,9 +38,9 @@ Dopo aver creato il servizio, tornare al portale per ottenere l'URL o `api-key`.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
-2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
+4. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
-  	![][3]
+   ![][3]
 
 3. Copiare l'URL del servizio e una chiave di amministrazione. Serviranno in seguito, quando dovranno essere aggiunti ai file app.config e Web.config nei progetti di Visual Studio.
 
@@ -83,10 +82,6 @@ Al termine della creazione dei progetti, la soluzione dovrebbe apparire simile a
 
    ![][12]
 
-Di seguito viene fornito un elenco parziale degli assembly usati in questo esempio.
-
-   ![][5]
-
 ## Aggiungere un riferimento all'assembly per System.Configuration.
 
 **DataIndexer** utilizza **Sistem.Configuration** per leggere le impostazioni di configurazione in app.config.
@@ -100,417 +95,332 @@ Ogni progetto include file di configurazione che specificano il nome del servizi
 
 1. In **DataIndexer**, sostituire App.config con il seguente esempio, aggiornando [SERVICE NAME] e [SERVICE KEY] con i valori validi per il servizio. Si noti che il nome del servizio non è l'URL completo. Ad esempio, se l'endpoint del servizio di ricerca è **https://mysearchsrv.search.microsoft.net*, il nome del servizio da immettere in App.config è *mysearchsrv*.
 
-	    <?xml version="1.0" encoding="utf-8"?>
-	    <configuration>
-	      <startup>
-	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	      </startup>
-	      <appSettings>
-	        <add key="SearchServiceName" value="[SERVICE NAME]" />
-	        <add key="SearchServiceApiKey" value="[SERVICE KEY]" />
-	      </appSettings>
-	    </configuration>
+		<?xml version="1.0" encoding="utf-8" ?>
+		<configuration>
+		    <startup> 
+		        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+		    </startup>
+		    <appSettings>
+		      <add key="SearchServiceName" value="[SEARCH SERVICE]" />
+		      <add key="SearchServiceApiKey" value="[SEARCH SERVICE API KEY]" />
+		    </appSettings>
+		</configuration>
 
 2. In **SimpleSearchMVCApp**, sostituire Web.config con il seguente esempio, aggiornando ancora una volta [SERVICE NAME] e [SERVICE KEY] con i valori validi per il servizio
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
-		  For more information on how to configure your ASP.NET application, visit
-		  http://go.microsoft.com/fwlink/?LinkId=152368
-		  -->
+			For more information on how to configure your ASP.NET application, please visit
+			http://go.microsoft.com/fwlink/?LinkId=152368
+			-->
 		<configuration>
-		  <configSections>
-		    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-		    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-		  </configSections>
-		  <connectionStrings>
-		    <add name="DefaultConnection" providerName="System.Data.SqlClient" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-SimpleMVCApp-20150303114355;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-SimpleMVCApp-20150303114355.mdf" />
-		  </connectionStrings>
-		  <appSettings>
-		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
-		    <add key="SearchServiceApiKey" value="[API KEY]" />
+			<configSections>
+				<!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+				<section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+			</configSections>
+			<connectionStrings>
+				<add name="DefaultConnection" providerName="System.Data.SqlClient" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-SimpleMVCApp-20150303114355;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-SimpleMVCApp-20150303114355.mdf" />
+			</connectionStrings>
+			<appSettings>
+				<add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
+				<add key="SearchServiceApiKey" value="[API KEY]" />
 
-		    <add key="webpages:Version" value="2.0.0.0" />
-		    <add key="webpages:Enabled" value="false" />
-		    <add key="PreserveLoginUrl" value="true" />
-		    <add key="ClientValidationEnabled" value="true" />
-		    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-		  </appSettings>
-		  <system.web>
-		    <httpRuntime targetFramework="4.5" />
-		    <compilation debug="true" targetFramework="4.5" />
-		    <authentication mode="Forms">
-		      <forms loginUrl="~/Account/Login" timeout="2880" />
-		    </authentication>
-		    <pages>
-		      <namespaces>
-		        <add namespace="System.Web.Helpers" />
-		        <add namespace="System.Web.Mvc" />
-		        <add namespace="System.Web.Mvc.Ajax" />
-		        <add namespace="System.Web.Mvc.Html" />
-		        <add namespace="System.Web.Optimization" />
-		        <add namespace="System.Web.Routing" />
-		        <add namespace="System.Web.WebPages" />
-		      </namespaces>
-		    </pages>
-		    <profile defaultProvider="DefaultProfileProvider">
-		      <providers>
-		        <add name="DefaultProfileProvider" type="System.Web.Providers.DefaultProfileProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
-		      </providers>
-		    </profile>
-		    <membership defaultProvider="DefaultMembershipProvider">
-		      <providers>
-		        <add name="DefaultMembershipProvider" type="System.Web.Providers.DefaultMembershipProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
-		      </providers>
-		    </membership>
-		    <roleManager defaultProvider="DefaultRoleProvider">
-		      <providers>
-		        <add name="DefaultRoleProvider" type="System.Web.Providers.DefaultRoleProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
-		      </providers>
-		    </roleManager>
-		    <!--
-		            If you are deploying to a cloud environment that has multiple web server instances,
-		            you should change session state mode from "InProc" to "Custom". In addition,
-		            change the connection string named "DefaultConnection" to connect to an instance
-		            of SQL Server (including SQL Azure and SQL Compact) instead of to SQL Server Express.
-		      -->
-		    <sessionState mode="InProc" customProvider="DefaultSessionProvider">
-		      <providers>
-		        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-		      </providers>
-		    </sessionState>
-		  </system.web>
-		  <system.webServer>
-		    <validation validateIntegratedModeConfiguration="false" />
-		    <handlers>
-		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" />
-		      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" />
-		      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
-		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
-		      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
-		      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
-		      <remove name="OPTIONSVerbHandler" />
-		      <remove name="TRACEVerbHandler" />
-		    </handlers>
-		  </system.webServer>
-		  <entityFramework>
-		    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-		      <parameters>
-		        <parameter value="v12.0" />
-		      </parameters>
-		    </defaultConnectionFactory>
-		  </entityFramework>
-		  <runtime>
-		    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-		      <dependentAssembly>
-		        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
-		        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
-		        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
-		        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
-		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
-		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
-		        <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
-		      </dependentAssembly>
-		      <dependentAssembly>
-		        <assemblyIdentity name="System.Web.WebPages.Razor" publicKeyToken="31bf3856ad364e35" />
-		        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
-		      </dependentAssembly>
-		    </assemblyBinding>
-		  </runtime>
+				<add key="webpages:Version" value="2.0.0.0" />
+				<add key="webpages:Enabled" value="false" />
+				<add key="PreserveLoginUrl" value="true" />
+				<add key="ClientValidationEnabled" value="true" />
+				<add key="UnobtrusiveJavaScriptEnabled" value="true" />
+			</appSettings>
+			<system.web>
+				<httpRuntime targetFramework="4.5" />
+				<compilation debug="true" targetFramework="4.5" />
+				<authentication mode="Forms">
+					<forms loginUrl="~/Account/Login" timeout="2880" />
+				</authentication>
+				<pages>
+					<namespaces>
+						<add namespace="System.Web.Helpers" />
+						<add namespace="System.Web.Mvc" />
+						<add namespace="System.Web.Mvc.Ajax" />
+						<add namespace="System.Web.Mvc.Html" />
+						<add namespace="System.Web.Optimization" />
+						<add namespace="System.Web.Routing" />
+						<add namespace="System.Web.WebPages" />
+					</namespaces>
+				</pages>
+				<profile defaultProvider="DefaultProfileProvider">
+					<providers>
+						<add name="DefaultProfileProvider" type="System.Web.Providers.DefaultProfileProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
+					</providers>
+				</profile>
+				<membership defaultProvider="DefaultMembershipProvider">
+					<providers>
+						<add name="DefaultMembershipProvider" type="System.Web.Providers.DefaultMembershipProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
+					</providers>
+				</membership>
+				<roleManager defaultProvider="DefaultRoleProvider">
+					<providers>
+						<add name="DefaultRoleProvider" type="System.Web.Providers.DefaultRoleProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" applicationName="/" />
+					</providers>
+				</roleManager>
+				<!--
+								If you are deploying to a cloud environment that has multiple web server instances,
+								you should change session state mode from "InProc" to "Custom". In addition,
+								change the connection string named "DefaultConnection" to connect to an instance
+								of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+					-->
+				<sessionState mode="InProc" customProvider="DefaultSessionProvider">
+					<providers>
+						<add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
+					</providers>
+				</sessionState>
+			</system.web>
+			<system.webServer>
+				<validation validateIntegratedModeConfiguration="false" />
+				<handlers>
+					<remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" />
+					<remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" />
+					<remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+					<add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
+					<add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
+					<add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+					<remove name="OPTIONSVerbHandler" />
+					<remove name="TRACEVerbHandler" />
+				</handlers>
+			</system.webServer>
+			<entityFramework>
+				<defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+					<parameters>
+						<parameter value="v12.0" />
+					</parameters>
+				</defaultConnectionFactory>
+			</entityFramework>
+			<runtime>
+				<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+					<dependentAssembly>
+						<assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+						<bindingRedirect oldVersion="0.0.0.0-7.0.0.0" newVersion="7.0.0.0" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+						<bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
+						<bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+						<bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+						<bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+						<bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+					</dependentAssembly>
+					<dependentAssembly>
+						<assemblyIdentity name="System.Web.WebPages.Razor" publicKeyToken="31bf3856ad364e35" />
+						<bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+					</dependentAssembly>
+				</assemblyBinding>
+			</runtime>
 		</configuration>
 
 
 ## Modificare DataIndexer
 
-Questo programma è un'applicazione console che si connette al servizio di ricerca, come specificato nel file app.config, crea l'indice e lo carica con il set di dati dei servizi geologici degli Stati Uniti in un database SQL di Azure.
+Questo programma è un'applicazione console che si connette al servizio di ricerca, come specificato nel file app.config, crea l'indice e lo carica con il set di dati dei servizi geologici degli Stati Uniti in un database SQL di Azure. Per questa parte dell'esercitazione verrà usato un indicizzatore.
 
-Attualmente, la versione provvisoria della libreria client non supporta gli indicizzatori, quindi per questa parte dell'esercitazione verrà usata l'API REST per creare e usare un indicizzatore.
-
-Prima di poter eseguire questo programma, eseguire due modifiche:
-
-- Aggiungere **AzureSearchhelper.cs**, utilizzato quando si chiama l'API REST per gestire le connessioni e serializzare e deserializzare richieste e risposte JSON.
-
-- Sostituire **Program.cs**, utilizzato per creare l'indice, l’indicizzatore, caricare i dati e scrivere i messaggi.
-
-### Creare AzureSearchHelper.cs
-
-Il codice che chiama l'API REST deve includere una classe che gestisce le connessioni e la serializzazione e deserializzazione di richieste e risposte JSON. Negli esempi forniti con Ricerca di Azure, questa classe viene in genere chiamata **AzureSearchHelper.cs**. È possibile creare questa classe e aggiungerla a **DataIndexer**, utilizzando il codice seguente.
-
-1. In Esplora soluzioni, fare clic con il pulsante destro del mouse su **DataIndexer** > **Aggiungi** > **Nuovo elemento** > **Codice** > **Classe**.
-2. Denominare la classe **AzureSearchHelper**.
-3. Sostituire il codice predefinito con il codice seguente.
-
-		//Copyright 2015 Microsoft
-
-		//Licensed under the Apache License, Version 2.0 (the "License");
-		//you may not use this file except in compliance with the License.
-		//You may obtain a copy of the License at
-
-		//       http://www.apache.org/licenses/LICENSE-2.0
-
-		//Unless required by applicable law or agreed to in writing, software
-		//distributed under the License is distributed on an "AS IS" BASIS,
-		//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-		//See the License for the specific language governing permissions and
-		//limitations under the License.
-
-		using System;
-		using System.Net.Http;
-		using System.Text;
-		using Newtonsoft.Json;
-		using Newtonsoft.Json.Converters;
-		using Newtonsoft.Json.Serialization;
-
-		namespace DataIndexer
-		{
-		    public class AzureSearchHelper
-		    {
-		        public const string ApiVersionString = "api-version=2015-02-28";
-
-		        private static readonly JsonSerializerSettings _jsonSettings;
-
-		        static AzureSearchHelper()
-		        {
-		            _jsonSettings = new JsonSerializerSettings
-		            {
-		                Formatting = Formatting.Indented, // for readability, change to None for compactness
-		                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-		                DateTimeZoneHandling = DateTimeZoneHandling.Utc
-		            };
-
-		            _jsonSettings.Converters.Add(new StringEnumConverter());
-		        }
-
-		        public static string SerializeJson(object value)
-		        {
-		            return JsonConvert.SerializeObject(value, _jsonSettings);
-		        }
-
-		        public static T DeserializeJson<T>(string json)
-		        {
-		            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
-		        }
-
-		        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
-		        {
-		            UriBuilder builder = new UriBuilder(uri);
-		            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
-		            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-
-		            var request = new HttpRequestMessage(method, builder.Uri);
-
-		            if (json != null)
-		            {
-		                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
-		            }
-
-		            return client.SendAsync(request).Result;
-		        }
-
-		        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
-		        {
-		            if (!response.IsSuccessStatusCode)
-		            {
-		                string error = response.Content == null ? null : response.Content.ReadAsStringAsync().Result;
-		                throw new Exception("Search request failed: " + error);
-		            }
-		        }
-		    }
-		}
-
-
+Prima di eseguire il programma è necessario sostituire **Program.cs**, usato per creare l'indice e l'indicizzatore, caricare dati e scrivere messaggi.
 
 ### Aggiornare Program.cs.
 
 1. In Esplora soluzioni aprire **DataIndexer** > **Program.cs**
 2. Sostituire il contenuto del file Program.cs con il codice seguente.
 
-		using Microsoft.Azure;
-		using Microsoft.Azure.Search;
-		using Microsoft.Azure.Search.Models;
-		using Microsoft.Spatial;
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.IO;
-		using System.Linq;
-		using System.Net;
-		using System.Net.Http;
-		using System.Text;
-		using System.Threading;
-		using System.Threading.Tasks;
-		using System.Timers;
-
-		namespace DataIndexer
-		{
-		    class Program
-		    {
-		        private static SearchServiceClient _searchClient;
-		        private static SearchIndexClient _indexClient;
-
-		        // This sample shows how to delete, create, upload documents and query an index
-		        static void Main(string[] args)
-		        {
-		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-		            string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-
-		            // Create an HTTP reference to the catalog index
-		            _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
-		            _indexClient = _searchClient.Indexes.GetClient("geonames");
-
-		            Console.WriteLine("{0}", "Deleting index...\n");
-		            if (DeleteIndex())
-		            {
-		                Console.WriteLine("{0}", "Creating index...\n");
-		                CreateIndex();
-		                Console.WriteLine("{0}", "Sync documents from Azure SQL...\n");
-		                SyncDataFromAzureSQL();
-		            }
-		            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-		            Console.ReadKey();
-		        }
-
-		        private static bool DeleteIndex()
-		        {
-		            // Delete the index if it exists
-		            try
-		            {
-		                _searchClient.Indexes.Delete("geonames");
-		            }
-		            catch (Exception ex)
-		            {
-		                Console.WriteLine("Error deleting index: {0}\r\n", ex.Message.ToString());
-		                Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
-		                return false;
-		            }
-
-		            return true;
-		        }
-
-		        private static void CreateIndex()
-		        {
-		            // Create the Azure Search index based on the included schema            try
-		            {
-		                var definition = new Index()
-		                {
-		                    Name = "geonames",
-		                    Fields = new[]
-		                    {
-		                        new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
-		                        new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
-		                        new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
-		                        new Field("STATE_ALPHA",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
-		                        new Field("STATE_NUMERIC",  DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
-		                        new Field("COUNTY_NAME",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
-		                        new Field("COUNTY_NUMERIC", DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
-		                        new Field("ELEV_IN_M",      DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
-		                        new Field("ELEV_IN_FT",     DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
-		                        new Field("MAP_NAME",       DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
-		                        new Field("DESCRIPTION",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
-		                        new Field("HISTORY",        DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
-		                        new Field("DATE_CREATED",   DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
-		                        new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
-		                    }
-		                };
-
-		                _searchClient.Indexes.Create(definition);
-		            }
-		            catch (Exception ex)
-		            {
-		                Console.WriteLine("Error creating index: {0}\r\n", ex.Message.ToString());
-		            }
-
-		        }
-
-		        private static void SyncDataFromAzureSQL()
-		        {
-		            // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
-		            Uri _serviceUri = new Uri("https://" + ConfigurationManager.AppSettings["SearchServiceName"] + ".search.windows.net");
-		            HttpClient _httpClient = new HttpClient();
-		            _httpClient.DefaultRequestHeaders.Add("api-key", ConfigurationManager.AppSettings["SearchServiceApiKey"]);
-
-		            Console.WriteLine("{0}", "Creating Data Source...\n");
-		            Uri uri = new Uri(_serviceUri, "datasources/usgs-datasource");
-		            string json = "{ 'name' : 'usgs-datasource','description' : 'USGS Dataset','type' : 'azuresql','credentials' : { 'connectionString' : 'Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;' },'container' : { 'name' : 'GeoNamesRI' }} ";
-		            HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Put, uri, json);
-		            if (response.StatusCode != HttpStatusCode.Created && response.StatusCode != HttpStatusCode.NoContent)
-		            {
-		                Console.WriteLine("Error creating data source: {0}", response.Content.ReadAsStringAsync().Result);
-		                return;
-		            }
-
-		            Console.WriteLine("{0}", "Creating Indexer...\n");
-		            uri = new Uri(_serviceUri, "indexers/usgs-indexer");
-		            json = "{ 'name' : 'usgs-indexer','description' : 'USGS data indexer','dataSourceName' : 'usgs-datasource','targetIndexName' : 'geonames','parameters' : { 'maxFailedItems' : 10, 'maxFailedItemsPerBatch' : 5, 'base64EncodeKeys': false }}";
-		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Put, uri, json);
-		            if (response.StatusCode != HttpStatusCode.Created && response.StatusCode != HttpStatusCode.NoContent)
-		            {
-		                Console.WriteLine("Error creating indexer: {0}", response.Content.ReadAsStringAsync().Result);
-		                return;
-		            }
-
-		            Console.WriteLine("{0}", "Syncing data...\n");
-		            uri = new Uri(_serviceUri, "indexers/usgs-indexer/run");
-		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Post, uri);
-		            if (response.StatusCode != HttpStatusCode.Accepted)
-		            {
-		                Console.WriteLine("Error running indexer: {0}", response.Content.ReadAsStringAsync().Result);
-		                return;
-		            }
-
-		            bool running = true;
-		            Console.WriteLine("{0}", "Synchronization running...\n");
-		            while (running)
-		            {
-		                uri = new Uri(_serviceUri, "indexers/usgs-indexer/status");
-		                response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Get, uri);
-		                if (response.StatusCode != HttpStatusCode.OK)
-		                {
-		                    Console.WriteLine("Error polling for indexer status: {0}", response.Content.ReadAsStringAsync().Result);
-		                    return;
-		                }
-
-		                var result = AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
-		                if (result.lastResult != null)
-		                {
-		                    switch ((string)result.lastResult.status)
-		                    {
-		                        case "inProgress":
-		                            Console.WriteLine("{0}", "Synchronization running...\n");
-		                            Thread.Sleep(1000);
-		                            break;
-
-		                        case "success":
-		                            running = false;
-		                            Console.WriteLine("Synchronized {0} rows...\n", result.lastResult.itemsProcessed.Value);
-		                            break;
-
-		                        default:
-		                            running = false;
-		                            Console.WriteLine("Synchronization failed: {0}\n", result.lastResult.errorMessage);
-		                            break;
-		                    }
-		                }
-		            }
-		        }
-		    }
-		}
-
+	    using System;
+	    using System.Configuration;
+	    using System.Threading;
+	    using Microsoft.Azure.Search;
+	    using Microsoft.Azure.Search.Models;
+	
+	    namespace DataIndexer
+	    {
+	        class Program
+	        {
+	            private const string GeoNamesIndex = "geonames";
+	            private const string UsgsDataSource = "usgs-datasource";
+	            private const string UsgsIndexer = "usgs-indexer";
+	
+	            private static SearchServiceClient _searchClient;
+	            private static SearchIndexClient _indexClient;
+	
+	            // This Sample shows how to delete, create, upload documents and query an index
+	            static void Main(string[] args)
+	            {
+	                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
+	                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
+	
+	                // Create an HTTP reference to the catalog index
+	                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
+	                _indexClient = _searchClient.Indexes.GetClient(GeoNamesIndex);
+	
+	                Console.WriteLine("{0}", "Deleting index, data source, and indexer...\n");
+	                if (DeleteIndexingResources())
+	                {
+	                    Console.WriteLine("{0}", "Creating index...\n");
+	                    CreateIndex();
+	                    Console.WriteLine("{0}", "Sync documents from Azure SQL...\n");
+	                    SyncDataFromAzureSQL();
+	                }
+	                Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+	                Console.ReadKey();
+	            }
+	
+	            private static bool DeleteIndexingResources()
+	            {
+	                // Delete the index, data source, and indexer.
+	                try
+	                {
+	                    _searchClient.Indexes.Delete(GeoNamesIndex);
+	                    _searchClient.DataSources.Delete(UsgsDataSource);
+	                    _searchClient.Indexers.Delete(UsgsIndexer);
+	                }
+	                catch (Exception ex)
+	                {
+	                    Console.WriteLine("Error deleting indexing resources: {0}\r\n", ex.Message);
+	                    Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
+	                    return false;
+	                }
+	
+	                return true;
+	            }
+	
+	            private static void CreateIndex()
+	            {
+	                // Create the Azure Search index based on the included schema
+	                try
+	                {
+	                    var definition = new Index()
+	                    {
+	                        Name = GeoNamesIndex,
+	                        Fields = new[] 
+	                        { 
+	                            new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
+	                            new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
+	                            new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
+	                            new Field("STATE_ALPHA",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
+	                            new Field("STATE_NUMERIC",  DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
+	                            new Field("COUNTY_NAME",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
+	                            new Field("COUNTY_NUMERIC", DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
+	                            new Field("ELEV_IN_M",      DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
+	                            new Field("ELEV_IN_FT",     DataType.Int32)          { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
+	                            new Field("MAP_NAME",       DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
+	                            new Field("DESCRIPTION",    DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
+	                            new Field("HISTORY",        DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
+	                            new Field("DATE_CREATED",   DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true},
+	                            new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
+	                        }
+	                    };
+	
+	                    _searchClient.Indexes.Create(definition);
+	                }
+	                catch (Exception ex)
+	                {
+	                    Console.WriteLine("Error creating index: {0}\r\n", ex.Message);
+	                }
+	
+	            }
+	
+	            private static void SyncDataFromAzureSQL()
+	            {
+	                // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
+	                Console.WriteLine("{0}", "Creating Data Source...\n");
+	                var dataSource =
+	                    new DataSource()
+	                    {
+	                        Name = UsgsDataSource,
+	                        Description = "USGS Dataset",
+	                        Type = DataSourceType.AzureSql,
+	                        Credentials = new DataSourceCredentials("Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"),
+	                        Container = new DataContainer("GeoNamesRI")
+	                    };
+	
+	                try
+	                {
+	                    _searchClient.DataSources.Create(dataSource);
+	                }
+	                catch (Exception ex)
+	                {
+	                    Console.WriteLine("Error creating data source: {0}", ex.Message);
+	                    return;
+	                }
+	
+	                Console.WriteLine("{0}", "Creating Indexer and syncing data...\n");
+	
+	                var indexer =
+	                    new Indexer()
+	                    {
+	                        Name = UsgsIndexer,
+	                        Description = "USGS data indexer",
+	                        DataSourceName = dataSource.Name,
+	                        TargetIndexName = GeoNamesIndex
+	                    };
+	
+	                try
+	                {
+	                    _searchClient.Indexers.Create(indexer);
+	                }
+	                catch (Exception ex)
+	                {
+	                    Console.WriteLine("Error creating and running indexer: {0}", ex.Message);
+	                    return;
+	                }
+	
+	                bool running = true;
+	                Console.WriteLine("{0}", "Synchronization running...\n");
+	                while (running)
+	                {
+	                    IndexerExecutionInfo status = null;
+	
+	                    try
+	                    {
+	                        status = _searchClient.Indexers.GetStatus(indexer.Name);
+	                    }
+	                    catch (Exception ex)
+	                    {
+	                        Console.WriteLine("Error polling for indexer status: {0}", ex.Message);
+	                        return;
+	                    }
+	
+	                    IndexerExecutionResult lastResult = status.LastResult;
+	                    if (lastResult != null)
+	                    {
+	                        switch (lastResult.Status)
+	                        {
+	                            case IndexerExecutionStatus.InProgress:
+	                                Console.WriteLine("{0}", "Synchronization running...\n");
+	                                Thread.Sleep(1000);
+	                                break;
+	
+	                            case IndexerExecutionStatus.Success:
+	                                running = false;
+	                                Console.WriteLine("Synchronized {0} rows...\n", lastResult.ItemCount);
+	                                break;
+	
+	                            default:
+	                                running = false;
+	                                Console.WriteLine("Synchronization failed: {0}\n", lastResult.ErrorMessage);
+	                                break;
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
 
 
 ## Compilare ed eseguire DataIndexer
@@ -543,42 +453,40 @@ Prima di poter eseguire questo programma, eseguire tre modifiche:
 
 Sostituire il codice predefinito con il codice seguente.
 
-	using Microsoft.Azure.Search.Models;
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using System.Web.Mvc;
-
-	namespace SimpleSearchMVCApp.Controllers
-	{
-	    public class HomeController : Controller
+	    using Microsoft.Azure.Search.Models;
+	    using System;
+	    using System.Collections.Generic;
+	    using System.Linq;
+	    using System.Web;
+	    using System.Web.Mvc;
+	
+	    namespace SimpleSearchMVCApp.Controllers
 	    {
-	        //
-	        // GET: /Home/
-	        private FeaturesSearch _featuresSearch = new FeaturesSearch();
-
-	        public ActionResult Index()
+	        public class HomeController : Controller
 	        {
-	            return View();
-	        }
-
-	        public ActionResult Search(string q = "")
-	        {
-	            // If blank search, assume they want to search everything
-	            if (string.IsNullOrWhiteSpace(q))
-	                q = "*";
-
-	            return new JsonResult
+	            //
+	            // GET: /Home/
+	            private FeaturesSearch _featuresSearch = new FeaturesSearch();
+	
+	            public ActionResult Index()
 	            {
-	                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-	                Data = _featuresSearch.Search(q)
-	            };
+	                return View();
+	            }
+	
+	            public ActionResult Search(string q = "")
+	            {
+	                // If blank search, assume they want to search everything
+	                if (string.IsNullOrWhiteSpace(q))
+	                    q = "*";
+	
+	                return new JsonResult
+	                {
+	                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+	                    Data = _featuresSearch.Search(q).Results
+	                };
+	            }
 	        }
-
-
 	    }
-	}
 
 
 ### Aggiornare index.cshtml
@@ -664,57 +572,56 @@ Aggiungere una classe che fornisce funzionalità di ricerca all'applicazione.
 2. Denominare la classe **FeaturesSearch**.
 3. Sostituire il codice predefinito con il codice seguente.
 
-		using Microsoft.Azure.Search;
-		using Microsoft.Azure.Search.Models;
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.Linq;
-		using System.Web;
 
-		namespace SimpleSearchMVCApp
-		{
-		    public class FeaturesSearch
-		    {
-		        private static SearchServiceClient _searchClient;
-		        private static SearchIndexClient _indexClient;
+	    using System;
+	    using System.Configuration;
+	    using Microsoft.Azure.Search;
+	    using Microsoft.Azure.Search.Models;
+	
+	    namespace SimpleSearchMVCApp
+	    {
+	        public class FeaturesSearch
+	        {
+	            private static SearchServiceClient _searchClient;
+	            private static SearchIndexClient _indexClient;
+	
+	            public static string errorMessage;
+	
+	            static FeaturesSearch()
+	            {
+	                try
+	                {
+	                    string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
+	                    string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
+	
+	                    // Create an HTTP reference to the catalog index
+	                    _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
+	                    _indexClient = _searchClient.Indexes.GetClient("geonames");
+	                }
+	                catch (Exception e)
+	                {
+	                    errorMessage = e.Message.ToString();
+	                }
+	            }
+	
+	            public DocumentSearchResult Search(string searchText)
+	            {
+	                // Execute search based on query string
+	                try
+	                {
+	                    SearchParameters sp = new SearchParameters() { SearchMode = SearchMode.All };
+	                    return _indexClient.Documents.Search(searchText, sp);
+	                }
+	                catch (Exception ex)
+	                {
+	                    Console.WriteLine("Error querying index: {0}\r\n", ex.Message.ToString());
+	                }
+	                return null;
+	            }
+	
+	        }
+	    }
 
-		        public static string errorMessage;
-
-		        static FeaturesSearch()
-		        {
-		            try
-		            {
-		                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-		                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-
-		                // Create an HTTP reference to the catalog index
-		                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
-		                _indexClient = _searchClient.Indexes.GetClient("geonames");
-		            }
-		            catch (Exception e)
-		            {
-		                errorMessage = e.Message.ToString();
-		            }
-		        }
-
-		        public DocumentSearchResponse Search(string searchText)
-		        {
-		            // Execute search based on query string
-		            try
-		            {
-		                SearchParameters sp = new SearchParameters() { SearchMode = SearchMode.All };
-		                return _indexClient.Documents.Search(searchText, sp);
-		            }
-		            catch (Exception ex)
-		            {
-		                Console.WriteLine("Error querying index: {0}\r\n", ex.Message.ToString());
-		            }
-		            return null;
-		        }
-
-		    }
-		}
 
 ### Impostare SimpleSearchMVCApp come progetto di avvio
 
@@ -746,7 +653,7 @@ Questa è la prima esercitazione di Ricerca di Azure basata su .NET e sul set di
 
 Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile usare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
-Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere a ulteriori informazioni.
+Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](https://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere a ulteriori informazioni.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG
@@ -754,7 +661,6 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [3]: ./media/search-get-started-dotnet/create-search-portal-3.PNG
 
 [4]: ./media/search-get-started-dotnet/AzSearch-DotNet-VSSolutionExplorer.png
-[5]: ./media/search-get-started-dotnet/AzSearch-DotNet-Assembly.png
 
 [6]: ./media/search-get-started-dotnet/consolemessages.png
 [7]: ./media/search-get-started-dotnet/portalindexstatus.png
@@ -765,4 +671,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Azioni per la risoluzione della perdita temporanea della connessione | Microsoft Azure"
-	description="Azioni per risolvere, diagnosticare ed evitare gli errori di connessione e altri errori temporanei durante l'interazione con il database SQL di Azure."
+	pageTitle="Correggere un errore di connessione SQL temporaneo | Microsoft Azure"
+	description="Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure."
+	keywords="connessione sql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
@@ -17,30 +18,21 @@
 	ms.author="daleche"/>
 
 
-# Risolvere i problemi relativi a errori temporanei e di connessione al database SQL
+# Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL
 
-
-Questo argomento illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nel programma client durante l'interazione con il database SQL di Azure.
-
+Questo articolo illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nell'applicazione client durante l'interazione con il database SQL di Azure. Informazioni su come configurare la logica di ripetizione dei tentativi, compilare la stringa di connessione e modificare altre impostazioni di connessione.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## Errori temporanei
 
+Un errore temporaneo è un errore la cui causa sottostante si risolverà automaticamente in modo rapido. Una causa occasionale di errori temporanei è costituita dal cambio rapido di risorse hardware da parte del sistema Azure per ottenere un bilanciamento migliore dei diversi carichi di lavoro. Durante questo intervallo di riconfigurazione possono verificarsi problemi di connessione al database SQL di Azure.
 
-Un errore temporaneo è un errore la cui causa sottostante si risolverà automaticamente in modo rapido. Una causa occasionale di errori temporanei è costituita dal cambio rapido di risorse hardware da parte del sistema Azure per ottenere un bilanciamento migliore dei diversi carichi di lavoro. Durante questo intervallo di riconfigurazione è possibile che le connessioni al database SQL di Azure vadano perse.
-
-
-Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException**. È possibile confrontare la proprietà **Number** con l'elenco di errori temporanei disponibili nella parte iniziale dell'argomento [Messaggi di errore per programmi client del database SQL](sql-database-develop-error-messages.md).
-
+Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException**. È possibile confrontare la proprietà **Number** con l'elenco di errori temporanei disponibili nella parte iniziale dell'argomento [Codici di errore SQL per applicazioni client del database SQL](sql-database-develop-error-messages.md).
 
 ### Confronto tra connessione e comando
 
-
-Quando si verifica un errore temporaneo durante un tentativo di connessione, è consigliabile provare a connettersi di nuovo dopo alcuni secondi.
-
-
-Quando si verifica un errore temporaneo durante un comando di query SQL, è consigliabile non provare immediatamente a rieseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
+È possibile riprovare a stabilire la connessione SQL o stabilirne una nuova, in base a quanto indicato di seguito. * **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi. * **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -48,19 +40,19 @@ Quando si verifica un errore temporaneo durante un comando di query SQL, è cons
 ## Logica di ripetizione dei tentativi per errori temporanei
 
 
-I programmi client che rilevano occasionalmente un errore temporaneo sono più affidabili se contengono una logica di ripetizione dei tentativi.
+I programmi client in cui occasionalmente si verifica un errore temporaneo sono più affidabili se contengono una logica di ripetizione dei tentativi.
 
 
-Quando il programma comunica con il database SQL di Azure tramite middleware di terze parti, chiedere al fornitore se il middleware contiene logica di ripetizione dei tentativi per errori temporanei.
+Se il programma comunica con il database SQL di Azure tramite middleware di terze parti, chiedere al fornitore se il middleware include la logica di ripetizione dei tentativi per errori temporanei.
 
 
 ### Principi per la ripetizione dei tentativi
 
 
-- È consigliabile ripetere un tentativo di apertura di una connessione se l'errore è temporaneo.
+- È consigliabile ripetere un tentativo di stabilire una connessione se l'errore è temporaneo.
 
 
-- Non devono essere eseguiti direttamente nuovi tentativi di esecuzione di un'istruzione SQL SELECT non riuscita con un errore temporaneo.
+- Non è consigliabile riprovare direttamente a eseguire un'istruzione SQL SELECT non riuscita con un errore temporaneo.
  - Stabilire invece una nuova connessione e quindi provare a eseguire di nuovo l'istruzione SELECT.
 
 
@@ -134,7 +126,7 @@ Per semplificare le operazioni, il programma potrebbe riconoscere un parametro d
 ## Connessione: stringa di connessione
 
 
-La stringa di connessione necessaria per la connessione al database SQL di Azure è leggermente diversa dalla stringa usata per la connessione a Microsoft SQL Server. È possibile copiare la stringa di connessione per il database dal [portale di Azure](http://portal.azure.com/).
+La stringa di connessione necessaria per la connessione al database SQL di Azure è leggermente diversa dalla stringa usata per la connessione a Microsoft SQL Server. È possibile copiare la stringa di connessione per il database dal [portale di Azure](https://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -188,7 +180,7 @@ Si supponga che l'applicazione disponga di una logica di ripetizione dei tentati
 ## Connessione: indirizzo IP
 
 
-È necessario configurare il server di database SQL in modo che accetti le comunicazioni dall'indirizzo IP del computer che ospita il programma client. Per eseguire questa operazione, modificare le impostazioni del firewall tramite il [portale di Azure](http://portal.azure.com/).
+È necessario configurare il server di database SQL in modo che accetti le comunicazioni dall'indirizzo IP del computer che ospita il programma client. Per eseguire questa operazione, modificare le impostazioni del firewall tramite il [portale di Azure](https://portal.azure.com/).
 
 
 Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
@@ -231,7 +223,7 @@ Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [
 ## Connessione: ADO.NET 4.6.1
 
 
-Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework versione 4.6.1 o successiva.
+Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework 4.6.1 o versione successiva.
 
 
 ADO.NET 4.6.1: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
@@ -240,7 +232,7 @@ ADO.NET 4.6.1: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglior
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se non deve essere usata immediatamente. La riapertura di una connessione è meno dispendiosa della creazione di una nuova connessione.
 
 
-Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. - A partire da novembre 2015 è possibile [scaricare ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. A partire da novembre 2015 è possibile [scaricare ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -313,7 +305,7 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log alla ricer
 
 | Query di un log | Descrizione |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria è possibile correlare il valore **start\_time** o **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) presenta informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria è possibile correlare i valori **start\_time** e **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La visualizzazione [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 
 
@@ -370,13 +362,13 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: - [4 - Perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile. Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: - [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-> [AZURE.NOTE]Il codice sorgente per EntLib60 è disponibile per il [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) pubblico. Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
+> [AZURE.NOTE] Il codice sorgente per EntLib60 è disponibile per il [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) pubblico. Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
 
 
 ### Classi di EntLib60 per errori temporanei e ripetizione dei tentativi
@@ -514,4 +506,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

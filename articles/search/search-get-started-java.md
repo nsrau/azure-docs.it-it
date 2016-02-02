@@ -36,7 +36,7 @@ L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti 
 
 In questa applicazione, il programma **SearchServlet.java** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali predefinite e la connessione all’origine dati online. In termini di accesso ai dati, non è necessaria alcuna ulteriore configurazione.
 
-> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si utilizza il livello standard, questo limite non viene applicato ed è possibile modificare il codice per l'utilizzo di un set di dati più grande. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si utilizza il livello standard, questo limite non viene applicato ed è possibile modificare il codice per l'utilizzo di un set di dati più grande. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](search-limits-quotas-capacity.md).
 
 ## Informazioni sui file di programma
 
@@ -158,7 +158,7 @@ Se ancora non è stato specificato un ambiente di runtime del server in Eclipse,
 
 5. Fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Esegui come controllo server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
 
-> [AZURE.TIP]Se è stata utilizzata un'area di lavoro non predefinita per archiviare il progetto, è necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Esplora progetti, fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Configurazione di esecuzione**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
+> [AZURE.TIP] Se è stata utilizzata un'area di lavoro non predefinita per archiviare il progetto, è necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Esplora progetti, fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Configurazione di esecuzione**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
 
 Quando si esegue l'applicazione viene visualizzata una finestra del browser con una casella di ricerca per l'immissione di termini.
 
@@ -184,7 +184,7 @@ Questa è la prima esercitazione di Ricerca di Azure basata su Java e sul set di
 
 Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](search-pagination.md) o implementando l’[esplorazione basata su facet](search-faceted-navigation.md). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
-Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere a ulteriori informazioni.
+Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](https://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere a ulteriori informazioni.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -200,4 +200,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

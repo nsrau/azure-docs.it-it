@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure e si vuole provare Application Insights
 
 La risorsa di Application Insights è dove vengono visualizzati i dati sulle prestazioni e l'utilizzo della pagina. Se già stata creata una risorsa, forse per raccogliere dati da un server Web, ignorare questo passaggio.
 
-Accedere al [portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 Se è già stato configurato il monitoraggio per il lato server dell'applicazione, si disporrà già di una risorsa:
 
@@ -125,7 +125,7 @@ Fare clic su un grafico per scegliere altre metriche da visualizzare o aggiunger
 
 ![](./media/app-insights-javascript/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE]Le metriche possono essere visualizzate solo in alcune combinazioni. Quando si seleziona una metrica, quelle incompatibili vengono disabilitate.
+> [AZURE.NOTE] Le metriche possono essere visualizzate solo in alcune combinazioni. Quando si seleziona una metrica, quelle incompatibili vengono disabilitate.
 
 
 
@@ -150,7 +150,7 @@ Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
-> [AZURE.NOTE]Se si usa [Ricerca](app-insights-diagnostic-search.md), si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
+> [AZURE.NOTE] Se si usa [Ricerca](app-insights-diagnostic-search.md), si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
 
 > [Altre informazioni sulla ricerca diagnostica](app-insights-diagnostic-search.md)
 
@@ -187,4 +187,4 @@ In alternativa, se l'app Web è già attiva, è comunque possibile aggiungere da
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

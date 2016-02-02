@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="01/26/2016" 
 	ms.author="MarkVi"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - La possibilità di aggiungere informazioni personalizzate distintive dell'azienda è disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
-- Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Molte aziende vogliono applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che questi usano tali siti. Azure Active Directory offre questa funzionalità permettendo di personalizzare l'aspetto delle pagine Web rivolte all'utente finale indicate di seguito, in modo da poter includere il logo e le combinazioni di colori dell'azienda:
 
@@ -80,7 +80,8 @@ Logo banner | Visualizzato in alto a destra nella pagina. Sostituisce il logo no
 Immagine di grandi dimensioni/colore di sfondo | Visualizzati a sinistra nella pagina. Sostituiscono l'immagine normalmente visualizzata dal sito di destinazione cui accedono gli utenti. Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta o su schermi molto stretti.
 Testo pagina di accesso | Visualizzato sopra il piè di pagina quando è necessario fornire informazioni utili per gli utenti prima che accedano con il proprio account aziendale o dell'istituto di istruzione. Ad esempio, è possibile includere il numero di telefono dell'help desk o una nota legale.
 
-> [AZURE.NOTE]Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner, ma nessuna immagine di grandi dimensioni, la pagina di accesso mostrerà il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
+> [AZURE.NOTE]
+Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner, ma nessuna immagine di grandi dimensioni, la pagina di accesso mostrerà il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
 
 È anche possibile localizzare tutti gli elementi della pagina. Dopo aver configurato un set di elementi di personalizzazione "predefinito", è possibile configurare anche altre versioni per impostazioni locali diverse. È anche possibile combinare e abbinare diversi elementi. Ad esempio, è possibile:
 
@@ -185,4 +186,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

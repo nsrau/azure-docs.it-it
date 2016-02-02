@@ -24,7 +24,7 @@ Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseg
 
 ## Prima di iniziare
 
-Per eseguire questa esercitazione, è necessaria una sottoscrizione di Azure valida. Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/). Dopo avere creato una sottoscrizione, sarà possibile accedere al portale all'indirizzo [https://portal.azure.com].
+Per eseguire questa esercitazione, è necessaria una sottoscrizione di Azure valida. Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/). Dopo avere creato una sottoscrizione, sarà possibile accedere al portale all'indirizzo [https://portal.azure.com].
 
 ## Come creare un gruppo di risorse
 
@@ -70,7 +70,7 @@ Azure preconfigura i pannelli per le risorse, ma l'utente può personalizzare i 
 
 ## Come ottenere assistenza
 
-In caso di problemi, sono disponibili numerose opzioni per il supporto. Il portale include una pagina Guida e supporto, che può fornire le indicazioni necessarie. In base al [piano di supporto](http://azure.microsoft.com/support/plans/) attivato, è anche possibile creare ticket di supporto direttamente nel portale. Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vita del ticket dal portale. Per visualizzare la pagina Guida e supporto, passare a Sfoglia -> Guida e supporto.
+In caso di problemi, sono disponibili numerose opzioni per il supporto. Il portale include una pagina Guida e supporto, che può fornire le indicazioni necessarie. In base al [piano di supporto](https://azure.microsoft.com/support/plans/) attivato, è anche possibile creare ticket di supporto direttamente nel portale. Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vita del ticket dal portale. Per visualizzare la pagina Guida e supporto, passare a Sfoglia -> Guida e supporto.
 
 ![Guida e supporto][HelpSupport]
 
@@ -78,7 +78,7 @@ In caso di problemi, sono disponibili numerose opzioni per il supporto. Il porta
 
 In questa esercitazione è stato illustrato quanto segue: - Come iscriversi, ottenere una sottoscrizione e passare al portale - Informazioni generali sull'interfaccia utente del portale e su come creare e visualizzare le risorse - Come creare una risorsa ed esplorare le risorse - Informazioni sulla struttura o sui pannelli di gestione e su come gestire in modo coerente diversi tipi di risorse - Come personalizzare il portale per evidenziare le informazioni rilevanti - Come controllare l'accesso alle risorse mediante il controllo degli accessi in base al ruolo - Come visualizzare la Guida e ottenere supporto
 
-Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gestione delle applicazioni nel cloud. Vedere il [blog sulla gestione](http://azure.microsoft.com/blog/topics/management/) per rimanere aggiornati, poiché Microsoft [esamina i commenti e i suggerimenti](http://feedback.azure.com/forums/223579-azure-preview-portal) e apporta miglioramenti costantemente. Il [blog di ScottGu](http://weblogs.asp.net/scottgu) è un'altra risorsa ottimale per ottenere informazioni su tutti gli aggiornamenti di Azure.
+Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gestione delle applicazioni nel cloud. Vedere il [blog sulla gestione](https://azure.microsoft.com/blog/topics/management/) per rimanere aggiornati, poiché Microsoft [esamina i commenti e i suggerimenti](https://feedback.azure.com/forums/223579-azure-preview-portal/) e apporta miglioramenti costantemente. Il [blog di ScottGu](http://weblogs.asp.net/scottgu) è un'altra risorsa ottimale per ottenere informazioni su tutti gli aggiornamenti di Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gesti
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

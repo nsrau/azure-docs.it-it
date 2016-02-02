@@ -31,13 +31,13 @@ Quando si apre il portale di Azure classico per la prima volta viene visualizzat
 
 2.  Fare clic su **Servizi app**> **Crea nuovo** > **Utilità di pianificazione** e quindi fare clic su **Creazione personalizzata**. <br /><br /> ![][2]
 
-3.  In **Raccolta processi** selezionare il nome della raccolta di processi esistente nell'elenco a discesa **Raccolta processi**. Se non si ha raccolta di processi esistente a cui aggiungere il processo, selezionare **Crea nuovo** e immettere un nome per identificare la nuova raccolta di processi.<br /><br /> ![][3]
+3.  In **Raccolta processi** selezionare il nome della raccolta di processi esistente nell'elenco a discesa **Raccolta processi**. Se non si dispone di una raccolta processi esistente a cui aggiungere il processo, selezionare **Crea nuovo** e immettere un nome per identificare la nuova raccolta processi.<br /><br /> ![][3]
 
 4.  In **Area** selezionare l'area geografica per la raccolta di processi.
 
 5.  Fare clic sul tasto di direzione per creare la raccolta di processi e passare alla fase successiva – creare un processo.
 
-6.  Si creerà un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Azione processo** definire i valori seguenti per i campi modulo obbligatori:
+6.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Azione processo** definire i valori seguenti per i campi modulo obbligatori:
 
     1.  **Nome:** ` getmicrosoft`  
 
@@ -129,7 +129,7 @@ Nella scheda **Ridimensiona** è possibile modificare le impostazioni e il livel
 
 #### Generale
 
-Indica se è in uso il piano **Free** o **Standard**.
+Indica se si utilizza il piano **Free** o **Standard**.
 
 #### Quote
 
@@ -229,7 +229,7 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
 
  [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Riferimento API REST dell'utilità di pianificazione](https://msdn.microsoft.com/library/dn528946)
+ [Riferimento API REST dell'utilità di pianificazione](https://msdn.microsoft.com/library/mt629143)
 
  [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -33,13 +33,13 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
 
 
->[AZURE.IMPORTANT]Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, quello classico e Gestione risorse. È importante conoscere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di usare le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustra la creazione di un gateway applicazione usando Gestione risorse di Azure. Per usare la versione classica, passare all'articolo relativo alla [creazione di una distribuzione classica del gateway applicazione tramite PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, quello classico e Gestione risorse. È importante conoscere i [modelli e gli strumenti di distribuzione](azure-classic-rm.md) prima di usare le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustra la creazione di un gateway applicazione usando Gestione risorse di Azure. Per usare la versione classica, passare all'articolo relativo alla [creazione di una distribuzione classica del gateway applicazione tramite PowerShell](application-gateway-create-gateway.md).
 
 
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
 2. Creare una rete virtuale e una subnet per il Gateway Applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
@@ -97,7 +97,7 @@ Scegliere quali sottoscrizioni Azure usare. <BR>
 
 ### Passaggio 4
 
-Creare un nuovo gruppo di risorse (ignorare questo passaggio se si sta usando un gruppo di risorse esistente).
+Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si sta usando un gruppo di risorse esistente.
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -106,7 +106,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-RG" e la località "West US".
 
 
->[AZURE.NOTE]Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
 
 
 
@@ -123,7 +123,7 @@ Assegnare l'intervallo di indirizzi 10.0.0.0/24 alla variabile di subnet da usar
 
 ### Passaggio 2
 
-Creare una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
+Creare una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24.
 
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
@@ -143,7 +143,7 @@ Creare una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appgw-rg" per
 
 ## Creare un oggetto di configurazione gateway applicazione
 
-È necessario impostare tutti gli elementi di configurazione prima di creare il gateway applicazione. La procedura seguente crea gli elementi di configurazione necessari per una risorsa del gateway applicazione.
+È necessario impostare tutti gli elementi di configurazione prima di creare il gateway applicazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
 
 ### Passaggio 1
 
@@ -155,7 +155,7 @@ Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". 
 
 ### Passaggio 2
 
-Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Quelli saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
+Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -200,7 +200,7 @@ Configurare le dimensioni dell'istanza del gateway applicazione.
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Creare un gateway applicazione usando New-AzureRmApplicationGateway
 
@@ -237,13 +237,13 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet **Remove-
 
 
 
->[AZURE.NOTE]L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
+>[AZURE.NOTE] L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
 
 
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet **Get-AzureRmApplicationGateway**. Questo passaggio non è obbligatorio.
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## Passaggi successivi
@@ -257,4 +257,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

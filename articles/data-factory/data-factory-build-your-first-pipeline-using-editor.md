@@ -34,7 +34,7 @@ Questo articolo descrive come usare il [portale di Azure](https://portal.azure.c
 ## Passaggio 1: Creare la data factory
 Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
 
-1.	Dopo l'accesso al [portale di Azure](http://portal.azure.com/), seguire questa procedura:
+1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com/), seguire questa procedura:
 	1.	Fare clic su **NUOVO** nel menu a sinistra. 
 	2.	Fare clic su **Analisi dei dati** nel pannello **Crea**.
 	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
@@ -45,7 +45,7 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
 
 	![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "GetStartedDF" per la data factory non è disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteGetStartedDF) e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+	> [AZURE.IMPORTANT] È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "GetStartedDF" per la data factory non è disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteGetStartedDF) e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 	>  
 	> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
@@ -80,12 +80,11 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 
 	![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e viene visualizzato **StorageLinkedService** nella visualizzazione albero a sinistra. 
-   	![Servizio collegato Archiviazione nel menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e viene visualizzato **StorageLinkedService** nella visualizzazione albero a sinistra. ![Servizio collegato Archiviazione nel menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Creare un servizio collegato Azure HDInsight
-In questo passaggio viene collegato un cluster HDInsight su richiesta alla data factory. Il cluster HDInsight viene creato automaticamente in fase di esecuzione ed eliminato al termine dell'elaborazione, se rimane inattivo per il periodo di tempo specificato. È possibile usare il proprio cluster HDInsight anziché un cluster HDInsight su richiesta. Per informazioni dettagliate, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md).
+In questo passaggio viene collegato un cluster HDInsight su richiesta alla data factory. Il cluster HDInsight viene creato automaticamente in fase di esecuzione ed eliminato al termine dell'elaborazione, se rimane inattivo per il periodo di tempo specificato.
 
 1. Nell'**editor di Data factory** fare clic su **Nuovo calcolo** sulla barra dei comandi e selezionare **Cluster HDInsight su richiesta**.
 
@@ -113,6 +112,16 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 	| ClusterSize | Crea un cluster HDInsight con un nodo. | 
 	| TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
 	| linkedServiceName | Specifica l'account di archiviazione che sarà usato per archiviare i log generati da HDInsight. |
+
+	Tenere presente quanto segue:
+	
+	- Data factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile fare in modo che crei un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+	- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+	
+		Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
+
+	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato. 
 4. Verificare che nella visualizzazione albero a sinistra siano presenti sia **StorageLinkedService** che **HDInsightOnDemandLinkedService**.
 
@@ -205,7 +214,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
 
-	> [AZURE.IMPORTANT]Nel codice JSON sostituire **storageaccountname** con il nome dell'account di archiviazione.
+	> [AZURE.IMPORTANT] Nel codice JSON sostituire **storageaccountname** con il nome dell'account di archiviazione.
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -290,9 +299,8 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 12. In **Vista diagramma** fare doppio clic sul set di dati **AzureBlobOutput**. Verrà visualizzata la sezione in fase di elaborazione.
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**.  
-
-	>[AZURE.IMPORTANT]La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
+9. Al termine dell'elaborazione lo stato della sezione sarà **Pronto**.
+	>[AZURE.IMPORTANT] La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).  
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
@@ -314,4 +322,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
   
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

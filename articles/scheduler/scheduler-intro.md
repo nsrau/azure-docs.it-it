@@ -34,13 +34,13 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
- [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
+ [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
 
  [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
  [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/dn528946)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
@@ -50,4 +50,4 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

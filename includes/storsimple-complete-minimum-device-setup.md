@@ -23,7 +23,7 @@
 4. Nella pagina **Interfacce di rete**, fornire gli indirizzi IP fissi per Controller 0 e Controller 1. Se l’interfaccia DATA 0 è stata configurata per IPv4, gli indirizzi IP fissi devono essere forniti nel formato IPv4. Se è stato fornito un prefisso per la configurazione IPv6, gli indirizzi IP fissi verranno popolati automaticamente in questi campi.
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - Gli indirizzi IP fissi del controller devono essere IP disponibili all’interno della subnet accessibile mediante l’indirizzo IP del dispositivo.
  	> - Gli indirizzi IP fissi per il controller vengono utilizzati per l’installazione degli aggiornamenti nel dispositivo e pertanto gli IP fissi devono essere instradabili e in grado di connettersi a Internet.
@@ -32,10 +32,10 @@
 
 5. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta di StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Si ritornerà alla pagina **Avvio rapido** del dispositivo.
 
- >[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
+ >[AZURE.NOTE] È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
 ![Video disponibile](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come completare l'installazione minima del dispositivo, fare clic [qui](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Per guardare un video che illustra come completare l'installazione minima del dispositivo, fare clic [qui](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

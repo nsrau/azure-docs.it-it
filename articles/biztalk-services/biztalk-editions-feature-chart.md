@@ -201,7 +201,7 @@ Include ricevuta di non ripudio (NRR) e download dei messaggi rilevati</td>
 </tr>
 </table>
 
-> [AZURE.NOTE]Per garantire la resilienza contro errori hardware, la disponibilità elevata richiede la presenza di macchine virtuali in un'unica unità di BizTalk.
+> [AZURE.NOTE] Per garantire la resilienza contro errori hardware, la disponibilità elevata richiede la presenza di macchine virtuali in un'unica unità di BizTalk.
 
 
 ## Domande frequenti
@@ -225,7 +225,7 @@ BizTalk Adapter Service viene usato da un Servizio BizTalk di Azure. BizTalk Ada
 
 #### Che cosa significa "Trasferimento di dati di connessioni ibride (GB) per unità"? Si intende al minuto/ora/giorno/mese? Cosa accade quando si raggiunge il limite?
 
-Il costo della connessione ibrida per unità dipende dall'edizione di Servizi BizTalk. In pratica, i costi dipendono dalla quantità di dati da trasferire. Ad esempio, trasferire 10 GB di dati al giorno costa meno che trasferire 100 GB al giorno. Usare il [Calcolatore dei prezzi](http://azure.microsoft.com/pricing/calculator/?scenario=full) per determinare i costi specifici di Servizi BizTalk. In genere, i limiti vengono applicati ogni giorno. Se si supera il limite, il costo aggiuntivo addebitato è di 1 dollaro US per GB.
+Il costo della connessione ibrida per unità dipende dall'edizione di Servizi BizTalk. In pratica, i costi dipendono dalla quantità di dati da trasferire. Ad esempio, trasferire 10 GB di dati al giorno costa meno che trasferire 100 GB al giorno. Usare il [Calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/?scenario=full) per determinare i costi specifici di Servizi BizTalk. In genere, i limiti vengono applicati ogni giorno. Se si supera il limite, il costo aggiuntivo addebitato è di 1 dollaro US per GB.
 
 #### Quando si crea un contratto in Servizi BizTalk, perché il numero di bridge aumenta di due anziché di uno?
 
@@ -259,4 +259,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTal
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

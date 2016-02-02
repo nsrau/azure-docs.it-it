@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/30/2015"
+	ms.date="01/27/2016"
 	ms.author="jgao"/>
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
@@ -38,7 +38,7 @@ Per completare questa esercitazione e usare Hadoop Tools in Visual Studio, sarà
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
-	>[AZURE.NOTE]Attualmente, HDInsight Tools per Visual Studio è disponibile solo con la versione in lingua inglese.
+	>[AZURE.NOTE] Attualmente, HDInsight Tools per Visual Studio è disponibile solo con la versione in lingua inglese.
 
 
 ## Installare HDInsight Tools per Visual Studio
@@ -55,9 +55,7 @@ HDInsight Tools per Visual Studio e ODBC Driver di Microsoft Hive sono inclusi n
 ## Connettersi alle sottoscrizioni di Azure
 HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, eseguire alcune operazioni di gestione di base ed eseguire query Hive.
 
->[AZURE.NOTE]Per informazioni sulla connessione a HDInsight Emulator, vedere [Introduzione a HDInsight Emulator](../hdinsight-get-started-emulator.md/#vstools).
-
->[AZURE.NOTE]Per informazioni sulla connessione a un cluster Hadoop generico (anteprima), vedere [Scrivere e inviare query Hive con Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] Per informazioni sulla connessione a un cluster Hadoop generico (anteprima), vedere [Scrivere e inviare query Hive con Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 
 
 **Per connettersi alla sottoscrizione di Azure**
@@ -140,7 +138,7 @@ Esistono due modi per creare ed eseguire query Hive:
 
 	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][14]
 
-	> [AZURE.NOTE]Verranno elencati solo i metadati dei cluster selezionati nella barra degli strumenti HDInsight.
+	> [AZURE.NOTE] Verranno elencati solo i metadati dei cluster selezionati nella barra degli strumenti HDInsight.
 4. Facoltativo: fare clic su **Convalida script** per verificare la presenza di eventuali errori di sintassi nello script.
 
 	![Hadoop Tools: convalida locale di HDInsight Tools per Visual Studio.][10]
@@ -182,7 +180,7 @@ La versione più recente dello strumento consente di visualizzare i contenuti de
 
 ### Esecuzione di processi Hive più veloce tramite HiveServer2
 
->[AZURE.NOTE]Questa funzionalità è disponibile solo per i cluster HDInsight versione 3.2 e successive.
+>[AZURE.NOTE] Questa funzionalità è disponibile solo per i cluster HDInsight versione 3.2 e successive.
 
 In passato, gli strumenti HDInsight inviavano processi Hive tramite WebHCat (noto anche come Templeton). Per restituire i dettagli del processo e le informazioni sugli errori occorreva molto tempo. Per risolvere questo problema di prestazioni, gli strumenti HDInsight eseguono i processi direttamente nel cluster tramite HiveServer2, in modo da ignorare i protocolli RDP/SSH. Oltre a ottenere prestazioni migliori, gli utenti possono visualizzare Hive in grafici Tez e i dettagli dell'attività.
 
@@ -210,7 +208,7 @@ L'esecuzione di query tramite HiveServer2 presenta numerosi vantaggi in termini 
 
 Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di grafici delle prestazioni per i processi Hive eseguiti dal motore di esecuzione Tez. Per informazioni su come abilitare Tez, vedere l'articolo relativo all'[uso di Hive in HDInsight][hdinsight.hive]. Dopo avere inviato un processo Hive in Visual Studio, Visual Studio mostra il grafico al termine del processo. Per ottenere l'ultimo stato del processo, potrebbe essere necessario fare clic sul pulsante **Aggiorna**.
 
-> [AZURE.NOTE]Questa funzionalità è disponibile solo per le versioni del cluster HDInsight successive alla 3.2.4.593 e può funzionare solo per i processi completati. Si possono usare cluster basati sia su Windows che su Linux.
+> [AZURE.NOTE] Questa funzionalità è disponibile solo per le versioni del cluster HDInsight successive alla 3.2.4.593 e può funzionare solo per i processi completati. Si possono usare cluster basati sia su Windows che su Linux.
 
 ![grafico delle prestazioni tez hive hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -269,4 +267,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

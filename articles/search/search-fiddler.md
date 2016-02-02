@@ -19,6 +19,7 @@
 # Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -203,7 +204,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 ## Eseguire query sul sistema
 
-È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio usato.
+È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio utilizzato.
 
  ![][5]
 
@@ -238,4 +239,4 @@ Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

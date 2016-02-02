@@ -28,7 +28,7 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 
 ### Account
 
-- **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti nella pagina della [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti nella pagina della [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Account Batch**: dopo avere creato una sottoscrizione di Azure, vedere [Creare e gestire un account Azure Batch](batch-account-create-portal.md).
 - **Account di archiviazione**: vedere la sezione *Creare un account di archiviazione* in [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md).
 
@@ -88,7 +88,7 @@ Le credenziali relative all'account Batch e all'account di archiviazione sono di
 
 Dopo avere aggiornato il progetto con le proprie credenziali, fare clic con il pulsante destro del mouse sulla soluzione in *Esplora soluzioni* e fare clic su **Compila soluzione**. Confermare il ripristino di eventuali pacchetti NuGet, se richiesto.
 
-> [AZURE.TIP]Se i pacchetti NuGet non vengono ripristinati automaticamente o se vengono visualizzati errori relativi a un errore di ripristino dei pacchetti, assicurarsi che [Gestione pacchetti NuGet][nuget_packagemgr] sia installato, quindi abilitare il download dei pacchetti mancanti. Per abilitare il download dei pacchetti, vedere la sezione relativa all'[abilitazione del ripristino dei pacchetti durante la compilazione][nuget_restore].
+> [AZURE.TIP] Se i pacchetti NuGet non vengono ripristinati automaticamente o se vengono visualizzati errori relativi a un errore di ripristino dei pacchetti, assicurarsi che [Gestione pacchetti NuGet][nuget_packagemgr] sia installato, quindi abilitare il download dei pacchetti mancanti. Per abilitare il download dei pacchetti, vedere la sezione relativa all'[abilitazione del ripristino dei pacchetti durante la compilazione][nuget_restore].
 
 Nelle sezioni seguenti vengono esaminati nel dettaglio i passaggi eseguiti dall'applicazione di esempio per l'elaborazione di un carico di lavoro nel servizio Batch. È consigliabile fare riferimento alla soluzione aperta in Visual Studio mentre si esamina il resto di questo articolo, perché non vengono illustrate tutte le righe di codice dell'esempio.
 
@@ -234,7 +234,7 @@ Le firme di accesso condiviso sono stringhe che, se incluse come parte di un URL
 
 - **Firma di accesso condiviso di contenitori**: quando ogni attività completa il proprio lavoro sul nodo di calcolo, carica il rispettivo file di output nel contenitore *output* nell'Archiviazione di Azure. A questo scopo, TaskApplication usa una firma di accesso condiviso del contenitore che fornisce accesso in scrittura al contenitore come parte del percorso durante il caricamento del file. Il recupero della firma di accesso condiviso del contenitore viene eseguito in modo analogo al recupero della firma di accesso condiviso del BLOB e in DotNetTutorial il metodo helper `GetContainerSasUrl` chiama [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] per eseguire questa operazione. Altre informazioni sul modo in cui TaskApplication usa la firma di accesso condiviso del contenitore sono disponibili più avanti nel Passaggio 6, intitolato "Monitorare le attività".
 
-> [AZURE.TIP]Per altre informazioni su come fornire l'accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso [Parte 1: Informazioni sul modello di firma di accesso condiviso](./../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Per altre informazioni su come fornire l'accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso [Parte 1: Informazioni sul modello di firma di accesso condiviso](./../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md).
 
 ## Passaggio 3: Creare un pool di Batch
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Quando si crea un pool con [CreatePool][net_pool_create], si specificano alcuni parametri, ad esempio il numero di nodi di calcolo, le [dimensioni dei nodi](./../cloud-services/cloud-services-sizes-specs.md) e il [sistema operativo](./../cloud-services/cloud-services-guestos-update-matrix.md) dei nodi.
 
-> [AZURE.IMPORTANT]Vengono effettuati addebiti per le risorse di calcolo in Batch. Per ridurre al minimo i costi, è possibile abbassare `targetDedicated` a 1 prima di eseguire l'esempio.
+> [AZURE.IMPORTANT] Vengono effettuati addebiti per le risorse di calcolo in Batch. Per ridurre al minimo i costi, è possibile abbassare `targetDedicated` a 1 prima di eseguire l'esempio.
 
 Oltre alle proprietà relative al nodo fisico, è possibile specificare una proprietà [StartTask][net_pool_starttask] per il pool. La proprietà StartTask verrà eseguita in ogni nodo durante l'aggiunta al pool e a ogni riavvio del nodo. StartTask è particolarmente utile per l'installazione di applicazioni nei nodi di calcolo prima dell'esecuzione di attività. Ad esempio, se le attività elaborano dati usando gli script Python, è possibile usare StartTask per installare Python sui nodi di calcolo.
 
@@ -296,7 +296,7 @@ In questa applicazione di esempio, StartTask copia i file scaricati dal servizio
 
 Da notare nel frammento di codice precedente è anche l'uso di due variabili di ambiente nella proprietà *CommandLine* di StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` e `%AZ_BATCH_NODE_SHARED_DIR%`. Ogni nodo di calcolo in un pool di Batch viene configurato automaticamente con alcune variabili di ambiente specifiche per Batch ed eventuali processi eseguiti da un'attività possono accedere a queste variabili di ambiente.
 
-> [AZURE.TIP]Per altre informazioni sulle variabili di ambiente disponibili nei nodi di calcolo in un pool di Batch, oltre a informazioni sulle directory di lavoro delle attività, vedere le sezioni **Impostazioni di ambiente per le attività** e **File e directory** in [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md).
+> [AZURE.TIP] Per altre informazioni sulle variabili di ambiente disponibili nei nodi di calcolo in un pool di Batch, oltre a informazioni sulle directory di lavoro delle attività, vedere le sezioni **Impostazioni di ambiente per le attività** e **File e directory** in [Cenni preliminari sulle funzionalità di Azure Batch](batch-api-basics.md).
 
 ## Passaggio 4: Creare un processo di Batch
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]Quando si accede a variabili di ambiente come `%AZ_BATCH_NODE_SHARED_DIR%` o si esegue un'applicazione non trovata in `PATH` del nodo, le righe di comando dell'attività devono avere il prefisso `cmd /c` per eseguire esplicitamente l'interprete dei comandi e indicare che è necessario terminare il processo dopo l'esecuzione del comando. Questo requisito è superfluo se le attività eseguono un'applicazione in PATH del nodo, ad esempio *robocopy.exe* o *powershell.exe*, e se non vengono usate variabili di ambiente.
+> [AZURE.IMPORTANT] Quando si accede a variabili di ambiente come `%AZ_BATCH_NODE_SHARED_DIR%` o si esegue un'applicazione non trovata in `PATH` del nodo, le righe di comando dell'attività devono avere il prefisso `cmd /c` per eseguire esplicitamente l'interprete dei comandi e indicare che è necessario terminare il processo dopo l'esecuzione del comando. Questo requisito è superfluo se le attività eseguono un'applicazione in PATH del nodo, ad esempio *robocopy.exe* o *powershell.exe*, e se non vengono usate variabili di ambiente.
 
 Nel ciclo `foreach` del frammento di codice precedente è possibile notare che la riga di comando per l'attività è costruita in modo che tre argomenti della riga di comando vengano passati a *TaskApplication.exe*:
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]La chiamata a `DownloadBlobsFromContainerAsync` nell'applicazione *DotNetTutorial* specifica che i file devono essere scaricati nella cartella `%TEMP%`. È possibile modificare questo percorso di output.
+> [AZURE.NOTE] La chiamata a `DownloadBlobsFromContainerAsync` nell'applicazione *DotNetTutorial* specifica che i file devono essere scaricati nella cartella `%TEMP%`. È possibile modificare questo percorso di output.
 
 ## Passaggio 8: Eliminare i contenitori
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]Occorre ricordare che vengono effettuati addebiti per le risorse di calcolo e che l'eliminazione di pool inutilizzati consente di ridurre al minimo i costi. Si noti che l'eliminazione di un pool comporta l'eliminazione di tutti i nodi di calcolo in quel pool e che eventuali dati disponibili nei nodi non potranno essere più recuperati dopo l'eliminazione del pool.
+> [AZURE.IMPORTANT] Occorre ricordare che vengono effettuati addebiti per le risorse di calcolo e che l'eliminazione di pool inutilizzati consente di ridurre al minimo i costi. Si noti che l'eliminazione di un pool comporta l'eliminazione di tutti i nodi di calcolo in quel pool e che eventuali dati disponibili nei nodi non potranno essere più recuperati dopo l'eliminazione del pool.
 
 ## Eseguire l'esempio *DotNetTutorial*
 
@@ -680,4 +680,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

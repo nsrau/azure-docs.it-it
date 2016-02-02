@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come usare l'archiviazione coda da .NET | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione code per creare ed eliminare code e per inserire, visualizzare, ottenere ed eliminare messaggi della coda."
+	pageTitle="Introduzione all'archiviazione code di Azure con .NET | Microsoft Azure"
+	description="Inviare e ricevere messaggi in modo asincrono tra i componenti dell'applicazione usando l'archiviazione code di Azure. Introduzione a semplici operazioni di archiviazione code, incluse le operazioni di creazione ed eliminazione di code, nonché aggiunta, lettura ed eliminazione di messaggi in coda."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# Come usare l'archiviazione di accodamento da .NET
+# Introduzione all'archiviazione code di Azure con .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## Panoramica
 
-Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione di accodamento di Azure. Negli esempi, scritti in codice C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
+Archiviazione code di Azure è un servizio che fornisce code di messaggi nel cloud. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, per poter essere scalati in modo indipendente. L'archiviazione di accodamento offre una soluzione di messaggistica affidabile per la comunicazione asincrona tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Archiviazione code supporta anche la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
+
+Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione code di Azure. Gli scenari presentati includono creazione ed eliminazione di code, nonché aggiunta, lettura ed eliminazione di messaggi nella coda.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

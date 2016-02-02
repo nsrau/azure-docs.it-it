@@ -18,7 +18,7 @@ Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto neces
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di Azure][].
+1.  Accedere al [portale di Azure classico][].
 
 2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
@@ -28,17 +28,17 @@ Per creare uno spazio dei nomi del servizio:
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
-	 >[AZURE.IMPORTANT]selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+	 >[AZURE.IMPORTANT] selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta OK. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-Sarà necessario attendere qualche istante affinché venga attivato lo spazio dei nomi creato che verrà quindi visualizzato nel portale di Azure. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
+Dopo qualche istante, lo spazio dei nomi creato viene attivato e quindi visualizzato nel portale. Prima di continuare, attendere che lo stato dello spazio dei nomi sia **Attivo**.
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere questi valori nel portale di Azure.
+Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi. È possibile ottenere queste credenziali nel [portale di Azure classico][].
 
 ###Per ottenere le credenziali di gestione dal portale
 
@@ -54,6 +54,6 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
     
 5.  Prendere nota del valore della chiave oppure copiarlo negli Appunti.
 
-  [portale di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

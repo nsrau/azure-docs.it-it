@@ -26,7 +26,7 @@ In questa esercitazione viene illustrato come aggiungere un servizio back-end ba
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express per Windows]
 
 ## Creare un nuovo servizio mobile
@@ -68,7 +68,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
    	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
->[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
+>[AZURE.NOTE] È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
 
 ## Passaggi successivi
 Ora che è stata completata la Guida introduttiva, è possibile acquisire familiarità con il [client di Servizi Mobili per HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
@@ -89,4 +89,4 @@ Ora che è stata completata la Guida introduttiva, è possibile acquisire famili
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

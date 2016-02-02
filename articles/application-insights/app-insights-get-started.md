@@ -29,7 +29,7 @@ Al momento sono supportate app iOS, Android e Windows, applicazioni Web J2EE e A
 
 Inizializzazione con qualsiasi combinazione, in qualsiasi ordine, dei punti di ingresso che vengono visualizzati nel diagramma seguente. Seguire il percorso più adatto alle proprie esigenze.
 
-Con Application Insights all'app viene aggiunto un SDK che invia dati di telemetria al [portale di Azure](http://portal.azure.com). Sono disponibili diversi SDK per le numerose combinazioni di piattaforme, linguaggi e IDE supportati.
+Con Application Insights all'app viene aggiunto un SDK che invia dati di telemetria al [portale di Azure](https://portal.azure.com). Sono disponibili diversi SDK per le numerose combinazioni di piattaforme, linguaggi e IDE supportati.
 
 È necessario un account in [Microsoft Azure](http://azure.com). Oltre a un account di gruppo disponibile tramite l'organizzazione, è possibile ottenerne uno con pagamento in base al consumo. Application Insights prevede un livello gratuito, pertanto non sarà necessario pagare fino a quando l'applicazione non verrà usata di frequente. Esaminare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -74,4 +74,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

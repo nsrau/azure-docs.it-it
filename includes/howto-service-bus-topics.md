@@ -16,7 +16,7 @@ Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Az
 
 Per creare uno spazio dei nomi del servizio:
 
-1.  Accedere al [portale di Azure][].
+1.  Accedere al [portale di Azure classico][].
 
 2.  Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
 
@@ -26,7 +26,7 @@ Per creare uno spazio dei nomi del servizio:
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
-	> [AZURE.IMPORTANT]selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+	> [AZURE.IMPORTANT] selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi del servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -47,7 +47,7 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
 4.  Nella finestra di dialogo **Accedi a informazioni di connessione** individuare la stringa di connessione che contiene la chiave della firma di accesso condiviso e il nome della chiave. Prendere nota di questi valori, in quanto dovranno essere usati in seguito per eseguire operazioni con lo spazio dei nomi.
 
 
-  [portale di Azure]: http://manage.windowsazure.com
+  [portale di Azure classico]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
@@ -55,4 +55,4 @@ Per poter eseguire le operazioni di gestione nel nuovo spazio dei nomi, ad esemp
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

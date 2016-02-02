@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -18,9 +18,7 @@
 
 #Creare un'app Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -32,11 +30,11 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] o versione successiva.
 
->[AZURE.NOTE]Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -74,11 +72,9 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 
 ##Passaggi successivi
 
-* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) 
-  <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione all'app](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) 
-  <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push all'app](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -87,4 +83,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Servizi multimediali offre un servizio per la distribuzione di licenze Microsoft
 
 A partire da Media Services .NET SDK versione 3.5.2, Servizi multimediali consente anche di configurare il modello di licenza Widevine e ottenere licenze Widevine.
 
->[AZURE.NOTE]Servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure è in anteprima. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+>[AZURE.NOTE]Servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure è in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
@@ -631,6 +631,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Configurare i pacchetti Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Annuncio dell'anteprima pubblica dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Annuncio dell'anteprima pubblica dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,3 +1,4 @@
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF" target="_blank">attivare i benefici della sottoscrizione MSDN</a> o <a href="/pricing/free-trial/?WT.mc_id=A85619ABF" target="_blank">iscriversi per una versione di valutazione gratuita</a>.
+> [AZURE.NOTE]
+Per completare l'esercitazione, è necessario un account Azure. È possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o [iscriversi per una valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

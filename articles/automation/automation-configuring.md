@@ -25,7 +25,7 @@ Al primo avvio di Automazione di Azure sarà necessario creare almeno un account
 
 Le risorse di Automazione per ogni account di Automazione sono associate a una singola area di Azure, ma gli account di Automazione possono gestire servizi di Azure in qualsiasi area. Il motivo principale per cui creare gli account di Automazione in aree diverse è la presenza di criteri che richiedono dati e risorse per essere isolati in un'area specifica.
 
->[AZURE.NOTE]Gli account di automazione e le risorse che contengono, creati con il portale di anteprima di Azure, non sono accessibili nel portale di Azure. Se si vogliono gestire questi account o le relative risorse con Windows PowerShell, è necessario usare i moduli di Gestione risorse di Azure.
+>[AZURE.NOTE] Gli account di automazione e le risorse che contengono, creati con il portale di anteprima di Azure, non sono accessibili nel portale di Azure. Se si vogliono gestire questi account o le relative risorse con Windows PowerShell, è necessario usare i moduli di Gestione risorse di Azure.
 >
 >Gli account di automazione creati con il portale di Azure possono essere gestiti da entrambi i portali e set di cmdlet. Una volta creato l'account, non fa alcuna differenza come si creano e gestiscono le risorse all'interno dell'account. Se si prevede di continuare a usare il portale di Azure, è necessario usarlo invece del portale di anteprima di Azure per creare gli account di automazione.
 
@@ -37,7 +37,7 @@ Un account di Automazione può essere sospeso se si verifica un problema con l'a
 
 Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.microsoft.com/library/azure/jj554330.aspx), è necessario eseguire l'autenticazione della sottoscrizione di Azure. In Automazione di Azure questa operazione viene in genere effettuata con un account aziendale in Azure Active Directory configurato come amministratore della sottoscrizione. È quindi possibile creare le [credenziali](http://msdn.microsoft.com/library/dn940015.aspx) di questo account utente e usarle con [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) nel Runbook.
 
->[AZURE.NOTE]Non è possibile usare gli account Microsoft, precedentemente noti come LiveID, con Automazione di Azure.
+>[AZURE.NOTE] Non è possibile usare gli account Microsoft, precedentemente noti come LiveID, con Automazione di Azure.
 
 ## Per creare un nuovo utente di Azure Active Directory per gestire una sottoscrizione di Azure
 
@@ -62,7 +62,7 @@ Un account di automazione è un contenitore per le risorse di Automazione di Azu
 
 3. Nel pannello **Aggiungi un nuovo account di automazione** configurare i dettagli dell'account di automazione.
 
->[AZURE.NOTE]Quando si crea un account di automazione tramite il portale di anteprima di Azure, l'account e tutte le risorse associate non vengono riportati nel portale di gestione classico.
+>[AZURE.NOTE] Quando si crea un account di automazione tramite il portale di anteprima di Azure, l'account e tutte le risorse associate non vengono riportati nel portale di gestione classico.
 
 Ecco l'elenco dei parametri da configurare:
 
@@ -76,7 +76,7 @@ Ecco l'elenco dei parametri da configurare:
 
 ![Creazione di un account](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]Quando un account di automazione creato con il portale di gestione classico viene [spostato in un gruppo di risorse diverso](../resource-group-move-resources.md) usando il portale di anteprima di Azure, l'account di automazione non sarà più disponibile nel portale di Azure classico, perché in quest'ultimo gli account di Gestione risorse di Azure non sono supportati.
+>[AZURE.NOTE] Quando un account di automazione creato con il portale di gestione classico viene [spostato in un gruppo di risorse diverso](../resource-group-move-resources.md) usando il portale di anteprima di Azure, l'account di automazione non sarà più disponibile nel portale di Azure classico, perché in quest'ultimo gli account di Gestione risorse di Azure non sono supportati.
 
 
 
@@ -91,7 +91,7 @@ Ecco l'elenco dei parametri da configurare:
 È necessario ripetere queste righe dopo ogni [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) del Runbook. Se il Runbook è sospeso e quindi ripreso da un altro thread di lavoro, sarà necessario eseguire di nuovo l'autenticazione.
 
 ## Articoli correlati
-- [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

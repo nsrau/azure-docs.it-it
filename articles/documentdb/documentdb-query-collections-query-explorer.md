@@ -18,7 +18,7 @@
 
 # Creare, modificare ed eseguire query SQL in una raccolta di DocumentDB tramite Esplora query #
 
-Questo articolo offre una panoramica di Esplora query per [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di Microsoft Azure che consente di creare, modificare ed eseguire query in una raccolta di DocumentDB.
+Questo articolo offre una panoramica di Esplora query per [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Microsoft Azure che consente di creare, modificare ed eseguire query in una raccolta di DocumentDB.
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -78,4 +78,4 @@ Esplora query consente di creare, modificare ed eseguire query in modo semplice 
 - Per altre informazioni sulla grammatica SQL DocumentDB supportata in Esplora query, fare clic [qui](documentdb-sql-query.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
