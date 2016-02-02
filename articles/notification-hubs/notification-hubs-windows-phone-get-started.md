@@ -52,6 +52,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 L'hub viene creato e configurato per l'invio di notifiche autenticate per Windows Phone.
 
 > [AZURE.NOTE] In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. Hub di notifica supporta la [modalità di autenticazione con Servizio notifica push Microsoft ](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) consentendo di caricare il certificato.
+<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##Connettere l'app all'hub di notifica
 
@@ -198,7 +199,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 <!-- URLs. -->
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[modalità con autenticazione del Servizio di notifica Push di Microsoft]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-send-breaking-news.md
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx

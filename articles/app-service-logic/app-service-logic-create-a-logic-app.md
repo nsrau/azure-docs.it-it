@@ -163,7 +163,7 @@ Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un
 
 5. Fare clic sul segno di spunta verde per salvare le impostazioni del connettore.
 
-5. Dopo avere completato la progettazione, fare clic su **Visualizzazione codice** nella parte superiore sinistra della finestra di progettazione e notare che si tratta del codice JSON che definisce il flusso di lavoro appena creato nella finestra di progettazione. Questo codice verrà illustrato in modo più approfondito nel [prossimo argomento][Use logic app features].
+5. Dopo avere completato la progettazione, fare clic su **Visualizzazione codice** nella parte superiore sinistra della finestra di progettazione e notare che si tratta del codice JSON che definisce il flusso di lavoro appena creato nella finestra di progettazione. Questo codice verrà illustrato in modo più approfondito nel [prossimo argomento](Use logic app features).
 
 6. Fare clic sul pulsante **OK** nella parte inferiore dello schermo, quindi sul pulsante **Crea**.
 
@@ -188,4 +188,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0128_2016-->
