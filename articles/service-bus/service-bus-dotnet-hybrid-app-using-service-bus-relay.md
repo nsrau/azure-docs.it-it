@@ -89,7 +89,7 @@ Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitu
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo.
 
-    > [AZURE.IMPORTANT]selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+    > [AZURE.IMPORTANT] selezionare la *stessa area* che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6.	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -402,7 +402,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 
 ## Preparazione dell'applicazione per la distribuzione in Azure
 
-È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][executionmodels]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
+È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][executionmodels]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
 
 Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere alla soluzione un progetto di distribuzione del progetto servizio cloud. Il progetto di distribuzione contiene le informazioni di configurazione necessarie per la corretta esecuzione dell'applicazione nel cloud.
 
@@ -434,7 +434,7 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
 	![][24]
 
-6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi del servizio e *yourKey* con la chiave di firma di accesso condiviso. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
+6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi servizio e *yourKey* con la chiave SAS. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
 
             namespace ProductsWeb.Controllers
             {
@@ -610,4 +610,4 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

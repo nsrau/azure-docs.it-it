@@ -13,11 +13,11 @@
 La configurazione di Backup di Azure è estremamente semplice e i video procedurali seguenti forniscono informazioni utili per iniziare.
 
 ## Passaggio 1: Ottenere una sottoscrizione di Azure
-- Se non è disponibile una sottoscrizione di Azure, è possibile iniziare con una versione di valutazione gratuita che consente di accedere a qualsiasi servizio di Azure. Per altre informazioni, visitare il collegamento seguente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial).
+- Se non è disponibile una sottoscrizione di Azure, è possibile iniziare con una versione di valutazione gratuita che consente di accedere a qualsiasi servizio di Azure. Per altre informazioni, visitare il collegamento seguente [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/).
 - Se è disponibile una sottoscrizione di Azure, è possibile ignorare questo passaggio.
 
 ## Passaggio 2: Configurare il servizio Backup di Azure
-Esaminare i passaggi illustrati in questo video [Introduzione a Backup di Azure 1 di 3 - Configurare un insieme di credenziali di backup in Azure](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) per:
+Esaminare i passaggi illustrati in questo video [Introduzione a Backup di Azure 1 di 3 - Configurare un insieme di credenziali di backup in Azure](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) per:
 
 - Creare un insieme di credenziali per il backup
 - Scaricare le "credenziali dell'insieme di credenziali"
@@ -26,7 +26,7 @@ Esaminare i passaggi illustrati in questo video [Introduzione a Backup di Azure 
 > [AZURE.VIDEO getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure]
 
 ## Passaggio 3: Preparare il computer locale
-Esaminare i passaggi illustrati nel video [Introduzione a Backup di Azure 2 di 3: preparare il server di produzione per Backup di Azure](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) per:
+Esaminare i passaggi illustrati nel video [Introduzione a Backup di Azure 2 di 3: preparare il server di produzione per Backup di Azure](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) per:
 
 - Installare l'agente di Backup di Azure sul server Windows Server/Client o DPM.
 - Registrare il computer con l'insieme di credenziali di backup
@@ -34,7 +34,7 @@ Esaminare i passaggi illustrati nel video [Introduzione a Backup di Azure 2 di 3
 > [AZURE.VIDEO getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup]
 
 ## Passaggio 4: Eseguire il backup e il ripristino dei dati
-Esaminare i passaggi illustrati in questo video[Introduzione a Backup di Azure 3 di 3 - Avviare il backup del server di produzione](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) per:
+Esaminare i passaggi illustrati in questo video[Introduzione a Backup di Azure 3 di 3 - Avviare il backup del server di produzione](https://azure.microsoft.com/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) per:
 
 - Eseguire il backup dei dati da un server
 - Ripristinare i dati sottoposti a backup da Azure
@@ -46,4 +46,4 @@ Esaminare i passaggi illustrati in questo video[Introduzione a Backup di Azure 3
 - [Backup di Windows Server](backup-azure-backup-windows-server.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

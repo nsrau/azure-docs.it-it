@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Amministrare la directory di Azure AD | Microsoft Azure"
-	description="Argomento che illustra il significato di tenant di Azure AD e come gestire una directory di Azure AD."
+	description="Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Amministrare la directory di Azure AD
@@ -27,7 +27,7 @@ Nell'area di lavoro abilitata per il cloud, un tenant può essere definito come 
 
 Ogni directory di Azure AD è distinta e separata dalle altre directory di Azure AD. Proprio come un edificio di uffici è un asset sicuro specifico solo dell'organizzazione che vi ha sede, anche una directory di Azure AD è stata progettata per essere un asset sicuro usato solo dall'organizzazione proprietaria. L'architettura di Azure AD isola le informazioni relative all'identità e i dati dei clienti evitando che si combinino con altri. Questo significa che gli utenti e gli amministratori di una directory di Azure AD non possono accedere accidentalmente o con dolo ai dati presenti in un'altra directory.
 
-![][1]
+![Gestire Azure Active Directory][1]
 
 ## Come è possibile ottenere una directory di Azure AD?
 
@@ -40,7 +40,8 @@ Azure AD fornisce le principali funzionalità di gestione delle identità e di d
 
 Quando si effettua l'iscrizione a uno di questi servizi cloud Microsoft, si ottiene una directory di Azure AD. È possibile creare altre directory, se necessario. Ad esempio, è possibile usare la prima directory come directory di produzione e quindi crearne un'altra per le attività di testing o di gestione temporanea.
 
-> [AZURE.NOTE]Dopo aver effettuato l'iscrizione al primo servizio, è consigliabile usare lo stesso account amministratore associato all'organizzazione se si effettua l'iscrizione ad altri servizi cloud Microsoft.
+> [AZURE.NOTE]
+Dopo aver effettuato l'iscrizione al primo servizio, è consigliabile usare lo stesso account amministratore associato all'organizzazione se si effettua l'iscrizione ad altri servizi cloud Microsoft.
 
 La prima volta che si effettua l'iscrizione a un servizio cloud Microsoft, viene chiesto di fornire i dettagli dell'organizzazione e la registrazione del nome di dominio Internet. Queste informazioni vengono quindi usate per creare una nuova istanza di directory di Azure AD per l'organizzazione. Questa stessa directory viene usata per autenticare i tentativi di accesso quando si sottoscrivono più servizi cloud Microsoft.
 
@@ -115,7 +116,8 @@ Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directo
 ## Come è possibile eliminare una directory di Azure AD?
 Un amministratore globale può eliminare una directory di Azure AD dal portale. Quando una directory viene eliminata, vengono eliminate anche tutte le risorse in essa contenute. Prima di procedere all'eliminazione, è quindi opportuno verificare che la directory non sia più necessaria.
 
-> [AZURE.NOTE]Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
+> [AZURE.NOTE]
+Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 
 ### Condizioni da soddisfare per eliminare una directory di Azure AD
 
@@ -127,7 +129,8 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 - La directory non può contenere applicazioni. Tutte le applicazioni devono essere eliminate prima che possa essere eliminata la directory.
 - Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory. Per associare la sottoscrizione a una directory diversa, accedere al portale di gestione di Azure e fare clic su **Impostazioni** nel pannello di navigazione a sinistra. Nella parte inferiore della pagina **Sottoscrizioni** fare quindi clic su **Modifica directory**. Per altre informazioni sulle sottoscrizioni Azure, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
+    > [AZURE.NOTE]
+    Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 
 - Alla directory non possono essere collegati provider di Multi-Factor Authentication.
 
@@ -145,4 +148,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

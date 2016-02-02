@@ -62,7 +62,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 	 
 	![Nome di data factory non disponibile][image-data-factory-name-not-available]
 	
-	> [AZURE.NOTE]Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+	> [AZURE.NOTE] Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
 9. Fare clic sull'hub **NOTIFICHE** a sinistra e cercare le notifiche del processo di creazione. Fare clic su **X** per chiudere il pannello **NOTIFICHE**, se è aperto.
 10. Al termine della creazione, il pannello **DATA FACTORY** avrà un aspetto simile al seguente.
@@ -79,7 +79,6 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 
 	![Riquadro Creare e distribuire][image-author-deploy-tile]
 
-	Per una panoramica dettagliata dell'editor di Data factory, vedere l'argomento [Editor di Data factory di Azure][data-factory-editor].
 	 
 5. Nell'**Editor**, fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure.
 
@@ -290,7 +289,7 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 5. Chiudere quindi il pannello dell'**editor** facendo clic su **X**. Fare di nuovo clic su **X** per chiudere il pannello ADFTutorialDataFactory con la barra degli strumenti e la visualizzazione ad albero. Se viene visualizzato un messaggio simile a **Eventuali modifiche non salvate verranno rimosse**, fare clic su **OK**.
 6. Dovrebbe essere visualizzato di nuovo il pannello **DATA FACTORY** per **ADFTutorialDataFactory**.
 
-**Congratulazioni**. Data factory di Azure, i servizi collegati, le tabelle e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.
+**Congratulazioni.** Data factory di Azure, i servizi collegati, le tabelle e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.
  
 ### Visualizzare la data factory in una vista diagramma 
 1. Nel pannello **DATA FACTORY** fare clic su **Diagramma**.
@@ -398,7 +397,6 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -461,4 +459,4 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

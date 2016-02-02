@@ -26,7 +26,7 @@
 
 Questo articolo consente di iniziare a compilare la prima Data factory di Azure.
 
-> [AZURE.NOTE]Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
+> [AZURE.NOTE] Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md).
 
 ## Panoramica dell'esercitazione
 Questa esercitazione illustra i passaggi necessari per rendere operativa la prima data factory. Verrà creata una pipeline nella data factory che trasforma/elabora i dati di input per generare dati di output.
@@ -34,7 +34,7 @@ Questa esercitazione illustra i passaggi necessari per rendere operativa la prim
 ## Prerequisiti
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
-1.	**Sottoscrizione di Azure**: se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
+1.	**Sottoscrizione di Azure**: se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
 
 2.	**Archiviazione di Azure**: in questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non è disponibile un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -65,7 +65,7 @@ Quando il file viene elaborato dalla pipeline con attività Hive di HDInsight, l
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-Dalle righe di esempio mostrate sopra, la prima (con 2014-01-01) verrà scritta nel file 000000_0 nella cartella month=1. Allo stesso modo, la seconda verrà scritta nel file nella cartella month=2 e la terza verrà scritta nel file nella cartella month=3.
+Dalle righe di esempio mostrate sopra, la prima (con 2014-01-01) verrà scritta nel file 000000\_0 nella cartella month=1. Allo stesso modo, la seconda verrà scritta nel file nella cartella month=2 e la terza verrà scritta nel file nella cartella month=3.
 
 ## Caricare i file nell'archiviazione di Azure per l'esercitazione
 Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure con i file necessari per l'esercitazione.
@@ -77,7 +77,7 @@ In questa sezione si dovrà:
 
 ### Creare file di script HQL 
 
-1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.  
+1. Avviare il **Blocco note** e incollare lo script HQL seguente. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**. Scegliere **Salva con nome** dal menu **File**. Passare alla cartella **C:\\adfgetstarted** sul disco rigido. Selezionare **Tutti i file (*.*)** per il campo **Tipo file**. Immettere **partitionweblogs.hql** in **Nome file**. Verificare che il campo **Codifica** nella parte inferiore della finestra di dialogo sia impostato su **ANSI**. In caso contrario, impostarlo su **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@ In questa sezione si dovrà:
 		FROM WebLogsRaw
 
 ### Creare un file di input di esempio
-Usando il Blocco note, creare un file denominato **input.log** in **C:\adfgetstarted** con il contenuto seguente:
+Usando il Blocco note, creare un file denominato **input.log** in **C:\\adfgetstarted** con il contenuto seguente:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -185,7 +185,7 @@ Usando il Blocco note, creare un file denominato **input.log** in **C:\adfgetsta
 
 ### Caricare file di input e file HQL nell'archiviazione BLOB di Azure
 
-Per eseguire questa operazione è possibile usare strumenti quali Azure Storage Explorer o CloudXPlorer di ClumsyLeaf Software. Questa sezione fornisce istruzioni sull'uso dello strumento AzCopy.
+Per eseguire questa operazione è possibile usare strumenti quali [Microsoft Azure Storage Explorer](http://storageexplorer.com/) o CloudXPlorer di ClumsyLeaf Software. Questa sezione fornisce istruzioni sull'uso dello strumento AzCopy.
 	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
 	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
@@ -193,11 +193,11 @@ Per eseguire questa operazione è possibile usare strumenti quali Azure Storage 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Passare alla cartella C:\adfgetstarted ed eseguire il comando seguente per caricare il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
+	3. Passare alla cartella C:\\adfgetstarted ed eseguire il comando seguente per caricare il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]Il comando precedente crea un contenitore denominato **adfgetstarted** nell'archiviazione BLOB di Azure e copia il file **partitionweblogs.hql** dall'unità locale alla cartella **inputdata** nel contenitore.
+		> [AZURE.NOTE] Il comando precedente crea un contenitore denominato **adfgetstarted** nell'archiviazione BLOB di Azure e copia il file **partitionweblogs.hql** dall'unità locale alla cartella **inputdata** nel contenitore.
 	
 	5. Al termine del caricamento del file, verrà visualizzato un output simile al seguente da AzCopy.
 	
@@ -222,4 +222,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - Visual Studio
 - Modelli di Gestione risorse di Azure 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

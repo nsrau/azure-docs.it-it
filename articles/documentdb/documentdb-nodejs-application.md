@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
@@ -44,7 +44,7 @@ Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicem
 
 ## <a name="_Toc395783176"></a>Prerequisiti
 
-> [AZURE.TIP]Questa esercitazione Node.js presuppone già una certa esperienza nell'uso di Node.js e di Siti Web di Azure.
+> [AZURE.TIP] Questa esercitazione Node.js presuppone già una certa esperienza nell'uso di Node.js e di Siti Web di Azure.
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili gli elementi seguenti:
 
@@ -183,7 +183,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection accetta un parametro requestOptions facoltativo che può essere usato per specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore requestOptions.offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection accetta un parametro requestOptions facoltativo che può essere usato per specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore requestOptions.offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
 		
 3. Salvare e chiudere il file **docdbUtils.js**.
 
@@ -396,7 +396,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		
 		module.exports = config;
 
-3. Nel file **config.js** aggiornare i valori HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di Microsoft Azure](http://portal.azure.com):
+3. Nel file **config.js** aggiornare i valori HOST e AUTH\_KEY usando i valori presenti nel pannello Chiavi del proprio account DocumentDB nel [portale di Microsoft Azure](https://portal.azure.com):
 
 4. Salvare e chiudere il file **config.js**.
  
@@ -569,4 +569,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](https://
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

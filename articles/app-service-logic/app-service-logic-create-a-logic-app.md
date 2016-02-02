@@ -40,7 +40,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [Dropb
 
 1. Accedere al portale di Azure.
 
-2. Fare clic su [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) nella schermata iniziale e cercare Twitter oppure [fare clic qui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2).
+2. Fare clic su [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) nella schermata iniziale e cercare Twitter oppure [fare clic qui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/).
 
 3. Selezionare **Twitter Connector** e fare clic su **Crea**. Viene visualizzata una panoramica di tutte le impostazioni. È possibile mantenere il nome **Twitter Connector**.
 4. Selezionare **Impostazioni pacchetto**. Qui si dovranno immettere le informazioni dall'applicazione Twitter. È possibile configurare un'applicazione gratuita in tre passaggi:
@@ -70,7 +70,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [Dropb
 
 10. Fare clic su **Create**. L'operazione di provisioning può richiedere uno o due minuti.
 
-11. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Avviare l'app per la logica
 
@@ -122,7 +122,7 @@ Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibi
 
 	![Azioni](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]Il pulsante **Authorize** usa la sicurezza OAUTH per connettersi a servizi SaaS, ad esempio Twitter. Altre informazioni su OAUTH sono disponibili nell'articolo sulla [Sicurezza OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] Il pulsante **Authorize** usa la sicurezza OAUTH per connettersi a servizi SaaS, ad esempio Twitter. Altre informazioni su OAUTH sono disponibili nell'articolo sulla [Sicurezza OAUTH](app-service-logic-oauth-security.md).
 
 3. Fare clic su **Ricerca tweet**, quindi in **Specificare una query** digitare ad esempio `#MicrosoftAzure` e fare clic sul segno di spunta verde.
 
@@ -163,7 +163,7 @@ Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un
 
 5. Fare clic sul segno di spunta verde per salvare le impostazioni del connettore.
 
-5. Dopo avere completato la progettazione, fare clic su **Visualizzazione codice** nella parte superiore sinistra della finestra di progettazione e notare che si tratta del codice JSON che definisce il flusso di lavoro appena creato nella finestra di progettazione. Questo codice verrà illustrato in modo più approfondito nel [prossimo argomento][Use logic app features].
+5. Dopo avere completato la progettazione, fare clic su **Visualizzazione codice** nella parte superiore sinistra della finestra di progettazione e notare che si tratta del codice JSON che definisce il flusso di lavoro appena creato nella finestra di progettazione. Questo codice verrà illustrato in modo più approfondito nel [prossimo argomento](Use logic app features).
 
 6. Fare clic sul pulsante **OK** nella parte inferiore dello schermo, quindi sul pulsante **Crea**.
 
@@ -188,4 +188,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0128_2016-->

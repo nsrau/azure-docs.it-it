@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/13/2016"
+   	ms.date="01/21/2016"
    	ms.author="nitinme"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop con Hive in HDInsight in Linux
@@ -25,19 +25,19 @@
 
 Questo documento fornisce un'introduzione rapida all'uso di Azure HDInsight in Linux e illustra come creare un cluster Hadoop basato su Linux, aprire l'interfaccia utente Web di Ambari e quindi eseguire una query Hive usando la visualizzazione Hive di Ambari.
 
-> [AZURE.NOTE]Se non si ha esperienza di Hadoop e dell'uso dei Big Data, sono disponibili altre informazioni su [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) e [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). Per informazioni sull'abilitazione di Hadoop in Azure tramite HDInsight, vedere [Introduzione a Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
+> [AZURE.NOTE] Se non si ha esperienza di Hadoop e dell'uso dei Big Data, sono disponibili altre informazioni su [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) e [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). Per informazioni sull'abilitazione di Hadoop in Azure tramite HDInsight, vedere [Introduzione a Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 ## Prerequisiti
 
 Prima di iniziare questa esercitazione Linux per Hadoop, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="provision"></a>Effettuare il provisioning di un cluster HDInsight in Linux
 
 Quando si esegue il provisioning di un cluster, vengono create le risorse di calcolo di Azure che includono servizi e risorse Hadoop. In questa sezione si effettua il provisioning di un cluster HDInsight versione 3.2 contenente Hadoop versione 2.2. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per informazioni dettagliate sulla creazione di un cluster HDInsight, vedere [Effettuare il provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision].
 
->[AZURE.NOTE]È inoltre possibile creare cluster Hadoop in esecuzione nel sistema operativo Windows Server. Per istruzioni, vedere [Introduzione ad HDInsight in Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
+>[AZURE.NOTE]  È inoltre possibile creare cluster Hadoop in esecuzione nel sistema operativo Windows Server. Per istruzioni, vedere [Introduzione ad HDInsight in Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
 Per creare un nuovo cluster, seguire questa procedura.
 
@@ -54,13 +54,13 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 5. Fare clic su **Gruppo di risorse** per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile fare clic su **Crea nuovo** e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
-	> [AZURE.NOTE]Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
+	> [AZURE.NOTE] Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È inoltre necessario immettere un **SSH Username**. Per il **Tipo di autenticazione SSH**, fare clic su **PASSWORD** e specificare una password per l'utente SSH. Fare clic su **Seleziona** in basso per salvare la configurazione delle credenziali.
+6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È inoltre necessario immettere un **Nome utente SSH**. Per il **Tipo di autenticazione SSH**, fare clic su **PASSWORD** e specificare una password per l'utente SSH. Fare clic su **Seleziona** in basso per salvare la configurazione delle credenziali.
 
 	![Fornire le credenziali del cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Fornire le credenziali del cluster")
 
-    > [AZURE.NOTE]Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH.
+    > [AZURE.NOTE] Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH.
 
 	Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
 
@@ -82,7 +82,7 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
-		> [AZURE.IMPORTANT]La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l’origine dati predefinita devono trovarsi nella stessa area.
+		> [AZURE.IMPORTANT] La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l’origine dati predefinita devono trovarsi nella stessa area.
 
 	Fare clic su **Seleziona** per salvare la configurazione dell'origine dati.
 
@@ -90,7 +90,7 @@ Per creare un nuovo cluster, seguire questa procedura.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
     
-    > [AZURE.IMPORTANT]Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+    > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
     >
     > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -102,7 +102,7 @@ Durante il provisioning|Provisioning completato
 ------------------|---------------------
 	![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
+> [AZURE.NOTE] La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
 
 Al termine del provisioning, fare clic sul riquadro per il cluster dalla schermata iniziale per avviare il pannello del cluster.
 
@@ -110,7 +110,7 @@ Al termine del provisioning, fare clic sul riquadro per il cluster dalla scherma
 
 Le visualizzazioni di Ambari forniscono diverse utilità in una pagina Web. Nelle sezioni seguenti si userà la visualizzazione Hive per eseguire query Hive nel cluster HDInsight.
 
-> [AZURE.NOTE]Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Ambari include numerose funzionalità che non verranno illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Ambari include numerose funzionalità che non verranno illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
 
 Per accedere alle visualizzazioni di Ambari dal portale di Azure, selezionare il cluster HDInsight e quindi __Visualizzazioni di Ambari__ nella sezione __Collegamenti rapidi__.
 
@@ -120,7 +120,7 @@ Per passare direttamente ad Ambari, andare a https://CLUSTERNAME.azurehdinsight.
 
 ![Selezione delle visualizzazioni di Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
-> [AZURE.NOTE]Quando si accede ad Ambari, verrà richiesto di eseguire l'autenticazione al sito. Immettere il nome dell'account amministratore (il valore predefinito è `admin`) e la password usati durante la creazione del cluster.
+> [AZURE.NOTE] Quando si accede ad Ambari, verrà richiesto di eseguire l'autenticazione al sito. Immettere il nome dell'account amministratore (il valore predefinito è `admin`) e la password usati durante la creazione del cluster.
 
 Verrà visualizzata una pagina simile alla seguente:
 
@@ -146,11 +146,11 @@ Usare i passaggi seguenti nella visualizzazione Hive per eseguire una query Hive
 	- **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
 	- **SELECT**: seleziona un numero di tutte le righe in cui la colonna t4 include il valore [ERROR].
 
-	>[AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
+	>[AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
 2. Usare il pulsante __Execute__ nella parte inferiore di Query Editor per avviare la query. Il colore diventerà arancione e il testo cambierà in __Stop execution__. Sotto Query Editor verrà visualizzata una sezione __Query Process Results__ che conterrà le informazioni sul processo.
 
-    > [AZURE.IMPORTANT]È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
+    > [AZURE.IMPORTANT] È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
     
 3. Una volta completata la query, la sezione __Query Process Results__ visualizzerà i risultati dell'operazione. Il pulsante __Stop execution__ verrà sostituito da un pulsante __Execute__ verde. La scheda __Results__ conterrà le informazioni seguenti:
 
@@ -159,7 +159,7 @@ Usare i passaggi seguenti nella visualizzazione Hive per eseguire una query Hive
 
     La scheda __Logs__ può essere usata per visualizzare le informazioni sulla registrazione create dal processo, che possono essere utili per la risoluzione di eventuali problemi con una query.
     
-    > [AZURE.TIP]Si noti l'elenco a discesa __Save results__ in alto a sinistra nella sezione __Query Process Results__, che può essere usato per scaricare i risultati o per salvarli nell'archivio HDInsight come file con estensione CSV.
+    > [AZURE.TIP] Si noti l'elenco a discesa __Save results__ in alto a sinistra nella sezione __Query Process Results__, che può essere usato per scaricare i risultati o per salvarli nell'archivio HDInsight come file con estensione CSV.
 
 3. Selezionare le prime quattro righe di questa query, quindi selezionare __Execute__. Si noti che, al termine del processo, non viene visualizzato alcun risultato. Se infatti si usa il pulsante __Execute__ quando parte della query è selezionata, verranno eseguite solo le istruzioni selezionate. In questo caso, la selezione non include l'istruzione finale che recupera le righe dalla tabella. Se si seleziona solo tale riga e si usa __Execute__, verranno visualizzati i risultati previsti.
 
@@ -186,9 +186,9 @@ Usare i passaggi seguenti nella visualizzazione Hive per eseguire una query Hive
     
     Le altre icone sono le seguenti:
     
-	* Settings: l’icona a forma di ingranaggio consente di modificare le impostazioni di Hive, ad esempio `hive.execution.engine` o i parametri di Tez.
-	* Tez: visualizza il grafo aciclico diretto (DAG) usato da Tez per eseguire la query. Se si vuole visualizzare il DAG per le query eseguiti in passato, usare invece __Tez View__.
-	* Notifications: visualizza le notifiche, ad esempio per indicare che la query è stata inviata (“Query has been submitted”) oppure se si verifica un errore durante l’esecuzione di una query.
+    * **Settings**: l'icona a forma di ingranaggio consente di modificare le impostazioni di Hive, ad esempio `hive.execution.engine` o i parametri di Tez.
+    * **Tez**: visualizza il grafo aciclico diretto (DAG) usato da Tez per eseguire la query. Se si vuole visualizzare il DAG per le query eseguiti in passato, usare invece __Tez View__.
+    * **Notifications**: visualizza le notifiche, ad esempio per indicare che la query è stata inviata oppure che si è verificato un errore durante l'esecuzione di una query.
 
 5. Selezionare l'icona __SQL__ per tornare a Query Editor, quindi creare un nuovo foglio di lavoro e immettere la query seguente:
 
@@ -260,4 +260,4 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

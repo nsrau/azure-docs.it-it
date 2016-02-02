@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come usare l'archiviazione BLOB da .NET | Microsoft Azure"
-	description="Informazioni su archiviazione BLOB di Azure e come creare un contenitore e per caricare, scaricare, elencare ed eliminare contenuto di BLOB."
+	pageTitle="Introduzione all'archiviazione BLOB di Azure con .NET | Microsoft Azure"
+	description="Archiviare i dati dei file nel cloud con l'archiviazione BLOB (oggetti) di Azure. Introduzione a semplici operazioni di archiviazione BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 
-# Come usare l'archiviazione BLOB da .NET
+# Introduzione all'archiviazione BLOB di Azure con .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Panoramica
 
-In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. La libreria client di archiviazione è un SDK che semplifica l'interazione con l'API REST dell'archivio BLOB. Gli scenari descritti in questa guida includono **caricamento**, **elenco**, **download** ed **eliminazione** di BLOB e dovrebbero richiedere circa un'ora per il completamento. Per un video introduttivo, guardare la [panoramica dell'archiviazione di Azure in 5 minuti](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) oppure leggere la guida [Introduzione ad Archiviazione di Azure in cinque minuti](storage-getting-started-guide.md).
+Archiviazione BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. Archiviazione BLOB è talvolta detta archiviazione di oggetti.
+
+Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione BLOB di Azure. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di BLOB. Il completamento di questa esercitazione richiede non più di un'ora.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,6 +40,7 @@ In questa guida verranno illustrati diversi scenari comuni di utilizzo del servi
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Dichiarazioni dello spazio dei nomi
+
 Aggiungere le seguenti dichiarazioni dello spazio dei nomi all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di programmazione:
 
     using Microsoft.WindowsAzure;
@@ -292,7 +295,7 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefiss
 ## Scrittura in un blob di Accodamento
 
 Un blob di accodamento è un nuovo tipo di blob, introdotto con la versione 5. x della libreria client di archiviazione di Azure per .NET. Un blob di accodamento è ottimizzato per le operazioni di accodamento, ad esempio la registrazione. Come un blob in blocchi, un blob di accodamento è costituito da blocchi, ma quando si aggiunge un nuovo blocco in un blob di accodamento, viene aggiunto sempre alla fine del blob. È possibile aggiornare o eliminare un blocco esistente in un blob di Accodamento. L'ID di blocco per un blob di accodamento non vengono esposte come in un blob in blocchi.
- 
+
 Ogni blocco di un blob di accodamento può avere dimensioni diverse, con un massimo di 4 MB e un blob di accodamento può includere un massimo di 50.000 blocchi. La dimensione massima di un blob di accodamento è pertanto leggermente superiore a 195 GB (4 MB X 50.000 blocchi).
 
 Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono alcuni dati, per simulare un'operazione di registrazione semplice.
@@ -307,7 +310,7 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist. 
+    //Create the container if it does not already exist.
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -323,7 +326,7 @@ Nell'esempio seguente si crea un nuovo blob di accodamento e vi si aggiungono al
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-        
+
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
@@ -365,4 +368,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

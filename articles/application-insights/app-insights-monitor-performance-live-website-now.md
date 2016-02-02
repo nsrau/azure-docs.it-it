@@ -24,7 +24,7 @@ Application Insights Status Monitor di Visual Studio consente di diagnosticare l
 
 ![grafici di esempio](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP]Sono disponibili articoli separati sulla strumentazione [app web live J2EE](app-insights-java-live.md) e [servizi Cloud di Azure](app-insights-cloudservices.md).
+> [AZURE.TIP] Sono disponibili articoli separati sulla strumentazione [app web live J2EE](app-insights-java-live.md) e [servizi Cloud di Azure](app-insights-cloudservices.md).
 
 
 È possibile scegliere di applicare Application Insights alle applicazioni Web IIS in tre modi:
@@ -99,7 +99,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ## Visualizzare i dati di telemetria relativi alle prestazioni
 
-Accedere al [portale di Azure](http://portal.azure.com), passare ad Application Insights e aprire la risorsa creata.
+Accedere al [portale di Azure](https://portal.azure.com), passare ad Application Insights e aprire la risorsa creata.
 
 ![Scegliere Sfoglia, Application Insights, quindi selezionare l'app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -220,4 +220,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

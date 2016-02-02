@@ -2,13 +2,14 @@
 	pageTitle="Introduzione alle soluzioni preconfigurate IoT | Microsoft Azure"
 	description="Seguire questa esercitazione per apprendere come distribuire una soluzione preconfigurata di Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Questa esercitazione illustra come eseguire il provisioning della soluzione prec
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 
-> [AZURE.NOTE]Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
+> [AZURE.NOTE]  Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 
 ## Effettuare il provisioning della soluzione preconfigurata di monitoraggio remoto
 
@@ -159,4 +160,4 @@ Dopo avere compilato una soluzione preconfigurata funzionante, è possibile pass
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

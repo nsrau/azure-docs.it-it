@@ -42,7 +42,6 @@
 
 [Creazione di una macchina virtuale personalizzata che esegue Linux tramite l'interfaccia della riga di comando di Azure (Azure CLI)](virtual-machines-linux-create-custom.md)
 
-[Creare una distribuzione di più VM utilizzando l'interfaccia della riga di comando di Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Pianificazione
 
@@ -102,7 +101,7 @@
 
 [HPC Pack](virtual-machines-hpcpack-cluster-options.md)
 
-[LAMP stack](virtual-machines-linux-install-lamp-stack.md)
+[LAMP Stack](virtual-machines-linux-install-lamp-stack.md)
 
 <!-- [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx) -->
 
@@ -152,4 +151,4 @@
 
 [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

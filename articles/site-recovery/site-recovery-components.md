@@ -155,4 +155,4 @@ In questo scenario le modifiche della replica differenziale vengono inviate da U
 
 [Preparazione della distribuzione](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

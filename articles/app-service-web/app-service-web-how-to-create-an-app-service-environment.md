@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Come creare un ambiente del servizio app #
@@ -47,7 +47,7 @@ L'esperienza di creazione di un ambiente del servizio app prevede un set di impo
 - Pool di lavoro con 2 risorse di calcolo P1
 - singolo indirizzo IP da usare per IP SSL
 
-Si tratta delle dimensioni minime per un ambiente del servizio app. I pool front-end richiedono risorse P2 o superiori. Assicurarsi di selezionare la sottoscrizione in cui si vuole includere l'ambiente del servizio app. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
+I pool front-end richiedono risorse P2 o superiori. Prestare attenzione quando si seleziona la sottoscrizione in cui si vuole includere l'ambiente del servizio app. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
 
 ![][1]
 
@@ -155,4 +155,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,7 +25,7 @@
 
 L'esercitazione in questo articolo permette di iniziare subito a usare il servizio Data factory di Azure. In questa esercitazione verranno create una data factory di Azure e una pipeline nella data factory per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure.
 
-> [AZURE.NOTE]Per una panoramica dettagliata del servizio Data factory, vedere l'articolo [Introduzione al servizio Data factory di Azure][data-factory-introduction] .
+> [AZURE.NOTE] Per una panoramica dettagliata del servizio Data factory, vedere l'articolo [Introduzione al servizio Data factory di Azure][data-factory-introduction] .
 
 ##Prerequisiti per l'esercitazione
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -88,9 +88,9 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Si noti che, per configurare il firewall per un server di Azure SQL, questo articolo usa il [portale di Azure classico](http://manage.windowsazure.com), non il [portale di Azure](http://portal.azure.com).
+	**Se nel computer è installato SQL Server 2012/2014:** seguire le istruzioni riportate nel [Passaggio 2: Connettersi al database SQL dell'articolo Gestione di database SQL di Azure tramite SQL Server Management Studio][sql-management-studio] per connettersi al server SQL di Azure ed eseguire lo script SQL. Si noti che, per configurare il firewall per un server di Azure SQL, questo articolo usa il [portale di Azure classico](http://manage.windowsazure.com), non il [portale di Azure](https://portal.azure.com).
 
-	**Se nel computer è installato Visual Studio 2013:** nel [portale di Azure](http://portal.azure.com) fare clic sull'hub **SFOGLIA** a sinistra, fare clic su **Server SQL**, selezionare il database e quindi fare clic sul pulsante **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server di Azure SQL ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
+	**Se nel computer è installato Visual Studio 2013:** nel [portale di Azure](https://portal.azure.com) fare clic sull'hub **SFOGLIA** a sinistra, fare clic su **Server SQL**, selezionare il database e quindi fare clic sul pulsante **Apri in Visual Studio** sulla barra degli strumenti per connettersi al server di Azure SQL ed eseguire lo script. Se il client non è autorizzato ad accedere al server SQL di Azure, sarà necessario configurare il firewall per il server SQL di Azure in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server SQL di Azure, vedere l'articolo precedente.
 
 
 Eseguire le operazioni seguenti:
@@ -111,4 +111,4 @@ Eseguire le operazioni seguenti:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

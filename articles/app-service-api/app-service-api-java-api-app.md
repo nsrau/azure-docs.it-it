@@ -25,7 +25,7 @@ Questa esercitazione illustra come creare un'applicazione Java e come distribuir
 ## Prerequisiti
 
 1. [Java Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (o versioni successive)
-1. Una sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) o a pagamento a [Microsoft Azure](https://azure.microsoft.com)
+1. Una sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) o a pagamento a [Microsoft Azure](https://azure.microsoft.com/)
 1. [Maven](https://maven.apache.org/) installato nel computer di sviluppo
 1. Git installato nel computer di sviluppo. 
 
@@ -254,7 +254,7 @@ In questa sezione si sostituirà l'implementazione sul lato server del codice ge
 ## Pubblicare l'output nel servizio app di Azure
 Questa sezione descrive come creare una nuova app per le API tramite il portale di Azure, preparare l'app per le API per l'hosting di applicazioni Java e distribuire il file WAR appena creato nel servizio app di Azure per eseguire la nuova app per le API.
 
-1. Creare una nuova app per le API nel [portale di Azure](http://portal.azure.com) facendo clic sulla voce di menu **Nuovo -> Web e dispositivi mobili -> App per le API**.
+1. Creare una nuova app per le API nel [portale di Azure](https://portal.azure.com/) facendo clic sulla voce di menu **Nuovo -> Web e dispositivi mobili -> App per le API**.
 	
 	![Creare una nuova app per le API](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@ Per approfondire questo esempio, è possibile acquisire informazioni su [Storage
 
 Per altre informazioni su come usare Java in Azure, vedere il [Centro per sviluppatori Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

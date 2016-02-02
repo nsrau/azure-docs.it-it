@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/15/2016"
+	ms.date="01/27/2016"
 	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
 
 Questa guida illustra quanto sia semplice aggiungere la protezione all'API back-end configurando il limite di frequenza e i criteri di quota con Gestione API di Azure.
 
-In questa esercitazione si creerà un prodotto API "Free Trial" che consente agli sviluppatori di eseguire fino a 10 chiamate al minuto e un massimo di 200 chiamate API alla settimana usando il [limite di frequenza delle chiamate](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e l'[impostazione della quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). L'API verrà quindi pubblicata e verranno testati i criteri del limite di frequenza.
+In questa esercitazione si creerà un prodotto API "Free Trial" che consente agli sviluppatori di eseguire fino a 10 chiamate al minuto e un massimo di 200 chiamate API alla settimana usando i criteri [Limitare la frequenza delle chiamate per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Impostare la quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). L'API verrà quindi pubblicata e verranno testati i criteri del limite di frequenza.
 
 Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), vedere [Limitazione avanzata delle richieste con Gestione API di Azure](api-management-sample-flexible-throttling.md).
 
@@ -28,7 +28,7 @@ Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key]
 
 In questo passaggio si creerà un prodotto Free Trial che non richiede l'approvazione della sottoscrizione.
 
->[AZURE.NOTE]Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][] e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto Free Trial.
+>[AZURE.NOTE] Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][] e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto Free Trial.
 
 Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
@@ -195,7 +195,7 @@ Selezionare **Free Trial** e quindi fare clic su **Sottoscrivi**.
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE]In questa esercitazione non sono abilitate più sottoscrizioni simultanee per il prodotto Free Trial. Nel caso lo fossero, verrebbe richiesto di assegnare un nome alla sottoscrizione, come illustrato nell'esempio seguente.
+>[AZURE.NOTE] In questa esercitazione non sono abilitate più sottoscrizioni simultanee per il prodotto Free Trial. Nel caso lo fossero, verrebbe richiesto di assegnare un nome alla sottoscrizione, come illustrato nell'esempio seguente.
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -221,7 +221,7 @@ Mantenere i valori predefiniti dei parametri e selezionare la chiave della sotto
 
 ![Subscription key][api-management-select-key]
 
->[AZURE.NOTE]Se si hanno più sottoscrizioni, assicurarsi di selezionare la chiave per **Free Trial**, altrimenti i criteri configurati nei passaggi precedente non avranno effetto.
+>[AZURE.NOTE] Se si hanno più sottoscrizioni, assicurarsi di selezionare la chiave per **Free Trial**, altrimenti i criteri configurati nei passaggi precedente non avranno effetto.
 
 Fare clic su **Invia** e quindi visualizzare la risposta. Notare che il valore di **Stato della risposta** è **200 OK**.
 
@@ -293,4 +293,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

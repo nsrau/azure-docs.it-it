@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'hub IoT di Azure | Microsoft Azure"
+	pageTitle="Introduzione all'hub IoT di Azure per Java | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare l'hub IoT di Azure con Java."
 	services="iot-hub"
 	documentationCenter="java"
@@ -16,7 +16,7 @@
      ms.date="12/21/2015"
      ms.author="dobett"/>
 
-# Esercitazione: Introduzione all'hub IoT di Azure
+# Introduzione all'hub IoT di Azure per Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -40,7 +40,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console Java:
 * **read-d2c-messages**, che consente di visualizzare i dati di telemetria inviati dal dispositivo simulato.
 * **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo.
 
-> [AZURE.NOTE]L'articolo [IoT Hub SDK][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
+> [AZURE.NOTE] L'articolo [IoT Hub SDK][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -120,14 +120,6 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 - [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial] illustra come elaborare in modo affidabile dati di telemetria e messaggi interattivi provenienti dai dispositivi.
 - [Caricare file dai dispositivi al cloud con l'hub IoT][lnk-upload-tutorial] descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
 
-È possibile trovare altre informazioni sull'hub IoT negli articoli seguenti:
-
-* [Panoramica dell'hub IoT][lnk-hub-overview]
-* [Guida per sviluppatori dell'hub IoT][lnk-hub-dev-guide]
-* [Progettare la soluzione hub IoT][lnk-hub-guidance]
-* [Piattaforme e linguaggi di dispositivi supportati][lnk-supported-devices]
-* [Centro per sviluppatori Azure IoT][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
@@ -144,14 +136,9 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

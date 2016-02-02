@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creare una macchina virtuale con Windows nel portale di Azure | Microsoft Azure"
-	description="Informazioni su come creare una VM di Azure o un computer virtuale che esegue Windows usando Azure Marketplace nel portale di Azure"
-	keywords="vm azure,creare una macchina virtuale,computer virtuale,configurazione di una macchina virtuale"
+	pageTitle="Creare una macchina virtuale di Windows nel portale di Azure | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale di Azure o un computer virtuale usando Azure Marketplace nel portale di Azure"
+	keywords="Macchina virtuale di Windows,creare una macchina virtuale,computer virtuale,configurazione di una macchina virtuale"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Creare una macchina virtuale con Windows nel portale di Azure#
+# Creare una macchina virtuale di Windows nel portale di Azure#
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
@@ -32,7 +32,7 @@ Questa esercitazione illustra come è facile creare una macchina virtuale di Azu
 
 <br>
 
->[AZURE.TIP]Quando si usa il portale, se si vuole che la VM faccia parte di un set di disponibilità, è necessario creare quest'ultimo prima o durante la creazione della prima VM nel set. Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
+>[AZURE.TIP] Quando si usa il portale, se si vuole che la VM faccia parte di un set di disponibilità, è necessario creare quest'ultimo prima o durante la creazione della prima VM nel set. Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
 
 È inoltre possibile creare macchine virtuali usando le proprie immagini, con modelli di Gestione risorse o con strumenti di automazione. Per altre informazioni sui diversi metodi, vedere [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,7 +44,7 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Selezionare l'immagine della macchina virtuale.
+## Selezionare l'immagine della macchina virtuale di Windows
 
 1. Accedere al portale di Azure.
 
@@ -52,13 +52,13 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 	![Schermata che mostra le immagini di VM di Azure disponibili nel portale di anteprima](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]Per individuare immagini aggiuntive, fare clic su **Marketplace**, quindi eseguire una ricerca o applicare un filtro per gli elementi disponibili.
+	>[AZURE.TIP] Per individuare immagini aggiuntive, fare clic su **Marketplace**, quindi eseguire una ricerca o applicare un filtro per gli elementi disponibili.
 
 3. Nella pagina **Windows Server 2012 R2 Datacenter**, in **Selezionare un modello di distribuzione** fare clic su **Gestione risorse**. Fare clic su **Create**.
 
 	![Schermata che mostra il modello di distribuzione da selezionare per una VM di Azure](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## Creare una macchina virtuale
+## Creare la macchina virtuale Windows
 
 Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite di Azure per quasi tutto il processo di configurazione e creare rapidamente la macchina virtuale.
 
@@ -77,7 +77,7 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 	![Schermata che mostra le dimensioni di VM di Azure disponibili per la selezione](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]Il servizio di archiviazione Premium è disponibile per le macchine virtuali della serie DS in alcune aree. Il servizio di archiviazione Premium è la migliore opzione di archiviazione per i carichi di lavoro con utilizzo intensivo, come ad esempio un database. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Il servizio di archiviazione Premium è disponibile per le macchine virtuali della serie DS in alcune aree. Il servizio di archiviazione Premium è la migliore opzione di archiviazione per i carichi di lavoro con utilizzo intensivo, come ad esempio un database. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
 
 3. Fare clic su **Impostazioni** per visualizzare le impostazioni di archiviazione e di rete per la nuova macchina virtuale. Per la prima macchina virtuale è in genere possibile accettare le impostazioni predefinite. Se sono state selezionate dimensioni di macchina virtuale che lo supportano, è possibile provare il servizio Archiviazione Premium selezionando **Premium (SSD)** in **Tipo di disco**.
 
@@ -89,11 +89,11 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 8. Mentre Azure crea la macchina virtuale, è possibile tenere traccia dello stato di avanzamento in **Macchine virtuali** nel menu Hub.
 
-## Accesso alla macchina virtuale
+## Accedere alla macchina virtuale di Windows
 
 Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le impostazioni e le applicazioni che verranno eseguite al suo interno.
 
->[AZURE.NOTE]Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Per informazioni sui requisiti e suggerimenti per la risoluzione dei problemi, vedere [Connettersi a una macchina virtuale di Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Accedere al portale di Azure, se questa operazione non è già stata eseguita.
 
@@ -116,6 +116,6 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 ## Passaggi successivi
 
 * Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
-* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro con [Modelli di Gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

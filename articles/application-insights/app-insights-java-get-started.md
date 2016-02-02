@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="01/24/2016"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -30,7 +30,7 @@ Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows
 Sono necessari gli elementi seguenti:
 
 * Oracle JRE 1.6 o versione successiva o Zulu JRE 1.6 o versione successiva
-* Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione a [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 *Se è disponibile un'app Web già attiva, è possibile seguire la procedura alternativa per [aggiungere l'SDK al server Web in fase di esecuzione](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
 
@@ -117,7 +117,7 @@ Aggiungere manualmente SDK:
  * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. È possibile escluderlo se non si vuole che questi dati di telemetria vengano raccolti automaticamente. Ad esempio se si preferisce scrivere dati personalizzati.
 
 * *Per aggiornare il SDK, quando si pubblicano le modifiche*
- * Scaricare la versione più recente di [Application Insights SDK per Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) e sostituire le versioni precedenti.
+ * Scaricare la versione più recente di [Application Insights SDK per Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) e sostituire le versioni precedenti.
  * Le modifiche sono descritte nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).
 
 
@@ -277,12 +277,12 @@ Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
 ## Monitorare le chiamate al metodo e le dipendenze esterne
 
-[Installare l'agente Java](app-insights-java-agent.md) per registrare i metodi interni specificati e le chiamate effettuate tramite JDBC, con i dati relativi alla durata.
+[Installare l'agente Java](app-insights-java-agent.md) per registrare i metodi interni specificati e le chiamate effettuate tramite JDBC, con i dati relativi alle durate.
 
 
 ## Contatori delle prestazioni
 
-Fare clic sul riquadro **Server**. Verrà visualizzato un intervallo di contatori delle prestazioni.
+Fare clic sul riquadro **Server** e verrà visualizzato un intervallo di contatori delle prestazioni.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -364,7 +364,7 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
 ## Test Web di disponibilità
 
-Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire l'impostazione][availability], scorrere verso il basso e fare clic su Disponibilità.
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire la configurazione][availability], scorrere verso il basso e fare clic su Disponibilità.
 
 ![Scorrere verso il basso, fare clic su Disponibilità, quindi su Aggiungi test Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -398,4 +398,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/)
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

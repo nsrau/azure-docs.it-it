@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Configurare i servizi del Backup di Azure per preparare il backup di un computer che esegue Windows Server | Microsoft Azure"
-	description="Usare questa esercitazione per apprendere come usare il servizio di backup nell'offerta cloud di Microsoft Azure per eseguire il backup di Windows Server nel cloud."
+	pageTitle="Preparare l'ambiente di backup di file e cartelle di server Windows o di client Windows | Microsoft Azure"
+	description="Preparare l'ambiente di backup di Windows creando un insieme di credenziali per il backup, scaricando le credenziale e installando l'agente di backup."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="insieme di credenziali per il backup; agente di backup; backup di Windows;"/>
 
 <tags
 	ms.service="backup"
@@ -13,14 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/26/2015"
-	ms.author="jimpark";"aashishr"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark; markgal"/>
+
 
 # Preparare l'ambiente per il backup di macchine virtuali Windows
+Questo articolo consente di preparare il backup di un server Windows o di un client Windows in Azure. A questo scopo, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Questo articolo illustra i passaggi preparatori per l'uso di Backup di Azure con server Windows. Per eseguire il backup di un server o un client Windows in Azure, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se questa operazione è già stata eseguita, è possibile avviare il [backup dei computer Windows](backup-azure-backup-windows-server.md). In caso contrario, seguire questa procedura per assicurarsi che l'ambiente sia pronto.
 
->[AZURE.NOTE]In precedenza era necessario creare o acquisire un certificato X.509 v3 per registrare il server di backup. I certificati sono ancora supportati, ma per rendere più semplice la registrazione dell'insieme di credenziali di Azure con un server è possibile generare una credenziale di insieme direttamente dalla pagina Avvio rapido.
+>[AZURE.NOTE] In precedenza era necessario creare o acquisire un certificato X.509 v3 per registrare il server di backup. I certificati sono ancora supportati, ma per rendere più semplice la registrazione dell'insieme di credenziali di Azure con un server è possibile generare una credenziale di insieme direttamente dalla pagina Avvio rapido.
 
 ## Prima di iniziare
 Per eseguire il backup dei file e dei dati da Windows Server in Azure, è necessario:
@@ -42,4 +45,4 @@ Per eseguire il backup dei file e dei dati da Windows Server in Azure, è necess
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 - [Forum di Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

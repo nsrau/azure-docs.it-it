@@ -2,7 +2,7 @@
 	pageTitle="Connettersi al database SQL con una query in C# | Microsoft Azure"
 	description="Scrivere un programma in C# per eseguire query e connettersi al database SQL. Informazioni su indirizzi IP, stringhe di connessione, accesso sicuro e Visual Studio gratuito."
 	services="sql-database"
-	keywords="query in c# al database,query in c#,connettersi al database"
+	keywords="query di database in c#, query in c#, connettersi al database, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -36,7 +36,7 @@ Questo articolo descrive tutte le procedure necessarie ed è destinato agli uten
 Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisiti seguenti:
 
 
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Un database **AdventureWorksLT** dimostrativo nel servizio database SQL di Azure.
@@ -46,7 +46,7 @@ Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisit
 - Visual Studio 2013 Update 4 o versioni successive. Ora Microsoft fornisce Visual Studio Community *gratuitamente*.
  - [Download di Visual Studio Community](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Altre opzioni per la versione gratuita di Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento, che descrive come installare Visual Studio dal [portale di Azure](http://portal.azure.com/).
+ - In alternativa, andare direttamente al [passaggio](#InstallVSForFree) corrispondente più avanti in questo argomento, che descrive come installare Visual Studio dal [portale di Azure](https://portal.azure.com/).
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Per eseguire l'esempio di codice della query in C#, sono necessari i prerequisit
 Per installare Visual Studio, è possibile:
 
 - Installare Visual Studio Community gratuitamente passando alle pagine Web dedicate a Visual Studio in cui sono disponibili download gratuiti o altre opzioni.
-- Accedere al [portale di Azure](http://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
+- Accedere al [portale di Azure](https://portal.azure.com/) e passare direttamente alla pagina Web per il download, seguendo la procedura descritta di seguito.
 
 
 ### Visual Studio tramite il portale di Azure
 
 
-1. Accedere al [portale di Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Accedere al [portale di Azure](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Fare clic su **ESPLORA* TUTTO** > **database SQL**. Verrà visualizzato un pannello in cui viene eseguita la ricerca dei database.
 
@@ -100,7 +100,7 @@ In Visual Studio creare un nuovo progetto basato sul modello di base per C# > Wi
 
 1. Fare clic su **File** > **Nuovo** > **Progetto**. Verrà visualizzata la finestra di dialogo ****.
 
-2. In **Installati** espandere fino a C# e Windows, in modo da visualizzare l'opzione **Applicazione console** nel riquadro centrale.
+2. In **Installati** espandere fino a C# e Windows in modo da visualizzare l'opzione **Applicazione console** nel riquadro centrale.
 
 	![Finestra di dialogo Nuovo progetto][30-VSNewProject]
 
@@ -127,7 +127,7 @@ L'esempio in C# usa l'assembly **System.Configuration.dll** di .NET Framework, q
 ## Passaggio 4: Ottenere la stringa di connessione
 
 
-Per copiare la stringa di connessione necessaria per connettersi al database SQL, usare il [portale di Azure](http://portal.azure.com/).
+Per copiare la stringa di connessione necessaria per connettersi al database SQL, usare il [portale di Azure](https://portal.azure.com/).
 
 Per prima cosa, è necessario connettere Visual Studio al database **AdventureWorksLT** del database SQL di Azure.
 
@@ -305,7 +305,7 @@ namespace ConnectAndQuery_Example
 Tentiamo di mantenere l'esempio per C# il più breve possibile. Tuttavia, abbiamo aggiunto il codice per la lettura di un file di configurazione per rispondere alle richieste dei clienti. Concordiamo sul fatto che i programmi a livello di produzione debbano usare file di configurazione anziché i valori letterali hardcoded nel file EXE.
 
 
-> [AZURE.WARNING]Sempre ai fini della brevità del codice, abbiamo preferito non includere il codice per la gestione delle eccezioni e la logica di ripetizione dei tentativi in questo esempio didattico. Ricordare però che i programmi per la produzione che interagiscono con un database cloud dovranno includere il codice per entrambe le funzionalità.
+> [AZURE.WARNING] Sempre ai fini della brevità del codice, abbiamo preferito non includere il codice per la gestione delle eccezioni e la logica di ripetizione dei tentativi in questo esempio didattico. Ricordare però che i programmi per la produzione che interagiscono con un database cloud dovranno includere il codice per entrambe le funzionalità.
 >
 > Fare clic [qui](sql-database-develop-csharp-retry-windows.md) per un esempio di codice che contiene la logica di ripetizione dei tentativi.
 
@@ -316,7 +316,7 @@ Tentiamo di mantenere l'esempio per C# il più breve possibile. Tuttavia, abbiam
 Il programma C# client non potrà connettersi al database SQL fino a quando l'indirizzo IP del computer client non viene aggiunto nel firewall del database SQL. Il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
 
 
-Per aggiungere l'indirizzo IP, è possibile usare il [portale di Azure](http://portal.azure.com/).
+Per aggiungere l'indirizzo IP, è possibile usare il [portale di Azure](https://portal.azure.com/).
 
 
 
@@ -358,4 +358,4 @@ Per altre informazioni, vedere <br/> [Procedura: configurare le impostazioni del
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

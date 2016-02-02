@@ -35,7 +35,7 @@ In questa esercitazione verranno effettuate le operazioni seguenti utilizzando V
 ## Creare e distribuire entità della data factory usando Visual Studio 
 
 ### Prerequisiti
-Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
 ### Procedura dettagliata
 
@@ -76,7 +76,7 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 
 
 ### Creazione di tabelle di input e di output
-Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService1** e **AzureSqlLinkedService1** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory: **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
+Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService1** e **AzureSqlLinkedService1** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
 
 #### Creare la tabella di input
 
@@ -146,7 +146,7 @@ Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLin
 		}
 
 #### Creare la pipeline 
-Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora verrà creata una pipeline con un'**Attività di copia** per copiare i dati dal BLOB di Azure al database SQL di Azure.
+Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora verrà creata una pipeline con un'**attività di copia** per copiare i dati dal BLOB di Azure al database SQL di Azure.
 
 
 1. Fare clic con il pulsante destro del mouse su **Pipeline** in **Esplora soluzioni**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.  
@@ -209,15 +209,16 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 	1. Selezionare l’opzione**Crea nuova data factory**.
 	2. Immettere **VSTutorialFactory** per **Nome**.  
 	
-		> [AZURE.NOTE]È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se si riceve un messaggio di errore riguardante il nome della Data Factory durante la pubblicazione, è possibile modificare il nome della data factory (ad esempio, nomeutenteVSTutorialFactory) e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
+		> [AZURE.NOTE]  
+		È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se si riceve un messaggio di errore riguardante il nome della Data Factory durante la pubblicazione, è possibile modificare il nome della data factory (ad esempio, nomeutenteVSTutorialFactory) e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 		> 
 		> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 	3. Selezionare la sottoscrizione adatta per il campo **Sottoscrizione**. 
 	4. Selezionare il **gruppo di risorse** per la data factory da creare. 
-	5. Selezionare l’**area** per la data factory. 
+	5. Selezionare l'**area** per la data factory. 
 	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. 
 23. Nella pagina **Pubblica elementi**, assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.     
-24. Rivedere il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
+24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
 
 
@@ -232,8 +233,8 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 
 1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**. 
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
-4. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
+4. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

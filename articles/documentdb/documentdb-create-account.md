@@ -25,7 +25,7 @@
 
 Per usare Microsoft Azure DocumentDB, è necessario creare un account database DocumentDB con il portale di Azure, i modelli di Gestione risorse di Azure o l'interfaccia della riga di comando di Azure. Questo articolo illustra come creare un account database usando il portale di Azure. Per creare un account con Gestione risorse di Azure o l'interfaccia della riga di comando di Azure, vedere [Automatizzare la creazione di un account database DocumentDB](documentdb-automation-resource-manager-cli.md).
 
-Familiarità con DocumentDB? Guardare [questo](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video di quattro minuti a cura di Scott Hanselman per vedere come completare le attività più comuni nel portale.
+Familiarità con DocumentDB? Guardare [questo](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video di quattro minuti a cura di Scott Hanselman per vedere come completare le attività più comuni nel portale.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -41,7 +41,7 @@ Ora che avete un account di DocumentDB, il passaggio successivo consiste nel cre
 
 Dopo avere creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database e quindi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte.
 
-Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
 Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
@@ -50,4 +50,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

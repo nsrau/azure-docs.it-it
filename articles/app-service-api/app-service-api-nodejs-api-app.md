@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Compilare e distribuire un'app per le API Node.js in Servizio app di Azure"
+	pageTitle="Compilare e distribuire un'app per le API Node.js nel servizio app di Azure"
 	description="Informazioni su come creare un pacchetto dell'app per le API Node.js e distribuirlo nel servizio app di Azure."
 	services="app-service\api"
 	documentationCenter="node"
@@ -16,7 +16,7 @@
 	ms.date="11/27/2015"
 	ms.author="bradygaster"/>
 
-# Compilare e distribuire un'app per le API Node.js in Servizio app di Azure
+# Compilare e distribuire un'app per le API Node.js nel servizio app di Azure
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
@@ -86,7 +86,7 @@ I comandi riportati di seguito devono essere eseguiti dalla riga di comando di N
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@ In questa sezione viene illustrato il processo di creazione di una nuova app per
 
 Il repository GitHub da cui è stato clonato il codice sorgente non è lo stesso archivio in cui verrà eseguito il push del codice per la distribuzione. Il repository GitHub di esempio contiene lo stato "start" del codice. Ora che è stato eseguito lo scaffolding dello stato "end" del codice, è necessario eseguire il push del codice nell'archivio Git associato all'app per le API. Il primo passaggio consiste nel creare l'app per le API usando il portale di Azure, quindi:
 
-1. Accedere al [portale di Azure](http://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
 1. Creare una nuova app per le API.
 
@@ -243,4 +243,4 @@ A questo punto è stata creata e distribuita la prima app per le API usando Node
 
 Per basarsi su questo esempio, è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

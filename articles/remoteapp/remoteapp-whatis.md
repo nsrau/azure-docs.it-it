@@ -22,7 +22,7 @@ Azure RemoteApp integra in Azure le funzionalità del programma Microsoft Remote
 
 Con RemoteApp di Azure è possibile condividere app e risorse con utenti su quasi tutti i dispositivi. Ospitiamo le app nel cloud, ossia ci occupiamo dell'hardware e della scalabilità per soddisfare le richieste degli utenti. Si devono solo caricare le app che si desidera condividere e far poi usare agli utenti tali app. [Gli utenti riescono a mantenere i propri dispositivi](remoteapp-clients.md), mentre si gestisce tutto tramite il portale di Azure. Si ha anche la possibilità di utilizzare le credenziali aziendali, consentendo di garantire la sicurezza dei dati e delle applicazioni.
 
-Continuare a leggere l'articolo per altre informazioni su Azure RemoteApp oppure, se si è già convinti, [provarlo subito](http://azure.microsoft.com/services/remoteapp/).
+Continuare a leggere l'articolo per altre informazioni su Azure RemoteApp oppure, se si è già convinti, [provarlo subito](https://azure.microsoft.com/services/remoteapp/).
 
 Domande su Azure RemoteApp? Vedere le [Domande frequenti](remoteapp-faq.md).
 
@@ -80,4 +80,4 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Autenticazione e autorizzazione per app per le API nel servizio app di Azure
@@ -74,6 +74,8 @@ Le opzioni sono selezionabili nel pannello **Autenticazione/Autorizzazione** del
 Per le opzioni 1 e 2, attivare l'**autenticazione del servizio app** e scegliere **Accedi** o **Consenti richiesta (nessuna azione)** nell'elenco a discesa **Azione da eseguire quando la richiesta non è autenticata**. Se si seleziona **Accedi**, è necessario scegliere un provider di autenticazione e configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+Per informazioni dettagliate sulla configurazione dell'autenticazione, vedere [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). L'articolo si applica alle app per le API, nonché alle app per dispositivi mobili e vengono forniti collegamenti ad altri articoli relativi ad altri provider di autenticazione.
  
 ## <a id="internal"></a> Autenticazione dell'account del servizio
 
@@ -81,7 +83,7 @@ L'autenticazione del servizio app funziona per gli scenari interni, ad esempio p
 
 Per gli scenari da servizio a servizio, proteggere l'app per le API chiamata usando Azure Active Directory e fornire un token AAD di autorizzazione dell'entità servizio durante la chiamata all'app per le API. Per ottenere un token, è possibile fornire l'ID client e il segreto client dell'applicazione AAD. Non è necessario alcun codice speciale di Azure, come quello usato per la gestione del token zumo dei servizi mobili. Un esempio di questo scenario che usa le app per le API ASP.NET è illustrato nell'esercitazione [Autenticazione dell'entità servizio per app per le API](app-service-api-dotnet-service-principal-auth.md).
 
-Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni sull'autenticazione di base in ASP.NET, vedere il blog sui [filtri di autenticazione nell'API Web 2 ASP.NET ](http://www.asp.net/web-api/overview/security/authentication-filters).
+Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni sull'autenticazione di base in ASP.NET, vedere il blog sui [filtri di autenticazione nell'API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
 
 L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
@@ -91,7 +93,10 @@ Per informazioni su come gestire l'autenticazione dai client per dispositivi mob
   
 ## Altre informazioni
 
-Per altre informazioni su autenticazione e autorizzazione nel servizio app di Azure, vedere il blog sull'[espansione di autenticazione e autorizzazione del servizio app](/blog/announcing-app-service-authentication-authorization/).
+Per altre informazioni su autenticazione e autorizzazione nel servizio app di Azure, vedere le risorse seguenti:
+
+* [Espansione dell'autenticazione/autorizzazione del servizio App](/blog/announcing-app-service-authentication-authorization/)
+* [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Include i collegamenti per altri provider di autenticazione in alto nella pagina. 
 
 Per altre informazioni su OAuth 2.0, OpenID Connect e i token Web JSON (JWT), vedere le risorse seguenti.
 
@@ -113,4 +118,4 @@ Se si segue la sequenza introduttiva di esercitazioni per ASP.NET e le app per l
 
 Per altre informazioni sull'uso di Node e di Java nel servizio app di Azure, vedere il [centro per sviluppatori di Node.js](/develop/nodejs/) e il [centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

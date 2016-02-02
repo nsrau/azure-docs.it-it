@@ -52,7 +52,7 @@ Per altre informazioni su Batch, vedere [Cenni preliminari sulla funzionalità A
 
 ### Account necessari
 
-+ **Account e sottoscrizione di Azure**: se non si ha un account, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
++ **Account e sottoscrizione di Azure**: se non si ha un account, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 + **Account Batch**: usare il nome e l'URL di un account Batch e una chiave di accesso come credenziali quando si eseguono chiamate API in Batch. Tutte le risorse di Batch, ad esempio nodi di calcolo, pool, processi e attività, sono associate a un account Batch. Un modo per creare un account Batch e gestire le chiavi di accesso per l'account consiste nell'usare il [portale di Azure](batch-account-create-portal.md).
 
@@ -103,4 +103,4 @@ La figura 2 mostra un flusso di lavoro che usa un'applicazione client .NET per B
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

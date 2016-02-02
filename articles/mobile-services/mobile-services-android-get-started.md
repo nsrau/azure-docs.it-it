@@ -42,7 +42,7 @@ Per completare questa esercitazione, è necessario disporre di [Android Develope
 
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di Azure per Android.
 
-> [AZURE.IMPORTANT]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 
 ## Creare un nuovo servizio mobile
@@ -70,7 +70,7 @@ In questa sezione si creerà una nuova app per Android connessa al servizio mobi
 4. Fare clic su **Create TodoItem table** per creare una tabella in cui archiviare i dati dell'app.
 
 
-5. Scaricare ora l'app usando il pulsante **Scarica**.
+5. A questo punto, scaricare l'app usando il pulsante **Scarica**.
 
 ## Esecuzione dell'app per Android
 
@@ -97,4 +97,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

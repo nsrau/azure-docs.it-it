@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
 2. Creare una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
@@ -82,7 +82,7 @@ Scegliere quali sottoscrizioni Azure usare. <BR>
 
 ### Passaggio 4
 
-Creare un nuovo gruppo di risorse (ignorare questo passaggio se si sta usando un gruppo di risorse esistente).
+Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si sta usando un gruppo di risorse esistente.
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -163,9 +163,12 @@ Crea la regola di routing del dispositivo di bilanciamento del carico denominata
 
 Configura le dimensioni dell'istanza del gateway applicazione.
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Creare un gateway applicazione usando New-AzureApplicationGateway
+
+Crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
+
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
@@ -178,7 +181,7 @@ Per eliminare un gateway applicazione, sarà necessario eseguire i passaggi segu
 
 1. Usare il cmdlet **Stop-AzureRmApplicationGateway** per arrestare il gateway.
 2. Usare il cmdlet **Remove-AzureRmApplicationGateway** per rimuovere il gateway.
-3. Verificare che il gateway sia stato rimosso usando il cmdlet **Get-AzureApplicationGateway**.
+3. Verificare che il gateway sia stato rimosso con il cmdlet **Get-AzureApplicationGateway**.
 
 
 ### Passaggio 1
@@ -189,7 +192,7 @@ Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw":
 
 ### Passaggio 2
 
-Usare **Stop-AzureRmApplicationGateway** per arrestare il gateway applicazione. Questo esempio mostra il cmdlet **Stop-AzureRmApplicationGateway** nella prima riga, seguito dall'output.
+Usare **Stop-AzureRmApplicationGateway** per arrestare il gateway applicazione. Questo esempio mostra il cmdlet **Stop-AzureRmApplicationGateway** sulla prima riga, seguito dall'output.
 
 	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
@@ -210,7 +213,7 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet **Remove-
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
->[AZURE.NOTE]L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
+>[AZURE.NOTE] L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
 
 
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet **Get-AzureRmApplicationGateway**. Questo passaggio non è obbligatorio.
@@ -234,4 +237,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

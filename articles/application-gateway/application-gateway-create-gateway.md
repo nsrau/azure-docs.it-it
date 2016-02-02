@@ -32,7 +32,7 @@ Questo articolo illustra in dettaglio i passaggi necessari per creare e configur
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
@@ -60,7 +60,7 @@ Per creare un gateway applicazione:
 2. Creare un file XML di configurazione o un oggetto di configurazione.
 3. Eseguire il commit della configurazione nella risorsa del gateway applicazione appena creata.
 
->[AZURE.NOTE]Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
 
 
 ### Creare una risorsa del gateway applicazione
@@ -98,7 +98,7 @@ Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-Azu
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
+>[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
 
  *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
@@ -160,7 +160,7 @@ Copiare il testo seguente in Blocco note.
 
 Modificare i valori tra parentesi per gli elementi di configurazione. Salvare il file con estensione XML.
 
->[AZURE.IMPORTANT]L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
+>[AZURE.IMPORTANT] L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
 
 L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e inviare il traffico di rete alla porta back-end 80 tra due indirizzi IP.
 
@@ -225,7 +225,7 @@ Configurare ora il gateway applicazione. Usare il cmdlet **Set-AzureApplicationG
 
 L'esempio seguente mostra come configurare il gateway applicazione usando oggetti di configurazione. Tutti gli elementi di configurazione devono essere configurati singolarmente e quindi aggiunti a un oggetto di configurazione del gateway applicazione. Dopo aver creato l'oggetto di configurazione, usare il comando **Set-AzureApplicationGateway** per eseguire il commit della configurazione nella risorsa del gateway applicazione creata in precedenza.
 
->[AZURE.NOTE]Prima di assegnare un valore a ogni oggetto di configurazione, è necessario dichiarare quale tipologia di oggetto verrà usato da PowerShell per l'archiviazione. La prima riga per creare i singoli elementi definisce quale Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome oggetto) verrà usato.
+>[AZURE.NOTE] Prima di assegnare un valore a ogni oggetto di configurazione, è necessario dichiarare quale tipologia di oggetto verrà usato da PowerShell per l'archiviazione. La prima riga per creare i singoli elementi definisce quale Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome oggetto) verrà usato.
 
 ### Passaggio 1
 
@@ -331,7 +331,7 @@ Eseguire il commit dell'oggetto di configurazione nella risorsa del gateway appl
 Dopo aver configurato il gateway, usare il cmdlet **Start-AzureApplicationGateway** per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
 
 
-> [AZURE.NOTE]Il cmdlet **Start-AzureApplicationGateway** potrebbe impiegare fino a 15-20 minuti.
+> [AZURE.NOTE] Il cmdlet **Start-AzureApplicationGateway** potrebbe impiegare fino a 15-20 minuti.
 
 
 
@@ -414,4 +414,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

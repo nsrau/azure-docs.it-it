@@ -42,11 +42,11 @@ Per completare questa esercitazione, è necessario disporre di:
 + Dispositivo con iOS 8 o versione successiva
 + Iscrizione a iOS Developer Program
 
-   >[AZURE.NOTE]Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un simulatore iOS.
+   >[AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un simulatore iOS.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub di notifica relative ad app per iOS.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Hub di notifica - Abilita notifiche Push di Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -88,7 +88,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Apple e
 
 4. Scaricare la versione 1.2.4 di [Mobile Services iOS SDK] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** e fare clic su **Add**.
 
-	>[AZURE.NOTE]Notification Hubs SDK non supporta attualmente bitcode Xcode 7. È necessario impostare **Enable Bitcode** su **No** in **Build Options** per il progetto.
+	>[AZURE.NOTE] Notification Hubs SDK non supporta attualmente bitcode Xcode 7. È necessario impostare **Enable Bitcode** su **No** in **Build Options** per il progetto.
 
    	![][10]
 
@@ -436,7 +436,7 @@ Se si vuole inviare notifiche all'interno di un'applicazione, questa sezione for
 11. Compilare il progetto e verificare che non siano presenti errori.
 
 
-> [AZURE.NOTE]Se si verifica un errore di compilazione in Xcode7 relativo al supporto per bitcode, è necessario modificare "Build Settings" -> "Enable Bitcode"(ENABLE\_BITCODE) impostandolo su 'NO' in Xcode. Notification Hubs SDK non supporta attualmente bitcode.
+> [AZURE.NOTE] Se si verifica un errore di compilazione in Xcode7 relativo al supporto per bitcode, è necessario modificare "Build Settings" -> "Enable Bitcode"(ENABLE\_BITCODE) impostandolo su 'NO' in Xcode. Notification Hubs SDK non supporta attualmente bitcode.
 
 È possibile trovare tutti i payload di notifica disponibili nella [guida alla programmazione di notifiche push e locali] di Apple.
 
@@ -508,4 +508,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

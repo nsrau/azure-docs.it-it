@@ -45,14 +45,14 @@ Guardare un video dimostrativo di questa esercitazione per imparare a usare Hado
 
 In concomitanza con la fase GA (General Availability) di Azure HDInsight, Microsoft offre anche HDInsight Emulator per Azure, noto in precedenza come *Microsoft HDInsight Developer Preview*. L'emulatore è stato progettato per scenari relativi allo sviluppo e supporta solo distribuzioni a nodo singolo. Per informazioni sull'uso di HDInsight Emulator, vedere [Introduzione a HDInsight Emulator][hdinsight-emulator].
 
-> [AZURE.NOTE]Per istruzioni su come effettuare il provisioning di un cluster HBase, vedere [Provisioning di cluster HBase in HDInsight][hdinsight-hbase-custom-provision]. Per capire perché scegliere un database piuttosto che un altro, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Differenze tra Hadoop e HBase</a>.
+> [AZURE.NOTE] Per istruzioni su come effettuare il provisioning di un cluster HBase, vedere [Provisioning di cluster HBase in HDInsight][hdinsight-hbase-custom-provision]. Per capire perché scegliere un database piuttosto che un altro, vedere <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Differenze tra Hadoop e HBase</a>.
 
 ## Prerequisiti
 
 Prima di iniziare questa esercitazione per Hadoop, è necessario disporre di quanto segue:
 
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Una workstation** con Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
 
 **Tempo previsto per il completamento dell'esercitazione:** 30 minuti
@@ -63,7 +63,7 @@ Prima di iniziare questa esercitazione per Hadoop, è necessario disporre di qua
 
 Quando si esegue il provisioning di un cluster Hadoop in HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account viene designato come file system predefinito, come in HDFS (Hadoop Distributed File System, file system distribuito Hadoop). Per impostazione predefinita, il provisioning del cluster HDInsight viene effettuato nello stesso data center dell'account di archiviazione specificato. Per altre informazioni, vedere l'argomento relativo all'[uso dell'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
->[AZURE.NOTE]Non condividere un contenitore di archiviazione BLOB predefinito con più cluster Hadoop.
+>[AZURE.NOTE] Non condividere un contenitore di archiviazione BLOB predefinito con più cluster Hadoop.
 
 Oltre a questo account di archiviazione, è possibile aggiungere altri account di archiviazione durante la configurazione personalizzata di un cluster. L'account di archiviazione aggiuntivo può appartenere alla stessa sottoscrizione di Azure o a sottoscrizioni di Azure diverse. Per istruzioni, vedere [Provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision].
 
@@ -76,7 +76,7 @@ Questa esercitazione usa solo il BLOB e l'account di archiviazione predefiniti.
 
 	![Portale di Azure classico dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione.][image-hdi-storageaccount-quickcreate]
 
->[AZURE.NOTE]Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster, ovvero: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali**, **Stati Uniti centro-meridionali**.
+>[AZURE.NOTE]  Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster, ovvero: **Asia orientale**, **Asia sudorientale**, **Europa settentrionale**, **Europa occidentale**, **Stati Uniti orientali**, **Stati Uniti occidentali**, **Stati Uniti centro-settentrionali**, **Stati Uniti centro-meridionali**.
 
 Selezionare il nuovo account di archiviazione dall'elenco e fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore della pagina. Prendere nota dei valori di **CHIAVE DI ACCESSO PRIMARIA** o **CHIAVE DI ACCESSO SECONDARIA** (funzionano entrambe le chiavi). Sarà necessario usarli più avanti nell'esercitazione. Per altre informazioni, vedere l'articolo relativo alla [creazione di un account di archiviazione][azure-create-storageaccount].
 
@@ -120,7 +120,7 @@ Quando si esegue il provisioning di un cluster, si esegue il provisioning delle 
 
 -- COMMENTED OUT TEXT ENDS -->
 
->[AZURE.NOTE]Questi passaggi fanno riferimento al provisioning di un cluster HDInsight versione 3.1. Per creare il cluster con altre versioni, usare il metodo **Creazione personalizzata** del portale o Azure PowerShell. Per informazioni sulle differenze tra ogni versione, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions]. Per informazioni su come usare l'opzione **CREAZIONE PERSONALIZZATA**, vedere [Effettuare il provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision].
+>[AZURE.NOTE] Questi passaggi fanno riferimento al provisioning di un cluster HDInsight versione 3.1. Per creare il cluster con altre versioni, usare il metodo **Creazione personalizzata** del portale o Azure PowerShell. Per informazioni sulle differenze tra ogni versione, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions]. Per informazioni su come usare l'opzione **CREAZIONE PERSONALIZZATA**, vedere [Effettuare il provisioning di cluster HDInsight con opzioni personalizzate][hdinsight-provision].
 
 
 ##<a name="sample"></a>Eseguire dati di esempio dal portale
@@ -140,7 +140,7 @@ Esempio | Funzione
 ##<a name="hivequery"></a>Eseguire una query Hive dal portale
 Dopo il provisioning di un cluster HDInsight, il passaggio successivo consiste nell'esecuzione di un processo Hive per eseguire query su una tabella Hive di esempio. Verrà usata la tabella *hivesampletable*, disponibile con i cluster HDInsight. La tabella contiene dati relativi a produttori, piattaforme e modelli di dispositivi mobili. Una query Hive in questa tabella recupera i dati per i dispositivi mobili di un produttore specifico.
 
-> [AZURE.NOTE]HDInsight Tools per Visual Studio è disponibile in Azure SDK per .NET versione 2.5 o versione successiva. Usando gli strumenti in Visual Studio, sarà possibile connettersi al cluster HDInsight, creare tabelle Hive ed eseguire query Hive. Per altre informazioni, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio][1].
+> [AZURE.NOTE] HDInsight Tools per Visual Studio è disponibile in Azure SDK per .NET versione 2.5 o versione successiva. Usando gli strumenti in Visual Studio, sarà possibile connettersi al cluster HDInsight, creare tabelle Hive ed eseguire query Hive. Per altre informazioni, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio][1].
 
 **Per eseguire un processo Hive dal dashboard del cluster**
 
@@ -153,7 +153,7 @@ Dopo il provisioning di un cluster HDInsight, il passaggio successivo consiste n
 
 	Nella parte superiore della pagina sono presenti diverse schede. La scheda predefinita è **Editor Hive** e le altre schede sono **Cronologia processo** e **Browser file**. Usando il dashboard, è possibile inviare query Hive, controllare i log dei processi Hadoop ed esplorare i file nell'archivio.
 
-	> [AZURE.NOTE]Si noti che l'URL della pagina Web è *&lt;NomeCluster&gt;.azurehdinsight.net*. Invece di aprire il dashboard dal portale, è quindi possibile aprirlo da un Web browser usando l'URL.
+	> [AZURE.NOTE] Si noti che l'URL della pagina Web è *&lt;NomeCluster&gt;.azurehdinsight.net*. Invece di aprire il dashboard dal portale, è quindi possibile aprirlo da un Web browser usando l'URL.
 
 6. Nella scheda **Editor Hive** in **Nome query** immettere **HTC20**. Il nome della query corrisponde al nome del processo. Nel riquadro della query immettere la query Hive come illustrato nell'immagine:
 
@@ -280,4 +280,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

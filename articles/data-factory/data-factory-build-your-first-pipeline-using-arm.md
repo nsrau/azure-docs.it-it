@@ -41,7 +41,7 @@ Oltre ai prerequisiti elencati nell'argomento di panoramica dell'esercitazione, 
 
 Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\\ADFGetStarted** con il contenuto seguente:
 
-> [AZURE.IMPORTANT]Modificare i valori per le variabili **storageAccountName** e **storageAccountKey**. Modificare anche **dataFactoryName** perché il nome deve essere univoco.
+> [AZURE.IMPORTANT] Modificare i valori per le variabili **storageAccountName** e **storageAccountKey**. Modificare anche **dataFactoryName** perché il nome deve essere univoco.
 
 Il modello consente di creare le seguenti entità di Data factory.
 
@@ -213,6 +213,15 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 	}
 
 
+Tenere presente quanto segue:
+
+- Data factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile fare in modo che crei un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+
+	Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
+
+Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ## Passaggio 2: Distribuire entità della data factory con il modello di Gestione risorse di Azure
 
@@ -226,7 +235,7 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 
 ## Monitorare la pipeline
  
-1.	Dopo l'accesso al [portale di Azure](http://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**. ![Esplora -> Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**. ![Esplora -> Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Nel pannello **Data factory** fare clic sulla data factory **TutorialFactoryARM** creata.	
 2.	Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**. ![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	In **Vista diagramma** saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
@@ -241,4 +250,4 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 10. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->
