@@ -100,7 +100,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
     1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL di accesso**.
-2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+	2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP]
         Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)

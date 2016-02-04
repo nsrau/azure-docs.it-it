@@ -108,7 +108,8 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
      5.2. Nella finestra di dialogo **Configura accesso Single Sign-On in Dropbox for Business** del portale di Azure copiare il valore di **URL pagina di accesso** e quindi incollarlo nella casella di testo **Sign in URL**.
 
 
-     5.3. Creare un file con **codifica Base 64** dal certificato scaricato.
+     5.3. Creare un file con **codifica Base 64** dal certificato scaricato.  
+
      >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 
