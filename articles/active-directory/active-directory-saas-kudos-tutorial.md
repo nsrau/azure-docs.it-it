@@ -16,7 +16,8 @@
 
 #Esercitazione: integrazione di Azure Active Directory con Kudos
   
-In questa esercitazione viene illustrata l'integrazione di Azure e Kudos. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+In questa esercitazione viene illustrata l'integrazione di Azure e Kudos.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant Kudos
@@ -64,7 +65,9 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Kudos tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Kudos tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
+Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
@@ -76,7 +79,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso a Kudos** utilizzando il modello seguente "**https://company.kudosnow.com*", quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso a Kudos** utilizzando il modello seguente "*https://company.kudosnow.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configura URL app")
 
@@ -99,11 +102,12 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **URL di accesso**.
 2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
-        >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]
+        Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**
     4.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Disconnessione dall’URL**.
-5.  Nella casella di testo **URL di Kudos** digitare il nome della società.
+	5.  Nella casella di testo **URL di Kudos** digitare il nome della società.
     6.  Fare clic su **Save**.
 
 9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -155,3 +159,6 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+
+
+
