@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Cisco Webex
 
-Questa esercitazione descrive l'integrazione di Azure e Cisco Webex. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Cisco Webex.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di Cisco Webex
@@ -64,8 +65,8 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cisc
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configurazione dell'accesso Single Sign-On
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Cisco Webex tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. 
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Cisco Webex tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
 Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
@@ -82,8 +83,8 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     ![Configura URL app](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL del tenant di Cisco Webex (ad esempio: **http://contoso.webex.com*).
-2.  Nella casella di testo **URL di risposta Cisco Webex** digitare l'**URL AssertionConsumerService Cisco Webex** (ad esempio: **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
+    1.  Nella casella di testo **URL di accesso** digitare l'URL del tenant di Cisco Webex (ad esempio: *http://contoso.webex.com*).
+    2.  Nella casella di testo **URL di risposta Cisco Webex** digitare l'**URL AssertionConsumerService Cisco Webex** (ad esempio: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  Nella pagina **Configura accesso Single Sign-On in Cisco Webex** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo nel computer.
 
@@ -122,7 +123,8 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a Cisco Webex, è necessario eseguirne il provisioning in Cisco Webex. Nel caso di Cisco Webex, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a Cisco Webex, è necessario eseguirne il provisioning in Cisco Webex.  
+Nel caso di Cisco Webex, il provisioning è un'attività manuale.
 
 ###Per eseguire il provisioning di un account utente, seguire questa procedura:
 
@@ -161,3 +163,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+

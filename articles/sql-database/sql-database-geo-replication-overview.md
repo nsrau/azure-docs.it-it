@@ -36,7 +36,8 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza tra i dat
 ## Funzionalità della replica geografica attiva
 La funzionalità di Replica geografica attiva fornisce i seguenti elementi essenziali:
 
-- **Replica asincrona automatica**: dopo il seeding di un database secondario online, gli aggiornamenti relativi al database primario vengono copiati automaticamente in modo asincrono nel database secondario online. Questo significa che le transazioni vengono sottoposte a commit nel database primario prima di essere copiate nel database secondario online. Tuttavia, dopo il seeding, il database secondario online è coerente da un punto di vista transazionale in qualsiasi momento.
+- **Replica asincrona automatica**: dopo il seeding di un database secondario online, gli aggiornamenti relativi al database primario vengono copiati automaticamente in modo asincrono nel database secondario online. Questo significa che le transazioni vengono sottoposte a commit nel database primario prima di essere copiate nel database secondario online. Tuttavia, dopo il seeding, il database secondario online è coerente da un punto di vista transazionale in qualsiasi momento. 
+
 	>[AZURE.NOTE]La replica asincrona risulta particolarmente adatta alla latenza delle reti WAN che connettono i data center remoti.
 
 - **Più database secondari online**: la presenza di due o più database secondari online aumenta la ridondanza e la protezione per il database primario e l'applicazione. Se sono disponibili più database secondari online, l'applicazione rimane protetta anche se uno di essi smette di funzionare. Se è presente un solo database secondario online e questo smette di funzionare, l'applicazione rimane esposta a maggiori rischi finché non viene creato un nuovo database secondario online.

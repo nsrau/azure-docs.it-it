@@ -260,11 +260,12 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 6. Assicurarsi che questi URL siano accessibili dal server di gestione:
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net Se nel server sono presenti regole firewall basate sull'indirizzo IP, verificare che le regole consentano la comunicazione con Azure. È necessario consentire gli [intervalli IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e il protocollo HTTPS (433). e aggiungere all'elenco elementi consentiti gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali. Aggiungere all'elenco di elementi consentiti anche questo URL per il download di MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+	Se nel server sono presenti regole firewall basate sull'indirizzo IP, verificare che le regole consentano la comunicazione con Azure. È necessario consentire gli [intervalli IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e il protocollo HTTPS (433). e aggiungere all'elenco elementi consentiti gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali. Aggiungere all'elenco di elementi consentiti anche questo URL per il download di MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 
 
 7. In **Verifica preliminare** il programma di installazione esegue un controllo dei prerequisiti nel server.

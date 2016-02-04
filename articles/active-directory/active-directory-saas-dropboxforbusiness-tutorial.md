@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Dropbox for Business
   
-Questa esercitazione descrive l'integrazione di Azure e Dropbox for Business. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Dropbox for Business.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di test in Dropbox for Business
@@ -107,7 +108,9 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
      5.2. Nella finestra di dialogo **Configura accesso Single Sign-On in Dropbox for Business** del portale di Azure copiare il valore di **URL pagina di accesso** e quindi incollarlo nella casella di testo **Sign in URL**.
 
 
-     5.3. Creare un file con **codifica Base 64** dal certificato scaricato.[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+     5.3. Creare un file con **codifica Base 64** dal certificato scaricato.  
+
+     >[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5.4. Fare clic su **Choose certificate** e quindi selezionare il **file di certificato con codifica Base 64**.
@@ -176,7 +179,8 @@ Un ciclo di provisioning utenti completato correttamente è indicato da uno stat
 <br><br> ![Assegna utenti](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Assegna utenti")
 
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso.
+Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 
 

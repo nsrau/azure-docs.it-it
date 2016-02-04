@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Jobscience
   
-Questa esercitazione descrive l'integrazione di Azure e Jobscience. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Jobscience.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di Jobscience abilitata per l'accesso Single Sign-On
@@ -64,8 +65,8 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Jobs
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Jobscience tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. 
-La configurazione dell'accesso Single Sign-On per Jobscience richiede di recuperare un valore di identificazione personale da un certificato. 
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Jobscience tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
+La configurazione dell'accesso Single Sign-On per Jobscience richiede di recuperare un valore di identificazione personale da un certificato.  
 Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
@@ -94,7 +95,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configura accesso Single Sign-On")
 
-8.  Nella casella di testo **URL accesso Jobscience** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**http://company.my.salesforce.com*" e fare clic su **Avanti**.
+8.  Nella casella di testo **URL accesso Jobscience** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.my.salesforce.com*" e fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configura URL app")
 
@@ -119,8 +120,8 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 
     1.  Nella casella di testo **Name** digitare un nome per la configurazione.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Jobscience** del portale di Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer**.
-    3.  Nella casella di testo **Entity Id**, digitare ****https://salesforce-jobscience.com**.
-4.  Fare clic su **Browse** per caricare il certificato di Azure AD.
+    3.  Nella casella di testo **Entity Id**, digitare **https://salesforce-jobscience.com**.
+    4.  Fare clic su **Browse** per caricare il certificato di Azure AD.
     5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
     6.  In **SAML Identity Location** selezionare **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Jobscience** del portale di Azure copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL**.
@@ -147,10 +148,12 @@ Per ottenere l'URL di accesso Single Sign-On avviato dal provider di servizi, fa
 
 ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Security Controls")
   
-Fare clic sul profilo SSO creato nel passaggio precedente. Questa pagina mostra l'URL di accesso Single Sign-On per la società, ad esempio **https://companyname.my.salesforce.com?so=companyid*).
+Fare clic sul profilo SSO creato nel passaggio precedente.  
+Questa pagina mostra l'URL di accesso Single Sign-On per la società, ad esempio *https://companyname.my.salesforce.com?so=companyid*).
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a Jobscience, è necessario eseguirne il provisioning in Jobscience. Nel caso di Jobscience, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a Jobscience, è necessario eseguirne il provisioning in Jobscience.  
+Nel caso di Jobscience, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
@@ -198,3 +201,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+

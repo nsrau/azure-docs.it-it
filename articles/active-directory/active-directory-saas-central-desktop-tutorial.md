@@ -80,10 +80,10 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 3.  Nella pagina **Configura URL app** seguire questa procedura e quindi fare clic su **Avanti**:
 
-    -   Nella casella di testo **URL accesso Central Desktop** digitare l'URL del tenant di Central Desktop (ad esempio: **http://contoso.centraldesktop.com*).
--   Nella casella di testo URL di risposta Central Desktop digitare l'URL AssertionConsumerService Central Desktop (ad esempio: https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   Nella casella di testo **URL accesso Central Desktop** digitare l'URL del tenant di Central Desktop (ad esempio: *http://contoso.centraldesktop.com*).
+    -   Nella casella di testo URL di risposta Central Desktop digitare l'URL AssertionConsumerService Central Desktop (ad esempio: https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]È possibile ottenere il valore dai metadati di Central Desktop (ad esempio: **http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]È possibile ottenere il valore dai metadati di Central Desktop (ad esempio: *http://contoso.centraldesktop.com*).
 
     ![Configura URL app](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configura URL app")
 
