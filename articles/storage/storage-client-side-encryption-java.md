@@ -232,8 +232,10 @@ Come indicato in precedenza, se l'entità implementa TableEntity, il getter e il
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
 
 ## Passaggi successivi  
-Scaricare il [pacchetto Maven della libreria client di archiviazione di Azure per Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per Java da GitHub](https://github.com/Azure/azure-storage-java) Scaricare i pacchetti Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali delle chiavi di Azure
+Scaricare il [pacchetto Maven della libreria client di archiviazione di Azure per Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
+Scaricare il [codice sorgente della libreria client di archiviazione di Azure per Java da GitHub](https://github.com/Azure/azure-storage-java)  
+Scaricare i pacchetti Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali delle chiavi di Azure
 
 Visitare la [Documentazione del servizio Insieme di credenziali delle chiavi](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
