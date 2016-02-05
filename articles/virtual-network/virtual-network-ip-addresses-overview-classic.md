@@ -132,7 +132,12 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 La tabella seguente illustra i limiti imposti sull'assegnazione degli indirizzi IP in Azure per ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
 
-||Limite predefinito|Limite massimo| |---|---|---| |Indirizzi IP pubblici (dinamici)|5|contattare il supporto tecnico| |Indirizzi IP pubblici riservati|20|contattare il supporto tecnico| |Indirizzo VIP pubblico per distribuzione (servizio cloud)|5|contattare il supporto tecnico| |VIP privato (ILB) per distribuzione (servizio cloud)|1|1|
+||Limite predefinito|Limite massimo|
+|---|---|---|
+|Indirizzi IP pubblici (dinamici)|5|contattare il supporto tecnico|
+|Indirizzi IP pubblici riservati|20|contattare il supporto tecnico|
+|Indirizzo VIP pubblico per distribuzione (servizio cloud)|5|contattare il supporto tecnico|
+|VIP privato (ILB) per distribuzione (servizio cloud)|1|1|
 
 Assicurarsi di aver letto l'elenco completo di [Limiti relativi alle reti](azure-subscription-service-limits.md#networking-limits) in Azure.
 
@@ -157,4 +162,4 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 ## Passaggi successivi
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-classic-pportal.md) usando il portale classico.
 
-<!----HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0114_2016-->
