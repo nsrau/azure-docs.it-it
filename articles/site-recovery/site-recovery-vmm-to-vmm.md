@@ -375,4 +375,4 @@ Il provider nel server VMM riceve la notifica dell'evento dal Servizio ed esegue
 
 - **Scelta**: questa è una parte essenziale del servizio e non può essere disattivata. Se non si vogliono inviare queste informazioni al Servizio, non usare questo Servizio.
 
-<!----HONumber=AcomDC_0121_2016-->
+<!-----HONumber=AcomDC_0121_2016-->

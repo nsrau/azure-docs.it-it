@@ -28,7 +28,6 @@ Sono disponibili i ruoli di amministratore seguenti:
 - **Amministratore globale**: dispone di accesso a tutte le funzionalità amministrative. La persona che effettua l'iscrizione per l'account di Azure diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali.
 - **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password possono reimpostare le password solo per gli utenti e gli altri amministratori password.
 - **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
-
 > [AZURE.NOTE]
 > Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
 
@@ -87,4 +86,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 - [Gestire le password](active-directory-manage-passwords.md)
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!----HONumber=AcomDC_0107_2016-->
+<!-----HONumber=AcomDC_0107_2016-->
