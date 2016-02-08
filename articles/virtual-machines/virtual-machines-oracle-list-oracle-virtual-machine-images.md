@@ -1,4 +1,12 @@
-< proprietà "pageTitle =" title = "immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"="Ottenere l'elenco di immagini di Oracle nella raccolta di Azure e informazioni su come creare una macchina virtuale di Oracle in base a un "servizi="macchine-virtuali" documentationCenter = =" "autori ="bbenz"manager =" "editor =" "tag ="azure-gestione dei servizi, Gestione risorse di azure"/ >
+<properties"
+pageTitle="title="Immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"
+description="Ottenere l'elenco di immagini di Oracle nella raccolta di Azure e informazioni su come creare una macchina virtuale di Oracle in base a un."
+services="virtual-machines"
+documentationCenter=""
+authors="bbenz"
+manager=""
+editor=""
+tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
