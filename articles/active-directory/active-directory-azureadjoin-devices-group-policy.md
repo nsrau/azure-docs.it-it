@@ -72,7 +72,7 @@ I dispositivi aggiunti al dominio useranno questo oggetto per trovare informazio
  Sostituire [*connector account name*] con l'account di dominio usato come account connettore AD.
 
 >[AZURE.NOTE]
-Il nome utente della credenziale da specificare quando viene visualizzato il popup Get-Credential deve essere nel formato **user@example.com*
+Il nome utente della credenziale da specificare quando viene visualizzato il popup Get-Credential deve essere nel formato *user@example.com*
 
 ### Configurare regole attestazioni per AD FS
 Questa procedura consente la registrazione immediata di un computer con Azure DRS, in modo da poterne eseguire l'autenticazione usando Kerberos/NTLM tramite AD FS. Senza questo passaggio, i computer dovranno accedere ad Azure AD con un certo ritardo (in base ai tempi di sincronizzazione di Azure AD Connect).

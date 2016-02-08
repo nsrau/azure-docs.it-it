@@ -35,7 +35,9 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Servizi del ciclo di vita Dynamics | Sì | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (anteprima) | Sì | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Macchine virtuali | Sì | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Macchine virtuali (classico) | Limitato | Parziale | - | - | | App remota | No | - | - | - | | Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
+| Macchine virtuali (classico) | Limitato | Parziale | - | - |
+| App remota | No | - | - | - | 
+| Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -112,7 +114,8 @@ Servizi cloud (classico) può essere usato con altre risorse classiche, tuttavia
 | ------- | ------- | -------- | ------ | ------ |
 | Servizi BizTalk | Sì | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus di servizio | Sì | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | No | - | - | - | | Site Recovery | No | - | - | - |
+| Backup | No | - | - | - | 
+| Ripristino sito | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 

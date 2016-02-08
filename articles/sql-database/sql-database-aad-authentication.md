@@ -199,7 +199,8 @@ L'esempio seguente restituisce informazioni sull'amministratore di Azure AD corr
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L'esempio seguente rimuove un amministratore di Azure AD: ```
+L'esempio seguente rimuove un amministratore di Azure AD: 
+```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 

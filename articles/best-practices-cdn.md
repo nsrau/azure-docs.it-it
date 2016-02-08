@@ -58,8 +58,8 @@ L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse a
 
 | Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) |% miglioramento tempi CDN|
 |-------------|------------------------|--------------------|------------------|
-|*San José, CA| 47\.5 | 46\.5 | 2% |
-|**Dulles, VA| 109 | 40\.5 | 169% |
+|*San José, CA| 47.5 | 46.5 | 2% |
+|**Dulles, VA| 109 | 40.5 | 169% |
 |Buenos Aires, AR| 210 | 151 | 39%|
 |*Londra, UK| 195 | 44 | 343%|
 |Shanghai, CN| 242 | 206 | 17% |
@@ -68,7 +68,8 @@ L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse a
 |Seoul, KR| 190 | 190 | 0% |
 
 
-* Ha un nodo di rete CDN di Azure nella stessa città. ** Ha un nodo di rete CDN di Azure in una città adiacente.
+* Ha un nodo di rete CDN di Azure nella stessa città. 
+** Ha un nodo di rete CDN di Azure in una città adiacente.
 
 ## Sfide  
 
@@ -205,7 +206,13 @@ Includere la rete CDN come parte della strategia di monitoraggio dell'applicazio
 
 Abilitare la registrazione per la rete CDN e monitorare il log come parte delle operazioni quotidiane.
 
-Prendere in considerazione l'analisi del traffico della rete CDN per i modelli di utilizzo. Il portale di Azure fornisce strumenti che consentono di monitorare: + larghezza di banda, + dati trasferiti, + accessi (codici di stato) + stato della cache, + percentuale di riscontri nella cache e + percentuale di richieste IPV4/IPV6.
+Prendere in considerazione l'analisi del traffico della rete CDN per i modelli di utilizzo. Il portale di Azure fornisce strumenti che consentono di monitorare: 
++ larghezza di banda, 
++ dati trasferiti, 
++ accessi (codici di stato) 
++ stato della cache, 
++ percentuale di riscontri nella cache e 
++ percentuale di richieste IPV4/IPV6.
 
 Per altre informazioni, vedere [Modelli di utilizzo della rete CDN con analisi di Azure](cdn/cdn-analyze-usage-patterns.md/).
 

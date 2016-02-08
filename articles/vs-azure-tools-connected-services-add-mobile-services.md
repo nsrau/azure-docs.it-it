@@ -49,7 +49,9 @@ Con Visual Studio 2015, è possibile connettersi a Servizi mobili di Azure usand
 
 1. Nella finestra di dialogo **Servizi mobili di Azure** scegliere un servizio mobile esistente, se disponibile. Se è necessario creare un nuovo servizio mobile di Azure, eseguire la procedura seguente. In caso contrario, continuare con il passaggio successivo.
 
-    Per creare un nuovo account di servizio mobile: 1. Scegliere il collegamento **Crea servizio** nella parte inferiore della finestra di dialogo. ![Aggiungere un nuovo servizio connesso mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Per creare un nuovo account di servizio mobile:
+    1. Scegliere il collegamento **Crea servizio** nella parte inferiore della finestra di dialogo.
+        ![Aggiungere un nuovo servizio connesso mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 

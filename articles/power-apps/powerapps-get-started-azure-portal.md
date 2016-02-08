@@ -159,7 +159,7 @@ Per ottenere l'accesso all'ambiente del servizio app e creare API, connessioni e
 
 1. Selezionare l'ambiente del servizio app appena creato.
 2. In Informazioni di base selezionare la proprietà **Resource group**. Viene visualizzato il gruppo di risorse che contiene l'ambiente del servizio app: ![][7]
-3. Selezionare l'icona RBAC per gestire le autorizzazioni: ![][8] L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) in Azure.
+3. Selezionare l'icona RBAC per gestire le autorizzazioni: ![][8] L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) in Azure.
 
 > [AZURE.NOTE] Attualmente, non è possibile assegnare autorizzazioni RBAC all'ambiente del servizio app. È possibile assegnare autorizzazioni RBAC a livello di gruppo di risorse padre.
 

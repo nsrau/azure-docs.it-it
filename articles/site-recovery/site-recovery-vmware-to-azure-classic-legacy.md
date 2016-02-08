@@ -1,4 +1,11 @@
-<properties pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy) | Microsoft Azure" description="Descrive una distribuzione legacy per la configurazione di Azure Site Recovery per orchestrare le operazioni di replica, failover e ripristino delle macchine virtuali VMware locali e dei server fisici Windows o Linux in Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy) | Microsoft Azure" 
+	description="Descrive una distribuzione legacy per la configurazione di Azure Site Recovery per orchestrare le operazioni di replica, failover e ripristino delle macchine virtuali VMware locali e dei server fisici Windows o Linux in Azure." " 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"

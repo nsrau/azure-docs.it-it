@@ -61,13 +61,13 @@ Installare innanzitutto Microsoft HPC Pack in un computer locale che esegue Wind
 
 	![Installazione di HPC Pack 2012][install_hpc1]
 
-4. Nella pagina **Microsoft Software User Agreement** fare clic su **Next**.
+4. Nella pagina **Microsoft Software User Agreement** fare clic su **Avanti**.
 
-5. Nella pagina **Select Installation Type** fare clic su **Create a new HPC cluster by creating a head node**, quindi su **Next**.
+5. Nella pagina **Seleziona tipo di installazione** fare clic su **Crea un nuovo cluster HPC tramite la creazione di un nodo head**, quindi su **Avanti**.
 
 	![Selezionare il tipo di installazione][install_hpc2]
 
-6. Verranno eseguiti alcuni test pre-installazione. Fare clic su **Next** nella pagina **Installation Rules** se tutti i test hanno esito positivo. In caso contrario, esaminare le informazioni fornite e apportare le modifiche necessarie nell'ambiente. Ripetere quindi i test oppure riavviare l'installazione guidata, se necessario.
+6. Verranno eseguiti alcuni test pre-installazione. Fare clic su **Avanti** nella pagina **Regole installazione** se tutti i test hanno esito positivo. In caso contrario, esaminare le informazioni fornite e apportare le modifiche necessarie nell'ambiente. Ripetere quindi i test oppure riavviare l'installazione guidata, se necessario.
 
 	![Regole di installazione][install_hpc3]
 
@@ -92,7 +92,7 @@ Usare il [portale di Azure classico](https://manage.windowsazure.com) per esegui
 
 - Creare un account di archiviazione di Azure
 
-	>[AZURE.NOTE]Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. Questo ID è reperibile nelle [informazioni account](https://account.windowsazure.com/Subscriptions)</a> di Azure.
+	>[AZURE.NOTE] Prendere anche nota dell'ID sottoscrizione di Azure, che sarà necessario in seguito. Questo ID è reperibile nelle [informazioni account](https://account.windowsazure.com/Subscriptions)</a> di Azure.
 
 ### Caricare il certificato di gestione predefinito
 HPC Pack installa un certificato autofirmato nel nodo head, denominato Default Microsoft HPC Azure Management, che è possibile caricare come certificato di gestione di Azure. Questo certificato viene fornito a scopo di test e per distribuzioni di prova.
@@ -105,7 +105,7 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 
 	![Impostazioni certificato][upload_cert1]
 
-4. Individuare il file C:\\Programmi\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di spunta.
+4. Individuare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di spunta.
 
 	![Caricamento del certificato][install_hpc10]
 
@@ -165,7 +165,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	![Denominazione dei nodi][config_hpc8]
 
-	>[AZURE.NOTE]La serie di denominazione genera nomi solo per i nodi di calcolo aggiunti al dominio. L'assegnazione dei nomi ai nodi di lavoro di Azure avviene automaticamente.
+	>[AZURE.NOTE] La serie di denominazione genera nomi solo per i nodi di calcolo aggiunti al dominio. L'assegnazione dei nomi ai nodi di lavoro di Azure avviene automaticamente.
 
 9. In **Deployment To-do List** fare clic su **Create a node template**. Verrà usato il modello di nodo per aggiungere nodi di Azure al cluster.
 
@@ -175,7 +175,7 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	![Modello di nodo][config_hpc10]
 
-	b. Fare clic su **Next** per accettare il nome di modello predefinito.
+	b. Fare clic su **Avanti** per accettare il nome di modello predefinito.
 
 	c. Nella pagina **Provide Subscription Information** immettere l'ID sottoscrizione di Azure, disponibile nelle proprie informazioni account di Azure. Quindi, in **Management certificate**, fare clic su **Browse** e selezionare **Default HPC Azure Management.** Quindi fare clic su **Avanti**.
 
@@ -185,9 +185,9 @@ Prima di usare HPC Cluster Manager per distribuire nodi di Azure e inviare proce
 
 	![Modello di nodo][config_hpc13]
 
-	e. Fare clic su **Next** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Create** per creare il modello di nodo.
+	e. Fare clic su **Avanti** per accettare i valori predefiniti nelle pagine restanti della procedura guidata. Quindi, nella scheda **Review** fare clic su **Create** per creare il modello di nodo.
 
-	>[AZURE.NOTE]Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio (provisioning) e l'interruzione manuale dei nodi. Facoltativamente, è possibile configurare una pianificazione per l'avvio e l'arresto automatici dei nodi di Azure.
+	>[AZURE.NOTE] Per impostazione predefinita, il modello di nodo di Azure include le impostazioni per l'avvio (provisioning) e l'interruzione manuale dei nodi. Facoltativamente, è possibile configurare una pianificazione per l'avvio e l'arresto automatici dei nodi di Azure.
 
 ## Aggiunta di nodi di Azure al cluster
 

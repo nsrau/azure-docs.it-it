@@ -53,7 +53,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano installa
 
 Creare un account di archiviazione di Azure L'app utilizzerà questo account per archiviare gli elementi dell'elenco attività.
 
-1.  Accedere al [Portale di Azure](https://portal.azure.com/).
+1.  Accedere al [Portale di Azure](https://portal.azure.com).
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
@@ -478,7 +478,7 @@ Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati ne
 
 Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
-> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com/). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
+> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
@@ -496,7 +496,8 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->
+	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 

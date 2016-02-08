@@ -81,7 +81,7 @@ Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione 
 
 4. Rimuovere il gruppo di affinità per le nuove distribuzioni: i gruppi di affinità non sono più consigliati. Attenersi alla procedura #1 indicata in precedenza per distribuire un nuovo servizio cloud. Assicurarsi che il servizio cloud non sia in un gruppo di affinità.
 
-5. Eseguire la conversione a una rete virtuale regionale: vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Eseguire la conversione a una rete virtuale regionale: vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Risorse aggiuntive
 ### Contattare il supporto tecnico di Azure

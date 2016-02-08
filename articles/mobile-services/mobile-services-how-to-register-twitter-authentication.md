@@ -39,7 +39,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 	+ **Back-end .NET**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **Back-end JavaScript**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE]Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
+	 >[AZURE.NOTE] Assicurarsi di utilizzare il formato del percorso URL di reindirizzamento corretto per il tipo di back-end di servizi mobili. Quando questo non è corretto, l'autenticazione non avrà esito positivo. & nbsp;
 
    	![][2]
 

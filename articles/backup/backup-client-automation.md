@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/22/2016" ms.author="markgal"; "aashishr"; "jimpark"/>
+<tags 
+ms.service="backup"
+ ms.workload="storage-backup-recovery"
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="01/22/2016" 
+  ms.author="markgal"; "aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -65,7 +72,16 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
+| /q | Installazione non interattiva | - | 
+| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent | 
+| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agente\Scratch | 
+| /m | Accetta Microsoft Update | - |
+| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
+| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | 
+| /ph | Indirizzo host proxy | - | 
+| /po | Numero porta host proxy | - | 
+| /pu | Nome utente host proxy | - | 
+| /pw | Password proxy | - |
 
 
 ## Registrazione del servizio Backup di Azure

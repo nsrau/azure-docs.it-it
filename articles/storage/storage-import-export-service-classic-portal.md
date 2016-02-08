@@ -94,7 +94,7 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
 
 7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -222,7 +222,8 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 
 - No. Tutte le unità devono essere preparate per BitLocker.
 
-**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?** = No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
+**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?**
+ = No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
 
 ### Spedizione
 

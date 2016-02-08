@@ -43,7 +43,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
-4. Fare clic su **Next**.
+4. Fare clic su **Avanti**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da utilizzare per la macchina virtuale.

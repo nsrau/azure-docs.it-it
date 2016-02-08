@@ -23,7 +23,10 @@ Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle ap
   >[AZURE.NOTE]
     Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
- Qui si userà OWIN per: - Fare accedere l'utente all'app usando Azure AD e Modello app 2.0 - Visualizzare alcune informazioni sull'utente - Disconnettere l'utente dall'app.
+ Qui si userà OWIN per: 
+ - Fare accedere l'utente all'app usando Azure AD e Modello app 2.0 
+ - Visualizzare alcune informazioni sull'utente 
+ - Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -109,13 +112,17 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 			 }
 ```
 
-## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
+## 3. Usare OWIN per inviare le richieste di accesso e disconnessione ad Azure AD
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
 
-- You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
+- È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire una determinata pagina.  Aprire `Controllers\HomeController.cs` e aggiungere il tag `[Authorize]` al controller About.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	È possibile usare OWIN anche per inviare le richieste di autenticazione direttamente dal codice. Aprire `Controllers\AccountController.cs`. Nelle azioni SignIn() e SignOut() inoltrare rispettivamente le richieste di verifica e di disconnessione di OpenID Connect.
 
@@ -202,6 +209,8 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con Modello app 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Per altre risorse consultare:
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=AcomDC_0128_2016-->

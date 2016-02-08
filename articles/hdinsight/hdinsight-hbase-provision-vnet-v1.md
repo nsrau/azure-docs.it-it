@@ -133,7 +133,8 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 	<tr><td>Dimensione nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
 	<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
 	<tr><td>Dimensione Zookeeper</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo Zookeeper.</p></td></tr>
-</table>>[AZURE.NOTE] Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+	</table>
+	>[AZURE.NOTE] Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 	Fare clic sul pulsante a destra.
 
@@ -177,7 +178,8 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
         <p>Se si è scelto di creare una nuova risorsa di archiviazione da un'altra sottoscrizione di Azure è necessario specificare il nome del contenitore predefinito.</p>
     </td></tr>
 	<tr><td>Account di archiviazione aggiuntivi</td>
-		<td>Se necessario, specificare account di archiviazione aggiuntivi per il cluster. HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure classico, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni nuovo account di archiviazione specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, non è stato selezionato un account di archiviazione aggiuntivo e, quindi, alla procedura guidata non è stata aggiunta alcuna nuova pagina.</td></tr>
+			<td>Se necessario, specificare account di archiviazione aggiuntivi per il cluster. HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni nuovo account di archiviazione specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, non è stato selezionato un account di archiviazione aggiuntivo e, quindi, alla procedura guidata non è stata aggiunta alcuna nuova pagina.</td></tr>
+	</table>
 </table>Fare clic sulla freccia destra.
 
 7. Nella pagina **Azioni script** selezionare il segno di spunta nell'angolo inferiore destro. Non fare clic sul pulsante che consente di **aggiungere azioni di script**, poiché questa esercitazione non richiede una configurazione cluster personalizzata.

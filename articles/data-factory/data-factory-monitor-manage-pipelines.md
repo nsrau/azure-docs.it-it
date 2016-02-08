@@ -540,7 +540,9 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
+*metricName* supporta al momento 2 valori:
+- FailedRuns
+- SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 

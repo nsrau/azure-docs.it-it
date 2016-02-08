@@ -6,7 +6,8 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"	/>
+	tags="azure-service-management"
+	/>
 
 <tags
 	ms.service="virtual-machines"

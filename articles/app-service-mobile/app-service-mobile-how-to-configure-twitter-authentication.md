@@ -43,11 +43,11 @@ Questo argomento illustra le modalità di utilizzo della funzione di autenticazi
 	> [AZURE.NOTE]
 	Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-twitter_.
 
-3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Create your Twitter application**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
+3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Creare l'applicazione Twitter**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 
-4. Fare clic sulla scheda **Settings**, selezionare **Allow this application to be used to sign in with Twitter** e quindi fare clic su **Update Settings**.
+4. Fare clic sulla scheda **Impostazioni**, selezionare **Consentire l'uso dell'applicazione per l'accesso con Twitter** e quindi fare clic su **Aggiornare le impostazioni**.
 
-5. Selezionare la scheda **Keys and Access Tokens**. Prendere nota dei valori di **Consumer Key (API Key)** e **Consumer secret (API Secret)**.
+5. Selezionare la scheda **Chiavi e token di accesso**. Prendere nota dei valori di **Chiave utente (chiave API)** e **Segreto utente (segreto API)**.
 
     > [AZURE.NOTE] Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
 

@@ -106,7 +106,8 @@ L'autorizzazione viene concessa se un utente finale dispone di accesso a livello
 #### Passaggio 1: Selezionare l'ambito di accesso appropriato
 Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio* dall'interno di Azure AD Connect Health, aprire il pannello principale in Azure AD Connect Health.<br>
 #### Passaggio 2: Aggiungere utenti, gruppi e assegnare ruoli
-1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br> ![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br> 
+![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selezionare "Aggiungi"
 3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su "seleziona". ![Selezionare utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)

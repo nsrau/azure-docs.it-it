@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
 | response\_type | obbligatorio | Deve includere `id_token` per OpenID Connect. Se anche l'applicazione Web richiede token per chiamare un'API Web, è possibile utilizzare `code+id_token`, come illustrato qui. |
 | redirect\_uri | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un **refresh\_token** per un accesso prolungato alle risorse. |
@@ -133,7 +133,8 @@ Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valor
 
 Per determinare quale criterio è stato utilizzato per la firma di un id\_token (e la posizione dove recuperare i metadati), sono disponibili due opzioni. In primo luogo, il nome del criterio è incluso nell’attestazione `acr` dell’id\_token. Per informazioni su come analizzare le attestazioni da un id\_token, consultare il [riferimento al token Azure AD B2C](active-directory-b2c-reference-tokens.md). L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono perfettamente validi.
 
-Dopo aver acquistato il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile utilizzare le chiavi pubbliche RSA256 che si trovano in questo endpoint per convalidare la firma dell’id\_token. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione dell’id\_token contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state utilizzate per firmare l’id\_token. Per ulteriori informazioni, relative alla [convalida del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens), consultare il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).<!--TODO: Improve the information on this-->
+Dopo aver acquistato il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile utilizzare le chiavi pubbliche RSA256 che si trovano in questo endpoint per convalidare la firma dell’id\_token. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione dell’id\_token contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state utilizzate per firmare l’id\_token. Per ulteriori informazioni, relative alla [convalida del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens), consultare il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).
+<!--TODO: Improve the information on this-->
 
 Dopo aver convalidato la firma del token ID, è necessario verificare alcune attestazioni:
 
@@ -174,12 +175,12 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
 | grant\_type | obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | code | obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
-| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
+| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
@@ -253,12 +254,12 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il token di aggiornamento originale. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
 | grant\_type | obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
 | refresh\_token | obbligatorio | refresh\_token acquisito durante la seconda sezione del flusso. Per ricevere un token di aggiornamento, occorre aver utilizzato l’ambito `offline_access` nelle richieste sia di autorizzazione, sia del token. |
-| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
+| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 

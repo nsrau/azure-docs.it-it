@@ -73,7 +73,7 @@ L'aggiornamento di un database Web o Business a un nuovo livello di servizio pre
 
 
 
-## 1\. Determinare il livello di servizio in base alla funzionalità
+## 1. Determinare il livello di servizio in base alla funzionalità
 
 I livelli di servizio Basic, Standard e Premium offrono set di funzionalità diversi. Pertanto, per scegliere un livello appropriato, è innanzitutto necessario determinare il livello di servizio in grado di garantire il livello minimo di funzionalità necessario per l'applicazione e la propria azienda.
 
@@ -99,7 +99,7 @@ Dopo la selezione del livello di servizio adatto a soddisfare i requisiti del da
 
 
 
-## 2\. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
+## 2. Determinare un livello di prestazioni accettabile in base alla cronologia d'uso delle risorse
 
 Il servizio database SQL di Azure espone informazioni nel portale classico e in viste di sistema per fornire il nuovo livello di servizio e di prestazioni comparabile suggerito per il database Web o Business esistente.
 
@@ -148,7 +148,7 @@ Per esaminare i dettagli relativi al consumo di risorse di un database, è possi
 ### Viste di sistema
 
 
-I dati relativi al consumo di risorse dei database Web e Business sono accessibili tramite la vista [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) nel database master del server logico in cui si trova il database corrente. Visualizza i dati sul consumo delle risorse come percentuali del limite del livello di prestazioni. Questa vista fornisce i dati fino a un massimo di 14 giorni fa, a intervalli di 5 minuti.
+I dati relativi al consumo di risorse dei database Web e Business sono accessibili tramite la vista [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) nel database master del server logico in cui si trova il database corrente. Visualizza i dati sul consumo delle risorse come percentuali del limite del livello di prestazioni. Questa vista fornisce i dati fino a un massimo di 14 giorni fa, a intervalli di 5 minuti.
 
 > [AZURE.NOTE] È ora possibile usare la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) nei database Web e Business per un livello di granularità più elevato (ogni 15 secondi) di dati relativi al consumo di risorse. Poiché sys.dm\_db\_resource\_stats consente di mantenere solo i dati cronologici per un'ora, è possibile eseguire una query per la DMV ogni ora e archiviare i dati per un'ulteriore analisi.
 
@@ -166,9 +166,9 @@ Per recuperare il consumo di DTU medio per un database, inoltrare la seguente qu
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-I dati restituiti da [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) e [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) per i livelli Web e Business indicano le percentuali in termini di livello delle prestazioni standard S2. Ad esempio, in presenza di un database Web o Business, se i valori restituiscono il 70% viene indicato il 70% del limite del livello S2. Per Web e Business, inoltre, le percentuali possono restituire cifre che superano il 100%, in base al limite del livello S2.
+I dati restituiti da [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) per i livelli Web e Business indicano le percentuali in termini di livello delle prestazioni standard S2. Ad esempio, in presenza di un database Web o Business, se i valori restituiscono il 70% viene indicato il 70% del limite del livello S2. Per Web e Business, inoltre, le percentuali possono restituire cifre che superano il 100%, in base al limite del livello S2.
 
-Le informazioni sul consumo di DTU in termini di livello di database S2 consentono di normalizzare il consumo corrente dei database Web e Business in termini di database con nuovi livelli e di verificare dove funzionano meglio. Se, ad esempio, il consumo percentuale di DTU medio mostra un valore pari all'80%, significa che il database sta usando DTU a un tasso dell'80% del limite di un database al livello di prestazioni S2. Se nella vista **sys.resource\_stats** appaiono valori superiori al 100%, significa che è necessario un livello di prestazioni superiore a S2. Prendiamo l'esempio di un picco con un valore percentuale di DTU pari al 300%. Significa che si stanno usando tre volte più risorse di quelle disponibili in un livello S2. Per determinare una dimensione iniziale ragionevole, confrontare le DTU disponibili in un livello S2 (50 DTU) con le dimensioni più elevate successive (S3/P1 = 100 DTU o 200% di S2, P2 = 200 DTU o 400% di S2). Poiché si è al 300% di S2, è preferibile iniziare con un livello P2 e ripetere il test.
+Le informazioni sul consumo di DTU in termini di livello di database S2 consentono di normalizzare il consumo corrente dei database Web e Business in termini di database con nuovi livelli e di verificare dove funzionano meglio. Se, ad esempio, il consumo percentuale di DTU medio mostra un valore pari all'80%, significa che il database sta usando DTU a un tasso dell'80% del limite di un database al livello di prestazioni S2. Se nella vista **sys.resource_stats** appaiono valori superiori al 100%, significa che è necessario un livello di prestazioni superiore a S2. Prendiamo l'esempio di un picco con un valore percentuale di DTU pari al 300%. Significa che si stanno usando tre volte più risorse di quelle disponibili in un livello S2. Per determinare una dimensione iniziale ragionevole, confrontare le DTU disponibili in un livello S2 (50 DTU) con le dimensioni più elevate successive (S3/P1 = 100 DTU o 200% di S2, P2 = 200 DTU o 400% di S2). Poiché si è al 300% di S2, è preferibile iniziare con un livello P2 e ripetere il test.
 
 In base alla percentuale d'uso di DTU e all'edizione massima necessaria per il carico di lavoro, è possibile determinare il livello di servizio e il livello di prestazioni più adatti al carico di lavoro del database (come indicato dalla percentuale di DTU e dalle potenze di DTU relative di diversi [livelli di prestazioni)](sql-database-service-tiers.md). Ecco una tabella che illustra il mapping della percentuale di consumo di risorse Web/Business ai gradi di prestazioni dei nuovi livelli equivalenti:
 
@@ -212,11 +212,11 @@ Il grafico rappresenta la tendenza del consumo percentuale medio di DTU nel cors
 
 ![Uso di DTU](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
-**Impatto della memoria sulle prestazioni:** anche se la memoria è una delle dimensioni delle risorse che contribuisce alla classificazione DTU, il database SQL è progettato per usare tutta la memoria disponibile per le operazioni del database. Per questo motivo il consumo della memoria non è incluso nel consumo di DTU medio nella query precedente. D'altra parte, se si passa a un livello di prestazioni inferiore, la memoria disponibile per il database viene ridotta. Ciò può comportare un consumo di IO più elevato che influisce sul consumo di DTU. Pertanto, quando si passa a un livello di prestazioni inferiore, assicurarsi di avere abbastanza capacità aggiuntiva nella percentuale di IO. Usare la DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) citata sopra per monitorarla.
+**Impatto della memoria sulle prestazioni:** anche se la memoria è una delle dimensioni delle risorse che contribuisce alla classificazione DTU, il database SQL è progettato per usare tutta la memoria disponibile per le operazioni del database. Per questo motivo il consumo della memoria non è incluso nel consumo di DTU medio nella query precedente. D'altra parte, se si passa a un livello di prestazioni inferiore, la memoria disponibile per il database viene ridotta. Ciò può comportare un consumo di IO più elevato che influisce sul consumo di DTU. Pertanto, quando si passa a un livello di prestazioni inferiore, assicurarsi di avere abbastanza capacità aggiuntiva nella percentuale di IO. Usare la DMV [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) citata sopra per monitorarla.
 
 
 
-## 3\. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
+## 3. Determinare i motivi per cui le prestazioni correnti del database Web o Business tendono ai livelli Premium più elevati
 
 Per i singoli database Web e Business non viene riservata alcuna quantità specifica di capacità delle risorse. Inoltre, non è disponibile alcun meccanismo mediante il quale i clienti possano aumentare o ridurre le prestazioni per un database Web o Business. Le prestazioni dei database Web e Business possono pertanto essere molto variabili, passando inaspettatamente da un livello minimo a un livello Premium. Questa variabilità delle prestazioni dipende *parzialmente* dal livello generale di consumo delle risorse in un determinato momento da parte degli altri database dell'ambiente multi-tenant che condividono le risorse.
 
@@ -229,7 +229,7 @@ Per comprendere più chiaramente le differenze tra i livelli Web/Business e i li
 Se la percentuale di DTU complessiva è particolarmente elevata, iniziare a studiare le metriche dettagliate che costituiscono le DTU, ad esempio esaminando specificamente i dettagli del log di I/O e uso della memoria del database. Questa analisi può essere utile per individuare potenziali aree in cui ottimizzare e ridurre il consumo di DTU.
 
 
-## 4\. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
+## 4. Ottimizzare il carico di lavoro in base a un livello di prestazioni inferiore
 Se l'analisi della cronologia relativa all'uso delle risorse del database indica la necessità di effettuare l'aggiornamento a un livello di prestazioni più costoso del previsto, è possibile esaminare aree in cui può essere utile ottimizzare ulteriormente le prestazioni.
 
 Sulla base della propria conoscenza dei dettagli dell'applicazione, se l'uso delle risorse risulta notevolmente elevato rispetto al tipico carico di lavoro previsto, l'applicazione può ancora trarre vantaggio in qualche misura dall'ottimizzazione delle prestazioni.
@@ -248,7 +248,7 @@ Oltre alle consuete attività di manutenzione volte all'ottimizzazione, tra cui 
 
 
 
-## 5\. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
+## 5. Eseguire l'aggiornamento al nuovo livello di prestazioni/livello di servizio
 Dopo aver determinato il livello di servizio e il livello di prestazioni appropriati per il database Web o Business, è possibile aggiornare il database al nuovo livello in diversi modi:
 
 | Strumento di gestione | Per cambiare il livello di servizio e il livello di prestazioni di un database|
@@ -274,11 +274,11 @@ Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gest
 
 Se per l'aggiornamento è stato usato il portale classico, nel portale è disponibile anche una notifica per l'operazione.
 
-## 7\. Monitorare il database dopo l'aggiornamento
+## 7. Monitorare il database dopo l'aggiornamento
 Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabile monitorare attivamente il database per verificare che le applicazioni siano in esecuzione con le prestazioni desiderate e ottimizzare l'utilizzo in base alle esigenze. Per monitorare il database, è consigliata la seguente procedura aggiuntiva.
 
 
-**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium sono disponibili dati più granulari sul consumo delle risorse in una nuova DMV denominata [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
+**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium sono disponibili dati più granulari sul consumo delle risorse in una nuova DMV denominata [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
 
     SELECT end_time
     	 , (SELECT Max(v)

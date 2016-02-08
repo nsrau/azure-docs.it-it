@@ -2,7 +2,7 @@
 |---------------------------------------------|----------------------------------------|
 | Dimensioni cache | 530 GB ([contattaci](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) per ulteriori informazioni) |
 | Database | 16 |
-| Numero massimo di client connessi | 40\.000 |
+| Numero massimo di client connessi | 40.000 |
 | Repliche di Cache Redis (per la disponibilità elevata) | 1 |
 | Partizioni in una cache premium con il clustering | 10 |
 

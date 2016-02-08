@@ -44,7 +44,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -93,7 +93,7 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        o portale di anteprima. Specificare la distribuzione **classica** per i servizi di calcolo, archiviazione e rete.
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

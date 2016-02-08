@@ -412,9 +412,11 @@ Prima di eseguire la procedura inclusa in questa sezione, è necessario avere as
 3.	Fare clic sul pannello **App Web**.
 4.	Fare clic sul nome dell'app.
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.
-6.	Fare clic su **Domini personalizzati ed SSL**. ![Scheda di configurazione][sslconfig]
+6.	Fare clic su **Domini personalizzati ed SSL**. 
+	![Scheda di configurazione][sslconfig]
 7.	Nella sezione **certificati** fare clic su **Carica**
-8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Fare infine clic su **Salva** per caricare il certificato. ![Caricamento SSL][ssluploadcert]
+8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Fare infine clic su **Salva** per caricare il certificato. 
+	![Caricamento SSL][ssluploadcert]
 9. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su [Indicazione nome server][sni] (SNI, Server Name Indication) o IP.
 
 	![Associazioni SSL][sslbindings]

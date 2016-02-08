@@ -18,7 +18,8 @@
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -259,7 +260,12 @@ Nel codice seguente viene illustrato come aggiornare con nuove informazioni un'i
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: 
+JObject jo = new JObject(); 
+jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); 
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Si noti che quando si effettua un aggiornamento, è necessario specificare un ID. Questo è il modo in cui il back-end identifica l'istanza da aggiornare. È possibile ottenere l'ID dal risultato della chiamata `InsertAsync`. Quando si tenta di aggiornare un elemento senza fornire il valore "Id", un `ArgumentException` viene generato.
 

@@ -33,7 +33,7 @@ Per integrare l'applicazione con Azure AD, seguire [le istruzioni per sviluppato
 
 * Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.  
 
-* Fornire istruzioni su come il team di Azure AD può accedere e connettere un'istanza di Azure AD all'applicazione usando il [framework di consenso di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
+* Fornire istruzioni su come il team di Azure AD può accedere e connettere un'istanza di Azure AD all'applicazione usando il [framework di consenso di Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
 
 * Fornire eventuali istruzioni aggiuntive necessarie per il team di Azure AD per testare l'accesso Single Sign-On con l'applicazione.
 

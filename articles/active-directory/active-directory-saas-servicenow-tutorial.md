@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
   
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow
@@ -229,19 +230,19 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 2. Nella pagina **Immettere le credenziali ServiceNow per abilitare il provisioning utente automatico** specificare le credenziali di configurazione seguenti: Configura provisioning utenti
 
-     2\.1. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
+     2.1. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
 
-     2\.2. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore ServiceNow.
+     2.2. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore ServiceNow.
 
-     2\.3. Nella casella di testo **Password amministratore ServiceNow** digitare la password dell'account.
+     2.3. Nella casella di testo **Password amministratore ServiceNow** digitare la password dell'account.
 
-     2\.4. Fare clic su **Convalida** per verificare la configurazione.
+     2.4. Fare clic su **Convalida** per verificare la configurazione.
 
-     2\.5. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
+     2.5. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
 
-     2\.6. Se si vuole effettuare il provisioning di tutti gli utenti nell'applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**". <br><br> ![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
+     2.6. Se si vuole effettuare il provisioning di tutti gli utenti nell'applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**". <br><br> ![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
 
-     2\.7. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
+     2.7. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
 
 
 
