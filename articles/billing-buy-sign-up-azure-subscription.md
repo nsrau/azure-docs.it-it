@@ -24,7 +24,7 @@
 
 Per iscriversi per ottenere una sottoscrizione della versione di valutazione gratuita di Azure, è necessario fornire un numero di telefono, un numero di carta di credito e un account Microsoft. L'account Microsoft è l'indirizzo di posta elettronica che si usa, insieme alla password, per accedere a qualsiasi programma o servizio Windows Live, ad esempio Outlook, Hotmail o OneDrive. È possibile impostare un account Microsoft usando qualsiasi indirizzo di posta elettronica appartenente all’utente, compresa la posta elettronica aziendale. Per altre informazioni dettagliate, vedere [Domande frequenti sull'account Microsoft](https://www.microsoft.com/it-IT/account/faq.aspx).
 
->[AZURE.NOTE]Il numero di telefono e il numero di carta di credito vengono usati solo per verificare l'identità. Sebbene non verrà eseguito alcun addebito sulla carta di credito, Microsoft inserirà un blocco di autorizzazione su di essa per una quantità minima in modo da verificarne la validità. Il blocco verrà rilasciato entro 3-5 giorni lavorativi, a seconda dei criteri dell'istituto finanziario.
+>[AZURE.NOTE] Il numero di telefono e il numero di carta di credito vengono usati solo per verificare l'identità. Sebbene non verrà eseguito alcun addebito sulla carta di credito, Microsoft inserirà un blocco di autorizzazione su di essa per una quantità minima in modo da verificarne la validità. Il blocco verrà rilasciato entro 3-5 giorni lavorativi, a seconda dei criteri dell'istituto finanziario.
 
 1. Aprire la [pagina della versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) e quindi selezionare **Prova subito**.
 2. Accedere al proprio account Microsoft o all'account aziendale o dell'istituto di istruzione.
@@ -50,7 +50,7 @@ Per iscriversi per ottenere una sottoscrizione della versione di valutazione gra
 
 ## Aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base al consumo
 
-1. Accedere al [portale dell'account di Azure](https://account.windowsazure.com/subscriptions) usando l'account Microsoft o l'account aziendale o dell'istituto di istruzione usato per ottenere la versione di valutazione gratuita.
+1. Accedere al [Portale Account di Azure](https://account.windowsazure.com/subscriptions) usando l'account Microsoft o l'account aziendale o dell'istituto di istruzione usato per iscriversi per ottenere la versione di valutazione gratuita.
 2. Selezionare la sottoscrizione e quindi **Aggiorna**.</br>![Pagina di fatturazione](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 3. Selezionare **Sì** e quindi **Aggiorna ora**. </br>![Aggiornamento](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
 
@@ -62,7 +62,7 @@ Se sono stati acquistati crediti Azure in Open da un rivenditore, seguire questi
 
 1. Andare alla [pagina di riepilogo della sottoscrizione](https://account.windowsazure.com/subscriptions) su azure.com.
 
-2. Selezionare **Azure in Open**. Nella pagina del [codice di licenza di Azure in Open](http://azure.microsoft.com/offers/ms-azr-0111p/) scegliere se **attivare una nuova sottoscrizione o usare una sottoscrizione esistente**.
+2. Selezionare **Azure in Open**. Nella pagina del [codice di licenza di Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) scegliere se **attivare una nuova sottoscrizione o usare una sottoscrizione esistente**.
 
 3. Immettere il codice Product Key e quindi selezionare l'opzione del contratto.
 
@@ -92,4 +92,4 @@ Verificare tramite il canale del programma dei vantaggi se si è idonei al piano
 
 - [Portale di Microsoft BizSpark Plus](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@ L'infrastruttura limita l'accessibilità e crea un limite di attendibilità tra 
 
 È possibile usare il bilanciamento del carico interno in molte nuove configurazioni, tra cui quelle descritte di seguito.
 
-Il bilanciamento del carico interno di Azure consente di bilanciare il carico tra macchine virtuali che si trovano in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali di area](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) nel blog di Azure. Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
+Il bilanciamento del carico interno di Azure consente di bilanciare il carico tra macchine virtuali che si trovano in un servizio cloud o una rete virtuale nell'ambito di un'area. Per informazioni sull'uso e sulla configurazione di reti virtuali nell'ambito di un'area, vedere [Reti virtuali di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) nel blog di Azure. Le reti virtuali esistenti che sono state configurate per un gruppo di affinità non possono usare il bilanciamento del carico interno.
 
 Il bilanciamento del carico interno offre i seguenti nuovi tipi di bilanciamento del carico:
 
@@ -92,4 +92,4 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

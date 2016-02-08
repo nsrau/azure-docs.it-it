@@ -110,7 +110,7 @@ La **campagna** creata in Mobile Engagement viene definita in questo modo perch�
 Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzioni seguenti:
 
 1. Cercare il problema specifico nei thread esistenti nel forum StackOverflow e nel [forum su MSDN](https://social.msdn.microsoft.com/Forums/windows/it-IT/home?forum=azuremobileengagement). Se il problema non è già stato segnalato, inviare una domanda ai forum. 
-2. Se si ritiene che manchi una funzionalità, aggiungere/votare la relativa richiesta nel [forum UserVoice](http://feedback.azure.com/forums/285737-mobile-engagement)
+2. Se si ritiene che manchi una funzionalità, aggiungere/votare la relativa richiesta nel [forum UserVoice](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. Se si ha diritto al Supporto Microsoft, aprire una richiesta di assistenza, fornendo i dettagli seguenti: 
 	- ID sottoscrizione di Azure
 	- Piattaforma (ad esempio iOS, Android e così via)
@@ -120,4 +120,4 @@ Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzi
 	- Versione di Mobile Engagement SDK (ad esempio Android SDK v2.1.0)
 	- Dettagli dell'errore con messaggio di errore esatto e scenario
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,8 @@ La parte rimanente di questo argomento descrive il set di funzionalità di gesti
 - I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione.
 - Il **writeback delle password** permette di gestire le password locali dal cloud, in modo che tutti gli scenari descritti in precedenza possano essere eseguiti da o per conto di utenti federati o con sincronizzazione tramite password. Per il writeback delle password è necessaria una licenza di Azure AD Premium. Per altre informazioni, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 
-> [AZURE.NOTE]Azure AD Premium è disponibile per i clienti cinesi che usano l'istanza globale di Azure AD. Azure AD Premium non è attualmente supportato nel servizio Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+Azure AD Premium è disponibile per i clienti cinesi che usano l'istanza globale di Azure AD. Azure AD Premium non è attualmente supportato nel servizio Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Usare i collegamenti seguenti per passare alla documentazione rilevante:
 
@@ -48,4 +49,4 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 - [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Questo argomento fornisce informazioni sull'estensione Gestione identità con privilegi di Azure AD e spiega come configurarla."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
-# Gestione identità con privilegi di Azure AD
+# Azure AD Privileged Identity Management
 
-Gestione identità con privilegi di Azure AD consente di gestire, controllare e monitorare le identità con privilegi e il relativo accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
+Azure Active Directory (AD) Privileged Identity Management consente di gestire, controllare e monitorare le identità con privilegi e il relativo accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
-Per consentire agli utenti di eseguire operazioni con privilegi, spesso, in passato, le organizzazioni hanno dovuto concedere agli utenti accessi con privilegi permanenti in Azure AD, per le risorse di Azure o Office 365 o per altre app SaaS. Per molti clienti questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud, in quanto non è possibile monitorare completamente ciò che gli utenti fanno con i privilegi amministrativi. Un account utente con accesso privilegiato compromesso comporta un rischio elevato per la sicurezza complessiva del cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
+Per consentire agli utenti di eseguire operazioni con privilegi, spesso le organizzazioni devono concedere agli utenti accessi con privilegi permanenti in Azure AD, per le risorse di Azure o Office 365 o per altre app SaaS. Per molti clienti questo rappresenta un rischio di sicurezza crescente per le risorse ospitate nel cloud, in quanto non è possibile monitorare completamente ciò che gli utenti fanno con i privilegi amministrativi. Un account utente con accesso privilegiato compromesso comporta un rischio elevato per la sicurezza complessiva del cloud. Gestione identità con privilegi di Azure AD consente di risolvere questo rischio.
 
 Azure AD Privileged Identity Management consente di effettuare le operazioni seguenti:
 
@@ -45,9 +45,9 @@ In passato, si poteva assegnare un utente a un ruolo amministrativo tramite il p
 
 Per iniziare a usare Azure AD Privileged Identity Management, accedere al [portale di Azure](https://portal.azure.com/). Al momento, Azure AD Privileged Identity Management è disponibile solo nel portale di Azure. Non è disponibile nel portale classico. Per abilitare Gestione identità con privilegi di Azure AD per una directory è necessario essere un amministratore globale.
 
-![][1]
+![Portale di Azure - Ricerca di identità con privilegi - Schermata][1]
 
-Al termine dell'inizializzazione di questa estensione, l'utente diventerà il primo **Amministratore della sicurezza** della directory. Solo l'amministratore della sicurezza può accedere a questa estensione per gestire l'accesso per gli altri amministratori.
+Al termine dell'[inizializzazione di questa estensione](active-directory-privileged-identity-management-getting-started.md), l'utente diventerà il primo **Amministratore della sicurezza** della directory. Solo l'amministratore della sicurezza può accedere a questa estensione per gestire l'accesso per gli altri amministratori.
 
 Durante l'inizializzazione, verrà aggiunto un riquadro di Azure AD Privileged Identity Management nella schermata iniziale del portale di Azure.
 
@@ -59,13 +59,13 @@ In Azure AD Privileged Identity Management è disponibile un dashboard che visua
 - Numero di amministratori permanenti e temporanei
 - Cronologia di accesso dell'amministratore
 
-![][2]
+![Dashboard PIM - Schermata][2]
 
 ## Gestione dei ruoli con privilegi
 
 Gestione identità con privilegi di Azure AD consente di gestire gli amministratori tramite l'aggiunta o la rimozione di amministratori permanenti o temporanei a ogni ruolo.
 
-![][3]
+![Aggiunta/Rimozione di amministratori PIM - Schermata][3]
 
 ## Configurare le impostazioni di attivazione del ruolo
 
@@ -75,7 +75,7 @@ L'impostazione di attivazione del ruolo consente di configurare le proprietà di
 - Notifica di attivazione del ruolo
 - Informazioni che l'utente deve specificare durante il processo di attivazione del ruolo  
 
-![][4]
+![Impostazioni di PIM - Attivazione dell'amministratore - Schermata][4]
 
 ## Attivazione del ruolo  
 
@@ -87,13 +87,13 @@ Qualsiasi tipo di amministratore può usare Gestione identità con privilegi di 
 
 L'attivazione del ruolo ha un vincolo di tempo. Nelle impostazioni di attivazione del ruolo è possibile configurare la durata dell'attivazione e le informazioni che l'amministratore dovrà fornire per attivare il ruolo.
 
-![][5]
+![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5]
 
 ## Cronologia di attivazione dei ruoli
 
-Gestione identità con privilegi di Azure AD consente anche di rilevare le modifiche nella cronologia di attivazione dei ruoli e delle assegnazioni dei ruoli con privilegi. A tale scopo, usare le opzioni del log di controllo seguenti:
+Azure AD Privileged Identity Management consente anche di rilevare le modifiche nella cronologia di attivazione dei ruoli e delle assegnazioni dei ruoli con privilegi. A tale scopo, usare le opzioni del log di controllo seguenti:
 
-![][6]
+![Cronologia di attivazione PIM - Schermata][6]
 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -106,4 +106,4 @@ Gestione identità con privilegi di Azure AD consente anche di rilevare le modif
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

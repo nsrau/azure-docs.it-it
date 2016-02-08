@@ -25,7 +25,7 @@ In questo argomento viene descritto come configurare un'app usando il [portale d
 
 ## Impostazioni dell'applicazione
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire il pannello relativo all'app Web.
+1. Nel [portale di Azure](https://portal.azure.com/) aprire il pannello relativo all'app Web.
 2. Fare clic su **Tutte le impostazioni**.
 3. Fare clic su **Impostazioni applicazione**.
 
@@ -78,7 +78,7 @@ Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponi
 
 - SQL Server: SQLCONNSTR\_
 - MySQL: MYSQLCONNSTR\_
-- SQL Database: SQLAZURECONNSTR\_
+- Database SQL: SQLAZURECONNSTR\_
 - Custom: CUSTOMCONNSTR\_
 
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
@@ -164,7 +164,7 @@ Nella modalità Basic o Standard, è possibile testare la disponibilità degli e
 
 Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoint](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
@@ -177,4 +177,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

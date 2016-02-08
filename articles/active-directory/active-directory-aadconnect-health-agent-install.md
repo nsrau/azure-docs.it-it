@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -76,7 +76,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 
 #### Per abilitare il controllo per ADFS 2.0
 
-1. Fare clic su **Start**, scegliere **Programmi**, **Strumenti di amministrazione** e quindi fare clic su **Criteri di sicurezza locali**.
+1. Fare clic su **Avvia**, scegliere **Programmi**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni sicurezza\\Criteri locali\\Gestione diritti utente** e quindi fare doppio clic su Generazione di controlli di sicurezza.
 3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
@@ -92,7 +92,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 2. Passare alla cartella **Impostazioni sicurezza\\Criteri locali\\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
 3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Chiudere **Criteri di sicurezza locali** e quindi aprire lo snap-in **Gestione AD FS**. In Server Manager fare clic su Strumenti e quindi selezionare Gestione AD FS.
+5. Chiudere **Criteri di sicurezza locali** e quindi aprire lo snap-in di **Gestione AD FS**. In Server Manager fare clic su Strumenti e quindi selezionare Gestione AD FS.
 6. Nel riquadro Azioni fare clic su **Modifica proprietà servizio federativo**.
 7. Nella finestra di dialogo Proprietà servizio federativo fare clic sulla scheda **Eventi**.
 8. Selezionare le caselle di controllo **Operazioni riuscite e Operazioni non riuscite** e quindi fare clic su **OK**.
@@ -112,7 +112,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 
 ![Log di controllo di ADFS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]Se sono presenti criteri di gruppo che disabilitano il controllo ADFS, l'agente di Azure AD Connect Health non sarà in grado di raccogliere informazioni. Assicurarsi che non siano presenti criteri di gruppo che potrebbero disabilitare il controllo.
+> [AZURE.WARNING] Se sono presenti criteri di gruppo che disabilitano il controllo ADFS, l'agente di Azure AD Connect Health non sarà in grado di raccogliere informazioni. Assicurarsi che non siano presenti criteri di gruppo che potrebbero disabilitare il controllo.
 
 [//]: # "Inizio della sezione relativa alla configurazione del proxy per l'agente"
 
@@ -126,7 +126,7 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
  
 ![Verificare Azure AD Connect Health per la sincronizzazione](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]Si tenga presente che l'utilizzo di integrità di Azure AD Connect richiede Azure AD Premium. Se non si dispone di Azure AD Premium non sarà possibile completare la configurazione nel portale di Azure. Per altre informazioni vedere i requisiti [qui](active-directory-aadconnect-health.md#requirements).
+>[Azure.NOTE] Si tenga presente che l'utilizzo di integrità di Azure AD Connect richiede Azure AD Premium. Se non si dispone di Azure AD Premium non sarà possibile completare la configurazione nel portale di Azure. Per altre informazioni vedere i requisiti [qui](active-directory-aadconnect-health.md#requirements).
 
 
 
@@ -134,12 +134,13 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
 ## Configurare gli agenti di Azure AD Connect Health per l'uso del proxy HTTP
 È possibile configurare gli agenti di Azure AD Connect Health per l'interazione con un proxy HTTP.
 
->[AZURE.NOTE]- Non è possibile usare "Netsh WinHttp set ProxyServerAddress" perché l'agente usa System.Net per effettuare richieste Web anziché i servizi HTTP di Microsoft Windows. - L'indirizzo del proxy HTTP configurato verrà usato per il passthrough dei messaggi HTTPS crittografati. - Non sono supportati i proxy autenticati (con HTTPBasic).
+>[AZURE.NOTE]
+- Non è possibile usare "Netsh WinHttp set ProxyServerAddress" perché l'agente usa System.Net per effettuare richieste Web anziché i servizi HTTP di Microsoft Windows. - L'indirizzo del proxy HTTP configurato verrà usato per il passthrough dei messaggi HTTPS crittografati. - Non sono supportati i proxy autenticati (con HTTPBasic).
 
 ### Modificare la configurazione del proxy per l'agente di Health
 Sono disponibili le opzioni seguenti per configurare l'agente di Azure AD Connect Health per l'uso di un proxy HTTP.
 
->[AZURE.NOTE]È necessario riavviare tutti i servizi dell'agente Azure AD Connect Health in modo da aggiornare le impostazioni del proxy. Eseguire il comando seguente:<br> Restart-Service AdHealth*
+>[AZURE.NOTE] È necessario riavviare tutti i servizi dell'agente Azure AD Connect Health in modo da aggiornare le impostazioni del proxy. Eseguire il comando seguente:<br> Restart-Service AdHealth*
 
 #### Importare le impostazioni del proxy esistenti
 
@@ -186,4 +187,4 @@ Esempio: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

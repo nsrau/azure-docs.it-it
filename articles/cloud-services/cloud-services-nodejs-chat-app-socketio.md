@@ -129,17 +129,17 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	> [AZURE.IMPORTANT]Assicurarsi di usare un nome univoco, in caso contrario il processo di pubblicazione avrà esito negativo. Al termine della distribuzione, verrà visualizzata una finestra del browser che consente di passare al servizio distribuito.
+	> [AZURE.IMPORTANT] Assicurarsi di usare un nome univoco, in caso contrario il processo di pubblicazione avrà esito negativo. Al termine della distribuzione, verrà visualizzata una finestra del browser che consente di passare al servizio distribuito.
 	> 
-	> Se viene visualizzato un messaggio di errore indicante che il nome della sottoscrizione specificato non esiste nel profilo di pubblicazione importato, è necessario scaricare e importare il profilo di pubblicazione per la sottoscrizione prima della distribuzione in Azure. Vedere la sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> Se viene visualizzato un messaggio di errore indicante che il nome della sottoscrizione specificato non esiste nel profilo di pubblicazione importato, è necessario scaricare e importare il profilo di pubblicazione per la sottoscrizione prima della distribuzione in Azure. Vedere la sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
     ![Finestra del browser con il servizio ospitato in Azure][completed-app]
 
-	> [AZURE.NOTE]Se viene visualizzato un messaggio di errore indicante che il nome della sottoscrizione specificato non esiste nel profilo di pubblicazione importato, è necessario scaricare e importare il profilo di pubblicazione per la sottoscrizione prima della distribuzione in Azure. Vedere la sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] Se viene visualizzato un messaggio di errore indicante che il nome della sottoscrizione specificato non esiste nel profilo di pubblicazione importato, è necessario scaricare e importare il profilo di pubblicazione per la sottoscrizione prima della distribuzione in Azure. Vedere la sezione **Distribuzione dell'applicazione in Azure** dell'argomento [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
 
 L'applicazione è ora in esecuzione in Azure ed è in grado di inoltrare i messaggi di chat tra diversi client tramite Socket.IO.
 
-> [AZURE.NOTE]Per semplicità, in questo esempio viene illustrata solo la chat tra utenti connessi alla stessa istanza. Questo significa che se il servizio cloud crea due istanze del ruolo di lavoro, gli utenti saranno in grado di comunicare solo con altri connessi alla stessa istanza. Per scalare l'applicazione in modo da usare più istanze del ruolo, è possibile usare una tecnologia come il bus di servizio per condividere lo stato dell'archivio Socket.IO tra le istanze. Per alcuni esempi, vedere le apposite sezioni relative a code e argomenti del bus di servizio nel [repository GitHub di Azure SDK per Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
+> [AZURE.NOTE] Per semplicità, in questo esempio viene illustrata solo la chat tra utenti connessi alla stessa istanza. Questo significa che se il servizio cloud crea due istanze del ruolo di lavoro, gli utenti saranno in grado di comunicare solo con altri connessi alla stessa istanza. Per scalare l'applicazione in modo da usare più istanze del ruolo, è possibile usare una tecnologia come il bus di servizio per condividere lo stato dell'archivio Socket.IO tra le istanze. Per alcuni esempi, vedere le apposite sezioni relative a code e argomenti del bus di servizio nel [repository GitHub di Azure SDK per Node.js](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Passaggi successivi
 
@@ -170,4 +170,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node. js
   
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

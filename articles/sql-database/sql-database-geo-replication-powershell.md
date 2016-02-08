@@ -151,7 +151,7 @@ Il comando esegue il flusso di lavoro seguente:
 Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
-> [AZURE.NOTE]Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato, ovvero un failover non pianificato, e accettare la perdita dei dati.
+> [AZURE.NOTE] Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato, ovvero un failover non pianificato, e accettare la perdita dei dati.
 
 
 
@@ -173,7 +173,7 @@ Questa funzionalità è progettata per il ripristino di emergenza quando il ripr
 
 Poiché tuttavia il ripristino temporizzato non è supportato nei database secondari, se l'utente vuole recuperare i dati di cui è stato eseguito il commit nel database primario precedente e che non sono stati replicati nel nuovo database primario, dovrà rivolgersi al supporto tecnico per il ripristino di un database al backup del log noto.
 
-> [AZURE.NOTE]Se il comando viene eseguito quando i database primario e secondario sono online, il database primario precedente diventerà il nuovo database secondario, ma non verrà eseguita alcuna sincronizzazione dei dati con la conseguente possibile perdita di dati.
+> [AZURE.NOTE] Se il comando viene eseguito quando i database primario e secondario sono online, il database primario precedente diventerà il nuovo database secondario, ma non verrà eseguita alcuna sincronizzazione dei dati con la conseguente possibile perdita di dati.
 
 
 Se il database primario ha più database secondari, il comando riuscirà in parte. Il database secondario su cui è stato eseguito il comando diventerà il database primario. Il database primario precedente rimarrà tuttavia primario, ovvero i due database primari rimarranno in uno stato non coerente e connessi da un collegamento di replica sospeso. L'utente dovrà ripristinare manualmente questa configurazione usando un'API di "rimozione del database secondario" in uno di questi database primari.
@@ -210,9 +210,9 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 
 ## Risorse aggiuntive
 
-- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

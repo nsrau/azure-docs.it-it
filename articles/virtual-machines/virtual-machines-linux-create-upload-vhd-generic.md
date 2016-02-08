@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>Informazioni per distribuzioni non supportate #
 
@@ -32,7 +32,9 @@ Tutte le distribuzioni eseguite in Azure dovranno soddisfare numerosi prerequisi
 Per questo motivo, è consigliabile iniziare, laddove possibile, con una delle [distribuzioni approvate di Linux su Azure](../linux-endorsed-distributions.md). Gli articoli seguenti forniscono le istruzioni per preparare le varie distribuzioni Linux approvate che sono supportate in Azure:
 
 - **[Distribuzioni basate su CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES e openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@ Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 M
 
 Per risolvere questo problema, è possibile ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per convertire (se necessario) e ridimensionare il disco rigido virtuale:
 
-> [AZURE.NOTE]Esiste un bug noto nelle versioni qemu-img > = 2.2.1 risultante in un disco rigido virtuale non formattato correttamente. Il problema verrà risolto in una versione futura di qemu-img. Al momento è consigliabile utilizzare la versione 2.2.0 o inferiore di qemu-img. Riferimento: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] Esiste un bug noto nelle versioni qemu-img > = 2.2.1 risultante in un disco rigido virtuale non formattato correttamente. Il problema verrà risolto in una versione futura di qemu-img. Al momento è consigliabile utilizzare la versione 2.2.0 o inferiore di qemu-img. Riferimento: https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può determinare un disco rigido virtuale che non può essere avviato. Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW. Se l'immagine della VM è già stata creata come immagine disco RAW (questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM), è possibile saltare questo passaggio:
@@ -193,4 +195,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

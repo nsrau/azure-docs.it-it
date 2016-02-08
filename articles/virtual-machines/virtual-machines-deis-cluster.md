@@ -30,7 +30,7 @@ Nel diagramma seguente viene mostrata l'architettura del sistema distribuito. Un
 
 Per eseguire i passaggi seguenti, saranno necessari:
 
- * Una sottoscrizione di Azure attiva. Se non si dispone di una sottoscrizione, è possibile ottenere una versione di valutazione gratuita su [azure.com](https://azure.microsoft.com).
+ * Una sottoscrizione di Azure attiva. Se non si dispone di una sottoscrizione, è possibile ottenere una versione di valutazione gratuita su [azure.com](https://azure.microsoft.com/).
  * Un ID di lavoro o di scuola per utilizzare i gruppi di risorse di Azure. Se si dispone di un account personale e si accede con un ID di Microsoft, è necessario [creare un ID di lavoro da quello personale](resource-group-create-work-id-from-personal.md).
  * A seconda del sistema operativo del client, [Azure PowerShell](powershell-install-configure.md) o l’[interfaccia della riga di comando di Azure per Mac, Linux e Windows](xplat-cli-install.md).
  * [OpenSSL](https://www.openssl.org/). OpenSSL viene utilizzato per generare i certificati necessari.
@@ -117,7 +117,7 @@ Il modello definisce le regole NAT in entrata che eseguono il mapping 2223 all�
 
 ![Regole NAT sul servizio di bilanciamento del carico](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]Il modello supporta attualmente solo cluster a 3 nodi. Ciò a causa di un limite nella definizione delle regole NAT del modello di Gestione risorse di Azure, che non supporta la sintassi del ciclo.
+> [AZURE.NOTE] Il modello supporta attualmente solo cluster a 3 nodi. Ciò a causa di un limite nella definizione delle regole NAT del modello di Gestione risorse di Azure, che non supporta la sintassi del ciclo.
 
 ## Installazione e avvio della piattaforma Deis
 
@@ -128,7 +128,7 @@ Ora è possibile utilizzare deisctl per installare e avviare la piattaforma Deis
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]L’avvio della piattaforma richiede alcuni minuti (fino a 10). In particolare, l'avvio del servizio generatore può richiedere molto tempo. E talvolta può richiedere alcuni tentativi per avere esito positivo: se l'operazione sembra bloccarsi, provare a digitare `ctrl+c` per interrompere l'esecuzione del comando e riprovare.
+> [AZURE.NOTE] L’avvio della piattaforma richiede alcuni minuti (fino a 10). In particolare, l'avvio del servizio generatore può richiedere molto tempo. E talvolta può richiedere alcuni tentativi per avere esito positivo: se l'operazione sembra bloccarsi, provare a digitare `ctrl+c` per interrompere l'esecuzione del comando e riprovare.
 
 È possibile utilizzare `deisctl list` per verificare se tutti i servizi sono in esecuzione:
 
@@ -258,4 +258,4 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

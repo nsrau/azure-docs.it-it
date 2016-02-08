@@ -33,7 +33,7 @@ I certificati di servizio possono essere gestiti separatamente dai servizi e da 
 ## Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
 
->[AZURE.WARNING]Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
+>[AZURE.WARNING] Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
 
 ### Limitazioni
 Esiste un limite di 100 certificati di gestione per ogni sottoscrizione. Esiste anche un limite di 100 certificati di gestione per tutte le sottoscrizioni che fanno riferimento all'ID utente di un amministratore del servizio specifico. Se l'ID utente per l'amministratore dell'account è già stato usato per aggiungere 100 certificati di gestione e ne sono necessari altri, è possibile aggiungere un coamministratore per aumentare il numero di certificati.
@@ -74,10 +74,10 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 
 ## Passaggi successivi
 
-[Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) (o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md)) e [configurarli](cloud-services-xml-certs.md) per il servizio cloud.
+[Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico.
 
->[AZURE.NOTE]Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
+>[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

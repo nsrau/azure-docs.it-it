@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Asset di connessione in Automazione di Azure
@@ -21,7 +21,7 @@ Un asset di connessione di Automazione contiene le informazioni necessarie per l
 
 Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione o vengono creati con l'[API di Automazione di Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Gli unici tipi di connessione disponibili quando si crea una connessione sono i tipi installati nell'account di automazione.
 
->[AZURE.NOTE]Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
+>[AZURE.NOTE] Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
 
 ## Cmdlet di Windows PowerShell
 
@@ -42,7 +42,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 |---|---|
 |Get-AutomationConnection|Ottiene una connessione da usare. Restituisce una tabella hash con le proprietà della connessione.|
 
->[AZURE.NOTE]È consigliabile evitare di usare le variabili nel parametro –Name di **Get- AutomationConnection**, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di connessione durante la fase di progettazione.
+>[AZURE.NOTE] È consigliabile evitare di usare le variabili nel parametro –Name di **Get- AutomationConnection**, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di connessione durante la fase di progettazione.
 
 ## Creazione di una nuova connessione
 
@@ -120,4 +120,4 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

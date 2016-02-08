@@ -38,21 +38,21 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 È possibile usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014.
 
->[AZURE.NOTE]Il backup automatico si basa sull'agente IaaS di SQL Server. Per installare e configurare l'agente, è necessario che nella macchina virtuale di destinazione sia in esecuzione l'agente di macchine virtuali di Azure. Per le immagini della raccolta di macchine virtuali più recenti questa opzione è abilitata per impostazione predefinita, ma è possibile che l'agente di macchine virtuali di Azure non sia presente nelle macchine virtuali esistenti. Se si usa la propria immagine di macchina virtuale, sarà inoltre necessario installare l'agente IaaS di SQL Server. Per altre informazioni, vedere la pagina relativa all'[agente e alle estensioni di macchine virtuali](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE] Il backup automatico si basa sull'agente IaaS di SQL Server. Per installare e configurare l'agente, è necessario che nella macchina virtuale di destinazione sia in esecuzione l'agente di macchine virtuali di Azure. Per le immagini della raccolta di macchine virtuali più recenti questa opzione è abilitata per impostazione predefinita, ma è possibile che l'agente di macchine virtuali di Azure non sia presente nelle macchine virtuali esistenti. Se si usa la propria immagine di macchina virtuale, sarà inoltre necessario installare l'agente IaaS di SQL Server. Per altre informazioni, vedere la pagina relativa all'[agente e alle estensioni di macchine virtuali](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 La seguente schermata del portale di Azure mostra queste opzioni in **CONFIGURAZIONE FACOLTATIVA** | **BACKUP AUTOMATIZZATO SQL**.
 
 ![Configurazione del backup automatizzato di SQL nel portale di Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
-Per le macchine virtuali esistenti di SQL Server 2014, selezionare le impostazioni relative al **backup automatico** nella sezione di **configurazione** delle proprietà della macchina virtuale. Nella finestra relativa al **backup automatico** è possibile abilitare la funzionalità, impostare il periodo di memorizzazione, selezionare l'account di archiviazione e impostare la crittografia. Queste impostazioni sono illustrate nella seguente schermata.
+Per le macchine virtuali esistenti di SQL Server 2014, selezionare le impostazioni relative al **backup automatizzato** nella sezione di **configurazione** delle proprietà della macchina virtuale Nella finestra relativa al **backup automatico** è possibile abilitare la funzionalità, impostare il periodo di memorizzazione, selezionare l'account di archiviazione e impostare la crittografia. Queste impostazioni sono illustrate nella seguente schermata.
 
 ![Configurazione del backup automatizzato nel portale di Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]Quando si abilita il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure non viene visualizzata l'informazione relativa alla configurazione del backup automatizzato. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
+>[AZURE.NOTE] Quando si abilita il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure non viene visualizzata l'informazione relativa alla configurazione del backup automatizzato. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
 ## Configurare il backup automatico con PowerShell
 
-Nel seguente esempio di PowerShell il backup automatico è configurato per una macchina virtuale esistente di SQL Server 2014. Il comando **New-AzureVMSqlServerAutoBackupConfig** configura le impostazioni di backup automatico per archiviare i backup nell'account di archiviazione di Azure specificato dalla variabile $storageaccount. Questi backup verranno conservati per 10 giorni. Il comando **Set-AzureVMSqlServerExtension** aggiorna con queste impostazioni la macchina virtuale di Azure specificata.
+Nel seguente esempio di PowerShell il backup automatico è configurato per una macchina virtuale esistente di SQL Server 2014. Il comando **New-AzureVMSqlServerAutoBackupConfig** configura le impostazioni di backup automatizzato per archiviare i backup nell'account di archiviazione di Azure specificato dalla variabile $storageaccount. Questi backup verranno conservati per 10 giorni. Il comando **Set-AzureVMSqlServerExtension** aggiorna con queste impostazioni la macchina virtuale di Azure specificata.
 
     $storageaccount = "<storageaccountname>"
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary
@@ -74,7 +74,7 @@ Per abilitare la crittografia, modificare lo script precedente in modo da passar
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
-Per disabilitare il backup automatico, eseguire lo stesso script senza il parametro **-Enable** in **New-AzureVMSqlServerAutoBackupConfig**. Come per l'installazione, la disabilitazione del backup automatico può richiedere alcuni minuti.
+Per disabilitare il backup automatizzato, eseguire lo stesso script senza il parametro **-Enable** per **New-AzureVMSqlServerAutoBackupConfig**. Come per l'installazione, la disabilitazione del backup automatico può richiedere alcuni minuti.
 
 ## Disabilitazione e disinstallazione dell'agente IaaS di SQL Server
 
@@ -90,7 +90,7 @@ Per disinstallare l'agente IaaS di SQL Server, usare la seguente sintassi:
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
->[AZURE.NOTE]La disabilitazione e la disinstallazione dell'agente IaaS di SQL Server non comporta la rimozione delle impostazioni di backup gestito configurate in precedenza. È consigliabile disabilitare il backup automatico prima di disabilitare o disinstallare l'agente IaaS di SQL Server.
+>[AZURE.NOTE] La disabilitazione e la disinstallazione dell'agente IaaS di SQL Server non comporta la rimozione delle impostazioni di backup gestito configurate in precedenza. È consigliabile disabilitare il backup automatico prima di disabilitare o disinstallare l'agente IaaS di SQL Server.
 
 ## Compatibilità
 
@@ -106,12 +106,12 @@ I seguenti prodotti sono compatibili con le funzionalità dell'agente IaaS di SQ
 
 ## Passaggi successivi
 
-Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertanto, è importante [esaminare la documentazione per il backup gestito](https://msdn.microsoft.com/library/dn449496.aspx) per comprendere il comportamento e le implicazioni.
+Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertanto è importante [esaminare la documentazione per il backup gestito](https://msdn.microsoft.com/library/dn449496.aspx) per comprendere il comportamento e le implicazioni.
 
 È possibile trovare ulteriori indicazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'argomento seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-backup-and-restore.md).
 
-Una funzionalità correlata per le macchine virtuali di SQL Server in Azure è [Applicazione automatica di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-automated-patching.md).
+Una funzionalità correlata per Macchine virtuali di SQL Server in Azure è [Applicazione automatica di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-automated-patching.md).
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

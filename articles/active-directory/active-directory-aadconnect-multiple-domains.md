@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #Supporto domini multipli
@@ -50,8 +50,8 @@ Pertanto, in Powershell, se si aggiunge fabrikam.com utilizzando il parametro Su
 si ottiene la seguente configurazione in Azure AD:
 
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Si noti che mentre IssuerURI è stata impostato su un valore basato sul dominio ed è pertanto univoco, i valori dell'url dell'endpoint sono ancora configurati per fare riferimento al servizio federativo in fs.contoso100.com, come per il dominio contoso.com originale. In questo modo tutti i domini punteranno ancora allo stesso sistema di AD FS.
 
@@ -74,11 +74,11 @@ Vedere di seguito per tutti i passaggi dettagliati per la transizione da un domi
 Una volta eseguiti tutti i passaggi, si avranno configurati due domini in Azure AD:
 
 - DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Ora l'accesso federato per gli utenti da contoso.com e i domini di fabrikam.com sarà funzionante. Rimane ancora un solo problema: l’accesso per gli utenti nei sotto-domini.
 
@@ -91,4 +91,4 @@ Azure AD, genererà un token con un emittente come http://sub.contoso.com/adfs/s
 
 In breve, è possibile avere più domini con nomi diversi, nonché sotto-domini tutti federati nello stesso server AD FS. Questo richiede solo pochi passaggi aggiuntivi per verificare che i valori di Issuer siano impostati correttamente per tutti gli utenti.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Questo documento spiega cos'è un registro Docker privato e mostra come distribu
 Questo documento presuppone che:
 
 1. Si sia in grado di usare Docker e si disponga di immagini Docker da archiviare. (No? [Informazioni su Docker](https://www.docker.com))
-2. Si disponga di un server con il motore Docker installato. (No? [Esegui rapidamente l'installazione in Azure.](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
+2. Si disponga di un server con il motore Docker installato. (No? [Esegui rapidamente l'installazione in Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
 ## Che cos'è un registro Docker privato?
@@ -82,7 +82,7 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT]La procedura per configurare la protezione per il registro Docker non è illustrata in questo documento e, per impostazione predefinita, il registro sarà accessibile anche agli utenti senza autenticazione se si apre la porta per la porta del registro sull'endpoint della macchina virtuale o sul bilanciamento del carico se si usa il comando di distribuzione precedente.
+> [AZURE.IMPORTANT] La procedura per configurare la protezione per il registro Docker non è illustrata in questo documento e, per impostazione predefinita, il registro sarà accessibile anche agli utenti senza autenticazione se si apre la porta per la porta del registro sull'endpoint della macchina virtuale o sul bilanciamento del carico se si usa il comando di distribuzione precedente.
 >
 > Leggere la [documentazione relativa alla configurazione del registro Docker][registry-config] per informazioni su come proteggere l'istanza del registro e le immagini.
 
@@ -96,4 +96,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

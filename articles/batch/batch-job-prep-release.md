@@ -5,49 +5,56 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
-
+	editor="" />
+	
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
-	ms.author="v-marsma"/>
-
+	ms.date="01/22/2016"
+	ms.author="marsma" />
+	
 # Eseguire attività di preparazione e completamento di processi in nodi di calcolo di Azure Batch
 
 I processi di Azure Batch spesso richiedono una forma di installazione prima dell'esecuzione e, analogamente, una sorta di manutenzione post-processo al completamento delle attività del processo. Batch fornisce i meccanismi per tali operazioni di preparazione e manutenzione sotto forma di attività facoltative di *preparazione del processo* e *rilascio del processo*.
 
-Prima dell'esecuzione di qualsiasi attività di un processo, l'attività di preparazione del processo viene eseguita su tutti i nodi di calcolo pianificati per l'esecuzione di attività. Dopo aver completato il processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Sia per le attività di preparazione del processo sia per quelle di rilascio del processo, è possibile specificare una riga di comando da eseguire quando viene richiamata l'attività. Le attività offrono funzionalità quali download di file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di memorizzazione dei file.
+Prima dell'esecuzione di qualsiasi attività di un processo, l'attività di preparazione del processo viene eseguita su tutti i nodi di calcolo pianificati per l'esecuzione di attività. Dopo aver completato il processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Sia per le attività di preparazione sia per quelle di rilascio del processo, è possibile specificare una riga di comando da richiamare quando viene eseguita l'attività. Queste attività speciali offrono funzionalità familiari per le attività, quali download di file, esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di memorizzazione dei file.
 
 Nelle sezioni seguenti viene descritto come usare questi due particolari tipi di attività mediante le classi [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] nell'API [.NET di Batch][api_net].
 
-> [AZURE.TIP]Le attività di preparazione e rilascio dei processi sono particolarmente utili in ambienti con "pool condivisi": ossia ambienti in cui un pool di nodi di calcolo viene mantenuto durante l'esecuzione di un processo e viene condiviso tra più processi.
+> [AZURE.TIP] Le attività di preparazione e rilascio dei processi sono particolarmente utili in ambienti con "pool condivisi", ossia ambienti in cui un pool di nodi di calcolo viene mantenuto durante l'esecuzione di un processo e viene condiviso tra più processi.
 
 ## Quando usare le attività di preparazione e rilascio dei processi
 
 Le attività di preparazione e rilascio dei processi risultano utili in numerose situazioni, tra cui i seguenti:
 
-- **Trasferimento di dati di attività comuni**: i processi di Batch spesso richiedono un set comune di dati come input per le attività del processo. Ad esempio, nei calcoli di analisi dei rischi giornalieri, i dati di mercato sono specifici del processo ma comuni a tutte le attività del processo. Tali dati di mercato, spesso di grandi dimensioni, devono essere scaricati una sola volta da ogni nodo di calcolo in modo che tutte le attività eseguite su un nodo possano usarli. Usare un'*attività di preparazione del processo* per scaricare i dati in ogni nodo prima dell'esecuzione di altre attività.
-- **Eliminazione dei dati del processo**: in un ambiente di pool condiviso in cui i nodi di calcolo del pool non vengono rimossi tra i processi, l'eliminazione dei dati del processo tra le esecuzioni può essere necessaria per risparmiare spazio su disco sui nodi o per soddisfare i criteri di sicurezza di un'organizzazione. Usare un'*attività di rilascio del processo* per eliminare i dati scaricati da un'attività di preparazione del processo o generati durante l'esecuzione dell'attività.
-- **Memorizzazione del log**: è possibile conservare una copia dei file di log generati dalle attività o dei file dump di arresto anomalo generati da errori nelle applicazioni. In questi casi, usare un'*attività di rilascio del processo* per comprimere e caricare dati in un account [di Archiviazione di Azure][azure_storage].
+**Trasferimento dei dati di attività comuni**
+
+I processi di Batch spesso richiedono un set comune di dati come input per le attività del processo. Ad esempio, nei calcoli di analisi dei rischi giornalieri, i dati di mercato sono specifici del processo ma comuni a tutte le attività del processo. Tali dati di mercato, spesso di grandi dimensioni, devono essere scaricati una sola volta da ogni nodo di calcolo in modo che qualsiasi attività eseguita su un nodo possa usarli. Usare un'*attività di preparazione del processo* per scaricare i dati in ogni nodo prima dell'esecuzione di altre attività del processo.
+
+**Eliminazione dei dati del processo**
+
+In un ambiente di pool condiviso in cui i nodi di calcolo del pool non vengono rimossi tra i processi, l'eliminazione dei dati del processo tra le esecuzioni può essere necessaria per risparmiare spazio su disco sui nodi o per soddisfare i criteri di sicurezza di un'organizzazione. Usare un'*attività di rilascio del processo* per eliminare i dati scaricati da un'attività di preparazione del processo o generati durante l'esecuzione dell'attività.
+
+**Conservazione dei log**
+
+È possibile conservare una copia dei file di log generati dalle attività o dei file dump di arresto anomalo generati da errori nelle applicazioni. In questi casi, usare un'*attività di rilascio del processo* per comprimere e caricare dati in un account [di Archiviazione di Azure][azure_storage].
 
 ## Attività di preparazione del processo
 
-Prima dell'esecuzione delle attività di un processo, viene eseguita l'attività di preparazione del processo su ogni nodo di calcolo pianificato per l'esecuzione di un'attività. Per impostazione predefinita, il servizio di Batch attenderà il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate sul nodo, ma è possibile configurare il servizio affinché venga annullata la fase di attesa. L'attività di preparazione del processo verrà eseguita nuovamente su un nodo di calcolo se questo viene riavviato, ma è anche possibile disabilitare questo comportamento.
+Prima dell'esecuzione delle attività di un processo, viene eseguita l'attività di preparazione del processo su ogni nodo di calcolo pianificato per l'esecuzione di un'attività. Per impostazione predefinita, il servizio Batch attenderà il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate per l'esecuzione nel nodo, ma è possibile configurare il servizio affinché venga annullata la fase di attesa. L'attività di preparazione del processo verrà eseguita nuovamente su un nodo di calcolo se questo viene riavviato, ma è anche possibile disabilitare questo comportamento.
 
-L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. In questo modo è, ad esempio, possibile evitare i costi di trasferimento dei dati. Questa situazione si verifica quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili.
+L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. Questa situazione può verificarsi quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili. Se non si esegue l'attività di preparazione dei processi sui inattivi nodi, è possibile risparmiare sui costi di trasferimento dati.
 
-> [AZURE.NOTE] [JobPreparationTask]La classe [net\_job\_prep\_cloudjob] differisce dalla proprietà [CloudPool.StartTask][pool_starttask] in quanto JobPreparationTask viene eseguita all'inizio di ogni processo, mentre StartTask viene eseguita solo quando un nodo di calcolo viene aggiunto per la prima volta a un pool o viene riavviato.
+> [AZURE.NOTE] [JobPreparationTask]La classe [net\_job\_prep\_cloudjob] differisce dalla proprietà [CloudPool.StartTask][pool_starttask] perché JobPreparationTask viene eseguita all'avvio di ogni processo, mentre StartTask viene eseguita solo quando un nodo di calcolo viene aggiunto per la prima volta a un pool o viene riavviato.
 
 ## Attività di rilascio del processo
 
-Dopo aver completato un processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Un processo viene contrassegnato come completato generando una richiesta di interruzione. Quindi, il servizio di Batch imposta lo stato del processo su *arresto in corso*, termina le attività attive o in esecuzione associate al processo ed esegue l'attività di rilascio del processo. Il processo passa quindi allo stato *completato*.
+Dopo aver contrassegnato un processo come completato , viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Un processo viene contrassegnato come completato generando una richiesta di interruzione. Il servizio Batch imposta quindi lo stato del processo su *arresto in corso*, termina le attività attive o in esecuzione associate al processo ed esegue l'attività di rilascio del processo. Il processo passa quindi allo stato *completato*.
 
-> [AZURE.NOTE]Anche l'eliminazione del processo esegue l'attività di rilascio del processo. Tuttavia, se un processo è stato terminato in precedenza, l'attività di rilascio non viene eseguita una seconda volta quando tale processo viene successivamente eliminato.
+> [AZURE.NOTE] Anche l'eliminazione del processo esegue l'attività di rilascio del processo. Tuttavia, se un processo è già stato terminato, l'attività di rilascio non viene eseguita una seconda volta se tale processo viene eliminato successivamente.
 
 ## Attività di preparazione e rilascio dei processi nell'API .NET di Batch
 
@@ -71,7 +78,7 @@ In questo frammento di codice `myBatchClient` è un'istanza completamente inizia
 
 		await myJob.CommitAsync();
 
-Come indicato in precedenza, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. La conclusione di un processo con l'API .NET di Batch viene eseguita chiamando [PoolOperations.TerminateJobAsync][net_job_terminate]. L'eliminazione di un processo viene eseguita con [PoolOperations.DeleteJobAsync][net_job_delete]. Entrambe queste azioni vengono in genere eseguite quando vengono completate le attività di un processo o quando viene raggiunto un timeout definito dall'utente.
+Come indicato in precedenza, l'attività di rilascio viene eseguita quando un processo viene concluso o eliminato. La conclusione di un processo con l'API Batch .NET viene eseguita chiamando [PoolOperations.TerminateJobAsync][net_job_terminate]. L'eliminazione di un processo viene eseguita con [PoolOperations.DeleteJobAsync][net_job_delete]. Entrambe queste azioni vengono in genere eseguite quando si completano le attività di un processo o quando si raggiunge un timeout definito dall'utente.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -140,7 +147,7 @@ Sample complete, hit ENTER to exit...
 
 ### Controllare le attività di preparazione e rilascio del processo con Batch Explorer
 
-[Batch Explorer][batch_explorer_article], disponibile anche nel [repository del codice di esempio][batch_explorer_project] di Batch su GitHub, è uno strumento eccellente da usare per lo sviluppo di soluzioni con Azure Batch. Quando, ad esempio, si esegue l'applicazione di esempio precedente, è possibile usare Batch Explorer per visualizzare le proprietà del processo e le relative attività o anche scaricare il file di testo condiviso modificato dalle attività del processo.
+[Azure Batch Explorer][batch_explorer_article], disponibile anche nel [repository del codice di esempio][batch_explorer_project] di Batch in GitHub, è uno strumento eccellente da usare per lo sviluppo di soluzioni con Azure Batch. Quando, ad esempio, si esegue l'applicazione di esempio precedente, è possibile usare Batch Explorer per visualizzare le proprietà del processo e le relative attività o anche scaricare il file di testo condiviso modificato dalle attività del processo.
 
 L'immagine seguente illustra le proprietà dell'attività di preparazione e rilascio dei processi nel riquadro **Dettagli processo** quando il processo *JobPrepReleaseSampleJob* viene selezionato nella scheda **Processi**.
 
@@ -180,4 +187,4 @@ L'immagine seguente illustra le proprietà dell'attività di preparazione e rila
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

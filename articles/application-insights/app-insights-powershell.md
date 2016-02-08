@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Creazione di risorse Application Insights con PowerShell
@@ -117,6 +117,27 @@ find | sostituire con
 `"myappname"` (minuscolo) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## Se l'app è un'app Web di Azure
+
+Aggiungere la risorsa. Se è già presente una risorsa `siteextensions`, impostarne i parametri come indicato di seguito:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Questa risorsa distribuisce Application Insights SDK nell'app Web di Azure.
+
 ## Impostazione di dipendenze tra le risorse
 
 Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un programma di installazione venga completato prima che inizi il successivo, aggiungere le righe delle dipendenze:
@@ -145,6 +166,7 @@ Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un progra
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un progra
     * -webTestName è il nome del test web da creare.
     * -Url è l'url dell'app web.
     * -text è una stringa che viene visualizzata nella pagina web.
+    * -siteName viene usato se si tratta di un sito Web di Azure.
 
 
 ## Definire avvisi delle metriche
@@ -288,4 +311,4 @@ Quello che segue è il componente completo con test web e modello di avviso del 
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

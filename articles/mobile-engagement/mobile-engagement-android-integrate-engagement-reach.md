@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
@@ -18,11 +18,11 @@
 
 #Come integrare il servizio di copertura di Engagement in Android
 
-> [AZURE.IMPORTANT]Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
+> [AZURE.IMPORTANT] Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 
 ##Integrazione standard
 
-Reach SDK richiede la **libreria di supporto per Android (v4)**.
+L'SDK di Reach richiede la **libreria di supporto per Android (v4)**.
 
 Il modo più rapido per aggiungere la libreria al progetto in **Eclipse** consiste nel `Right click on your project -> Android Tools -> Add Support Library...`.
 
@@ -87,7 +87,7 @@ Modificare il file `AndroidManifest.xml`:
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]Questa sezione è **obbligatoria** se si prevede di usare le notifiche di sistema durante la creazione di campagne Reach. Android impedisce la visualizzazione di notifiche di sistema senza icone. Se si omette questa sezione, gli utenti finali non saranno quindi in grado di riceverle.
+> [AZURE.IMPORTANT] Questa sezione è **obbligatoria** se si prevede di usare le notifiche di sistema durante la creazione di campagne Reach. Android impedisce la visualizzazione di notifiche di sistema senza icone. Se si omette questa sezione, gli utenti finali non saranno quindi in grado di riceverle.
 
 -   Se si crea una campagna con notifiche di sistema usando un'immagine di grandi dimensioni, è necessario aggiungere le autorizzazioni seguenti, se mancanti, dopo il tag `</application>`:
 
@@ -193,7 +193,7 @@ Per impostazione predefinita, una notifica in-app è una visualizzazione che vie
 
 Per modificare l'aspetto delle sovrimpressioni delle notifiche, è sufficiente modificare il file `engagement_notification_area.xml` in base alle esigenze specifiche.
 
-> [AZURE.NOTE]Il file `engagement_notification_overlay.xml` è quello usato per creare una sovrimpressione di notifica e include il file `engagement_notification_area.xml`. È anche possibile personalizzarlo in base alle esigenze, ad esempio per posizionare l'area di notifica all'interno della sovrimpressione.
+> [AZURE.NOTE] Il file `engagement_notification_overlay.xml` è quello usato per creare una sovrimpressione di notifica e include il file `engagement_notification_area.xml`. È anche possibile personalizzarlo in base alle esigenze, ad esempio per posizionare l'area di notifica all'interno della sovrimpressione.
 
 ##### Includere il layout per le notifiche come parte del layout di un'attività
 
@@ -233,7 +233,7 @@ In questo esempio è stato aggiunto un contenitore padre, poiché il layout orig
 
 Engagement Reach SDK rileva automaticamente che il layout per le notifiche è incluso nell'attività e non aggiunge alcuna sovrimpressione per questa attività.
 
-> [AZURE.TIP]Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio di copertura impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
+> [AZURE.TIP] Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio di copertura impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
 
 ##### Disabilitazione delle notifiche dell'applicazione per le singole attività
 
@@ -249,7 +249,7 @@ Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notific
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
 
-> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'argomento "Come integrare Engagement in Android".
+> [AZURE.IMPORTANT] Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'argomento "Come integrare Engagement in Android".
 
 L'esempio seguente presuppone che l'avviso precedente sia stato rispettato e che sia stata usata una classe secondaria di `EngagementApplication`:
 
@@ -499,7 +499,7 @@ Se l'implementazione di `EngagementNotifier` ignora il comportamento predefinito
 -   Per le notifiche di sistema, è stato eseguito l'override di `onNotificationPrepared` e sono state apportate modifiche a `contentIntent` o `deleteIntent` nell'oggetto `Notification`.
 -   Per le notifiche in-app, è stato eseguito l'override di `prepareInAppArea`. Assicurarsi di mappare almeno `actionNotification` a uno dei controlli dell'interfaccia utente.
 
-> [AZURE.NOTE]Se `handleNotification` genera un'eccezione, il contenuto viene eliminato e `dropContent` viene chiamato. Ciò viene segnalato nelle statistiche e sarà possibile elaborare le campagne successive.
+> [AZURE.NOTE] Se `handleNotification` genera un'eccezione, il contenuto viene eliminato e `dropContent` viene chiamato. Ciò viene segnalato nelle statistiche e sarà possibile elaborare le campagne successive.
 
 ### Annunci e sondaggi
 
@@ -640,13 +640,9 @@ Questa è la parte interessante dell'implementazione:
 
 Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è stata completata, è possibile chiamare `exitContent(this)` in modo sicuro senza che ciò abbia alcun effetto.
 
-##Test
-
-Per verificare l'integrazione, vedere l'argomento relativo al test dell'integrazione di Engagement in Android.
-
 [qui]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

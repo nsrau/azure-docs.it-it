@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 
 ##<a id="Provision">Eseguire il provisioning di una macchina virtuale di SQL Server dalla raccolta</a>
 
-1. Accedere al [portale di Azure classico](http://manage.windowsazure.com) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 2. Nel portale di Azure classico, nella parte sinistra della pagina Web fare clic su **+NUOVO**, su **CALCOLO**, su **MACCHINA VIRTUALE** e infine su **DA RACCOLTA**.
 
@@ -52,10 +52,10 @@ In questa esercitazione si apprenderà come:
 
 Per le informazioni più aggiornate sulle immagini di SQL Server supportate in Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
->[AZURE.NOTE]Se si dispone di una macchina virtuale creata mediante l'immagine della piattaforma dell'edizione di valutazione di SQL Server, non sarà possibile aggiornarla a un'immagine dell'edizione con pagamento al minuto nella raccolta. È possibile scegliere una delle due opzioni seguenti:
+>[AZURE.NOTE] Se si dispone di una macchina virtuale creata mediante l'immagine della piattaforma dell'edizione di valutazione di SQL Server, non sarà possibile aggiornarla a un'immagine dell'edizione con pagamento al minuto nella raccolta. È possibile scegliere una delle due opzioni seguenti:
 >
 > - È possibile creare una nuova macchina virtuale usando l'edizione di SQL Server con pagamento al minuto nella raccolta ed eseguire la migrazione dei file di database alla nuova macchina virtuale seguendo la procedura descritta nell'argomento [Migrazione di un database a SQL Server in una VM in Azure](virtual-machines-migrate-onpremises-database).
-> - Oppure, è possibile eseguire l'aggiornamento di un'istanza esistente dell'edizione di valutazione di SQL Server a un'altra edizione di SQL Server nell'ambito del contratto [Mobilità delle licenze tramite Software Assurance in Azure](http://azure.microsoft.com/pricing/license-mobility/) seguendo la procedura illustrata nell'argomento [Eseguire l'aggiornamento a un'edizione diversa di SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Per informazioni su come acquistare una copia di SQL Server con licenza, vedere [Come acquistare SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+> - Oppure, è possibile eseguire l'aggiornamento di un'istanza esistente dell'edizione di valutazione di SQL Server a un'altra edizione di SQL Server nell'ambito del contratto [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/) seguendo la procedura illustrata nell'argomento [Eseguire l'aggiornamento a un'edizione diversa di SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Per informazioni su come acquistare una copia di SQL Server con licenza, vedere [Come acquistare SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. Nella prima pagina di **Configurazione macchina virtuale** immettere le informazioni seguenti:
 	- Una **DATA DI RILASCIO VERSIONE**. Se sono disponibili più immagini, selezionare quella più recente.
@@ -67,7 +67,7 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 
 	![Configurazione macchina virtuale](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE]Le dimensioni della macchina virtuale vengono specificate durante il provisioning:
+	>[AZURE.NOTE] Le dimensioni della macchina virtuale vengono specificate durante il provisioning:
  	>
 	> - Per i carichi di lavoro di produzione, è consigliabile utilizzare Archiviazione Premium con le dimensioni minime consigliate: **DS3** per SQL Server Enterprise e **DS2** per SQL Server Standard. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
 	> - Le dimensioni selezionate limitano il numero di dischi dati che è possibile configurare. Per informazioni aggiornate sulle dimensioni di macchine virtuali disponibili e sul numero di dischi dati che è possibile collegare a una macchina virtuale, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines-size-specs.md).
@@ -78,7 +78,7 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 	- Nella casella **Servizio cloud** scegliere **Crea un nuovo servizio cloud**.
 	- Nella casella **Nome DNS del servizio cloud** specificare la prima parte del nome DNS desiderato, in modo che completi un nome nel formato **TESTNAME.cloudapp.net**.
 	- Selezionare una **SOTTOSCRIZIONE** se sono presenti più sottoscrizioni. La scelta determina quali **account di archiviazione** saranno disponibili.
-	- Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+- Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 	- Nella casella **Account di archiviazione** generare automaticamente un account o selezionarne uno dall'elenco. Modificare la **SOTTOSCRIZIONE** per visualizzare altri account.
 	- Nella casella **AVAILABILITY SET** selezionare **(none)**.
 	- Leggere e accettare le note legali.
@@ -176,4 +176,4 @@ L'elenco seguente fornisce ulteriori risorse per SQL Server in macchine virtuali
 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015"  
+	ms.date="01/25/2016"  
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
@@ -59,6 +59,12 @@ In esecuzione|Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almen
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
+###Spegnimento automatico per i canali non usati
+
+A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiornamento che interrompe automaticamente un canale (con la codifica live abilitata) dopo che è rimasto in esecuzione in stato di mancato utilizzo per un lungo periodo. Questa condizione si applica ai canali che non hanno programmi attivi e che non hanno ricevuto un feed di contributo di input per un lungo periodo di tempo.
+
+La soglia per un periodo di mancato utilizzo nominalmente è 12 ore, ma è soggetta a modifiche.
+
 ##Flusso di lavoro della codifica live
 Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui un canale riceve un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS), quindi ne esegue la codifica in un flusso a più velocità in bit.
 
@@ -76,7 +82,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
->[AZURE.NOTE]Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived sul sito Microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
+>[AZURE.NOTE] Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived sul sito Microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit **singola** in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -255,7 +261,7 @@ Una volta che il canale inizia a inserire i dati, è possibile visualizzare in a
 
 Questa sezione descrive come è possibile modificare le impostazioni del codificatore live all'interno del canale, quando **Tipo di codifica** di un canale è impostato su **Standard**.
 
->[AZURE.NOTE]Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione venga inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
+>[AZURE.NOTE]Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 
 ###Origine del marcatore di annunci
 
@@ -416,7 +422,7 @@ Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
 
->[AZURE.NOTE]Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
+>[AZURE.NOTE] Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
 
 
 ##<a id="Considerations"></a>Considerazioni
@@ -430,13 +436,13 @@ Arrestato|Arrestato|No
 - Il costo viene addebitato solo quando il canale è nello stato **In esecuzione**. Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
 - Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
 - Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
-- Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione venga inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
+- Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 - Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione. 
 
 ##Problemi noti
 
 - I tempi di avvio del canale sono stati ridotti a una media di 2 minuti ma, in caso di aumento delle richieste, possono arrivare anche a oltre 20 minuti.
-- Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 - Ancora una volta... non dimenticare di INTERROMPERE I CANALI al termine dello streaming per evitare il proseguimento della fatturazione.
 
@@ -470,4 +476,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

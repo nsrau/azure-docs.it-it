@@ -158,7 +158,7 @@ Per altre informazioni sui valori di filtro possibili, vedere la documentazione 
 
 ## Hub eventi
 
-[Hub eventi](http://azure.microsoft.com/services/event-hubs/) è un servizio di elaborazione di eventi e viene usato per fornire l'ingresso dei dati di eventi e telemetria in Azure su larga scala, con bassa latenza ed elevata affidabilità. Questo servizio, se usato insieme ad altri servizi downstream, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o dell'esperienza utente e di Internet delle cose (Internet of Things, IoT).
+[Hub eventi](https://azure.microsoft.com/services/event-hubs/) è un servizio di elaborazione di eventi e viene usato per fornire l'ingresso dei dati di eventi e telemetria in Azure su larga scala, con bassa latenza ed elevata affidabilità. Questo servizio, se usato insieme ad altri servizi downstream, è particolarmente utile negli scenari di strumentazione delle applicazioni, elaborazione dei flussi di lavoro o dell'esperienza utente e di Internet delle cose (Internet of Things, IoT).
 
 Gli hub eventi sono un costrutto di streaming dei messaggi e, nonostante possano sembrare simili a code e argomenti, presentano caratteristiche molto diverse. Ad esempio, gli hub eventi non forniscono durata (TTL), mancato recapito, transazioni o acknowledgement dei messaggi, perché queste sono funzionalità di messaggistica negoziata tradizionale e non di streaming. Gli hub eventi forniscono altre funzionalità correlate ai flussi, ad esempio il partizionamento, il mantenimento dell'ordine e la riproduzione del flusso.
 
@@ -172,4 +172,4 @@ Per altri esempi e informazioni sull'utilizzo delle entità di messaggistica neg
 - [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 - [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

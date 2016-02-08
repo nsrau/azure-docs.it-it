@@ -26,7 +26,7 @@ Application Insights consente di monitorare disponibilità, prestazioni e utiliz
 ## Creare una risorsa Application Insights
 
 
-Nel [portale di Azure](http://portal.azure.com) creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
+Nel [portale di Azure](https://portal.azure.com) creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,9 +75,9 @@ Inserire una Web part e incorporarvi il frammento di codice.
 
 Ridistribuire l'app.
 
-Tornare al pannello dell'applicazione nel [portale di Azure](http://portal.azure.com).
+Tornare al pannello dell'applicazione nel [portale di Azure](https://portal.azure.com).
 
-I primi eventi verranno visualizzati in Ricerca.
+I primi eventi verranno visualizzati nella ricerca.
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
@@ -108,4 +108,4 @@ Oppure gli utenti:
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

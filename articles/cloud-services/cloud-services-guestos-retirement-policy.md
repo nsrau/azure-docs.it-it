@@ -85,9 +85,9 @@ Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi ope
 
 **Che cosa accade se per l'applicazione Web è necessaria una maggiore integrazione con il sistema operativo?**
 
-Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](cloud-services-startup-tasks.md) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
+Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](cloud-services-startup-tasks.md) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
  
 ## Passaggi successivi
 Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

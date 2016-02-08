@@ -7,7 +7,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 - Aggiunta della macchina virtuale a un servizio cloud esistente
 - Aggiunta della macchina virtuale a un set di disponibilità
 
-> [AZURE.IMPORTANT]se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per ulteriori informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> [AZURE.IMPORTANT] se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per ulteriori informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 1. Accedere al [portale di Azure](http://manage.windowsazure.com).
 
@@ -34,7 +34,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 	- Se questa è la prima o l'unica macchina virtuale nel servizio cloud, selezionare **Crea un nuovo servizio cloud**. Quindi, in **Nome DNS del servizio cloud** digitare un nome composto da un minimo di 3 a un massimo di 24 caratteri, tra lettere in minuscolo e numeri. Tale nome sarà incluso nell'URI usato per contattare la macchina virtuale tramite il servizio cloud.
 	- Se questa macchina virtuale deve essere aggiunta a un servizio cloud, selezionarla nell'elenco.
 
-	> [AZURE.NOTE]per ulteriori informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
+	> [AZURE.NOTE] per ulteriori informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
 12. In **Area/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere [Informazioni sui gruppi di affinità per Rete virtuale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -58,4 +58,4 @@ Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal
 - [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/09/2016" 
 	ms.author="sdanie"/>
 
 # Introduzione al livello di Azure Redis Cache Premium
@@ -36,7 +36,7 @@ Per istruzioni sulla configurazione di persistenza, vedere [Come configurare la 
 ##Cluster Redis
 Se si desidera creare cache di dimensioni superiori a 53 GB o desidera partizionare i dati tra più nodi Redis, è possibile usare le funzionalità di clustering Redis, disponibili nel livello Premium. Ogni nodo è costituito da una coppia di cache primaria/di replica gestita da Azure per la disponibilità elevata.
 
-**Il clustering di Redis consente una scalabilità massima e in tutti i periodi.** La velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di richieste al secondo. Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
+**Il clustering di Redis consente scalabilità e velocità effettiva di alto livello.** La velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di richieste al secondo. Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
 
 Per avviare il clustering, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
@@ -54,4 +54,4 @@ Creare una cache ed esplorare le nuove funzionalità del livello premium.
 -	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

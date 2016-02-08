@@ -33,4 +33,4 @@ Se l'app non è in grado di connettersi, in genere si tratta di un problema con 
 4.	Controllare lo stato del servizio nel dashboard. Se si ritiene che si sia verificata un'interruzione regionale, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per i passaggi di ripristino in una nuova area.
 5.	Se i problemi di connettività persistono, contattare il supporto per aprire un caso di supporto.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

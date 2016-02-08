@@ -30,7 +30,7 @@ Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]Questa esercitazione illustra come usare l'autenticazione verso il server per gli utenti in app per Windows Store e Windows Phone Store 8.1. Per altre informazioni sull'autenticazione verso il client, vedere [Accesso a Servizi mobili di Azure mediante Google, Microsoft e Facebook SDK](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]Questa esercitazione illustra come usare l'autenticazione verso il server per gli utenti in app per Windows Store e Windows Phone Store 8.1. Per altre informazioni sull'autenticazione verso il client, vedere [Accesso a Servizi mobili di Azure mediante Google, Microsoft e Facebook SDK](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
@@ -75,7 +75,7 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 
 ##Vedere anche
 
-+ [Funzionalità utenti avanzate](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> È possibile ottenere dati utente aggiuntivi gestiti dal provider di identità nel servizio mobile chiamando il metodo **ServiceUser.GetIdentitiesAsync()** in un back-end .NET.
++ [Funzionalità utenti avanzate](https://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> È possibile ottenere dati utente aggiuntivi gestiti dal provider di identità nel servizio mobile chiamando il metodo **ServiceUser.GetIdentitiesAsync()** in un back-end .NET.
 
 + [Riferimento per i concetti e le procedure di Servizi mobili con .NET] <br/>Ulteriori informazioni su come utilizzare Servizi mobili con un client .NET.
 
@@ -103,4 +103,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

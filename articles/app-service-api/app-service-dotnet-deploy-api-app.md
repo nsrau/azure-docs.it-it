@@ -129,4 +129,4 @@ Le app API sono app web con funzionalità aggiuntive per l'hosting di API, il ch
 
 Per informazioni sulle funzionalità delle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

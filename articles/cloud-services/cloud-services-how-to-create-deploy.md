@@ -29,7 +29,7 @@ Nel portale di Azure classico sono disponibili due modi per creare e distribuire
 
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure classico rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando **Creazione personalizzata**.
 
-> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da **Avvio rapido** o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la guida alla pagina **Avvio rapido**.
+> [AZURE.NOTE] Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da **Avvio rapido** o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la guida alla pagina **Avvio rapido**.
 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
@@ -43,7 +43,7 @@ Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
 ## Preparare l'app
-Per poter distribuire un servizio cloud, è necessario creare il pacchetto di servizio cloud (.cspkg) dal codice dell'applicazione e un file di configurazione del servizio cloud (.cscfg). Azure SDK offre strumenti per la preparazione dei file necessari alla distribuzione. È possibile installare l'SDK dalla pagina di [download](http://azure.microsoft.com/downloads/) di Azure, nel linguaggio in cui si preferisce sviluppare il codice dell'applicazione.
+Per poter distribuire un servizio cloud, è necessario creare il pacchetto di servizio cloud (.cspkg) dal codice dell'applicazione e un file di configurazione del servizio cloud (.cscfg). Azure SDK offre strumenti per la preparazione dei file necessari alla distribuzione. È possibile installare l'SDK dalla pagina di [download](https://azure.microsoft.com/downloads/) di Azure, nel linguaggio in cui si preferisce sviluppare il codice dell'applicazione.
 
 Per poter esportare un pacchetto di servizio, è necessario configurare tre funzionalità del servizio cloud:
 
@@ -57,7 +57,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 
 ## Prima di iniziare
 
-- Se Azure SDK non è stato installato, fare clic su **Install Azure SDK** per aprire la pagina di [download](http://azure.microsoft.com/downloads/) di Azure e quindi scaricare l'SDK nel linguaggio in cui si preferisce sviluppare il codice. (È possibile eseguire questa operazione in seguito).
+- Se Azure SDK non è stato installato, fare clic su **Install Azure SDK** per aprire la pagina di [download](https://azure.microsoft.com/downloads/) di Azure e quindi scaricare l'SDK nel linguaggio in cui si preferisce sviluppare il codice. (È possibile eseguire questa operazione in seguito).
 
 - Se un'istanza del ruolo lo richiede, creare i certificati. I servizi cloud richiedono un file con estensione pfx con una chiave privata. È possibile [caricare i certificati in Azure](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) nel corso della creazione e della distribuzione del servizio cloud.
 
@@ -120,7 +120,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 
 5. Se il servizio cloud includerà ruoli con una sola istanza, selezionare la casella di controllo **Deploy even if one or more roles contain a single instance** per abilitare la distribuzione.
 
-    Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio cloud solo al 99,95% in fase di manutenzione e aggiornamento del servizio. Se necessario, è possibile aggiungere istanze del ruolo aggiuntive alla pagina **Scale** dopo aver distribuito il servizio cloud. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+    Se ogni ruolo ha almeno due istanze, Azure può garantire l'accesso al servizio cloud solo al 99,95% in fase di manutenzione e aggiornamento del servizio. Se necessario, è possibile aggiungere istanze del ruolo aggiuntive alla pagina **Scale** dopo aver distribuito il servizio cloud. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 6. Fare clic su **OK** (segno di spunta) per iniziare la distribuzione del servizio cloud.
 
@@ -150,4 +150,4 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

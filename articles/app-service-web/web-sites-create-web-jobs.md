@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # Eseguire attività in background con processi Web
@@ -42,7 +42,7 @@ Sono consentiti i tipi di file seguenti:
 
 ## <a name="CreateOnDemand"></a>Creare un processo Web su richiesta nel portale
 
-1. Nel pannello **Web App** del [Portale di Azure](http://portal.azure.com), fare clic su **Tutte le impostazioni > Processi Web** per visualizzare il pannello **Processi Web**.
+1. Nel pannello **Web App** del [Portale di Azure](https://portal.azure.com), fare clic su **Tutte le impostazioni > Processi Web** per visualizzare il pannello **Processi Web**.
 	
 	![Pannello Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -70,7 +70,7 @@ Sono consentiti i tipi di file seguenti:
 
 2. Per avviare o interrompere un processo Web continuo, selezionarlo con il pulsante destro del mouse dall'elenco, quindi fare clic su **Avvia** o **Interrompi**.
 	
-> [AZURE.NOTE]Se l'app Web è in esecuzione su più di un'istanza, il processo Web con esecuzione continua verrà eseguito su tutte le istanze. I processi Web su richiesta e pianificati vengono eseguiti su una singola istanza selezionata per il bilanciamento del carico da Microsoft Azure.
+> [AZURE.NOTE] Se l'app Web è in esecuzione su più di un'istanza, il processo Web con esecuzione continua verrà eseguito su tutte le istanze. I processi Web su richiesta e pianificati vengono eseguiti su una singola istanza selezionata per il bilanciamento del carico da Microsoft Azure.
 	
 > Per i processi Web continui da eseguire in modo affidabile su tutte le istanze, abilitare l'impostazione di configurazione Always On* per l'app Web, altrimenti è possibile che l'esecuzione dei processi venga interrotta quando il sito host SCM rimane inattivo per troppo tempo.
 
@@ -201,7 +201,7 @@ I processi pianificati possono essere ulteriormente configurati nell'Utilità di
 - Le modalità di base e standard offrono la funzionalità Sempre attivata che, se abilitata, impedisce alle app Web di diventare inattive.
 - È possibile solo eseguire il debug di processi Web con esecuzione continua. Il debug di processi Web pianificati o su richiesta non è supportato.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## <a name="NextSteps"></a>Passaggi successivi
  
@@ -239,4 +239,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Domande frequenti sulla disponibilità e il supporto di Hub eventi
@@ -23,21 +23,21 @@ In questo articolo vengono discusse informazioni sulla disponibilità e le rispo
 
 ## Informazioni sui prezzi
 
-Per informazioni complete sui prezzi di Hub eventi, vedere [Prezzi Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/).
+Per informazioni complete sui prezzi di Hub eventi, vedere [Prezzi Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Come vengono calcolati gli eventi in ingresso di Hub eventi?
 
-Ogni evento inviato a un Hub eventi conta come messaggio fatturabile. Un *evento in ingresso* è definito come un'unità di dati minore o uguale a 64 KB. Qualsiasi evento di dimensioni inferiori o uguali a 64 KB è considerato un evento fatturabile. Se l'evento è maggiore di 64 KB, il numero di eventi fatturabili viene calcolato in base alla dimensione dell'evento, in multipli di 64 KB. Ad esempio, un evento di 8 KB inviato all'Hub eventi viene fatturato come un solo evento, mentre un messaggio di 96 KB inviato all'Hub eventi viene fatturato come due eventi.
+Ogni evento inviato a un hub eventi conta come messaggio fatturabile. Un *evento in ingresso* è definito come un'unità di dati minore o uguale a 64 KB. Qualsiasi evento di dimensioni inferiori o uguali a 64 KB è considerato un evento fatturabile. Se l'evento è maggiore di 64 KB, il numero di eventi fatturabili viene calcolato in base alla dimensione dell'evento, in multipli di 64 KB. Ad esempio, un evento di 8 KB inviato all'hub eventi viene fatturato come un solo evento, mentre un messaggio di 96 KB inviato all'hub eventi viene fatturato come due eventi.
 
-Gli eventi utilizzati da un Hub eventi, nonché le operazioni di gestione e le chiamate di controllo come i checkpoint, non vengono conteggiati come eventi in ingresso fatturabili, ma si accumulano fino alla capacità massima di unità elaborate.
+Gli eventi usati da un hub eventi, nonché le operazioni di gestione e le chiamate di controllo come i checkpoint, non vengono conteggiati come eventi in ingresso fatturabili, ma si accumulano fino alla capacità massima di unità elaborate.
 
 ## Cosa sono le unità elaborate in Hub eventi?
 
 Le unità elaborate in Hub eventi vengono selezionate esplicitamente dall'utente, tramite il portale di Azure classico o l'API di gestione di Hub eventi. Le unità elaborate si applicano a tutti gli Hub eventi in uno spazio dei nomi del Bus di servizio e ogni unità elaborata autorizza lo spazio dei nomi per le funzionalità seguenti:
 
-- Fino a 1 MB al secondo di eventi in ingresso (gli eventi inviati a un Hub eventi), ma non più di 1000 eventi in ingresso, operazioni di gestione o chiamate di controllo API al secondo.
+- Fino a 1 MB al secondo di eventi in ingresso (eventi inviati a un hub eventi), ma non più di 1000 eventi in ingresso, operazioni di gestione o chiamate di controllo API al secondo.
 
-- Fino a 2 MB al secondo di eventi in uscita (gli eventi utilizzati da un Hub di eventi).
+- Fino a 2 MB al secondo di eventi in uscita (eventi usati da un hub eventi).
 
 - Fino a 84 GB di archiviazione eventi (sufficienti per il periodo di conservazione di 24 ore predefinito).
 
@@ -45,11 +45,11 @@ Le unità elaborate in Hub eventi vengono fatturate con tariffe orarie, in base 
 
 ## Come vengono applicati i limiti di unità elaborate in Hub eventi
 
-Se la velocità effettiva totale in ingresso o la frequenza degli eventi totali in ingresso fra tutti gli Hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i mittenti verranno limitati e riceveranno errori indicanti che è stata superata la quota di ingresso.
+Se la velocità effettiva totale in ingresso o la frequenza degli eventi totali in ingresso fra tutti gli hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i mittenti verranno limitati e riceveranno errori che indicano che è stata superata la quota di ingresso.
 
-Se la velocità effettiva totale in uscita o la frequenza degli eventi totali in uscita fra tutti gli Hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i destinatari verranno limitati e riceveranno errori indicanti che è stata superata la quota di uscita. Le quote di ingresso e uscita vengono applicate separatamente, in modo che nessun mittente possa causare il rallentamento del consumo e nessun destinatario possa impedire l’invio di eventi a un Hub eventi.
+Se la velocità effettiva totale in uscita o la frequenza degli eventi totali in uscita fra tutti gli hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i destinatari verranno limitati e riceveranno errori che indicano che è stata superata la quota di uscita. Le quote di ingresso e uscita vengono applicate separatamente, in modo che nessun mittente possa causare il rallentamento del consumo e nessun destinatario possa impedire l'invio di eventi a un hub eventi.
 
-Si noti che la selezione delle unità elaborate è indipendente dal numero di partizioni di Hub eventi. Ogni partizione offre una velocità effettiva massima di 1 MB al secondo in ingresso (con un massimo di 1000 eventi al secondo) e 2 MB al secondo in uscita, non è previsto alcun costo fisso per le partizioni stesse. L'addebito si applica alle unità elaborate aggregate su tutti gli Hub eventi in uno spazio dei nomi del Bus di servizio. Con questo modello è possibile creare partizioni sufficienti a supportare il carico massimo previsto per i sistemi senza incorrere in eventuali costi di unità elaborate fino a quando il carico dell'evento nel sistema richiede effettivamente numeri di unità elaborate più alti e senza dover modificare la struttura e l’architettura dei sistemi quando il carico del sistema aumenta.
+Si noti che la selezione delle unità elaborate è indipendente dal numero di partizioni di Hub eventi. Ogni partizione offre una velocità effettiva massima di 1 MB al secondo in ingresso (con un massimo di 1000 eventi al secondo) e 2 MB al secondo in uscita, non è previsto alcun costo fisso per le partizioni stesse. L'addebito si applica alle unità elaborate aggregate su tutti gli hub eventi in uno spazio dei nomi del bus di servizio. Con questo modello è possibile creare partizioni sufficienti a supportare il carico massimo previsto per i sistemi senza incorrere in eventuali costi di unità elaborate fino a quando il carico dell'evento nel sistema richiede effettivamente numeri di unità elaborate più alti e senza dover modificare la struttura e l’architettura dei sistemi quando il carico del sistema aumenta.
 
 ## Esiste un limite al numero di unità elaborate che possono essere selezionate?
 
@@ -65,7 +65,7 @@ Il livello Standard di Hub eventi supporta attualmente un periodo di conservazio
 
 ## Come vengono calcolate e addebitate le dimensioni di archiviazione di Hub eventi?
 
-Le dimensioni totali di tutti gli eventi archiviati, incluso il sovraccarico interno per le intestazioni degli eventi o nelle strutture di archiviazione su disco in tutti gli Hub eventi vengono misurate nel corso della giornata. Alla fine della giornata, viene calcolata la dimensione di archiviazione massima. L'archiviazione giornaliera consentita viene calcolata in base al numero minimo di unità elaborate selezionate durante il giorno (ogni unità elaborata fornisce una capacità massima di 84 GB). Se la dimensione totale supera la capacità massima di archiviazione giornaliera calcolata, l'archiviazione in eccesso viene fatturata in base alle tariffe di archiviazione BLOB di Azure (alla tariffa di **archiviazione con ridondanza locale**).
+Le dimensioni totali di tutti gli eventi archiviati, incluso il sovraccarico interno per le intestazioni degli eventi o nelle strutture di archiviazione su disco in tutti gli hub eventi vengono misurate nel corso della giornata. Alla fine della giornata, viene calcolata la dimensione di archiviazione massima. L'archiviazione giornaliera consentita viene calcolata in base al numero minimo di unità elaborate selezionate durante il giorno (ogni unità elaborata fornisce una capacità massima di 84 GB). Se la dimensione totale supera la capacità massima di archiviazione giornaliera calcolata, l'archiviazione in eccesso viene fatturata in base alle tariffe di archiviazione BLOB di Azure (alla tariffa di **archiviazione con ridondanza locale**).
 
 ## È possibile utilizzare una singola connessione AMQP per inviare e ricevere da Hub eventi e code/argomenti di Bus di servizio?
 
@@ -73,11 +73,11 @@ Sì, purché tutti gli Hub eventi, le code e gli argomenti siano nello stesso sp
 
 ## Si applicano costi di connessione negoziata ad Hub eventi?
 
-Per i mittenti, i costi di connessione si applicano solo quando viene utilizzato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di utilizzare AMQP (ad esempio, per ottenere il flusso di eventi più efficiente o per consentire la comunicazione bidirezionale in scenari di comando e controllo Internet delle cose), consultare la pagina [Bus di servizio Prezzi](http://azure.microsoft.com/pricing/details/service-bus/) per informazioni su cosa si intende per connessione negoziata e su come viene misurato il consumo.
+Per i mittenti, i costi di connessione si applicano solo quando viene utilizzato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di utilizzare AMQP (ad esempio, per ottenere il flusso di eventi più efficiente o per consentire la comunicazione bidirezionale in scenari di comando e controllo Internet delle cose), consultare la pagina [Bus di servizio Prezzi](https://azure.microsoft.com/pricing/details/service-bus/) per informazioni su cosa si intende per connessione negoziata e su come viene misurato il consumo.
 
 ## Qual è la differenza tra i livelli Standard e Base di Hub eventi?
 
-Il livello standard di Hub eventi fornisce funzionalità maggiori di quelle disponibili con il livello base o con alcuni sistemi della concorrenza. Queste funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di utilizzare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze in frazioni di secondo, nonché per inviare dati di telemetria dai dispositivi a Hub eventi. Fare riferimento a [dettagli sui prezzi] ([Hub eventi Prezzi](http://azure.microsoft.com/pricing/details/event-hubs/)) per l'elenco delle funzionalità.
+Il livello standard di Hub eventi fornisce funzionalità maggiori di quelle disponibili con il livello base o con alcuni sistemi della concorrenza. Queste funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di utilizzare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze in frazioni di secondo, nonché per inviare dati di telemetria dai dispositivi a Hub eventi. Per l'elenco delle funzionalità, vedere i [dettagli dei prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Disponibilità a livello geografico
 
@@ -96,7 +96,7 @@ Hub eventi è disponibile nelle seguenti aree:
 
 Il supporto tecnico per Hub eventi è disponibile tramite i [forum della community](https://social.msdn.microsoft.com/forums/azure/home). Il supporto per la gestione della fatturazione e delle sottoscrizioni viene fornito gratuitamente.
 
-Per ulteriori informazioni al riguardo, visitare la pagina [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+Per ulteriori informazioni al riguardo, visitare la pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Passaggi successivi
 
@@ -110,4 +110,4 @@ Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

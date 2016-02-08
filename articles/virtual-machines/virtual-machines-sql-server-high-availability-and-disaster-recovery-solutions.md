@@ -1,22 +1,22 @@
-<properties 
+<properties
 	pageTitle="Disponibilità elevata e ripristino di emergenza di SQL Server | Microsoft Azure"
 	description="Descrizione dei vari tipi di strategie HADR per SQL Server in esecuzione su macchine virtuali di Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/07/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
-# Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure
+# Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
 
 ## Panoramica
 
@@ -39,11 +39,11 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 - [Mirroring del database](https://technet.microsoft.com/library/ms189852.aspx)
 - [Log shipping](https://technet.microsoft.com/library/ms187103.aspx)
 - [Backup e ripristino con il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Istanze del cluster di failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
+- [Istanze del cluster di failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 
 È possibile combinare le tecnologie per implementare una soluzione di SQL Server che disponga di funzionalità di disponibilità elevata e ripristino di emergenza. A seconda della tecnologia in uso, una distribuzione ibrida può richiedere un tunnel VPN con la rete virtuale di Azure. Le sezioni seguenti illustrano alcune architetture di distribuzione di esempio.
 
-## Solo Azure: soluzioni a disponibilità elevata
+## Solo Azure: soluzioni di disponibilità elevata
 
 È possibile disporre di una soluzione a disponibilità elevata per i database di SQL Server in Azure tramite i gruppi di disponibilità AlwaysOn o il mirroring del database.
 
@@ -154,4 +154,4 @@ Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtual
 - [Installare una nuova foresta Active Directory in Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Configurare un listener ILB per gruppi di disponibilità AlwaysOn nella macchina virtuale di Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

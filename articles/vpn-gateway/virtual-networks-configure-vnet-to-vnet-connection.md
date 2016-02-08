@@ -109,12 +109,12 @@ VNet2: Spazio di indirizzi = 10.2.0.0/16; Area = Giappone orientale
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
-**Nella pagina Dettagli della rete virtuale**, immettere le informazioni seguenti.
+Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti.
 
   ![Dettagli della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Name -** assegnare un nome alla rete virtuale. Ad esempio, VNet1:
-  - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (regione). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
+  - **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (area). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
 
 
 **Nella pagina Connettività VPN e server DNS**, immettere le informazioni seguenti e quindi fare clic sulla freccia Avanti in basso a destra.
@@ -198,7 +198,7 @@ Ora che avete ogni rete virtuale è configurata, è possibile configurare i gate
 
 ## Passaggio 7 - Connettere i gateway VPN
 
-Quando tutti i passaggi precedenti sono stati completati, si imposteranno le chiavi già condivise IPsec/IKE lo stesso. A tale scopo, utilizzare un'API REST o i cmdlet di PowerShell. Se si utilizza PowerShell, verificare di avere la [versione più recente](http://azure.microsoft.com/downloads/) dei cmdlet di Microsoft Azure PowerShell. Gli esempi seguenti utilizzano cmdlet PowerShell per impostare il valore della chiave su A1b2C3D4. Si noti che entrambi utilizzano lo stesso valore di chiave. Modificare gli esempi seguenti in modo da riflettere i valori personalizzati.
+Quando tutti i passaggi precedenti sono stati completati, si imposteranno le chiavi già condivise IPsec/IKE lo stesso. A tale scopo, utilizzare un'API REST o i cmdlet di PowerShell. Se si utilizza PowerShell, verificare di avere la [versione più recente](https://azure.microsoft.com/downloads/) dei cmdlet di Microsoft Azure PowerShell. Gli esempi seguenti utilizzano cmdlet PowerShell per impostare il valore della chiave su A1b2C3D4. Si noti che entrambi utilizzano lo stesso valore di chiave. Modificare gli esempi seguenti in modo da riflettere i valori personalizzati.
 
 Per VNet1
 
@@ -223,4 +223,4 @@ Dopo aver completato la connessione, è possibile aggiungere macchine virtuali a
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

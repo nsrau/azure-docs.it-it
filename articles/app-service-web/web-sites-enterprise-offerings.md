@@ -49,7 +49,7 @@ Un approccio alternativo consiste nello sfruttare l'investimento operato in loca
 
 - [Ambienti del servizio app](../app-service-app-service-environment-intro.md): gli Ambienti del servizio app (ASE) sono una nuova funzionalità Premium aggiunta recentemente all'offerta del Servizio app di Microsoft Azure. Gli Ambienti del servizio app forniscono un ambiente completamente isolato e dedicato per eseguire in modo sicuro le applicazioni del Servizio app di Azure su larga scala, offrendo inoltre isolamento e accesso alla rete protetto   
 - [Connessioni ibride](../integration-hybrid-connection-overview.md): la funzionalità Connessioni ibride di Servizi BizTalk di Microsoft Azure consente a Siti Web di Azure di connettersi alle risorse locali in modo sicuro, ad esempio SQL Server, MySQL, API Web e servizi Web personalizzati. 
-- [Integrazione con la rete virtuale](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): l'integrazione della rete virtuale di Siti Web di Azure consente di connettere il proprio sito Web a una rete virtuale di Azure, che a sua volta può essere connessa all'infrastruttura in locale attraverso una connessione VPN da sito a sito. 
+- [Integrazione con la rete virtuale](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): l'integrazione della rete virtuale di Siti Web di Azure consente di connettere il proprio sito Web a una rete virtuale di Azure, che a sua volta può essere connessa all'infrastruttura in locale attraverso una connessione VPN da sito a sito. 
 
 Nel diagramma seguente è illustrato un esempio di soluzione di alto livello con opzioni di connettività per le risorse locali. Il primo esempio mostra come ottenerla tramite le funzionalità standard di Servizio App di Azure e il secondo mostra come ottenerla tramite l’offerta Premium, gli Ambienti del servizio App.
 
@@ -159,4 +159,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

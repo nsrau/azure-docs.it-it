@@ -27,9 +27,9 @@ Una macchina virtuale di Azure supporta il collegamento di diversi dischi di Arc
 
 Con Archiviazione Premium, Azure offre la possibilità di potenziare e spostare nel cloud le applicazioni aziendali più complesse come Dynamics AX, Dynamics CRM, Exchange Server, SharePoint Farms e SAP Business Suite. È possibile eseguire un'ampia gamma di carichi di lavoro del database a prestazioni intensive, come SQL Server, Oracle, MongoDB, MySQL e Redis, che richiedono prestazioni elevate e coerenti e una bassa latenza su Archiviazione Premium.
 
->[AZURE.NOTE]È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
+>[AZURE.NOTE] È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
 
-Per iniziare a utilizzare Archiviazione Premium di Azure, visitare la pagina per [iniziare a usare Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/). Per informazioni sulla migrazione di macchine virtuali esistenti ad Archiviazione Premium, vedere [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
+Per iniziare a utilizzare Archiviazione Premium di Azure, visitare la pagina per [iniziare a usare Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/). Per informazioni sulla migrazione di macchine virtuali esistenti ad Archiviazione Premium, vedere [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
 
 ## Informazioni importanti su Archiviazione Premium
 
@@ -37,9 +37,9 @@ Di seguito è riportato un elenco di aspetti importanti da considerare prima o d
 
 - Per usare Archiviazione Premium è necessario disporre di un account di archiviazione Premium. Per informazioni su come creare un account di Archiviazione Premium, vedere [Creazione e utilizzo dell’account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Archiviazione Premium è disponibile nel [portale di Azure](portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive) e [Azure PowerShell](../install-configure-powershell.md) (versione 0.8.10 o successive).
+- Archiviazione Premium è disponibile nel [portale di Azure](https://portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive) e [Azure PowerShell](../install-configure-powershell.md) (versione 0.8.10 o successive).
 
-- Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere[servizi di Azure in base all'area](http://azure.microsoft.com/regions/#services).
+- Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services).
 
 - Archiviazione Premium supporta solo i BLOB di pagine di Azure, che vengono usati per conservare dischi persistenti per Macchine virtuali di Azure. Per informazioni sui BLOB di pagine di Azure, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx). Archiviazione Premium non supporta i BLOB in blocchi di Azure, i file di Azure, le tabelle di Azure o le code di Azure.
 
@@ -51,7 +51,7 @@ Di seguito è riportato un elenco di aspetti importanti da considerare prima o d
 
 - Un account di Archiviazione Premium non può essere mappato a un nome di dominio personalizzato.
 
-- Analisi archiviazione non è attualmente supportato per il servizio di archiviazione Premium. Per analizzare le metriche delle prestazioni delle macchine virtuali utilizzando dischi sugli account di Archiviazione Premium, utilizzare gli strumenti basati sul sistema operativo, come [Monitoraggio prestazioni di Windows](https://technet.microsoft.com/library/cc749249.aspx) per le macchine virtuali di Windows e [IOSTAT](http://linux.die.net/man/1/iostat) per le macchine virtuali Linux. È inoltre possibile abilitare la diagnostica della VM Azure nel portale Azure Preview. Fare riferimento al [Monitoraggio delle Macchine virtuali di Microsoft Azure con l'estensione diagnostica di Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) per ulteriori dettagli.
+- Analisi archiviazione non è attualmente supportato per il servizio di archiviazione Premium. Per analizzare le metriche delle prestazioni delle macchine virtuali utilizzando dischi sugli account di Archiviazione Premium, utilizzare gli strumenti basati sul sistema operativo, come [Monitoraggio prestazioni di Windows](https://technet.microsoft.com/library/cc749249.aspx) per le macchine virtuali di Windows e [IOSTAT](http://linux.die.net/man/1/iostat) per le macchine virtuali Linux. È inoltre possibile abilitare la diagnostica della VM Azure nel portale Azure Preview. Fare riferimento al [Monitoraggio delle Macchine virtuali di Microsoft Azure con l'estensione diagnostica di Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) per ulteriori dettagli.
 
 ## Uso di Archiviazione Premium per dischi
 È possibile usare il servizio di archiviazione Premium per dischi in due modi:
@@ -63,7 +63,7 @@ Azure usa l'account di archiviazione come un contenitore per il sistema operativ
 
 Per informazioni sulla migrazione di macchine virtuali esistenti ad Archiviazione Premium, vedere [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
 
-Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. L'operazione può essere eseguita tramite il [portale di Azure](portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o l'[API REST di gestione dei servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx). Per istruzioni dettagliate, vedere [Creazione e utilizzo di account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. L'operazione può essere eseguita tramite il [portale di Azure](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o l'[API REST di gestione dei servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx). Per istruzioni dettagliate, vedere [Creazione e utilizzo di account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Note importanti:
 
@@ -75,7 +75,7 @@ Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un accoun
 
 	Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali della serie DS e GS, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
 
-> [AZURE.NOTE]I riscontri nella cache non sono limitati da IOPS/velocità di trasmissione del disco allocati. In altri termini, quando si usa un disco dati con l'impostazione della cache ReadOnly in una macchina virtuale della serie DS o della serie GS, le letture servite dalla cache non sono soggette ai limiti relativi ai dischi di Archiviazione Premium. Di conseguenza, è possibile ottenere una velocità di trasmissione molto elevata da un disco se il carico di lavoro è prevalentemente composto da letture. Si noti che la cache è soggetta a limiti di velocità effettiva/IOPS separati a livello della macchina virtuale in base alle dimensioni della macchina virtuale. Le macchine virtuali della serie DS hanno circa 4000 IOPS e 33 MB/sec per core per la cache e gli IO dell’unità SSD locale.
+> [AZURE.NOTE] I riscontri nella cache non sono limitati da IOPS/velocità di trasmissione del disco allocati. In altri termini, quando si usa un disco dati con l'impostazione della cache ReadOnly in una macchina virtuale della serie DS o della serie GS, le letture servite dalla cache non sono soggette ai limiti relativi ai dischi di Archiviazione Premium. Di conseguenza, è possibile ottenere una velocità di trasmissione molto elevata da un disco se il carico di lavoro è prevalentemente composto da letture. Si noti che la cache è soggetta a limiti di velocità effettiva/IOPS separati a livello della macchina virtuale in base alle dimensioni della macchina virtuale. Le macchine virtuali della serie DS hanno circa 4000 IOPS e 33 MB/sec per core per la cache e gli IO dell’unità SSD locale.
 
 - Nella stessa macchina virtuale serie DS o serie GS è possibile usare sia dischi di Archiviazione Premium sia dischi di Archiviazione Standard.
 - Con Archiviazione Premium è possibile eseguire il provisioning di una macchina virtuale di serie DS e collegare più dischi dati persistenti a una macchina virtuale. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Se si esegue lo striping dei dischi dati di Archiviazione Premium usando gli [spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx), è necessario configurarlo con una colonna per ciascun disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per impostazione predefinita, l'interfaccia utente di Server Manager consente di configurare le colonne di un numero massimo di 8 dischi. Se occorre gestire più di 8 dischi, è necessario usare PowerShell per creare il volume e per specificare manualmente il numero di colonne. In caso contrario, l'interfaccia utente di Server Manager continuerà a usare 8 colonne anche se il numero di dischi è maggiore. Ad esempio, se si desidera gestire 32 dischi in un unico striping, è necessario specificare 32 colonne. È possibile utilizzare il parametro *NumberOfColumns* del cmdlet di PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) per specificare il numero di colonne usate dal disco virtuale. Per altre informazioni, vedere [ Panoramica sugli spazi di archiviazione](http://technet.microsoft.com/library/jj822938.aspx) e [Domande frequenti sugli spazi di archiviazione](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
@@ -123,7 +123,7 @@ Quando si esegue il provisioning di un disco in un account di archiviazione Prem
 </tbody>
 </table>
 
-> [AZURE.NOTE]Assicurarsi di disporre di larghezza di banda sufficiente sulla macchina virtuale per guidare il traffico su disco come spiegato nella sezione [Uso di Archiviazione Premium per dischi](#using-premium-storage-for-disks) indicata in precedenza in questo articolo. In caso contrario, gli IOPS e la velocità effettiva del disco saranno limitati a valori inferiori in base ai limiti della macchina virtuale piuttosto che in base ai limiti del disco citati nella tabella precedente.
+> [AZURE.NOTE] Assicurarsi di disporre di larghezza di banda sufficiente sulla macchina virtuale per guidare il traffico su disco come spiegato nella sezione [Uso di Archiviazione Premium per dischi](#using-premium-storage-for-disks) indicata in precedenza in questo articolo. In caso contrario, gli IOPS e la velocità effettiva del disco saranno limitati a valori inferiori in base ai limiti della macchina virtuale piuttosto che in base ai limiti del disco citati nella tabella precedente.
 
 Azure associa le dimensioni del disco (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina, come specificato nella tabella. Ad esempio, un disco da 100 GiB viene classificato come opzione P10 e può eseguire fino a 500 unità di I/O al secondo a una velocità effettiva massima di 100 MB al secondo. Analogamente, un disco da 400 GiB viene classificato come opzione P20 e può eseguire fino a 2300 unità di I/O al secondo a una velocità effettiva massima di 150 MB al secondo.
 
@@ -133,7 +133,7 @@ Il limite della velocità effettiva include scritture su disco e letture dal dis
 
 Al momento della creazione dei dischi in Azure, selezionare l'offerta di disco di Archiviazione Premium più appropriata in base alle esigenze dell'applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
 
-> [AZURE.NOTE]È possibile aumentare facilmente le dimensioni dei dischi esistenti. Ad esempio, se si desidera aumentare le dimensioni di un disco di 30 GB a 128 GB o a 1 TB. Oppure, se si desidera convertire il disco P20 in un disco P30 perché si necessita di una capacità maggiore o di IOPS e velocità effettiva più elevati. È possibile usare il disco tramite il cmdlet "Update-AzureDisk" di PowerShell con la proprietà "-ResizedSizeInGB". Per eseguire questa azione, è necessario che il disco sia disconnesso dalla macchina virtuale o che la macchina virtuale venga arrestata.
+> [AZURE.NOTE] È possibile aumentare facilmente le dimensioni dei dischi esistenti. Ad esempio, se si desidera aumentare le dimensioni di un disco di 30 GB a 128 GB o a 1 TB. Oppure, se si desidera convertire il disco P20 in un disco P30 perché si necessita di una capacità maggiore o di IOPS e velocità effettiva più elevati. È possibile usare il disco tramite il cmdlet "Update-AzureDisk" di PowerShell con la proprietà "-ResizedSizeInGB". Per eseguire questa azione, è necessario che il disco sia disconnesso dalla macchina virtuale o che la macchina virtuale venga arrestata.
 
 La tabella seguente illustra gli obiettivi di scalabilità per gli account di archiviazione Premium:
 
@@ -237,12 +237,12 @@ Quando si usa il servizio di archiviazione Premium, tenere conto delle considera
 
 - La fatturazione per un disco di Archiviazione Premium dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa le dimensioni del disco (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina, come specificato nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage). La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite o dalla velocità effettiva usata.
 - Gli snapshot nel servizio di archiviazione Premium vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](http://msdn.microsoft.com/library/azure/hh488361.aspx).
-- I [trasferimenti di dati in uscita](http://azure.microsoft.com/pricing/details/data-transfers/) (dati in uscita dai datacenter di Azure) vengono fatturati in base all'utilizzo di larghezza di banda.
+- I [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/) (dati in uscita dai datacenter di Azure) vengono fatturati in base all'utilizzo di larghezza di banda.
 
 Per informazioni dettagliate sui prezzi per il servizio di archiviazione Premium e le macchine virtuali serie DS e della serie GS, vedere:
 
-- [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/storage/)
-- [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/)
+- [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
+- [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
 ## Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale
 
@@ -252,7 +252,7 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 
 Questa sezione illustra come creare un account di Archiviazione Premium tramite il portale di anteprima di Azure.
 
-1.	Accedere al [portale di Azure](portal.azure.com). Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+1.	Accedere al [portale di Azure](https://portal.azure.com). Se non si dispone di una sottoscrizione, usare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 2.	Nel menu Hub fare clic su **Nuovo**.
 
@@ -332,8 +332,8 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
 - [Creazione di una macchina virtuale che esegue Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md)
-- [Documentazione di Archiviazione](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentazione di Archiviazione](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

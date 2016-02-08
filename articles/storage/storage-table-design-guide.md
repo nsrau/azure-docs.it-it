@@ -28,7 +28,7 @@ Questa sezione evidenzia alcune funzionalità chiave del servizio tabelle, di pa
 
 Cos'è il servizio tabelle? Come indica il nome stesso, il servizio tabelle usa un formato tabulare per archiviare i dati. In base alla terminologia standard, ogni riga della tabella rappresenta un'entità le cui diverse proprietà sono archiviate nelle colonne. Ogni entità ha una coppia di chiavi che la identificano in modo univoco e una colonna di tipo timestamp usata dal servizio tabelle per tenere traccia dell'ultimo aggiornamento dell'entità. Questa operazione è automatica e non è possibile sovrascrivere manualmente il timestamp con un valore arbitrario. Il servizio tabelle usa il timestamp dell’ultima modifica (LMT, Last Modified Timestamp) per gestire la concorrenza ottimistica.
 
->[AZURE.NOTE]Le operazioni API REST del servizio tabelle restituiscono anche un valore **ETag** derivato dal timestamp LMT. In questo documento i termini ETag ed LMT verranno usati in modo intercambiabile perché si riferiscono agli stessi dati sottostanti.
+>[AZURE.NOTE] Le operazioni API REST del servizio tabelle restituiscono anche un valore **ETag** derivato dal timestamp LMT. In questo documento i termini ETag ed LMT verranno usati in modo intercambiabile perché si riferiscono agli stessi dati sottostanti.
 
 L'esempio seguente mostra la progettazione di una semplice tabella in cui archiviare le entità dei dipendenti e dei reparti. Molti degli esempi illustrati più avanti in questa guida si basano su questo tipo di progettazione semplice.
 
@@ -154,7 +154,7 @@ La tabella seguente include alcuni valori chiave da tenere presenti quando si pr
 Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx) su MSDN.
 
 ### Considerazioni sul costo  
-Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi, sia per l'utilizzo della capacità che per la quantità di transazioni, nella valutazione delle soluzioni che usano il servizio tabelle. Tuttavia in molti scenari, l'archiviazione dei dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un valido approccio. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/storage/).
+Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi, sia per l'utilizzo della capacità che per la quantità di transazioni, nella valutazione delle soluzioni che usano il servizio tabelle. Tuttavia in molti scenari, l'archiviazione dei dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un valido approccio. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Confronto tra le tabelle di Azure e SQL Azure  
 Per un confronto tra Database SQL di Azure (un servizio di database relazionale) e il servizio tabelle, vedere [Archiviazione tabelle di Azure e database SQL di Azure: Confronto e contrapposizioni](http://msdn.microsoft.com/library/azure/jj553018.aspx) su MSDN.
@@ -185,7 +185,7 @@ Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettur
 
 Quando si inizia a progettare una soluzione di servizio tabelle che consenta di leggere i dati in modo efficiente, è importante chiedersi quali query dovrà eseguire l'applicazione per recuperare i dati necessari dal servizio tabelle.
 
->[AZURE.NOTE]Con il servizio tabelle, è fondamentale realizzare una progettazione corretta fin dall'inizio perché cambiarla in seguito sarebbe difficile e costoso. Ad esempio, in un database relazionale spesso è possibile risolvere i problemi di prestazioni semplicemente aggiungendo degli indici a un database esistente, ma questa opzione non è applicabile al servizio tabelle.
+>[AZURE.NOTE] Con il servizio tabelle, è fondamentale realizzare una progettazione corretta fin dall'inizio perché cambiarla in seguito sarebbe difficile e costoso. Ad esempio, in un database relazionale spesso è possibile risolvere i problemi di prestazioni semplicemente aggiungendo degli indici a un database esistente, ma questa opzione non è applicabile al servizio tabelle.
 
 Questa sezione è incentrata sui problemi chiave che è necessario affrontare quando si progettano le tabelle per le query. Gli argomenti trattati in questa sezione includono:
 
@@ -240,7 +240,7 @@ Da una parte, pur essendo possibile archiviare tutte le entità in una singola p
 
 Il valore **PartitionKey** ideale consente di usare query efficienti e ha un numero sufficiente di partizioni per garantire la scalabilità della soluzione. Di solito le entità dispongono una proprietà apposita che le distribuisce in un numero sufficiente di partizioni.
 
->[AZURE.NOTE]Ad esempio, in un sistema che archivia le informazioni sugli utenti o i dipendenti, l'ID utente può essere un valore PartitionKey valido. È possibile avere più entità che utilizzano un ID utente specificato come chiave di partizione. Ogni entità che archivia i dati su un utente è raggruppata in una singola partizione e quindi queste entità sono accessibili tramite gruppi di entità, mantenendo la scalabilità elevata.
+>[AZURE.NOTE] Ad esempio, in un sistema che archivia le informazioni sugli utenti o i dipendenti, l'ID utente può essere un valore PartitionKey valido. È possibile avere più entità che utilizzano un ID utente specificato come chiave di partizione. Ogni entità che archivia i dati su un utente è raggruppata in una singola partizione e quindi queste entità sono accessibili tramite gruppi di entità, mantenendo la scalabilità elevata.
 
 Gli altri aspetti da considerare per la scelta di **PartitionKey** riguardano l'inserimento, l'aggiornamento e l'eliminazione delle entità: vedere la sezione [Progettazione per la modifica dei dati](#design-for-data-modification) qui di seguito.
 
@@ -397,7 +397,7 @@ I modelli di dominio possono includere relazioni uno a uno tra le entità. Se è
 
 Esistono anche alcune considerazioni sull'implementazione che potrebbero far decidere di implementare le relazioni uno a uno nel servizio tabelle:
 
--	Gestione di entità di grandi dimensioni. Per altre informazioni, vedere [Uso di entità di grandi dimensioni](#working-with-large-entities).  
+-	Gestione di entità di grandi dimensioni (per altre informazioni, vedere [Uso di entità di grandi dimensioni](#working-with-large-entities)).  
 -	Implementazione di controlli di accesso. Per altre informazioni, vedere [Controllo dell'accesso con le firme di accesso condiviso](#controlling-access-with-shared-access-signatures).  
 
 ### Join nel client  
@@ -578,7 +578,7 @@ Usare questo modello quando si desidera garantire la coerenza finale tra entità
 #### Modelli correlati e informazioni aggiuntive  
 Per l'implementazione di questo modello possono risultare utili i modelli e le informazioni aggiuntive seguenti: [Transazioni dei gruppi di entità](#entity-group-transactions), [Unione o sostituzione](#merge-or-replace)
 
->[AZURE.NOTE]Se l'isolamento delle transazioni è importante per la soluzione, è consigliabile riprogettare le tabelle per consentire l'uso delle transazioni ETG.
+>[AZURE.NOTE] Se l'isolamento delle transazioni è importante per la soluzione, è consigliabile riprogettare le tabelle per consentire l'uso delle transazioni ETG.
 
 ### Modello per entità di indice:
 mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.
@@ -844,7 +844,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 -	[Modello di entità di grandi dimensioni](#large-entity-pattern)  
 -	[Unione o sostituzione](#working-with-heterogeneous-entity-types)  
--	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) (se si archiviano le serie di dati in un blob)  
+-	[Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern) (se si archiviano le serie di dati in un BLOB)  
 
 ### Modello di entità di grandi dimensioni  
 
@@ -1044,7 +1044,7 @@ L'esempio di codice seguente illustra la funzionalità equivalente usando l'API 
 	var employees = employeeTable.ExecuteQuery(employeeQuery);  
 
 
->[AZURE.NOTE]L'esempio annida più metodi **CombineFilters** per includere le tre condizioni di filtro.
+>[AZURE.NOTE] L'esempio annida più metodi **CombineFilters** per includere le tre condizioni di filtro.
 
 #### Recupero di un numero elevato di entità da una query  
 
@@ -1093,7 +1093,7 @@ Usando i token di continuazione in modo esplicito è possibile controllare quand
 -	Consente di eseguire operazioni di I/O asincrone in .NET.  
 -	Consente di serializzare il token di continuazione in un archivio permanente in modo da poter proseguire in caso di arresto anomalo dell'applicazione.  
 
->[AZURE.NOTE]Un token di continuazione in genere restituisce un segmento contenente al massimo 1.000 entità. Ciò avviene anche se si limita il numero di voci restituite da una query usando **Take** per restituire le prime n entità che corrispondono ai criteri di ricerca: il servizio tabelle può restituire un segmento contenente meno di n entità con un token di continuazione per consentire il recupero delle entità rimanenti.
+>[AZURE.NOTE] Un token di continuazione in genere restituisce un segmento contenente al massimo 1.000 entità. Ciò avviene anche se si limita il numero di voci restituite da una query usando **Take** per restituire le prime n entità che corrispondono ai criteri di ricerca: il servizio tabelle può restituire un segmento contenente meno di n entità con un token di continuazione per consentire il recupero delle entità rimanenti.
 
 Il codice C# seguente illustra come modificare il numero di entità restituite all'interno di un segmento:
 
@@ -1135,7 +1135,7 @@ Il metodo **Replace** della classe **TableOperation** sostituisce sempre l'entit
 
 È possibile usare il metodo **Merge** della classe **TableOperation** per ridurre la quantità di dati inviati al servizio tabelle quando si vuole aggiornare un'entità. Il metodo **Merge** sostituisce le eventuali proprietà nell'entità archiviata con i valori di proprietà dell'entità inclusa nella richiesta, ma lascia invariate le proprietà nell'entità archiviata che non sono incluse nella richiesta. Ciò è utile se si dispone di entità di grandi dimensioni e si desidera solo aggiornare un numero limitato di proprietà in una richiesta.
 
->[AZURE.NOTE]I metodi **Replace** e **Merge** non riescono se l'entità non esiste. In alternativa, se l'entità non esiste, è possibile usare i metodi **InsertOrReplace** e **InsertOrMerge** per creare una nuova entità.
+>[AZURE.NOTE] I metodi **Replace** e **Merge** non riescono se l'entità non esiste. In alternativa, se l'entità non esiste, è possibile usare i metodi **InsertOrReplace** e **InsertOrMerge** per creare una nuova entità.
 
 ### Uso di tipi di entità eterogenei  
 
@@ -1332,7 +1332,7 @@ La prima opzione che precede l'entità per il valore **RowKey** è utile se suss
 
 Le tecniche descritte in questa sezione sono particolarmente rilevanti per la discussione sulle [Relazioni di ereditarietà](#inheritance-relationships) trattata all'inizio di questa Guida nella sezione [Modellazione di relazioni](#modelling-relationships).
 
->[AZURE.NOTE]È necessario considerare l'inclusione di un numero di versione nel valore del tipo di entità per consentire alle applicazioni client di sviluppare oggetti POCO e usare versioni diverse.
+>[AZURE.NOTE] È necessario considerare l'inclusione di un numero di versione nel valore del tipo di entità per consentire alle applicazioni client di sviluppare oggetti POCO e usare versioni diverse.
 
 La restante parte di questa sezione descrive alcune delle funzionalità della libreria client di archiviazione che semplificano l'uso di più tipi di entità nella stessa tabella.
 
@@ -1574,4 +1574,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

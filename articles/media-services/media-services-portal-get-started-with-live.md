@@ -64,7 +64,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 L'allocazione di nuove unità richiede circa 20 minuti.
 
->[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
+>[AZURE.NOTE] Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
 >
 > Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -92,11 +92,11 @@ Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori loc
 
 ## Configurare un codificatore live e inserire il flusso live
 
->[AZURE.NOTE]Questo passaggio richiede l'URL di inserimento del canale indicato nel passaggio precedente.
+>[AZURE.NOTE] Questo passaggio richiede l'URL di inserimento del canale indicato nel passaggio precedente.
 
-Per informazioni dettagliate su come configurare Wirecast e avviare l'inserimento del flusso, vedere [Configurazione di Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Per informazioni dettagliate su come configurare Wirecast e avviare l'inserimento del flusso, vedere [Configurazione di Wirecast](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Se per qualsiasi motivo si arresta il codificatore e in seguito è necessario riavviarlo, è consigliabile reimpostare il canale scegliendo il comando **REIMPOSTA** nel portale di Azure classico.
+>[AZURE.NOTE] Se per qualsiasi motivo si arresta il codificatore e in seguito è necessario riavviarlo, è consigliabile reimpostare il canale scegliendo il comando **REIMPOSTA** nel portale di Azure classico.
 
 
 ## Creare e gestire un programma
@@ -205,11 +205,11 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
 
 ## Risorse aggiuntive
-- [Guida introduttiva a Live Streaming tramite il portale di Azure classico](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Guida introduttiva a Live Streaming tramite il portale di Azure classico](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

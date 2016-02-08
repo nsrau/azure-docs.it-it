@@ -27,7 +27,7 @@
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
-> [AZURE.NOTE]Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service-web/web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 In questa attività viene utilizzata una distribuzione di produzione. In fondo a questo argomento vengono fornite informazioni sull'utilizzo di una distribuzione di gestione temporanea.
 
@@ -62,12 +62,20 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     Nella sezione**Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui è situato.
+    
+    Le autorizzazioni (attributo `permisionLevel`) possono essere impostate su uno dei seguenti valori:
+
+    | Valore di autorizzazione | Descrizione |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
+    | elevated | Solo i processi con autorizzazioni elevate possono accedere alla chiave privata.|
 
 2.  Nel file di definizione del servizio aggiungere un elemento **InputEndpoint** all'interno della sezione **Endpoints** per abilitare HTTPS:
 
@@ -145,11 +153,11 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 
 2.  Nel Web browser modificare il collegamento per utilizzare **https** invece di **http**, quindi accedere alla pagina.
 
-    >[AZURE.NOTE]se si usa un certificato autofirmato, quando si passa a un endpoint HTTPS con il certificato autofirmato associato, nel browser verrà visualizzato un errore del certificato. L'utilizzo di un certificato firmato da un'Autorità di certificazione attendibile eliminerà il problema. Nel frattempo l'errore può essere ignorato. Un'altra opzione consiste nell'aggiungere il certificato autofirmato nell'archivio certificati dell'Autorità di certificazione attendibile dell'utente.
+    >[AZURE.NOTE] se si usa un certificato autofirmato, quando si passa a un endpoint HTTPS con il certificato autofirmato associato, nel browser verrà visualizzato un errore del certificato. L'utilizzo di un certificato firmato da un'Autorità di certificazione attendibile eliminerà il problema. Nel frattempo l'errore può essere ignorato. Un'altra opzione consiste nell'aggiungere il certificato autofirmato nell'archivio certificati dell'Autorità di certificazione attendibile dell'utente.
 
     ![Anteprima del sito](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`
       
     >Creare un certificato con il nome comune uguale all'URL basato su GUID (ad esempio **328187776e774ceda8fc57609d404462.cloudapp.net**), usare il portale per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per usare il nuovo pacchetto e il nuovo file CSCFG.
 
@@ -160,4 +168,4 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

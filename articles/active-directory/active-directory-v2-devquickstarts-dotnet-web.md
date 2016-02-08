@@ -23,10 +23,10 @@ Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle ap
   >[AZURE.NOTE]
     Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
- Qui si userà OWIN per:
--	Fare accedere l'utente all'app usando Azure AD e Modello app 2.0
--	Visualizzare alcune informazioni sull'utente
--	Disconnettere l'utente dall'app.
+ Qui si userà OWIN per: 
+ - Fare accedere l'utente all'app usando Azure AD e Modello app 2.0 
+ - Visualizzare alcune informazioni sull'utente 
+ - Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -52,8 +52,8 @@ Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com)
 In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo di autenticazione OpenID Connect. OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `web.config` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
-    -	`ida:ClientId`rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
-    -	`ida:RedirectUri`rappresenta l'**URI di reindirizzamento** immesso nel portale.
+    -	`ida:ClientId` rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+    -	`ida:RedirectUri` rappresenta l'**URI di reindirizzamento** immesso nel portale.
 
 -	Successivamente, aggiungere il middleware NuGet al progetto usando la console di Gestione pacchetti.
 
@@ -97,7 +97,7 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 									 ClientId = clientId,
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
-									 Scope = "openid",
+									 Scope = "openid email profile",
 									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
@@ -199,7 +199,7 @@ public ActionResult About()
 
 Infine compilare ed eseguire l'app. Accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione e osservare come l'identità dell'utente è indicata nella barra di spostamento superiore. È ora disponibile un'app Web protetta usando protocolli standard del settore in grado di autenticare gli utenti con account personali, aziendali e dell'istituto di istruzione.
 
-Come riferimento, l'esempio completato (senza i valori di configurazione) [ è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
@@ -213,4 +213,4 @@ Per altre risorse consultare:
 - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

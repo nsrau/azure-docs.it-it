@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -26,7 +26,7 @@ Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
-Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -191,4 +191,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Gli oggetti ]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

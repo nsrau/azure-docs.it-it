@@ -23,7 +23,8 @@
 
 
 
-> [AZURE.NOTE]Il modo più semplice per verificare il numero di versione consiste nell'osservare la voce **Microsoft HDInsight Emulator per Azure** (per la versione 1.0.0.0 o successive) o **Microsoft HDInsight Developer Preview** (per le versioni precedenti a 1.0.0.0) in Installazione applicazioni.
+> [AZURE.NOTE] 
+Il modo più semplice per verificare il numero di versione consiste nell'osservare la voce **Microsoft HDInsight Emulator per Azure** (per la versione 1.0.0.0 o successive) o **Microsoft HDInsight Developer Preview** (per le versioni precedenti a 1.0.0.0) in Installazione applicazioni.
 
 ## Versione 2.0.0.0, resa disponibile il 29 agosto 2014
 
@@ -89,7 +90,7 @@
 
 * Nuovo dashboard di HDInsight con le funzionalità seguenti:
  
-	* Connessione a più cluster, compresa l'installazione locale e quelli in esecuzione in remoto mediante il servizio Azure HDInsight. Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
+	* Connessione a più cluster, compresa l'installazione locale e quelli in esecuzione in remoto mediante il servizio Azure HDInsight. Per altre informazioni sul servizio HDInsight, vedere [http://azure.microsoft.com/it-it/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/).
  
 	* Configurazione dell'archivio BLOB di Azure nel cluster locale. Vedere le istruzioni dettagliate riportate di seguito.
 
@@ -276,4 +277,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

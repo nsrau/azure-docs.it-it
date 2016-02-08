@@ -44,9 +44,9 @@ La configurazione di questo ambiente di test cloud ibrido comprende quattro fasi
 3.	Creare la connessione VPN da rete virtuale a rete virtuale.
 4.	Configurare DC2. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ulteriori informazioni sulla riduzione dei costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi di esercizio dell'ambiente](#costs) in questo articolo.
+>[AZURE.NOTE] Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ulteriori informazioni sulla riduzione dei costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi di esercizio dell'ambiente](#costs) in questo articolo.
 
 
 ## Fase 1: Configurare la rete virtuale TestLab
@@ -231,7 +231,7 @@ Impostare i carichi di lavoro seguenti nella rete virtuale TestVNET:
 
 Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nelle reti virtuali TestLab e Test\_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md). Quando si avviano di nuovo le macchine virtuali nella subnet Corpnet, avviare prima di tutto DC1.
 
-Un gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi dei due gateway VPN (uno per TestLab e uno per TestVNET), creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare i gateway eseguendo i passaggi seguenti.
+Un gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](https://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi dei due gateway VPN (uno per TestLab e uno per TestVNET), creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare i gateway eseguendo i passaggi seguenti.
  
 1.	Dal portale di gestione di Azure del computer locale fare clic su **Reti** nel riquadro sinistro, quindi su **TestLab** e infine su **Dashboard**.
 2.	Nella barra delle applicazioni fare clic su **Elimina gateway**. Fare clic su **Sì** quando richiesto. Attendere l'eliminazione del gateway e l'impostazione del relativo stato su **Gateway non creato**.
@@ -266,4 +266,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -51,7 +51,7 @@ Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From T
 Data Source | Sì | Un nome di origine dati (servizio di rete) specificato nel file tnsnames.ora sul computer in cui è installato il client Oracle. Per informazioni sui nomi delle origini dati e sul file tnsnames.ora, vedere l'articolo relativo alla [configurazione del client Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Sì | Immettere un nome utente valido per la connessione al server Oracle.
 Password | Sì | Immettere il nome utente e la password.
-Service Bus Connection String | Sì | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | Sì | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 Tables | No | Immettere le tabelle del database che possono essere modificate dal connettore, ad esempio *OrdersTable,EmployeeTable*.
 Stored procedure | No | Immettere le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
 Functions | No | Immettere le funzioni presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
@@ -91,7 +91,7 @@ Per usare il connettore Oracle come azione, immettere il nome delle tabelle e/o 
 
 ## Configurazione ibrida
 
-> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa Oracle installato in locale e protetto da firewall.
+> [AZURE.NOTE] Questo passaggio è obbligatorio solo se si usa Oracle installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa Oracle in locale, è richiesta la Gestione connessione ibrida.
 
@@ -100,7 +100,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -118,4 +118,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

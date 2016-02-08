@@ -24,7 +24,7 @@ Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illu
 
 ## Informazioni su Automazione di Azure
 
-[Automazione di Azure](http://azure.microsoft.com/services/automation/) è un servizio di Azure che consente di semplificare la gestione del cloud tramite l'automazione dei processi. Usando Automazione di Azure, è possibile automatizzare attività manuali, ripetute frequentemente, a esecuzione prolungata e soggette a errori per migliorare l'affidabilità, l'efficienza e i tempi di esecuzione dell'organizzazione.
+[Automazione di Azure](https://azure.microsoft.com/services/automation/) è un servizio di Azure che consente di semplificare la gestione del cloud tramite l'automazione dei processi. Usando Automazione di Azure, è possibile automatizzare attività manuali, ripetute frequentemente, a esecuzione prolungata e soggette a errori per migliorare l'affidabilità, l'efficienza e i tempi di esecuzione dell'organizzazione.
 
 Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevata disponibilità e affidabilità che garantisce la scalabilità necessaria per rispondere alle esigenze aziendali. In Automazione di Azure i processi possono essere attivati manualmente, da sistemi di terze parti o a intervalli pianificati in modo che le attività abbiano luogo esattamente quando necessario.
 
@@ -33,9 +33,9 @@ Il servizio consente di ridurre i costi operativi e di liberare risorse dello st
 
 ## In che modo è possibile gestire l'insieme di credenziali chiave di Azure con Automazione di Azure?
 
-L'insieme di credenziali chiave può essere gestito in Automazione di Azure usando i [cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx) che sono disponibili negli [strumenti di Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). I cmdlet sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione dell'insieme di credenziali chiave dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+L'insieme di credenziali delle chiavi può essere gestito in Automazione di Azure usando i [cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx) disponibili in [PowerShell Gallery](https://azure.microsoft.com/blog/azps-1-0/). È possibile importare questo modulo in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione dell'insieme di credenziali delle chiavi dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
-Con i cmdlet dell'insieme di credenziali chiave di Azure è possibile eseguire le attività di creazione o importazione di una chiave, creazione o aggiornamento di un segreto, aggiornamento degli attributi di una chiave, ottenimento di una chiave o di un segreto o eliminazione di una chiave o di un segreto.
+Con i cmdlet dell'insieme di credenziali delle chiavi di Azure è possibile eseguire, tra le altre, le attività seguenti: creazione o importazione di una chiave, creazione o aggiornamento di un segreto, aggiornamento degli attributi di una chiave, ottenimento di una chiave o di un segreto ed eliminazione di una chiave o di un segreto.
 
 
 ## Passaggi successivi
@@ -45,4 +45,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 * Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure.
 * Vedere gli [script di PowerShell dell'insieme di credenziali chiave di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

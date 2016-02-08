@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Problemi di Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="Questo documento fornisce informazioni sulle operazioni da eseguire se si verifica un problema con Azure multi-Factor Authentication." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "client di multi-factor authentication, problema di autenticazione, ID di correlazione"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Problemi di Azure Multi-Factor Authentication
->[AZURE.IMPORTANT]Per contribuire a migliorare questa pagina, se non si trova una risposta al problema riscontrato è possibile fornire commenti e suggerimenti dettagliati in modo che venga aggiunta.
+>[AZURE.IMPORTANT]
+Per contribuire a migliorare questa pagina, se non si trova una risposta al problema riscontrato è possibile fornire commenti e suggerimenti dettagliati in modo che venga aggiunta.
 
 Le informazioni seguenti sono utili per risolvere alcuni problemi comuni che si possono verificare.
 
@@ -32,7 +34,7 @@ Le informazioni seguenti sono utili per risolvere alcuni problemi comuni che si 
 - [Nessuna risposta al problema riscontrato](#i-didn't-find-an-answer-to-my-problem)
 
 ##Errori relativi all'ID di correlazione
-Se dopo aver eseguito i passaggi riportati di seguito i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT), che analizzerà il problema nel più breve tempo possibile.
+Se dopo aver eseguito i passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT), che analizzerà il problema nel più breve tempo possibile.
 
 Quando si contatta il personale di supporto, è consigliabile includere le informazioni seguenti:
 
@@ -63,7 +65,8 @@ Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chi
 
 ![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
+>[AZURE.IMPORTANT]
+È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
 
 Se non è stato configurato alcun numero di telefono di autenticazione secondario, sarà necessario contattare l'amministratore e richiedere la cancellazione delle impostazioni. All'accesso successivo verrà quindi richiesto di ripetere la [configurazione dell'autenticazione a più fattori](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -88,7 +91,7 @@ Se si utilizza l'autenticazione a più fattori con Office 365 si potranno gestir
 1. Accedere al [portale di Office 365](https://login.microsoftonline.com/).
 2. Nell’angolo superiore destro selezionare il widget e scegliere le impostazioni di Office 365.
 3. Fare clic su Verifica aggiuntiva di sicurezza.
-4. A destra fare clic sul collegamento **Aggiorna i numeri di telefono usati per la sicurezza dell'account**. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
+4. A destra, fare clic sul collegamento con il testo **Aggiorna i numeri di telefono utilizzati per la protezione dell'account**. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
 5. Verrà visualizzata una pagina che consente di modificare le impostazioni. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
@@ -129,7 +132,8 @@ Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chi
 
 ![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
+>[AZURE.IMPORTANT]
+È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
 
 Il secondo consiste nel contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori. Questa operazione è necessaria unicamente se non è stato configurato un numero di telefono di autenticazione secondario. In caso contrario, sarà necessario contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori e richiedere la cancellazione delle impostazioni. All'accesso successivo verrà quindi richiesto di ripetere la [configurazione dell'autenticazione a più fattori](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -168,4 +172,4 @@ Se non si trova una risposta al problema in questa pagina, è possibile inserire
 
 Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

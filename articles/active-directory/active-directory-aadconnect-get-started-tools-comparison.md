@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Confronto degli strumenti di integrazione directory
 
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti. Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
 
->[AZURE.NOTE]Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
+>[AZURE.NOTE] Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 >
 >Attualmente Dirsync è ancora supportato, ma in futuro verrà deprecato. Una volta è deprecato, verrà supportato solo per un certo periodo di tempo. Dopo questo periodo, il supporto per Dirsync terminerà.
 
@@ -91,4 +91,4 @@ Personalizzazione avanzata dei flussi di attributi | ● | ● | | ●
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

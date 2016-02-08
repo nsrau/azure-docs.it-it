@@ -58,7 +58,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1. Accedere al [Portale di Azure](portal.azure.com).
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 
 2. Passare all'account di archiviazione.
 
@@ -128,7 +128,7 @@ Per eseguire query su un set di entità in una tabella, creare un oggetto hash d
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-> [AZURE.NOTE]Se il risultato impostato è troppo grande affinché sia restituito da un'unica query, verrà restituito un token di continuazione per recuperare le pagine successive.
+> [AZURE.NOTE] Se il risultato impostato è troppo grande affinché sia restituito da un'unica query, verrà restituito un token di continuazione per recuperare le pagine successive.
 
 ## Eseguire query su un subset di proprietà di entità
 
@@ -157,4 +157,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

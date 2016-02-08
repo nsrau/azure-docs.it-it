@@ -278,9 +278,9 @@ Per l'applicazione di esempio completa alla quale si fa riferimento in questo bl
 
 Per altre informazioni sull'archiviazione di Azure, vedere:
 
-- [Home page di Archiviazione di Microsoft Azure](http://azure.microsoft.com/services/storage/)
+- [Home page di Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/)
 - [Introduzione ad Archiviazione di Azure](storage-introduction.md)
 - Introduzione all'archiviazione per [BLOB](storage-dotnet-how-to-use-blobs.md), [tabelle](storage-dotnet-how-to-use-tables.md) e [code](storage-dotnet-how-to-use-queues.md)
 - Architettura di archiviazione - [Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

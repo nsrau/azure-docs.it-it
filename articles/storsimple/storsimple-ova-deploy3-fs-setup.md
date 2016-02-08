@@ -57,7 +57,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo al [provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o al [provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo all'[esecuzione del provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -169,7 +169,7 @@ Le impostazioni vengono così aggiornate. Se le impostazioni sono state aggiorna
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
@@ -231,4 +231,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

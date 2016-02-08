@@ -55,7 +55,7 @@ Nella sezione seguente viene illustrato come utilizzare il Bus di servizio per c
 
 ### Iscriversi a un account del Bus di servizio e sottoscrizione
 
-È necessario un account Azure per iniziare a lavorare con il Bus di servizio. Se non si dispone di una sottoscrizione, è possibile iscriversi per una versione di valutazione gratuita [qui](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+È necessario un account Azure per iniziare a lavorare con il Bus di servizio. Se non si dispone di una sottoscrizione, è possibile iscriversi per una versione di valutazione gratuita [qui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creare uno spazio dei nomi del servizio
 
@@ -63,7 +63,7 @@ Dopo aver creato una sottoscrizione, è possibile creare un nuovo spazio dei nom
 
 ### Installare il pacchetto NuGet
 
-Per utilizzare lo spazio dei nomi del servizio Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. È possibile trovare questa assembly come parte di Microsoft Azure SDK, e il download è disponibile all'indirizzo della [pagina di download di Azure SDK](http://azure.microsoft.com/downloads/). In ogni modo, il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[utilizzo del pacchetto NuGet del bus di servizio](https://msdn.microsoft.com/library/dn741354.aspx).
+Per utilizzare lo spazio dei nomi del servizio Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. È possibile trovare questa assembly come parte di Microsoft Azure SDK, e il download è disponibile all'indirizzo della [pagina di download di Azure SDK](https://azure.microsoft.com/downloads/). In ogni modo, il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[utilizzo del pacchetto NuGet del bus di servizio](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Creare la coda
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti del Bus di servizio e sottoscrizioni](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione del Bus di servizio di messaggistica negoziata.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

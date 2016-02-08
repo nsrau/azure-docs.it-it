@@ -123,7 +123,7 @@ Prestare attenzione a non introdurre dipendenze critiche per la disponibilità d
 
 Tuttavia, eseguire il fallback all'archivio dati originale se la cache è temporaneamente non disponibile potrebbe avere un impatto sulla scalabilità del sistema; mentre viene recuperato l'archivio dati, l'archivio dati originale potrebbe essere sovraccaricato con richieste per i dati risultanti in timeout e connessioni non riuscite. Una strategia da considerare consiste nell'implementare una cache locale e privata in ogni istanza di un'applicazione con la cache condivisa a cui accedono tutte le istanze dell'applicazione. Quando l'applicazione recupera un elemento, è possibile verificare innanzitutto nella relativa cache locale, quindi la cache condivisa e infine archiviare i dati originali. La cache locale può essere popolata usando i dati nella cache condivisa o il database se la cache condivisa è disponibile. Questo approccio richiede una configurazione accurata per evitare che la cache locale diventi obsoleta rispetto alla cache condivisa, ma funge da buffer, se la cache condivisa è raggiungibile. Nella Figura 3 viene illustrata questa struttura.
 
-![uso di una cache locale, privata con una cache condivisa\_](media/best-practices-caching/Caching3.png)
+![uso di una cache locale, privata con una cache condivisa\_](media/best-practices-caching/Caching3.png) 
 _Figura 3: uso di una cache locale, privata con una cache condivisa_
 
 Per supportare la cache di grandi dimensioni che contengono dati di durata relativamente lunga, alcuni servizi cache forniscono un'opzione di disponibilità elevata che implementa il failover automatico, se la cache non è più disponibile. Questo approccio implica in genere la replica dei dati memorizzati nella cache archiviati in un server primario della cache verso un server secondario della cache e il passaggio al server secondario se il server primario presenta problemi o se viene persa la connessione. Per ridurre la latenza associata a più destinazioni, quando i dati vengono scritti nella cache sul server primario, la replica nel server secondario può verificarsi in modo asincrono. Questo approccio comporta la possibilità che alcune informazioni memorizzate nella cache vengano perse in caso di errore, ma la proporzione di tali eventauli perdite deve essere ridotta rispetto alle dimensioni complessive della cache.
@@ -225,7 +225,7 @@ Il portale di gestione di Azure include una visualizzazione grafica pratica che 
 
 È inoltre possibile monitorare la CPU, la memoria e l'uso della rete per la cache.
 
-Per ulteriori informazioni ed esempi che illustrano come creare e configurare una cache Redis di Azure, visitare la pagina relativa all'[Introduzione alla Cache Redis di Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
+Per ulteriori informazioni ed esempi che illustrano come creare e configurare una cache Redis di Azure, visitare la pagina relativa all'[Introduzione alla Cache Redis di Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
 
 ## Memorizzazione nella cache dello stato della sessione e dell'output HTML
 
@@ -412,7 +412,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-La pagina relativa alla [documentazione della Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft fornisce ulteriori informazioni su come scrivere le applicazioni client che possono usare la Cache Redis di Azure. Informazioni aggiuntive sono disponibili sulla [pagina relativa all'uso di base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sul sito Web di Stackexchange e la pagina [Ppipeline e Multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) sullo stesso sito Web stesso fornisce ulteriori informazioni sulle operazioni asincrone e sul pipelining con Redis e la libreria StackExchange. Nella sezione Casi di uso per la memorizzazione nella cache Redis più avanti in questa guida vengono forniti esempi di alcune delle tecniche più avanzate che è possibile applicare ai dati contenuti in una cache Redis.
+La pagina relativa alla [documentazione della Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft fornisce ulteriori informazioni su come scrivere le applicazioni client che possono usare la Cache Redis di Azure. Informazioni aggiuntive sono disponibili sulla [pagina relativa all'uso di base](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) sul sito Web di Stackexchange e la pagina [Ppipeline e Multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) sullo stesso sito Web stesso fornisce ulteriori informazioni sulle operazioni asincrone e sul pipelining con Redis e la libreria StackExchange. Nella sezione Casi di uso per la memorizzazione nella cache Redis più avanti in questa guida vengono forniti esempi di alcune delle tecniche più avanzate che è possibile applicare ai dati contenuti in una cache Redis.
 
 ## Casi di uso per la memorizzazione nella cache Redis
 
@@ -783,7 +783,7 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 ## Altre informazioni
 
 - Pagina [Classe MemoryCache](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) sul sito Web di Microsoft.
-- Pagina [Documentazione della Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft.
+- Pagina [Documentazione della Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/) sul sito Web di Microsoft.
 - Pagina [FAQ sulla Cache Redis di Azure](redis-cache/cache-faq.md) sul sito Web di Microsoft.
 - Pagina [Modello di configurazione](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) sul sito Web di Microsoft.
 - Pagina [Modello asincrono basato su attività](http://msdn.microsoft.com/library/hh873175.aspx) sul sito Web di Microsoft.
@@ -795,7 +795,7 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - Pagina [Uso di Redis come cache LRU](http://redis.io/topics/lru-cache) sul sito Web di Redis.
 - Pagina [Transazioni](http://redis.io/topics/transactions) sul sito Web di Redis.
 - Pagina [Sicurezza Redis](http://redis.io/topics/security) sul sito Web di Redis.
-- Pagina [Introduzione alla Cache Redis di Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
+- Pagina [Introduzione alla Cache Redis di Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) sul blog di Azure.
 - Pagina [Esecuzione Redis in una macchina virtuale Linux CentOS](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) in Azure sul sito Web di Microsoft.
 - Pagina [Provider di stato della sessione ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-session-state-provider.md) sul sito Web di Microsoft.
 - Pagina [Provider di cache di output ASP.NET per Cache Redis di Azure](redis-cache/cache-asp.net-output-cache-provider.md) sul sito Web di Microsoft.
@@ -804,4 +804,4 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - Pagina [Transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nell'archivio Stackexchange.Redis.
 - [Guida partizionamento dati](http://msdn.microsoft.com/library/dn589795.aspx) sul sito Web di Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

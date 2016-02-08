@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # Gestione di conflitti di scrittura nel database
@@ -125,7 +125,7 @@ In alcuni casi, due o più client possono scrivere modifiche sullo stesso elemen
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]Le applicazioni che utilizzano tabelle non tipizzate attivano la concorrenza ottimistica impostando il flag Version per SystemProperties della tabella, come mostrato di seguito.
+	> [AZURE.NOTE] Le applicazioni che utilizzano tabelle non tipizzate attivano la concorrenza ottimistica impostando il flag Version per SystemProperties della tabella, come mostrato di seguito.
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -369,4 +369,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

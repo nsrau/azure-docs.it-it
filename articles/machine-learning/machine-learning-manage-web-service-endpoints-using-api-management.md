@@ -26,17 +26,17 @@ Questa guida illustra le procedure per iniziare subito a usare Gestione API per 
 
 ##Cos'è Gestione API di Azure?
 
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](http://azure.microsoft.com/services/api-management/). Per una guida introduttiva a Gestione API di Azure, fare clic [qui](api-management/api-management-get-started.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'utilizzo.
+Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/). Per una guida introduttiva a Gestione API di Azure, fare clic [qui](api-management/api-management-get-started.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'utilizzo.
 
 ##Informazioni su AzureML
 
-AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](http://azure.microsoft.com/services/machine-learning/).
+AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](https://azure.microsoft.com/services/machine-learning/).
 
 ##Prerequisiti
 
 Per completare questa guida, è necessario:
 
-* Un account Azure. Se non si dispone di un account Azure, fare clic [qui](http://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
+* Un account Azure. Se non si dispone di un account Azure, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
 * Un account AzureML. Se non si dispone di un account AzureML, fare clic [qui](https://studio.azureml.net/) per informazioni dettagliate su come creare un account di prova gratuito.
 * L'area di lavoro, il servizio e l'api\_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning/machine-learning-create-experiment.md). Per informazioni dettagliate su come distribuire un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
 
@@ -108,11 +108,11 @@ Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML 
 
 ###Ottenere lo stato o il risultato di un processo di esecuzione del Batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Eliminare un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ##Chiamare un'operazione dal portale per sviluppatori
 
@@ -384,4 +384,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,7 +18,7 @@
 
 # Gestione della protezione e del log di controllo di Microsoft Azure
 
-Azure consente ai clienti di eseguire la generazione di eventi di protezione e la raccolta dall'infrastruttura di Azure come Servizio (IaaS) e dalla piattaforma come ruoli di servizio (PaaS) in un archivio centrale nelle loro sottoscrizioni. I clienti possono utilizzare [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) per aggregare e analizzare gli eventi raccolti. Inoltre, questi eventi raccolti possono essere esportati in sistemi (SIEM) di gestione di eventi e informazioni di protezione locali per il monitoraggio continuo.
+Azure consente ai clienti di eseguire la generazione di eventi di protezione e la raccolta dall'infrastruttura di Azure come Servizio (IaaS) e dalla piattaforma come ruoli di servizio (PaaS) in un archivio centrale nelle loro sottoscrizioni. I clienti possono utilizzare [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) per aggregare e analizzare gli eventi raccolti. Inoltre, questi eventi raccolti possono essere esportati in sistemi (SIEM) di gestione di eventi e informazioni di protezione locali per il monitoraggio continuo.
 
 Il ciclo di vita della registrazione di protezione di Azure, dell’analisi e del monitoraggio include:
 
@@ -32,9 +32,9 @@ Questo articolo si concentra sulle e fasi di generazione e raccolta del ciclo di
 ## Generazione di log
 Gli eventi di protezione vengono generati nel registro eventi di Windows per i canali **Sistema**, **Protezione**, e **Applicazione** nelle macchine virtuali. Per garantire che gli eventi vengano registrati senza perdita di dati potenziali, è importante configurare correttamente le dimensioni del log eventi. Basare la dimensione del log eventi in base al numero di eventi che generano le impostazioni dei criteri di controllo e i criteri di raccolta eventi. Per ulteriori informazioni, vedere [Pianificazione per la gestione e il monitoraggio del controllo di sicurezza](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4).
 
->[AZURE.NOTE]Quando si utilizza l'inoltro eventi di Windows (WCF) o diagnostica Azure (illustrato nella sezione [raccolta log](#log-collection)) per scaricare i log da servizi Cloud o dalle macchine virtuali, prendere in considerazione il potenziale impatto di malfunzionamenti del sistema. Ad esempio, se l'ambiente di WCF si arresta per qualche tempo, è necessario assicurarsi che le dimensioni del log siano sufficientemente grandi per l'account per un periodo di tempo più lungo o essere preparati per possibili perdite di dati di log.
+>[AZURE.NOTE] Quando si utilizza l'inoltro eventi di Windows (WCF) o diagnostica Azure (illustrato nella sezione [raccolta log](#log-collection)) per scaricare i log da servizi Cloud o dalle macchine virtuali, prendere in considerazione il potenziale impatto di malfunzionamenti del sistema. Ad esempio, se l'ambiente di WCF si arresta per qualche tempo, è necessario assicurarsi che le dimensioni del log siano sufficientemente grandi per l'account per un periodo di tempo più lungo o essere preparati per possibili perdite di dati di log.
 
-Per le applicazioni di servizi Cloud che vengono distribuiti in Azure e in macchine virtuali create dal [Mercato macchine virtuali di Azure](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft), un set di eventi di protezione del sistema operativo è abilitato per impostazione predefinita. I clienti possono aggiungere, rimuovere o modificare gli eventi da controllare personalizzando i criteri di controllo del sistema operativo. Per ulteriori informazioni, vedere [Riferimento alle impostazioni di criteri di protezione](http://technet.microsoft.com/library/jj852210.aspx).
+Per le applicazioni di servizi Cloud che vengono distribuiti in Azure e in macchine virtuali create dal [Mercato macchine virtuali di Azure](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft), un set di eventi di protezione del sistema operativo è abilitato per impostazione predefinita. I clienti possono aggiungere, rimuovere o modificare gli eventi da controllare personalizzando i criteri di controllo del sistema operativo. Per ulteriori informazioni, vedere [Riferimento alle impostazioni di criteri di protezione](http://technet.microsoft.com/library/jj852210.aspx).
 
 Per generare log aggiuntivi dal sistema operativo (ad esempio modifiche ai criteri di controllo) e componenti di Windows (ad esempio IIS), è possibile utilizzare i metodi seguenti:
 
@@ -93,7 +93,7 @@ Nella tabella seguente sono incluse alcune differenze fondamentali tra queste du
 ##	Raccolta dei dati degli eventi di protezione con l'inoltro di eventi di Windows
 Per macchine virtuali appartenenti a un dominio di Azure, è possibile configurare WCF utilizzando le impostazioni di criteri di gruppo nello stesso modo utilizzato per computer appartenenti a un dominio locale. Per altre informazioni, vedere [Cloud ibrida](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-In questo modo, un'organizzazione potrebbe acquistare una sottoscrizione IaaS, collegarla alla rete aziendale tramite [ExpressRoute](http://azure.microsoft.com/services/expressroute/) o VPN da sito a sito e poi aggiungere le macchine virtuali disponibili in Azure al dominio aziendale. Successivamente, è possibile configurare WCF da computer appartenenti a un dominio.
+In questo modo, un'organizzazione potrebbe acquistare una sottoscrizione IaaS, collegarla alla rete aziendale tramite [ExpressRoute](https://azure.microsoft.com/services/expressroute/) o VPN da sito a sito e poi aggiungere le macchine virtuali disponibili in Azure al dominio aziendale. Successivamente, è possibile configurare WCF da computer appartenenti a un dominio.
 
 L’inoltro di eventi è suddiviso in due parti: l'origine e l'agente di raccolta. L'origine è il computer in cui vengono generati i log di protezione. L'agente di raccolta è il server centralizzato che raccoglie e consolida i log di eventi. Gli amministratori IT possono iscriversi agli eventi in modo da ricevere e archiviare gli eventi inoltrati da computer remoti (origine dell’evento). Per ulteriori informazioni, vedere [Configurare i computer per l'inoltro e la raccolta di eventi](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -218,7 +218,7 @@ Insieme **PartitionKey** e **RowKey** identificano in modo univoco tutte le enti
 
 - Timestamp è un valore data/ora che viene mantenuto nel server per rilevare quando un'entità è stata modificata.
 
->[AZURE.NOTE]Le dimensioni massime delle righe in una tabella di Archiviazione di Azure sono limitate a 1 MB. Un account di archiviazione può contenere fino a 200 TB di dati di BLOB, code e tabelle se l'account è stato creato dopo giugno 2012. In questo modo, le dimensioni della tabella possono aumentare fino a 200 TB se BLOB e le code non prendono nessuno spazio di archiviazione. Gli account creati prima di giugno 2012 hanno un limite di 100 TB.
+>[AZURE.NOTE] Le dimensioni massime delle righe in una tabella di Archiviazione di Azure sono limitate a 1 MB. Un account di archiviazione può contenere fino a 200 TB di dati di BLOB, code e tabelle se l'account è stato creato dopo giugno 2012. In questo modo, le dimensioni della tabella possono aumentare fino a 200 TB se BLOB e le code non prendono nessuno spazio di archiviazione. Gli account creati prima di giugno 2012 hanno un limite di 100 TB.
 
 Esplora memoria consente inoltre di modificare i dati di tabella. Fare doppio clic su una determinata riga nella visualizzazione della tabella per aprire la finestra di modifica entità, come illustrato di seguito:
 
@@ -230,7 +230,7 @@ In questa sezione, si aggiorna una pipeline di raccolta del log di protezione es
 ##### Passaggio 1: Aggiornare i file di configurazione per includere gli eventi di interesse
 Il file di Diagnostica Azure creato nel precedente esempio deve essere aggiornato per includere i tipi di errore di log eventi delle applicazioni di Windows.
 
->[AZURE.NOTE]Le impostazioni di configurazione di Diagnostica Azure esistenti devono essere unite con il nuovo file di configurazione. Le impostazioni definite nel nuovo file sovrascriveranno le configurazioni esistenti.
+>[AZURE.NOTE] Le impostazioni di configurazione di Diagnostica Azure esistenti devono essere unite con il nuovo file di configurazione. Le impostazioni definite nel nuovo file sovrascriveranno le configurazioni esistenti.
 
 Per recuperare l'impostazione di configurazione esistente, è possibile utilizzare il cmdlet **Get AzureVMDiagnosticsExtension**. Di seguito è uno script di PowerShell di Azure di esempio per recuperare la configurazione esistente:
 
@@ -396,7 +396,7 @@ In questa sezione, si aggiorna una pipeline di raccolta del log di protezione es
 Per rilevare le modifiche al firewall, si aggiornerà la configurazione esistente per includere gli eventi di modifica di firewall.
 
 #### Passaggio 1: Ottenere la configurazione esistente
->[AZURE.NOTE]Le nuove impostazioni di configurazione sovrascriveranno la configurazione esistente. Dunque, è importante che le impostazioni di configurazione di Diagnostica Azure esistenti vengano unite con il nuovo file di configurazione.
+>[AZURE.NOTE] Le nuove impostazioni di configurazione sovrascriveranno la configurazione esistente. Dunque, è importante che le impostazioni di configurazione di Diagnostica Azure esistenti vengano unite con il nuovo file di configurazione.
 
 Per recuperare l'impostazione di configurazione esistente, è possibile utilizzare il cmdlet **Get AzureVMDiagnosticsExtension**:
 
@@ -527,7 +527,7 @@ Quando si raccolgono i registri di protezione, è consigliabile:
 - Unire le impostazioni di configurazione di Diagnostica Azure esistenti con le modifiche apportate. Il nuovo file di configurazione sovrascriverà le impostazioni di configurazione esistenti.
 - Scegliere l’intervallo **Periodo di trasferimento pianificato** in modo appropriato. Tempi di trasferimento più brevi aumenteranno la rilevanza dei dati, ma ciò può aumentare i costi di archiviazione il sovraccarico di elaborazione.
 
->[AZURE.NOTE]L’altra variabile che influirà in modo significativo sulla quantità di dati raccolti è il livello di registrazione. Di seguito è riportato un esempio di come filtrare i log dal livello di registrazione:
+>[AZURE.NOTE] L’altra variabile che influirà in modo significativo sulla quantità di dati raccolti è il livello di registrazione. Di seguito è riportato un esempio di come filtrare i log dal livello di registrazione:
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ Il livello di registrazione è cumulativo. Se il filtro è impostato su **Avviso
 
 - Copiare e cancellare periodicamente i dati di diagnostica da Archiviazione di Azure se non più necessari.
 
->[AZURE.NOTE]Per ulteriori informazioni sui dati di diagnostica, vedere [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). I contenitori e le tabelle che archiviano dati di diagnostica sono esattamente come altri contenitori e tabelle, è possibile eliminare entità e BLOB da essi nello stesso modo che si utilizzerebbe per altri dati. È possibile eliminare i dati di diagnostica a livello di codice attraverso una delle librerie client di archiviazione o in modo visivo tramite un [client di archiviazione explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+>[AZURE.NOTE] Per ulteriori informazioni sui dati di diagnostica, vedere [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). I contenitori e le tabelle che archiviano dati di diagnostica sono esattamente come altri contenitori e tabelle, è possibile eliminare entità e BLOB da essi nello stesso modo che si utilizzerebbe per altri dati. È possibile eliminare i dati di diagnostica a livello di codice attraverso una delle librerie client di archiviazione o in modo visivo tramite un [client di archiviazione explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 - È consigliabile archiviare i dati di servizio e dati del log di protezione in account di archiviazione distinti. Questo isolamento garantisce che il salvataggio dei dati del log di protezione non influisca sulle prestazioni di archiviazione per dati del servizio di produzione.
 - Scegliere la durata di conservazione dei log in base ai criteri di conformità dell'organizzazione e all'analisi dei dati, e al monitoraggio dei requisiti.
@@ -572,7 +572,7 @@ Per visualizzare il **Log delle operazioni**, aprire il [Portale di gestione di 
 ## Risorse aggiuntive
 Le risorse seguenti forniscono informazioni generali su Microsoft Azure e i servizi Microsoft correlati:
 
-- [Centro protezione Microsoft Azure](http://azure.microsoft.com/support/trust-center/)
+- [Centro protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/)
 
     Informazioni sull'incorporamento della protezione e della privacy nello sviluppo di Azure e su come Azure soddisfi un ampio set di standard di conformità agli standard internazionali e alle specifiche di settore
 
@@ -614,4 +614,4 @@ Le risorse seguenti forniscono informazioni generali su Microsoft Azure e i serv
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # Registrare l'utente corrente per le notifiche push mediante un servizio mobile
@@ -57,7 +57,7 @@ In questo argomento viene illustrato come richiedere la registrazione per le not
 
 	Ciò consente l'aggiornamento della proprietà **deviceToken**.
 
-	> [AZURE.NOTE]A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), è necessario impostare la chiamata come commento oppure rimuoverla.
+	> [AZURE.NOTE] A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), è necessario impostare la chiamata come commento oppure rimuoverla.
 
 5.  (Facoltativo): nel file QSAppDelegate.m aggiungere il metodo del gestore seguente:
 
@@ -105,7 +105,7 @@ In questo argomento viene illustrato come richiedere la registrazione per le not
 			    }];
 			}
 
-	> [AZURE.NOTE]In questo modo la registrazione verrà richiesta ogni volta che viene caricata la pagina. Nell'app dell'utente può essere preferibile eseguire la registrazione solo su base periodica, per verificare che sia aggiornata.
+	> [AZURE.NOTE] In questo modo la registrazione verrà richiesta ogni volta che viene caricata la pagina. Nell'app dell'utente può essere preferibile eseguire la registrazione solo su base periodica, per verificare che sia aggiornata.
 	
 Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
@@ -121,4 +121,4 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

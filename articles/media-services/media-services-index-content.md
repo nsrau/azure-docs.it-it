@@ -26,7 +26,7 @@
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.
 
->[AZURE.IMPORTANT]Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
+>[AZURE.IMPORTANT] Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 
 
 Un processo di indicizzazione può generare i seguenti output:
@@ -37,7 +37,7 @@ Un processo di indicizzazione può generare i seguenti output:
 - File di parole chiave (XML).
 - File BLOB di indicizzazione audio (AIB, Audio Indexing Blob) da usare con SQL Server.
 
-	Per altre informazioni, vedere [Uso dei file AIB con Azure Media Indexer e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Per altre informazioni, vedere [Uso dei file AIB con Azure Media Indexer e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Questo argomento illustra come creare processi di indicizzazione per **indicizzare un asset** e **indicizzare più file**.
@@ -278,7 +278,7 @@ Altro | Errori interni | Contattare il team di supporto. indexer@microsoft.com
 
 ## <a id="supported_languages"></a>Lingue supportate
 
-Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere il [post di blog sulla versione 1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazioni, vedere il [post di blog sulla versione 1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ##Percorsi di apprendimento di Media Services
@@ -293,7 +293,7 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 ## Collegamenti correlati
 
-[Uso dei file AIB con Azure Media Indexer e SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Uso dei file AIB con Azure Media Indexer e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -301,4 +301,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

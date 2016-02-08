@@ -61,7 +61,7 @@ Per creare un nuovo piano del servizio app, fare clic su **+ Crea nuovo**, digit
  
 ## Spostare un'app in un piano di servizio app diverso
 
-È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](http://portal.azure.com). Le app possono essere spostate tra i piani nella stessa area geografica.
+È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani nella stessa area geografica.
 
 Per spostare un'app in un altro piano, passare all'app che si intende spostare e fare clic su **Cambia il piano di servizio app**.
  
@@ -89,15 +89,12 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 
 ## Modifiche apportate
 
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
- 
- 
- <!-- Images. -->
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

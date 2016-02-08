@@ -11,7 +11,7 @@
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Panoramica
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
@@ -109,7 +109,7 @@ Durante la distribuzione vengono usate le seguenti versioni software:
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
@@ -692,4 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -93,7 +93,7 @@ Un progetto di test di carico è costituito da uno o più scenari descritti dal 
 
 4. Nella sezione **Impostazioni di esecuzione** specificare la durata del test di carico.
 
-    >[AZURE.NOTE]L'opzione **Iterazioni test** è disponibile solo quando si esegue il test di carico in locale usando Visual Studio.
+    >[AZURE.NOTE] L'opzione **Iterazioni test** è disponibile solo quando si esegue il test di carico in locale usando Visual Studio.
 
 5. Nella sezione **Percorso** di **Impostazioni di esecuzione** specificare il percorso in cui vengono generate richieste di test di carico. La procedura guidata potrebbe richiedere di eseguire l'accesso all'account di Team Services. Accedere e scegliere una posizione geografica. Al termine, fare clic sul pulsante **Fine**.
 
@@ -141,4 +141,4 @@ Il test di carico di Visual Studio Team Services fornisce API che consentono di 
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

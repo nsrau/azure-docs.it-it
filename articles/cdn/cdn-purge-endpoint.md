@@ -28,7 +28,7 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 
 ## Procedura dettagliata
 
-1. Nel [portale di Azure](http://portal.azure.com) passare al profilo di rete CDN contenente l'endpoint che si desidera ripulire.
+1. Nel [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN contenente l'endpoint che si desidera ripulire.
 
 2. Nel pannello relativo al profilo di rete CDN fare clic sul pulsante di eliminazione.
 	
@@ -42,11 +42,11 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 
 	![Maschera di eliminazione](./media/cdn-purge-endpoint/cdn-purge-form.png)
 	
-	> [AZURE.NOTE]È possibile visualizzare il pannello di eliminazione anche facendo clic sul pulsante **Elimina** nel pannello dell'endpoint della rete CDN. In tal caso, il campo **URL** sarà prepopolato con l'indirizzo del servizio dell'endpoint specifico.
+	> [AZURE.NOTE] È possibile visualizzare il pannello di eliminazione anche facendo clic sul pulsante **Elimina** nel pannello dell'endpoint della rete CDN. In tal caso, il campo **URL** sarà prepopolato con l'indirizzo del servizio dell'endpoint specifico.
 	
 4. Selezionare gli asset che si desidera ripulire dai nodi periferici. Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo **Elimina tutto**. In alternativa digitare il percorso completo di ogni asset che si desidera ripulire, ad esempio */immagini/kitten.png* nella casella di testo **Percorso**.
 
-	> [AZURE.TIP]Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset. È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
+	> [AZURE.TIP] Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset. È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
 	>
 	> I percorsi devono essere URL relativi. L'asterisco (*) può essere usato come carattere jolly.
 	
@@ -59,4 +59,4 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 - [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

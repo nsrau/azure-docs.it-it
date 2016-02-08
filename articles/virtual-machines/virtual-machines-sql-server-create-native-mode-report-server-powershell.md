@@ -23,7 +23,7 @@
 
 Questo argomento descrive e illustra la distribuzione e la configurazione di un server di report di SQL Server Reporting Services in modalità nativa in una macchina virtuale di Azure. I passaggi descritti in questo documento usano una combinazione di operazioni manuali per creare la macchina virtuale e uno script di Windows PowerShell per configurare Reporting Services nella macchina virtuale. Lo script di configurazione include l'apertura di una porta del firewall per HTTP o HTTPS.
 
->[AZURE.NOTE]Se non è necessario **HTTPS** nel server di report, **saltare il passaggio 2**.
+>[AZURE.NOTE] Se non è necessario **HTTPS** nel server di report, **saltare il passaggio 2**.
 >
 >Dopo aver creato la macchina virtuale con il passaggio 1, vedere la sezione Usare lo script per configurare il server di report e HTTP. Dopo aver eseguito lo script, il server di report è pronto all'uso.
 
@@ -33,7 +33,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 	
 	- Per verificare il limite di core della sottoscrizione, nel portale di Azure classico fare clic su IMPOSTAZIONI nel riquadro a sinistra e quindi su UTILIZZO nel menu in alto.
 	
-	- Per aumentare la quota di core, contattare il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/). Per informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-size-specs.md).
+	- Per aumentare la quota di core, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/). Per informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-size-specs.md).
 
 - **Scripting di Windows PowerShell**: l'argomento presuppone una conoscenza di base di Windows PowerShell. Per altre informazioni sull'uso di Windows PowerShell, vedere gli argomenti seguenti:
 
@@ -71,7 +71,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 	
 	- **Piano**: Standard.
 	
-	- **Dimensioni: A3** è la dimensione di macchina virtuale consigliata per i carichi di lavoro di SQL Server. Se una macchina virtuale viene usata solo come server di report, è sufficiente la dimensione di macchina virtuale A2, a meno che il server di report non debba supportare un elevato carico di lavoro. Per informazioni sui prezzi delle macchine virtuali, vedere [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/).
+	- **Dimensioni: A3** è la dimensione di macchina virtuale consigliata per i carichi di lavoro di SQL Server. Se una macchina virtuale viene usata solo come server di report, è sufficiente la dimensione di macchina virtuale A2, a meno che il server di report non debba supportare un elevato carico di lavoro. Per informazioni sui prezzi delle macchine virtuali, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/).
 	
 	- **Nuovo nome utente**: il nome specificato viene creato come amministratore nella macchina virtuale.
 	
@@ -93,13 +93,13 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 	
 	- **ENDPOINT**: mantenere gli endpoint **Desktop remoto** e **PowerShell** e quindi aggiungere un endpoint HTTP o HTTPS, a seconda dell'ambiente.
 
-		- **HTTP**: le porte pubbliche e private predefinite hanno il numero **80**. Si noti che se si usa una porta privata diversa dalla porta 80, sarà necessario modificare il parametro **$HTTPport = 80** nello script HTTP.
+		- **HTTP**: le porte pubbliche e private predefinite sono **80**. Si noti che se si usa una porta privata diversa dalla porta 80, sarà necessario modificare il parametro **$HTTPport = 80** nello script HTTP.
 
-		- **HTTPS**: le porte pubbliche e private predefinite hanno il numero **443**. Come procedura consigliata, modificare la porta privata e configurare il firewall e il server di report per usare la porta privata. Per altre informazioni sugli endpoint, vedere [Come configurare la comunicazione con una macchina virtuale](virtual-machines-set-up-endpoints.md). Si noti che se si usa una porta diversa dalla 443, è necessario modificare il parametro **$HTTPsport = 443** nello script HTTPS.
+		- **HTTPS**: le porte pubbliche e private predefinite hanno il numero **443**. Come procedura consigliata, modificare la porta privata e configurare il firewall e il server di report per usare la porta privata. Per altre informazioni sugli endpoint, vedere [Come configurare le comunicazioni con una macchina virtuale](virtual-machines-set-up-endpoints.md). Si noti che se si usa una porta diversa dalla 443, è necessario modificare il parametro **$HTTPsport = 443** nello script HTTPS.
 	
 	- Fare clic su Avanti. ![avanti](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. Nell'ultima pagina della procedura guidata lasciare selezionata l'impostazione predefinita **Installa l'agente di macchine virtuali**. I passaggi descritti in questo argomento non usano l'agente di macchine virtuali, ma se si prevede di usare questa macchina virtuale, le estensioni e l'agente di macchine virtuali consentono di migliorare la gestione delle comunicazioni. Per altre informazioni sull'agente di macchine virtuali, vedere il post di blog relativo all'[agente e alle estensioni di macchine virtuali - Parte 1](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una delle estensioni predefinite installate e in esecuzione è l'estensione "BGINFO" che visualizza sul desktop della macchina virtuale le informazioni di sistema, ad esempio l'IP interno e lo spazio libero su disco.
+1. Nell'ultima pagina della procedura guidata lasciare selezionata l'impostazione predefinita **Installa l'agente di macchine virtuali**. I passaggi descritti in questo argomento non usano l'agente di macchine virtuali, ma se si prevede di usare questa macchina virtuale, le estensioni e l'agente di macchine virtuali consentono di migliorare la gestione delle comunicazioni. Per altre informazioni sull'agente di macchine virtuali, vedere l'articolo relativo ad [agente di macchine virtuali ed estensioni - Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una delle estensioni predefinite installate e in esecuzione è l'estensione "BGINFO" che visualizza sul desktop della macchina virtuale le informazioni di sistema, ad esempio l'IP interno e lo spazio libero su disco.
 
 1. Fare clic su Completa. ![ok](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
@@ -107,7 +107,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 
 ## Passaggio 2: Creare un certificato del server
 
->[AZURE.NOTE]Se HTTPS non è necessario nel server di report, è possibile **ignorare il passaggio 2** e passare alla sezione **Usare lo script per configurare il server di report e HTTP**. Usare lo script HTTP per configurare rapidamente il server di report e renderlo pronto all'uso.
+>[AZURE.NOTE] Se HTTPS non è necessario nel server di report, è possibile **ignorare il passaggio 2** e passare alla sezione **Usare lo script per configurare il server di report e HTTP**. Usare lo script HTTP per configurare rapidamente il server di report e renderlo pronto all'uso.
 
 Per usare HTTPS nella macchina virtuale, è necessario un certificato SSL attendibile. A seconda dello scenario, è possibile usare uno dei due metodi seguenti:
 
@@ -117,7 +117,7 @@ Per usare HTTPS nella macchina virtuale, è necessario un certificato SSL attend
 
 ### Per usare un certificato creato da un'autorità di certificazione (CA) attendibile
 
-1. **Richiedere un certificato del server per il sito Web a un'autorità di certificazione**. 
+1. **Richiedere un certificato del server per il sito Web di un'autorità di certificazione**. 
 
 	È possibile usare la Gestione guidata certificati server Web per generare un file di richiesta certificato (Certreq.txt) che si invia a un'autorità di certificazione o per generare una richiesta per un'autorità di certificazione online. Ad esempio, Servizi certificati Microsoft in Windows Server 2012. A seconda del livello di garanzia di identificazione offerto dal certificato del server, possono trascorrere da alcuni giorni a diversi mesi perché l'autorità di certificazione approvi la richiesta e invii un file di certificato.
 
@@ -129,11 +129,11 @@ Per usare HTTPS nella macchina virtuale, è necessario un certificato SSL attend
 
 	[Strumenti di sicurezza per l'amministrazione di Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE]Il campo **Rilasciato a** del certificato SSL attendibile deve essere uguale al **Nome DNS del servizio cloud** usato per la nuova macchina virtuale.
+	>[AZURE.NOTE] Il campo **Rilasciato a** del certificato SSL attendibile deve essere uguale al **nome DNS del servizio cloud** usato per la nuova macchina virtuale.
 
 1. **Installare il certificato nel server Web**. In questo caso, il server Web è la macchina virtuale che ospita il server di report. Il sito Web verrà creato nei passaggi successivi durante la configurazione di Reporting Services. Per altre informazioni sull'installazione del certificato nel server Web tramite lo snap-in MMC Certificati, vedere l'articolo relativo all'[installazione di un certificato del server](https://technet.microsoft.com/library/cc740068).
 	
-	Se si vuole usare lo script incluso in questo argomento per configurare il server di report, è necessario specificare il valore di **Identificazione personale** dei certificati come parametro dello script. Vedere la sezione successiva per informazioni dettagliate su come ottenere l'identificazione personale del certificato.
+	Se si desidera usare lo script incluso in questo argomento per configurare il server di report, viene richiesto il valore **Identificazione personale** dei certificati come parametro dello script. Vedere la sezione successiva per informazioni dettagliate su come ottenere l'identificazione personale del certificato.
 
 1. Assegnare il certificato al server di report. L'assegnazione viene completata nella sezione successiva, quando si configura il server di report.
 
@@ -161,7 +161,7 @@ Un certificato autofirmato viene creato nella macchina virtuale quando viene ese
 	
 	1. Espandere il nodo **Autorità di certificazione radice attendibili**, fare clic con il pulsante destro del mouse su **Certificati** e quindi scegliere **Incolla**.
 	
-	1. Per verificare, fare doppio clic sul nome del certificato in **Autorità di certificazione radice attendibili** e, se non si sono verificati errori, il certificato sarà disponibile. Se si vuole usare lo script HTTPS incluso in questo argomento per configurare il server di report, è necessario specificare il valore di **Identificazione personale** dei certificati come parametro dello script. **Per ottenere il valore di identificazione personale**, seguire questa procedura. È disponibile anche un esempio di PowerShell che mostra come recuperare l'identificazione personale nella sezione [Usare lo script per configurare il server di report e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+	1. Per convalidare, fare doppio clic sul nome del certificato in **Autorità di certificazione radice attendibili** e, se non si sono verificati errori, il certificato è visibile. Se si vuole usare lo script HTTPS incluso in questo argomento per configurare il server di report, è necessario specificare il valore di **Identificazione personale** dei certificati come parametro dello script. **Per ottenere il valore di identificazione personale**, seguire questa procedura. È disponibile anche un esempio di PowerShell per recuperare l'identificazione personale nella sezione [Usare lo script per configurare il server di report e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
 		
 		1. Fare doppio clic sul nome del certificato, ad esempio ssrsnativecloud.cloudapp.net.
 		
@@ -187,7 +187,7 @@ Questa sezione illustra la configurazione della macchina virtuale come server di
 
 Per istruzioni più dettagliate, vedere la sezione [Connettersi alla macchina virtuale e avviare Gestione configurazione di Reporting Services](virtual-machines-sql-server-business-intelligence.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Nota sull'autenticazione:** l'autenticazione di Windows è il metodo di autenticazione consigliato ed è il metodo di autenticazione predefinito di Reporting Services. Solo gli utenti configurati nella macchina virtuale possono accedere a Reporting Services ed essere assegnati ai ruoli di Reporting Services.
+**Nota sull'autenticazione:** l'autenticazione di Windows è il metodo di autenticazione consigliato ed è l'autenticazione predefinita di Reporting Services. Solo gli utenti configurati nella macchina virtuale possono accedere a Reporting Services ed essere assegnati ai ruoli di Reporting Services.
 
 ### Usare lo script per configurare il server di report e HTTP
 
@@ -328,7 +328,7 @@ Per usare lo script di Windows PowerShell per configurare il server di report, c
 
 1. Eseguire lo script.
 
-**Convalida**: per verificare la corretta esecuzione della funzionalità di base del server di report, vedere [Verificare la configurazione](#verify-the-configuration) più avanti in questo argomento.
+**Convalida**: per verificare la funzionalità di base del server di report, vedere [Verificare la configurazione](#verify-the-configuration) più avanti in questo argomento.
 
 ### Usare lo script per configurare il server di report e HTTPS
 
@@ -577,7 +577,7 @@ Se non si desidera eseguire lo script di PowerShell per configurare il server di
 	
 	1. Fare clic su **Applica** e attendere il completamento dell'operazione.
 
-1. Nel riquadro sinistro fare clic su **Database**.
+1. Nel riquadro a sinistra fare clic su **Database**.
 
 	1. Fare clic su **Modifica database**.
 	
@@ -585,13 +585,13 @@ Se non si desidera eseguire lo script di PowerShell per configurare il server di
 	
 	1. Come nome di macchina virtuale lasciare il **Nome server** predefinito e come **Tipo di autenticazione** lasciare il valore predefinito **Utente corrente** - **Sicurezza integrata**. Fare clic su **Avanti**.
 	
-	1. Lasciare **ReportServer** come **Nome database** predefinito e fare clic su **Avanti**.
+	1. Lasciare il **Nome database** predefinito come **ReportServer** e fare clic su **Avanti**.
 	
 	1. Lasciare **Credenziali del servizio** come **Tipo di autenticazione** predefinito e fare clic su **Avanti**.
 	
 	1. Fare clic su **Avanti** nella pagina **Riepilogo**.
 	
-	1. Al termine della configurazione, fare clic su **Fine**.
+	1. Dopo aver completato la configurazione, fare clic su **Fine**.
 
 1. Nel riquadro sinistro fare clic su **URL Gestione report**. Lasciare **Report** come **Directory virtuale** predefinita e fare clic su **Applica**.
 
@@ -599,13 +599,13 @@ Se non si desidera eseguire lo script di PowerShell per configurare il server di
 
 ## Passaggio 4: Aprire la porta di Windows Firewall
 
->[AZURE.NOTE]Se si usa uno script per configurare il server di report, è possibile ignorare questa sezione. Lo script include un passaggio per aprire la porta del firewall. I valori predefiniti sono la porta 80 per HTTP e la porta 443 per HTTPS.
+>[AZURE.NOTE] Se si usa uno script per configurare il server di report, è possibile ignorare questa sezione. Lo script include un passaggio per aprire la porta del firewall. I valori predefiniti sono la porta 80 per HTTP e la porta 443 per HTTPS.
 
 Per connettersi in modalità remota a Gestione report o al server di report sulla macchina virtuale, è necessario un endpoint TCP nella macchina virtuale. È necessario per aprire la stessa porta nel firewall della macchina virtuale. L'endpoint è stato creato quando è stato eseguito il provisioning della macchina virtuale.
 
 Questa sezione fornisce le informazioni di base su come aprire la porta del firewall. Per altre informazioni, vedere [Configurare un firewall per l'accesso al server di report](https://technet.microsoft.com/library/bb934283.aspx)
 
->[AZURE.NOTE]Se si usa uno script per configurare il server di report, è possibile ignorare questa sezione. Lo script include un passaggio per aprire la porta del firewall.
+>[AZURE.NOTE] Se si usa uno script per configurare il server di report, è possibile ignorare questa sezione. Lo script include un passaggio per aprire la porta del firewall.
 
 Se per HTTPS è configurata una porta privata diversa da 443, modificare lo script seguente in modo appropriato. Per aprire la porta **443** in Windows Firewall, seguire questa procedura:
 
@@ -655,7 +655,7 @@ Dopo aver configurato e verificato il server di report, un'attività amministrat
 
 Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per la pubblicazione di report esistenti da un computer locale nel server di report ospitato nella macchina virtuale di Microsoft Azure:
 
-- **Script RS.exe**: usare lo script RS.exe per copiare elementi del report da un server di report esistente alla macchina virtuale di Microsoft Azure. Per altre informazioni, vedere la sezione "Da modalità nativa a modalità nativa - Macchina virtuale di Microsoft Azure" in [Script di esempio rs.exe di Reporting Services per la migrazione del contenuto tra server di report](https://msdn.microsoft.com/library/dn531017.aspx).
+- **RS.exe script**: usare lo script RS.exe per copiare gli elementi del report da un server di report esistente nella macchina virtuale di Microsoft Azure. Per altre informazioni, vedere la sezione "Da modalità nativa a modalità nativa - Macchina virtuale di Microsoft Azure" in [Script di esempio rs.exe di Reporting Services per la migrazione del contenuto tra server di report](https://msdn.microsoft.com/library/dn531017.aspx).
 
 - **Generatore report**: la macchina virtuale include la versione ClickOnce di Generatore report di Microsoft SQL Server. Per avviare il Generatore report per la prima volta sulla macchina virtuale:
 
@@ -679,11 +679,11 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 	![proprietà del progetto ssdt per un progetto SSRS](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650114.gif)
 
-- **Usa script**: usare lo script per copiare il contenuto del server di report. Per altre informazioni, vedere [Script di esempio rs.exe di Reporting Services per la migrazione del contenuto tra server di report](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Utilizzare script**: usare lo script per copiare il contenuto del server di report. Per altre informazioni, vedere [Script di esempio rs.exe di Reporting Services per la migrazione del contenuto tra server di report](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## Ridurre i costi se non si usa la macchina virtuale
 
->[AZURE.NOTE]Per ridurre i costi delle macchine virtuali di Azure quando non sono in uso, spegnere la macchina virtuale dal portale di Azure classico. Se per spegnere la macchina virtuale si usano le opzioni di risparmio energia di Windows, i costi associati alla macchina virtuale verranno addebitati comunque. Per ridurre i costi, è necessario spegnere la macchina virtuale nel portale di Azure classico. Se la macchina virtuale non è più necessaria, eliminarla insieme ai file con estensione vhd associati per evitare l'addebito dei costi di archiviazione. Per altre informazioni, vedere la sezione Domande frequenti in [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE] Per ridurre i costi delle macchine virtuali di Azure quando non sono in uso, spegnere la macchina virtuale dal portale di Azure classico. Se per spegnere la macchina virtuale si usano le opzioni di risparmio energia di Windows, i costi associati alla macchina virtuale verranno addebitati comunque. Per ridurre i costi, è necessario spegnere la macchina virtuale nel portale di Azure classico. Se la macchina virtuale non è più necessaria, eliminarla insieme ai file con estensione vhd associati per evitare l'addebito dei costi di archiviazione. Per altre informazioni, vedere la sezione Domande frequenti in [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Altre informazioni
 
@@ -695,7 +695,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 - Per informazioni generali relative alle distribuzioni di SQL Server Business Intelligence in Macchine virtuali di Azure, vedere [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines-sql-server-business-intelligence.md).
 
-- Per altre informazioni sul calcolo delle spese di calcolo di Azure, vedere la scheda Macchine virtuali del [calcolatore dei prezzi di Azure](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
+- Per altre informazioni sul calcolo delle spese di calcolo di Azure, vedere la scheda Macchine virtuali del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### Contenuti della community
 
@@ -705,4 +705,4 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

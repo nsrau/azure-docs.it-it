@@ -29,7 +29,7 @@ Quando si crea un'app Web, Azure la assegna a un sottodominio di azurewebsites.n
 
 Per un'app Web di produzione, è probabile che l'amministratore desideri che gli utenti vedano un nome di dominio personalizzato: In questo articolo viene spiegato come configurare un dominio personalizzato utilizzando il [Servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -61,7 +61,7 @@ Domain Name System (DNS) usa record di dati per eseguire il mapping di nomi di d
 
 Se l'indirizzo IP cambia, una voce CNAME resta valida, mentre un record A deve essere aggiornato. Alcuni registrar di dominio, tuttavia, non consentono l'uso di record CNAME per il dominio radice o un dominio con caratteri jolly. In questi casi, è necessario usare un record A.
 
-> [AZURE.NOTE]L'indirizzo IP può cambiare se si elimina e si crea nuovamente l'app Web oppure se la sua modalità viene reimpostata su gratuita.
+> [AZURE.NOTE] L'indirizzo IP può cambiare se si elimina e si crea nuovamente l'app Web oppure se la sua modalità viene reimpostata su gratuita.
 
 
 ## Trovare l'indirizzo IP virtuale
@@ -112,7 +112,7 @@ Si supponga che il nome di dominio personalizzato sia contoso.com. In questo cas
 - **contoso.com** associato a 168.62.48.183.
 - **www.contoso.com** associato a **contoso.azurewebsites.net**.
 
->[AZURE.NOTE]È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE] È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Creare un record awverify (solo record A)
@@ -128,7 +128,7 @@ I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awv
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Verificare la propagazione di DNS
 
@@ -136,7 +136,7 @@ Dopo aver completato i passaggi di configurazione, la propagazione delle modific
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE]La propagazione delle voci DNS può richiedere fino a 48 ore (a volte più). Se tutto è stato configurato correttamente, è necessario attendere che la propagazione abbia esito positivo.
+> [AZURE.NOTE] La propagazione delle voci DNS può richiedere fino a 48 ore (a volte più). Se tutto è stato configurato correttamente, è necessario attendere che la propagazione abbia esito positivo.
 
 ## Passaggi successivi
 
@@ -155,4 +155,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

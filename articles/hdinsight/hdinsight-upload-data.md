@@ -56,7 +56,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 | [AzCopy][azure-azcopy] | | | ✔ |
 | [Comando Hadoop](#commandline) | ✔ | ✔ | ✔ |
 
-> [AZURE.NOTE]Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
+> [AZURE.NOTE] Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
 ###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
 
@@ -94,7 +94,7 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
+> [AZURE.NOTE] Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
 > * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
 >
@@ -220,7 +220,7 @@ Data factory di Azure è un servizio completamente gestito per la composizione d
 
 Data factory di Azure può essere usato per spostare i dati nell'archivio BLOB di Azure o per creare pipeline di dati che usano direttamente le funzionalità di HDInsight, ad esempio Hive e Pig.
 
-Per altre informazioni, vedere [Documentazione di Data factory](http://azure.microsoft.com/documentation/services/data-factory/).
+Per altre informazioni, vedere [Documentazione di Data factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Per altre informazioni, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 * Python
 * Ruby
 
-Per altre informazioni sull'installazione di SDK di Azure, vedere [Download di Azure](http://azure.microsoft.com/downloads/)
+Per altre informazioni sull'installazione di SDK di Azure, vedere [Download di Azure](https://azure.microsoft.com/downloads/)
 
 
 ## Passaggi successivi
@@ -284,4 +284,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

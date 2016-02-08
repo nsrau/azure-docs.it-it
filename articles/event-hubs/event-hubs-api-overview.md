@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Panoramica dell'API Hub eventi
 
 In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: gestione e API di runtime. Le API di Runtime sono costituite da tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
-Scenari di monitoraggio comprendono gestione e runtime. Per la documentazione di riferimento dettagliate sulle API .NET, vedere i riferimenti [libreria di classi .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Scenari di monitoraggio comprendono gestione e runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere i riferimenti [.NET del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx) e [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API di gestione
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### Crea consumer
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ Queste API garantiscono resilienza ai processi di lavoro che possono diventare n
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -185,7 +186,7 @@ Per ulteriori informazioni sugli scenari di Hub eventi, visitare i collegamenti 
 
 I riferimenti API .NET sono qui:
 
-- [Riferimento API .NET di Hub eventi e bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Riferimenti API .NET di Hub eventi e del bus di servizio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

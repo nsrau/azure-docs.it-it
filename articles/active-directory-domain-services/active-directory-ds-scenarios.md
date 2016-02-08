@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -56,4 +56,10 @@ Aspetti importanti di cui tenere conto durante la valutazione di questo scenario
 
 - Assicurarsi che l'applicazione usi nome utente e password per l'autenticazione. L'autenticazione basata su certificati/smart card non è supportata da Servizi di dominio Azure AD.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+## Azure RemoteApp
+Azure RemoteApp consente all'amministratore di Contoso di creare una raccolta aggiunta al dominio. Le applicazioni remote gestite da Azure RemoteApp potranno quindi essere eseguite in computer aggiunti al dominio e potranno accedere altre risorse tramite l'autenticazione integrata di Windows. Contoso può usare Servizi di dominio Azure Active Directory per fornire un dominio gestito usato dalle raccolte aggiunte al dominio di Azure RemoteApp.
+
+Per altre informazioni su questo scenario di distribuzione, vedere il post del blog su Servizi Desktop remoto che illustra come [sollevare e spostare i carichi di lavoro con Azure RemoteApp e Servizi di dominio Azure Active Directory](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
+
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,11 +24,11 @@ Vi sono tuttavia scenari in cui potrebbe essere necessario più di un indirizzo 
 
 Nello scenario precedente, tutti gli indirizzi VIP usano la stessa porta pubblica (443) e il traffico viene reindirizzato a una o più VM con carico bilanciato su una porta privata univoca per l'indirizzo IP interno del servizio cloud che ospita tutti i siti Web.
 
->[AZURE.NOTE]Un altro scenario che richiede l'uso di più indirizzi VIP è costituito dall'hosting di più listener del gruppo di disponibilità SQL AlwaysOn nello stesso set di macchine virtuali.
+>[AZURE.NOTE] Un altro scenario che richiede l'uso di più indirizzi VIP è costituito dall'hosting di più listener del gruppo di disponibilità SQL AlwaysOn nello stesso set di macchine virtuali.
 
 Gli indirizzi VIP sono dinamici per impostazione predefinita e ciò significa che l'indirizzo IP effettivo assegnato al servizio cloud potrebbe cambiare nel tempo. Per impedire che ciò accada, è possibile riservare un indirizzo VIP per il servizio. Per altre informazioni sugli indirizzi VIP riservati, vedere [IP pubblico riservato](../virtual-networks-reserved-public-ip).
 
->[AZURE.NOTE]Per informazioni sui prezzi di indirizzi VIP e IP riservati, vedere [Prezzi per gli indirizzi IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Per informazioni sui prezzi di indirizzi VIP e IP riservati, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 È possibile usare PowerShell per verificare gli indirizzi VIP usati dai servizi cloud, nonché per aggiungere e rimuovere indirizzi VIP, associare un indirizzo VIP a un endpoint e configurare il bilanciamento del carico su un indirizzo VIP specifico.
 
@@ -39,7 +39,7 @@ A questo punto, la funzionalità con più indirizzi VIP è limitata agli scenari
 - **Solo IaaS**. È possibile abilitare più indirizzi VIP per servizi cloud che contengono le macchine virtuali. Non è possibile usare più indirizzi VIP negli scenari PaaS con le istanze del ruolo.
 - **Solo PowerShell**. È possibile gestire più indirizzi VIP solo con PowerShell.
 
->[AZURE.IMPORTANT]Queste limitazioni sono temporanee e possono cambiare in qualsiasi momento. Assicurarsi di visualizzare nuovamente questa pagina per verificare le modifiche future.
+>[AZURE.IMPORTANT] Queste limitazioni sono temporanee e possono cambiare in qualsiasi momento. Assicurarsi di visualizzare nuovamente questa pagina per verificare le modifiche future.
 
 
 ## Come aggiungere un indirizzo VIP a un servizio cloud
@@ -58,7 +58,7 @@ Per rimuovere l'indirizzo VIP aggiunto al servizio nell'esempio precedente, eseg
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
->[AZURE.IMPORTANT]È possibile rimuovere un indirizzo VIP solo se non dispone di alcun endpoint associato.
+>[AZURE.IMPORTANT] È possibile rimuovere un indirizzo VIP solo se non dispone di alcun endpoint associato.
 
 ## Come recuperare informazioni sugli indirizzi VIP da un servizio cloud
 Per recuperare gli indirizzi VIP associati a un servizio cloud, eseguire lo script di PowerShell seguente:
@@ -91,7 +91,7 @@ In questo esempio il servizio cloud dispone di 3 indirizzi VIP:
 - **Vip1** è l'indirizzo VIP predefinito. Ciò è indicato dall'impostazione di IsDnsProgrammedName su true.
 - **Vip2** e **Vip3** non sono in uso in quanto non dispongono di indirizzi IP. Verranno usati solo se si associa un endpoint all'indirizzo VIP.
 
->[AZURE.NOTE]Gli indirizzi VIP aggiuntivi verranno addebitati alla sottoscrizione solo dopo essere stati associati a un endpoint. Per altre informazioni sui prezzi, vedere [Prezzi per gli indirizzi IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Gli indirizzi VIP aggiuntivi verranno addebitati alla sottoscrizione solo dopo essere stati associati a un endpoint. Per altre informazioni sui prezzi, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Come associare un indirizzo VIP a un endpoint
 Per associare un indirizzo VIP in un servizio cloud a un endpoint, eseguire il comando PowerShell seguente:
@@ -150,9 +150,9 @@ L'output sarà simile ai risultati seguenti:
 
 [Introduzione al bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
 
-[Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
+[Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

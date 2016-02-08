@@ -18,12 +18,12 @@
 	
 # Eseguire una distribuzione da Visual Studio
 
-Anche se il [portale di Azure](https://portal.azure.com) rappresenta un ottimo modo per progettare e gestire le app per la logica, è possibile distribuire l'app per la logica anche da Visual Studio. Questa scelta offre due funzionalità principali:
+Anche se il [portale di Azure](https://portal.azure.com/) rappresenta un ottimo modo per progettare e gestire le app per la logica, è possibile distribuire l'app per la logica anche da Visual Studio. Questa scelta offre due funzionalità principali:
 
 - Archiviare all'app per la logica insieme ad altre risorse nella soluzione in modo che possa contenere tutti gli aspetti dell'applicazione
 - Controllare la definizione dell'app per la logica archiviata nel codice sorgente in modo da poter usare TFS o Git per tenere traccia delle relative revisioni 
 
-Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.7 o versione successiva. L'[SDK più recente per Visual Studio](http://azure.microsoft.com/downloads/) è disponibile qui.
+Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.7 o versione successiva. L'[SDK più recente per Visual Studio](https://azure.microsoft.com/downloads/) è disponibile qui.
 
 ## Creare un progetto
 
@@ -65,4 +65,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 
 Se non si vuole usare Visual Studio, ma si desidera comunque utilizzare gli strumenti necessari per distribuire l'app per la logica dal controllo di origine, è possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

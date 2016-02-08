@@ -38,13 +38,13 @@ I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al con
 
 È possibile impostare le autorizzazioni per il contenitore nei modi seguenti:
 
-- Dal [portale di Azure](portal.azure.com).
+- Dal [portale di Azure](https://portal.azure.com).
 - A livello di programmazione, tramite la libreria client di archiviazione o l'API REST.
 - Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full#how-to-manage-azure-blobs)
 
 ### Impostazione delle autorizzazioni per il contenitore dal portale di Azure
 
-Per impostare le autorizzazioni per il contenitore dal [portale di Azure](portal.azure.com), eseguire le operazioni seguenti:
+Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), eseguire le operazioni seguenti:
 
 1. Passare al dashboard per l'account di archiviazione.
 2. Selezionare il nome del contenitore nell'elenco. Si noti che è necessario fare clic a destra della colonna Nome per selezionare il nome del contenitore. Se si fa clic sul nome viene eseguito il drill-down nel contenitore per visualizzare i relativi BLOB.
@@ -155,4 +155,4 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 - [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

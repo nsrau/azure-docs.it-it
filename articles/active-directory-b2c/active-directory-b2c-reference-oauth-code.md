@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Anteprima AD B2C Azure: Flusso di codice di autorizzazione OAuth 2.0
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
 | response\_type | obbligatorio | Deve includere `code` per il flusso del codice di autorizzazione. |
 | redirect\_uri | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
 | grant\_type | obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | code | obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
@@ -165,7 +165,8 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | refresh\_token | Token di aggiornamento di OAuth 2.0. L'app può utilizzare questo token per acquisire token aggiuntivi dopo la scadenza del token corrente. I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. Per informazioni dettagliate, consultare il [riferimento al token B2C](active-directory-b2c-reference-tokens.md). |
 | refresh\_token\_expires\_in | Tempo massimo di validità per un token di aggiornamento (in secondi). Il token di aggiornamento può tuttavia perdere validità in qualsiasi momento. |
 
-> [AZURE.NOTE]Qualora si cerchi l’access\_token, considerare quanto segue. Quando si richiede l’ambito `openid`, Azure AD rilascia un JWT `id_token` nella risposta. Sebbene questo `id_token` non sia tecnicamente un access\_token OAuth 2.0, può essere utilizzato come tale durante la comunicazione con il servizio di back-end dell’applicazione, rappresentato dallo stesso client\_id del client. `id_token` è ancora un token di connessione JWT inviabile a una risorsa in un'intestazione di autorizzazione HTTP e utilizzato per autenticare le richieste. La differenza è che un `id_token` non dispone di un meccanismo per determinare l'ambito di una particolare applicazione client. Tuttavia, quando l'applicazione client è l'unico client in grado di comunicare con il servizio di back-end (come nel caso dell'anteprima di Azure AD B2C corrente), non è necessario per tale meccanismo di individuazione dell’ambito. Se l'anteprima di Azure AD B2C aggiunge la funzionalità per i client di comunicare con risorse di prime e terze parti supplementari, si ricorrerà agli access\_token. Tuttavia, anche in tal caso si consiglia di utilizzare `id_tokens` per comunicare con il servizio di back-end dell'applicazione. Per ulteriori informazioni sui tipi di applicazioni creabili con l'anteprima Azure AD B2C, consultare [questo articolo](active-directory-b2c-apps.md).
+> [AZURE.NOTE]
+	Qualora si cerchi l’access\_token, considerare quanto segue. Quando si richiede l’ambito `openid`, Azure AD rilascia un JWT `id_token` nella risposta. Sebbene questo `id_token` non sia tecnicamente un access\_token OAuth 2.0, può essere utilizzato come tale durante la comunicazione con il servizio di back-end dell’applicazione, rappresentato dallo stesso client\_id del client. `id_token` è ancora un token di connessione JWT inviabile a una risorsa in un'intestazione di autorizzazione HTTP e utilizzato per autenticare le richieste. La differenza è che un `id_token` non dispone di un meccanismo per determinare l'ambito di una particolare applicazione client. Tuttavia, quando l'applicazione client è l'unico client in grado di comunicare con il servizio di back-end (come nel caso dell'anteprima di Azure AD B2C corrente), non è necessario per tale meccanismo di individuazione dell’ambito. Se l'anteprima di Azure AD B2C aggiunge la funzionalità per i client di comunicare con risorse di prime e terze parti supplementari, si ricorrerà agli access\_token. Tuttavia, anche in tal caso si consiglia di utilizzare `id_tokens` per comunicare con il servizio di back-end dell'applicazione. Per ulteriori informazioni sui tipi di applicazioni creabili con l'anteprima Azure AD B2C, consultare [questo articolo](active-directory-b2c-apps.md).
 
 Le risposte di errore hanno un aspetto simile al seguente:
 
@@ -191,7 +192,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## 4\. Aggiornamento del token
-Gli id\_token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché il valore `code`:
+Gli id\_token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché `code`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
@@ -210,7 +211,7 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il token di aggiornamento originale. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
 | grant\_type | obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
 | scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
@@ -256,11 +257,11 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | error\_description | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -272,4 +273,4 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 - [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un redirect\_uri. Si potrebbe voler includere un **native client** nell'app.
 - [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

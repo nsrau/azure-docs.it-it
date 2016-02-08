@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Ridimensionamento di app in un ambiente del servizio app #
@@ -58,7 +58,7 @@ Come indicato in precedenza, è possibile accedere alla selezione del pool di la
 
 Prima di spostare il piano ASP da un pool di lavoro a un altro, è importante assicurarsi che la capacità disponibile per il piano ASP sia sufficiente. Nell'elenco dei pool di lavoro non è indicato solo il nome del pool di lavoro, ma è anche possibile vedere quanti processi di lavoro sono disponibili nel pool. Assicurarsi che il numero di istanze disponibili sia sufficiente per contenere il piano di servizio app. Se sono necessarie altre risorse di calcolo nel pool di lavoro a cui passare, chiedere all'amministratore dell'ambiente del servizio app di aggiungerle.
 
-> [AZURE.NOTE]Lo spostamento di un piano ASP da un pool di lavoro comporterà un riavvio delle app in tale piano ASP e di conseguenza un possibile periodo di inattività dell'app, la cui durata dipende dal tempo necessario per il riavvio delle app.
+> [AZURE.NOTE] Lo spostamento di un piano ASP da un pool di lavoro comporterà un riavvio delle app in tale piano ASP e di conseguenza un possibile periodo di inattività dell'app, la cui durata dipende dal tempo necessario per il riavvio delle app.
 
 ## Introduzione
 
@@ -83,4 +83,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

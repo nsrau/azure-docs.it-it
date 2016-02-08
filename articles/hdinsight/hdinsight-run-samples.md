@@ -28,7 +28,7 @@ Sono disponibili alcuni esempi utili per iniziare a eseguire processi MapReduce 
 - [**Calcolo del Pi greco**][hdinsight-sample-pi-estimator]\: per calcolare il valore del Pi greco viene usato un metodo statistico simile al metodo Monte Carlo.
 - [**Graysort da 10 GB**][hdinsight-sample-10gb-graysort]\: esegue un ordinamento GraySort generico in un file da 10 GB usando HDInsight. I processi da eseguire sono tre: Teragen per generare i dati, Terasort per ordinare i dati e Teravalidate per verificare che i dati siano stati ordinati correttamente.
 
->[AZURE.NOTE]Il codice sorgente è disponibile nell'appendice.
+>[AZURE.NOTE] Il codice sorgente è disponibile nell'appendice.
 
 Sul Web sono disponibili molti altri documenti per le tecnologie relative a Hadoop, ad esempio il flusso e la programmazione MapReduce basati su Java, oltre alla documentazione sui cmdlet usati negli script di Windows PowerShell. Per altre informazioni su queste risorse, vedere:
 
@@ -44,7 +44,7 @@ Molte persone preferiscono oggi Hive e Pig rispetto a MapReduce. Per altre infor
  
 **Prerequisiti**:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Un cluster HDInsight**. Per informazioni sui vari metodi disponibili per la creazione dei cluster, vedere [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
 - **Workstation con Azure PowerShell**. Vedere [Installare Azure PowerShell 1.0 e versioni successive](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
@@ -118,7 +118,7 @@ Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare 
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java.
 
-> [AZURE.NOTE]La procedura descritta in questa esercitazione è valida solo per i cluster HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppo di programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
+> [AZURE.NOTE] La procedura descritta in questa esercitazione è valida solo per i cluster HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppo di programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
 
 Nell'esempio, sia il mapper che il reducer sono file eseguibili che leggono l'input da [stdin][stdin-stdout-stderr] (riga per riga) e inviano l'output a [stdout][stdin-stdout-stderr]. Il programma consente di contare tutte le parole del testo.
 
@@ -998,4 +998,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

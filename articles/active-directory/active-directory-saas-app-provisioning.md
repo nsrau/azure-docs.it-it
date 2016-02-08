@@ -69,7 +69,7 @@ Per la maggior parte delle app SaaS il provisioning è solo in uscita, pertanto 
 
 **È possibile inviare commenti e suggerimenti al team di progettazione?**
 
-Contattare Microsoft tramite il [forum dei commenti di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Contattare Microsoft tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ##Come funziona il provisioning automatizzato?
 
@@ -82,7 +82,7 @@ Azure AD esegue il provisioning degli utenti nelle app SaaS connettendosi agli e
  - Se sono stati assegnati nuovi utenti all'applicazione, direttamente o tramite l'appartenenza al gruppo, ne verrà eseguito il provisioning in un nuovo account nell'app SaaS.
  - Se l'accesso di un utente è stato rimosso, il relativo account nell'app SaaS verrà contrassegnato come disabilitato. Gli utenti infatti non vengono mai completamente rimossi, per evitare la perdita dei dati in caso di configurazione errata.
  - Se un utente è stato recentemente assegnato all'applicazione e dispone già di un account nell'app SaaS, tale account verrà contrassegnato come abilitato e alcune proprietà utente possono essere aggiornate se obsolete rispetto alla directory.
- - Se sono state modificate nella directory le informazioni relative a un utente (ad esempio il numero di telefono, l'indirizzo dell'ufficio e così via), tali informazioni verranno aggiornate anche nell'applicazione SaaS.
+ - Se sono state modificate nella directory le informazioni relative a un utente, ad esempio il numero di telefono, l'indirizzo dell'ufficio e così via, queste informazioni verranno aggiornate anche nell'applicazione SaaS.
 
 Per altre informazioni sul mapping degli attributi tra Azure AD e l'app SaaS, vedere l'articolo [Personalizzazione dei mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -104,8 +104,8 @@ Fare clic su un'app per visualizzare un'esercitazione sulla configurazione del p
 
 Affinché un'applicazione supporti il provisioning utenti automatizzato, deve innanzitutto fornire gli endpoint necessari che consentono ai programmi esterni di automatizzare la creazione, la manutenzione e la rimozione degli utenti. Pertanto, non tutte le app SaaS sono compatibili con questa funzionalità. Per le app che supportano questa funzionalità, il team di progettazione di Azure AD potrà creare un connettore di provisioning e l'ordine di priorità di questa operazione è stabilito in base alle esigenze dei clienti attuali e potenziali.
 
-Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

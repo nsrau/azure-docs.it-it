@@ -19,7 +19,8 @@
 # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app Web NodeJS
 
 
-  >[AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+    Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
 
 Passport viene usato per:
@@ -44,7 +45,7 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 ## 1. Registrare un'app
-Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md).  Verificare di:
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Web** per l'app.
@@ -67,7 +68,7 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- È stato inoltre utilizzato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
+- È stato anche usato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
 
 - `npm install passport-azure-ad`
 
@@ -89,16 +90,16 @@ In questo caso, verrà configurato il middleware Express per l'uso del protocoll
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - Successivamente, usare la strategia a cui è stato fatto riferimento per gestire le richieste di accesso.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -112,7 +113,7 @@ passport.use(new OIDCStrategy({
     responseType: config.creds.responseType,
     responseMode: config.creds.responseMode,
     skipUserProfile: config.creds.skipUserProfile
-    //scope: config.creds.scope
+    scope: config.creds.scope
   },
   function(iss, sub, profile, accessToken, refreshToken, done) {
     log.info('Example: Email address we received was: ', profile.email);
@@ -135,7 +136,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport usa un modello simile per tutte le strategie (Twitter, Facebook e così via) che soddisfano i requisiti degli scrittori della strategia. Osservando la strategia, è possibile notare che a quest'ultima è stata passata una funzione() con parametri token e done. La strategia verrà restituita al termine dell'esecuzione. Una volta restituita, è opportuno archiviare l'utente e mettere da parte il token in modo che non sia necessario richiederlo nuovamente.
 
-> [AZURE.IMPORTANT]Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un'applicazione di esempio, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
+> [AZURE.IMPORTANT]
+Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un'applicazione di esempio, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
 
 - Successivamente, aggiungere i metodi che consentiranno di tenere traccia degli utenti connessi come richiesto da Passport. Questa operazione include la serializzazione e deserializzazione delle informazioni dell'utente:
 
@@ -282,7 +284,7 @@ app.get('/logout', function(req, res){
     -	La route `/` viene reindirizzata alla vista index.ejs passando l'utente nella richiesta (se presente).
     - La route `/account` prima di tutto ***verificherà che l'autenticazione sia stata eseguita*** (vedere di seguito l'implementazione), quindi passerà l'utente nella richiesta in modo da ottenere informazioni aggiuntive su quest'ultimo.
     - La route `/login` chiamerà l'autenticatore azuread-openidconnect da `passport-azuread` e, se l'operazione non riesce, reindirizzerà l'utente a /login.
-    - La route `/logout` chiamerà semplicemente logout.ejs (e la route) che cancellerà i cookie e restituirà quindi l'utente a index.ejs.
+    - La route `/logout` chiamerà logout.ejs (e la route) che consente di cancellare i cookie e restituisce quindi l'utente a index.ejs.
 
 
 - Per l'ultima parte di `app.js`, aggiungere il metodo EnsureAuthenticated usato precedentemente in `/account`.
@@ -343,7 +345,7 @@ exports.list = function(req, res){
 
 Queste semplici route passeranno la richiesta alle viste, incluso l'utente se presente.
 
-- Creare la vista `/views/index.ejs` nella directory radice. Si tratta di una pagina semplice che chiama i metodi di accesso e disconnessione e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)`, perché l'utente passato nella richiesta dimostra che è disponibile un utente che ha eseguito l'accesso.
+- Creare la vista `/views/index.ejs` sotto la directory radice. Si tratta di una pagina semplice che chiama i metodi di accesso e disconnessione e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)`, perché l'utente passato nella richiesta dimostra che è disponibile un utente registrato.
 
 ```JavaScript
 <% if (!user) { %>
@@ -356,7 +358,7 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 <% } %>
 ```
 
-- Creare la vista `/views/account.ejs` nella directory radice per visualizzare informazioni aggiuntive inserite da `passport-azuread` nella richiesta dell'utente.
+- Creare la vista `/views/account.ejs` nella directory radice affinché sia possibile visualizzare informazioni aggiuntive che `passport-azuread` ha inserito nella richiesta dell'utente.
 
 ```Javascript
 <% if (!user) { %>
@@ -421,4 +423,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

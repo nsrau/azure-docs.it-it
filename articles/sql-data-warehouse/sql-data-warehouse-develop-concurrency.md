@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -34,7 +34,7 @@ Come regola generale, ogni query attualmente in esecuzione utilizza uno o più s
 2. La **classe di risorse** a cui appartiene l'utente
 3. Se la query o l'operazione è disciplinato dal modello di slot di concorrenza 
 
-> [AZURE.NOTE]Vale la pena notare che non tutte le query è regolata dalla regola query slot di concorrenza. Sono tuttavia la maggior parte delle query utente. Alcune query e operazioni non utilizzano tutti gli slot di concorrenza. Queste query e operazioni ancora sono limitate dal limite di query simultanee motivo per cui sono descritte le regole. Consultare la sezione [eccezioni di classe di risorse](#exceptions) seguente per ulteriori dettagli.
+> [AZURE.NOTE] Vale la pena notare che non tutte le query è regolata dalla regola query slot di concorrenza. Sono tuttavia la maggior parte delle query utente. Alcune query e operazioni non utilizzano tutti gli slot di concorrenza. Queste query e operazioni ancora sono limitate dal limite di query simultanee motivo per cui sono descritte le regole. Consultare la sezione [eccezioni di classe di risorse](#exceptions) seguente per ulteriori dettagli.
 
 Nella tabella seguente vengono descritti i limiti per le query simultanee e slot di concorrenza; Supponendo che la query siano disciplinate dalle risorse.
 
@@ -75,7 +75,7 @@ SQL Data Warehouse ha implementato le classi di risorse tramite l'utilizzo di ru
 
 È possibile aggiungere e rimuovere l’utente corrente per il ruolo del database di gestione del carico di lavoro tramite le procedure `sp_addrolemember` e `sp_droprolemember`. Notare che è necessario disporre dell’autorizzazione `ALTER ROLE` per eseguire questa operazione. Non è possibile utilizzare la sintassi ALTER ROLE DDL. È necessario utilizzare le stored procedure menzionate in precedenza. Nella sezione [managing users) [managing utenti #] alla fine di questo articolo viene fornito un esempio completo relativo alla creazione di account di accesso e utenti.
 
-> [AZURE.NOTE]Invece di aggiungere o rimuovere un utente in un gruppo di gestione del carico di lavoro, è spesso più semplice avviare le operazioni più intensive tramite un accesso/utente separato che è assegnato in modo permanente alla classe di risorse più elevata.
+> [AZURE.NOTE] Invece di aggiungere o rimuovere un utente in un gruppo di gestione del carico di lavoro, è spesso più semplice avviare le operazioni più intensive tramite un accesso/utente separato che è assegnato in modo permanente alla classe di risorse più elevata.
 
 ### Allocazione della memoria
 
@@ -183,7 +183,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE 
 -->
-> [AZURE.NOTE]È degna di nota che `SELECT` le query per eseguire esclusivamente le viste del catalogo e viste a gestione dinamica sono **non** disciplinato dalle classi di risorse.
+> [AZURE.NOTE] È degna di nota che `SELECT` le query per eseguire esclusivamente le viste del catalogo e viste a gestione dinamica sono **non** disciplinato dalle classi di risorse.
 
 È importante ricordare che la maggior parte delle query degli utenti finali sono probabilmente disciplinati dalle classi di risorse. La regola generale prevede che il carico di lavoro di query attiva deve rientrare in entrambe le simultanee query e la concorrenza slot soglie a meno che non è stata esclusa in modo specifico della piattaforma. Come un utente finale è possibile scegliere di escludere una query dal modello di slot della concorrenza. Una volta superata una soglia, la query viene accodata. Le query in coda verranno risolte in ordine di priorità in base all'ora di invio.
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]La query precedente consente inoltre di analizzare l’utilizzo attivo e passato dei gruppi del carico di lavoro durante la risoluzione degli
+> [AZURE.NOTE] La query precedente consente inoltre di analizzare l’utilizzo attivo e passato dei gruppi del carico di lavoro durante la risoluzione degli
 
 ## Esempi di gestione del carico di lavoro
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]è consigliabile creare utenti per gli accessi nel database master per quando si lavora con database SQL Azure e SQL Data Warehouse. Su questo livello ci sono due ruoli disponibili che richiedono l'accesso per avere un utente nel database master per concedere l’appartenenza. I ruoli sono`Loginmanager` e `dbmanager`: Nel database SQL Azure e SQL Data Warehouse questi ruoli concedono diritti per gestire gli account di accesso e per creare database. Questo comportamento è diverso rispetto a SQL Server. Per ulteriori informazioni, vedere il[Gestione di database e gli account di accesso nel Database di SQL Azure]articolo per ulteriori informazioni.
+> [AZURE.NOTE] È consigliabile creare utenti per gli account di accesso nel database master nel database SQL di Azure e in SQL Data Warehouse. Su questo livello ci sono due ruoli disponibili che richiedono l'accesso per avere un utente nel database master per concedere l’appartenenza. I ruoli sono`Loginmanager` e `dbmanager`: Nel database SQL Azure e SQL Data Warehouse questi ruoli concedono diritti per gestire gli account di accesso e per creare database. Questo comportamento è diverso rispetto a SQL Server. Per ulteriori informazioni, vedere il[Gestione di database e gli account di accesso nel Database di SQL Azure]articolo per ulteriori informazioni.
 
 Dopo aver creato l'account di accesso, è necessario aggiungere un account utente.
 
@@ -323,7 +323,7 @@ Per rimuovere un utente da un ruolo di gestione del carico di lavoro utilizzare 
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]Non è possibile rimuovere un utente da smallrc.
+> [AZURE.NOTE] Non è possibile rimuovere un utente da smallrc.
 
 Per visualizzare gli utenti che sono membri di un determinato ruolo, utilizzare la query seguente:
 
@@ -452,4 +452,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

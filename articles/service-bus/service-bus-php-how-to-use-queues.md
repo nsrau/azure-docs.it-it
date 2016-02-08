@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -28,7 +28,7 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 
 Per creare un'applicazione PHP che accede al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
-> [AZURE.NOTE]L'installazione di PHP deve avere anche l'[estensione OpenSSL](http://php.net/openssl) installata e abilitata.
+> [AZURE.NOTE] L'installazione di PHP deve avere anche l'[estensione OpenSSL](http://php.net/openssl) installata e abilitata.
 
 In questa guida si useranno le funzionalità del servizio che possono essere chiamate da un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
@@ -38,21 +38,21 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
-Per usare le API delle code del bus di servizio di Azure, effettuare quanto segue:
+Per usare le API delle code del bus di servizio, procedere come segue:
 
 1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [AZURE.NOTE]In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
+> [AZURE.NOTE] In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 Nei seguenti esempi l'istruzione `require_once` verrà sempre visualizzata, ma si fa riferimento solo alle classi necessarie per eseguire l'esempio.
 
-## Configurare una connessione del bus di servizio di Azure
+## Configurare una stringa di connessione per il bus di servizio
 
 Per creare un'istanza di un client del bus di servizio, è necessario innanzitutto disporre di una stringa di connessione valida nel seguente formato:
 
@@ -108,7 +108,7 @@ Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]È possibile usare il metodo `listQueues` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già una coda con il nome specificato.
+> [AZURE.NOTE] È possibile usare il metodo `listQueues` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già una coda con il nome specificato.
 
 ## Procedura: Inviare messaggi a una coda
 
@@ -209,4 +209,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori di PHP](/develo
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

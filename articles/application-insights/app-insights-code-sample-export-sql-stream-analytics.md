@@ -17,7 +17,7 @@
  
 # Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 
-Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](http://azure.microsoft.com/services/stream-analytics/).
+Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/).
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
@@ -35,7 +35,7 @@ Per monitorare l'applicazione, [aggiungere un Application Insights SDK][start] a
 
 Attività iniziali
 
-1. Ottenere un [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Ottenere un [account in Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. Nel [portale di Azure][portal] aggiungere una nuova risorsa di Application Insights per la propria app:
 
     ![Scegliere Nuovo, quindi Servizi per gli sviluppatori, Application Insights e scegliere il tipo di applicazione](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -219,7 +219,7 @@ Verificare il formato di serializzazione:
 
 Chiudere la procedura guidata e attendere il completamento dell'installazione.
 
->[AZURE.TIP]Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
+>[AZURE.TIP] Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 
 ## Impostare la query
 
@@ -315,4 +315,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

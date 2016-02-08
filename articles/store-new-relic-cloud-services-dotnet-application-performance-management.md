@@ -33,9 +33,9 @@ New Relic tiene traccia del tempo di caricamento e della velocità effettiva del
 
 New Relic Standard è gratuito per gli utenti di Azure. New Relic Pro viene offerto in base alle dimensioni delle istanze per i servizi cloud di Azure
 
-Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Store](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
+Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Store](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/).
 
-> [AZURE.NOTE]Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
+> [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
@@ -148,4 +148,4 @@ Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

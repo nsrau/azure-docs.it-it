@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Introduzione ad Archiviazione | Microsoft Azure" 
-	description="Informazioni generali su Archiviazione di Microsoft Azure." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Introduzione ad Archiviazione | Microsoft Azure"
+	description="Una panoramica di Archiviazione di Azure, l'archiviazione dei dati online di Microsoft nel cloud. Informazioni su come usare nelle applicazioni la migliore soluzione di archiviazione cloud disponibile."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 # Introduzione ad Archiviazione di Microsoft Azure
 
 ## Panoramica
 
-Questo articolo fornisce un’introduzione estesa a Archiviazione di Microsoft Azure per gli sviluppatori, i professionisti IT e i decisori aziendali. Leggendo l'articolo si apprenderà:
+Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Questo articolo offre a sviluppatori, professionisti IT e responsabili delle decisioni aziendali informazioni su:
 
 - Che cos'è Archiviazione di Azure e come è possibile usarlo nelle applicazioni cloud, mobili, server e desktop
-- Quali tipi di dati è possibile archiviare con i servizi Archiviazione di Azure: archiviazione BLOB, tabelle, code e file
+- Quali tipi di dati è possibile archiviare con i servizi Archiviazione di Azure: BLOB (oggetti), tabelle NoSQL, messaggi accodati e condivisione file.
 - Come viene gestito l'accesso ai dati in Archiviazione di Azure
-- Come vengono protetti i dati di Archiviazione di Azure tramite la ridondanza e la replica 
+- Come vengono protetti i dati di Archiviazione di Azure tramite la ridondanza e la replica
 - Come procedere per creare la prima applicazione di Archiviazione di Azure
 
-Per un’introduzione rapida all’uso di Archiviazione di Azure, vedere [Introduzione all’uso di BLOB, tabelle e code di Azure in 5 minuti](storage-getting-started-guide.md)
+Per un'introduzione rapida all'uso di Archiviazione di Azure, vedere [Introduzione all'uso di BLOB, tabelle e code di Azure in 5 minuti](storage-getting-started-guide.md).
 
-Se si sta cercando una panoramica rapida di livello elevato di Archiviazione, consultare questo articolo oppure, per una panoramica specifica del prodotto, vedere BLOB di Azure, Tabelle di Azure, Code di Azure e File di Azure.
+Per informazioni dettagliate su strumenti, librerie e altre risorse per l'utilizzo di Archiviazione di Azure, vedere la sezione [Passaggi successivi](next-steps) di seguito.
 
 ## Informazioni su Archiviazione di Azure
 
@@ -55,18 +55,18 @@ Un account di archiviazione di Azure è un account sicuro che consente di accede
 - Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file.
 - Un account di archiviazione premium attualmente supporta solo dischi di macchine virtuali di Azure.
 
-Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. [È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione.](../azure-subscription-service-limits.md) Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
+Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. [È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione.](../azure-subscription-service-limits.md) Vedere i [dettagli sui prezzi di Archiviazione](https://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
-Per iniziare a usare Azure, è possibile scaricare una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si decide di acquistare un piano, è possibile scegliere una delle numerose [opzioni di vendita](http://azure.microsoft.com/pricing/purchase-options/). Gli utenti [iscritti a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure.
+Per iniziare a usare Azure, è possibile scaricare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si decide di acquistare un piano, è possibile scegliere una delle numerose [opzioni di vendita](https://azure.microsoft.com/pricing/purchase-options/). Gli utenti [iscritti a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure.
 
 ### Account di archiviazione standard
 
 Un account di archiviazione standard consente di accedere all'archiviazione BLOB, all'archiviazione tabelle, all'archiviazione di accodamento e all'archiviazione file:
 
-- Nell'**archiviazione BLOB** sono archiviati i dati di file. Un BLOB può essere qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archiviazione BLOB è talvolta denominata archiviazione di oggetti. 
+- Nell'**archiviazione BLOB** sono archiviati i dati di file. Un BLOB può essere qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archiviazione BLOB è talvolta denominata archiviazione di oggetti.
 - Nell'**archiviazione tabelle** sono archiviati set di dati strutturati. L'archiviazione delle tabelle utilizza un archivio dati chiave-attributo NoSQL, che consente lo sviluppo e l'accesso rapido a grandi quantità di dati.
 - L'**archiviazione code** offre un sistema di messaggistica affidabile per l'elaborazione del flusso di lavoro e per la comunicazione tra i componenti dei servizi cloud.
-- L'**archiviazione file** offre uno spazio di archiviazione condiviso per le applicazioni legacy che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file. 
+- L'**archiviazione file** offre uno spazio di archiviazione condiviso per le applicazioni legacy che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file.
 
 Ogni account di archiviazione standard può includere fino a 500 TB di dati combinati di BLOB, code, tabelle e file. Per informazioni sulla capacità dell'account di archiviazione standard, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure](storage-scalability-targets.md).
 
@@ -86,7 +86,7 @@ L'archiviazione premium di Azure attualmente supporta solo dischi di macchine vi
 
 Per gli utenti che dispongono di grandi quantità di dati non strutturati da archiviare nel cloud, l'archiviazione BLOB offre una soluzione conveniente e scalabile. È possibile usare gli archivi BLOB per archiviare contenuto come:
 
-- Documenti 
+- Documenti
 - Dati dei social network come foto, video, musica e blog
 - Backup di file, computer, database e dispositivi
 - Immagini e testo per applicazioni Web
@@ -155,7 +155,7 @@ I costi addebitati ai clienti per Archiviazione di Azure si basano su quattro fa
 
 La capacità di archiviazione fa riferimento alla quantità di unità di servizio dell'account di archiviazione in uso per l'archiviazione dei dati. Il costo dell'archiviazione dei dati è determinato dalla quantità di dati archiviata e dalla modalità di replica dei dati. Ogni operazione di lettura e scrittura in Archiviazione di Azure effettua anche una richiesta al servizio. I dati in uscita sono i dati trasferiti al di fuori di un'area di Microsoft Azure. Quando un'applicazione non in esecuzione nella stessa area geografica accede ai dati nell'account di archiviazione, indipendentemente dal fatto che l'applicazione sia un servizio cloud o un altro tipo di applicazione, verrà addebitato il trasferimento dei dati in uscita. Per i servizi di Microsoft Azure è possibile raggruppare dati e servizi negli stessi data center per ridurre o eliminare gli addebiti per il trasferimento dei dati e dei processi in uscita.
 
-Nella pagina [Dettagli prezzi di archiviazione](http://azure.microsoft.com/pricing/details/storage/) vengono fornite informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](http://azure.microsoft.com/pricing/details/data-transfers/) vengono fornite informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita. È possibile usare la pagina per il [calcolo dei prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/calculator/?scenario=data-management) per stimare i costi.
+Nella pagina [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/) vengono fornite informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/) vengono fornite informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita. È possibile usare la pagina per il [calcolo dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) per stimare i costi.
 
 ## Sviluppo per l'archiviazione
 
@@ -177,7 +177,7 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 ### Download
 
 - [Pacchetto NuGet per l'Archiviazione di Azure - Librerie client per .NET, Windows Phone e Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK e strumenti](http://azure.microsoft.com/downloads/)
+- [Azure SDK e strumenti](https://azure.microsoft.com/downloads/)
 - [Emulatore di archiviazione di Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 - [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
@@ -187,7 +187,7 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 
 ### Documentazione
 
-- [Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Informazioni di riferimento sulle API REST dei servizi di archiviazione di Azure](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Introduzione all'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
@@ -234,6 +234,5 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione BLOB da Python](storage-python-how-to-use-blob-storage.md)
 - [Come usare l'archiviazione tabelle da Python](storage-python-how-to-use-table-storage.md)
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
@@ -37,7 +37,7 @@ Per proteggersi dalle interruzioni del servizio ACS, usare token di firma di acc
 
 ## Protezione di code e argomenti da errori degli archivi di messaggistica
 
-Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Partizionamento delle entità di messaggistica][].
+Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Entità di messaggistica partizionate][].
 
 ## Protezione da interruzioni o emergenze dei data center
 
@@ -67,7 +67,7 @@ Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima co
 
 L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][] illustra la modalità di replica attiva delle entità di messaggistica.
 
-> [AZURE.NOTE]Nella replica attiva il numero delle operazioni raddoppia. Di conseguenza, questo approccio può comportare costi più elevati.
+> [AZURE.NOTE] Nella replica attiva il numero delle operazioni raddoppia. Di conseguenza, questo approccio può comportare costi più elevati.
 
 ## Replica passiva
 
@@ -99,14 +99,14 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
 - [Informazioni tecniche sulla continuità aziendale di Azure][]
 
   [Autenticazione del bus di servizio]: service-bus-authentication-and-authorization.md
-  [Partizionamento delle entità di messaggistica]: service-bus-partitioning.md
-  [Modelli di messaggistica asincrona e disponibilità elevata]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [Entità di messaggistica partizionate]: service-bus-partitioning.md
+  [Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md
   [replica geografica con i messaggi inoltrati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [replica geografica con i messaggi negoziati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [mittente del messaggio permanente]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Continuità aziendale del database SQL di Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
   [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

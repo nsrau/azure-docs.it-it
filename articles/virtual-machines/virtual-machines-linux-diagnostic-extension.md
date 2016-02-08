@@ -41,7 +41,7 @@ Si noti che questa estensione funziona sia con i modelli classici che con i mode
 ## Come abilitare l'estensione
 L'estensione può essere abilitata tramite il [portale di Azure](https://ms.portal.azure.com/#), Azure PowerShell o gli script dell'interfaccia della riga di comando di Azure.
 
-Per visualizzare e configurare i dati di sistema e le prestazioni direttamente dal portale di Azure, seguire questa [procedura](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL del blog di Windows").
+Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, seguire questi [passaggi](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL del blog di Windows"/).
 
 
 Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensione tramite i comandi dell'interfaccia della riga di comando di Azure. In questo modo è possibile leggere e visualizzare i dati direttamente dalla tabella di archiviazione.
@@ -143,4 +143,4 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 ## Problemi noti
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

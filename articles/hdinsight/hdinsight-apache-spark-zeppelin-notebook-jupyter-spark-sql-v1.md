@@ -30,7 +30,7 @@ Informazioni sulla creazione di un cluster Apache Spark in HDInsight tramite l'o
 
 **Prerequisiti:**
 
-Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##<a name="storage"></a>Creare un account di archiviazione di Azure
 
@@ -44,7 +44,7 @@ Quando si crea un cluster HDInsight in HDInsight, si specifica un account di arc
 
 	![Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.storageaccount.quickcreate.png "Portale di Azure dove è possibile usare la funzione di creazione rapida per configurare un nuovo account di archiviazione")
 
->[AZURE.NOTE]Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster,
+>[AZURE.NOTE]  Assicurarsi quindi di creare l'account di archiviazione in una località supportata dal cluster,
 
 Selezionare il nuovo account di archiviazione dall'elenco e fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore della pagina. Prendere nota dei valori di **CHIAVE DI ACCESSO PRIMARIA** o **CHIAVE DI ACCESSO SECONDARIA** (funzionano entrambe le chiavi). Sarà necessario usarli più avanti nell'esercitazione. Per altre informazioni, vedere l'articolo relativo alla [creazione di un account di archiviazione][azure-create-storageaccount].
 	
@@ -52,7 +52,7 @@ Selezionare il nuovo account di archiviazione dall'elenco e fare clic su **GESTI
 
 In questa sezione viene creato un cluster HDInsight versione 3.2, basato su Spark versione 1.3.1. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
 
->[AZURE.NOTE]I passaggi descritti in questo articolo creano un cluster Apache Spark in HDInsight usando le impostazioni di configurazione di base. Per informazioni su altre impostazioni di configurazione del cluster (ad esempio l'uso di archiviazione aggiuntiva, di una rete virtuale di Azure o di un metastore per Hive) vedere [Creare cluster HDInsight con opzioni personalizzate](hdinsight-apache-spark-provision-clusters.md).
+>[AZURE.NOTE] I passaggi descritti in questo articolo creano un cluster Apache Spark in HDInsight usando le impostazioni di configurazione di base. Per informazioni su altre impostazioni di configurazione del cluster (ad esempio l'uso di archiviazione aggiuntiva, di una rete virtuale di Azure o di un metastore per Hive) vedere [Creare cluster HDInsight con opzioni personalizzate](hdinsight-apache-spark-provision-clusters.md).
 
 
 **Per creare un cluster Spark**
@@ -68,15 +68,15 @@ In questa sezione viene creato un cluster HDInsight versione 3.2, basato su Spar
 
 Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato sul Web per eseguire query interattive Spark SQL nel cluster HDInsight Spark. In questa sezione, verrà usato un file dati di esempio (hvac.csv) disponibile per impostazione predefinita sul cluster per eseguire alcune query interattive SQL Spark.
 
->[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Zeppelin, si noterà il notebook dal nome **Esercitazione Zeppelin HVAC**.
+>[AZURE.NOTE] Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Zeppelin, si noterà il notebook dal nome **Esercitazione Zeppelin HVAC**.
 
 1. Dal riquadro sinistro del [portale di Azure][azure-management-portal] fare clic su **HDInsight**, e quindi sul cluster Spark creato. Dalla pagina del cluster Spark, nel riquadro in basso, fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
-	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
+	> [AZURE.NOTE] È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Creare un nuovo notebook. Dal riquadro di intestazione fare clic su **Notebook** e quindi su **Crea nuova nota**.
+2. Creare un nuovo notebook. Dal riquadro intestazione fare clic su **Notebook** quindi fare clic su **Creare una nuova nota**.
 
 	![Creare un nuovo notebook Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "Creare un nuovo notebook Zeppelin")
 
@@ -115,14 +115,14 @@ Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato s
 
 	È inoltre possibile fornire un titolo a ogni paragrafo. Nell'angolo superiore destro fare clic sull'icona **Impostazioni** e quindi su **Mostra titolo**.
 
-5. È ora possibile eseguire istruzioni Spark SQL nella tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di generazione e la differenza tra la destinazione e le temperature effettive per ogni creazione di una determinata data. Premere **MAIUSC+INVIO**.
+5. È ora possibile eseguire istruzioni SQL Spark su tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di compilazione e la differenza tra le temperature effettive e quelle di destinazione per ogni compilazione di una determinata data. Premere **MAIUSC + INVIO**.
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date 
 		from hvac
 		where date = "6/1/13" 
 
-	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete Spark SQL. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
+	L'istruzione **%sql** all'inizio indica al notebook di usare l'interprete SQL Spark. È possibile esaminare gli interpreti definiti dalla scheda **Interprete** nell'intestazione del notebook.
 
 	Nella schermata riportata di seguito sono illustrate questo output.
 
@@ -131,7 +131,7 @@ Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato s
 	 Scegliere le opzioni di visualizzazione (evidenziate nel rettangolo) per passare tra diverse rappresentazioni per lo stesso output. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave e la media di **temp\_diff** come valore.
 
 	
-6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il frammento di codice seguente illustra come definire una variabile **Temp** nella query con i valori possibili con cui si vuole eseguire una query. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
+6. È inoltre possibile eseguire istruzioni SQL Spark tramite le variabili nella query. Il seguente frammento di codice illustra come definire una variabile**Temp**nella query con i valori possibili che si vuole eseguire. Quando si esegue la query per la prima volta, un elenco a tendina viene popolato automaticamente con i valori specificati per la variabile.
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
@@ -142,9 +142,9 @@ Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato s
 
 	![Eseguire un'istruzione SQL Spark usando il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Eseguire un'istruzione SQL Spark usando il notebook")
 
-	Per le query successive, è possibile selezionare un nuovo valore dall'elenco a tendina e quindi eseguire nuovamente la query. Fare clic su **Impostazioni** per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave, la media di **temp\_diff** come valore e **targettemp** come gruppo.
+	Per le query successive, è possibile selezionare un nuovo valore dall'elenco a tendina e quindi eseguire nuovamente la query. Fare clic su**impostazioni**per scegliere la chiave e i valori nell'output. La schermata precedente usa **buildingID** come chiave, la media di **temp\_diff** come valore e **targettemp** come gruppo.
 
-7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Fare clic sulla scheda **Interprete** nella parte superiore e, per l'interprete Spark, fare clic su **Riavvia**.
+7. Riavviare l'interprete Spark SQL per uscire dall'applicazione. Scegliere la scheda **Interprete** nella parte superiore e per l'interprete Spark fare clic su **Riavvia**.
 
 	![Riavviare l'interprete Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.zeppelin.restart.interpreter.png "Riavviare l'interprete Zeppelin")
 
@@ -152,11 +152,11 @@ Dopo aver creato un cluster, è possibile usare un notebook di Zeppelin basato s
 
 In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL Spark su un cluster Spark.
 
->[AZURE.NOTE]Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Jupyter, si noterà il notebook con nome **HVACTutorial.ipynb**.
+>[AZURE.NOTE] Il notebook che avete creato seguendo le istruzioni seguenti è inoltre disponibile come predefinito sul cluster. Dopo aver avviato Jupyter, si noterà il notebook con nome **HVACTutorial.ipynb**.
 
 1. Dal riquadro sinistro del [portale di Azure][azure-management-portal] fare clic su **HDInsight**, e quindi sul cluster Spark creato. Dalla pagina del cluster Spark, nel riquadro in basso, fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
-	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
+	> [AZURE.NOTE] È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -168,7 +168,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
+4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -178,7 +178,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È inoltre possibile notare un cerchio nero accanto al testo **Python2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.jupyter.job.status.png "Stato di un processo notebook Jupyter")
 
@@ -256,4 +256,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

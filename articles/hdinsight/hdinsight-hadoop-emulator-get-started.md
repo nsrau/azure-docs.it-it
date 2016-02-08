@@ -24,12 +24,12 @@ In questa esercitazione sono usate le operazioni iniziali per l'utilizzo di clus
 
 Una volta installato l'emulatore, seguire un'esercitazione MapReduce per il conteggio delle parole e quindi eseguire gli esempi.
 
-> [AZURE.NOTE]HDInsight Emulator include solo un cluster Hadoop, ma non HBase o Storm.
+> [AZURE.NOTE] HDInsight Emulator include solo un cluster Hadoop, ma non HBase o Storm.
 
 
 HDInsight Emulator offre un ambiente di sviluppo locale molto simile a un ambiente sandbox Hadoop. Se si ha familiarità con Hadoop, è possibile iniziare a usare HDInsight Emulator tramite il file system distribuito Hadoop (HDFS). In HDInsight il file system predefinito è l'archivio BLOB di Azure. Di conseguenza, in ultima analisi sarà preferibile sviluppare i processi usando l'archivio BLOB di Azure. Per usare l'archivio BLOB di Azure con HDInsight Emulator, è necessario apportare modifiche alla configurazione dell'emulatore.
 
-> [AZURE.NOTE]HDInsight Emulator è in grado di usare solo una distribuzione a nodo singolo.
+> [AZURE.NOTE] HDInsight Emulator è in grado di usare solo una distribuzione a nodo singolo.
 
 
 ## Prerequisiti
@@ -41,14 +41,14 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a name="install"></a>Installare HDInsight Emulator
 
 È possibile installare Microsoft HDInsight Emulator tramite Installazione guidata piattaforma Web Microsoft.
 
-> [AZURE.NOTE]HDInsight Emulator supporta attualmente solo sistemi operativi in lingua inglese. Se nel computer è installata una versione precedente dell'emulatore, è necessario disinstallare i due componenti seguenti da Pannello di controllo/Programmi e funzionalità prima di installare la versione più recente: <ul> <li>Microsoft HDInsight Emulator per Azure o HDInsight Developer Preview, a seconda di quale è installato</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] HDInsight Emulator supporta attualmente solo sistemi operativi in lingua inglese. Se nel computer è installata una versione precedente dell'emulatore, è necessario disinstallare i due componenti seguenti da Pannello di controllo/Programmi e funzionalità prima di installare la versione più recente: <ul> <li>Microsoft HDInsight Emulator per Azure o HDInsight Developer Preview, a seconda di quale è installato</li> <li>Hortonworks Data Platform</li> </ul>
 
 
 **Per installare HDInsight Emulator**
@@ -294,7 +294,7 @@ Il motore di query Hive può risultare familiare agli analisti con competenze av
 
 5. Eseguire il comando seguente per eseguire il file di script **w3ccreate.hql**. Lo script crea una tabella di Hive e carica i dati in tale tabella:
 
-	> [AZURE.NOTE]In questa fase è anche possibile usare Strumenti di Visual Studio per HDInsight per eseguire la query Hive. Aprire Visual Studio, creare un nuovo progetto e dal modello di HDInsight selezionare **Applicazione Hive**. Una volta aperto il progetto, aggiungere la query come nuovo elemento. La query è disponibile in **C:/hdp/GettingStarted/Hive/w3c**. Dopo aver aggiunto la query al progetto, sostituire **${hiveconf:input}** con **/w3c/hive/input** e quindi fare clic su **Invia**.
+	> [AZURE.NOTE] In questa fase è anche possibile usare Strumenti di Visual Studio per HDInsight per eseguire la query Hive. Aprire Visual Studio, creare un nuovo progetto e dal modello di HDInsight selezionare **Applicazione Hive**. Una volta aperto il progetto, aggiungere la query come nuovo elemento. La query è disponibile in **C:/hdp/GettingStarted/Hive/w3c**. Dopo aver aggiunto la query al progetto, sostituire **${hiveconf:input}** con **/w3c/hive/input** e quindi fare clic su **Invia**.
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ Il motore di query Hive può risultare familiare agli analisti con competenze av
 
 6. Eseguire il comando seguente per eseguire il file di script HiveQL **w3ctotalhitsbypage.hql**.
 
-	> [AZURE.NOTE]Come spiegato prima, è possibile eseguire questa query anche usando Strumenti di Visual Studio per HDInsight.
+	> [AZURE.NOTE] Come spiegato prima, è possibile eseguire questa query anche usando Strumenti di Visual Studio per HDInsight.
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connettersi all'archivio BLOB di Azure
 HDInsight Emulator usa HDFS come file system predefinito. Tuttavia, Azure HDInsight usa l'archivio BLOB di Azure come file system predefinito. È possibile configurare HDInsight Emulator in modo da usare l'archivio BLOB di Azure invece dell'archiviazione locale. Seguire le istruzioni riportate di seguito per creare un contenitore di archiviazione in Azure e connetterlo a HDInsight Emulator.
 
->[AZURE.NOTE]Per altre informazioni sul modo in cui HDInsight usa l'archivio BLOB di Azure, vedere [Usare l'archivio BLOB di Azure con HDInsight](../hdinsight-use-blob-storage.md).
+>[AZURE.NOTE] Per altre informazioni sul modo in cui HDInsight usa l'archivio BLOB di Azure, vedere [Usare l'archivio BLOB di Azure con HDInsight](../hdinsight-use-blob-storage.md).
 
 Prima di iniziare con le istruzioni riportate di seguito è necessario aver creato un account di archiviazione. Per istruzioni, vedere [Come creare un account di archiviazione](../storage-create-storage-account.md).
 
@@ -497,4 +497,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

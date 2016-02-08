@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 
@@ -29,9 +29,7 @@ Azure archivia l'immagine in**Immagini**, che è anche la posizione in cui vengo
 
 ## Prima di iniziare
 
-Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se non si sono ancora effettuate queste operazioni, vedere le istruzioni seguenti:
-
-- [Come creare una macchina virtuale che esegue Linux][]
+Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se questa operazione non è stata ancora eseguita, leggere l'articolo su come [Creare una macchina virtuale Linux][].
 
 
 ## Acquisizione della macchina virtuale
@@ -51,7 +49,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 	- Ripristina il nome host su localhost.localdomain
 	- Elimina anche l'ultimo account utente (ottenuto da /var/lib/waagent) di cui è stato effettuato il provisioning **e i dati associati**.
 
-	>[AZURE.NOTE]Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in una macchina virtuale che si vuole acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
+	>[AZURE.NOTE] Il deprovisioning elimina file e dati nel tentativo di "generalizzare" l'immagine. Eseguire questo comando solo in una macchina virtuale che si vuole acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
 
 
 3. Digitare **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
@@ -59,7 +57,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 4. Digitare **Exit** per chiudere il client SSH.
 
 
-	>[AZURE.NOTE]I passaggi successivi presuppongono che l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi riportati di seguito possono essere eseguiti anche nel [portale di Azure classico][].
+	>[AZURE.NOTE] I passaggi successivi presuppongono che l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi riportati di seguito possono essere eseguiti anche nel [portale di Azure classico][].
 
 5. Dal computer client, aprire l'interfaccia della riga di comando di Azure ed eseguire l'accesso alla sottoscrizione di Azure. Per informazioni dettagliate, leggere [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
@@ -71,7 +69,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 	`azure vm shutdown <your-virtual-machine-name>`
 
-	>[AZURE.NOTE]È possibile individuare tutte le macchine virtuali create nella sottoscrizione utilizzando `azure vm list`
+	>[AZURE.NOTE] È possibile individuare tutte le macchine virtuali create nella sottoscrizione utilizzando `azure vm list`
 
 8. Quando la macchina virtuale viene arrestata, acquisire l'immagine con il comando:
 
@@ -98,6 +96,6 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. È poss
 [Informazioni sulle immagini di macchine virtuali in Azure]: virtual-machines-images.md
 [Come creare una macchina virtuale personalizzata]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
-[Come creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
+[Creare una macchina virtuale Linux]: virtual-machines-linux-create-custom.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

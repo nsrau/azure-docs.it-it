@@ -13,8 +13,8 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
@@ -82,7 +82,7 @@ Anteprima:
 Le considerazioni sulle funzionalità in memoria in fase di anteprima sono disponibili [più avanti in questo argomento](#preview_considerations_for_in_memory).
 
 
-> [AZURE.NOTE]Le funzionalità in fase di anteprima sono disponibili solo per database SQL di Azure di livello [*Premium*](sql-database-service-tiers.md), non per database a un livello di servizio Standard o Basic.
+> [AZURE.NOTE] Le funzionalità in fase di anteprima sono disponibili solo per database SQL di Azure di livello [*Premium*](sql-database-service-tiers.md), non per i database di livello di servizio Standard o Basic.
 
 
 
@@ -92,7 +92,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 ## A. Installare l'esempio di OLTP in memoria
 
-È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel [portale di Azure](http://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con:
+È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con:
 
 - Tabelle in memoria.
 - Una stored procedure compilata in modo nativo.
@@ -100,7 +100,7 @@ Le considerazioni sulle funzionalità in memoria in fase di anteprima sono dispo
 
 #### Procedura di installazione
 
-1. Nel [portale di Azure](http://portal.azure.com/) creare un database Premium in un server versione 12. Impostare **Origine** sul database AdventureWorksLT [V12] di esempio.
+1. Nel [portale di Azure](https://portal.azure.com/) creare un database Premium in un server versione 12. Impostare **Origine** sul database AdventureWorksLT [V12] di esempio.
  - Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -148,7 +148,7 @@ Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentr
 - Demo.DemoSalesOrderDetailSeed
 
 
-È possibile esaminare le tabelle con ottimizzazione per la memoria usando **Esplora oggetti** in SSMS come indicato di seguito:
+È possibile esaminare le tabelle con ottimizzazione per la memoria tramite **Esplora oggetti** in SSMS come indicato di seguito:
 
 - Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria** uguale a 1.
 
@@ -226,6 +226,7 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
@@ -236,14 +237,14 @@ Per creare la versione \_ondisk dello script T-SQL precedente per ostress.exe, o
 ### Installare le utilità RML e ostress
 
 
-È consigliabile pianificare l'esecuzione di ostress.exe su una macchina virtuale di Azure. Creare una [macchina virtuale di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) nella stessa area geografica di Azure in cui risiede il database AdventureWorksLT. È possibile eseguire ostress.exe sul computer portatile.
+È consigliabile pianificare l'esecuzione di ostress.exe su una macchina virtuale di Azure. Creare una [macchina virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) nella stessa area geografica di Azure in cui risiede il database AdventureWorksLT. È possibile eseguire ostress.exe sul computer portatile.
 
 
 Installare nella macchina virtuale o nell'host scelto le utilità RML (Replay Markup Language) che includono ostress.exe.
 
 - Vedere la discussione su ostress.exe nell'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
  - In alternativa, vedere l'articolo relativo ai [database di esempio per OLTP in memoria](http://msdn.microsoft.com/library/mt465764.aspx).
- - In alternativa, vedere il [blog sull'installazione di ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+ - In alternativa, vedere il [blog sull'installazione di ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
@@ -314,10 +315,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Risultati previsti per il confronto
 
-I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con ostress in esecuzione in una macchina virtuale di Azure nella stessa area di Azure del database.
-
-
-Le prestazioni possono migliorare ulteriormente quando si aggiunge la conversione alle stored procedure compilate in modo nativo.
+I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con ostress in esecuzione in una VM di Azure nella stessa area di Azure del database.
 
 
 ## B. Installare l'esempio di analisi in memoria
@@ -449,7 +447,7 @@ GO
 ## Considerazioni sull'anteprima per le funzionalità di OLTP in memoria
 
 
-Le funzionalità di OLTP in memoria nel database SQL di Azure sono [attive per l'anteprima dal 28 ottobre 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+Le funzionalità di OLTP in memoria nel database SQL di Azure sono [attive per l'anteprima dal 28 ottobre 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 Durante la fase di anteprima prima della disponibilità generale (GA), OLTP in memoria è supportato solo per:
@@ -525,4 +523,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

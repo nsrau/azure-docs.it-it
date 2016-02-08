@@ -33,9 +33,9 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi in 
 *XEvent* è un nome alternativo informale utilizzato talvolta per "eventi estesi" in blog e altri percorsi informali.
 
 
-> [AZURE.NOTE]A partire da ottobre 2015, viene attivata la funzionalità della sessione eventi estesi in Azure SQL Database a livello di anteprima. La data di disponibilità generale (GA) non è ancora stabilita.
+> [AZURE.NOTE] A partire da ottobre 2015, viene attivata la funzionalità della sessione eventi estesi in Azure SQL Database a livello di anteprima. La data di disponibilità generale (GA) non è ancora stabilita.
 > 
-> La pagina degli [aggiornamenti dei servizi](http://azure.microsoft.com/updates/?service=sql-database) di Azure contiene post quando vengono fatti annunci GA.
+> La pagina degli [aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=sql-database) di Azure contiene post quando vengono fatti annunci GA.
 
 
 ## Prerequisiti
@@ -44,7 +44,7 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi in 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
 
-- [Servizio Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
+- [Servizio Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 
 - [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
@@ -54,7 +54,7 @@ In questo argomento si presuppone che si dispone già di una conoscenza di:
 Un’esposizione precedente a quanto riportato di seguito è utile quando si sceglie il file evento come [destinazione](#AzureXEventsTargets):
 
 
-- [Servizio di Archiviazione di Azure](http://azure.microsoft.com/services/storage/)
+- [Servizio di Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -269,4 +269,4 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

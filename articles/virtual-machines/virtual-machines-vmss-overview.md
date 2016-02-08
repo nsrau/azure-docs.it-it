@@ -23,7 +23,7 @@ I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure 
 
 [AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
-Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione ai set di scalabilità di macchine virtuali, vedere questo [annuncio del blog di Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview) recente.
+Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione ai set di scalabilità di macchine virtuali, vedere questo [annuncio del blog di Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) recente.
 
 Per altre informazioni sui set di scalabilità di macchine virtuali, guardare i video seguenti:
 
@@ -153,4 +153,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **R.** Sì. Un set di scalabilità di macchine virtuali è un set di disponibilità implicito impostato con 3 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,9 +34,9 @@ Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere dis
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Per eseguire script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere [Uso del cmdlet Set-ExecutionPolicy][2].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Per eseguire script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere [Uso del cmdlet Set-ExecutionPolicy][2].
 
 	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
@@ -93,8 +93,7 @@ Per poter effettuare il provisioning di un cluster HBase, è necessario disporre
 	- In **Sottoscrizione** selezionare la sottoscrizione di Azure che si desidera utilizzare per rete virtuale.
 	- **Percorso**: il percorso deve essere uguale a quello del cluster HBase che sarà creato.
     
-        > [AZURE.NOTE]
-	> Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
+        > [AZURE.NOTE] > Azure HDInsight supporta solo le reti virtuali basate sulla località e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
         
     Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -113,7 +112,7 @@ Sebbene il server DNS sia generalmente facoltativo, in alcuni casi risulta neces
 
 **Per effettuare il provisioning di un cluster HBase usando il portale di Azure**
 
-> [AZURE.NOTE]Per informazioni su come effettuare il provisioning di un nuovo cluster HBase usando Azure PowerShell, vedere [Effettuare il provisioning di un cluster HBase tramite Azure PowerShell](#powershell).
+> [AZURE.NOTE] Per informazioni su come effettuare il provisioning di un nuovo cluster HBase usando Azure PowerShell, vedere [Effettuare il provisioning di un cluster HBase tramite Azure PowerShell](#powershell).
 
 
 **Per creare un cluster HDInsight**
@@ -263,7 +262,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 
 		Questo restituirà il suffisso DNS. Ad esempio, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Per ottenere il suffisso DNS, è anche possibile usare Desktop remoto per connettersi al cluster HBase (si verrà connessi al nodo head) ed eseguire **ipconfig** da un prompt dei comandi. Per istruzioni sull'abilitazione di RDP (Remote Desktop Protocol) e sulla connessione al cluster tramite RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE] Per ottenere il suffisso DNS, è anche possibile usare Desktop remoto per connettersi al cluster HBase (si verrà connessi al nodo head) ed eseguire **ipconfig** da un prompt dei comandi. Per istruzioni sull'abilitazione di RDP (Remote Desktop Protocol) e sulla connessione al cluster tramite RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -292,7 +291,7 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Per altre informazioni sulla risoluzione dei nomi in reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> [AZURE.NOTE] Per altre informazioni sulla risoluzione dei nomi in reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Effettuare il provisioning di un cluster HBase tramite Azure PowerShell
 
@@ -392,4 +391,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ L'API che si registra nell'ambiente del servizio app è essenzialmente un proxy 
 
 #### Prerequisiti per iniziare
 
-- Iscriversi a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Iscrizione a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 - Creare un [ambiente di servizio app](powerapps-get-started-azure-portal.md).
 - Registrare un'[API](powerapps-register-from-available-apis) nell’ambiente.
 
@@ -70,7 +70,7 @@ Autenticazione con il servizio back-end | Dopo la registrazione del servizio bac
 2. Selezionare **Tutte le impostazioni**.
 3. In **Impostazioni** selezionare **Criterio**: ![][14]
 
-Questo criterio è lo stesso supportato da [Gestione API di Azure](https://azure.microsoft.com/services/api-management). Il criterio corrente è nell'editor XML integrato. È possibile modificare in linea o caricare un nuovo file XML. Dopo aver **salvato** le modifiche, gli eventuali errori vengono visualizzati in questo pannello, compresi gli errori del criterio dell'API.
+Questo criterio è lo stesso supportato da [Gestione API di Azure](https://azure.microsoft.com/services/api-management/). Il criterio corrente è nell'editor XML integrato. È possibile modificare in linea o caricare un nuovo file XML. Dopo aver **salvato** le modifiche, gli eventuali errori vengono visualizzati in questo pannello, compresi gli errori del criterio dell'API.
 
 [Criteri in Gestione API di Azure](../api-management-howto-policies.md) è un'ottima risorsa per ulteriori informazioni sulla configurazione e sui criteri.
 
@@ -88,4 +88,4 @@ Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correla
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

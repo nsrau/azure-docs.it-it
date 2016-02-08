@@ -35,7 +35,7 @@ L'hosting di una farm di SharePoint Intranet nei servizi di infrastruttura di Az
 
 Il passaggio successivo consiste nel configurare una farm di SharePoint Intranet di sviluppo/testing.
 
-> [AZURE.NOTE]Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Creare una farm di SharePoint Intranet di sviluppo/testing ospitata in Azure
 
@@ -44,7 +44,7 @@ Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata i
 - Rete virtuale solo cloud
 - Rete virtuale cross-premise
 
-È possibile creare questi ambienti di sviluppo/testing gratuitamente con il proprio [abbonamento a Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [sottoscrizione di prova di Azure](http://azure.microsoft.com/pricing/free-trial/).
+È possibile creare questi ambienti di sviluppo/testing gratuitamente con il proprio [abbonamento a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [sottoscrizione di prova di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Rete virtuale solo cloud
 
@@ -102,4 +102,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 - Ottenere una [panoramica](virtual-machines-workload-intranet-sharepoint-overview.md) del carico di lavoro di produzione prima di approfondire la configurazione.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

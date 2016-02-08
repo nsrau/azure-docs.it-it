@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Uso delle app App-V con Azure RemoteApp| Microsoft Azure" 
-    description="Informazioni sull'uso delle app App-V in Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Uso delle app App-V con Azure RemoteApp| Microsoft Azure"
+    description="Informazioni sull'uso delle app App-V in Azure RemoteApp."
+    services="remoteapp"
+	documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/19/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -36,4 +36,4 @@ L'uso dell'infrastruttura App-V esistente con Azure RemoteApp è una procedura s
 
  Dopo aver creato l'immagine personalizzata e la raccolta ibrida, è possibile pubblicare l'applicazione, assegnare gli utenti e usare le applicazioni App-V esistenti ospitate in Azure RemoteApp distribuite a qualsiasi dispositivo e in qualsiasi luogo.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

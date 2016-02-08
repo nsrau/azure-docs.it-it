@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -43,7 +43,7 @@ L'installazione guidata fornisce una configurazione valida per gli scenari più 
 - Per [modificare una regola predefinita](#change-an-out-of-box-rule), effettuare una copia della regola originale e disabilitare la regola predefinita. A tale scopo, avviare e usare l'editor delle regole di sincronizzazione.
 - Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 
->[AZURE.WARNING]Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non corrisponderà più e potrebbero verificarsi problemi quando si tenta di applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
+>[AZURE.WARNING] Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non corrisponderà più e potrebbero verificarsi problemi quando si tenta di applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
 ### Modificare i flussi degli attributi
 In alcuni casi i flussi degli attributi predefiniti non sono adatti a un'organizzazione.
@@ -113,4 +113,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

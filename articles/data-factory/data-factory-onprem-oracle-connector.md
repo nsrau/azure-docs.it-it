@@ -26,6 +26,7 @@ Per rendere il servizio di Azure Data Factory in grado di connettersi al databas
 - Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il Gateway di gestione dati è un software che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati. 
 - [Oracle Data Access Components (ODAC) per Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Deve essere installato nel computer host in cui è installato il gateway.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ## Esempio: Copiare i dati da Oracle a BLOB di Azure
 
@@ -211,7 +212,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-type | La proprietà del tipo deve essere impostata su: **OnPremisesOracle** | Sì
+type | La proprietà type deve essere impostata su: **OnPremisesOracle** | Sì
 connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì 
 gatewayName | Nome del gateway che verrà usato per connettersi al server Oracle locale | Sì
 
@@ -300,4 +301,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

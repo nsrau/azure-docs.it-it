@@ -30,7 +30,7 @@ Fare clic sul collegamento seguente per istruzioni su come aggiornare i ruoli di
 
 - [Per aggiornare l'SA nell'account](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
 
-- [Aggiungere un nuovo CA nel portale di gestione](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription).
+- [Aggiungere un nuovo CA nel portale di gestione.](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
 
 ## La sottoscrizione è associata a un account Microsoft o a un account aziendale?
 
@@ -54,6 +54,6 @@ Ora che è possibile accedere ad Azure con un account aziendale, ecco le modific
 
 ## Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
+Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

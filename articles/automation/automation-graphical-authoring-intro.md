@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Creazione grafica in Automazione di Azure
@@ -41,6 +41,10 @@ Le sezioni seguenti descrivono i controlli dell'editor grafico.
 ### Canvas
 Il canvas è l'area in cui vengono progettati i Runbook. È possibile aggiungere attività al Runbook dai nodi del controllo Library e connetterle con collegamenti per definire la logica del Runbook.
 
+È possibile utilizzare i controlli nella parte inferiore dell'area di disegno per fare zoom avanti e indietro.
+
+![Area di lavoro grafica](media/automation-graphical-authoring-intro/canvas-zoom.png)
+
 ### Controllo Library
 
 Il controllo Library consente di selezionare [attività](#activities) da aggiungere al Runbook. È possibile aggiungerle al canvas, dove vengono connesse ad altre attività. Il canvas include quattro sezioni descritte nella tabella seguente.
@@ -49,7 +53,7 @@ Il controllo Library consente di selezionare [attività](#activities) da aggiung
 |:---|:---|
 | Cmdlets | Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbooks | Include i Runbook dell'account di Automazione organizzati per tag. Poiché un Runbook può avere più di un tag, è possibile che venga elencato in più tag. Questi Runbook possono essere aggiunti al canvas per essere usati come Runbook figlio. Il Runbook attualmente in fase di modifica è visualizzato, ma non può essere aggiunto al canvas poiché non può chiamare se stesso.
-| Assets | Include gli [asset di automazione](http://msdn.microsoft.com/library/dn939988.aspx) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un Runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla.
+| Asset | Include gli [asset di automazione](http://msdn.microsoft.com/library/dn939988.aspx) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un Runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla.
 | Runbook Control | Include attività di controllo di Runbook che è possibile usare nel Runbook corrente. Una *giunzione* accetta più input e attende che vengano completati tutti prima di continuare il flusso di lavoro. Uno *script di flusso di lavoro* esegue una o più righe di codice del flusso di lavoro di PowerShell. È possibile usare questa attività per il codice personalizzato o per funzionalità che non è possibile ottenere con altre attività.|
 
 ### Controllo Configuration
@@ -140,6 +144,38 @@ Quando si specifica un valore per un parametro, è necessario selezionare un'ori
 #### Parametri aggiuntivi facoltativi
 
 Per tutti i cmdlet è possibile specificare parametri aggiuntivi. Si tratta di parametri comuni di PowerShell o di altri parametri personalizzati. Viene visualizzata una casella di testo in cui è possibile specificare parametri usando la sintassi di PowerShell. Per usare ad esempio il parametro comune **Verbose**, specificare **"-Verbose: $True"**.
+
+### Ripetere l'attività
+
+**Comportamento in caso di nuovo tentativo** consente di eseguire un'attività più volte, finché non viene soddisfatta una determinata condizione. È possibile usare questa funzionalità per le attività da eseguire più volte o che sono soggette a errori e potrebbero richiedere più di un tentativo per riuscire.
+
+Quando si abilita la ripetizione dei tentativi per un'attività, è possibile impostare un ritardo e una condizione. Il ritardo è il tempo, espresso in secondi o minuti, che il runbook attenderà prima di eseguire nuovamente l'attività. Se non viene specificato un ritardo, l'attività verrà eseguita immediatamente dopo il completamento.
+
+![Ritardo di ripetizione dei tentativi di attività](media/automation-graphical-authoring-intro/retry-delay.png)
+
+La condizione di ripetizione dei tentativi è un'espressione di PowerShell che viene valutata dopo ogni esecuzione dell'attività. Se l'espressione restituisce True, l'attività viene eseguita di nuovo. Se l'espressione restituisce False, l'attività non viene eseguita di nuovo e il runbook passa all'attività successiva.
+
+![Ritardo di ripetizione dei tentativi di attività](media/automation-graphical-authoring-intro/retry-condition.png)
+
+La condizione di ripetizione dei tentativi può usare una variabile denominata $RetryData che fornisce l'accesso alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente.
+
+| Proprietà | Descrizione |
+|:--|:--|
+| NumberOfAttempts | Numero di volte in cui l'attività è stata eseguita. |
+| Output | Output dell'ultima esecuzione dell'attività. |
+| TotalDuration | Tempo trascorso dal primo avvio dell'attività. |
+| StartedAt | Ora in formato UTC del primo avvio dell'attività. |
+
+Di seguito sono riportati alcuni esempi di condizioni per la ripetizione dei tentativi dell'attività.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
 
 ### Controllo Workflow Script
 
@@ -239,7 +275,11 @@ I dati vengono scritti nel bus di dati secondo il tipo di collegamento dell'atti
 
 ### Checkpoint
 
-Per i Runbook grafici sono valide le stesse linee guida applicate per l'impostazione di [checkpoint](automation-powershell-workflow/#checkpoints) in un Runbook. È possibile aggiungere un'attività per il cmdlet Checkpoint-Workflow nel punto in cui si vuole impostare un checkpoint. Far seguire quindi a questa attività Add-AzureAccount nel caso in cui il Runbook inizi da questo checkpoint in un computer di lavoro diverso.
+È possibile impostare [Checkpoint](automation-powershell-workflow/#checkpoints) in un runbook grafico selezionando *Checkpoint per runbook* in qualsiasi attività. In questo modo viene impostato un checkpoint dopo l'esecuzione dell'attività.
+
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+Per i runbook grafici sono valide le stesse informazioni aggiuntive per l'impostazione di checkpoint in un runbook. Se il runbook usa i cmdlet di Azure, è consigliabile eseguire qualsiasi attività con checkpoint con un Add-AzureRMAccount, nel caso in cui il runbook venga sospeso e riavviato da questo checkpoint in un ruolo di lavoro diverso.
 
 
 ## Autenticazione per le risorse di Azure
@@ -379,4 +419,4 @@ Nell'esempio seguente viene utilizzato l'output di un'attività denominata *Get 
 - [Operatori](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,11 +27,11 @@ La raccolta di macchine virtuali di Microsoft Azure include immagini che conteng
 
 Esistono due tipi di licenza di SQL Server in macchine virtuali di Microsoft Azure:
 
-1. Vantaggi di mobilità delle licenze che fanno parte del contratto Software Assurance. Per altre informazioni, vedere [Mobilità delle licenze tramite Software Assurance in Azure](http://azure.microsoft.com/pricing/license-mobility/).
+1. Vantaggi di mobilità delle licenze che fanno parte del contratto Software Assurance. Per altre informazioni, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. Pagare la tariffa oraria di macchine virtuali di Azure con SQL Server installato. Vedere la sezione "SQL Server" in [Prezzi delle macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+1. Pagare la tariffa oraria di macchine virtuali di Azure con SQL Server installato. Vedere la sezione "SQL Server" in [Prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Per altre informazioni sulla gestione delle licenze e le tariffe attuali, vedere l'articolo relativo alle [domande frequenti sulle licenze di macchine virtuali](http://azure.microsoft.com/pricing/licensing-faq/%20).
+Per altre informazioni sulla gestione delle licenze e le tariffe attuali, vedere l'articolo relativo alle [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/%20/).
 
 ## Immagini SQL Server disponibili nella raccolta macchine virtuali di Azure
 
@@ -86,7 +86,7 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
 
 <sup>1</sup> Per altre informazioni su SharePoint e le macchine virtuali di Azure, vedere gli articoli relativi alle [architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e alla [distribuzione di SharePoint in macchine virtuali di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Eseguire il comando PowerShell seguente per ottenere un elenco dei servizi installati che contengono "SQL" nel nome.
+![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) Eseguire il comando PowerShell seguente per ottenere un elenco dei servizi installati che contengono "SQL" nel nome del servizio.
 
 	get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
@@ -108,7 +108,7 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
 
 	![Servizi di SQL Server](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
 
-	>[AZURE.NOTE]Il motore del database di SQL Server è necessario negli scenari BI supportati. Nella topologia di macchina virtuale con un solo server, il motore del database deve essere in esecuzione nella macchina virtuale stessa.
+	>[AZURE.NOTE] Il motore del database di SQL Server è necessario negli scenari BI supportati. Nella topologia di macchina virtuale con un solo server, il motore del database deve essere in esecuzione nella macchina virtuale stessa.
 
 	Per altre informazioni, vedere gli argomenti seguenti: [Disinstallare Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [Disinstallazione di un'istanza di Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 
@@ -152,7 +152,7 @@ Analysis Services, Reporting Services e il motore di Database SQL Server e origi
 
 L'immagine della raccolta di macchine virtuali per SQL Server include l’istallazione della modalità nativa di Reporting Services, tuttavia, il server di report non è configurato. I passaggi descritti in questa sezione consentono di configurare il server di report di Reporting Services. Per informazioni più dettagliate sulla configurazione della modalità nativa di Reporting Services, vedere [Installare il server di report in modalità nativa di Reporting Services](https://msdn.microsoft.com/library/ms143711.aspx).
 
->[AZURE.NOTE]Per contenuti simili che usano script di Windows PowerShell per configurare il server di report, vedere [Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
+>[AZURE.NOTE] Per contenuti simili che usano script di Windows PowerShell per configurare il server di report, vedere [Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
 
 ### Connettersi alla macchina virtuale e avviare Gestione configurazione di Reporting Services
 
@@ -170,7 +170,7 @@ Esistono due flussi di lavoro comuni per la connessione a una macchina virtuale 
 		
 		Myservice.cloudapp.net:63133
 		
-		Per altre informazioni, vedere l'articolo relativo alla [definizione di servizio cloud](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
+		Per altre informazioni, vedere l'articolo relativo alla [definizione di servizio cloud](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Avviare Gestione configurazione Reporting Services.**
 
@@ -206,11 +206,11 @@ Oppure
 
 1. Verificare che nel campo **Nome server** sia specificato il nome del server locale e fare clic su **Connetti**.
 
-1. Si noti che il campo **Nome database server di report** è vuoto. Il database viene creato al completamento della configurazione.
+1. Si noti lo spazio vuoto **Nome database del server di report**. Il database viene creato al completamento della configurazione.
 
 1. Verificare che lo **Stato server di report** sia **Avviato**. Se si desidera verificare il servizio in Gestione server di Windows, il servizio è il servizio Windows **SQL Server Reporting Services**.
 
-1. Fare clic su **Account del servizio** e modificare l'account in base alle esigenze. Se la macchina virtuale viene usata in un ambiente non associato a un dominio, l'account **ReportServer** incorporato è sufficiente. Per altre informazioni sull'account del servizio, vedere [Account del servizio](https://msdn.microsoft.com/library/ms189964.aspx).
+1. Fare clic su **Account del servizio** e modificare l'account in base alle esigenze. Se la macchina virtuale viene usata in un ambiente non associato a un dominio, l'account **ReportServer** incorporato è sufficiente. Per ulteriori informazioni sull'account del servizio, vedere [Account del servizio](https://msdn.microsoft.com/library/ms189964.aspx).
 
 1. Nel riquadro a sinistra fare clic su **URL servizio Web**.
 
@@ -218,7 +218,7 @@ Oppure
 
 1. Osservare gli **URL servizio Web ReportServer**. Tenere presente che la porta TCP predefinita è 80 e che fa parte dell'URL. Successivamente si creerà un endpoint della macchina virtuale Microsoft Azure per la porta.
 
-1. Nel riquadro **Risultati** verificare le azioni completate correttamente.
+1. Nel riquadro **Risultati**, verificare le azioni completate correttamente.
 
 **Database:**
 
@@ -228,7 +228,7 @@ Oppure
 
 1. Accertarsi che l'opzione **Crea un nuovo database del server di report** sia selezionata e quindi fare clic su Avanti.
 
-1. Verificare il campo **Nome server** e fare clic su **Test connessione**.
+1. Verificare **Nome server** e fare clic su **Connessione di test**.
 
 1. Se il risultato è **Test della connessione completato**, fare clic su **OK** e quindi su **Avanti**.
 
@@ -246,7 +246,7 @@ Oppure
 
 1. Fare clic su **Apply**.
 
-1. Nel riquadro **Risultati** verificare le azioni completate correttamente.
+1. Nel riquadro **Risultati**, verificare le azioni completate correttamente.
 
 1. Fare clic su **Esci**.
 
@@ -264,13 +264,13 @@ Per verificare la configurazione, passare a Gestione report sulla macchina virtu
 
 Se si desidera connettersi a Gestione report sulla macchina virtuale da un computer remoto, creare un nuovo endpoint TCP della macchina virtuale. Per impostazione predefinita, il server di report è in ascolto delle richieste HTTP sulla **porta 80**. Se si configurano gli URL del server di report per l'utilizzo di una porta diversa, è necessario specificare il numero della porta nelle istruzioni seguenti.
 
-1. Creare un endpoint per la macchina virtuale sulla Porta TCP 80. Per altre informazioni, vedere la sezione[Endpoint della macchina virtuale e porte del Firewall](#virtual-machine-endpoints-and-firewall-ports) in questo documento.
+1. Creare un endpoint per la macchina virtuale sulla Porta TCP 80. Per ulteriori informazioni vedere la sezione[Endpoint della macchina virtuale e porte del Firewall](#virtual-machine-endpoints-and-firewall-ports) in questo documento.
 
 1. Aprire la porta 80 nel firewall della macchina virtuale.
 
-1. Passare a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio:
+1. Passare a Gestione report utilizzando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio:
 
-	**Gestione report**: http://uebi.cloudapp.net/reportserver **Server di report**: http://uebi.cloudapp.net/reports
+	**Gestione report**: http://uebi.cloudapp.net/reportserver **Server di Report**: http://uebi.cloudapp.net/reports
 
 	[Configurare un firewall per l'accesso al server di report](https://technet.microsoft.com/library/bb934283.aspx)
 
@@ -286,9 +286,9 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 	
 	Per altre informazioni, vedere [Installazione, disinstallazione e supporto di Generatore report](https://technet.microsoft.com/library/dd207038.aspx).
 
-- **SQL Server Data Tools - Macchina virtuale**: SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **progetti di server di report** e report nella macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
+- **SQL Server Data Tools**: Macchina virtuale: SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **Progetti di server di report** e report sulla macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
 
-- **SQL Server Data Tools - Remoto**: nel computer locale creare un progetto di Reporting Services in SQL Server Data Tools contenente i report di Reporting Services. Configurare il progetto per connettersi all'URL del servizio Web.
+- **SQL Server Data Tools: Remoto**: nel computer locale, creare un progetto di Reporting Services in SQL Server Data Tools che contiene i report di Reporting Services. Configurare il progetto per connettersi all'URL del servizio Web.
 
 	![proprietà del progetto ssdt per un progetto SSRS](./media/virtual-machines-sql-server-business-intelligence/IC650114.gif)
 
@@ -298,7 +298,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 	
 	1. Creare e installare un certificato di gestione.
 	
-	1. Caricare il file VHD in Azure usando il cmdlet Add-AzureVHD. Vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
+	1. Caricare il file VHD in Azure utilizzando il cmdlet Add-AzureVHD [Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
 	
 	1. Collegare il disco alla macchina virtuale
 
@@ -306,7 +306,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 Per installare servizi aggiuntivi di SQL Server, ad esempio Analysis Services in modalità tabulare, eseguire l'installazione guidata di SQL server. I file di installazione sono sul disco locale della macchina virtuale.
 
-1. Fare clic sul pulsante **Start** e quindi scegliere **Tutti i programmi**.
+1. Fare clic su **Start** e quindi fare clic su **Tutti i programmi**.
 
 1. Fare clic su **Microsoft SQL Server 2014** o **Microsoft SQL Server 2012** e quindi su **Strumenti di configurazione**.
 
@@ -314,7 +314,7 @@ Per installare servizi aggiuntivi di SQL Server, ad esempio Analysis Services in
 
 O eseguire C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe
 
->[AZURE.NOTE]La prima volta che si esegue l'installazione di SQL Server, possono essere scaricati più file di installazione che richiedono un riavvio della macchina virtuale e il riavvio del programma di installazione di SQL Server.
+>[AZURE.NOTE] La prima volta che si esegue l'installazione di SQL Server, possono essere scaricati più file di installazione che richiedono un riavvio della macchina virtuale e il riavvio del programma di installazione di SQL Server.
 >
 >Se è necessario personalizzare ripetutamente l'immagine selezionata dalla macchina virtuale Microsoft Azure, è consigliabile creare la propria immagine di SQL Server. È stata abilitata la funzionalità di Analysis Services SysPrep con SQL Server 2012 SP1 CU2. Per altre informazioni, vedere [Considerazioni per l'installazione di SQL Server tramite SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
 
@@ -354,7 +354,7 @@ Il server Analysis Services supporta solo l'autenticazione di windows. Per acced
 
 Un'**istanza predefinita** di Analysis Services è in ascolto sulla porta TCP **2383**. Aprire la porta nel firewall delle macchine virtuali. Anche un'istanza denominata di Analysis Services in cluster è in ascolto sulla porta **2383**.
 
-Per un'**istanza denominata** di Analysis Services, è necessario il servizio SQL Server Browser per gestire l'accesso alla porta. La configurazione predefinita di SQL Server Browser prevede la porta **2382**.
+Per un'**istanza denominata** di Analysis Services, è necessario il servizio SQL Server Browser per gestire l'accesso alla porta. La configurazione predefinita di SQL Server Browser è la porta **2382**.
 
 Nel firewall delle macchine virtuali aprire la porta **2382** e creare una porta statica dell'istanza denominata di Analysis Services.
 
@@ -362,15 +362,15 @@ Nel firewall delle macchine virtuali aprire la porta **2382** e creare una porta
 
 		netstat /ao
 
-1. Utilizzare SQL Server Management Studio per creare una porta statica dell’istanza denominata di Analysis Services aggiornando il valore 'Porta' nelle proprietà generali dell’istanza AS tabulare. Per altre informazioni, vedere "Utilizzare una porta fissa per un'istanza predefinita o denominata di Analysis Services" in [Configurare Windows Firewall per consentire l'accesso ad Analysis Services](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed).
+1. Utilizzare SQL Server Management Studio per creare una porta statica dell’istanza denominata di Analysis Services aggiornando il valore 'Porta' nelle proprietà generali dell’istanza AS tabulare. Per ulteriori informazioni, vedere "Utilizzare una porta fissa per impostazione predefinita o istanza denominata" in [Configurare Windows Firewall per consentire l'accesso ad Analysis Services](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed).
 
 1. Riavviare l'istanza tabulare del servizio Analysis Services.
 
-Per altre informazioni, vedere la sezione**Endpoint della macchina virtuale e porte del Firewall** in questo documento.
+Per ulteriori informazioni vedere la sezione**Endpoint della macchina virtuale e porte del Firewall** in questo documento.
 
 ## Endpoint della macchina virtuale e porte del Firewall
 
-Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure da creare e le porte da aprire nel firewall della macchina virtuale. La tabella seguente riepiloga le porte **TCP** per creare endpoint e le porte da aprire nel firewall delle macchine virtuali.
+Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure da creare e le porte da aprire nel firewall della macchina virtuale. Nella tabella seguente sono riepilogate le porte **TCP** per creare endpoint e le porte da aprire nel firewall delle macchine virtuali.
 
 - Se si utilizza una singola macchina virtuale e i due elementi seguenti sono true, non è necessario creare endpoint di macchina virtuale e non è necessario aprire le porte nel firewall della macchina virtuale.
 
@@ -411,7 +411,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-provision-sql-server.md)
 
@@ -423,7 +423,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Modellazione multidimensionale (esercitazione AdventureWorks)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Centro di documentazione di Azure](http://azure.microsoft.com/documentation/)
+- [Centro di documentazione di Azure](https://azure.microsoft.com/documentation/)
 
 - [Utilizzo di Power BI in un ambiente ibrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
@@ -433,4 +433,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

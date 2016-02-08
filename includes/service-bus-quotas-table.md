@@ -1,4 +1,4 @@
-La tabella seguente include le informazioni sulle quote specifiche per la messaggistica del Bus di servizio: I limiti di Hub eventi sono inclusi in questa tabella, ma per ulteriori informazioni su Hub eventi, vedere [Prezzi di Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](http://azure.microsoft.com/pricing/details/service-bus/).
+La tabella seguente include le informazioni sulle quote specifiche per la messaggistica del Bus di servizio: I limiti di Hub eventi sono inclusi in questa tabella, ma per ulteriori informazioni su Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](https://azure.microsoft.com/pricing/details/service-bus/).
 
 |Nome della quota|Scope|Tipo|Comportamento in caso di superamento|Valore|
 |---|---|---|---|---|
@@ -26,4 +26,4 @@ La tabella seguente include le informazioni sulle quote specifiche per la messag
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -49,13 +49,7 @@ Ad esempio, un errore HTTP 404 può verificarsi per diversi motivi, per cui che 
 |ErroreDiConflitto|Conflitto (409)|Si è verificato un conflitto che ha impedito il completamento dell'operazione.|
 |ReindirizzamentoTemporaneo|Reindirizzamento temporaneo (307)|L'oggetto richiesto non è disponibile. Un URI temporaneo per la nuova posizione dell'oggetto può essere ottenuto dal campo Percorso nella risposta. È possibile ripetere la richiesta originale con il nuovo URI.|
 
-Le operazioni API possono inoltre restituire informazioni aggiuntive sugli errori definite dal servizio di gestione. Queste informazioni aggiuntive sugli errori vengono restituite nel corpo della risposta. Il corpo della risposta di errore segue il formato di base riportato di seguito.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+Le operazioni API possono inoltre restituire informazioni aggiuntive sugli errori definite dal servizio di gestione. Queste informazioni aggiuntive sugli errori vengono restituite nel corpo della risposta.
 
 ## Vedere anche
 
@@ -68,7 +62,7 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
  [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/dn528946)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
@@ -78,4 +72,4 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

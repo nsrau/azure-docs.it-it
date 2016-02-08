@@ -28,7 +28,7 @@ Service Fabric di Azure è una piattaforma di sistemi distribuiti che consente d
 
 **Applicazione/Tipo di applicazione**: una raccolta di microservizi. Un tipo di applicazione può essere paragonato a un contenitore per uno o più tipi di servizio. Consultare l'articolo sul [modello di applicazione](service-fabric-application-model.md) per comprendere in che modo un cluster (che a sua volta è costituito da più nodi) può comprendere più tipi di applicazione.
 
-**Servizio/Tipo di servizio**: codice e configurazione che eseguono una funzione autonoma (può avviarsi e funzionare in modo indipendente), ad esempio, un servizio di accodamento o un servizio di database. Un tipo di applicazione può comprendere uno o più tipi di servizio. Esistono due tipi di servizi:
+**Servizio/Tipo di servizio**: codice e configurazione che eseguono una funzione autonoma (può avviarsi e funzionare in modo indipendente), ad esempio, un servizio di accodamento o un servizio di database. Un tipo di applicazione può essere costituito da uno o più tipi di servizio. Esistono due tipi di servizi:
 
 - Servizio senza stato: un servizio con uno stato dove lo stato è persistente nell'archiviazione esterna, ad esempio l'archiviazione dei database o delle tabelle di Azure. Se un nodo in cui è attiva un'istanza di questo servizio si arresta, un'altra istanza viene avviata automaticamente in un altro nodo.
 
@@ -53,4 +53,4 @@ Per ulteriori informazioni su Infrastruttura di servizi, vedere:
 - [Modello di applicazione](service-fabric-application-model.md)
 - [Scenari applicativi](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

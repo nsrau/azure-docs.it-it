@@ -1,4 +1,4 @@
-Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio (S1, S2, F1). Per informazioni sul costo di ogni *unità* in ogni livello, vedere [Prezzi di IoT Hub](http://azure.microsoft.com/pricing/details/iot-hub/).
+Nella tabella seguente sono elencati i limiti associati ai diversi livelli di servizio (S1, S2, F1). Per informazioni sul costo di ogni *unità* in ogni livello, vedere [Prezzi di IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Risorsa | S1 Standard | S2 Standard | F1 Gratuito |
 | -------- | ----------- | ----------- | ------- |
@@ -6,7 +6,7 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 | Unità massime | 200 | 200 | 1 |
 | Aggiornamenti del dispositivo (creazione, aggiornamento <br/> eliminazione) per unità al giorno | 1100 | 1100 | 1100 |
 
-> [AZURE.NOTE]Se si prevede l'utilizzo di più di 200 unità con un hub di livello S1 o S2, contattare il supporto tecnico di Microsoft.
+> [AZURE.NOTE] Se si prevede l'utilizzo di più di 200 unità con un hub di livello S1 o S2, contattare il supporto tecnico di Microsoft.
 
 Nella tabella seguente sono elencate le limitazioni che si applicano alle risorse IoT Hub:
 
@@ -33,4 +33,4 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1) <br/> Minimo 100/sec |
 | Operazioni dal cloud al dispositivo <br/> (inoltri, ricezioni e suggerimenti) | 100/min/unità |
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

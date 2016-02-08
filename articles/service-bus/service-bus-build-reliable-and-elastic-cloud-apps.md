@@ -42,7 +42,7 @@ La domanda dinamica è un fattore da considerare per le nuove applicazioni. Dall
 
 ## Servizi correlati
 
-- [Servizi cloud](http://azure.microsoft.com/services/cloud-services/) 
+- [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 ## Panoramica  
 In questa guida sono illustrati diversi scenari di utilizzo comuni del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **uso di entità di tabella**.
 
->[AZURE.NOTE]Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata è Storage Client Library 1.0.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
+>[AZURE.NOTE] Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. La versione consigliata è Storage Client Library 1.0.0, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -46,12 +46,12 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
 	#include "was/table.h"
 
 ## Impostare una stringa di connessione di archiviazione di Azure  
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente. Usare il nome del proprio account di archiviazione e la chiave di accesso alle risorse di archiviazione indicata nel [portale di Azure](portal.azure.com) per i valori *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente. Usare il nome del proprio account di archiviazione e la chiave di accesso alle risorse di archiviazione indicata nel [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Per testare l'applicazione nel proprio computer Windows locale, è possibile usare l'[emulatore di archiviazione](storage-use-emulator.md) di Azure che viene installato con [Azure SDK](http://azure.microsoft.com/downloads/). L'emulatore di archiviazione è un'utilità che simula i servizi BLOB, tabelle e di accodamento di Azure nel computer di sviluppo locale. Nell’esempio seguente viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione all’emulatore di archiviazione locale:
+Per testare l'applicazione nel proprio computer Windows locale, è possibile usare l'[emulatore di archiviazione](storage-use-emulator.md) di Azure che viene installato con [Azure SDK](https://azure.microsoft.com/downloads/). L'emulatore di archiviazione è un'utilità che simula i servizi BLOB, tabelle e di accodamento di Azure nel computer di sviluppo locale. Nell’esempio seguente viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione all’emulatore di archiviazione locale:
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -359,7 +359,7 @@ Mediante una query su una tabella è possibile recuperare solo alcune proprietà
 		std::wcout << std::endl;
 	}
 
->[AZURE.NOTE]L'esecuzione di una query di alcune proprietà di un'entità è un'operazione più efficiente rispetto al recupero di tutte le proprietà.
+>[AZURE.NOTE] L'esecuzione di una query di alcune proprietà di un'entità è un'operazione più efficiente rispetto al recupero di tutte le proprietà.
 
 ## Eliminare un'entità
 È possibile eliminare facilmente un'entità dopo averla recuperata. Dopo il recupero dell’entità, chiamare **table\_operation::delete\_entity** con l’entità da eliminare. Quindi chiamare il metodo **cloud\_table.execute**. Il codice seguente recupera ed elimina un'entità con la chiave di partizione "Smith" e la chiave di riga "Jeff".
@@ -412,6 +412,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 -	[Come usare l'archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
--	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

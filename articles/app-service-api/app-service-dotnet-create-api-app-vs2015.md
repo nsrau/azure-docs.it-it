@@ -174,7 +174,7 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 ## Creare un'app per le API in Azure
 
-1. Creare un'app per le API nel [portale di anteprima di Azure](https://portal.azure.com). 
+1. Creare un'app per le API nel [portale di anteprima di Azure](https://portal.azure.com/). 
 
 	* Fare clic su **Nuovo > Web e dispositivi mobili > App per le API**.
 
@@ -256,7 +256,7 @@ Le app per le API sono essenzialmente app Web per cui Azure fornisce funzionalit
 
 In questa sezione, si passerà al portale per visualizzare la definizione di API per l'app per le API appena creata.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com) passare al pannello **App per le API** per l'app creata, fare clic su **Sfoglia > Gruppi di risorse > [il gruppo di risorse creato] > [l'app per le API creata]**.
+1. Nel [portale di anteprima di Azure](https://portal.azure.com/) passare al pannello **App per le API** per l'app creata, fare clic su **Sfoglia > Gruppi di risorse > [il gruppo di risorse creato] > [l'app per le API creata]**.
 
 4. Fare clic su **Definizione API**.
 
@@ -294,4 +294,4 @@ In questa sezione, si passerà al portale per visualizzare la definizione di API
 È stata creata e distribuita un'app per le API tramite Visual Studio 2015 RC. Per documentazione aggiuntiva sulle app per le API, vedere le voci del riquadro di spostamento visualizzato sul lato sinistro della pagina (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte). La maggior parte della documentazione sulle app per le API è attualmente relativa a Visual Studio 2013, ma molte informazioni sono applicabili a VS 2015, poiché l'interfaccia utente è simile, il codice scritto è uguale e l'interfaccia utente del portale è la stessa.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

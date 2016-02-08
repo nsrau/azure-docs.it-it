@@ -20,24 +20,24 @@
 
 # Streaming Spark: elaborare eventi dall’Hub eventi di Azure con Apache Spark in HDInsight (Windows)
 
-> [AZURE.NOTE]HDInsight offre ora cluster Spark su Linux. Per informazioni su come eseguire un'applicazione di streaming nei cluster HDInsight Spark Linux, vedere [Streaming Spark: elaborare eventi dall'Hub eventi di Azure con Apache Spark in HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+> [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come eseguire un'applicazione di streaming nei cluster HDInsight Spark Linux, vedere [Streaming Spark: elaborare eventi dall'Hub eventi di Azure con Apache Spark in HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazione scalabili, a velocità effettiva elevata e tolleranza d'errore del flusso principale. I dati possono essere acquisiti da molte origini. In questo articolo utilizziamo Hub eventi per il caricamento dati. Hub eventi è un sistema altamente scalabile dell'inserimento tale che può assumere milioni di eventi al secondo.
 
 In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, come inserire i messaggi in un Hub di eventi utilizzando un'applicazione console in C# e recuperarli in parallelo utilizzando un Zeppelin notebook configurato per Apache Spark in HDInsight.
 
-> [AZURE.NOTE]Per seguire le istruzioni riportate in questo articolo, è necessario utilizzare entrambe le versioni del portale di Azure. Per creare un Hub eventi si utilizzerà il [portale di Azure](https://manage.windowsazure.com). Per utilizzare il cluster HDInsight Spark, si utilizzerà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario utilizzare entrambe le versioni del portale di Azure. Per creare un Hub eventi si utilizzerà il [portale di Azure](https://manage.windowsazure.com). Per utilizzare il cluster HDInsight Spark, si utilizzerà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 **Prerequisiti:**
 
 È necessario disporre di quanto segue:
 
-- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Un [Hub eventi di Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - Una workstation con Microsoft Visual Studio 2013. Per istruzioni, vedere [Installazione di Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-##<a name="createeventhub"></a>Creazione Hub eventi di Azure
+##<a name="createeventhub"></a>Creare Hub di eventi di Azure
 
 1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
 
@@ -45,19 +45,19 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 
 	![procedura guidata - pagina 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Creare un Hub di eventi di Azure")
 
-	> [AZURE.NOTE]È necessario selezionare lo stesso **Percorso** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
+	> [AZURE.NOTE] È necessario selezionare lo stesso **Percorso** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
 
-3. Nella schermata di **Configurazione Hub eventi**, immettere i valori **Numero di partizione** e **Memorizzazione dei messaggi** e quindi fare clic sul segno di spunta. Per questo esempio usare un numero di partizioni pari a 10 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
+3. Nella schermata **Configura hub eventi** immettere i valori **Conteggio partizioni** e **Conservazione messaggi** e quindi fare clic sul segno di spunta. Per questo esempio usare un numero di partizioni pari a 10 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
 
 	![procedura guidata - pagina 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specificare i giorni di conservazione e la dimensione di partizione per Hub di eventi")
 
-4. Fare clic sull'Hub eventi che è stato creato, successivamente su **Configura**, quindi creare due criteri di accesso per Hub eventi.
+4. Fare clic sull'hub eventi creato, su **Configura** e quindi creare due criteri di accesso per l'hub eventi.
 
 	<table>
 <tr><th>Nome</th><th>Autorizzazioni</th></tr>
 <tr><td>mysendpolicy</td><td>Invio</td></tr>
 <tr><td>myreceivepolicy</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (**mysendpolicy**) e ascoltare (**myreceivepolicy**) l'Hub eventi.
+</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
 
 	![criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Creare criteri di Hub di eventi")
 
@@ -66,7 +66,7 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 
 	![chiavi dei criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Salvare le chiavi dei criteri")
 
-6. Nella pagina **Dashboard**, fare clic su **Informazioni di connessione** dal basso per recuperare e salvare le stringhe di connessione per l'Hub eventi utilizzando i due criteri.
+6. Nella pagina **Dashboard** fare clic su **Informazioni di connessione** in basso per recuperare e salvare le stringhe di connessione per l'hub eventi usando i due criteri.
 
 	![chiavi dei criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Salvare le stringhe di connessione criteri")
 
@@ -94,13 +94,13 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
-2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e quindi dal pannello **Dashboard del cluster** fare clic su **Notebook di Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
+2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
-	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
+	> [AZURE.NOTE] È anche possibile raggiungere il notebook di Zeppelin per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Creare un nuovo notebook. Dal riquadro intestazione, fare clic su **Notebook** e selezionare **Crea una nuova nota** dall'elenco a discesa.
+2. Creare un nuovo notebook. Dal riquadro intestazione fare clic su **Notebook** e dall'elenco a discesa, fare clic su **Crea una nuova nota**.
 
 	![Creare un nuovo notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "Creare un nuovo notebook Zeppelin")
 
@@ -110,9 +110,9 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 	![Stato di notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.newnote.connected.png "Stato di notebook Zeppelin")
 
-4. Nel paragrafo vuoto creato per impostazione predefinita del nuovo notebook, incollare il frammento seguente e sostituire i segnaposto per utilizzare la configurazione di Hub eventi. In questo frammento di codice è possibile ricevere il flusso dall’Hub eventi e registrare il flusso in una tabella temporanea denominata **mytemptable**. Nella sezione successiva, si inizierà l'applicazione mittente. È quindi possibile leggere i dati direttamente dalla tabella.
+4. Nel paragrafo vuoto creato per impostazione predefinita del nuovo notebook, incollare il frammento seguente e sostituire i segnaposto per utilizzare la configurazione di Hub eventi. In questo frammento di codice è possibile ricevere il flusso dall'hub eventi e registrare il flusso in una tabella temporanea denominata **mytemptable**. Nella sezione successiva, si inizierà l'applicazione mittente. È quindi possibile leggere i dati direttamente dalla tabella.
 
-	> [AZURE.NOTE]Nel frammento di codice riportato di seguito, **eventhubs.checkpoint.dir** deve essere impostato su una directory del contenitore di archiviazione predefinito. Se la directory non esiste, verrà creata dall'applicazione di flusso. È possibile specificare il percorso completo della directory come "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" o semplicemente il percorso relativo alla directory, ad esempio "**/mycheckpointdir**".
+	> [AZURE.NOTE] Nel frammento di codice riportato di seguito, **eventhubs.checkpoint.dir** deve essere impostato su una directory del contenitore di archiviazione predefinito. Se la directory non esiste, verrà creata dall'applicazione di flusso. È possibile specificare il percorso completo della directory come "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" o semplicemente il percorso relativo alla directory, ad esempio "**/mycheckpointdir**".
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -141,7 +141,7 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 ##<a name="runapps"></a>Eseguire le applicazioni
 
-1. Dal notebook Zeppelin eseguire il paragrafo con il frammento. Premere **MAIUSC + INVIO** o fare clic sul pulsante **Riproduci** nell'angolo in alto a destra.
+1. Dal notebook Zeppelin eseguire il paragrafo con il frammento. Premere il pulsante **MAIUSC + INVIO** o **riprodurre** nell'angolo in alto a destra.
 
 	Lo stato nell’angolo destro del paragrafo deve passare da PRONTO, IN ATTESA, IN ESECUZIONE, a COMPLETATO. L'output verrà visualizzato nella parte inferiore dello stesso paragrafo. Nella schermata è simile al seguente:
 
@@ -158,7 +158,7 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 	![Ricevere i messaggi in Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.output.png "Ricezione di messaggi nel notebook Zeppelin")
 
-4. Riavviare l’interprete Spark SQL per uscire dall'applicazione. Fare clic sulla scheda **Interprete** nella parte superiore, e per l'interprete Spark fare clic su **Riavvia**.
+4. Riavviare l’interprete Spark SQL per uscire dall'applicazione. Scegliere la scheda **Interprete** nella parte superiore e per l'interprete Spark fare clic su **Riavvia**.
 
 	![Riavviare l'interprete Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.zeppelin.restart.interpreter.png "Riavviare l'interprete Zeppelin")
 
@@ -178,7 +178,7 @@ Utilizzare Zeppelin per ricevere il flusso di dati in cluster Spark in HDInsight
 
 
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Avvio rapido: creare Apache Spark in HDInsight e avviare query interattive usando SQL Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Guida introduttiva: creare Apache Spark in HDInsight ed eseguire query interattive mediante Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Usare Spark in HDInsight per la creazione di applicazioni di Machine Learning](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Eseguire l’analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools-v1.md)
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
@@ -194,4 +194,4 @@ Utilizzare Zeppelin per ricevere il flusso di dati in cluster Spark in HDInsight
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

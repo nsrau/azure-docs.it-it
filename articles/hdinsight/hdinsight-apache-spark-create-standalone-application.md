@@ -31,10 +31,10 @@ In questo articolo vengono fornite istruzioni dettagliate sullo sviluppo di appl
 
 **Prerequisiti**
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Un ambiente IDE Java. In questo articolo viene usato IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/). 
+* Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/). 
 
 
 ## Installare il plug-in Scala per IntelliJ IDEA
@@ -138,7 +138,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
-	5. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione per **estrarre nel file JAR di destinazione** sia selezionata e quindi fare clic su **OK**. Verrà creato un solo file JAR con tutte le dipendenze.
+	5. Nella finestra di dialogo **Create JAR from Modules** verificare che l'opzione per **estrarre nel file JAR di destinazione** sia selezionata e quindi fare clic su **OK**. Verrà creato un singolo file JAR con tutte le dipendenze.
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
@@ -148,7 +148,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 		Assicurarsi che la casella **Build on make** sia selezionata per garantire che il file jar venga creato ogni volta che il progetto viene creato o aggiornato. Fare clic su **Apply** e quindi su **OK**.
 
-	7. Dalla barra dei menu, fare clic su **Build**, quindi fare clic su **Make Project**. È inoltre possibile fare clic su **Build Artifacts** per creare il file jar. Il file jar di output viene creato in **\\out\\artifacts**.
+	7. Dalla barra dei menu, fare clic su **Build**, quindi fare clic su **Make Project**. È anche possibile fare clic su **Build Artifacts** per creare il file JAR. Il file JAR di output viene creato in **\\out\\artifacts**.
 
 		![Creare un file JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 
@@ -170,7 +170,7 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -186,10 +186,10 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernel disponibili per il notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Gestire le risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

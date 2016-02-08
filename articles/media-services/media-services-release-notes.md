@@ -21,7 +21,7 @@
 
 Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto alle versioni precedenti e i problemi noti.
 
->[AZURE.NOTE]Microsoft invita i clienti a segnalare i problemi che si verificano e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum di MSDN sui Servizi multimediali di Azure].
+>[AZURE.NOTE] Microsoft invita i clienti a segnalare i problemi che si verificano e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum di MSDN sui Servizi multimediali di Azure].
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
@@ -92,9 +92,9 @@ Per altre informazioni, vedere:
 
 ##<a id="nov_changes_15"></a>Versione di novembre 2015
 
-Servizi multimediali di Azure offre ora il servizio di distribuzione della licenza Google Widevine nel cloud. Per altri dettagli, consultare [questo annuncio di blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vedere anche [questa esercitazione](media-services-protect-with-drm.md) e il [repository GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+Servizi multimediali di Azure offre ora il servizio di distribuzione della licenza Google Widevine nel cloud. Per altri dettagli, consultare [questo annuncio di blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vedere anche [questa esercitazione](media-services-protect-with-drm.md) e il [repository GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure sono in anteprima. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure sono in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ##<a id="oct_changes_15"></a>Versione di ottobre 2015
 
@@ -106,24 +106,24 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 
 ##<a id="september_changes_15"></a>Versione di settembre 2015 
 
-- AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile usare i partner dei servizi di recapito seguenti per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+- AMS offre ora la possibilità di proteggere le video on Demand (VOD) e i flussi Live con la tecnologia DRM modulare Widevine. È possibile usare i partner dei servizi di recapito seguenti per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
 	È possibile usare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
 
-- AMS ha aggiunto il supporto per i video Apple ProRes. È ora possibile caricare i file video di origine QuickTime che utilizzano Apple ProRes o altri codec. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- AMS ha aggiunto il supporto per i video Apple ProRes. È ora possibile caricare i file video di origine QuickTime che utilizzano Apple ProRes o altri codec. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- È ora possibile utilizzare il Codificatore multimediale standard per eseguire l'estrazione di archivio secondario di ritaglio e live. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- È ora possibile utilizzare il Codificatore multimediale standard per eseguire l'estrazione di archivio secondario di ritaglio e live. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Sono stati apportati i seguenti aggiornamenti per il filtro.
 
 	- È ora possibile utilizzare il formato Apple HTTP Live Streaming (HLS) con il filtro solo audio. Questo aggiornamento consente di rimuovere solo la traccia audio specificando (solo audio = false) nell'URL.
 	- Quando si definiscono i filtri per gli asset, ora è possibile combinare più filtri (fino a 3) in un singolo URL.
 
-	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 - AMS supporta ora gli I-Frames in HLS v4. Il supporto I-Frame consente di ottimizzare le operazioni di avanzamento veloce e riavvolgimento. Per impostazione predefinita, tutti gli output v4 HLS includono le playlist I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ##<a id="august_changes_15"></a>Versione di agosto 2015
 
@@ -136,9 +136,9 @@ Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seg
 
 ##<a id="july_changes_15"></a>Versione di luglio 2015
 
-- È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo post di blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4000 codifiche, è consigliabile acquistare il tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
+	Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
 - Didascalie live in tempo reale con servizi multimediali e Player di Azure. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
@@ -171,19 +171,19 @@ Annuncio delle nuove funzionalità seguenti:
 
 - [Anteprima della codifica live con Servizi multimediali](media-services-manage-live-encoder-enabled-channels.md)
 - [Manifesto dinamico](media-services-dynamic-manifest-overview.md)
-- [Anteprima del processore di contenuti multimediali Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
+- [Anteprima del processore di contenuti multimediali Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>Versione di aprile 2015
 
 ###Aggiornamenti generali di Servizi multimediali
 
-- [Annuncio di Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- [Annuncio di Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 - A partire da Servizi multimediali REST 2.10, i canali configurati per l'inserimento di un protocollo RTMP vengono creati con URL di inserimento primari e secondari. Per altre informazioni, vedere [Configurazioni di inserimento del canale](media-services-manage-channels-overview.md#channel_input)
 - Aggiornamenti di Azure Media Indexer
 	- Supporto per la lingua spagnola
 	- Nuovo formato xml di configurazione
 	
-	Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+	Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
 
 L'SDK di Servizi multimediali per .NET è ora disponibile nella versione 3.2.0.0.
@@ -202,7 +202,7 @@ Di seguito sono riportati alcuni degli aggiornamenti utilizzati dal cliente:
 ### Aggiornamenti generali di Servizi multimediali
 
 - Servizi multimediali offre ora l'integrazione con la rete CDN di Azure. Per supportare l'integrazione, la proprietà **CdnEnabled** è stata aggiunta a **StreamingEndpoint**. La proprietà **CdnEnabled** può essere usata con le API REST a partire dalla versione 2.9 (per altre informazioni, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)). La proprietà **CdnEnabled** può essere inoltre usata con SDK .NET a partire dalla versione 3.1.0.2 (per altre informazioni, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx)).
-- Annuncio del **flusso di lavoro Premium del codificatore multimediale**. Per altre informazioni, vedere [Introduzione alla codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services).
+- Annuncio del **flusso di lavoro Premium del codificatore multimediale**. Per altre informazioni, vedere [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
  
 
 
@@ -216,7 +216,7 @@ Di seguito sono riportati alcuni degli aggiornamenti utilizzati dal cliente:
 
 ### Aggiornamenti generali di Servizi multimediali
 
-Annuncio della versione GA (General Availability) per la protezione dei contenuti con la crittografia dinamica. Per altre informazioni, vedere la pagina relativa a [Servizi multimediali di Azure per il miglioramento della sicurezza di flusso con la versione GA della tecnologia DRM](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
+Annuncio della versione GA (General Availability) per la protezione dei contenuti con la crittografia dinamica. Per altre informazioni, vedere la pagina relativa a [Servizi multimediali di Azure per il miglioramento della sicurezza di flusso con la versione GA della tecnologia DRM](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
 
@@ -231,7 +231,7 @@ In questa versione il costruttore Microsoft.WindowsAzure.MediaServices.Client.Co
 
 ###Aggiornamenti generali di Servizi multimediali
 
-- Sono stati aggiunti alcuni aggiornamenti e nuove funzionalità al processore multimediale di indicizzazione di Azure. Per altre informazioni, vedere le [note sulla versione di Azure Media Indexer versione 1.1.6.7](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
+- Sono stati aggiunti alcuni aggiornamenti e nuove funzionalità al processore multimediale di indicizzazione di Azure. Per altre informazioni, vedere le [note sulla versione di Azure Media Indexer versione 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
 - È stata aggiunta una nuova API REST che consente di aggiornare le unità riservate di codifica: [EncodingReservedUnitType con REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
 - È stato aggiunto il supporto CORS per il servizio di distribuzione delle chiavi.
 - Sono stati apportati miglioramenti alle prestazioni delle opzioni per i criteri di autorizzazioni delle query.
@@ -408,7 +408,7 @@ Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 ### <a name="dec_13_donnet_changes"></a>SDK di Servizi multimediali di Azure per .NET versione 3.0.0.0
 
->[AZURE.NOTE]Le versioni 3.0.x.x non sono compatibili con le versioni precedenti 2.4.x.x.
+>[AZURE.NOTE] Le versioni 3.0.x.x non sono compatibili con le versioni precedenti 2.4.x.x.
 
 L'SDK di Servizi multimediali è ora disponibile nella versione 3.0.0.0. È possibile scaricare il pacchetto più recente dal sito Web di NuGet oppure ottenere i bit da [GitHub].
 
@@ -634,4 +634,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

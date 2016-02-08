@@ -30,6 +30,8 @@ Data factory supporta attualmente solo lo spostamento di dati da Sybase ad altri
 
 Perché Gateway di gestione dati si connetta al database Sybase, è necessario installare il [provider di dati per Sybase](http://go.microsoft.com/fwlink/?linkid=324846) nello stesso sistema del Gateway di gestione dati.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Esempio: Copiare i dati da Sybase a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -264,4 +266,4 @@ Sybase supporta i tipi T-SQL e T-SQL. Per una tabella di mapping dai tipi SQL al
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

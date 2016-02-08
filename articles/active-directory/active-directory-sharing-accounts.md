@@ -55,7 +55,7 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 - [Dashboard/report sull'utilizzo di app](active-directory-passwords-get-insights.md)
 - Portali di accesso dell'utente finale
 - [Proxy di app](active-directory-application-proxy-get-started.md)
-- [Marketplace di Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Marketplace di Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Condivisione di un account
 Per usare Azure AD per la condivisione di un account sarà necessario:
@@ -72,4 +72,4 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

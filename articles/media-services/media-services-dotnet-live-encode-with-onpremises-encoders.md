@@ -29,7 +29,7 @@ Per completare l'esercitazione è necessario quanto segue:
 
 È consigliabile esaminare i seguenti articoli:
 
-- [Codificatori live e supporto RTMP di Servizi multimediali di Azure](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Codificatori live e supporto RTMP di Servizi multimediali di Azure](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@ Il seguente esempio di codice illustra come ottenere le attività seguenti:
 - Ottenere i localizzatori per tutti gli endpoint di streaming
 - Arresto delle risorse
 	
-Per informazioni su come configurare un codificatore live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Per informazioni su come configurare un codificatore live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@ Per informazioni su come configurare un codificatore live, vedere [Codificatori 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

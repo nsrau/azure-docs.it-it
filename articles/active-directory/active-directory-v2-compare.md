@@ -20,7 +20,8 @@
 
 Se si ha familiarità con il servizio Azure AD disponibile a livello generale o si sono svolte attività di integrazione di app con Azure AD in passato, si noteranno alcune differenze in Modello app 2.0. Questo documento descrive tali differenze per una maggiore comprensione da parte dell'utente.
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
 
 ## Account Microsoft e Azure AD
@@ -105,12 +106,25 @@ Il codice precedente richiede l'autorizzazione per l'app di leggere i dati di di
 
 Consentendo a un'app di richiedere le autorizzazioni in modo dinamico tramite il parametro `scope` gli sviluppatori hanno il controllo completo dell'esperienza dell'utente. Se si desidera, è possibile scegliere di agire d'anticipo chiedendo il consenso per tutte le autorizzazioni in un'unica richiesta iniziale. In alternativa, se l'app richiede un numero elevato di autorizzazioni, è possibile scegliere di raccogliere tali autorizzazioni dall'utente in modo incrementale, man mano che determinate funzionalità dell'app vengono usate.
 
-## Accesso offline
+## Ambiti conosciuti
+
+#### Accesso offline
 Modello app 2.0 introduce una nuova autorizzazione nota per le app: l'ambito `offline_access`. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'utente visualizzerà l'ambito `offline_access` in finestre di dialogo di consenso, quali "Accedere ai dati offline", che dovrà accettare. La richiesta dell'autorizzazione `offline_access` consentirà all'app Web di ricevere token di aggiornamento di OAuth 2.0 dall'endpoint 2.0. I token di aggiornamento hanno una durata elevata e possono essere scambiati con nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
 
-Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), si riceverà solo un token di accesso dall'endpoint `/oauth2/token`. Tale token di accesso rimarrà valido per un breve periodo di tempo (in genere un'ora), per poi scadere. A questo punto, l'app reindirizza l'utente all'endpoint `/oauth2/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, l'utente può o meno avere esigenza di immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
+Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), si riceverà solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimarrà valido per un breve periodo di tempo (in genere un'ora), per poi scadere. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, l'utente può o meno avere esigenza di immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
 Per altre informazioni su OAuth 2.0, token di aggiornamento e token di accesso, consultare il [riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md).
+
+#### OpenID, profilo e indirizzo di posta elettronica
+
+Nel servizio di Azure Active Directory originale il flusso di accesso più semplice di OpenID Connect fornisce molte di informazioni sull'utente nel token ID risultante. Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
+
+Ora vengono limitate le informazioni a cui l'app ha accesso tramite l'ambito `openid`. L'ambito `openid` consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente. Per ottenere informazioni personali sull'utente nell'app, questa dovrà richiedere autorizzazioni aggiuntive all'utente. Vengono introdotti due nuovi ambiti, `email` e `profile`, che consentono di eseguire questa operazione.
+
+L'ambito `email` è molto semplice: consente all'app di accedere all'indirizzo di posta elettronica primario dell'utente tramite l'attestazione `email` nel token ID. L'ambito `profile` concede all'app l'accesso a tutte le altre informazioni di base sull'utente, vale a dire il nome, il nome utente preferito, l'ID oggetto e così via.
+
+Questo permette di creare il codice dell'app in modo che la divulgazione delle informazioni sia minima, chiedendo all'utente solo il set di informazioni necessario per il funzionamento dell'app. Per altre informazioni su questi ambiti, vedere il [riferimento all'ambito della versione 2.0](active-directory-v2-scopes.md).
+
 
 ## Attestazioni nei token
 Le attestazioni nei token rilasciati dall'endpoint 2.0 non sono identiche a quelle nei token rilasciati dagli endpoint di Azure AD disponibile a livello generale. Le app che eseguono la migrazione al nuovo servizio non devono presupporre che esista un'attestazione particolare nei token ID o di accesso. I token rilasciati dall'endpoint 2.0 sono compatibili con le specifiche di OAuth 2.0 e OpenID Connect, ma possono seguire una semantica diversa rispetto al servizio Azure AD disponibile a livello generale.
@@ -121,4 +135,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token di Model
 ## Limitazioni della versione di anteprima
 È necessario tenere presenti alcune restrizioni quando si crea un'app con l'anteprima pubblica di Modello app 2.0. Fare riferimento al documento sulle [limitazioni di Modello app 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

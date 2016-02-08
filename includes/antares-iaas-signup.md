@@ -1,4 +1,5 @@
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://www.windowsazure.com/pricing/free-trial).
+> [AZURE.NOTE]
+Per completare l'esercitazione, è necessario un account Azure. È possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

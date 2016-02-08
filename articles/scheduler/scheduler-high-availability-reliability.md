@@ -24,7 +24,7 @@ In quanto servizio core della piattaforma Azure, l’Utilità di pianificazione 
 
 ### Distribuzione del servizio con ridondanza geografica
 
-L’Utilità di pianificazione di Azure è disponibile tramite l'interfaccia utente in quasi ogni area geografica attualmente in Azure. L'elenco delle regioni in cui è disponibile l'Utilità di pianificazione di Azure è [disponibile qui](http://azure.microsoft.com/regions/#services). Se un data center in un'area servita non è disponibile, le funzionalità di failover dell'Utilità di pianificazione di Azure fanno sì che il servizio venga reso disponibile da un altro data center.
+L’Utilità di pianificazione di Azure è disponibile tramite l'interfaccia utente in quasi ogni area geografica attualmente in Azure. L'elenco delle regioni in cui è disponibile l'Utilità di pianificazione di Azure è [disponibile qui](https://azure.microsoft.com/regions/#services). Se un data center in un'area servita non è disponibile, le funzionalità di failover dell'Utilità di pianificazione di Azure fanno sì che il servizio venga reso disponibile da un altro data center.
 
 ### Replica geografica internazionale dei processi
 
@@ -72,10 +72,9 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 
  [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/dn528946)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
-
 
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

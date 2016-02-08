@@ -32,7 +32,7 @@ Il database SQL offre un sistema di gestione di database relazionali per Azure e
 
 Database SQL offre servizi di archiviazione di dati relazionali, di accesso e di gestione in Azure. Per usarlo, è necessario disporre di una sottoscrizione di Azure.
 
-1. Aprire un Web browser e passare al sito [http://azure.microsoft.com/](http://azure.microsoft.com). Per iniziare usando un account gratuito, fare clic su Versione di valutazione gratuita nell'angolo superiore destro e seguire le istruzioni visualizzate.
+1. Aprire un Web browser e passare al sito [http://azure.microsoft.com/](https://azure.microsoft.com/). Per iniziare usando un account gratuito, fare clic su Versione di valutazione gratuita nell'angolo superiore destro e seguire le istruzioni visualizzate.
 
 2. Verrà creato l'account e sarà possibile iniziare.
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](
 Ora che sono state apprese le nozioni di base della connessione al Database SQL, vedere[Sviluppo: procedure (Database SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

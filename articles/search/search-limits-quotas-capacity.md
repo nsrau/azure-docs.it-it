@@ -33,7 +33,7 @@ Si noti che non sono presenti quote o limiti massimi associati alle query. Il va
 
 ## Limiti massimi per un servizio di ricerca (dedicato) standard
 
-Nel livello di prezzo standard, un servizio di ricerca dedicato archivia solo i dati ed esegue solo i carichi di lavoro dell'utente. Diversamente dal servizio condiviso, l'allocazione delle risorse per un servizio di ricerca dedicato è regolabile, a qualsiasi livello di scalabilità necessario. È possibile impostare in modo indipendente i livelli delle risorse per le partizioni (per la scalabilità verticale archiviazione) e le repliche (per garantire un'elevata disponibilità e la scalabilità verticale di QPS e prestazioni di indicizzazione). Per informazioni dettagliate sulle diverse configurazioni di risorse, vedere l'argomento relativo alla [gestione della soluzione di ricerca](search-manage.md).
+Nel livello di prezzo standard, un servizio di ricerca dedicato archivia solo i dati ed esegue solo i carichi di lavoro dell'utente. Diversamente dal servizio condiviso, l'allocazione delle risorse per un servizio di ricerca dedicato è regolabile, a qualsiasi livello di scalabilità necessario. È possibile impostare in modo indipendente i livelli delle risorse per le partizioni (per la scalabilità verticale archiviazione) e le repliche (per garantire un'elevata disponibilità e la scalabilità verticale di QPS e prestazioni di indicizzazione). Vedere [Gestire una soluzione di ricerca](search-manage.md) per informazioni dettagliate sulle diverse configurazioni di risorse.
 
 La tabella seguente illustra un elenco di limiti superiori, ma è necessario esaminare ulteriormente il grafico di matrice per comprendere la capacità in termini di [combinazioni di partizioni e repliche](#chart) consentite.
 
@@ -67,13 +67,13 @@ Nella tabella seguente è riportato un grafico in cui sono elencate le repliche 
 <tr><td><b>4 repliche</b></td><td>4 unità di ricerca</td><td>8 unità di ricerca</td><td>12 unità di ricerca</td><td>16 unità di ricerca</td><td>24 unità di ricerca</td><td>N/D </td></tr>
 <tr><td><b>3 repliche</b></td><td>3 unità di ricerca</td><td>6 unità di ricerca</td><td>9 unità di ricerca</td><td>12 unità di ricerca</td><td>18 unità di ricerca</td><td>36 unità di ricerca</td></tr>
 <tr><td><b>2 repliche</b></td><td>2 unità di ricerca</td><td>4 unità di ricerca</td><td>6 unità di ricerca</td><td>8 unità di ricerca</td><td>12 unità di ricerca</td><td>24 unità di ricerca</td></tr>
-<tr><td><b>1 replica</b>.</td><td>1 unità di ricerca</td><td>2 unità di ricerca</td><td>3 unità di ricerca</td><td>4 unità di ricerca</td><td>6 unità di ricerca</td><td>12 unità di ricerca</td></tr>
+<tr><td><b>1 replica.</b></td><td>1 unità di ricerca</td><td>2 unità di ricerca</td><td>3 unità di ricerca</td><td>4 unità di ricerca</td><td>6 unità di ricerca</td><td>12 unità di ricerca</td></tr>
 <tr><td>N/D</td><td><b>1 partizione</b></td><td><b>2 partizioni</b></td><td><b>3 partizioni</b></td><td><b>4 partizioni</b></td><td><b>6 partizioni</b></td><td><b>12 partizioni</b></td></tr>
 </table>
 
-Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per altre informazioni, vedere [Dettagli prezzi](http://azure.microsoft.com/pricing/details/search/).
+Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per altre informazioni, vedere [Dettagli prezzi](https://azure.microsoft.com/pricing/details/search/).
 
-> [AZURE.NOTE]Il numero di repliche e partizioni si deve dividere equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). In questo modo Ricerca di Azure divide preventivamente ogni indice in 12 partizioni in modo che possa essere distribuito tra le partizioni. Ad esempio, se il servizio dispone di tre partizioni e si crea un nuovo indice, ogni partizione conterrà 4 partizioni dell'indice. Come viene suddiviso in partizioni un indice in Ricerca di Azure è un dettaglio di implementazione, soggetto a modifiche nella prossima versione. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
+> [AZURE.NOTE] Il numero di repliche e partizioni si deve dividere equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). In questo modo Ricerca di Azure divide preventivamente ogni indice in 12 partizioni in modo che possa essere distribuito tra le partizioni. Ad esempio, se il servizio dispone di tre partizioni e si crea un nuovo indice, ogni partizione conterrà 4 partizioni dell'indice. Come viene suddiviso in partizioni un indice in Ricerca di Azure è un dettaglio di implementazione, soggetto a modifiche nella prossima versione. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.
 
 ## Scegliere una combinazione di partizioni e repliche per la disponibilità elevata
 
@@ -88,11 +88,11 @@ Le indicazioni generali per la disponibilità elevata sono:
 
 Attualmente, non esiste alcun meccanismo incorporato per il ripristino di emergenza. L'aggiunta di partizioni o repliche sarebbe una strategia errata per soddisfare gli obiettivi di ripristino di emergenza. In alternativa, è possibile aggiungere la ridondanza a livello di servizio. Per una discussione più approfondita delle soluzioni alternative, vedere [questo post di forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Tenere presente che la scalabilità e i contratti di servizio sono funzionalità del servizio standard. Il servizio gratuito è disponibile a un livello di risorse fisso, con le repliche e le partizioni condivise da più sottoscrittori. Se si è partiti dal servizio gratuito e ora si desidera aggiornare, è necessario creare un nuovo servizio Ricerca di Azure a livello di standard e quindi ricaricare gli indici e i dati nel nuovo servizio. Per istruzioni sul provisioning del servizio, vedere [Creare un servizio Ricerca di Azure nel portale](search-create-service-portal.md).
+> [AZURE.NOTE] Tenere presente che la scalabilità e i contratti di servizio sono funzionalità del servizio standard. Il servizio gratuito è disponibile a un livello di risorse fisso, con le repliche e le partizioni condivise da più sottoscrittori. Se si è partiti dal servizio gratuito e ora si desidera aggiornare, è necessario creare un nuovo servizio Ricerca di Azure a livello di standard e quindi ricaricare gli indici e i dati nel nuovo servizio. Per istruzioni sul provisioning del servizio, vedere [Creare un servizio Ricerca di Azure nel portale](search-create-service-portal.md).
 
 ## Limiti della chiave API
 
-Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi di amministrazione sono specificate nell'intestazione della richiesta. Le chiavi di query sono specificate nell'URL. Per informazioni dettagliate sulla gestione delle chiavi, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md).
+Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponibili due tipi. Le chiavi di amministrazione sono specificate nell'intestazione della richiesta. Le chiavi di query sono specificate nell'URL. Per altre informazioni sulla gestione delle chiavi, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md).
 
 - 2 chiavi di amministrazione al massimo per ogni servizio
 - 50 chiavi di query al massimo per ogni servizio
@@ -112,4 +112,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 <sup>1</sup> In Ricerca di Azure, il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolate dai limiti teorici. Per altre informazioni sulla composizione dei campi e sulle restrizioni, vedere [Tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

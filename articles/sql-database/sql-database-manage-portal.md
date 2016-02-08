@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Gestire i database SQL di Azure tramite il portale di Azure classico" 
-	description="Informazioni su come utilizzare il portale di Azure classico per gestire un database relazionale nel cloud tramite il portale di Azure classico." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Gestire i database SQL di Azure tramite il portale di Azure classico"
+	description="Informazioni su come utilizzare il portale di Azure classico per gestire un database relazionale nel cloud tramite il portale di Azure classico."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# Gestione dei database SQL di Azure tramite il portale di Azure classico
+# Gestione dei database SQL di Azure tramite il portale di Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Il [portale di Azure classico][Classic Portal] consente di creare, monitorare e gestire server e database SQL di Azure. In questo articolo verranno evidenziate le operazioni di database che possono essere eseguite tramite il portale classico.
-
->[AZURE.NOTE]Se non si ha familiarità con il portale di Azure classico, in questo [tour video viene fornita una rapida panoramica][Azure Classic Portal Tour] dei concetti e delle caratteristiche generali.
+Il [portale di Azure](https://portal.azure.com/) consente di creare, monitorare e gestire server logici e database SQL di Azure. Questo articolo evidenzia alcune delle attività più comuni.
 
 ![Panoramica dei database](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Azioni di gestione del database
 ![Azioni di gestione del database](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-Il portale di Azure classico fornisce un set di azioni di database comuni accessibile nella parte superiore del pannello di un database. È possibile ripristinare un database a un momento precedente, aprire un database in Visual Studio, copiare un database in un nuovo server ed esportare il database a un account di archiviazione di Azure.
+Il portale di Azure offre un set di azioni di database comuni accessibile nella parte superiore del pannello di un database. È possibile ripristinare un database a un momento precedente, aprire un database in Visual Studio, copiare un database in un nuovo server ed esportare il database a un account di archiviazione di Azure.
 
 - [Ripristino di un database SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Aprire un database SQL in Visual Studio](sql-database-connect-query.md)
@@ -54,7 +52,7 @@ I database SQL di Azure possono essere configurati per tenere traccia di tutti g
 
 - [Controllo del Database SQL](sql-database-auditing-get-started.md)
 
-I database SQL di Azure possono essere configurati anche per mascherare i dati sensibili agli utenti che non dispongono di privilegi.
+I database SQL di Azure possono essere configurati anche per mascherare i dati sensibili agli utenti che non hanno privilegi.
 
 - [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md)
 
@@ -62,7 +60,7 @@ I database SQL di Azure possono essere configurati anche per mascherare i dati s
 ## 4\. Replica geografica
 ![Replica geografica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-I database SQL di Azure possono essere configurati per replicare in modo asincrono le transazioni sottoposte a commit in un database secondario. La parte della replica geografica del portale classico consente di selezionare l'area di Azure in cui si desidera far risiedere il database secondario.
+I database SQL di Azure possono essere configurati per replicare in modo asincrono le transazioni sottoposte a commit in un database secondario. La parte della replica geografica del portale consente di selezionare l'area di Azure in cui si vuole far risiedere il database secondario.
 
 - [Replica geografica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
 * [Database SQL](sql-database-technical-overview.md)   
 * [Monitoraggio del database SQL tramite le viste a gestione dinamica][]   
 * [Riferimento a Transact-SQL Reference (Database SQL)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

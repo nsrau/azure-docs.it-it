@@ -281,7 +281,7 @@ Per creare una nuova assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version, usare *2015-10-01-preview*.
+{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2015-10-01-preview*.
 
 Con un corpo della richiesta simile al seguente:
 
@@ -327,4 +327,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

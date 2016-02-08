@@ -56,20 +56,20 @@ Tipici utilizzi della rete CDN sono:
 L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse aree geografiche. Il ruolo Web di destinazione viene distribuito in Azure West US. Esiste una stretta correlazione tra un boost maggiore dovuto alla rete CDN e la vicinanza a un nodo della rete CDN. Per un elenco completo delle posizioni dei nodi della rete CDN, vedere [Posizione dei nodi nella rete per la distribuzione di contenuti (CDN) di Azure](cdn/cdn-pop-locations.md/).
 
 
-|| Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) | % miglioramento tempi CDN|
+| Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) |% miglioramento tempi CDN|
 |-------------|------------------------|--------------------|------------------|
-|*San José, CA| 47.5 | 46.5 | 2 % |
+|*San José, CA| 47.5 | 46.5 | 2% |
 |**Dulles, VA| 109 | 40.5 | 169% |
 |Buenos Aires, AR| 210 | 151 | 39%|
 |*Londra, UK| 195 | 44 | 343%|
 |Shanghai, CN| 242 | 206 | 17% |
-|*Singapore | 214 | 74 | 189 % |
-|*Tokyo, JP | 163 | 48 | 204 % |
+|*Singapore | 214 | 74 | 189% |
+|*Tokyo, JP | 163 | 48 | 204% |
 |Seoul, KR| 190 | 190 | 0% |
 
 
-\* Ha un nodo di rete CDN di Azure nella stessa città.  
-\*\* Ha un nodo di rete CDN di Azure in una città adiacente.  
+* Ha un nodo di rete CDN di Azure nella stessa città. 
+** Ha un nodo di rete CDN di Azure in una città adiacente.
 
 ## Sfide  
 
@@ -206,12 +206,12 @@ Includere la rete CDN come parte della strategia di monitoraggio dell'applicazio
 
 Abilitare la registrazione per la rete CDN e monitorare il log come parte delle operazioni quotidiane.
 
-Prendere in considerazione l'analisi del traffico della rete CDN per i modelli di utilizzo. Il portale di Azure fornisce strumenti che consentono di monitorare:
-+ larghezza di banda,
-+ dati trasferiti,
-+ accessi (codici di stato)
-+ stato della cache,
-+ percentuale di riscontri nella cache e
+Prendere in considerazione l'analisi del traffico della rete CDN per i modelli di utilizzo. Il portale di Azure fornisce strumenti che consentono di monitorare: 
++ larghezza di banda, 
++ dati trasferiti, 
++ accessi (codici di stato) 
++ stato della cache, 
++ percentuale di riscontri nella cache e 
 + percentuale di richieste IPV4/IPV6.
 
 Per altre informazioni, vedere [Modelli di utilizzo della rete CDN con analisi di Azure](cdn/cdn-analyze-usage-patterns.md/).
@@ -281,10 +281,10 @@ L'uso della riscrittura di URL richiede di apportare alcune modifiche alla creaz
 ## Altre informazioni
 
 
-+ [Rete CDN di Azure](http://azure.microsoft.com/services/cdn/)
++ [Rete CDN di Azure](https://azure.microsoft.com/services/cdn/)
 + [Documentazione sulla rete per la distribuzione di contenuti (CDN) di Azure](https://azure.microsoft.com/documentation/services/cdn/)
 + [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Integrare un servizio cloud con la rete CDN di Azure](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Procedure consigliate per la rete per la distribuzione di contenuti di Microsoft Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Procedure consigliate per la rete per la distribuzione di contenuti di Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

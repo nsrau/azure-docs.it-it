@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Creazione di un progetto Azure con Visual Studio | Microsoft Azure"
    description="Creazione di un progetto Azure con Visual Studio"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/22/2016"
    ms.author="tarcher" />
 
 # Creazione di un progetto Azure con Visual Studio
@@ -21,12 +21,12 @@ Gli strumenti di Azure per Visual Studio forniscono un modello per la creazione 
 
 Una soluzione di servizio cloud di Azure contiene i tipi di progetto seguenti:
 
-- **Progetto Azure** 
-    
-    Il progetto Azure contiene le associazioni ai progetti di ruolo nella soluzione. Include anche i file di definizione e di configurazione del servizio. Il file di definizione del servizio definisce le impostazioni di runtime per l'applicazione e include i ruoli richiesti, gli endpoint e le dimensioni della macchina virtuale. Il file di configurazione del servizio configura il numero delle istanze di un ruolo eseguite e i valori delle impostazioni definiti per un ruolo. Per altre informazioni su queste impostazioni, vedere [Procedura: Configurare i ruoli di un servizio cloud di Azure con Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
+- **Progetto Azure**
+
+    Il progetto Azure contiene le associazioni ai progetti di ruolo nella soluzione. Include anche i file di definizione e di configurazione del servizio. Il file di definizione del servizio definisce le impostazioni di runtime per l'applicazione e include i ruoli richiesti, gli endpoint e le dimensioni della macchina virtuale. Il file di configurazione del servizio configura il numero delle istanze di un ruolo eseguite e i valori delle impostazioni definiti per un ruolo. Per altre informazioni su queste impostazioni, vedere [Procedura: Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 - **Progetto di ruolo Web**
- 
+
     Un ruolo di lavoro esegue l'elaborazione in background, può comunicare con i servizi di archiviazione e con altri servizi basati su Internet. Un ruolo di lavoro può disporre di qualsiasi numero di endpoint HTTP, HTTPS o TCP.
 
     - **Ruolo Web ASP.NET**: per la compilazione di un'applicazione ASP.NET con un front-end Web
@@ -62,4 +62,4 @@ Una soluzione di servizio cloud di Azure contiene i tipi di progetto seguenti:
 
 1. Per rinominare un ruolo aggiunto al progetto, posizionarsi sul ruolo nella finestra di dialogo **Nuovo progetto Azure** e scegliere l'icona **Rinomina** a destra del ruolo. Una volta aggiunto, un ruolo può essere rinominato anche nella soluzione.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

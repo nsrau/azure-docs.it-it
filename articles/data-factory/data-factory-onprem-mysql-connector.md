@@ -29,6 +29,8 @@ Data factory supporta attualmente solo lo spostamento di dati da MySQL ad altri 
 ## Installazione 
 Perché Gateway di gestione dati si connetta al database MySQL, è necessario installare il [connettore MySQL/Net 6.6.5 per Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) nello stesso sistema del Gateway di gestione dati.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Esempio: Copiare i dati da MySQL a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -256,7 +258,7 @@ In caso di attività di copia con origine di tipo **RelationalSource** (che comp
 
 ### Mapping dei tipi per MySQL
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatico da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -310,4 +312,4 @@ Quando si spostano i dati in MySQL verranno usati i mapping seguenti dal tipo My
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

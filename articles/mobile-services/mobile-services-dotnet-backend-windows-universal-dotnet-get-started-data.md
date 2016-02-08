@@ -39,7 +39,7 @@ Il servizio mobile che viene creato in questa esercitazione è un servizio mobil
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> Update 3 o versione successiva.
 
 ##Scaricare il progetto GetStartedWithData
@@ -98,10 +98,10 @@ L'esercitazione è terminata.
 
 Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di Windows universale di usare dati in Servizi mobili. Successivamente, è consigliabile leggere uno di questi altri argomenti:
 
-* [Introduzione all'autenticazione]
+* [Introduzione all'autenticazione] 
   <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Introduzione alle notifiche push]
+* [Introduzione alle notifiche push] 
   <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 * [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
@@ -123,8 +123,7 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-[sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

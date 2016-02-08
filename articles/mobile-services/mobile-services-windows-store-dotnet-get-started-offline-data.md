@@ -33,7 +33,7 @@ Se si preferisce guardare un video, nel clip a destra vengono eseguiti gli stess
 
 In questa esercitazione si aggiorna il progetto di app universale creato nell'esercitazione [Introduzione a Servizi mobili] per supportare le funzionalità offline di Servizi mobili di Azure. Consente inoltre di aggiungere i dati in uno scenario offline, eseguire la sincronizzazione degli elementi con il database online e di accedere al [portale di Azure classico] per visualizzare le modifiche apportate durate l'esecuzione dell'app.
 
->[AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come Servizi mobili consente di usare Azure per archiviare e recuperare i dati di un'app di Windows Store. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
+>[AZURE.NOTE] Questa esercitazione è stata ideata per illustrare come Servizi mobili consente di usare Azure per archiviare e recuperare i dati di un'app di Windows Store. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
 ##Prerequisiti
 
@@ -44,27 +44,27 @@ Per completare questa esercitazione, è necessario disporre di:
 * [Azure Mobile Services SDK 1.3.0 o versione successiva][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store 1.0.0 o versione successiva][SQLite store nuget]
 * [SQLite per Windows 8.1](http://www.sqlite.org/download.html)
-* Un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+* Un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Aggiornare l'app per supportare le funzionalità offline
 
 Servizi mobili di Azure consente di interagire con un database locale quando si usa un servizio mobile in modalità offline. Per usare queste funzionalità nell'app, inizializzare `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. In questa esercitazione si userà SQLite per l'archivio locale.
 
->[AZURE.NOTE]È possibile ignorare questa sezione e scaricare semplicemente il progetto di esempio già dotato di supporto offline dall'archivio degli esempi di GitHub per Servizi mobili. Il progetto di esempio con supporto offline abilitato è disponibile qui, [Esempio offline TodoList].
+>[AZURE.NOTE] È possibile ignorare questa sezione e scaricare semplicemente il progetto di esempio già dotato di supporto offline dall'archivio degli esempi di GitHub per Servizi mobili. Il progetto di esempio con supporto offline abilitato è disponibile qui, [Esempio offline TodoList].
 
 1. Installare il runtime SQLite per Windows 8.1 e Windows Phone 8.1.
 
     * **Windows 8.1 Runtime:** installare [SQLite per Windows 8.1].
     * **Windows Phone 8.1:** installare [SQLite per Windows Phone 8.1].
 
-    >[AZURE.NOTE]Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
+    >[AZURE.NOTE] Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
 
 2. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili]. Installare il pacchetto NuGet **WindowsAzure.MobileServices.SQLiteStore** per i progetti relativi a Windows 8.1 Runtime e Windows Phone 8.1.
 
     * **Windows 8.1:** in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto Windows 8.1 e scegliere **Gestisci pacchetti NuGet** per eseguire Gestione pacchetti NuGet. Cercare **SQLiteStore** per installare il pacchetto `WindowsAzure.MobileServices.SQLiteStore`.
     * **Windows Phone 8.1:** fare clic con il pulsante destro del mouse sul progetto Windows Phone 8.1 e scegliere **Gestisci pacchetti NuGet** per eseguire Gestione pacchetti NuGet. Cercare **SQLiteStore** per installare il pacchetto `WindowsAzure.MobileServices.SQLiteStore`.
 
-    >[AZURE.NOTE]Se l'installazione crea un riferimento a una versione precedente di SQLite, è sufficiente eliminare il riferimento duplicato.
+    >[AZURE.NOTE] Se l'installazione crea un riferimento a una versione precedente di SQLite, è sufficiente eliminare il riferimento duplicato.
 
     ![][2]
 
@@ -183,7 +183,7 @@ Servizi mobili di Azure consente di interagire con un database locale quando si 
 
     In questo esempio vengono recuperati tutti i record presenti nella tabella `todoTable` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-    >[AZURE.NOTE]* Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+    >[AZURE.NOTE] * Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
     Si noti che può verificarsi `MobileServicePushFailedException` per un'operazione sia push che pull. Questo avviene perché l'operazione pull esegue internamente un push per garantire che tutte le tabelle e le eventuali relazioni siano coerenti. L'esercitazione successiva, [Gestione dei conflitti con il supporto offline per Servizi mobili], mostra come gestire queste eccezioni relative alla sincronizzazione.
 
@@ -283,4 +283,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

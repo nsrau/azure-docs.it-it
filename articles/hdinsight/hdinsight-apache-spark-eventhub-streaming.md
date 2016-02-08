@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="01/27/2016" 
 	ms.author="nitinme"/>
 
 
@@ -24,13 +24,13 @@ Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazion
 
 In questa esercitazione si apprenderà come creare un Hub eventi di Azure, come inserire messaggi in un hub eventi usando un'applicazione console in Java e recuperarli in parallelo con un'applicazione Spark scritta in Scala. L'applicazione utilizza i dati trasmessi tramite Hub eventi e li instrada a output diversi, come BLOB di archiviazione di Azure, tabelle Hive e tabelle SQL.
 
-> [AZURE.NOTE]Per seguire le istruzioni riportate in questo articolo, è necessario utilizzare entrambe le versioni del portale di Azure. Per creare un Hub eventi si utilizzerà il [portale di Azure](https://manage.windowsazure.com). Per utilizzare il cluster HDInsight Spark, si utilizzerà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario utilizzare entrambe le versioni del portale di Azure. Per creare un Hub eventi si utilizzerà il [portale di Azure](https://manage.windowsazure.com). Per utilizzare il cluster HDInsight Spark, si utilizzerà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
 
 **Prerequisiti:**
 
 È necessario disporre di quanto segue:
 
-- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un cluster Apache Spark. Per istruzioni, vedere [Creare cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
@@ -55,7 +55,7 @@ Ecco il flusso di questa soluzione di streaming:
 
 	![procedura guidata - pagina 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Creare un Hub di eventi di Azure")
 
-	> [AZURE.NOTE]È necessario selezionare lo stesso **Percorso** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
+	> [AZURE.NOTE] È necessario selezionare lo stesso **Percorso** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
 
 3. Nella schermata **Configura hub eventi** immettere i valori **Conteggio partizioni** e **Conservazione messaggi** e quindi fare clic sul segno di spunta. Per questo esempio usare un numero di partizioni pari a 10 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
 
@@ -88,7 +88,7 @@ In questa sezione si userà un'applicazione Scala locale autonoma per inviare un
 	
 2. Compilare il progetto. Scegliere **Make Project** dal menu **Build**. Il file JAR di output viene creato in **\\out\\artifacts**.
 
->[AZURE.TIP]È anche possibile usare un'opzione disponibile in IntelliJ IDEA per creare il progetto direttamente da un repository GitHub. Per sapere come usare questo approccio, vedere le istruzioni nella sezione successiva per informazioni aggiuntive. Si noti che molti passaggi descritti nella sezione successiva non sono applicabili per l'applicazione Scala creata in questo passaggio. Ad esempio:
+>[AZURE.TIP] È anche possibile usare un'opzione disponibile in IntelliJ IDEA per creare il progetto direttamente da un repository GitHub. Per sapere come usare questo approccio, vedere le istruzioni nella sezione successiva per informazioni aggiuntive. Si noti che molti passaggi descritti nella sezione successiva non sono applicabili per l'applicazione Scala creata in questo passaggio. Ad esempio:
 
 > * Non è necessario aggiornare il modello POM per includere la versione di Spark, perché non esistono dipendenze da Spark per la creazione di questa applicazione.
 > * Non è necessario aggiungere alcuni file JAR di dipendenza nella libreria del progetto, perché i file JAR non sono richiesti per il progetto.
@@ -121,9 +121,9 @@ Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazi
 
 5. L'applicazione richiede due file JAR di dipendenza:
 
-	* **File JAR del ricevitore EventHub**. È necessario per consentire a Spark di ricevere i messaggi dall'Hub eventi. Il file JAR è disponibile nel cluster Linux Spark in `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. È possibile usare pscp per copiare il file JAR nel computer locale.
+	* **File JAR del ricevitore EventHub**. È necessario per consentire a Spark di ricevere i messaggi dall'Hub eventi. Il file JAR è disponibile nel cluster Linux Spark in `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. È possibile usare pscp per copiare il file JAR nel computer locale.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		Il file JAR verrà copiato dal cluster Spark nel computer locale.
 
@@ -209,7 +209,7 @@ Ecco una descrizione dei parametri nel file di input:
 * **numExecutors** è il numero di core usati da Spark per eseguire l'applicazione di streaming. Deve essere sempre almeno il doppio del numero di partizioni dell'Hub eventi.
 * **executorMemory**, **executorCores**, **driverMemory** sono i parametri usati per assegnare le risorse richieste per l'applicazione di streaming.
 
->[AZURE.NOTE]Non è necessario creare le cartelle di output (EventCheckpoint, EventCount/EventCount10) usate come parametri, perché vengono create automaticamente dall'applicazione di streaming.
+>[AZURE.NOTE] Non è necessario creare le cartelle di output (EventCheckpoint, EventCount/EventCount10) usate come parametri, perché vengono create automaticamente dall'applicazione di streaming.
 	
 Quando si esegue il comando, viene visualizzato un output simile al seguente:
 
@@ -370,4 +370,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

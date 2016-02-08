@@ -36,7 +36,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 
 ### Prerequisiti di Azure
 
-- È necessario un account [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
+- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
 - Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/storage-introduction.md).
 - È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -417,7 +417,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 	
 	```
 	
-## <a name=monitor></a>Monitorare l'attività
+## <a name=monitor></a> Monitorare l'attività
 
 Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
 
@@ -449,4 +449,4 @@ if($isJobLeftForProcessing)
 
 [Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

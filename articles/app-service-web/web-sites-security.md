@@ -29,7 +29,7 @@ Servizio app di Azure offre due livelli di sicurezza:
 #### Sicurezza della piattaforma e dell'infrastruttura
 Poiché il servizio app gestisce le VM di Azure, l'archiviazione, le connessioni di rete, i framework Web, le funzionalità di gestione e integrazione e molto altro, è attivamente protetto e sottoposto a continui controlli approfonditi sulla conformità per assicurare che:
 
-- Le app del servizio app siano isolate sia da Internet che dalle risorse di Azure di altri clienti.
+- Le app del servizio app sono isolate sia da Internet che dalle risorse di Azure di altri clienti.
 - La comunicazione di segreti (ad esempio, stringhe di connessione) tra l'app del servizio app e altre risorse di Azure (ad esempio, database SQL) in un gruppo di risorse rimanga all'interno di Azure e non superi i limiti di rete. I segreti siano sempre crittografati.
 - Tutte le comunicazioni tra l'app del servizio app e le risorse esterne, ad esempio gestione di PowerShell, interfaccia della riga di comando, Azure SDK, API REST e connessioni ibride siano crittografate correttamente.
 - La gestione delle minacce 24 ore su 24 protegge le risorse del servizio app da malware, attacchi Distributed Denial of Service (DDoS), attacchi man-in-the-middle (MITM) e altre minacce. 
@@ -89,7 +89,7 @@ Inoltre, assicurarsi che le credenziali importate siano protette. Ad esempio, **
 ### Impostazioni di configurazione e stringhe di connessione
 Di solito le stringhe di connessione, le credenziali di autenticazione e altre informazioni riservate vengono archiviate nei file di configurazione. Purtroppo questi file possono essere esposti nel sito Web o inseriti in un repository pubblico che ne espone le informazioni. Una ricerca semplice in [GitHub](https://github.com), ad esempio, può portare alla luce numerosi file di configurazione con segreti esposti nei repository pubblici.
 
-La procedura consigliata consiste nell'evitare di includere queste informazioni nei file di configurazione dell'applicazione. Il servizio app consente di archiviare le informazioni di configurazione nell'ambiente di runtime come **impostazioni app** e **stringhe di connessione**. I valori vengono esposti nell'applicazione al runtime mediante *variabili di ambiente* per la maggior parte dei linguaggi di programmazione. Per le applicazioni .NET questi valori vengono inseriti nella configurazione .NET al runtime. Ad eccezione di queste situazioni, queste impostazioni di configurazione rimarranno crittografate, a meno che non vengano visualizzate o configurate usando il [portale di Azure](http://portal.azure.com) o utilità come PowerShell o l'interfaccia della riga di comando di Azure.
+La procedura consigliata consiste nell'evitare di includere queste informazioni nei file di configurazione dell'applicazione. Il servizio app consente di archiviare le informazioni di configurazione nell'ambiente di runtime come **impostazioni app** e **stringhe di connessione**. I valori vengono esposti nell'applicazione al runtime mediante *variabili di ambiente* per la maggior parte dei linguaggi di programmazione. Per le applicazioni .NET questi valori vengono inseriti nella configurazione .NET al runtime. Ad eccezione di queste situazioni, queste impostazioni di configurazione rimarranno crittografate, a meno che non vengano visualizzate o configurate usando il [portale di Azure](https://portal.azure.com) o utilità come PowerShell o l'interfaccia della riga di comando di Azure.
 
 L'archiviazione delle informazioni di configurazione nel servizio app consente all'amministratore dell'app di bloccare le informazioni riservate per le app di produzione. Gli sviluppatori possono usare un set di impostazioni di configurazione separato per lo sviluppo di app e le impostazioni possono essere sostituite automaticamente dalle impostazioni configurate nel servizio app. Anche per gli sviluppatori non è necessario conoscere i segreti configurati per l'app di produzione. Per altre informazioni sulla configurazione delle impostazioni e delle stringhe di connessione delle app nel servizio app, vedere l'articolo relativo alla [configurazione di app Web](web-sites-configure.md).
 
@@ -99,7 +99,7 @@ Servizio App di Azure offre all'app accesso FTP sicuro al file system tramite **
 
 È possibile trovare il collegamento FTPS per l'app con i passaggi seguenti:
 
-1. Aprire il [portale di Azure](http://portal.azure.com).
+1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Esplora tutto**.
 3. Dal pannello **Sfoglia** selezionare **Servizi app**.
 4. Dal pannello **Servizi app** selezionare l'app desiderata.
@@ -111,16 +111,16 @@ Per altre informazioni su FTPS, vedere [File Transfer Protocol](http://en.wikipe
 
 ## Passaggi successivi
 
-Per altre informazioni sulla sicurezza della piattaforma Azure, informazioni su come segnalare un **uso improprio o un problema di sicurezza** o per segnalare a Microsoft che si sta per eseguire un **test di penetrazione** del sito, vedere la sezione sulla sicurezza del [Centro protezione Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Per altre informazioni sulla sicurezza della piattaforma Azure, informazioni su come segnalare un **uso improprio o un problema di sicurezza** o per segnalare a Microsoft che si sta per eseguire un **test di penetrazione** del sito, vedere la sezione sulla sicurezza del [Centro protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Per altre informazioni sui file **web.config** o **applicationhost.config** nelle app del servizio app, vedere l'articolo relativo alle [opzioni di configurazione non bloccate nelle app Web di Servizio app di Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Per altre informazioni sui file **web.config** o **applicationhost.config** nelle app del servizio app, vedere l'articolo relativo alle [opzioni di configurazione non bloccate nelle app Web del servizio app di Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Per informazioni sulla registrazione di informazioni nelle app del servizio app, che potrebbero essere utili per il rilevamento di attacchi, vedere l'articolo relativo all'[abilitazione della registrazione diagnostica](web-sites-enable-diagnostic-log.md).
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

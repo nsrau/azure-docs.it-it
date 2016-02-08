@@ -27,7 +27,7 @@ Azure Government è un cloud della community governativa (GCC) progettato allo s
 
 Inoltre, Azure Government è progettato per soddisfare le esigenze di conformità e sicurezza di alto livello per i carichi di lavoro sensibili e dedicati dell'amministrazione pubblica statunitense rilevati nelle regolamentazioni, quali il programma FedRAMP (United States Federal Risk and Authorization Management Program), l'ECSB (Department of Defense Enterprise Cloud Service Broker), i requisiti della politica di sicurezza CJIS (Criminal Justice Information Services) e l'atto HIPAA (Health Insurance Portability and Accountability Act).
 
-Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei servizi e dell'infrastruttura di Azure Government, disponibili al fine di agevolare le organizzazioni governative nella creazione di soluzioni cloud ibride per raggiungere i loro obiettivi. Consultare la [pagina delle aree](http://azure.microsoft.com/regions/#services) in cui è presente un elenco più aggiornato dei servizi generalmente disponibili in quelle zone.
+Di seguito viene riportata una visualizzazione di riepilogo dei framework, dei servizi e dell'infrastruttura di Azure Government, disponibili al fine di agevolare le organizzazioni governative nella creazione di soluzioni cloud ibride per raggiungere i loro obiettivi. Consultare la [pagina delle aree](https://azure.microsoft.com/regions/#services) in cui è presente un elenco più aggiornato dei servizi generalmente disponibili in quelle zone.
 
 ![][2]
 
@@ -80,7 +80,7 @@ Servizi di Azure Government disponibili nelle agenzie governative statunitensi d
 - ExpressRoute
 - e così via.
 
-Altri servizi sono già disponibili e altri ancora verranno aggiunti regolarmente. Per l'elenco più aggiornato dei servizi, vedere la [pagina aree](http://azure.microsoft.com/regions/#services) in cui sono evidenziate tutte le aree disponibili e i relativi servizi.
+Altri servizi sono già disponibili e altri ancora verranno aggiunti regolarmente. Per l'elenco più aggiornato dei servizi, vedere la [pagina aree](https://azure.microsoft.com/regions/#services) in cui sono evidenziate tutte le aree disponibili e i relativi servizi.
 
 Attualmente, le agenzie governative statunitensi dell'Iowa e della Virginia sono i data center di supporto di Azure Government. Fare riferimento alla pagina aree riportata sopra per l'elenco dei centri dati e dei servizi disponibili.
 
@@ -98,7 +98,7 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 
 - **[Blog di Azure Government](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Conformità di Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Conformità di Azure](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 
 
@@ -117,4 +117,4 @@ Per altre informazioni dettagliate su Azure Government, servirsi dei collegament
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

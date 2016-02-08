@@ -94,7 +94,7 @@ Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili
 - **Per utente**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
 - **Per autenticazione**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
 
-Per ulteriori informazioni sui prezzi, vedere [Prezzi - Multi-Factor Authentication (MFA).](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)
+Per ulteriori informazioni sui prezzi, vedere [Prezzi - Multi-Factor Authentication (MFA).](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
 Scegliere il modello per postazione o basato sul consumo più adatto per l'organizzazione. Quindi, per iniziare vedere [Introduzione](multi-factor-authentication-get-started.md)
 
@@ -102,4 +102,4 @@ Scegliere il modello per postazione o basato sul consumo più adatto per l'organ
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

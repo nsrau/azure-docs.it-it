@@ -19,7 +19,7 @@
 	
 # Servizio app di Azure: scalabilità delle applicazioni nel servizio app
 
-Le applicazioni ospitate nel servizio app di Azure possono [raggiungere un livello avanzato di scalabilità](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage), tuttavia la scalabilità di un'applicazione è un problema complesso che non ha una soluzione "universale". Per ridimensionare correttamente l'applicazione occorre considerare 3 aree chiave che contribuiranno al corretto funzionamento delle applicazioni:
+Le applicazioni ospitate nel servizio app di Azure possono [raggiungere un livello avanzato di scalabilità](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/), tuttavia la scalabilità di un'applicazione è un problema complesso che non ha una soluzione "universale". Per ridimensionare correttamente l'applicazione occorre considerare 3 aree chiave che contribuiranno al corretto funzionamento delle applicazioni:
 
 1. Comprendere l'architettura dell'applicazione e i relativi punti deboli.
 	* Si tratta di un'applicazione con stato o senza stato?
@@ -38,4 +38,4 @@ Questa sezione aiuta a comprendere tutti i fattori e a escogitare una strategia 
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

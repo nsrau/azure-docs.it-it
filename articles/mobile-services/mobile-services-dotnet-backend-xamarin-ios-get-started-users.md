@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="01/25/2015" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
+>[AZURE.NOTE]Argomento di Servizi mobili di Azure. Microsoft Azure consiglia App per dispositivi mobili del servizio app di Azure per tutte le nuove distribuzioni di back-end mobile. Per altre informazioni, vedere l'[esercitazione equivalente nella documentazione di App per dispositivi mobili](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
-
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+Questo argomento illustra come autenticare gli utenti in Servizi mobili di dalla propria app. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione descrive le operazioni di base per abilitare l'autenticazione in un'app:
 
@@ -45,11 +44,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li><p>In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).</p>
+&nbsp;&nbsp;&nbsp;6. In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un simulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
 
-   	<p>L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
-</ol>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tale eccezione viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -77,50 +74,31 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
             }
         }
 
-> [AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo **ViewDidLoad** per rimuovere la chiamata a **RefreshAsync()** verso la fine:
+3. Aprire **QSTodoListViewController.cs** e modificare la definizione del metodo **ViewDidLoad** per rimuovere la chiamata a **RefreshAsync()** verso la fine.
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+4. Aggiungere il codice seguente nella parte superiore della definizione del metodo **RefreshAsync**:
 
-			todoService = QSTodoService.DefaultService;
-
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else
-					activityIndicator.StopAnimating ();
-			};
-
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
-
-			AddRefreshControl ();
-		}
-
-
-4. Modificare il metodo **RefreshAsync** per autenticare e visualizzare una schermata di accesso se la proprietà **User** è Null. In corrispondenza del codice seguente nella parte superiore della definizione del metodo:
-
-		// start of RefreshAsync method
+		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
 			await QSTodoService.DefaultService.Authenticate (this);
 			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
+				Console.WriteLine ("You must sign in.");
 				return;
 			}
 		}
-		// rest of RefreshAsync method
+		
+	Verrà visualizzata una schermata di accesso per eseguire l'autenticazione quando la proprietà **User** è null. Quando l'account di accesso ha esito positivo l'**utente** è impostato.
 
-5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati.
+5. Fare clic su **Esegui** per compilare il progetto e avviare l'app nel simulatore iPhone. Verificare che nell'app non siano visualizzati dati. **RefreshAsync ()** non è ancora stato chiamato.
 
-	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
+6. Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi che chiama **RefreshAsync()**. Quest'ultimo, a sua volta, chiama **Authenticate ()** per avviare l'autenticazione e visualizzare la schermata di accesso. Dopo aver correttamente eseguito l'autenticazione, l'app visualizzerà l'elenco degli elementi ToDo e sarà possibile aggiornare i dati.
 
-<!-- ## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>Passaggi successivi
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
- -->
+Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di Servizi mobili][Authorize users with scripts], il valore dell'ID utente fornito da Servizi mobili e basato su un utente autenticato verrà utilizzato per filtrare i dati restituiti da Servizi mobili.
+
 
 <!-- Anchors. -->
 [Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
@@ -139,4 +117,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

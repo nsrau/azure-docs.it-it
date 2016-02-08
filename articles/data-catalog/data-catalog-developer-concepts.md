@@ -79,7 +79,7 @@ Ad esempio, sotto la radice dell'asset è disponibile una matrice di oggetti des
 L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esistono tre diversi modelli per la visualizzazione.
 
 -	Il modello più semplice è "Mostra tutto". In questo modello vengono visualizzati tutti gli oggetti in una sorta di visualizzazione elenco. Ciò è quanto l’esperienza utente esegue nel portale del Catalogo dati di Azure per la descrizione.
--	Un altro modello è "Merge". In questo modello, tutti i valori dagli utenti diversi vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
+-	Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
 -	Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
 
 ## Modello a oggetti asset
@@ -90,7 +90,7 @@ Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Cat
 
 Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi di annotazione.
 
-> [AZURE.NOTE]Le proprietà i cui nomi iniziano con un doppio carattere di sottolineatura sono tipi di sistema.
+> [AZURE.NOTE] Le proprietà i cui nomi iniziano con un doppio carattere di sottolineatura sono tipi di sistema.
 
 <table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.</td></tr><tr><td>__id</td><td>String</td><td>ID dell'elemento (sola lettura). Questo ID è univoco per l'asset all’interno di un catalogo.</td></tr><tr><td>__type</td><td>String</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>__creatorId</td><td>String</td><td>Stringa usata dall'autore dell'asset per identificare in modo univoco l'asset. </td></tr></table>
 
@@ -172,7 +172,7 @@ Sono disponibili 3 ruoli: **amministratore**, **proprietario** e **collaboratore
 
 <table><tr><td><b>Ruolo</b></td><td><b>Ambito</b></td><td><b>Diritti</b></td></tr><tr><td>Amministratore</td><td>Catalogo (ad esempio tutti gli asset o le annotazioni del catalogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietario</td><td>Ogni asset (noto anche come elemento radice)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Collaboratore</td><td>Ogni singolo asset e annotazione</td><td>Read Update Delete ViewRoles Nota: tutti i diritti vengono revocati se il diritto Read sull'elemento viene revocato dall'autore</td></tr></table>
 
-> [AZURE.NOTE]I diritti **Read**, **Update**, **Delete**, **ViewRoles** sono applicabili a qualsiasi elemento (asset o annotazione) mentre **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** sono applicabili solo all’asset radice.
+> [AZURE.NOTE] I diritti **Read**, **Update**, **Delete**, **ViewRoles** sono applicabili a qualsiasi elemento (asset o annotazione) mentre **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** sono applicabili solo all’asset radice.
 >
 >Il diritto **Delete** si applica a un elemento, nonché agli eventuali elementi secondari o al singolo elemento sottostante. Ad esempio, l'eliminazione di un asset comporta l’eliminazione delle annotazioni dell’asset.
 
@@ -257,9 +257,9 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere us
 	    ]
 	}
 
-> [AZURE.NOTE]In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
+> [AZURE.NOTE] In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

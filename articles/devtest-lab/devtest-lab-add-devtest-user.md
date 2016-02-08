@@ -22,24 +22,24 @@
 
 L'accesso a un lab di sviluppo e test è controllato dal Controllo di accesso in base al ruolo (RBAC) di Azure. Cercare [Controllo degli accessi in base al ruolo (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) nel portale di anteprima di Azure per altre informazioni.
 
-E’ possibile concedere l'accesso al lab di sviluppo e test tramite due ruoli:
+È possibile concedere l'accesso al lab di sviluppo e test tramite due ruoli:
 
  - **Proprietario**: gli utenti assegnati al ruolo **proprietario** a livello di sottoscrizione di Azure hanno accesso completo al lab, inclusi gestione e funzioni di monitoraggio.
 
-     >[AZURE.NOTE]I ruoli **Proprietario** assegnati a livelli RBAC invece che a livello di sottoscrizione non sono supportati in lab di sviluppo e test. L’assegnazione di un utente al ruolo **Proprietario** nel lab di sviluppo e test non è supportata.
+     >[AZURE.NOTE] I ruoli **Proprietario** assegnati a livelli RBAC invece che a livello di sottoscrizione non sono supportati in lab di sviluppo e test. L’assegnazione di un utente al ruolo **Proprietario** nel lab di sviluppo e test non è supportata.
 
- -  **Utente di Lab di sviluppo e test**: gli utenti assegnati al ruolo**utente di Lab di sviluppo e test** può creare, aggiornare ed eliminare le macchine virtuali nel lab specificato. Gli utenti possono essere *interni* (un membro di Azure Active Directory per la sottoscrizione), o *esterni* (un utente che non è un membro di Azure AD, ad esempio un membro di un'organizzazione partner).
+ -  **Utente di Lab di sviluppo e test**: gli utenti assegnati al ruolo **utente di Lab di sviluppo e test** possono creare, aggiornare ed eliminare le macchine virtuali nel lab specificato. Gli utenti possono essere *interni* (un membro di Azure Active Directory per la sottoscrizione), o *esterni* (un utente che non è un membro di Azure AD, ad esempio un membro di un'organizzazione partner).
 	-  Un ruolo **utente di Lab di sviluppo e test** deve essere assegnato tramite il riquadro **Aggiungi utenti** del lab.
 	-  Gli utenti con il ruolo **utente di Lab di sviluppo e test** possono eseguire queste operazioni solo all'interno del lab a cui sono assegnati. Ad esempio, un **utente di Lab di sviluppo e test** non può creare una macchina virtuale utilizzando il servizio Macchina virtuale della sottoscrizione. La creazione di una macchina virtuale è consentita solo da account di Lab di sviluppo e test.
 	- Gli utenti *esterni* devono disporre di un account in uno dei domini di account Microsoft (ad esempio @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com o una variante di un paese specifico).
 
 ## Aggiungere un proprietario al lab
 
-Lab di sviluppo e test considera i proprietari di una sottoscrizione di Azure che contiene lab come proprietari di tali laboratori. Sebbene sia possibile aggiungere altri proprietari a un Lab di sviluppo e test tramite il pannello del lab nel portale di anteprima di Azure, questo non è attualmente supportato.
+Lab di sviluppo e test considera i proprietari di una sottoscrizione di Azure che contiene lab come proprietari di tali laboratori. Sebbene sia possibile aggiungere altri proprietari a un lab di sviluppo/test tramite il pannello del lab nel portale di anteprima di Azure, questa operazione non è attualmente supportata.
 
 Per aggiungere un proprietario a una sottoscrizione di Azure in cui si dispone di lab già creati o in cui si creeranno nuovi lab, seguire questi passaggi:
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Nella finestra di navigazione a sinistra, toccare **Sottoscrizioni**.
 
@@ -71,7 +71,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure in cui si dispone d
 
 Per aggiungere un utente di Lab di sviluppo e test nel lab, seguire questi passaggi:
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Toccare **Esplora**.
 
@@ -101,4 +101,4 @@ Per aggiungere un utente di Lab di sviluppo e test nel lab, seguire questi passa
 
 	1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -37,7 +37,7 @@ Mobile Engagement SDK per app universali di Windows può essere integrato solo n
 -   Windows Phone 8.1
 -   Windows 10 (versioni per desktop e portatili)
 
-> [AZURE.NOTE]Se si usa Windows Phone Silverlight come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione di Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
+> [AZURE.NOTE] Se si usa Windows Phone Silverlight come piattaforma di destinazione, fare riferimento alla [procedura per l'integrazione di Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
 
 ## Installare Mobile Engagement SDK per app universali
 
@@ -58,8 +58,6 @@ NuGet non esegue ancora la distribuzione automatica di risorse SDK in applicazio
 3.  Trascinare la cartella **Risorse** da Esplora file alla radice del progetto in Visual Studio.
 4.  In Visual Studio selezionare il progetto e attivare l'icona **Mostra tutti i file** nella parte superiore di **Esplora soluzioni**.
 5.  Alcuni file non sono inclusi nel progetto. Per importarli tutti contemporaneamente, fare clic con il pulsante destro del mouse su **Risorse** e scegliere **Escludi dal progetto**, quindi fare nuovamente clic con il pulsante destro del mouse su **Risorse** e scegliere **Includi nel progetto** per includere l'intera cartella. Tutti i file della cartella **Risorse** sono ora inclusi nel progetto.
-
-Il pacchetto di Engagement estratto è disponibile anche in *$(Solutiondir)\\Packages* o in base a quanto definito nel file *NuGet.config*.
 
 ## Aggiungere le funzionalità
 
@@ -127,7 +125,7 @@ Modificare il file `App.xaml.cs`:
           InitEngagement(args);
 		}
 
-> [AZURE.IMPORTANT]È altamente sconsigliata l'aggiunta dell'inizializzazione di Engagement in un altro punto dell'applicazione.
+> [AZURE.IMPORTANT] È altamente sconsigliata l'aggiunta dell'inizializzazione di Engagement in un altro punto dell'applicazione.
 
 ## Segnalazione di base
 
@@ -169,7 +167,7 @@ Modificare il file `.xaml.cs` della pagina:
 		  }
 		}
 
-> [AZURE.IMPORTANT]Se la pagina esegue l'override del metodo `OnNavigatedTo`, accertarsi di chiamare `base.OnNavigatedTo(e)`. In caso contrario, l'attività non verrà segnalata (`EngagementPage` chiama `StartActivity` all'interno del relativo metodo `OnNavigatedTo`).
+> [AZURE.IMPORTANT] Se la pagina esegue l'override del metodo `OnNavigatedTo`, accertarsi di chiamare `base.OnNavigatedTo(e)`. In caso contrario, l'attività non verrà segnalata (`EngagementPage` chiama `StartActivity` all'interno del relativo metodo `OnNavigatedTo`).
 
 #### File XAML
 
@@ -232,9 +230,9 @@ Se non si può o non si vuole eseguire l'overload delle classi `Page`, in altern
 			  EngagementAgent.Instance.StartActivity("MyPage");
 			}
 
-> [AZURE.IMPORTANT]Assicurarsi che la sessione venga terminata correttamente.
+> [AZURE.IMPORTANT]  Assicurarsi che la sessione venga terminata correttamente.
 > 
-> L'SDK per app di Windows universali chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente subisce modifiche e non chiamare **MAI** il metodo `EndActivity`, che segnala al server di Engagement che l'utente ha chiuso l'applicazione e influisce così su tutti i log delle applicazioni.
+> Windows Universal SDK chiama automaticamente il metodo `EndActivity` quando l'applicazione viene chiusa. È quindi **ALTAMENTE** consigliabile chiamare il metodo `StartActivity` ogni volta che l'attività dell'utente subisce modifiche e non chiamare **MAI** il metodo `EndActivity`, che segnala al server di Engagement che l'utente ha chiuso l'applicazione e influisce così su tutti i log delle applicazioni.
 
 ## Segnalazione avanzata
 
@@ -248,7 +246,7 @@ Per altre informazioni, vedere [Come usare l'API di Engagement in un'app di Wind
 
 È possibile disabilitare la funzionalità di segnalazione automatica degli arresti anomali di Engagement. Quindi, quando si verifica un'eccezione non gestita, Engagement non effettuerà alcuna azione.
 
-> [AZURE.WARNING]Se si prevede di disabilitare questa funzionalità, tenere presente che quando si verifica un arresto anomalo non gestito nell'app, Engagement non lo invierà **E** non chiuderà la sessione e i processi.
+> [AZURE.WARNING] Se si prevede di disabilitare questa funzionalità, tenere presente che quando si verifica un arresto anomalo non gestito nell'app, Engagement non lo invierà **E** non chiuderà la sessione e i processi.
 
 Per disabilitare la segnalazione automatica degli arresti anomali, personalizzare la configurazione in base al modo in cui che è stata dichiarata:
 
@@ -279,10 +277,10 @@ L'argomento è un valore in **millisecondi**. In qualsiasi momento, se si deside
 
 La modalità burst aumenta lievemente la durata della batteria ma ha un impatto su Monitor di Engagement: la durata di tutte le sessioni e di tutti i processi verrà arrotondata alla soglia di burst (di conseguenza, le sessioni e i processi inferiori alla soglia di burst potrebbero non essere visibili). Si consiglia di usare una soglia di burst non maggiore di 30000 (30 secondi). Occorre notare che per i log salvati è previsto un limite di 300 elementi. Se l'invio richiede troppo tempo, è possibile che alcuni log vadano persi.
 
-> [AZURE.WARNING]Non è possibile configurare la soglia di burst per un periodo inferiore a 1s. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà reimpostato automaticamente sul valore predefinito, vale a dire, 0s. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
+> [AZURE.WARNING] Non è possibile configurare la soglia di burst per un periodo inferiore a 1s. Se si tenta di impostare un valore minore, l'SDK mostrerà una traccia con l'errore e verrà reimpostato automaticamente sul valore predefinito, vale a dire, 0s. In questo modo verrà attivato l'SDK per la segnalazione dei log in tempo reale.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

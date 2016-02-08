@@ -112,7 +112,7 @@ Quando i dati provengono da un'origine di hub IoT, è possibile accedere ai poch
 
 ## Creare un input del flusso di dati dell'archivio BLOB
 
-Per gli scenari che dispongono di grandi quantità di dati non strutturati da archiviare nel cloud, l'archivio BLOB offre una soluzione conveniente e scalabile. I dati nell'[archivio BLOB](http://azure.microsoft.com/services/storage/blobs/) vengono generalmente considerati come dati "inattivi", ma possono essere elaborati come flusso di dati dall'analisi di flusso. Uno scenario comune per gli input dell'archivio BLOB con l'analisi di flusso è l'elaborazione dei log, dove i dati di telemetria vengono acquisiti da un sistema e devono essere analizzati ed elaborati per estrarne i dati significativi.
+Per gli scenari che dispongono di grandi quantità di dati non strutturati da archiviare nel cloud, l'archivio BLOB offre una soluzione conveniente e scalabile. I dati nell'[archivio BLOB](https://azure.microsoft.com/services/storage/blobs/) vengono generalmente considerati come dati "inattivi", ma possono essere elaborati come flusso di dati dall'analisi di flusso. Uno scenario comune per gli input dell'archivio BLOB con l'analisi di flusso è l'elaborazione dei log, dove i dati di telemetria vengono acquisiti da un sistema e devono essere analizzati ed elaborati per estrarne i dati significativi.
 
 È importante notare che il timestamp predefinito degli eventi dell'archivio BLOB nell'analisi di flusso sia il timestamp con cui è stato modificato l'ultima volta il BLOB, e cioè *BlobLastModifiedUtcTime*. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -207,4 +207,4 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Scritto per i professionisti IT, questo articolo include linee guida per l'integrazione delle applicazioni di Azure in Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
-# Azure AD e applicazioni: guida per gli sviluppatori
+# Azure AD e applicazioni: Guida per gli sviluppatori
 
 ## Panoramica
 
-Questa guida offre una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory ed è stata redatta in modo specifico per gli amministratori globali di Active Directory/Office 365.
+Questa guida offre una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD) ed è stata redatta in modo specifico per gli amministratori globali di Active Directory/Office 365.
 
-La creazione di applicazioni integrate con Azure AD offre agli utenti dell'organizzazione servizi Single Sign-On per Office 365. La disponibilità dell'applicazione in Azure AD consente di avere il controllo dei criteri di autenticazione impostati per l'applicazione. Per altre informazioni sull'accesso condizione e su come proteggere le applicazioni con l'autenticazione a più fattori (MFA), vedere il documento seguente: [Configurare le regole di accesso](active-directory-conditional-access-azuread-connected-apps.md)
+La creazione di applicazioni integrate con Azure AD offre agli utenti dell'organizzazione servizi Single Sign-On per Office 365. La disponibilità dell'applicazione in Azure AD consente di avere il controllo dei criteri di autenticazione impostati per l'applicazione. Per altre informazioni sull'accesso condizionale e su come proteggere le applicazioni con l'autenticazione a più fattori (MFA), vedere il documento seguente: [Configurare le regole di accesso](active-directory-conditional-access-azuread-connected-apps.md).
 
 Per usare Azure Active Directory, l'applicazione deve essere registrata. La registrazione dell'applicazione consente agli sviluppatori dell'organizzazione di autenticare i membri dell'organizzazione con Azure AD e richiedere l'accesso alle loro risorse, ad esempio posta elettronica, calendario, documenti e così via.
 
@@ -41,11 +41,11 @@ La registrazione di un'applicazione consente a qualsiasi utente di eseguire le o
 	  - Autorizzazioni per l'app (solo amministratori globali). Ad esempio:
 	    - Appartenenza ai ruoli in un'altra appartenenza di ruolo o applicazione Azure AD relativa a una risorsa, un gruppo di risorse o una sottoscrizione di Azure
 	  - Autorizzazioni delegate (qualsiasi utente). Ad esempio:
-	    - (AAD) Profilo di accesso e lettura
+	    - (Azure AD) Profilo di accesso e lettura
 	    - (Exchange) Lettura di posta elettronica, invio di posta elettronica
 	    - (SharePoint) Lettura
 
-> [AZURE.NOTE]Per impostazione predefinita, qualsiasi membro può registrare un'applicazione. Per informazioni su come limitare le autorizzazioni per la registrazione delle applicazioni per membri specifici, fare riferimento al documento [Procedura per l'aggiunta delle applicazioni ad Azure AD
+> [AZURE.NOTE]Per impostazione predefinita, qualsiasi membro può registrare un'applicazione. Per informazioni su come limitare le autorizzazioni per la registrazione delle applicazioni per membri specifici, vedere il documento [Procedura per l'aggiunta delle applicazioni ad Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 Ecco cosa dovrà fare l'amministratore globale per aiutare gli sviluppatori a rendere le loro applicazioni pronte per la produzione:
 
@@ -65,10 +65,9 @@ Per impostazione predefinita, l'assegnazione degli utenti non è obbligatoria pe
 
 [Richiedere l'assegnazione degli utenti](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-Per gli abbonati ad Azure AD Premium o Enterprise Mobility Suite (EMS), è consigliabile sfruttare i gruppi. L'assegnazione di gruppi per l'applicazione consente di delegare le attività di gestione continuativa degli accessi al proprietario del gruppo. È possibile creare il gruppo oppure, se si preferisce, richiedere al responsabile dell'organizzazione di creare il gruppo con gli strumenti per la gestione dei gruppi.
+Per gli abbonati ad Azure AD Premium o Enterprise Mobility Suite (EMS), è consigliabile sfruttare i gruppi. L'assegnazione di gruppi per l'applicazione consente di delegare le attività di gestione continuativa degli accessi al proprietario del gruppo. È possibile creare il gruppo oppure richiedere al responsabile dell'organizzazione di creare il gruppo con gli strumenti per la gestione dei gruppi.
 
-- [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md)
-- [Assegnazione di gruppi a un'applicazione](active-directory-applications-guiding-developers-assigning-groups.md)
+[Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md) [Assegnazione di gruppi a un'applicazione](active-directory-applications-guiding-developers-assigning-groups.md)
 
 ## Evitare la visualizzazione della richiesta di consenso dell'utente
 
@@ -78,4 +77,4 @@ Per le applicazioni attendibili, è possibile fornire il consenso per l'applicaz
 
 Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Azure, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

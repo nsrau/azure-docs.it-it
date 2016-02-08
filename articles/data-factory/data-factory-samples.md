@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Esempi
@@ -57,4 +57,4 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

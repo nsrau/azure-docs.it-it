@@ -129,7 +129,7 @@ InlineScript usa la sintassi seguente.
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ L'esempio seguente è simile all'esempio precedente in cui vengono copiati i fil
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]Si sconsiglia l'esecuzione di Runbook figlio in parallelo poiché è stato dimostrato che potrebbe causare risultati inaffidabili. L'output dal Runbook figlio talvolta non verrà visualizzato e le impostazioni di un Runbook figlio possono influire sugli altri Runbook figlio paralleli.
+> [AZURE.NOTE]  Si sconsiglia l'esecuzione di Runbook figlio in parallelo poiché è stato dimostrato che potrebbe causare risultati inaffidabili. L'output dal Runbook figlio talvolta non verrà visualizzato e le impostazioni di un Runbook figlio possono influire sugli altri Runbook figlio paralleli.
 
 
 ## Checkpoint
@@ -249,4 +249,4 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta 
 
 - [Introduzione al flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

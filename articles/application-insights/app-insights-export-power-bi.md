@@ -17,17 +17,17 @@
  
 # Usare analisi di flusso per il feed di Power BI da Application Insights
 
-In questo articolo viene illustrato come utilizzare [analisi di flusso](http://azure.microsoft.com/services/stream-analytics/) per elaborare i dati [esportati](app-insights-export-telemetry.md) da [Visual Studio Application Insights](app-insights-overview.md). Come destinazione di esempio, inviare i dati a [Microsoft Power BI](https://powerbi.microsoft.com/).
+In questo articolo viene illustrato come utilizzare [analisi di flusso](https://azure.microsoft.com/services/stream-analytics/) per elaborare i dati [esportati](app-insights-export-telemetry.md) da [Visual Studio Application Insights](app-insights-overview.md). Come destinazione di esempio, inviare i dati a [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 
-> [AZURE.NOTE]Il modo più semplice per ottenere dati in Power BI da Application Insights è [utilizzando l’adattatore](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-application-insights/) che è possibile trovare nella raccolta Power BI in Servizi. Ciò che viene descritto in questo articolo è attualmente più versatile, ma è anche una dimostrazione di come utilizzare l’analisi di flusso con Application Insights.
+> [AZURE.NOTE] Il modo più semplice per ottenere dati in Power BI da Application Insights è [utilizzando l’adattatore](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-application-insights/) che è possibile trovare nella raccolta Power BI in Servizi. Ciò che viene descritto in questo articolo è attualmente più versatile, ma è anche una dimostrazione di come utilizzare l’analisi di flusso con Application Insights.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini.
 
 
 ![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/010.png)
 
-[Analisi di flusso](http://azure.microsoft.com/services/stream-analytics/) è un servizio di Azure che funziona come un adattatore, che elabora in modo continuo i dati esportati da Application Insights.
+[Analisi di flusso](https://azure.microsoft.com/services/stream-analytics/) è un servizio di Azure che funziona come un adattatore, che elabora in modo continuo i dati esportati da Application Insights.
 
 ![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/020.png)
 
@@ -41,7 +41,7 @@ Noam Ben Zeev illustra ciò che verrà descritto in questo articolo.
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
 
-**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento](app-insights-sampling.md).
+**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 ## Monitorare l'app con Application Insights
 
@@ -142,7 +142,7 @@ Esempio:
 * `PageViews` è il tipo di dati da analizzare. I tipi disponibili dipendono dal filtro impostato nell'esportazione continua. Esaminare i dati esportati per vedere gli altri tipi disponibili e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 * `/{date}/{time}` è uno schema scritto letteralmente.
 
-> [AZURE.NOTE]Controllare lo spazio di archiviazione per assicurarsi di ottenere il percorso corretto.
+> [AZURE.NOTE] Controllare lo spazio di archiviazione per assicurarsi di ottenere il percorso corretto.
 
 #### Completare l'installazione iniziale
 
@@ -152,7 +152,7 @@ Verificare il formato di serializzazione:
 
 Chiudere la procedura guidata e attendere il completamento dell'installazione.
 
-> [AZURE.TIP]Utilizzare il comando di esempio per scaricare alcuni dati. Utilizzare come esempio di test per eseguire il debug della query.
+> [AZURE.TIP] Utilizzare il comando di esempio per scaricare alcuni dati. Utilizzare come esempio di test per eseguire il debug della query.
 
 ## Visualizzare l'output
 
@@ -192,7 +192,7 @@ Incollare questa query:
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Utilizziamo [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di 1 minuto.
+* Utilizziamo [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di 1 minuto.
 
 
 #### Query per visualizzare i valori delle metriche
@@ -269,4 +269,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

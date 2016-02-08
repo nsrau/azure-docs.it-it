@@ -29,7 +29,7 @@
 
 Il portale di Azure classico consente inoltre di [abilitare la connessione Desktop remoto per un ruolo nei Servizi Cloud di Azure](cloud-services-role-enable-remote-desktop.md)
 
-Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiornamenti della configurazione solo se si dispone di almeno due istanze del ruolo per ogni ruolo. In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiornamenti della configurazione solo se si dispone di almeno due istanze del ruolo per ogni ruolo. In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Modificare un servizio cloud
 
@@ -73,7 +73,7 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
     
     3. Se il servizio cloud contiene ruoli con un'unica istanza, selezionare la casella di controllo **Applica configurazione anche se uno o più ruoli contengono un'unica istanza** per procedere con gli aggiornamenti della configurazione per i ruoli.
     
-        Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per altre informazioni, vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+        Se non si definiscono almeno due istanze di ogni ruolo, non è possibile garantire almeno il 99,95% di disponibilità del servizio cloud in Azure durante gli aggiornamenti della configurazione. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
     
     4. Fare clic su **OK** (segno di spunta).
 
@@ -86,4 +86,4 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 * [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

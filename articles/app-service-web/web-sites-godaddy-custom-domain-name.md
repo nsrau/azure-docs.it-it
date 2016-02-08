@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/12/2016"
 	ms.author="erikre"/>
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure (acquistato direttamente da GoDaddy)
@@ -50,7 +50,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 	Per **modificare** un record esistente, selezionare l'icona della penna e del foglio accanto al record.
 
-	> [AZURE.NOTE]Prima di aggiungere nuovi record, tenere presente che GoDaddy ha già creato record DNS per i sottodomini più diffusi (denominati **Host** nell'editor,) quali **posta elettronica**, **file**, **posta** e altri. Se il nome che si desidera utilizzare è già presente, modificare il record esistente anziché crearne uno nuovo.
+	> [AZURE.NOTE] Prima di aggiungere nuovi record, tenere presente che GoDaddy ha già creato record DNS per i sottodomini più diffusi (denominati **Host** nell'editor,) quali **posta elettronica**, **file**, **posta** e altri. Se il nome che si desidera utilizzare è già presente, modificare il record esistente anziché crearne uno nuovo.
 
 4. Per aggiungere un record, è necessario innanzitutto selezionare un tipo di record.
 
@@ -67,7 +67,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 5. Fare clic su **Aggiungi utente**.
 6. Selezionare **CNAME** come tipo di record, quindi specificare un valore **Host** di **awverify** e un valore **Point to** di **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record CNAME. Una volta che il dominio è stato associato all'app web nel portale Azure la voce **awverify** può essere rimossa.
+	> [AZURE.NOTE] Questo nome di record CNAME viene utilizzato da Azure per convalidare la proprietà del dominio descritto dal record A o il primo record CNAME. Una volta che il dominio è stato associato all'app web nel portale Azure la voce **awverify** può essere rimossa.
 
 5. Dopo avere completato l'aggiunta o la modifica dei record, fare clic su **Fine** per salvare le modifiche.
 
@@ -76,9 +76,9 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

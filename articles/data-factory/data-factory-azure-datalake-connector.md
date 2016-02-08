@@ -19,7 +19,8 @@
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
 Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in Archivio Azure Data Lake da un altro archivio dati e spostare dati da Archivio Azure Data Lake in un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
 
-> [AZURE.NOTE]È necessario creare un account Archivio Azure Data Lake prima di creare una pipeline con un'attività di copia per spostare i dati da e in Archivio Azure Data Lake. Per altre informazioni su Archivio Azure Data Lake, vedere [Introduzione ad Archivio Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
+> [AZURE.NOTE]
+È necessario creare un account Archivio Azure Data Lake prima di creare una pipeline con un'attività di copia per spostare i dati da e in Archivio Azure Data Lake. Per altre informazioni su Archivio Azure Data Lake, vedere [Introduzione ad Archivio Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
 > Per la procedura dettagliata relativa alla creazione di una data factory, dei servizi collegati, dei set di dati e di una pipeline, vedere l'esercitazione [Creare la prima pipeline](data-factory-build-your-first-pipeline.md). Usare i frammenti JSON con l'editor di Data factory o Visual Studio o Azure PowerShell per creare le entità di Data factory.
 
@@ -74,7 +75,7 @@ La procedura seguente descrive i passaggi per la creazione di un servizio colleg
 5. (Facoltativo) Specificare i valori per i parametri facoltativi, ad esempio **accountName**, **subscriptionID** e **resourceGroupName** in JSON oppure eliminare queste proprietà da JSON.
 6. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
-> [AZURE.IMPORTANT]Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Alla **scadenza del token** è necessario **ripetere l'autorizzazione** con il pulsante **Autorizza** e ridistribuire il servizio collegato. Per informazioni dettagliate, vedere la sezione [Proprietà del servizio collegato dell'Archivio Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Alla **scadenza del token** è necessario **ripetere l'autorizzazione** con il pulsante **Autorizza** e ridistribuire il servizio collegato. Per informazioni dettagliate, vedere la sezione [Proprietà del servizio collegato dell'Archivio Azure Data Lake](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -238,7 +239,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure D
 	    }
 	}
 
-> [AZURE.NOTE]Vedere la procedura illustrata nell'esempio precedente per ottenere l'URL di autorizzazione.
+> [AZURE.NOTE] Vedere la procedura illustrata nell'esempio precedente per ottenere l'URL di autorizzazione.
 
 **Servizio collegato Archiviazione di Azure:**
 
@@ -414,10 +415,10 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
 | Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
-| Utente AAD, l'origine basata su OAuth è in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory dell'utente. | 12 ore |
-| Utente AAD, l'origine basata su OAuth è sullo stesso tenant rispetto al tenant di Data factory dell'utente. | <p> Il valore massimo è 90 giorni, se l'utente esegue le sezioni in base all'origine del proprio servizio collegato basato su OAuth almeno una volta ogni 14 giorni. </p><p>Durante i 90 giorni previsti, se l'utente non esegue sezioni basate su tale origine per 14 giorni, le credenziali scadono 14 giorni dopo l'esecuzione dell'ultima sezione.</p> |
+| L'utente AAD e l'origine basata su OAuth si trovano in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory. | 12 ore |
+| L'utente AAD e l'origine basata su OAuth si trovano sullo stesso tenant del tenant di Data factory. | 14 giorni |
 
-Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice, usando il codice riportato nella sezione seguente.
 
 ### Per generare valori sessionId e authorization a livello di codice 
 
@@ -604,4 +605,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

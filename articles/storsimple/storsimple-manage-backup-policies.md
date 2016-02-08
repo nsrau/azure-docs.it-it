@@ -57,7 +57,7 @@ Aggiungere un criterio di backup per la pianificazione automatica dei backup. Es
 
 ![Video disponibile](./media/storsimple-manage-backup-policies/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come creare un criterio di backup cloud o locale, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Per guardare un video che illustra come creare un criterio di backup cloud o locale, fare clic [qui](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Aggiungere o modificare una pianificazione
@@ -90,4 +90,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un criteri
 
 Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

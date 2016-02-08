@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -38,8 +38,8 @@ La tabella seguente descrive le quote di DocumentDB che è possibile modificare 
 |Numero massimo di UDF per ogni query |2
 |Numero massimo di JOIN per ogni query |5
 |Numero massimo di clausole AND per ogni query |20
-|Numero massimo di clausole OR per ogni query |10
-|Numero massimo di valori per ogni espressione IN |100
+|Numero massimo di clausole OR per ogni query |20
+|Numero massimo di valori per ogni espressione IN |200
 |Numero massimo di punti in un argomento del poligono in una query ST\_WITHIN |16
 |Numero massimo di raccolte create al minuto |5
 |Numero massimo di operazioni di scalabilità al minuto |5
@@ -75,4 +75,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

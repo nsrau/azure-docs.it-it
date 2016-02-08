@@ -2,13 +2,14 @@
  pageTitle="Procedura dettagliata per la manutenzione predittiva | Microsoft Azure"
  description="Una procedura dettagliata della soluzione preconfigurata di manutenzione predittiva di Azure IoT."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -123,4 +124,4 @@ Dopo aver eseguito la soluzione di manutenzione predittiva preconfigurata è con
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

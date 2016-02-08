@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Servizio di sincronizzazione Azure AD Connect: Connettore PowerShell"
+   pageTitle="Servizio di sincronizzazione Azure AD Connect: connettore PowerShell | Microsoft Azure"
    description="Questo articolo descrive come configurare il connettore Windows PowerShell di Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Windows PowerShell
@@ -370,4 +370,4 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto <Connecto
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

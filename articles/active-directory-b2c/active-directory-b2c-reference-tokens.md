@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Anteprima Azure AD B2C: Riferimento al Token
@@ -68,8 +68,8 @@ Con Azure AD B2C, è necessario un accurato controllo granulare sul contenuto de
 | Expiration Time | `exp` | `1438539443` | Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
 | Non prima | `nbf` | `1438535543` | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. È in genere uguale all’ora di emissione. L'app deve usare questa attestazione per verificare la validità della durata del token. |
 | Version | `ver` | `1.0` | Versione del token ID, come definito da Azure AD. |
-| Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | L'hash del codice è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) per informazioni dettagliate su come eseguire la convalida. |
-| Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | L'hash del token di accesso è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) per informazioni dettagliate su come eseguire la convalida. |
+| Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | L'hash del codice è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | L'hash del token di accesso è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Nonce | `nonce` | `12345` | L'attestazione Nonce è una strategia per ridurre gli attacchi di riproduzione del token. L'app può specificare un'attestazione Nonce in una richiesta di autorizzazione usando il parametro di query `nonce`. Il valore specificato nella richiesta verrà generato nell'attestazione `nonce` del token ID senza modifica. In questo modo l'app può verificare il valore rispetto al valore specificato nella richiesta che associa la sessione dell'app a un determinato token ID. L'app deve eseguire la convalida durante il processo di convalida del token ID. |
 | Oggetto | `sub` | `Not supported currently. Use oid claim.` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Tuttavia, l'attestazione dell'oggetto non è ancora implementata nell'anteprima AD B2C Azure. Anziché utilizzare l'attestazione dell’oggetto per l'autorizzazione, è necessario configurare i criteri per includere l'attestazione ID oggetto `oid` e utilizzare il relativo valore per identificare gli utenti. |
 | Riferimento alla classe contesto di autenticazione | `acr` | `b2c_1_sign_in` | Il nome dei criterio utilizzato per acquisire il token ID. |
@@ -115,7 +115,7 @@ L'attestazione `alg` indica l'algoritmo usato per firmare il token, mentre le at
 
 In qualsiasi momento, Azure AD può firmare un token ID usando un determinato set di coppie di chiavi pubbliche/private. Azure AD ruota il set di chiavi su base periodica, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per cercare gli aggiornamenti per le chiavi pubbliche usate da Azure AD è di circa 24 ore.
 
-Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Nella directory B2C, esiste un documento di metadati JSON per ogni criterio. Ad esempio, il documento dei metadati per il criterio in `b2c_1_sign_in` nel `fabrikamb2c.onmicrosoft.com` si trova in:
+Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Nella directory B2C, esiste un documento di metadati JSON per ogni criterio. Ad esempio, il documento dei metadati per il criterio in `b2c_1_sign_in` nel `fabrikamb2c.onmicrosoft.com` su:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
@@ -143,7 +143,7 @@ Quando l'app o l’API riceve un token ID, deve eseguire anche alcuni controlli 
 - Attestazione **Issuer**: per verificare che il token sia stato effettivamente rilasciato all'app da Azure AD.
 - Attestazione **Nonce**: come prevenzione di attacchi di riproduzione del token.
 
-Informazioni dettagliate sui valori previsti per tali attestazioni, sono incluse nella precedente [sezione Token ID](#id_tokens).
+Informazioni dettagliate sui valori previsti per tali attestazioni, sono incluse nella precedente sezione [Token ID](#id_tokens).
 
 ## Durata del token
 
@@ -155,4 +155,4 @@ Di seguito vengono fornite informazioni sulla durata dei token utili per gli ute
 | Token di aggiornamento | Fino a 14 giorni | Un singolo token di aggiornamento è valido per un periodo massimo di 14 giorni. Tuttavia, il token di aggiornamento può scadere in qualsiasi momento per diversi motivi, quindi l'app deve continuare a provare e usare un token di aggiornamento fino a quando non si verifica un errore o fino a quando non lo sostituisce con uno nuovo. Inoltre, un token di aggiornamento non risulterà più valido se sono trascorsi 90 giorni dall'immissione delle credenziali da parte dell'utente. |
 | Codici di autorizzazione | 5 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso, ID e di aggiornamento quando vengono ricevuti. |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

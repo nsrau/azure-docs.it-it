@@ -58,7 +58,7 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 
 Per ottenere questi valori:
 
-1. Accedere al [portale di Azure](portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare
 3. Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
 4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile selezionare la primaria o la secondaria.
@@ -152,4 +152,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come utilizzare le code del bus di servizio](/develop/ruby/how-to-guides/service-bus-queues/) vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-La [libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria inoltre supporta l'integrazione con l'[insieme di credenziali chiave](http://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
+La [libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria inoltre supporta l'integrazione con l'[insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
 
 Per la crittografia sul lato client con Java, vedere [Crittografia sul lato client con Java per l'Archiviazione di Microsoft Azure](storage-client-side-encryption-java.md).
 
@@ -37,8 +37,8 @@ La crittografia tramite la tecnica basata su envelope funziona nel modo seguente
 
 1. La libreria di Azure Storage Client genera una chiave di crittografia del contenuto (CEK) che funziona come chiave simmetrica monouso.
 2. I dati utente vengono crittografati con questa chiave CEK.
-3. Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure. 
-	
+3. Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure.
+
 	La libreria del client Archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Gli utenti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi, se lo desiderano.
 
 4. I dati crittografati vengono quindi caricati nel servizio Archiviazione di Azure. La chiave con wrapping assieme ad alcuni metadati di crittografia aggiuntivi viene archiviata come metadati (su un BLOB) o interpolata con i dati crittografati (entità della tabella e messaggi in coda).
@@ -160,16 +160,16 @@ Creare un oggetto **BlobEncryptionPolicy** e impostarlo nelle opzioni di richies
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-  
+
  	// Set the encryption policy on the request options.
  	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-  
+
  	// Upload the encrypted contents to the blob.
  	blob.UploadFromStream(stream, size, null, options, null);
-  
+
  	// Download and decrypt the encrypted contents from the blob.
  	MemoryStream outputStream = new MemoryStream();
  	blob.DownloadToStream(outputStream, null, options, null);
@@ -181,32 +181,32 @@ Creare un oggetto **QueueEncryptionPolicy** e impostarlo nelle opzioni di richie
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-  
+
  	// Add message
  	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
  	queue.AddMessage(message, null, null, options, null);
-  
+
  	// Retrieve message
  	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 
 ### Crittografia del servizio tabelle
 
-Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richiesta, è necessario specificare **EncryptionResolver** in **TableRequestOptions** o impostare l’attributo [EncryptProperty] nell'entità.
+Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richiesta, è necessario specificare **EncryptionResolver** in **TableRequestOptions** o impostare l'attributo [EncryptProperty] nell'entità.
 
 #### Utilizzo del resolver
 
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-  
+
  	// Create the encryption policy to be used for upload and download.
  	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-  
- 	TableRequestOptions options = new TableRequestOptions() 
- 	{ 
+
+ 	TableRequestOptions options = new TableRequestOptions()
+ 	{
     	EncryptionResolver = (pk, rk, propName) =>
      	{
         	if (propName == "foo")
@@ -217,17 +217,17 @@ Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richi
      	},
      	EncryptionPolicy = policy
  	};
-  
+
  	// Insert Entity
  	currentTable.Execute(TableOperation.Insert(ent), options, null);
-  
+
  	// Retrieve Entity
  	// No need to specify an encryption resolver for retrieve
- 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
+ 	TableRequestOptions retrieveOptions = new TableRequestOptions()
  	{
     	EncryptionPolicy = policy
  	};
-  
+
  	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
  	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
@@ -244,9 +244,6 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 
 ## Passaggi successivi
 
-Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
-Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net) da GitHub
-Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell’insieme di credenziali chiave di Azure
-Visitare la pagina [Documentazione dell’insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
+Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net) da GitHub Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali chiave di Azure Visitare la pagina [Documentazione dell'insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

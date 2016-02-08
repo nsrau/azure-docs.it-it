@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK nel portale di gestione
+### Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK del servizio nel portale di Azure classico
 
 In genere, l'amministratore dei dispositivi richiede all'amministratore del servizio di autorizzare un dispositivo a modificare le chiavi DEK del servizio. L'amministratore del servizio autorizza quindi il dispositivo a modificare la chiave.
 
@@ -20,7 +20,8 @@ Per essere autorizzato ad avviare le modifiche alla chiave DEK del servizio, un 
 
 - È possibile autorizzare un dispositivo quando alcuni dei dispositivi registrati con il servizio hanno eseguito il rollover della crittografia mentre altri no. In questi casi, i dispositivi idonei sono quelli che hanno completato la modifica della chiave DEK del servizio.
 
-> [AZURE.NOTE]Nel portale di Azure classico i dispositivi virtuali StorSimple non vengono visualizzati nell'elenco dei dispositivi che possono essere autorizzati ad avviare la modifica della chiave.
+> [AZURE.NOTE]
+Nel portale di Azure classico i dispositivi virtuali StorSimple non vengono visualizzati nell'elenco dei dispositivi che possono essere autorizzati ad avviare la modifica della chiave.
 
 Per selezionare e autorizzare un dispositivo per avviare la modifica della chiave DEK del servizio, seguire questa procedura.
 
@@ -38,7 +39,7 @@ Per selezionare e autorizzare un dispositivo per avviare la modifica della chiav
 
 Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorSimple nel dispositivo StorSimple autorizzato.
 
-> [AZURE.NOTE]Non è possibile eseguire operazioni nel portale di Azure classico del servizio StorSimple Manager fino a quando il rollover della chiave non viene completato.
+> [AZURE.NOTE] Non è possibile eseguire operazioni nel portale di Azure classico del servizio StorSimple Manager fino a quando il rollover della chiave non viene completato.
 
 Se si usa la console seriale del dispositivo per la connessione all'interfaccia di Windows PowerShell,seguire questa procedura.
 
@@ -52,7 +53,7 @@ Se si usa la console seriale del dispositivo per la connessione all'interfaccia 
 
 3. Dopo che il cmdlet è stato completato, si otterrà una nuova chiave DEK del servizio. Copiare e salvare la chiave per l'uso nel passaggio 3 di questo processo. Questa chiave verrà usata per aggiornare tutti i dispositivi rimanenti registrati con il servizio StorSimple Manager.
 
-    > [AZURE.NOTE]Questo processo deve essere avviato entro quattro ore dall'autorizzazione di un dispositivo StorSimple.
+    > [AZURE.NOTE] Questo processo deve essere avviato entro quattro ore dall'autorizzazione di un dispositivo StorSimple.
 
    La nuova chiave viene quindi inviata al servizio affinché ne venga effettuato il push a tutti i dispositivi registrati con il servizio. Nel dashboard del servizio verrà visualizzato un avviso. Il servizio disabiliterà tutte le operazioni nei dispositivi registrati e l'amministratore dei dispositivi dovrà quindi aggiornare la chiave DEK del servizio negli altri dispositivi. Tuttavia, i flussi di I/O (invio di dati dagli host al cloud) non verranno interrotti.
 
@@ -74,4 +75,4 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

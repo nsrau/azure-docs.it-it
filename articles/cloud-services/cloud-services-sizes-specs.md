@@ -27,7 +27,7 @@ Le macchine virtuali e i servizi cloud di Azure sono due dei diversi tipi di ris
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per informazioni dettagliate, vedere l'annuncio sul blog di Azure [Nuove dimensioni delle macchine virtuali serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
 *   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
@@ -53,7 +53,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 |A5|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 496664 MB<br/>App = circa 1,5 GB|
 |A6|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1018904 MB<br/>App = circa 1,5 GB|
 |A7|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2083864 MB<br/>App = circa 1,5 GB
-|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
@@ -90,4 +90,4 @@ Assicurarsi che la dimensione della risorsa locale specificata sia minore o ugua
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

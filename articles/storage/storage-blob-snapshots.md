@@ -97,7 +97,7 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 - Il servizio BLOB di Azure non dispone dei mezzi per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante considerare che se si aggiorna un BLOB che contiene uno snapshot si genereranno altri blocchi univoci e costi aggiuntivi.
 
-> [AZURE.NOTE]Le procedure consigliate indicano di gestire gli snapshot con attenzione per evitare costi supplementari. È consigliabile gestire gli snapshot nel modo descritto di seguito:
+> [AZURE.NOTE] Le procedure consigliate indicano di gestire gli snapshot con attenzione per evitare costi supplementari. È consigliabile gestire gli snapshot nel modo descritto di seguito:
 
 > - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
 
@@ -125,4 +125,4 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

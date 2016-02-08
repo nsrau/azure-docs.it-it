@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Per ulteriori informazioni, vedere [Code e argomenti partizionati del Bus di servizio | Blog di Microsoft Azure](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) ed estrarre l’esempio [Coda partizionata di Microsoft Azure Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Per ulteriori informazioni, vedere [Code e argomenti partizionati del Bus di servizio | Blog di Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) ed estrarre l’esempio [Coda partizionata di Microsoft Azure Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
 
 ## Non impostare SharedAccessStartTime
 
@@ -449,7 +449,7 @@ Archiviare le stringhe di connessione nel file di configurazione o negli ambient
 
 - Per le applicazioni ASP.NET vNext utilizzare configuration.json per archiviare le stringhe di connessione.
 
-Per informazioni sull'utilizzo di file di configurazione, ad esempio Web. config o App. config, vedere [linee guida configurazione di ASP.NET Web] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Per informazioni su come lavorano le variabili di ambiente di Azure, vedere [siti Web di Microsoft Azure sul funzionamento delle stringhe di applicazione e di connessione](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Per informazioni sull’archiviazione della stringa di connessione nel codice sorgente, vedere [evitare di inserire informazioni riservate come le stringhe di connessione nei file archiviati nel repository del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
+Per informazioni sull'utilizzo di file di configurazione, ad esempio Web. config o App. config, vedere [linee guida configurazione di ASP.NET Web] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Per informazioni su come lavorano le variabili di ambiente di Azure, vedere [siti Web di Microsoft Azure sul funzionamento delle stringhe di applicazione e di connessione](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Per informazioni sull’archiviazione della stringa di connessione nel codice sorgente, vedere [evitare di inserire informazioni riservate come le stringhe di connessione nei file archiviati nel repository del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## Utilizzo del file di configurazione di Diagnostica.
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Per altre informazioni sull’ottimizzazione e la risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0128_2016-->

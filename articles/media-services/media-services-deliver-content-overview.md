@@ -33,7 +33,7 @@ In questo argomento viene fornita una panoramica dei concetti di consegna dei co
 
 ##Creazione dinamica dei pacchetti
 
-Si consiglia di usare la creazione dinamica dei pacchetti per distribuire i contenuti. Per altre informazioni, vedere [pacchetti di creazione dinamici](media-services-dynamic-packaging-overview.md).
+Si consiglia di usare la creazione dinamica dei pacchetti per distribuire i contenuti. Per altre informazioni, vedere [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
 Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -54,7 +54,7 @@ Per definire le autorizzazioni (ad esempio di lettura, scrittura ed elenco) e il
 
 Per i localizzatori viene definita una data di scadenza. Quando si pubblicano asset attraverso il portale, vengono creati localizzatori con scadenza a 100 anni.
 
->[AZURE.NOTE]I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
+>[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
 
 Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
  
@@ -104,7 +104,7 @@ Per impostazione predefinita le tracce di solo audio sono incluse nel contenuto 
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 **Formato Smooth Streaming**
@@ -190,4 +190,4 @@ Un **endpoint di streaming** rappresenta un servizio di streaming in grado di di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -33,8 +33,8 @@ Se l'operazione viene completata, la rete virtuale di Azure è pronta per l'util
 
 Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end, vedere gli articoli seguenti:
 
-- [Come pianificare la rete virtuale per RemoteApp di Azure](remoteapp-planvpn.md)
+- [Come pianificare la rete virtuale per RemoteApp di Azure](remoteapp-planvnet.md)
 - [Creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

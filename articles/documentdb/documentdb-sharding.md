@@ -131,7 +131,7 @@ Esaminare il [progetto Github degli esempi di partizionamento di DocumentDB](htt
 
 Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
->[AZURE.NOTE]Le creazioni di raccolte sono soggette a limitazioni di frequenza da parte di DocumentDB e quindi il completamento di alcuni dei metodi di esempio mostrati qui potrebbe richiedere alcuni minuti.
+>[AZURE.NOTE] Le creazioni di raccolte sono soggette a limitazioni di frequenza da parte di DocumentDB e quindi il completamento di alcuni dei metodi di esempio mostrati qui potrebbe richiedere alcuni minuti.
 
 ##Domande frequenti
 **Perché DocumentDB supporta il partizionamento lato client invece del partizionamento lato server?**
@@ -164,7 +164,7 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Limiti di DocumentDB](documentdb-limits.md)
-* [Blog di DocumentDB sui suggerimenti per le prestazioni](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@ Si acquisiranno le nozioni seguenti:
 -	Come preparare la macchina virtuale per lo stack LAMP.
 -	Come installare il software necessario al server LAMP nella macchina virtuale.
 
-Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/overview/what-is-azure/).
+Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](https://azure.microsoft.com/). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Oltre a questo argomento, se si dispone già di una macchina virtuale e sono necessarie solo informazioni di base sull'installazione di uno stack LAMP in diverse distribuzioni Linux, vedere [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-install-lamp-stack.md).
 
@@ -49,8 +49,8 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 -	Scaricare e installare puttygen dal percorso [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	Eseguire puttygen.exe.
 -	Fare clic su **Generate** per generare le chiavi. Nel processo è possibile aumentare la casualità spostando il puntatore del mouse sull'area vuota della finestra. ![][1]
--	Dopo il processo di generazione, Puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
--	Selezionare e copiare la chiave pubblica in **Key** e salvarla in un file denominato **publicKey.pem**. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
+-	Dopo il processo di generazione, puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
+-	Selezionare e copiare la chiave pubblica in **Chiave** e salvarla in un file denominato **publicKey.pem**. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
 -	Fare clic su **Save private key** e salvarla in un file denominato **privateKey.ppk**.
 
 ###Passaggio 2: creare l'immagine nel portale di Azure.
@@ -147,7 +147,7 @@ Dopo l'installazione, avviare Apache con il comando seguente:
 	sudo service httpd start
 
 ####Testare Apache
-Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato il messaggio "It works!" ![][14]
+Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato "It works!" ![][14]
 
 ####Risoluzione dei problemi
 Se Apache è in esecuzione ma è possibile visualizzare la pagina predefinita di Apache riportata sopra, è necessario controllare che:
@@ -350,7 +350,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html /.
+	>[AZURE.NOTE] Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html /.
 -	Utilizzare qualsiasi client SFTP (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
 
 
@@ -361,7 +361,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 -	**Sintomo**: Apache è in esecuzione ma non è possibile visualizzare la pagina predefinita di Apache con il browser.
 -	**Possibile causa principale**
-	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Vedere Fase 1: creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale.</br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
+	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Vedere Fase 1: creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale. </br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
 
 	2.	Il firewall ha disabilitato la porta di ascolto di Apache.</br> Se è possibile visualizzare la pagina predefinita di Apache dall'host locale, molto probabilmente il problema risiede nel fatto che la porta su cui Apache è in ascolto è bloccata dal firewall. È possibile usare lo strumento w3m per passare alla pagina web. I comandi seguenti consentono di installare w3m e di passare alla pagina predefinita di Apache:
 
@@ -433,7 +433,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 -	**Possibile causa principale**: non è stato impostato il nome del server di Apache.
 
--	**Soluzione**: inserire una riga "ServerName localhost" in httpd.conf (versione Red Hat) o apache2.conf (versione Debian) in /etc/apache2 e riavviare Apache. L'avviso scomparirà.
+-	**Soluzione**: inserire una riga «ServerName localhost» (versione Red Hat) o apache2.conf (versione Debian) in /etc/apache2 e riavviare Apache. L'avviso scomparirà.
 
 
 
@@ -456,4 +456,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

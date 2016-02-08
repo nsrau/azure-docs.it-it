@@ -124,7 +124,7 @@ I parametri usati sono:
 - **-Hostname e -path**: completare il percorso URL richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si ha un sito Web http://contoso.com/, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
 - **-UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ Configurare le dimensioni dell'istanza del gateway applicazione.
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Creare un gateway applicazione usando New-AzureRmApplicationGateway
 
@@ -197,14 +197,14 @@ Nell'esempio il probe personalizzato è configurato per cercare il percorso URL 
 
 ### Passaggio 3
 
-Aggiungere il probe al timeout e alla configurazione delle impostazioni del pool back-end usando **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Aggiungere il probe al timeout e alla configurazione dell'impostazione del pool back-end usando **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 ### Passaggio 4
 
-Salvare la configurazione per il gateway applicazione usando **Set AzureRmApplicationGateway**.
+Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
@@ -221,7 +221,7 @@ Caricare la risorsa del gateway applicazione in una variabile di PowerShell usan
 
 ### Passaggio 2
 
-Rimuovere la configurazione del probe dal gateway applicazione usando **Remove AzureRmApplicationGatewayProbeConfig**.
+Rimuovere la configurazione del probe dal gateway applicazione usando **Remove-AzureRmApplicationGatewayProbeConfig**.
 
 	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
@@ -234,8 +234,8 @@ Aggiornare l'impostazione del pool back-end per rimuovere l'impostazione del pro
 
 ### Passaggio 4
 
-Salvare la configurazione per il gateway applicazione usando **Set AzureRmApplicationGateway**.
+Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

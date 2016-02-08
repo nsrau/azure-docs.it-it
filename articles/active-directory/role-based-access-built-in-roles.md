@@ -3,7 +3,7 @@
 	description="In questo argomento vengono descritti i ruoli predefiniti per il controllo di accesso basato sui ruoli (RBAC)."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
-#RBAC: Ruoli predefiniti
+#Controllo degli accessi in base al ruolo: ruoli predefiniti
 
 ## Ruoli predefiniti
 
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. I ruoli predefiniti non possono essere modificati. In una futura release di Azure RBAC, sarà possibile definire ruoli personalizzati componendo un set di azioni da un elenco di azioni disponibili che possono essere effettuate sulle risorse di Azure.
 
-Fare clic sul collegamento corrispondente per visualizzare le proprietà **actions** e **not actions** di una definizione del ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **not actions** di una definizione del ruolo specifica le azioni che devono essere escluse dalle azioni consentite.
+Fare clic sui collegamenti seguenti per visualizzare le proprietà **actions** e **not actions** di una definizione del ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile usare caratteri jolly. La proprietà **not actions** di una definizione del ruolo specifica le azioni che devono essere escluse dalle azioni consentite.
 
 
 | Nome del ruolo | Descrizione |
@@ -34,20 +34,20 @@ Fare clic sul collegamento corrispondente per visualizzare le proprietà **actio
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) | È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) | È in grado di gestire tutto ad eccezione degli accessi. |
 | [Collaboratore Data Factory](#data-factory-contributor) | È in grado gestire le Data factory |
-| [Utente DevTest Lab](#devtest-lab-user) | È in grado di visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali. |
+| [Utente DevTest Lab](#devtest-lab-user) | Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
 | [Collaboratore account Document DB](#document-db-account-contributor) | È in grado di gestire account Document DB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) | È in grado di gestire account Intelligent Systems |
 | [Collaboratore di rete](#network-contributor) | È in grado di gestire tutte le risorse di rete |
 | [Collaboratore account NewRelic APM](#newrelic-apm-account-contributor) | È in grado di gestire account e applicazioni di NewRelic Application Performance Management |
-| [Proprietario](#owner) | Il proprietario può gestire tutto, compresi gli accessi. |
-| [Lettore](#reader) | I lettori possono visualizzare tutto, ma non possono apportare modifiche. |
+| [Proprietario](#owner) | È in grado di gestire tutti gli elementi, compresi gli accessi |
+| [Lettore](#reader) | È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche |
 | [Collaboratore cache Redis](#redis-cache-contributor]) | È in grado di gestire le cache Redis |
 | [Collaboratore raccolte di processi dell'unità di pianificazione](#scheduler-job-collections-contributor) | È in grado di gestire raccolte di processi dell'utilità di pianificazione |
 | [Collaboratore servizi di ricerca](#search-service-contributor) | È in grado di gestire servizi di ricerca |
-| [Gestore della sicurezza SQL](#security-manager) | È in grado di gestire i componenti di protezione, criteri di sicurezza e le macchine virtuali |
+| [Gestore della sicurezza SQL](#security-manager) | Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali |
 | [Collaboratore database SQL](#sql-db-contributor) | È in grado di gestire database SQL, ma non i criteri di protezione correlati |
 | [Gestione della sicurezza SQL](#sql-security-manager) | È in grado di gestire i criteri di protezione correlati di server e database SQL |
-| [Collaboratore SQL Server](#sql-server-contributor) | È in grado di gestire server e database SQL, ma non i criteri di protezione correlati |
+| [Collaboratore SQL Server](#sql-server-contributor) | Può gestire server e database SQL, ma non i criteri di protezione correlati |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) | È in grado di gestire gli account di archiviazione classici |
 | [Collaboratore account di archiviazione](#storage-account-contributor) | È in grado di gestire gli account di archiviazione |
 | [Amministratore accessi utente](#user-access-administrator) | Consente di gestire l’accesso degli utenti alle risorse di Azure |
@@ -85,7 +85,7 @@ Fare clic sul collegamento corrispondente per visualizzare le proprietà **actio
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Operatore di automazione
-Gli operatori di automazione sono in grado di avviare, arrestare, sospendere e riprendere i processi
+È in grado di avviare, arrestare, sospendere e riprendere i processi
 
 | **Actions** ||
 | ------- | ------ |
@@ -128,14 +128,16 @@ Gli operatori di automazione sono in grado di avviare, arrestare, sospendere e r
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Collaboratore
-I collaboratori possono gestire tutto ad eccezione degli accessi.
+Può gestire tutto ad eccezione degli accessi.
 
 | **Actions** ||
 | ------- | ------ |
 | * | È in grado di creare e gestire ogni tipo di risorsa |
-| ****Non azioni |  |
-| Microsoft.Authorization/*/Write | Impossibile creare ruoli e assegnazioni di ruoli |
-| Microsoft.Authorization/*/Delete | Impossibile eliminare ruoli e assegnazioni di ruoli |
+
+| **Non azioni** | |
+| ------- | ------ |
+| Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruoli |
+| Microsoft.Authorization/*/Delete | Non può eliminare ruoli e assegnazioni di ruoli |
 
 ### Collaboratore Data Factory
 È in grado gestire le Data factory
@@ -151,7 +153,7 @@ I collaboratori possono gestire tutto ad eccezione degli accessi.
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
 ### Utente DevTest Lab
-È in grado di visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali
+Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali
 
 | **Actions** ||
 | ------- | ------ |
@@ -301,7 +303,9 @@ I collaboratori possono gestire tutto ad eccezione degli accessi.
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
+
 | **Non azioni** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Impossibile modificare i criteri di controllo |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Impossibile modificare i criteri di connessione |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Impossibile modificare i criteri di mascheratura dei dati |
@@ -341,7 +345,9 @@ I collaboratori possono gestire tutto ad eccezione degli accessi.
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Creare e gestire distribuzioni dei gruppo di risorse delle sottoscrizioni |
 | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
+
 | **Non azioni** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Non è in grado di modificare i criteri di controllo di server SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Non è in grado di modificare i criteri di controllo dei database di server SQL |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Non è in grado di modificare i criteri di connessione dei database di server SQL |
@@ -381,7 +387,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Leggere risorse di tutti i tipi, eccetto i segreti. |
+| */read | Leggere risorse di tutti i tipi, eccetto i segreti. | 
 | Microsoft.Authorization/* | Autorizzazione Lettura |
 | Microsoft.Support/* | Creare e gestire ticket di supporto |
 
@@ -483,4 +489,4 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 ## Argomenti RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

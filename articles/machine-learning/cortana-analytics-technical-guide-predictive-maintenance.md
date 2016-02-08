@@ -24,7 +24,7 @@ I modelli di soluzione sono progettati per accelerare il processo di compilazion
 
 L'obiettivo di questo documento è illustrare l'architettura di riferimento e i vari componenti di cui è stato eseguito il provisioning alla sottoscrizione nell'ambito di questo modello di soluzione. Il documento illustra anche come sostituire i dati di esempio con dati reali per poter visualizzare informazioni dettagliate e stime dai propri dati e illustra poi le parti del modello di soluzione da modificare per personalizzare la soluzione con i propri dati. Alla fine del documento vengono fornite istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione.
 
->[AZURE.TIP]È possibile scaricare e stampare una [versione in formato PDF di questo documento](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+>[AZURE.TIP] È possibile scaricare e stampare una [versione in formato PDF di questo documento](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 
 ## **Quadro generale**
 
@@ -156,6 +156,18 @@ L'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/m
 
 Per informazioni su come è stato creato l'esperimento di Azure Machine Learning, vedere l'articolo relativo alla [manutenzione predittiva: passaggio 1 di 3, preparazione dei dati e progettazione delle funzioni](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
+## **Monitorare lo stato**
+ Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i diversi componenti della soluzione cominciano ad avviarsi in base ai comandi inviati da Data factory. Esistono due modi per monitorare la pipeline.
+
+1. Uno dei processi di Analisi di flusso scrive i dati in ingresso non elaborati nell'archivio BLOB. Se si fa clic sul componente archivio BLOB della soluzione dalla schermata in cui è stata distribuita la soluzione e si fa clic su Apri nel pannello di destra, verrà visualizzato il [portale di gestione](https://portal.azure.com/). Una volta nel portale, fare clic su BLOB. Nel pannello successivo verrà visualizzato un elenco di contenitori. Fare clic su **maintenancesadata**. Nel pannello successivo verrà visualizzata la cartella **rawdata**. All'interno della cartella rawdata saranno presenti cartelle con nomi quali hour=17, hour=18 e così via. Se vengono visualizzate queste cartelle, significa che i dati non elaborati sono stati generati nel computer e archiviati nell'archivio BLOB. Verranno visualizzati file con estensione csv che in tali cartelle devono avere dimensioni limitate in MB.
+
+2. L'ultimo passaggio della pipeline consiste nella scrittura di dati, ad esempio stime da Machine Learning, nel database SQL. Possono essere necessarie al massimo tre ore prima che i dati siano visibili nel database SQL. È possibile monitorare la quantità di dati disponibile nel database SQL tramite il [portale di Azure](https://manage.windowsazure.com/). Nel pannello di sinistra individuare l'icona DATABASE SQL ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-SQL-databases.png) e selezionarla. Individuare quindi il database **pmaintenancedb** e fare clic su di esso. Fare clic su GESTISCI nella parte inferiore della pagina successiva.
+
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-manage.png).
+
+	A questo punto fare clic su Nuova query ed eseguire una query per il numero di righe (ad esempio, selezionare count(*) da PMResult). Man mano che il database cresce, è necessario aumentare il numero di righe nella tabella.
+
+
 ## **Dashboard di Power BI**
 
 ### Panoramica
@@ -168,58 +180,58 @@ Nella pipeline di dati del percorso non critico, l'obiettivo principale è otten
 
 Power BI si connette a un database SQL di Azure come origine dati, in cui sono archiviati i risultati della stima. Si noti che quando si distribuisce la soluzione, viene visualizzata una stima reale nel database entro 3 ore. Il file PBIX fornito con il download del generatore contiene alcuni dati di seeding che permettono di creare il dashboard di Power BI fin da subito. Si noti anche che in questo passaggio il download e l'installazione del software gratuito [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) sono un prerequisito.
 
-La procedura seguente illustra come connettere il file PBIX al database SQL riattivato al momento della distribuzione della soluzione che contiene dati per la visualizzazione, *ad esempio* i risultati della stima.
+La procedura seguente illustra come connettere il file con estensione pbix al database SQL riattivato al momento della distribuzione della soluzione che contiene dati per la visualizzazione, *ad esempio* i risultati della stima.
 
 1.  Ottenere le credenziali del database.
 
     Prima di procedere con i passaggi successivi, è necessario ottenere **il nome del server di database, il nome del database, il nome utente e la password**. I passaggi per ottenerli sono riportati di seguito.
 
-    -   Quando la voce **Database SQL di Azure** nel diagramma del modello di soluzione diventa verde, selezionarla e quindi fare clic su **Apri**.
+    -   Quando la voce **'Database SQL di Azure'** nel diagramma del modello di soluzione diventa verde, selezionarla e quindi fare clic su **Apri**.
 
-    -   Verrà aperta una nuova scheda o finestra del browser con la pagina del portale di Azure. Fare clic su **Gruppi di risorse** nel pannello di sinistra.
+    -   Verrà aperta una nuova scheda o finestra del browser con la pagina del portale di Azure. Fare clic su **'Gruppi di risorse'** nel pannello di sinistra.
 
-    -   Selezionare la sottoscrizione da usare per la distribuzione della soluzione e quindi selezionare **NomeDellaSoluzione\_GruppoDiRisorse**.
+    -   Selezionare la sottoscrizione da usare per la distribuzione della soluzione e quindi selezionare **'NomeSoluzione\_GruppoDiRisorse'**.
 
-    -   Nel nuovo pannello visualizzato fare clic sull'icona ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) per accedere al database. Il nome del database si trova accanto a questa icona, *ad esempio* **"pmaintenancedb"**, e il **nome del server di database** è elencato nella proprietà Nome server ed è simile a **NomeDellaSoluzione.database.windows.net**.
+    -   Nel nuovo pannello visualizzato fare clic sull'icona ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) per accedere al database. Il nome del database si trova accanto a questa icona, *ad esempio* **"pmaintenancedb"**, e il **nome del server di database** è elencato nella proprietà Server name ed è simile a **NomeSoluzione.database.windows.net**.
 
 	-   Il **nome utente** e la **password** del database sono quelli registrati in precedenza durante la distribuzione della soluzione.
 
 2.  Aggiornare l'origine dati del file di report del percorso non critico con Power BI Desktop.
 
-    -   Nella cartella del computer in cui è stato scaricato e decompresso il file del generatore, fare doppio clic sul file **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Ignorare gli eventuali messaggi di avviso visualizzati all'apertura del file. All'inizio del file, fare clic su **Modifica query**.
+    -   Nella cartella del computer in cui è stato scaricato e decompresso il file del generatore, fare doppio clic sul file **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Ignorare gli eventuali messaggi di avviso visualizzati all'apertura del file. All'inizio del file fare clic su **'Modifica query'**.
 
 	    ![](media\cortana-analytics-technical-guide-predictive-maintenance\edit-queries.png)
 
-	-	Verranno visualizzate due tabelle, **RemainingUsefulLife** e **PMResult**. Selezionare la prima tabella e fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) accanto a **Origine** in **Passaggi applicati** nel pannello **Impostazioni query** di destra. Ignorare gli eventuali messaggi di avviso visualizzati.
+	-	Verranno visualizzate due tabelle, **RemainingUsefulLife** e **PMResult**. Selezionare la prima tabella e fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) accanto a **'Origine'** in **'PASSAGGI APPLICATI'** nel pannello **'Impostazioni query'** a destra. Ignorare gli eventuali messaggi di avviso visualizzati.
 
-    -   Nella finestra popup sostituire **Server** e **Database** con i nomi del server e del database usati e quindi fare clic su **OK**. Per il nome del server, assicurarsi di specificare la porta 1433: **NomeDellaSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
+    -   Nella finestra popup sostituire **'Server'** e **'Database'** con i nomi del server e del database usati e quindi fare clic su **'OK'**. Per il nome del server, assicurarsi di specificare la porta 1433: **NomeSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
 
-    -   Nel finestra popup successiva sono disponibili due opzioni nel pannello di sinistra, **Windows** e **Database**. Fare clic su **Database** e inserire il proprio **nome utente** e la **password**, vale a dire il nome utente e la password immessi al momento della prima distribuzione della soluzione e della creazione del database SQL di Azure. In ***Selezionare il livello a cui applicare queste impostazioni*** selezionare l'opzione relativa al livello di database. Fare clic su **Connetti**.
+    -   Nel finestra popup successiva sono disponibili due opzioni nel pannello di sinistra, **Windows** e **Database**. Fare clic su **'Database'** e inserire il proprio **nome utente** e la **password**, vale a dire il nome utente e la password immessi al momento della prima distribuzione della soluzione e della creazione del database SQL di Azure. In ***Selezionare il livello a cui applicare queste impostazioni*** selezionare l'opzione relativa al livello di database. Fare clic su **'Connetti'**.
 
-    -   Fare clic sulla seconda tabella **PMResult**, quindi fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png) accanto a **Origine** in **Passaggi applicati** nel pannello **Impostazioni query** di destra, aggiornare i nomi del server e del database come descritto nei passaggi precedenti e quindi fare clic su OK.
+    -   Fare clic sulla seconda tabella **PMResult**, quindi fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png) accanto a **'Origine'** in **'PASSAGGI APPLICATI'** nel pannello **'Impostazioni query'** a destra, aggiornare i nomi del server e del database come descritto nei passaggi precedenti e fare clic su OK.
 
     -   Quando viene di nuovo visualizzata la pagina precedente, chiudere la finestra. Nel messaggio popup visualizzato fare clic su **Applica**. Infine, fare clic sul pulsante **Salva** per salvare le modifiche apportate. Il file di Power BI è ora connesso al server. Se le visualizzazioni sono vuote, assicurarsi di annullare le selezioni per visualizzare tutti i dati facendo clic sull'icona della gomma nell'angolo superiore destro della legenda. Usare il pulsante Aggiorna per aggiornare le visualizzazioni con i nuovi dati. Inizialmente le visualizzazioni contengono solo i dati di seeding, perché l'aggiornamento della data factory è pianificato ogni 3 ore. Dopo 3 ore, aggiornando i dati nelle visualizzazioni saranno disponibili le nuove stime.
 
 3.  (Facoltativo) Pubblicare il dashboard per il percorso non critico in [Power BI online](http://www.powerbi.com/). Si noti che per questo passaggio è necessario un account Power BI o Office 365.
 
-    -   Fare clic su **Pubblica**. Dopo alcuni secondi viene visualizzato un messaggio di conferma della pubblicazione in Power BI con un segno di spunta verde. Fare clic sul collegamento sotto "Apri PredictiveMaintenanceAerospace.pbix in Power BI". Per istruzioni dettagliate, vedere [Pubblicare da Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+    -   Fare clic su **'Pubblica'**. Dopo alcuni secondi viene visualizzato un messaggio di conferma della pubblicazione in Power BI con un segno di spunta verde. Fare clic sul collegamento sotto "Apri PredictiveMaintenanceAerospace.pbix in Power BI". Per istruzioni dettagliate, vedere [Pubblicare da Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
     -   Per creare un nuovo dashboard, fare clic sul segno **+** accanto alla sezione **Dashboard** nel riquadro di sinistra. Immettere il nome "Predictive Maintenance Demo" per il nuovo dashboard.
 
     -   Dopo aver aperto il report, fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) per aggiungere tutte le visualizzazioni al dashboard. Per istruzioni dettagliate, vedere [Aggiungere un riquadro a un dashboard di Power BI da un report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Passare alla pagina del dashboard, regolare le dimensioni e la posizione delle visualizzazioni e modificarne i titoli. Per istruzioni dettagliate su come modificare i riquadri, vedere [Modificare un riquadro: ridimensionare, spostare, rinominare, aggiungere ed eliminare un collegamento ipertestuale](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Di seguito è riportato un dashboard di esempio a cui sono state aggiunte alcune visualizzazioni del percorso non critico. A seconda del tempo di esecuzione del simulatore di dati, i numeri nelle visualizzazioni possono variare. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
     -   Per pianificare l'aggiornamento dei dati, passare il puntatore del mouse sul set di dati **PredictiveMaintenanceAerospace**, fare clic su ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) e quindi scegliere **Pianifica aggiornamento**. <br/> **Nota:** se viene visualizzato un messaggio di avviso, fare clic su **Modifica credenziali** e assicurarsi che le credenziali del database siano identiche a quelle illustrate nel passaggio 1. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
-    -   Espandere la sezione **Pianifica aggiornamento**. Attivare l'opzione Mantieni aggiornati i dati. <br/>
+    -   Espandere la sezione **Pianifica aggiornamento**. Attivare l'opzione "Mantieni aggiornati i dati". <br/>
     -   Pianificare l'aggiornamento in base alle esigenze. Per altre informazioni, vedere [Aggiornamento dei dati in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### Configurare il dashboard per il percorso critico
 
-La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per seguire la procedura è necessario un account di [Power BI online](http://www.powerbi.com/). Se non si ha un account, è possibile [crearlo](https://powerbi.microsoft.com/pricing).
+La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per eseguire la procedura è necessario un account di [Power BI online](http://www.powerbi.com/). Se non si ha un account, [crearne uno](https://powerbi.microsoft.com/pricing).
 
 1.  Aggiungere l'output di Power BI ad Analisi di flusso di Azure.
 
-    -  Seguire le istruzioni in [Analisi di flusso di Azure e Power BI: Dashboard di analisi in tempo reale per una visibilità in tempo reale dei flussi di dati](stream-analytics-power-bi-dashboard.md) per impostare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI.
+    -  Per impostare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI, seguire le istruzioni in [Analisi di flusso di Azure e Power BI: Dashboard di analisi in tempo reale per una visibilità in tempo reale dei flussi di dati](stream-analytics-power-bi-dashboard.md).
 	- Trovare il processo **maintenancesa02asapbi** di Analisi di flusso nel [portale di Azure](https://manage.windowsazure.com).
-	- Impostare i tre output della query di Analisi di flusso di Azure, ovvero **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Assicurarsi che i valori di **Alias di Output**, **Nome del set di dati** e **Nome tabella** corrispondano alle query, ovvero **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Dopo aver aggiunto le tre tabelle di output e aver avviato il processo di Analisi di flusso, viene visualizzato un messaggio di conferma *simile al seguente*: "L'avvio del processo di Analisi di flusso maintenancesa02asapbi è stato completato".
+	- Impostare i tre output della query di Analisi di flusso di Azure, ovvero **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Assicurarsi che i valori di **Alias di output**, **Nome del set di dati** e **Nome tabella** corrispondano alle query, ovvero **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Dopo aver aggiunto le tre tabelle di output e aver avviato il processo di Analisi di flusso, viene visualizzato un messaggio di conferma *simile al seguente*: "L'avvio del processo di Analisi di flusso maintenancesa02asapbi è stato completato".
 
 2. Accedere a [Power BI online](http://www.powerbi.com).
 
@@ -237,7 +249,7 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 
     -   Fare clic su "s11" e "s11\_alert" in modo che entrambi vengano visualizzati nell'area "Valori". Fare clic sulla piccola freccia accanto a **s11** e **s11\_alert** e sostituire "Somma" con "Media".
 
-    -   Fare clic su **Salva** nella parte superiore e denominare il report "aircraftmonitor". Il report "aircraftmonitor" verrà visualizzato nella sezione **Report** del riquadro **Strumento di navigazione** a sinistra.
+    -   Fare clic su **SALVA** nella parte superiore e denominare il report "aircraftmonitor". Il report "aircraftmonitor" verrà visualizzato nella sezione **Report** del riquadro **Strumento di navigazione** a sinistra.
 
     -   Fare clic sull'icona **Aggiungi oggetto visivo** nell'angolo superiore destro di questo grafico a linee. Potrebbe essere visualizzata una finestra "Aggiungi al dashboard" che permette di scegliere un dashboard. Selezionare "Predictive Maintenance Demo" e quindi fare clic su "Aggiungi".
 
@@ -255,4 +267,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

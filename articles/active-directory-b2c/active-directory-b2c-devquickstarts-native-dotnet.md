@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Anteprima B2C AD Azure: costruire un'app desktop di Windows
@@ -59,7 +59,7 @@ Il codice per questa esercitazione è disponibile [in GitHub](https://github.com
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskClient` e un progetto `TaskService`. `TaskClient` è l'applicazione desktop WPF con cui interagisce l'utente. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti. Sia il `TaskClient` che `TaskService` saranno rappresentati da una singola **ID applicazione** in questo caso, poiché entrambi includono un’applicazione per la logica.
 
@@ -79,7 +79,7 @@ Quando `TaskService` riceve le richiesta da `TaskClient`, verifica la presenza d
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Se si desidera sapere come un'API Web autentica in modo sicuro le richieste utilizzando AD B2C di Azure, consultare l’[articolo sull’introduzione all’API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -111,7 +111,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -130,7 +130,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -158,14 +158,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -234,12 +234,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -282,7 +282,7 @@ Quando la chiamata a `AcquireTokenAsync(...)` ha esito positivo e un token viene
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
 È possibile utilizzare questo stesso modello ogni volta che si desidera controllare la cache dei token per i token senza chiedere conferma all'utente per accedere. Ad esempio - all'avvio dell'applicazione, si desidera controllare `FileCache` per tutti i token esistenti, in modo che venga mantenuta la sessione di accesso dell'utente ogni volta che si esegue la app. È possibile visualizzare lo stesso codice nell’evento `OnInitialized`di `MainWindow`, che gestisce il caso della prima esecuzione.
 
@@ -314,14 +314,14 @@ Infine, compilare ed eseguire sia `TaskClient` che `TaskService`. Eseguire l'isc
 
 ## 10\. Aggiungere i provider di identità per i social network
 
-Attualmente, l'app supporta solo l'iscrizione e l'accesso con gli account denominati **account locali**, ovvero account archiviati nella directory B2C con un nome utente e una password. Con Azure AD B2C, è possibile aggiungere il supporto per altri **provider di identità**, o IDP, senza modificare il codice.
+Attualmente, l'app supporta l'iscrizione e l'accesso con gli account denominati **account locali**, ovvero account archiviati nella directory B2C con un nome utente e una password. Con Azure AD B2C, è possibile aggiungere il supporto per altri **provider di identità**, o IdP, senza modificare il codice.
 
 Per aggiungere provider di identità per i social network all'applicazione, seguire le istruzioni dettagliate fornite in uno di questi due articoli. Per ogni provider di identità che si vuole supportare, sarà necessario registrare un'applicazione nel sistema del provider e ottenere un ID client.
 
 - [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
 - [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
 - [Configurare Amazon come provider di identità](active-directory-b2c-setup-amzn-app.md)
-- [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md) 
+- [Configurare LinkedIn come provider di identità](active-directory-b2c-setup-li-app.md)
 
 Dopo aver aggiunto i provider di identità alla propria directory B2C, sarà necessario tornare indietro e modificare ognuno dei tre criteri per includere i nuovi provider di identità, come descritto nell'articolo di [riferimento ai criteri](active-directory-b2c-reference-policies.md). Dopo aver salvato i criteri, eseguire di nuovo l'app. I nuovi provider di identità dovrebbero essere stati aggiunti tra le opzioni di accesso e iscrizione in ognuna delle esperienze per l'identità.
 
@@ -343,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

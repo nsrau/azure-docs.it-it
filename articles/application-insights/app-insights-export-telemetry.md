@@ -19,7 +19,7 @@
 
 Si vogliono effettuare alcune analisi personalizzate sui dati di telemetria? Oppure forse si vuole un messaggio di avviso di posta elettronica relativo a eventi con proprietà specifiche? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.
 
-La funzionalità di esportazione continua è disponibile nel periodo di valutazione gratuito e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
+La funzionalità di esportazione continua è disponibile nel periodo di valutazione gratuito e nei [piani tariffari Standard e Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Se si vuole eseguire semplicemente un'[esportazione occasionale](app-insights-metrics-explorer.md#export-to-excel) dei dati visualizzati in un pannello delle metriche o di ricerca, fare clic sul pulsante di esportazione nella parte superiore del pannello. Se si desidera visualizzare i dati in Power BI, utilizzare [l’adattatore](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) che *non* utilizza l’esportazione continua.
 
@@ -75,7 +75,7 @@ Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'
 
 I dati includono anche i risultati di ogni [test Web di disponibilità](app-insights-monitor-web-app-availability.md) impostato.
 
-> [AZURE.NOTE]**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+> [AZURE.NOTE] **Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 ## <a name="get"></a> Esaminare i dati
 
@@ -152,7 +152,7 @@ L'esportazione continua verrà riavviata.
  * Si noti che questo non è il metodo standard per usare Power BI. Esiste [un adattatore](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) che non richiede l'esportazione continua.
 
 
-Su scala più estesa considerare la possibilità di usare cluster [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
+Su scala più estesa considerare la possibilità di usare cluster [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e l'analisi di big data.
 
 
 
@@ -210,4 +210,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

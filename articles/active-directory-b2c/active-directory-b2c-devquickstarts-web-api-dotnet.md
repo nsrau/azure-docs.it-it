@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'app Web .NET
@@ -36,7 +36,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `https://localhost:44316/` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -63,7 +63,7 @@ Il codice per questa esercitazione è disponibile [in GitHub](https://github.com
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è il front-end dell'app Web WPF con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti.
 
@@ -83,7 +83,7 @@ Quando `TaskService` riceve le richiesta da `TaskWebApp`, verifica la presenza d
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
@@ -246,7 +246,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 	// The token will be stored in the ADAL token cache, for use in our controllers
 	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-``` 
+```
 
 #### Ottenere un token di accesso nei controller
 
@@ -266,7 +266,7 @@ public async Task<ActionResult> Index()
 
 		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
 		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
+
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -281,7 +281,7 @@ public async Task<ActionResult> Index()
 	}
 	...
 }
-``` 
+```
 
 Active Directory Authentication Library gestirà la memorizzazione dei token nella cache, l'aggiornamento dei token alla scadenza e la generazione di eccezioni che indicano quando l'utente deve eseguire di nuovo l'accesso. È sufficiente chiamare `AuthenticationContext.AcquireTokenSilentAsync(...)` ogni volta che è necessario un token per l'app.
 
@@ -294,9 +294,9 @@ Ora che si ha un token, è possibile collegarlo alla richiesta HTTP GET nell'int
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
+	...
+
+	try
 	{
 		HttpClient client = new HttpClient();
 		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
@@ -314,7 +314,7 @@ public async Task<ActionResult> Index()
 		}
 		else
 		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
+			// If the call failed with access denied, then drop the current access token from the cache,
 			// and show the user an error indicating they might need to sign-in again.
 			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 			{
@@ -359,8 +359,8 @@ public void SignOut()
 
 		HttpContext.GetOwinContext().Authentication.SignOut(
 		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
+			new Dictionary<string, string>
+			{
 				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
 			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

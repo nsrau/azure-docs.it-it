@@ -8,9 +8,9 @@
 
 6. Nella finestra Protezione di Windows, digitare le credenziali dell'account della macchina virtuale, quindi fare clic su **OK**.
 
- 	Nella maggior parte dei casi, il nome utente e la password dell’account locale specificati al momento della creazione della macchina virtuale. In questo caso, il dominio è il nome della macchina virtuale e viene immesso come *vmname*& #92;*nome utente*.
+ 	Nella maggior parte dei casi, le credenziali corrispondono al nome utente e alla password dell'account locale specificati al momento della creazione della macchina virtuale. In questo caso, il dominio è il nome della macchina virtuale e viene immesso come *vmname*& #92;*nome utente*.
 	
-	Se la macchina virtuale appartiene a un dominio nell'organizzazione, assicurarsi che il nome utente contenga il nome di tale dominio nel formato *Dominio*&#92;*Nome utente*. L'account dovrà inoltre appartenere al gruppo degli amministratori o devono essergli stati concessi privilegi di accesso remoto alla macchina virtuale.
+	Se la macchina virtuale appartiene a un dominio nell'organizzazione, assicurarsi che il nome utente contenga il nome del dominio nel formato *Dominio*&#92;*Nome utente*. L'account dovrà inoltre appartenere al gruppo degli amministratori o devono essergli stati concessi privilegi di accesso remoto alla macchina virtuale.
 	
 	Se la macchina virtuale è un controller di dominio, digitare nome utente e password di un account amministratore di dominio per tale dominio.
 
@@ -18,4 +18,4 @@
 
 	![Verificare l'identità della macchina virtuale](./media/virtual-machines-log-on-win-server/connectverify.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

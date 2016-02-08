@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Integrare Azure AD in un'app per Android
@@ -100,7 +100,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -391,7 +391,7 @@ Il livello di registrazione viene impostato nel modo seguente:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati.
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. 
  È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
@@ -453,6 +453,5 @@ che dovranno essere sovrascritti dall'applicazione se si vogliono usare stringhe
 ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tramite l'evento onReceivedHttpAuthRequest da WebViewClient. Il layout della finestra di dialogo e le stringhe possono essere personalizzati.### Passaggio 5: Scaricare il codice di esempio client nativo iOS
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

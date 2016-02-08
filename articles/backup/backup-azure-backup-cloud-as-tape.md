@@ -47,7 +47,7 @@ Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripr
 
 Il numero totale dei punti di ripristino è 56.
 
-> [AZURE.NOTE]Il backup di Azure non dispone di una restrizione sul numero di punti di ripristino.
+> [AZURE.NOTE] Il backup di Azure non dispone di una restrizione sul numero di punti di ripristino.
 
 ## Configurazione avanzata
 Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di un'ulteriore flessibilità nella definizione delle pianificazioni di conservazione.
@@ -60,4 +60,4 @@ Per ulteriori informazioni sul Backup di Azure vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

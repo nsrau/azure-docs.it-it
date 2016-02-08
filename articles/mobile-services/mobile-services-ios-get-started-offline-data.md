@@ -35,7 +35,7 @@ La sincronizzazione offline presenta diversi vantaggi:
 * Esegue la sincronizzazione dei dati su più dispositivi
 * Rileva i conflitti quando lo stesso record viene modificato da due dispositivi
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](https://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Questa esercitazione è basata sull'esercitazione [Guida introduttiva per Servizi mobili], che deve essere completata per prima. È consigliabile esaminare innanzitutto il codice relativo alla sincronizzazione offline già presente nella Guida introduttiva.
 
@@ -102,7 +102,7 @@ Il secondo parametro di `pullWithQuery` è un ID di query usato per la _sincroni
 ```
 
 
->[AZURE.NOTE]Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `MSSyncTable.purgeWithQuery` per ripulire l'archivio locale.
+>[AZURE.NOTE] Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `MSSyncTable.purgeWithQuery` per ripulire l'archivio locale.
 
 
 * In **QSTodoService.m** i metodi `addItem` e `completeItem` chiamano `syncData` dopo la modifica dei dati. In **QSTodoListViewController.m** il metodo `refresh` chiama anche `syncData` in modo che l'interfaccia utente visualizzi i dati più recenti ad ogni aggiornamento e avvio (`init` chiama `refresh`).
@@ -120,7 +120,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
       * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
       * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** sono proprietà di sistema facoltative.
 
->[AZURE.NOTE]Mobile Services SDK riserva i nomi di colonna che iniziano con "**`ms_`**". Non usare questo prefisso in un valore diverso da quello delle colonne di sistema. In caso contrario, quando si usa il servizio remoto vengono modificati i nomi di colonna.
+>[AZURE.NOTE] Mobile Services SDK riserva i nomi di colonna che iniziano con "**`ms_`**". Non usare questo prefisso in un valore diverso da quello delle colonne di sistema. In caso contrario, quando si usa il servizio remoto vengono modificati i nomi di colonna.
 
 - Quando si usa la funzionalità di sincronizzazione offline, è necessario definire le tabelle di sistema come illustrato di seguito.
 
@@ -275,4 +275,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

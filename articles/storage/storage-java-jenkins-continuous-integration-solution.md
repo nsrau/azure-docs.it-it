@@ -80,9 +80,9 @@ Per usare il servizio BLOB con Jenkins, è necessario installare il plug-in di A
 1. Nel dashboard di Jenkins fare clic su **Manage Jenkins**.
 2. Nella pagina **Manage Jenkins** fare clic su **Configure System**.
 3. Nella sezione **Microsoft Azure Storage Account Configuration**:
-    1. Immettere il nome dell'account di archiviazione che è possibile ottenere dal [portale di Azure](portal.azure.com).
-    2. Immettere la chiave dell'account di archiviazione che è possibile ottenere dal [portale di Azure](portal.azure.com).
-    3. Se si utilizza il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si utilizza un servizio Cloud di Azure diverso, utilizzare l'endpoint specificato nel [portale di Azure](portal.azure.com) per l'account di archiviazione. 
+    1. Immettere il nome dell'account di archiviazione che è possibile ottenere dal [portale di Azure](https://portal.azure.com).
+    2. Immettere la chiave dell'account di archiviazione che è possibile ottenere dal [portale di Azure](https://portal.azure.com).
+    3. Se si utilizza il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si utilizza un servizio Cloud di Azure diverso, utilizzare l'endpoint specificato nel [portale di Azure](https://portal.azure.com) per l'account di archiviazione. 
     4. Fare clic su **Validate storage credentials** per convalidare l'account di archiviazione. 
     5. [Facoltativo] Se si dispone di account di archiviazione aggiuntivi che si desidera rendere disponibili all'Integrazione continuata Jenkins, fare clic su **Add more Storage Accounts**.
     6. Per salvare le impostazioni, fare clic su **Save**.
@@ -117,7 +117,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 12. Per salvare le impostazioni, fare clic su **Save**.
 13. Nel dashboard di Jenkins fare clic su **Build Now** per eseguire **MyJob**. Esaminare l'output di console per ottenere informazioni sullo stato. I messaggi di stato per il servizio di archiviazione di Azure verranno inclusi nell'output della console quando l'operazione post-compilazione avvierà il caricamento degli elementi di compilazione.
 14. Dopo avere completato il processo, è possibile esaminare gli elementi di compilazione aprendo il BLOB pubblico.
-    1. Eseguire l'accesso al [portale di Azure](portal.azure.com).
+    1. Eseguire l'accesso al [portale di Azure](https://portal.azure.com).
     2. Fare clic su **Storage**.
     3. Fare clic sul nome dell'account di archiviazione utilizzato per Jenkins.
     4. Fare clic su **Containers**.
@@ -150,7 +150,7 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
     
-    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel [portale di Azure](portal.azure.com) per determinare l'endpoint dell'URL.
+    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel [portale di Azure](https://portal.azure.com) per determinare l'endpoint dell'URL.
 
     Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore utilizzato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato utilizzato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
 
@@ -162,4 +162,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

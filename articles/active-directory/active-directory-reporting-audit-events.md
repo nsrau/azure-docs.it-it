@@ -120,6 +120,6 @@ StrongAuthenticationRequirement | Se l'autenticazione a più fattori è imposta,
 StrongAuthenticationUserDetails | Numero di telefono dell'utente, numero di telefono alternativo e indirizzo di posta elettronica usati per la verifica dell'autenticazione a più fattori e della reimpostazione della password.
 TelephoneNumber | Numero di telefono dell'utente.
 
-I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
+I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](https://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ricerca di applicazioni cloud non autorizzate con Cloud App Discovery | Microsoft Azure"
+	pageTitle="Ricerca di applicazioni cloud non gestite con Cloud App Discovery | Microsoft Azure"
 	description="Fornisce informazioni sull'individuazione e la gestione delle applicazioni con Cloud App Discovery, quali sono i vantaggi e il relativo funzionamento."
 	services="active-directory"
 	keywords="cloud app discovery, gestione delle applicazioni"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Ricerca di applicazioni cloud non autorizzate con Cloud App Discovery
+# Ricerca di applicazioni cloud non gestite con Cloud App Discovery
 
 ## Panoramica
 Nelle aziende moderne spesso i reparti IT non sono a conoscenza di tutte le applicazioni cloud usate dai membri dell'organizzazione per svolgere il proprio lavoro. L'accesso non autorizzato ai dati aziendali, le possibili perdite di dati e altri rischi di sicurezza rappresentano una preoccupazione per gli amministratori. A causa di questa mancanza di consapevolezza, la creazione di un piano per la gestione dei rischi per la sicurezza potrebbe sembrare complicata.
@@ -48,4 +48,4 @@ Per iniziare a usare Cloud App Discovery, vedere l'[introduzione a Cloud App Dis
 - [Log modifiche dell'agente di Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Domande frequenti di Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

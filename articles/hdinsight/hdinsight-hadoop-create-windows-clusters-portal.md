@@ -27,7 +27,7 @@ Informazioni su come creare un cluster Hadoop in HDInsight tramite il portale di
 
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
-- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Creare i cluster
 
@@ -124,7 +124,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 	* **Utenti** (![icona utenti](./media/hdinsight-provision-clusters/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
 	
 
-		> [AZURE.IMPORTANT]Questa impostazione influisce _solo_ sull'accesso e sulle autorizzazioni per questo cluster nel portale, e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
+		> [AZURE.IMPORTANT] Questa impostazione influisce _solo_ sull'accesso e sulle autorizzazioni per questo cluster nel portale, e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 		
 	* **Tag** (![icona tag](./media/hdinsight-provision-clusters/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
@@ -140,4 +140,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md) - Informazioni su come inviare processi a HDInsight a livello di codice
 * [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -40,7 +40,7 @@ Per istruzioni sull'installazione, vedere [Installazione dei processi di databas
 * Definire pianificazioni di esecuzione
 * Aggregare i dati di una raccolta di database SQL di Azure in una singola tabella di destinazione.
 
-> [AZURE.NOTE]Nel portale di Azure è disponibile solo un set ridotto di funzioni limitate ai pool elastici di SQL di Azure. Utilizzare le API di PowerShell per accedere alla serie completa delle funzionalità correnti.
+> [AZURE.NOTE] Nel portale di Azure è disponibile solo un set ridotto di funzioni limitate ai pool elastici di SQL di Azure. Utilizzare le API di PowerShell per accedere alla serie completa delle funzionalità correnti.
 
 ## Scenari
 
@@ -88,10 +88,10 @@ I gruppi personalizzati, d'altra parte, sono definiti rigidamente. È necessario
 ## Componenti e prezzi 
 I seguenti componenti interagiscono per creare un servizio Cloud di Azure che consente l'esecuzione ad hoc dei processi di amministrazione. I componenti vengono installati e configurati automaticamente durante la configurazione, nella sottoscrizione. È possibile identificare i servizi poiché hanno tutti lo stesso nome generato automaticamente. Il nome è univoco ed è costituito dal prefisso "edj" seguito da 21 caratteri generati casualmente.
 
-* **Servizio cloud di Azure**: i processi di database elastica (anteprima) vengono recapitati come servizio cloud di Azure ospitato dal cliente per l'esecuzione delle attività richieste. Dal portale, il servizio viene distribuito e ospitato nella sottoscrizione Microsoft Azure. Il servizio predefinito distribuito viene eseguito con un numero minimo di due ruoli di lavoro per la disponibilità elevata. La dimensione predefinita di ogni ruolo di lavoro (ElasticDatabaseJobWorker) viene eseguita in un'istanza A0. Per informazioni sui prezzi, vedere [Servizi cloud Prezzi](http://azure.microsoft.com/pricing/details/cloud-services/). 
-* **Database SQL di Azure**: il servizio usa un database SQL di Azure noto come **database di controllo** per archiviare tutti i metadati del processo. Il livello di servizio predefinito è S0. Per informazioni sui prezzi, vedere [Database SQL Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
-* **Bus di servizio di Azure**: è destinato alla coordinazione del lavoro all'interno del servizio cloud di Azure. Vedere [Bus di servizio Prezzi](http://azure.microsoft.com/pricing/details/service-bus/).
-* **Archiviazione di Azure**: un account di Archiviazione di Azure viene utilizzato per archiviare la registrazione dell’output nell’evento che un problema richieda un debugging ulteriore (una pratica comune per la [diagnostica di Azure](cloud-services-dotnet-diagnostics.md)). Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/storage/).
+* **Servizio cloud di Azure**: i processi di database elastica (anteprima) vengono recapitati come servizio cloud di Azure ospitato dal cliente per l'esecuzione delle attività richieste. Dal portale, il servizio viene distribuito e ospitato nella sottoscrizione Microsoft Azure. Il servizio predefinito distribuito viene eseguito con un numero minimo di due ruoli di lavoro per la disponibilità elevata. La dimensione predefinita di ogni ruolo di lavoro (ElasticDatabaseJobWorker) viene eseguita in un'istanza A0. Per informazioni sui prezzi, vedere [Servizi cloud Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Database SQL di Azure**: il servizio usa un database SQL di Azure noto come **database di controllo** per archiviare tutti i metadati del processo. Il livello di servizio predefinito è S0. Per informazioni sui prezzi, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Bus di servizio di Azure**: è destinato alla coordinazione del lavoro all'interno del servizio cloud di Azure. Vedere [Bus di servizio Prezzi](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Archiviazione di Azure**: un account di Archiviazione di Azure viene utilizzato per archiviare la registrazione dell’output nell’evento che un problema richieda un debugging ulteriore (una pratica comune per la [diagnostica di Azure](cloud-services-dotnet-diagnostics.md)). Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Funzionano dei processi di database elastico
 1.	A un database SQL di Azure viene designato un database di controllo che archivia tutti i dati dello stato e i metadati.
@@ -124,4 +124,4 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

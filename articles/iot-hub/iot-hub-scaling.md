@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/02/2015"
+ ms.date="01/20/2016"
  ms.author="elioda"/>
 
 # Ridimensionamento dell'hub IoT
@@ -32,21 +32,14 @@ Oltre alle informazioni sulla velocità effettiva, vedere le [quote e limitazion
 
 ## Velocità effettiva dei messaggi da dispositivo a cloud e da cloud a dispositivo.
 
-Il modo migliore per definire le dimensioni di una soluzione hub IoT consiste nel valutare il traffico per dispositivo.
+Il modo migliore per definire le dimensioni di una soluzione hub IoT consiste nel valutare il traffico per unità.
 
 I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocità effettiva sostenuta
 
 | Livello | Velocità effettiva sostenuta | Frequenza di invio sostenuta |
 | ---- | -------------------- | ------------------- |
-| S1 | Fino a 8 KB/ora per ogni dispositivo | Media di 4 messaggi/ora per dispositivo |
-| S2 | Fino a 4 KB/min per ogni dispositivo | Media di 2 messaggi/minuto per dispositivo |
-
-Quando si ricevono messaggi da dispositivo a cloud, il back-end dell'applicazione può prevedere la velocità effettiva massima seguente (su tutti i lettori).
-
-| Livello | Velocità effettiva sostenuta |
-| ---- | -------------------- |
-| S1 | Fino a 120 KB/minuto per unità, con un di minimo 2 MB/secondo |
-| S2 | Fino a 4 MB/minuto per unità, con un massimo di 2 MB/minuto |
+| S1 | Fino a 1111 KB al minuto per unità<br/>(1,5 GB al giorno per unità) | Una media di 278 messaggi al minuto per unità<br/>(400.000 messaggi al giorno per unità) |
+| S2 | Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) | Una media di 4167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
 
 Le prestazioni dei messaggi da cloud a dispositivo vengono ridimensionate per dispositivo, con ogni dispositivo che riceve al massimo 5 messaggi al minuto.
 
@@ -73,4 +66,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

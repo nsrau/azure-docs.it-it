@@ -1,5 +1,5 @@
 <properties"
-pageTitle="title="immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"
+pageTitle="title="Immagini di elenco di macchine Virtuali Oracle | Descrizione di Microsoft Azure"
 description="Ottenere l'elenco di immagini di Oracle nella raccolta di Azure e informazioni su come creare una macchina virtuale di Oracle in base a un."
 services="virtual-machines"
 documentationCenter=""
@@ -27,7 +27,7 @@ Per creare macchine virtuali basate su immagini Oracle, accedere al [portale di 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Immagini di macchine virtuali basate su Windows
-Di seguito è riportato un elenco delle immagini di macchine virtuali Oracle disponibili che eseguono Windows Server in Azure. Queste immagini sono con pagamento in base al consumo, vale a dire che le spese di licenza Oracle sono incluse nell’utilizzo di queste immagini. È inoltre possibile utilizzare la propria licenza per eseguire il software Oracle in Windows o Linux. Di seguito vengono riportate informazioni dettagliate complete su [prezzi e licenze per macchine virtuali di Azure e immagini della raccolta di macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Fare clic sulla scheda **Oracle** per ottenere informazioni dettagliate sui prezzi specifici per Oracle.
+Di seguito è riportato un elenco delle immagini di macchine virtuali Oracle disponibili che eseguono Windows Server in Azure. Queste immagini sono con pagamento in base al consumo, vale a dire che le spese di licenza Oracle sono incluse nell’utilizzo di queste immagini. È inoltre possibile utilizzare la propria licenza per eseguire il software Oracle in Windows o Linux. Di seguito vengono riportate informazioni dettagliate complete su [prezzi e licenze per macchine virtuali di Azure e immagini della raccolta di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Fare clic sulla scheda **Oracle** per ottenere informazioni dettagliate sui prezzi specifici per Oracle.
 
 ###Immagini di macchine virtuali Oracle Database
 - Oracle Database 12c Enterprise Edition in Windows Server 2012
@@ -71,4 +71,4 @@ Di seguito è riportato un elenco delle immagini di macchine virtuali Oracle pre
 
 [Immagini di macchine virtuali Oracle - Considerazioni varie](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

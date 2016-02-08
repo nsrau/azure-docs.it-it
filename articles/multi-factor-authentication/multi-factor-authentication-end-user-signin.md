@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure MFA. Esperienza di accesso con Azure Multi-Factor Authentication" 
-	description="Questa pagina fornirà indicazioni su dove trovare le istruzioni per visualizzare i diversi metodi di accesso disponibili con Azure MFA." 
+	description="Questa pagina fornirà indicazioni su dove trovare le istruzioni per visualizzare i diversi metodi di accesso disponibili con Azure MFA."
+	keywords="autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Esperienza di accesso con Azure Multi-Factor Authentication
-> [AZURE.NOTE]La documentazione fornita in questa pagina illustra una tipica esperienza di accesso. Per ricevere assistenza sull’accesso, vedere [Problemi di Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]  La documentazione fornita in questa pagina illustra una tipica esperienza di accesso. Per ricevere assistenza sull’accesso, vedere [Problemi di Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 
@@ -103,4 +104,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

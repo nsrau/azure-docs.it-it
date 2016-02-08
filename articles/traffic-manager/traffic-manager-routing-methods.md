@@ -31,7 +31,7 @@ I tre metodi di routing di Gestione traffico sono:
 
 Tenere presente che Siti Web di Azure offre già funzionalità di routing del traffico round-robin per i siti web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico consente di specificare il failover e il routing del traffico round-robin per i siti web che si trovano in data center diversi.
 
->[AZURE.NOTE]La durata TTL del DNS indica ai client e ai resolver DNS sui server DNS per quanto tempo i nomi risolti rimarranno memorizzati nella cache. I client continueranno a usare un endpoint specificato durante la risoluzione del nome di dominio fino alla scadenza della voce cache DNS locale per il nome.
+>[AZURE.NOTE] La durata TTL del DNS indica ai client e ai resolver DNS sui server DNS per quanto tempo i nomi risolti rimarranno memorizzati nella cache. I client continueranno a usare un endpoint specificato durante la risoluzione del nome di dominio fino alla scadenza della voce cache DNS locale per il nome.
 
 ## Metodo di routing del traffico failover
 
@@ -85,7 +85,7 @@ Attualmente, non è possibile usare il portale di Azure classico per configurare
 
 Per informazioni sull'uso delle API REST, vedere [Operazioni per Gestione traffico (documentazione di riferimento sulle API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
-Per informazioni sull'uso dei cmdlet di Azure PowerShell, vedere [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Per una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell nel blog di Azure](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
+Per informazioni sull'uso dei cmdlet di Azure PowerShell, vedere [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Per una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell nel blog di Azure](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 Per testare il profilo da un singolo client e osservare il comportamento del metodo Round robin uniforme o ponderato, assicurarsi che il nome DNS venga risolto in un indirizzo IP diverso per ogni endpoint in base ai valori uniformi o ponderati definiti nel profilo. Durante il test è necessario disabilitare la memorizzazione nella cache DNS sul lato client oppure cancellare la cache DNS tra un tentativo e l'altro per assicurarsi che venga inviata una nuova query relativa al nome DNS.
 
@@ -130,4 +130,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 [Aggiungere un endpoint](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

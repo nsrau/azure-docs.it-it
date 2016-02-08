@@ -49,7 +49,7 @@ Per aggiungere un database secondario è necessario essere il proprietario o un 
 
 Il database secondario avrà lo stesso nome del database primario e avrà, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere leggibile (solo livello Premium) o non leggibile e può essere un database singolo o un database elastico. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md). Dopo che il database secondario viene creato e viene effettuato il seeding, i dati verranno replicati dal database primario al nuovo database secondario.
 
-> [AZURE.NOTE]Se il database partner esiste già (ad esempio, come risultato del termine di una relazione di replica geografica precedente), il comando avrà esito negativo.
+> [AZURE.NOTE] Se il database partner esiste già (ad esempio, come risultato del termine di una relazione di replica geografica precedente), il comando avrà esito negativo.
 
 
 
@@ -133,7 +133,7 @@ Per il failover pianificato, questa sequenza garantisce che non si verifichi alc
 
 ## Risorse aggiuntive
 
-- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
@@ -151,4 +151,4 @@ Per il failover pianificato, questa sequenza garantisce che non si verifichi alc
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

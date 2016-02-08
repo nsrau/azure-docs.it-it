@@ -28,7 +28,7 @@ Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizi
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
+>[AZURE.TIP] Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza sostenere costi aggiuntivi.
 
 ###Miglioramenti dell’SDK del server .NET di App per dispositivi mobili
 
@@ -46,9 +46,9 @@ L'aggiornamento al nuovo [SDK delle app per dispositivi mobili](https://www.nuge
 
 In molti casi, l'aggiornamento sarà semplice come passare al nuovo SDK del server di app per dispositivi mobili e ripubblicare il codice in una nuova istanza di app per dispositivi mobili. Esistono, tuttavia, alcuni scenari che richiedono alcune configurazioni aggiuntive, ad esempio l'autenticazione avanzata e l'uso dei processi pianificati. Ciascuno di questi scenari viene trattato nelle sezioni seguenti.
 
->[AZURE.TIP]Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
+>[AZURE.TIP] Si consiglia di leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
 
-Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di app per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
+Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di App per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
 Si avranno quindi due versioni dell'applicazione: una che rimane invariata e usa le app pubblicate e l'altra che è possibile aggiornare e usare come destinazione con una nuova versione del client. È possibile spostare e testare il codice in base alle esigenze, ma è necessario assicurarsi che tutte le correzioni di bug apportate vengano applicate a entrambe le versioni. Quando si ritiene di avere aggiornato alla versione più recente il numero desiderato di app client in circostanze normali, è possibile eliminare l'app migrata originale, se lo si desidera.
 
@@ -95,7 +95,7 @@ con
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE]Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET].
+>[AZURE.NOTE] Per altre informazioni sul nuovo SDK del server .NET e su come aggiungere/rimuovere funzionalità dall'app, vedere l'argomento [Come usare l'SDK del server .NET].
 
 Se l'app fa uso delle funzionalità di autenticazione, sarà inoltre necessario registrare un middleware OWIN. In questo caso, è necessario spostare il codice di configurazione precedente in una nuova classe di avvio OWIN.
  
@@ -218,7 +218,7 @@ Analogamente, la registrazione viene ora effettuata mediante la scrittura di tra
 
 ##<a name="authentication"></a>Considerazioni sull'autenticazione
 
-I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app mobile](app-service-mobile-ios-get-started-users.md).
+I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app per dispositivi mobili](app-service-mobile-ios-get-started-users.md).
 
 Per alcuni provider, come AAD, Facebook e Google, dovrebbe essere possibile sfruttare la registrazione esistente dall'applicazione di copia. È sufficiente passare al portale del provider di identità e aggiungere un nuovo URL di reindirizzamento alla registrazione. Configurare quindi l'autenticazione/autorizzazione del servizio app con l'ID client e il segreto.
 
@@ -277,4 +277,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
    description="Aggiungere servizi mobili tramite la finestra di dialogo Aggiungi servizi connessi di Visual Studio "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="mlhoop"
    manager="douge"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="12/16/2015"
-   ms.author="tarcher" />
+   ms.author="mlearned" />
 
 # Aggiunta di servizi mobili tramite Servizi connessi di Visual Studio
 
@@ -21,7 +21,7 @@ Con Visual Studio 2015, è possibile connettersi a Servizi mobili di Azure usand
 
 ## Tipi di progetto supportati
 
->[AZURE.NOTE]In Visual Studio 2015, l'aggiunta di Servizi mobili di Azure a progetti di Windows Universal (Windows 10) mediante la finestra di dialogo Aggiungi servizi connessi non è supportata. È possibile aggiungere servizi mobili di Azure installando i pacchetti appropriati usando Gestione pacchetti NuGet per il progetto.
+>[AZURE.NOTE] In Visual Studio 2015, l'aggiunta di Servizi mobili di Azure a progetti di Windows Universal (Windows 10) mediante la finestra di dialogo Aggiungi servizi connessi non è supportata. È possibile aggiungere servizi mobili di Azure installando i pacchetti appropriati usando Gestione pacchetti NuGet per il progetto.
 
 È possibile usare la finestra di dialogo Servizi connessi per connettersi a Servizi mobili di Azure nei tipi di progetto seguenti.
 
@@ -76,7 +76,7 @@ Con Visual Studio 2015, è possibile connettersi a Servizi mobili di Azure usand
 
 ## Come viene modificato il progetto
 
-La modalità di modifica del progetto di Visual Studio dipende dal tipo di progetto. Per le app client C#, vedere [Risultati - Progetti C#](http://go.microsoft.com/fwlink/p/?LinkId=513119). Per le applicazioni client JavaScript, vedere [Risultati - Progetti JavaScript](http://go.microsoft.com/fwlink/p/?LinkId=513120). Per le applicazioni Cordova, vedere [Risultati - Progetti Cordova](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+La modalità di modifica del progetto di Visual Studio dipende dal tipo di progetto. Per le app client C#, vedere [Informazioni sull’evento – Progetti C#](http://go.microsoft.com/fwlink/p/?LinkId=513119). Per le applicazioni client JavaScript, vedere [Risultati - Progetti JavaScript](http://go.microsoft.com/fwlink/p/?LinkId=513120). Per le applicazioni Cordova, vedere [Risultati - Progetti Cordova](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 
 ##Passaggi successivi
@@ -85,10 +85,10 @@ Domande e assistenza:
 
  - [Forum MSDN: Servizi mobili di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Servizi mobili di Azure nel blog del Team di Microsoft Azure](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Servizi mobili di Azure nel blog del Team di Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [Servizi mobili di Azure in azure.microsoft.com](http://azure.microsoft.com/services/mobile-services/)
+ - [Servizi mobili di Azure in azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 
- - [Documentazione dei servizi mobili di Azure sul sito azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [Documentazione dei servizi mobili di Azure sul sito azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

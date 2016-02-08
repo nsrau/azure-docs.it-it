@@ -84,9 +84,9 @@ L'impatto sulle prestazioni è molto ridotto. Le chiamate di rilevamento non son
 
 ## Attività iniziali
 
-1. È necessaria una sottoscrizione a [Microsoft Azure](http://azure.com). È possibile crearla gratuitamente e quindi scegliere il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) gratuito di Application Insights.
+1. È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com). È possibile crearla gratuitamente e quindi scegliere il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) gratuito di Application Insights.
 
-2. Accedere al [portale di Azure](http://portal.azure.com)
+2. Accedere al [portale di Azure](https://portal.azure.com).
 3. Creare una risorsa di Application Insights. In questa risorsa verranno visualizzati i dati dell'app.
 
     ![Aggiungi, Servizi per gli sviluppatori, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -151,4 +151,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

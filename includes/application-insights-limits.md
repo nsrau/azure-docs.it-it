@@ -1,4 +1,4 @@
- I limiti dipendono dal [livello di prezzo](http://azure.microsoft.com/pricing/details/application-insights/) scelto.
+ I limiti dipendono dal [livello di prezzo](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
 
 **Risorsa** | **Limite predefinito** | **Limite massimo**
 -------- | ------------- | -------------
@@ -21,4 +21,4 @@ Lunghezza nome di metrica | 100 | 100
  
 [Informazioni su prezzi e quote in Application Insights](app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

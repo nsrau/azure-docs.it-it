@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Creare una macchina virtuale SQL Server in Azure (PowerShell)
@@ -67,7 +67,7 @@ La macchina virtuale di SQL Server verrà ospitata in un servizio cloud che si t
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]Se è necessario un nuovo account di archiviazione, creare prima un nome account di archiviazione tutto in minuscolo con il comando New-AzureStorageAccount come nell'esempio seguente: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+	>[AZURE.NOTE] Se è necessario un nuovo account di archiviazione, creare prima un nome account di archiviazione tutto in minuscolo con il comando New-AzureStorageAccount come nell'esempio seguente: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
 1. Assegnare il nome dell'account di archiviazione di destinazione a **$staccount**. Usare quindi **Set-AzureSubscription** per impostare la sottoscrizione e l'account di archiviazione corrente.
 
@@ -112,7 +112,7 @@ Infine, creare la macchina virtuale con PowerShell.
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Per le opzioni di configurazione e le spiegazioni aggiuntive, vedere la sezione **Compilare il set di comandi** in [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE] Per le opzioni di configurazione e le spiegazioni aggiuntive, vedere la sezione **Compilare il set di comandi** in [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Script di PowerShell di esempio
 
@@ -175,4 +175,4 @@ Se si è interessati alla modalità di esecuzione di questi passaggi dal portale
 
 Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

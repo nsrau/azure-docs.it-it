@@ -32,9 +32,9 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 ## Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di DocumentDB è costituito da set di risorse associate a un account di database, ciascuna indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
 
->[AZURE.NOTE]DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modello di risorse gerarchico di DocumentDB][1]  
+![Modello di risorse gerarchico di DocumentDB][1] 
 **Modello di risorse gerarchico**
 
 Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
@@ -56,16 +56,16 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 ## Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
 
->[AZURE.NOTE]Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
+>[AZURE.NOTE] Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
 
 
 Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
 ---|---|---
-_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa.
-_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica.
-_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa.
-_self|Generato dal sistema|URI indirizzabile univoco della risorsa.
-id|Impostabile dall'utente|Nome univoco della risorsa definito dall’utente.
+_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. 
+_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. 
+_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. 
+_self|Generato dal sistema|URI indirizzabile univoco della risorsa. 
+id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
 
 ### Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -73,18 +73,18 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ### Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
-|Valore di \_self |Descrizione
-|-------------------|-----------
-|/dbs	|Feed di database in un account di database.
-|/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}
-|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database.
-|/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Feed di documenti in una raccolta
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {_rid-doc} 
-|/dbs/{_rid-db}/users/ |Feed di utenti in un database.
-|/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database.
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}.
+|Valore di \_self |Descrizione 
+|-------------------|----------- 
+|/dbs |Feed di database in un account di database 
+|/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db} 
+|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database 
+|/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll} 
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta 
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc} 
+|/dbs/{\_rid-db}/users/ |Feed di utenti in un database |/dbs/{\_rid-db}/users/{\_rid-user} 
+|Utente con un ID corrispondente al valore {_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions 
+|Feed di autorizzazioni in un utente |/dbs/{_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} 
+|Autorizzazione con un ID corrispondente al valore {_rid-permission}
   
 Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 
@@ -95,7 +95,7 @@ I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternat
 ## Account di database
 È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
 
-È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure classico all'indirizzo [http://portal.azure.com/](http://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
+È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure classico all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
 
 ### Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:
@@ -155,7 +155,7 @@ I documenti in una raccolta possono avere schemi arbitrari ed è possibile esegu
 
 Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di DocumentDB compila ed esegue in modo nativo le istruzioni di query SQL. È possibile eseguire query su una raccolta usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). In .NET SDK è disponibile un provider LINQ.
 
-> [AZURE.TIP]È possibile provare DocumentDB ed eseguire query SQL con il set di dati in [Query Playground](https://www.documentdb.com/sql/demo).
+> [AZURE.TIP] È possibile provare DocumentDB ed eseguire query SQL con il set di dati in [Query Playground](https://www.documentdb.com/sql/demo).
 
 ### Transazioni in più documenti
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per la gestione delle modifiche simultanee ai dati. In RDBMS la logica di business è tradizionalmente scritta tramite la scrittura di **stored procedure** e/o **trigger** ed è inviata al server database per l'esecuzione transazionale. In RDBMS il programmatore di applicazioni deve gestire due linguaggi di programmazione diversi:
@@ -366,7 +366,7 @@ Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo 
 Analogamente a tutte le altre risorse, i documenti possono essere creati, sostituiti, eliminati, letti, enumerati e sottoposti a query con facilità tramite le API REST o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se si elimina un documento, la quota corrispondente a tutti gli allegati annidati sarà resa immediatamente disponibile. Il livello di coerenza di lettura dei documenti segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query nei documenti, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.
 
 ## Allegati e file multimediali
->[AZURE.NOTE]Allegati e risorse multimediali sono funzionalità di anteprima.
+>[AZURE.NOTE] Allegati e risorse multimediali sono funzionalità di anteprima.
  
 DocumentDB permette di archiviare BLOB/file multimediali binari tramite DocumentDB o in un archivio remoto specifico per i file multimediali. Permette anche di rappresentare i metadati dei file multimediali sotto forma di un documento speciale definito allegato. Un allegato in DocumentDB è un documento speciale (JSON) che fa riferimento a file multimediali/BLOB archiviati altrove. Un allegato è semplicemente un documento speciale che acquisisce i metadati, come percorso, autore e così via, di un file multimediale archiviato in una risorsa di archiviazione multimediale remota.
 
@@ -415,4 +415,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

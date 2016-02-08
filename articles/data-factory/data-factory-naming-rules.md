@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Regole di denominazione 
@@ -27,4 +27,4 @@ Data factory | Univoco in Microsoft Azure. Per i nomi non viene fatta distinzion
 Servizi collegati/Tabelle/Pipeline | Univoco in una data factory. Per i nomi viene fatta distinzione tra maiuscole e minuscole. | <ul><li>Numero massimo di caratteri in un nome di tabella: 260.</li><li>I nomi di oggetto devono iniziare con una lettera, un numero o un carattere di sottolineatura (_).</li><li>Non sono consentiti i seguenti caratteri: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul>
 Gruppo di risorse | Univoco in Microsoft Azure. Per i nomi non viene fatta distinzione tra maiuscole e minuscole. | <ul><li>Numero massimo di caratteri: 1000.</li><li>I nomi possono contenere solo lettere, cifre e i seguenti caratteri: “-”, “_”, “,” e “.”.</li></ul>
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

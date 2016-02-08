@@ -28,6 +28,8 @@ Anche se è possibile installare il gateway nello stesso computer locale o macch
 
 Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC per l'archivio dati nel computer del gateway.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Esempio: Copiare dati da un archivio dati ODBC al BLOB di Azure
 
 L'esempio seguente mostra:
@@ -42,7 +44,7 @@ L'esempio copia i dati dai risultati della query in un archivio dati ODBC a un B
 
 Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Servizio collegato ODBC**: questo esempio usa l'autenticazione di Windows. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Proprietà del servizio collegato ODBC](#odbc-linked-service-properties).
+**Servizio collegato ODBC**: questo esempio usa l'autenticazione di base. Per i diversi tipi di autenticazione disponibili, vedere la sezione del [servizio collegato ODBC](#odbc-linked-service-properties).
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@ Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni co
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,8 +223,8 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type | La proprietà type deve essere impostata su: **OnPremisesOdbc** | Sì |
 | connectionString | La parte delle credenziali non di accesso della stringa di connessione, nonché una credenziale crittografata facoltativa. Vedere gli esempi seguenti. | Sì
 | credential | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver, ad esempio: "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". | No
-| authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: anonima, di base e Windows. | Sì | 
-| username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No | 
+| authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: anonima e di base. | Sì | 
+| username | Specificare il nome utente se si usa l'autenticazione di base. | No | 
 | password | Specificare la password per l'account utente specificato per il nome utente. | No | 
 | gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'archivio dati ODBC. | Sì |
 
@@ -248,7 +250,7 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un archivio
 	}
 
 ### Uso dell'autenticazione di base con credenziali crittografate
-È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell 0.9 o versioni precedenti.
+È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell 0.9 o versioni precedenti.
 
 	{
 	    "name": "odbc",
@@ -263,24 +265,6 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un archivio
 	        }
 	    }
 	}
-
-### Uso dell'autenticazione di Windows
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### Uso dell'autenticazione anonima
@@ -340,4 +324,4 @@ Quando si spostano dati da archivi dati ODBC, viene eseguito il mapping dei tipi
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

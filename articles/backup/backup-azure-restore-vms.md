@@ -1,19 +1,30 @@
 
 <properties
 	pageTitle="Ripristinare una macchina virtuale dal backup | Microsoft Azure"
-	description="Informazioni su come ripristinare una macchina virtuale di Azure"
+	description="Informazioni su come ripristinare una macchina virtuale di Azure da un punto di ripristino"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
+	keywords="ripristinare il backup; come ripristinare; punto di ripristino."/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark;"/>
+
 
 # Ripristinare macchine virtuali in Azure
-È possibile ripristinare una macchina virtuale in una nuova macchina virtuale dai backup archiviati in un insieme di credenziali per il backup di Azure.
+
+Ripristinare una macchina virtuale in una nuova dai backup archiviati in un insieme di credenziali per il backup di Azure, seguendo questa procedura.
 
 ## Ripristinare un flusso di lavoro
+
 ### 1\. Scegliere un elemento da ripristinare
 
 1. Passare alla scheda **Elementi protetti** e selezionare la macchina virtuale che si desidera ripristinare in una nuova macchina virtuale.
@@ -32,7 +43,7 @@
 
     ![Selezionare un punto di ripristino](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. Per selezionare un punto precedente, scegliere l'opzione **Selezionare una data** nell'elenco a discesa e selezionare una data nel controllo calendario facendo clic sull'**icona del calendario**. Nel controllo tutte le date in cui sono presenti punti di ripristino hanno un'ombreggiatura di colore grigio chiaro e sono selezionabili dall'utente.
+2. Per selezionare un punto precedente, scegliere l'opzione **Seleziona data** nell'elenco a discesa e selezionare una data nel controllo calendario facendo clic sull'**icona del calendario**. Nel controllo tutte le date in cui sono presenti punti di ripristino hanno un'ombreggiatura di colore grigio chiaro e sono selezionabili dall'utente.
 
     ![Selezionare una data](./media/backup-azure-restore-vms/select-date.png)
 
@@ -97,7 +108,7 @@ Se si dispone di un ambiente con più controller di dominio, i controller di dom
 
 Il problema si verifica perché la modalità DSRM non è presente in Azure. Per ripristinare questa macchina virtuale, non è quindi possibile usare il portale di Azure. L'unico meccanismo di ripristino supportato è quello basato su disco tramite PowerShell.
 
->[AZURE.WARNING]Per le macchine virtuali del controller di dominio in un ambiente con più controller di dominio, non usare il portale di Azure per il ripristino. È supportato solo il ripristino basato su PowerShell.
+>[AZURE.WARNING] Per le macchine virtuali del controller di dominio in un ambiente con più controller di dominio, non usare il portale di Azure per il ripristino. È supportato solo il ripristino basato su PowerShell.
 
 Altre informazioni sul [problema del rollback di un numero di sequenza di aggiornamento](https://technet.microsoft.com/library/dd363553) e sulle strategie consigliate per risolverlo.
 
@@ -110,7 +121,7 @@ Backup di Azure supporta il backup per le configurazioni di rete speciali seguen
 
 Queste configurazioni rendono necessarie le considerazioni seguenti durante il ripristino.
 
->[AZURE.TIP]Usare il flusso di ripristino basato su PowerShell per ricreare la configurazione di rete speciale delle macchine virtuali dopo il ripristino.
+>[AZURE.TIP] Usare il flusso di ripristino basato su PowerShell per ricreare la configurazione di rete speciale delle macchine virtuali dopo il ripristino.
 
 ### Ripristino dall'interfaccia utente:
 Durante il ripristino dall'interfaccia utente, **scegliere sempre un nuovo servizio cloud**. Poiché il portale accetta solo parametri obbligatori durante il flusso di ripristino, tenere presente che le macchine virtuali ripristinate tramite l'interfaccia utente perderanno la configurazione di rete speciale di cui dispongono. In altre parole, le macchine virtuali ripristinate saranno macchine virtuali normali senza la configurazione del bilanciamento del carico o di più NIC o di più indirizzi IP riservati.
@@ -124,13 +135,13 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 
 2. Creare la configurazione della macchina virtuale necessaria per il bilanciamento del carico/per più NIC/per più indirizzi IP riservati tramite i cmdlet di PowerShell e usarla per creare la macchina virtuale con la configurazione desiderata.
 	- Creare una macchina virtuale nel servizio cloud con [bilanciamento del carico interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internet-getstarted)
-	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics)
+	- Creare una macchina virtuale connessa al [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/it-IT/documentation/articles/load-balancer-internet-getstarted/)
+	- Creare una macchina virtuale con [più NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creare una macchina virtuale con [più indirizzi IP riservati](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
-  
+
 
 ## Passaggi successivi
 - [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

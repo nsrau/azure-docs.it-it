@@ -22,7 +22,7 @@
 
 Questo documento illustra alcuni dei limiti più comuni di Microsoft Azure. Si noti che nel documento non vengono trattati tutti i servizi di Azure. Nel tempo questi limiti verranno ampliati e aggiornati in modo da coprire un maggior numero di servizi della piattaforma.
 
-> [AZURE.NOTE]Per aumentare il limite oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
+> [AZURE.NOTE] Per aumentare il limite oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
 
 ## Limiti e Gestione risorse di Azure
 
@@ -272,12 +272,12 @@ Per altre informazioni su limiti delle chiavi, combinazioni delle partizioni di 
 
 ### Limiti relativi al database SQL
 
-Per i limiti del database SQL, vedere [Limiti delle risorse del database SQL di Azure](sql-database/sql-database-resource-limits.md).
+Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).
 
 ## Vedere anche
 
-[Informazioni sui limiti di Azure e su come aumentarli](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+[Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

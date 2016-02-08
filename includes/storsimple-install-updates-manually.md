@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Per installare gli aggiornamenti regolari tramite il portale di gestione
+#### Per installare gli aggiornamenti regolari tramite il portale di Azure classico
 
 1. Nella pagina **Dispositivi**, selezionare il dispositivo in cui si desidera installare gli aggiornamenti.
 
@@ -12,4 +12,4 @@
 
     Una volta completata l'installazione dell'aggiornamento, l'utente riceve una notifica.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

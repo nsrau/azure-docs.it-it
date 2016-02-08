@@ -44,7 +44,7 @@ Domande o problemi relativi ad [Application Insights per Visual Studio in Java][
 #### Non vengono più visualizzati i dati disponibili in precedenza
 
 * Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 
@@ -82,14 +82,14 @@ Usando il metodo XML, dopo la modifica di questo valore sarà necessario riavvia
 
 *In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?*
 
-* [Ottenere la chiave di strumentazione della nuova risorsa][java].
+* [Ottenere la chiave di strumentazione della nuova risorsa.][java]
 * Se si è aggiunto Application Insights al progetto usando Azure Toolkit for Eclipse, fare clic con il pulsante destro del mouse sul progetto Web, selezionare **Azure**, **Configura Application Insights**, quindi modificare la chiave.
 * Oppure, aggiornare la chiave nel file ApplicationInsights.xml presente nella cartella resources del progetto.
 
 
 ## Schermata iniziale di Azure
 
-*Guardando nel [portale di Azure:](http://portal.azure.com): la mappa contiene informazioni sull'app?*
+*Guardando nel [portale di Azure:](https://portal.azure.com): la mappa contiene informazioni sull'app?*
 
 No, la mappa visualizza lo stato di integrità dei server Azure nelle varie parti del mondo.
 
@@ -138,4 +138,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

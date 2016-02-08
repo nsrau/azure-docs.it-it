@@ -92,7 +92,7 @@ Questo sarebbe possibile scrivendo un [plug-in del processore di telemetria](app
 
 ## Per quanto tempo vengono conservati i dati? 
 
-Dipende dal [piano tariffario](http://azure.microsoft.com/pricing/details/application-insights/).
+Dipende dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/).
 
 I punti dati non elaborati, ovvero elementi di dati ispezionabili nella ricerca diagnostica, vengono conservati per un periodo compreso tra 7 e 30 giorni.
 
@@ -264,4 +264,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -44,7 +44,7 @@ Nella settimana del 4 dicembre 2015 sono state aggiunte a Catalogo dati di Azure
 - Supporto per le origini dati di Archivio Azure Data Lake. Gli utenti possono ora registrarsi e individuare le origini dati di Archivio Azure Data Lake tramite Catalogo dati di Azure.
 - Supporto per specificare manualmente le impostazioni di proxy di rete nello strumento di registrazione delle origini dati di Catalogo dati di Azure. Gli utenti possono selezionare "Modificare le impostazioni di proxy" nella pagina di benvenuto dello strumento e possono specificare l'indirizzo proxy e la porta che verranno usati dallo strumento.
 
-> [AZURE.NOTE]"Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com/).
+> [AZURE.NOTE] "Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com/).
 
 
 ## Novità della versione della settimana del 20 novembre 2015
@@ -55,7 +55,7 @@ Nella settimana del 20 novembre 2015 sono state aggiunte a **Catalogo dati di Az
 - Supporto per includere i profili dati durante la registrazione delle tabelle Teradata e visualizzazioni.
 - Supporto per "Apri in Power BI Desktop" per le origini di SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure), SQL Server Analysis Services. Archiviazione di Azure e HDFS.  
 
-> [AZURE.NOTE]"Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com).
+> [AZURE.NOTE] "Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com).
 
 ## Novità della versione della settimana del 13 novembre 2015
 
@@ -94,7 +94,7 @@ Nella settimana del 23 ottobre 2015 sono state aggiunte a **Catalogo dati di Azu
 
 - Supporto per origini dati Teradata. Gli utenti possono ora registrarsi e individuare tabelle e viste Teradata.
 
-> [AZURE.NOTE]Per la versione corrente è supportata solo l'autenticazione Teradata TD2. Nelle versioni future saranno supportati meccanismi di autenticazione aggiuntivi.
+> [AZURE.NOTE] Per la versione corrente è supportata solo l'autenticazione Teradata TD2. Nelle versioni future saranno supportati meccanismi di autenticazione aggiuntivi.
 
 ## Novità della versione della settimana del 16 ottobre 2015
 
@@ -118,7 +118,7 @@ Nella settimana del 2 ottobre 2015 sono state aggiunte a **Catalogo dati di Azur
 - Supporto per l'autorizzazione di gruppi di sicurezza di Azure Active Directory. Gli amministratori del catalogo possono concedere l'accesso al catalogo a gruppi di sicurezza e account utente, rendendo più semplice la gestione dell'accesso a **Catalogo dati di Azure**.
 - Supporto per l'apertura di origini dati Hive in Excel dal portale **Catalogo dati di Azure**.
 
-> [AZURE.NOTE]Per usare la funzionalità "Apri in Excel" per le origini dati Hive, è necessario installare il driver ODBC per Hive.
+> [AZURE.NOTE] Per usare la funzionalità "Apri in Excel" per le origini dati Hive, è necessario installare il driver ODBC per Hive.
 
 ## Novità della versione della settimana del 25 settembre 2015
 
@@ -132,10 +132,10 @@ Nella settimana del 25 settembre 2015 sono state aggiunte a **Catalogo dati di A
 Nella settimana del 18 settembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Una nuova funzionalità "introduttiva" per l'individuazione di origini dati nel portale di **Catalogo dati di Azure**. Quando gli utenti accedono alla pagina di "individuazione" del portale di **Catalogo dati di Azure** senza immettere un termine di ricerca, viene visualizzata una panoramica del contenuto del catalogo, inclusi i tag usati più di frequente, nonché gli esperti, i tipi di origini dati e i tipi di oggetti.
-- Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Supporto per la registrazione e l'individuazione di modelli di SQL Server Analysis Services e di server SQL Server Reporting Services come contenitori. Quando si registrano oggetti SSAS e SSRS, **Catalogo dati di Azure** crea una voce per il modello SSAS e il server SSRS, nonché per i report e altri oggetti. I contenitori possono essere individuati e annotati mediante il portale **Catalogo dati di Azure**. Gli utenti possono inoltre eseguire ricerche e applicare filtri nel contenuto di un modello o di un server oltre a eseguire ricerche e applicare filtri nel contenuto del catalogo.
 
-> [AZURE.NOTE]Gli oggetti SSAS e SSRS che sono stati registrati prima della versione del 18 settembre devono essere registrati di nuovo usando lo strumento di registrazione dell'origine dati prima di aggiungere la voce del modello o del server nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
+> [AZURE.NOTE] Gli oggetti SSAS e SSRS che sono stati registrati prima della versione del 18 settembre devono essere registrati di nuovo usando lo strumento di registrazione dell'origine dati prima di aggiungere la voce del modello o del server nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana dell'11 settembre 2015
 
@@ -146,7 +146,7 @@ Nella settimana dell'11 settembre 2015 sono state aggiunte al **Catalogo dati di
 - Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
 
 
-> [AZURE.NOTE]Le tabelle, le visualizzazioni e i file HDFS di Oracle che sono stati registrati prima della versione dell'11 settembre devono essere registrate di nuovo usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database o cluster nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
+> [AZURE.NOTE] Le tabelle, le visualizzazioni e i file HDFS di Oracle che sono stati registrati prima della versione dell'11 settembre devono essere registrate di nuovo usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database o cluster nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana del 4 settembre 2015
 
@@ -155,7 +155,7 @@ Nella settimana del 4 settembre 2015 sono state aggiunte a **Catalogo dati di Az
 - Supporto per la registrazione manuale di tipi di origini dati sconosciute. Gli utenti possono immettere manualmente informazioni sull'origine dati tramite il portale di **Catalogo dati di Azure** in modo che sia possibile annotare e individuare anche le origini dati non esplicitamente supportate dallo strumento di registrazione dell'origine dati.
 - Supporto per la registrazione e l'individuazione dei database di SQL Server come contenitori. Quando si registrano le tabelle di SQL Server e le viste, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database oltre a cercare e filtrare il contenuto del catalogo.
 
-> [AZURE.NOTE]Le tabelle di SQL Server e le viste che sono state registrate prima della versione del 4 settembre devono essere registrate usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
+> [AZURE.NOTE] Le tabelle di SQL Server e le viste che sono state registrate prima della versione del 4 settembre devono essere registrate usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana del 28 agosto 2015
 
@@ -174,4 +174,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

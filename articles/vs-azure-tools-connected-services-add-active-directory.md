@@ -33,7 +33,7 @@ Per connettersi ad Azure AD nei seguenti tipi di progetto, è possibile usare la
 
 1. È necessario disporre di un account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di prova gratuita](http://go.microsoft.com/fwlink/?LinkId=518146).
 
-1. In Visual Studio, aprire il menu di scelta rapida del nodo **Riferimenti** del progetto e scegliere **Aggiungi servizi connessi**.
+1. In Visual Studio, aprire il menu di scelta rapida di **riferimenti** nodo del progetto e scegliere **Aggiungi servizi connessi**.
 1. Selezionare **Autenticazione AD Azure** e poi scegliere **Configurazione**.
 
     ![Scegliere Aggiungere l'Autenticazione di Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
@@ -67,7 +67,7 @@ Per connettersi ad Azure AD nei seguenti tipi di progetto, è possibile usare la
 
 ## Come viene modificato il progetto
 
-Quando si esegue la procedura guidata, Visual Studio aggiunge Azure AD e i riferimenti al progetto associati. Anche i file di configurazione e i file di codice nel progetto vengono modificati per aggiungere supporto per Azure AD. Le modifiche specifiche apportate in Visual Studio dipendono dal tipo di progetto. Per informazioni dettagliate sul modo in cui vengono modificati i progetti MVC ASP.NET, vedere [Risultati - Progetti MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Per progetti API Web, vedere [Risultati - Progetti API Web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quando si esegue la procedura guidata, Visual Studio aggiunge Azure AD e i riferimenti al progetto associati. Anche i file di configurazione e i file di codice nel progetto vengono modificati per aggiungere supporto per Azure AD. Le modifiche specifiche apportate in Visual Studio dipendono dal tipo di progetto. Per informazioni dettagliate sul modo in cui vengono modificati i progetti MVC ASP.NET, vedere [Risultati - Progetti MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Per i progetti Web API, vedere [Cosa è successo: Progetti Web API](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Passaggi successivi
 
@@ -75,8 +75,8 @@ Porre domande e ottenere assistenza.
 
  - [Forum MSDN: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Documentazione di Azure AD](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Documentazione di Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Post di blog: Introduzione a Microsoft Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0128_2016-->

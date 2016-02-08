@@ -40,13 +40,13 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
-- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Flusso di lavoro AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Poster
 
 
-[Qui](http://azure.microsoft.com/documentation/infographics/media-services/) è possibile visualizzare il poster di servizi multimediali di Azure che raffigura i flussi di lavoro AMS, dalla creazione del supporto tramite il consumo.
+[Qui](https://azure.microsoft.com/documentation/infographics/media-services/) è possibile visualizzare il poster di servizi multimediali di Azure che raffigura i flussi di lavoro AMS, dalla creazione del supporto tramite il consumo.
 
 ##Prerequisiti
 
@@ -206,7 +206,7 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 
 ##Supporto
 
-Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
+Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) fornisce opzioni di supporto per Azure, compreso Servizi multimediali.
 
 ##Indicazioni su modelli e procedure
 
@@ -225,7 +225,7 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 - Per la protezione del contenuto, è garantita l'evasione delle richieste di chiavi per almeno il 99,9% del tempo.
 - Per l'indicizzatore, è garantito che verranno soddisfatte le richieste di attività dell'indicizzatore elaborate con un'unità riservata di codifica per il 99,9% del tempo.
 
-	Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

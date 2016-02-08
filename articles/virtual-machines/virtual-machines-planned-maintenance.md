@@ -50,7 +50,7 @@ Per altre informazioni sulla configurazione delle macchine virtuali per la dispo
 
 Al contrario, una configurazione a istanza singola viene utilizzata per le macchine virtuali autonome che non vengono inserite in un set di disponibilità. Tali macchine virtuali non sono idonee per il contratto di servizio che richiede due o più macchine virtuali distribuite nello stesso set di disponibilità.
 
-Per altre informazioni sul contratto di servizio, vedere la sezione "Servizi cloud, macchine virtuali e rete virtuale" in [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+Per altre informazioni sul contratto di servizio, vedere la sezione "Servizi cloud, macchine virtuali e rete virtuale" in [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Aggiornamenti delle configurazioni a istanza multipla
@@ -126,4 +126,4 @@ Ad esempio, durante una manutenzione pianificata, Azure non implementerà un agg
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

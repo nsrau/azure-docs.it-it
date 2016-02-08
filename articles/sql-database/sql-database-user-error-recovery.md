@@ -23,7 +23,7 @@ I database SQL di Azure offre due funzionalità principali per il ripristino a s
 - Ripristino temporizzato 
 - Ripristinare un database eliminato
 
-Altre informazioni su queste funzionalità sono disponibili in questo [post di blog](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
+Altre informazioni su queste funzionalità sono disponibili in questo [post di blog](https://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
 
 Il database SQL di Azure viene sempre ripristinato con un nuovo database. Le funzionalità di ripristino vengono offerte a tutti i clienti del database: Basic, Standard e Premium.
 
@@ -32,10 +32,10 @@ In caso di errore dell'utente o di una modifica imprevista dei dati, il ripristi
 
 I database Basic dispongono di 7 giorni di conservazione, i database Standard di 14 giorni e i database Premium di 35 giorni. Per altre informazioni sulla conservazione del database, vedere la [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
-Per utilizzare il ripristino temporizzato nel portale di Azure, attenersi alla procedura seguente.
+Per usare il ripristino temporizzato nel portale di Azure, seguire questa procedura.
 
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Database SQL**.
@@ -45,9 +45,9 @@ Per utilizzare il ripristino temporizzato nel portale di Azure, attenersi alla p
 6. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
 ###PowerShell
-Usare PowerShell per eseguire a livello di codice un ripristino temporizzato con il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare il video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+Utilizzare PowerShell per eseguire a livello di codice un ripristino temporizzato con il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare il video di questa procedura](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
-> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alla versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT] Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -68,21 +68,21 @@ Nel caso in cui venisse eliminato un database, il database SQL di Azure consente
 
 Il periodo di conservazione di un database eliminato è determinato dal livello di servizio associato al database prima della rimozione o dal numero di giorni in cui il database esiste ancora (viene usato il valore più basso). Per ulteriori informazioni sulla conservazione dei database, leggere la [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota [contattando il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
-Per ripristinare un database eliminato tramite il portale di Azure, attenersi alla procedura seguente.
+Per ripristinare un database eliminato tramite il portale di Azure, seguire questa procedura.
 
-1. Accedere al [portale di Azure](https://portal.Azure.com).
+1. Accedere al [Portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Server SQL**.
 3. Individuare e selezionare il server.
-4. Sotto la voce **Operazioni** nel pannello del server, selezionare **Database eliminati**.
+4. Scorrere verso il basso fino a **Operazioni** nel pannello del server e fare clic sul riquadro **Database eliminati**.
 5. Fare clic sul database eliminato che si desidera ripristinare.
 6. Specificare un nome di database e fare clic su **Crea**.
 7. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
 ###PowerShell
-Per ripristinare un database eliminato tramite PowerShell, usare il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare un video di questa procedura](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
+Per ripristinare un database eliminato tramite PowerShell, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Per un'analisi dettagliata, [guardare un video di questa procedura](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Cercare il database eliminato e la relativa data di eliminazione nell'elenco dei database eliminati.
 		
@@ -106,4 +106,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

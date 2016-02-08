@@ -35,14 +35,14 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 - Creare una tabella di database e crittografare alcune colonne.
 - Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
-> [AZURE.NOTE]La crittografia sempre attiva per il database SQL di Azure è attualmente in modalità di anteprima.
+> [AZURE.NOTE] La crittografia sempre attiva per il database SQL di Azure è attualmente in modalità di anteprima.
 
 
 ## Prerequisiti
 
 Per questa esercitazione occorrono:
 
-- Un account e una sottoscrizione di Azure prima di iniziare. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure prima di iniziare. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successiva.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versione successiva (nel computer client).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -50,7 +50,7 @@ Per questa esercitazione occorrono:
 
 
 ## Creare un database SQL vuoto
-1. Accedere al [portale di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
 3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate per creare un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-getting-started.md).
 
@@ -156,7 +156,7 @@ Al termine della procedura guidata, il database è configurato per la crittograf
 
 Ora che la crittografia sempre attiva è configurata, è possibile creare un'applicazione che esegue alcuni inserimenti e selezioni nelle colonne crittografate. Per eseguire correttamente l'applicazione di esempio, è necessario avviarla nello stesso computer in cui è stata eseguita la procedura guidata della crittografia sempre attiva. Per eseguirla in un altro computer è necessario distribuire i certificati della crittografia sempre attiva nel computer che esegue l'applicazione client.
 
-> [AZURE.IMPORTANT]L'applicazione deve usare oggetti [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
+> [AZURE.IMPORTANT] L'applicazione deve usare oggetti [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
 
 
 1. Aprire Visual Studio e creare un'applicazione console C#. Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
@@ -176,7 +176,7 @@ Per abilitare la crittografia sempre attiva è necessario aggiungere la parola c
 
 È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder**.
 
-> [AZURE.NOTE]Questa è l'unica modifica specifica della crittografia sempre attiva da apportare a un'applicazione client. Se è presente un'applicazione esistente che archivia la stringa di connessione esternamente (ad esempio in un file di configurazione), è possibile abilitare la crittografia sempre attiva senza modificare il codice.
+> [AZURE.NOTE] Questa è l'unica modifica specifica della crittografia sempre attiva da apportare a un'applicazione client. Se è presente un'applicazione esistente che archivia la stringa di connessione esternamente (ad esempio in un file di configurazione), è possibile abilitare la crittografia sempre attiva senza modificare il codice.
 
 
 ### Abilitare la crittografia sempre attiva nella stringa di connessione
@@ -524,7 +524,7 @@ Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il pa
 
 
 
-> [AZURE.NOTE]Se ci si connette a SSMS (o a un client qualsiasi) da un altro computer, il computer non avrà accesso alle chiavi di crittografia e quindi non sarà in grado di decrittografare i dati.
+> [AZURE.NOTE] Se ci si connette a SSMS (o a un client qualsiasi) da un altro computer, il computer non avrà accesso alle chiavi di crittografia e quindi non sarà in grado di decrittografare i dati.
 
 
 
@@ -545,4 +545,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

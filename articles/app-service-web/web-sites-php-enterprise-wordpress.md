@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
+	ms.date="01/26/2016"
 	ms.author="tomfitz"/>
 
 #WordPress di livello aziendale nel servizio app di Azure
@@ -26,11 +26,11 @@ Un'installazione di base di WordPress prevede solo due requisiti.
 
 * **MySQL Database**: disponibile tramite [ClearDB in Azure Marketplace][cdbnstore]. In alternativa, è possibile gestire un'installazione personalizzata di MySQL in Macchine virtuali di Azure tramite [Windows][mysqlwindows] o [Linux][mysqllinux].
 
-    > [AZURE.NOTE]ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte fornite tramite Azure Store, vedere [Azure Store][cdbnstore] oppure per le offerte fornite direttamente da ClearDB, vedere la pagina dei [prezzi di ClearDB](http://www.cleardb.com/pricing.view).
+    > [AZURE.NOTE] ClearDB offre diverse configurazioni di MySQL, con caratteristiche di prestazioni differenti per ognuna di esse. Per informazioni sulle offerte fornite tramite Azure Store, vedere [Azure Store][cdbnstore] oppure per le offerte fornite direttamente da ClearDB, vedere la pagina dei [prezzi di ClearDB](http://www.cleardb.com/pricing.view).
 
 * **PHP 5.2.4 o versioni successive**: il servizio app di Azure attualmente fornisce le [versioni PHP 5.4, 5.5 e 5.6][phpwebsite].
 
-	> [AZURE.NOTE]È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
+	> [AZURE.NOTE] È consigliabile eseguire sempre la versione di PHP più recente per assicurarsi di disporre degli ultimi aggiornamenti per la sicurezza.
 
 ###Distribuzione di base
 
@@ -53,7 +53,7 @@ La replica e il routing in più database MySQL possono essere eseguiti con il [r
 
 ###Distribuzione in più aree con memorizzazione nella cache e archiviazione di contenuti multimediali
 
-Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), [MemCachier](http://azure.microsoft.com/gallery/store/) e altre offerte.
+Se il sito accetta caricamenti o ospita file multimediali, usare l'archiviazione BLOB di Azure. Se sono necessarie soluzioni di memorizzazione nella cache, in [Azure Store][rediscache] sono disponibili [Cache Redis](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), [MemCachier](https://azure.microsoft.com/gallery/store/) e altre offerte.
 
 ![un'app Web di Azure, ospitata in più aree, con l'uso del router CDBR a disponibilità elevata per MySQL, con cache gestita, archiviazione BLOB e rete CDN][performance-diagram]
 
@@ -96,7 +96,7 @@ Sono disponibili due metodi per eseguire la migrazione di un sito WordPress esis
 
 * **[Esportazione di WordPress][export]**: viene esportato il contenuto del blog, che può quindi essere importato in un nuovo sito WordPress nel servizio app di Azure tramite il [plug-in di importazione di WordPress][import].
 
-	> [AZURE.NOTE]Questa procedura consente di eseguire la migrazione del contenuto, ma non di eventuali plug-in, temi o altre personalizzazioni, che sarà necessario installare di nuovo manualmente.
+	> [AZURE.NOTE] Questa procedura consente di eseguire la migrazione del contenuto, ma non di eventuali plug-in, temi o altre personalizzazioni, che sarà necessario installare di nuovo manualmente.
 
 * **Migrazione manuale**: [eseguire il backup del sito][wordpressbackup] e del [database][wordpressdbbackup], quindi ripristinarli manualmente in un'app Web nel servizio app di Azure e nel database MySQL associato per eseguire la migrazione di siti con un elevato livello di personalizzazione, senza doversi preoccupare di installare manualmente plug-in, temi e altre personalizzazioni.
 
@@ -232,7 +232,7 @@ Per | Opzione
 
 * [Suggerimenti per WordPress in Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -282,4 +282,4 @@ Per | Opzione
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

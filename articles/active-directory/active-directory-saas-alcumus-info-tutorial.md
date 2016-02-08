@@ -31,17 +31,17 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Alcumus Info Exchange, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di [Azure AD](http://azure.microsoft.com/).
+- Sottoscrizione di [Azure AD](https://azure.microsoft.com/).
 - Sottoscrizione di [Alcumus Info Exchange](http://www.alcumusgroup.com/) abilitata per l'accesso Single Sign-On.
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -99,7 +99,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
  
      3\.1 Nella casella di testo **URL di risposta** digitare l'URL del consumer configurato dal team di supporto di Alcumus Info Exchange.
 
-     >[AZURE.NOTE]Se non si conosce il valore corretto, contattare il team di supporto di Alcumus Info Exchange tramite [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     >[AZURE.NOTE] Se non si conosce il valore corretto, contattare il team di supporto di Alcumus Info Exchange tramite [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Fare clic su **Avanti**.
  
@@ -120,7 +120,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
 **Per creare un utente test in Azure AD, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro.<br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro.<br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -142,7 +142,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure denomina
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:<br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
   1. Prendere nota del valore in **Nuova password**.
   2. Fare clic su **Operazione completata**.   
 
@@ -166,9 +166,9 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br> <br><br>![Assegna utente][201]
 2. Nell'elenco delle applicazioni selezionare **Alcumus Info Exchange**. <br><br>![Assegna utente][202]
 1. Nel menu in alto fare clic su **Utenti**.<br> <br><br>![Assegna utente][203]
-1. Nell'elenco di utenti selezionare **Britta Simon**.
+1. Nell'elenco utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
 
 
@@ -204,4 +204,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

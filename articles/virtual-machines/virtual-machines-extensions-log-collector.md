@@ -47,7 +47,7 @@ In entrambe le modalità di raccolta, è possibile specificare cartelle di racco
 ## Prerequisiti
 
 - Per poter salvare i file ZIP generati dall'estensione è necessario disporre di un account di archiviazione.
-- È necessario assicurarsi che siano in uso i cmdlet di Azure PowerShell v0.8.0 o versioni successive. Per altre informazioni, vedere la pagina relativa ai [Download di Azure](http://azure.microsoft.com/downloads/).
+- È necessario assicurarsi che siano in uso i cmdlet di Azure PowerShell v0.8.0 o versioni successive. Per altre informazioni, vedere la pagina relativa ai [Download di Azure](https://azure.microsoft.com/downloads/).
 
 ## Aggiungere l'estensione
 
@@ -126,7 +126,7 @@ Internamente, questa estensione usa le configurazioni PublicConfiguration e Priv
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]È possibile usare token `%roleroot%` per specificare l'unità radice del ruolo, perché non usa un'unità fissa.
+    > [AZURE.NOTE] È possibile usare token `%roleroot%` per specificare l'unità radice del ruolo, perché non usa un'unità fissa.
 
 4. Specificare il nome e la chiave dell'account di archiviazione di Azure in cui verranno caricati i file raccolti.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 È ora possibile esaminare o copiare i log da una posizione semplificata.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

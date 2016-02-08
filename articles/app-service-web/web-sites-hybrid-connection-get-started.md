@@ -20,10 +20,10 @@
 
 È possibile connettere un'app Web nel servizio app di Azure a qualsiasi risorsa locale che utilizza una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra un'app Web nel servizio app e un database di SQL Server locale.
 
-> [AZURE.NOTE]La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE] La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Prerequisiti
-- Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/). 
+- Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 - Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. È consigliabile usare un'istanza predefinita di on SQL Server, perché usa la porta statica 1433. Per informazioni sull'installazione e configurazione di SQL Server Express per l'uso con le connessioni ibride, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -32,12 +32,12 @@
 	- Deve essere in grado di connettersi ad Azure usando la porta 5671
 	- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale. 
 
-> [AZURE.NOTE]I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
+> [AZURE.NOTE] I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
 
 ## Creazione di un'app Web nel portale di Azure ## ##
 
-> [AZURE.NOTE]Se nel portale di Azure è già stata creata un'app Web da usare per questa esercitazione, è possibile passare alla [creazione di una connessione ibrida e di un servizio BizTalk](#CreateHC).
+> [AZURE.NOTE] Se nel portale di Azure è già stata creata un'app Web da usare per questa esercitazione, è possibile passare alla [creazione di una connessione ibrida e di un servizio BizTalk](#CreateHC).
 
 1. Nell'angolo inferiore sinistro del [portale di Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
 	
@@ -94,17 +94,16 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	
 6. Al termine del processo l'area delle notifiche nel portale informa che la connessione è stata creata correttamente.
 	<!-- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-	
 	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
 	-->
+
 7. Nel panello dell'app Web, l'icona **Connessioni ibride** ora mostra che è stata creata una connessione ibrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -156,7 +155,7 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 
 Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile creata un'applicazione Web che la usa.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <a name="NextSteps"></a>
 ## Passaggi successivi ##
@@ -171,7 +170,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 
 [Josh Twist presenta le connessioni ibride (video Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Sito Web delle connessioni ibride](http://azure.microsoft.com/services/biztalk-services/)
+[Sito Web delle connessioni ibride](https://azure.microsoft.com/services/biztalk-services/)
 
 [Servizi BizTalk: schede Dashboard, Monitor, Scala, Configura e Connessione ibrida](../biztalk-dashboard-monitor-scale-tabs/)
 
@@ -180,7 +179,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -208,4 +207,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

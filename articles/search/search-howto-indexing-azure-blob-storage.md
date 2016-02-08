@@ -19,7 +19,7 @@ ms.author="eugenesh" />
 
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio, PDF o file di Office) salvati nell'archivio BLOB di Azure. Con il nuovo indicizzatore BLOB Ricerca di Azure questo processo diventa rapido e facile.
 
-> [AZURE.IMPORTANT]Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 
 ## Configurazione dell'indicizzazione BLOB
 
@@ -102,7 +102,7 @@ Ricerca di Azure indicizza ogni documento (BLOB) come segue:
 
 Non è necessario definire i campi per tutte le proprietà precedenti nell'indice di ricerca, ma solo acquisire le proprietà necessarie per l'applicazione.
 
-> [AZURE.NOTE]I nomi dei campi nell'indice esistente saranno spesso diversi da quelli generati durante l'estrazione della documentazione. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti da Ricerca di Azure ai nomi di campo nell'indice di ricerca. Di seguito verrà visualizzato un esempio di mapping dei campi.
+> [AZURE.NOTE] I nomi dei campi nell'indice esistente saranno spesso diversi da quelli generati durante l'estrazione della documentazione. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti da Ricerca di Azure ai nomi di campo nell'indice di ricerca. Di seguito verrà visualizzato un esempio di mapping dei campi.
 
 ## Selezione del campo chiave del documento e gestione di nomi di campo diversi
 
@@ -116,7 +116,7 @@ In Ricerca di Azure la chiave del documento identifica un documento in modo univ
 
 - Se nessuna delle opzioni elencate è appropriata, esiste sempre la possibilità di aggiungere una proprietà di metadati personalizzati al BLOB. Questa opzione, tuttavia, richiede che il processo di caricamento del BLOB aggiunga la proprietà dei metadati a tutti i BLOB. Poiché la chiave è una proprietà obbligatoria, tutti i BLOB privi di tale proprietà non potranno essere indicizzati.
 
-> [AZURE.IMPORTANT]Se non esiste alcun mapping esplicito per il campo chiave nell'indice, Ricerca di Azure userà automaticamente `metadata_storage_path` (la seconda opzione sopra) come chiave e abiliterà la codifica in base 64 delle chiavi.
+> [AZURE.IMPORTANT] Se non esiste alcun mapping esplicito per il campo chiave nell'indice, Ricerca di Azure userà automaticamente `metadata_storage_path` (la seconda opzione sopra) come chiave e abiliterà la codifica in base 64 delle chiavi.
 
 Per questo esempio, si seleziona il campo `metadata_storage_name` come chiave del documento. Si supponga anche che l'indice includa un campo chiave denominato `key` e un campo `fileSize` in cui archiviare le dimensioni del documento. Per collegare gli elementi come si vuole, specificare i mapping di campo seguenti quando si crea o si aggiorna l'indicizzatore:
 
@@ -142,17 +142,17 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE]Per ulteriori informazioni sui mapping dei campi, leggere [ questo articolo](search-indexers-customization.md).
+> [AZURE.NOTE] Per ulteriori informazioni sui mapping dei campi, leggere [ questo articolo](search-indexers-customization.md).
 
 ## Indicizzazione incrementale e rilevamento delle eliminazioni
 
 Quando si configura un indicizzatore BLOB per l'esecuzione in base a una pianificazione, vengono reindicizzati solo i BLOB modificati, come determinato dal timestamp `LastModified` del BLOB.
 
-> [AZURE.NOTE]Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
+> [AZURE.NOTE] Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
 
 Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigliabile usare una strategia di eliminazione temporanea (invece di eliminare i BLOB corrispondenti), aggiungere una proprietà di metadati personalizzati per indicare che sono stati eliminati e configurare un criterio di rilevamento dell'eliminazione temporanea nell'origine dati.
 
-> [AZURE.WARNING]Se si eliminano solo i BLOB invece di usare un criterio di rilevamento delle eliminazioni, i documenti corrispondenti non verranno rimossi dall'indice di ricerca.
+> [AZURE.WARNING] Se si eliminano solo i BLOB invece di usare un criterio di rilevamento delle eliminazioni, i documenti corrispondenti non verranno rimossi dall'indice di ricerca.
 
 Il criterio illustrato sotto, ad esempio, considererà che un BLOB è stato eliminato se ha una proprietà di metadati `IsDeleted` con il valore `true`:
 
@@ -190,7 +190,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Estrazione del testo, inclusi gli allegati
 ZIP (application/zip) | `metadata_content_type` | Estrazione del testo da tutti i documenti nell'archivio
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Rimozione del markup XML ed estrazione del testo </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Estrazione del testo<br/>NOTA: per estrarre più campi di documento da un blob JSON, votare per [questo suggerimento di UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Estrazione del testo<br/>NOTA: per estrarre più campi di documento da un blob JSON, votare per [questo suggerimento di UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
 Testo normale (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -205,6 +205,6 @@ AzureSearch\_SkipContent | "true" | Indica all'indicizzatore BLOB di indicizzare
 
 ## Come contribuire al miglioramento di Ricerca di Azure
 
-Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

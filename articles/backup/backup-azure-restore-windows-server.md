@@ -3,7 +3,7 @@
    description="Informazioni su come eseguire operazioni di ripristino da un computer che esegue Windows Server o un client Windows."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
@@ -13,8 +13,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="10/21/2015"
-	 ms.author="jimpark"; "aashishr"/>
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Ripristinare file da un computer che esegue Windows server o un client Windows
 In questo articolo viene illustrata la procedura necessaria per eseguire due tipi di operazioni di ripristino:
@@ -71,7 +71,7 @@ Include la terminologia utilizzata in questi passaggi:
 - *Computer di destinazione*: il computer in cui i dati vengono ripristinati.
 - *Insieme di credenziali di esempio*: l'insieme di credenziali di Backup in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
 
-> [AZURE.NOTE]I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
+> [AZURE.NOTE] I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
 2. Assicurarsi che il *Computer di destinazione* e il *Computer di origine* siano registrati nello stesso insieme di credenziali di Backup.
@@ -85,7 +85,7 @@ Include la terminologia utilizzata in questi passaggi:
 
 5. Specificare il file dell'insieme di credenziali che corrisponde all'*Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall'*Insieme di credenziali di esempio* nel portale di Azure. Dopo aver specificato il file delle credenziali dell'insieme di credenziali, in quest'ultimo viene visualizzato l'insieme di credenziali di backup.
 
-6. Selezionare il *Computer di origine* dall'elenco dei computer visualizzati.
+6. Selezionare il *computer di origine* dall'elenco dei computer visualizzati.
 
     ![Elenco di computer](./media/backup-azure-restore-windows-server/machinelist.png)
 
@@ -101,7 +101,7 @@ Include la terminologia utilizzata in questi passaggi:
 
     ![Percorso di ripristino](./media/backup-azure-restore-windows-server/restorelocation.png)
 
-10. Specificare la passphrase di crittografia fornita durante la registrazione del *Computer di origine* all'*Insieme di credenziali di esempio*.
+10. Specificare la passphrase di crittografia fornita durante la registrazione del *computer di origine* all'*insieme di credenziali di esempio*.
 
     ![Crittografia](./media/backup-azure-restore-windows-server/encryption.png)
 
@@ -116,4 +116,4 @@ Include la terminologia utilizzata in questi passaggi:
 - [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms-introduction.md)
 - [Eseguire il backup dei carichi di lavoro di Microsoft](backup-azure-dpm-introduction.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

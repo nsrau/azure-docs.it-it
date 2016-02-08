@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Inserire una scala di telemetria ed eventi applicazione
@@ -23,7 +23,7 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
 
 ## Esplorazione
 - [Hub eventi](event-hubs-overview.md)
-- [Dettagli prezzi degli hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Dettagli prezzi degli hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md)
 - [Modello di origine evento](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@ Le applicazioni moderne creano una gran quantità di informazioni quando sono in
 - [Esempi di codice degli hub eventi](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Servizi correlati
-- [Bus di servizio](http://azure.microsoft.com/services/service-bus/)
-- [Archiviazione di Azure](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [Bus di servizio](https://azure.microsoft.com/services/service-bus/)
+- [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

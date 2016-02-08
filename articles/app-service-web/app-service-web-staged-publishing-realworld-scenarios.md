@@ -245,7 +245,7 @@ Gli eventuali aggiornamenti principali di WordPress non avranno effetto sui file
 ```
 
 #### Configurare un ambiente di staging
-Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di Azure](http://portal.azure.com) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery.md). Fare clic su **Impostazioni** -> **Slot di distribuzione** -> **Aggiungi** per creare uno slot di distribuzione con nome stage. Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata in precedenza.
+Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di Azure](https://portal.azure.com/) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery.md). Fare clic su **Impostazioni** -> **Slot di distribuzione** -> **Aggiungi** per creare uno slot di distribuzione con nome stage. Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata in precedenza.
 
 ![Creare lo slot di distribuzione "stage"](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -428,7 +428,7 @@ Dopo aver aggiornato il sito di sviluppo locale, pubblicare le modifiche nell'ap
 
 ![Anteprima dello scambio per la distribuzione di Umbraco CMS.](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Vantaggi dello scambio dell'app Web e del database: 1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione. 2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche. 3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+Vantaggi dello scambio dell'app Web e del database: 1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione. 2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche. 3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Questo esempio illustra la flessibilità della piattaforma in cui è possibile creare moduli personalizzati simili al modulo Umbraco Courier per gestire la distribuzione in più ambienti.
 
@@ -439,4 +439,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

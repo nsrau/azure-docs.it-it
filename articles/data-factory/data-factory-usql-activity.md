@@ -19,7 +19,8 @@
 # Eseguire script U-SQL in Azure Data Lake Analytics da Data factory di Azure 
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l'**attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics**.
 
-> [AZURE.NOTE]È necessario creare un account di Azure Data Lake Analytics prima di creare una pipeline con un'attività U-SQL di Data Lake Analytics. Per altre informazioni su Azure Data Lake Analytics, vedere [Introduzione ad Azure Data Lake con .NET SDK](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> [AZURE.NOTE] 
+È necessario creare un account di Azure Data Lake Analytics prima di creare una pipeline con un'attività U-SQL di Data Lake Analytics. Per altre informazioni su Azure Data Lake Analytics, vedere [Introduzione ad Azure Data Lake con .NET SDK](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 >  
 > Fare riferimento all'esercitazione [Creare la prima pipeline](data-factory-build-your-first-pipeline.md) per la procedura dettagliata per la creazione di una data factory, dei servizi collegati, dei set di dati e di una pipeline. Usare i frammenti JSON con l'editor di Data factory o Visual Studio o Azure PowerShell per creare le entità di Data factory.
 
@@ -62,10 +63,10 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
 | Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
-| Utente AAD, l'origine basata su OAuth è in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory dell'utente. | 12 ore |
-| Utente AAD, l'origine basata su OAuth è sullo stesso tenant rispetto al tenant di Data factory dell'utente. | <p> Il valore massimo è 90 giorni, se l'utente esegue le sezioni in base all'origine del proprio servizio collegato basato su OAuth almeno una volta ogni 14 giorni. </p><p>Durante i 90 giorni previsti, se l'utente non esegue sezioni basate su tale origine per 14 giorni, le credenziali scadono 14 giorni dopo l'esecuzione dell'ultima sezione.</p> | 
+| L'utente AAD e l'origine basata su OAuth si trovano in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory. | 12 ore |
+| L'utente AAD e l'origine basata su OAuth si trovano sullo stesso tenant rispetto al tenant di Data factory. | 14 giorni |
 
-Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+Per evitare o risolvere questo problema, è necessario ripetere l'autorizzazione con il pulsante **Autorizza** alla **scadenza del token** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
   
 ### Per generare valori sessionId e authorization a livello di codice 
@@ -163,7 +164,7 @@ degreeOfParallelism | Il numero massimo di nodi che verranno usati contemporanea
 priority | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No 
 parameters | Parametri per lo script U-SQL | No 
 
-Vedere la sezione [Definizione dello script SearchLogProcessing.txt](#script-definition).
+Per la definizione dello script, vedere la sezione [Definizione dello script SearchLogProcessing.txt](#script-definition).
 
 ### Set di dati di input e output di esempio
 
@@ -253,8 +254,8 @@ Vedere [Spostare dati da e verso l'archivio di Azure Data Lake](data-factory-azu
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-I valori dei parametri **@in** e **@out** nello script U-SQL riportato sopra vengono passati in modo dinamico da ADF usando la sezione "parameters". Vedere la sezione 'parameters' riportata sopra nella definizione della pipeline.
+I valori dei parametri **@in** e **@out** nello script U-SQL riportato sopra vengono passati in modo dinamico da ADF usando la sezione 'parameters'. Vedere la sezione 'parameters' riportata sopra nella definizione della pipeline.
 
 È possibile specificare anche altre proprietà come degreeOfParallelism, priorità e così via nella definizione della pipeline per i processi in esecuzione sul servizio di Analisi Azure Data Lake.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

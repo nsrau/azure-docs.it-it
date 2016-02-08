@@ -1,10 +1,11 @@
-<properties 
-   pageTitle="Panoramica sulla continuità aziendale del database SQL"
-   description="Informazioni sulle funzionalità incorporate e sulle opzioni disponibili del database SQL di Azure che consentono di mantenere in esecuzione le applicazioni cloud cruciali e di eseguire il ripristino in caso di errori e interruzioni del servizio."
+<properties
+   pageTitle="Continuità aziendale cloud - Ripristino del database | Microsoft Azure"
+   description="Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione."
+   keywords="continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database"
    services="sql-database"
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
+   documentationCenter=""
+   authors="elfisher"
+   manager="jeffreyg"
    editor="monicar"/>
 
 <tags
@@ -12,30 +13,30 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="data-management"
    ms.date="11/16/2015"
    ms.author="elfish"/>
 
-# Panoramica sulla continuità aziendale
+# Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL
 
-Il concetto di continuità aziendale fa riferimento alla progettazione, alla distribuzione e all'esecuzione dell'applicazione in modo da renderla resiliente a eventi di arresto improvviso, pianificati o non, che comportano la perdita permanente o temporanea della capacità dell'applicazione di assolvere alla propria funzione aziendale. Gli eventi non pianificati spaziano dagli errori umani alle interruzioni permanenti o temporanee del servizio fino ai casi di emergenza locale che possono provocare la perdita di implementazioni su larga scala in una determinata area di Azure. Gli eventi pianificati includono la ridistribuzione dell'applicazione in un'area diversa, gli aggiornamenti dell'applicazione e così via. L'obiettivo della continuità aziendale è quello di permettere all'applicazione di continuare a funzionare durante questi eventi con un impatto minimo sulla funzione aziendale.
+Il concetto di continuità aziendale fa riferimento alla progettazione, alla distribuzione e all'esecuzione di applicazioni in modo da renderle resilienti a eventi di arresto improvviso, pianificati o non, che comportano la perdita permanente o temporanea della capacità dell'applicazione di assolvere alla propria funzione aziendale. Gli eventi non pianificati spaziano dagli errori umani alle interruzioni permanenti o temporanee del servizio fino ai casi di emergenza locale che possono provocare la perdita di implementazioni su larga scala in una determinata area di Azure. Gli eventi pianificati includono la ridistribuzione delle applicazioni in un'area diversa e gli aggiornamenti. L'obiettivo della continuità aziendale è quello di permettere all'applicazione di continuare a funzionare durante questi eventi con un impatto minimo sulla funzione aziendale.
 
-Per esaminare le soluzioni di continuità aziendale è necessario acquisire familiarità con alcuni concetti.
+Per esaminare le soluzioni di continuità aziendale cloud è necessario acquisire familiarità con alcuni concetti:
 
-**Ripristino di emergenza (DR, Disaster Recovery)**: processo di ripristino della normale funzione aziendale dell'applicazione.
+* **Ripristino di emergenza (DR, Disaster Recovery)**: processo di ripristino della normale funzione aziendale dell'applicazione.
 
-**Tempo di ripristino stimato (ERT, Estimated Recovery Time)**: durata stimata per il recupero della completa disponibilità del database dopo una richiesta di ripristino o failover.
+* **Tempo di ripristino stimato (ERT, Estimated Recovery Time)**: durata stimata per il recupero della completa disponibilità del database dopo una richiesta di ripristino o failover.
 
-**Obiettivo del tempo di ripristino (RTO, Recovery Time Objective)**: tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il valore RTO misura la perdita massima di disponibilità durante i guasti.
+* **Obiettivo del tempo di ripristino (RTO, Recovery Time Objective)**: tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il valore RTO misura la perdita massima di disponibilità durante i guasti.
 
-**Obiettivo del punto di ripristino (RPO, Recovery Point Objective)**: intervallo massimo di tempo degli ultimi aggiornamenti che l'applicazione può perdere dal momento in cui viene completamente ripristinata dopo l'evento di arresto improvviso. Il valore RPO misura la perdita massima di dati durante i guasti.
+* **Obiettivo del punto di ripristino (RPO, Recovery Point Objective)**: intervallo massimo di tempo degli ultimi aggiornamenti che l'applicazione può perdere dal momento in cui viene completamente ripristinata dopo l'evento di arresto improvviso. Il valore RPO misura la perdita massima di dati durante i guasti.
 
 
-## Scenari di continuità aziendale
+## Scenari di continuità aziendale cloud
 
-La continuità aziendale consente di gestire gli scenari principali descritti di seguito.
+Di seguito sono riportati gli scenari principali da prendere in considerazione durante la pianificazione della continuità aziendale e del ripristino dei database.
 
-###Progettazione per la continuità aziendale
+###Progettare applicazioni per la continuità aziendale
 
 L'applicazione che si sta sviluppando ha un'importanza cruciale per la propria azienda. Si desidera progettarla e configurarla in modo che riesca a sopravvivere a errori irreversibili del servizio nell'ambito di un'area. Si conoscono i requisiti di RPO e RTO per l'applicazione e si sceglie la configurazione che soddisfa questi requisiti.
 
@@ -57,9 +58,9 @@ Si sta rilasciando un aggiornamento importante dell'applicazione che comporta mo
 
 ##Funzionalità per la continuità aziendale
 
-La tabella seguente illustra le differenze tra le funzionalità per la continuità aziendale nei vari livelli di servizio:
+La tabella seguente illustra le differenze tra le funzionalità per la continuità aziendale cloud nei vari livelli di servizio:
 
-| Funzionalità | Livello Basic | Livello Standard |Livello Premium 
+| Funzionalità | Livello Basic | Livello Standard |Livello Premium
 | --- |--- | --- | ---
 | Ripristino temporizzato | Qualsiasi punto di ripristino entro 7 giorni | Qualsiasi punto di ripristino entro 14 giorni | Qualsiasi punto di ripristino entro 35 giorni
 | Ripristino geografico | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora | ERT < 12 ore, RPO < 1 ora
@@ -68,7 +69,7 @@ La tabella seguente illustra le differenze tra le funzionalità per la continuit
 
 Queste funzionalità consentono di gestire gli scenari elencati in precedenza. Per indicazioni sulla scelta di una funzionalità specifica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md).
 
-> [AZURE.NOTE]\: i valori ERT e RPO sono gli obiettivi di progettazione e forniscono solo indicazioni. Non fanno parte del [contratto di servizio per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] \: i valori ERT e RPO sono gli obiettivi di progettazione e forniscono solo indicazioni. Non fanno parte del [contratto di servizio per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Ripristino temporizzato
@@ -87,8 +88,4 @@ La funzionalità di replica geografica standard è disponibile per i database St
 
 La funzionalità di replica geografica attiva è disponibile per i database Premium. È stata progettata per le applicazioni con un utilizzo notevole della scrittura e con requisiti di ripristino particolarmente elevati. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover a qualsiasi database secondario allo stesso modo della funzionalità di replica geografica standard. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate su come configurare la funzionalità di replica geografica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md). Per informazioni dettagliate su come eseguire il failover al database secondario, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
-
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

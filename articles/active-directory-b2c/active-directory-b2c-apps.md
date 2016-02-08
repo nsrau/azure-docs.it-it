@@ -23,7 +23,7 @@ Azure AD B2C supporta l'autenticazione di un'ampia gamma di architetture di app 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Nozioni di base
-Ogni applicazione che usa Azure AD B2C dovrà essere registrata nella [directory B2C](active-directory-b2c-get-started.md) tramite il [portale di Azure](https://portal.azure.com). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
+Ogni applicazione che usa Azure AD B2C dovrà essere registrata nella [directory B2C](active-directory-b2c-get-started.md) tramite il [portale di Azure](https://portal.azure.com/). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
 - Un **ID applicazione** che identifica l'app in modo univoco
 - Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app
@@ -93,7 +93,8 @@ Accept: application/json
 
 L'API Web può quindi usare il token per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token. Per informazioni su tutti i tipi di token e attestazioni disponibili per un'app, consultare il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [AZURE.NOTE]L'anteprima di Azure AD B2C supporta attualmente solo le API Web che sono accessibili ai propri client noti. Ad esempio, l'app completa può includere un'app per iOS, un'app per Android e un'API Web di back-end. Questa architettura è completamente supportata. Non è invece supportato l'accesso alla stessa API Web da parte di client di terze parti, ad esempio un'altra app per iOS. In effetti, tutti i componenti dell'app completa devono condividere un singolo ID applicazione.
+> [AZURE.NOTE]
+	L'anteprima di Azure AD B2C supporta attualmente solo le API Web che sono accessibili ai propri client noti. Ad esempio, l'app completa può includere un'app per iOS, un'app per Android e un'API Web di back-end. Questa architettura è completamente supportata. Non è invece supportato l'accesso alla stessa API Web da parte di client di terze parti, ad esempio un'altra app per iOS. In effetti, tutti i componenti dell'app completa devono condividere un singolo ID applicazione.
 
 Un'API Web può ricevere token da tutti i tipi di client, tra cui app Web, desktop, per dispositivi mobili, a pagina singola, daemon sul lato server e anche altre API Web. A titolo di esempio, è possibile esaminare l'intero flusso di un'app Web che chiama un'API Web.
 
@@ -108,7 +109,8 @@ Le app installate in un dispositivo, ad esempio le app desktop e per dispositivi
 
 In questo flusso l'app esegue [criteri](active-directory-b2c-reference-policies.md) e riceve un codice di autorizzazione da Azure AD dopo che l'utente ha completato i criteri. Questo codice rappresenta l'autorizzazione dell'app di chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può quindi scambiare il codice di autorizzazione in background con un token ID e un token di aggiornamento. L'app può usare il token ID per eseguire l'autenticazione a un'API Web di back-end e il token di aggiornamento per ottenere nuovi token ID quando i precedenti scadono.
 
-> [AZURE.NOTE]L'anteprima di Azure AD B2C attualmente supporta solo l'acquisizione di token ID usati per accedere al servizio Web di back-end di un'app. Ad esempio, l'app completa può includere un'app per iOS, un'app per Android e un'API Web di back-end. Questa architettura è completamente supportata. Non è invece supportato l'accesso di un'app per iOS a un'API Web di terze parti tramite token di accesso OAuth 2.0. In effetti, tutti i componenti dell'app completa devono condividere un singolo ID applicazione.
+> [AZURE.NOTE]
+	L'anteprima di Azure AD B2C attualmente supporta solo l'acquisizione di token ID usati per accedere al servizio Web di back-end di un'app. Ad esempio, l'app completa può includere un'app per iOS, un'app per Android e un'API Web di back-end. Questa architettura è completamente supportata. Non è invece supportato l'accesso di un'app per iOS a un'API Web di terze parti tramite token di accesso OAuth 2.0. In effetti, tutti i componenti dell'app completa devono condividere un singolo ID applicazione.
 
 ![Immagine di corsie di app native](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ Molte architetture includono un'API Web che deve chiamare un'altra API Web downs
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

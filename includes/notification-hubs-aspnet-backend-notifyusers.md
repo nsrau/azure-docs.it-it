@@ -9,11 +9,11 @@ Un nuovo back-end WebAPI ASP.NET verrà creato nelle sezioni che seguono e avrà
 I passaggi seguenti mostrano come creare un nuovo back-end WebAPI ASP.NET:
 
 
-> [AZURE.NOTE]**Importante**: prima di procedere con l'esercitazione, verificare di aver installato l'ultima versione di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Nel menu **Strumenti** fare clic su **Estensioni e aggiornamenti**. Cercare **Gestione pacchetti NuGet per Visual Studio 2013** e verificare che sia installata la versione 2.8.50313.46 o successiva. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
+> [AZURE.NOTE] **Importante**: prima di procedere con l'esercitazione, verificare di aver installato l'ultima versione di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Nel menu **Strumenti** fare clic su **Estensioni e aggiornamenti**. Cercare **Gestione pacchetti NuGet per Visual Studio 2013** e verificare che sia installata la versione 2.8.50313.46 o successiva. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
 > 
 > ![][B4]
 
-> [AZURE.NOTE]Assicurarsi che sia installato Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) per la distribuzione del sito Web.
+> [AZURE.NOTE] Assicurarsi che sia installato Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) per la distribuzione del sito Web.
 
 1. Avviare Visual Studio o Visual Studio Express. Fare clic su **Esplora server** e accedere all'account Azure. Per la creazione delle risorse del sito Web nell'account, in Visual Studio è necessario eseguire l'accesso.
 2. In Visual Studio fare clic su **File**, **Nuovo** e quindi **Progetto**, espandere **Modelli**, **Visual C#**, quindi fare clic su **Web** e **Applicazione Web ASP.NET**, digitare il nome **AppBackend** e fare clic su **OK**. 
@@ -101,7 +101,7 @@ In questa sezione si creerà una nuova classe del gestore di messaggi denominata
 	        }
 	    }
 
-	> [AZURE.NOTE]**Nota sulla sicurezza**: la classe `AuthenticationTestHandler` non fornisce un'effettiva autenticazione. Viene usata solo per imitare l'autenticazione di base e non è sicura. È necessario implementare un meccanismo di autenticazione sicuro nelle applicazioni e nei servizi di produzione.
+	> [AZURE.NOTE] **Nota sulla sicurezza**: la classe `AuthenticationTestHandler` non fornisce un'effettiva autenticazione. Viene usata solo per imitare l'autenticazione di base e non è sicura. È necessario implementare un meccanismo di autenticazione sicuro nelle applicazioni e nei servizi di produzione.
 
 4. Aggiungere il codice seguente alla fine del metodo `Register` nella classe **App\_Start/WebApiConfig.cs** per registrare il gestore di messaggi:
 
@@ -364,4 +364,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

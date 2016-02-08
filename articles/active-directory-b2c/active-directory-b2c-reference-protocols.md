@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Anteprima AD B2C Azure: Protocolli di autenticazione
@@ -23,9 +23,9 @@ AD B2C di Azure fornisce l'identità come servizio per le app grazie al supporto
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 ## Nozioni di base
-Ogni applicazione che utilizza AD B2C di Azure dovrà essere registrata nella directory B2C nel [portale di Azure](https://portal.azure.com). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
+Ogni applicazione che utilizza AD B2C di Azure dovrà essere registrata nella directory B2C nel [portale di Azure](https://portal.azure.com/). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
 - Un **ID applicazione** che identifica l'app in modo univoco
 - Un **URI di reindirizzamento** o un **identificatore di pacchetto** che possono essere usati per indirizzare le risposte all'app
@@ -70,4 +70,4 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

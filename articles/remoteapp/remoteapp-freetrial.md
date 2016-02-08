@@ -24,10 +24,10 @@ Se si dispone di una sottoscrizione di Azure, è possibile provare [gratuitament
 
 In modalità di valutazione, è possibile creare due raccolte con un limite di 10 utenti per raccolta. Non sono presenti altre limitazioni. È possibile convertire la versione di valutazione in una sottoscrizione a pagamento in qualsiasi momento. Dopo 30 giorni le raccolte verranno disabilitate se non viene effettuata la conversione a una sottoscrizione a pagamento.
 
->[AZURE.NOTE]Il contratto di servizio di Azure non si applica alle raccolte create in modalità di valutazione.
+>[AZURE.NOTE] Il contratto di servizio di Azure non si applica alle raccolte create in modalità di valutazione.
 
-Per ottenere subito altre informazioni, Guardare un video rapido su come [creare una distribuzione cloud](http://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
+Per ottenere subito altre informazioni, Guardare un video rapido su come [creare una distribuzione cloud](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
-Per eventuali commenti, pubblicare le domande nei [forum di discussione](http://feedback.azure.com/forums/247748-azure-remoteapp). Se si dispone di un [piano di supporto di Azure](http://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum per commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp).
+Per eventuali commenti, pubblicare le domande nei [forum di discussione](https://feedback.azure.com/forums/247748-azure-remoteapp/). Se si dispone di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum per commenti e suggerimenti](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

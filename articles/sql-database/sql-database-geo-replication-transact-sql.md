@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # Configurare la replica geografica per il database SQL di Azure con Transact-SQL
@@ -46,9 +46,9 @@ Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
 ## Aggiungere un database secondario
 
-È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritti i passaggi per creare database secondari accessibili e non accessibili in lettura con un database singolo o un database elastico.
+È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](sql-database-service-tiers.md). Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritti i passaggi per creare database secondari accessibili e non accessibili in lettura con un database singolo o un database elastico.
 
-> [AZURE.NOTE]Se il database secondario è disponibile nel server partner specificato, ad esempio perché esiste o è esistita una relazione di replica geografica, il comando non riuscirà.
+> [AZURE.NOTE] Se il database secondario è disponibile nel server partner specificato, ad esempio perché esiste o è esistita una relazione di replica geografica, il comando non riuscirà.
 
 
 ### Aggiungere un database secondario non accessibile in lettura (database singolo)
@@ -57,12 +57,12 @@ Usare la procedura seguente per creare un database secondario non accessibile in
 
 1. Usare la versione di SQL Server Management Studio 13.0.600.65 o successiva.
 
- 	 >[AZURE.IMPORTANT]Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti del portale di Azure.
+ 	 >[AZURE.IMPORTANT] Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti del portale di Azure.
 
 
 2. Aprire la cartella Database, espandere la cartella **Database di sistema** fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non accessibile in lettura in <MySecondaryServer1>.
+3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non accessibile in lettura in MySecondaryServer1, in cui MySecondaryServer1 è il nome descrittivo del server.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Usare la procedura seguente per creare un database secondario non accessibile in
 3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non accessibile in lettura in un pool elastico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Fare clic su **Execute** per eseguire la query.
 
@@ -113,8 +113,8 @@ Usare la procedura seguente per creare un database secondario accessibile in let
 3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario accessibile in lettura in un pool elastico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Fare clic su **Execute** per eseguire la query.
 
@@ -122,7 +122,7 @@ Usare la procedura seguente per creare un database secondario accessibile in let
 
 ## Rimuovere un database secondario
 
-È possibile usare l'istruzione **ALTER DATABASE** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. L'istruzione viene eseguita sul database master in cui risiede il database primario. Dopo la terminazione della relazione, il database secondario diventa un normale database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+È possibile usare l'istruzione **ALTER DATABASE** per terminare definitivamente la relazione di replica tra un database secondario e il relativo database primario. L'istruzione viene eseguita sul database master in cui risiede il database primario. Dopo la terminazione della relazione, il database secondario diventa un normale database accessibile in lettura e scrittura. Se la connettività al database secondario viene interrotta, il comando riesce ma il database diventerà di nuovo accessibile in lettura e scrittura al ripristino della connettività. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](sql-database-service-tiers.md).
 
 Usare la procedura seguente per rimuovere il database secondario con replica geografica da una relazione di replica geografica.
 
@@ -148,10 +148,10 @@ Il comando esegue il flusso di lavoro seguente:
 
 2. Scambia i ruoli dei due database nella relazione di replica geografica.
 
-Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Questa sequenza assicura che non si verifichino perdite di dati. Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](sql-database-service-tiers.md).
 
 
-> [AZURE.NOTE]Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato e accettare la perdita dei dati.
+> [AZURE.NOTE] Se il database primario non è disponibile quando si esegue il comando, questo non riuscirà e verrà visualizzato un messaggio di errore in cui è indicato che il server primario non è disponibile. In rari casi, è possibile che l'operazione non possa essere completata e appaia bloccata. In questo caso l'utente può eseguire il comando di failover forzato e accettare la perdita dei dati.
 
 Usare la procedura seguente per avviare un failover pianificato.
 
@@ -175,7 +175,7 @@ Questa funzionalità è progettata per il ripristino di emergenza quando il ripr
 
 Poiché tuttavia il ripristino temporizzato non è supportato nei database secondari, se l'utente vuole recuperare i dati di cui è stato eseguito il commit nel database primario precedente e che non sono stati replicati nel nuovo database primario prima del failover forzato, dovrà rivolgersi al supporto tecnico per il ripristino dei dati persi.
 
-> [AZURE.NOTE]Se il comando viene eseguito quando i database primario e secondario sono online, il database primario precedente diventerà il nuovo database secondario, ma non verrà eseguita alcuna sincronizzazione dei dati. Potrebbe quindi verificarsi una perdita di dati.
+> [AZURE.NOTE] Se il comando viene eseguito quando i database primario e secondario sono online, il database primario precedente diventerà il nuovo database secondario, ma non verrà eseguita alcuna sincronizzazione dei dati. Potrebbe quindi verificarsi una perdita di dati.
 
 
 Se il database primario ha più database secondari, il comando riuscirà solo sul server secondario in cui è stato eseguito il comando. Gli altri database secondari non saranno informati che si è verificato il failover forzato. L'utente dovrà ripristinare manualmente questa configurazione usando un'API di "rimozione del database secondario" e quindi riconfigurare la replica geografica nei database secondari aggiuntivi.
@@ -228,9 +228,9 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 
 ## Risorse aggiuntive
 
-- [Blog di approfondimento sulle nuove funzionalità di replica geografica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Nuove funzionalità di replica geografica in evidenza](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentazione relativa al database SQL](sql-database.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

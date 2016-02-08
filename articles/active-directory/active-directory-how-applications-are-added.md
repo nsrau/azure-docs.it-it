@@ -91,7 +91,7 @@ Applicazioni aggiunte dall'utente:
 ## In che modo le app vengono aggiunte alla mia istanza di Azure AD?
 È possibile aggiungere un'app in Azure AD in diversi modi:
 
-* Aggiungere un'app dalla [Raccolta app di Azure Active Directory](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Aggiungere un'app dalla [Raccolta app di Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Iscriversi o accedere a un'app di terze parti integrata in Azure Active Directory, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)
     * Durante la procedura di iscrizione/accesso, agli utenti viene richiesto di concedere all'app l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso, l'entità servizio che rappresenta l'app viene aggiunta alla directory.
 * Iscriversi o accedere ai Microsoft Online Services, ad esempio [Office 365](http://products.office.com/)
@@ -146,4 +146,4 @@ Altre informazioni su come aggiungere applicazioni in Azure AD e su come configu
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

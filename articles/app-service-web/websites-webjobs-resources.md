@@ -57,7 +57,7 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 
 * [Come distribuire Processi Web di Azure mediante Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Come distribuire Processi Web mediante il portale di Azure](web-sites-create-web-jobs.md)
-* [Abilitazione della distribuzione da riga di comando o continua di processi Web di Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Abilitazione della distribuzione da riga di comando o continua di processi Web di Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Distribuzione tramite Git di un'app per console .NET in Azure mediante Processi Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Distribuzione di un processo Web F# in Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Distribuzione di servizi personalizzati come Azure Webjobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * [Post di blog di Magnus Mårtensson sulla versione GA di Processi Web di Azure](http://magnusmartensson.com/azure-webjobs-ga)
 * [Esecuzione di processi Web di Powershell in siti Web di Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Ricevere notifiche quando i processi Web di Azure attivati vengono completati](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [Criteri semplici di conservazione dei backup di siti Web con Processi Web](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [Criteri semplici di conservazione dei backup di siti Web con Processi Web](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Lentezza dei siti Web e dei servizi cloud di Microsoft Azure quando vengono richiesti per la prima volta](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Spiega come usare Processi Web per simulare la funzionalità AlwaysOn che è disponibile solo con il livello standard di Siti Web.
 * [Arresto normale di Processi Web](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Per l'arresto normale di WebJobs SDK, vedere [Arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
 * [Automatizzazione di backup con Processi Web di Azure e AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * [StackOverflow per WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Forum su Azure e ASP.NET](http://forums.asp.net/1247.aspx)
 * [Forum sulle app Web del servizio app di Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Sito di Azure Web App utente vocale](http://feedback.azure.com/forums/169385-websites)
+* [Sito di Azure Web App utente vocale](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Usare l'hashtag #AzureWebJobs.
 * [Segnalare un bug o un problema di Processi Web](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

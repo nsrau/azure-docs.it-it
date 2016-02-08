@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/12/2016" 
 	ms.author="erikre"/>
 
 # Scalare un'app Web in Servizio app di Azure
@@ -65,7 +65,7 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
  
 ### Backups
 
-- Impostare i [backups automatici](web-sites-backup.md) del sito Web. Ulteriori informazioni sui backup sono disponibili in [questo video](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Impostare i [backups automatici](web-sites-backup.md) del sito Web. Ulteriori informazioni sui backup sono disponibili in [questo video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Ulteriori informazioni sulle opzioni per il [ripristino database](../sql-database-business-continuity.md) nel database SQL di Azure
 
 ### Risoluzione dei problemi
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

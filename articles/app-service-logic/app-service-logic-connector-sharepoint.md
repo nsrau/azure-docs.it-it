@@ -47,7 +47,7 @@ A questo punto è possibile creare un'app per la logica nello stesso gruppo di r
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "SharePoint Server Connector".
+2. Selezionare **App per le API** e cercare "Connettore SharePoint Server".
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -56,9 +56,9 @@ A questo punto è possibile creare un'app per la logica nello stesso gruppo di r
 Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
 Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>**Nota** L'autenticazione anonima non è supportata.
 User Name | No | Immettere un nome utente valido per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
-Password | No | Immettere una password valida per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
+Password | No | Immettere una password valida per la connessione al sito di SharePoint, se la modalità di autenticazione non è Predefinito.
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
-Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
 ![][2]
@@ -98,7 +98,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 ##  Trigger
 Usare i trigger se si vuole avviare un'app per la logica.
 
-> [AZURE.NOTE]I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
+> [AZURE.NOTE] I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
 
 ### 1\. Nuovo documento in documenti condivisi (JSON)
 Questo trigger viene attivato quando un nuovo documento è disponibile in 'Documenti condivisi'.
@@ -456,7 +456,7 @@ Status | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (
 
 ## Configurazione ibrida (facoltativo)
 
-> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
+> [AZURE.NOTE] Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa SharePoint Server in locale, è richiesta la Gestione connessione ibrida.
 
@@ -465,7 +465,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -481,4 +481,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

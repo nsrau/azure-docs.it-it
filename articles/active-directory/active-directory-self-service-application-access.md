@@ -20,14 +20,14 @@
 
 L'abilitazione della funzionalità self-service per gli utenti finali è uno scenario comune nell'IT aziendale. Con un numero elevato di utenti e di applicazioni, spesso la persona più informata per decidere a chi concedere l'accesso non è l'amministratore della directory, ma il responsabile del team o un altro amministratore con delega. Tutto sommato, la persona più informata su ciò che serve per svolgere il proprio lavoro è proprio l'utente dell'applicazione.
 
-L'accesso alle applicazioni self-service è una funzionalità di [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) che permette agli amministratori di directory di:
+L'accesso alle applicazioni self-service è una funzionalità di [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) che permette agli amministratori di directory di:
 
 * Consentire agli utenti di richiedere l'accesso alle applicazioni usando un riquadro "Altre applicazioni" nel [pannello di accesso di Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 * Impostare le applicazioni a cui gli utenti possono richiedere l'accesso.
 * Indicare se è necessaria o meno un'approvazione perché gli utenti possano autoassegnarsi l'accesso a un'applicazione.
 * Impostare il responsabile dell'approvazione delle richieste e della gestione degli accessi per ogni applicazione.
 
-Oggi questa funzionalità è supportata per tutte le app preintegrate e personalizzate che supportano il Single Sign-On federato o basato su password nella [raccolta di applicazioni di Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/), incluse applicazioni come Salesforce, Dropbox, Google Apps e altro ancora. Questo articolo illustra come:
+Oggi questa funzionalità è supportata per tutte le app preintegrate e personalizzate che supportano il Single Sign-On federato o basato su password nella [raccolta di applicazioni di Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), incluse applicazioni come Salesforce, Dropbox, Google Apps e altro ancora. Questo articolo illustra come:
 
 * Configurare l'accesso alle applicazioni self-service per gli utenti finali e configurare un flusso di lavoro di approvazione facoltativo. 
 * Delegare la gestione dell'accesso alle persone più appropriate all'interno dell'organizzazione per applicazioni specifiche e permettere loro di usare il pannello di accesso di Azure AD per approvare le richieste di accesso, assegnare direttamente l'accesso ad alcuni utenti o (facoltativamente) impostare credenziali per l'accesso alle applicazioni quando è configurato il Single Sign-On basato su password.
@@ -106,4 +106,4 @@ Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata con
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

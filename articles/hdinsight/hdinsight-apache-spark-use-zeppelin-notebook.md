@@ -21,21 +21,21 @@
 
 Informazioni su come installare i notebook di Zeppelin in cluster Spark e su come usare i notebook di Zeppelin.
 
-> [AZURE.IMPORTANT]I notebook di Zeppelin per cluster HDInsight Spark vengono proposti per illustrare l'uso di Zeppelin in un ambiente Azure HDInsight Spark. Se si vogliono usare i notebook con HDInsight Spark, è consigliabile usare i notebook di Jupyter. Anche i notebook di Jupyter offrono varie opzioni kernel, ad esempio Scala, e le funzionalità continuano a migliorare. Per istruzioni su come usare i notebook di Jupyter con HDInsight Spark, vedere [Eseguire query Spark SQL con un notebook di Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
+> [AZURE.IMPORTANT] I notebook di Zeppelin per cluster HDInsight Spark vengono proposti per illustrare l'uso di Zeppelin in un ambiente Azure HDInsight Spark. Se si vogliono usare i notebook con HDInsight Spark, è consigliabile usare i notebook di Jupyter. Anche i notebook di Jupyter offrono varie opzioni kernel, ad esempio Scala, e le funzionalità continuano a migliorare. Per istruzioni su come usare i notebook di Jupyter con HDInsight Spark, vedere [Eseguire query Spark SQL con un notebook di Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Prerequisiti:**
 
-* Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 * Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	> [AZURE.NOTE]Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
+	> [AZURE.NOTE] Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
 
 * Un browser web che può essere configurato per utilizzare un proxy SOCKS
 
 * __(facoltativo)__: un plug-in, ad esempio [FoxyProxy](http://getfoxyproxy.org/,) che possa applicare delle regole che instradano solo richieste specifiche attraverso il tunnel.
 
-	> [AZURE.WARNING]Senza un plug-in come FoxyProxy, tutte le richieste effettuate tramite il browser possono essere instradate attraverso il tunnel. Ciò può comportare un caricamento più lento delle pagine web nel browser.
+	> [AZURE.WARNING] Senza un plug-in come FoxyProxy, tutte le richieste effettuate tramite il browser possono essere instradate attraverso il tunnel. Ciò può comportare un caricamento più lento delle pagine web nel browser.
 
 ## Installare Zeppelin come parte della creazione del cluster
 
@@ -151,13 +151,13 @@ Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
 
 ### Utilizzare il tunnel dal browser
 
-> [AZURE.NOTE]I passaggi descritti in questa sezione utilizzano il browser FireFox, poiché è disponibile gratuitamente per i sistemi Linux, Unix, Macintosh OS X e Windows. Anche altri browser moderni come Google Chrome, Edge Microsoft o Apple Safari dovrebbero funzionare; tuttavia, il plug-in FoxyProxy utilizzato in alcuni passaggi potrebbe non essere disponibile per tutti i browser.
+> [AZURE.NOTE] I passaggi descritti in questa sezione utilizzano il browser FireFox, poiché è disponibile gratuitamente per i sistemi Linux, Unix, Macintosh OS X e Windows. Anche altri browser moderni come Google Chrome, Edge Microsoft o Apple Safari dovrebbero funzionare; tuttavia, il plug-in FoxyProxy utilizzato in alcuni passaggi potrebbe non essere disponibile per tutti i browser.
 
 1. Configurare il browser per usare **localhost:9876** come proxy **SOCKS v5**. Ecco visualizzate le impostazioni di Firefox. Se si utilizza una porta diversa da quella 9876, cambiare la porta con quella utilizzata:
 
 	![image of Firefox settings](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
-	> [AZURE.NOTE]Se si seleziona **Remote DNS**, le richieste DNS (Domain Name System) verranno risolte usando il cluster HDInsight. Se questa opzione è deselezionata, il DNS verrà risolto localmente.
+	> [AZURE.NOTE] Se si seleziona **Remote DNS**, le richieste DNS (Domain Name System) verranno risolte usando il cluster HDInsight. Se questa opzione è deselezionata, il DNS verrà risolto localmente.
 
 2. Verificare che il traffico sia instradato attraverso il tunnel visitando un sito come [http://www.whatismyip.com/](http://www.whatismyip.com/) con le impostazioni proxy abilitate e disabilitate in Firefox. Mentre le impostazioni sono abilitate, l'indirizzo IP sarà per un computer nel data center di Microsoft Azure.
 
@@ -330,4 +330,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

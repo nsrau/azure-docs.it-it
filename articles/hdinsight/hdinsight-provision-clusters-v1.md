@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/21/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #Effettuare il provisioning di cluster Hadoop in HDInsight
@@ -28,7 +28,7 @@ Informazioni su come pianificare il provisioning di cluster HDInsight.
 
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
-- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
 ## Opzioni di configurazione di base
@@ -65,7 +65,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	![Cluster HDInsight](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
-	> [AZURE.NOTE]Il *Cluster HDInsight di Azure* è definito anche *Cluster Hadoop in HDInsight* o *Cluster HDInsight*. In alcuni casi viene usato in modo intercambiabile con *Cluster Hadoop*. Tutte queste definizioni fanno riferimento ai cluster Hadoop ospitati nell'ambiente Microsoft Azure.
+	> [AZURE.NOTE] Il *Cluster HDInsight di Azure* è definito anche *Cluster Hadoop in HDInsight* o *Cluster HDInsight*. In alcuni casi viene usato in modo intercambiabile con *Cluster Hadoop*. Tutte queste definizioni fanno riferimento ai cluster Hadoop ospitati nell'ambiente Microsoft Azure.
 
 	Un determinato tipo di cluster include ruoli diversi per i diversi nodi, che consentono a un cliente di ridimensionare i nodi in un ruolo specifico in modo appropriato per i dettagli del carico di lavoro. Ad esempio, è possibile effettuare il provisioning dei nodi di lavoro di un cluster Hadoop con una quantità di memoria elevata, se il tipo di analisi da eseguire richiede un utilizzo intensivo della memoria.
 
@@ -92,7 +92,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 	L'uso di questi nodi viene addebitato ai clienti per la durata del ciclo di vita del cluster. La fatturazione inizia dopo la creazione di un cluster e si interrompe quando il cluster viene eliminato. Non è possibile deallocare o mettere in attesa i cluster. Le dimensioni del cluster influiscono sul prezzo del cluster. Ai fini dell'apprendimento, è consigliabile usare un nodo di dati. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
-	>[AZURE.NOTE]Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione.
+	>[AZURE.NOTE] Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione.
 	
 - **Area/Rete virtuale (o posizione)**
 
@@ -128,12 +128,12 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	![Archiviazione di HDInsight](./media/hdinsight-provision-clusters-v1/HDInsight.storage.png)
 	
-	>[AZURE.NOTE]Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine:
+	>[AZURE.NOTE] Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine:
 	
 	![Archivio BLOB di Azure](./media/hdinsight-provision-clusters-v1/Azure.blob.storage.jpg)
 	  
 	
-	>[AZURE.WARNING]Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
+	>[AZURE.WARNING] Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
 	
 	Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
 
@@ -143,7 +143,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 ## Opzioni di configurazione avanzate
 
->[AZURE.NOTE]Questa sezione è attualmente applicabile solo ai cluster HDInsight basati su Windows.
+>[AZURE.NOTE] Questa sezione è attualmente applicabile solo ai cluster HDInsight basati su Windows.
 
 ### Personalizzare i cluster mediante la personalizzazione dei cluster HDInsight
 
@@ -204,7 +204,7 @@ L'uso di script durante il provisioning consente di installare componenti aggiun
 
 ### Usare le reti virtuali di Azure
 
-[Rete virtuale di Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permette di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
+[Rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permette di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
 
 * Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
@@ -287,7 +287,7 @@ Per una spiegazione dei campi, vedere le [opzioni di configurazione di base] e l
 ### Uso di Azure PowerShell
 Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questa sezione include le istruzioni su come effettuare il provisioning di un cluster HDInsight con Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet di Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-> [AZURE.NOTE]Gli script di questa sezione possono essere usati per configurare un cluster HDInsight in una rete virtuale di Azure, ma non possono creare una rete virtuale di Azure. Per informazioni sulla creazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
+> [AZURE.NOTE] Gli script di questa sezione possono essere usati per configurare un cluster HDInsight in una rete virtuale di Azure, ma non possono creare una rete virtuale di Azure. Per informazioni sulla creazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight con Azure PowerShell:
 
@@ -338,7 +338,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
 **Per effettuare il provisioning di un cluster HDInsight**
 
-> [AZURE.NOTE]I cmdlet di Azure PowerShell rappresentano l'unica soluzione consigliata per modificare le variabili di configurazione in un cluster HDInsight. Le modifiche apportate ai file di configurazione Hadoop durante la connessione al cluster con Desktop remoto possono essere sovrascritte in caso di applicazione di patch del cluster. I valori di configurazione impostati tramite Azure PowerShell vengono conservati se al cluster sono applicate patch.
+> [AZURE.NOTE] I cmdlet di Azure PowerShell rappresentano l'unica soluzione consigliata per modificare le variabili di configurazione in un cluster HDInsight. Le modifiche apportate ai file di configurazione Hadoop durante la connessione al cluster con Desktop remoto possono essere sovrascritte in caso di applicazione di patch del cluster. I valori di configurazione impostati tramite Azure PowerShell vengono conservati se al cluster sono applicate patch.
 
 - Eseguire i comandi seguenti da una finestra della console di Azure PowerShell:
 
@@ -365,7 +365,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE]I comandi $hadoopUserName e $hadoopUserPassword consentono di creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster ed eseguire processi. Se si usa l'opzione Creazione rapida del portale di Azure classico per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito sarà "admin". Non confondere questo account con l'account utente RDP (Remote Desktop Protocol), che deve essere diverso dall'account utente Hadoop. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico][hdinsight-admin-portal].
+	>[AZURE.NOTE] I comandi $hadoopUserName e $hadoopUserPassword consentono di creare l'account utente Hadoop per il cluster. Questo account verrà usato per connettersi al cluster ed eseguire processi. Se si usa l'opzione Creazione rapida del portale di Azure classico per effettuare il provisioning di un cluster, il nome utente Hadoop predefinito sarà "admin". Non confondere questo account con l'account utente RDP (Remote Desktop Protocol), che deve essere diverso dall'account utente Hadoop. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico][hdinsight-admin-portal].
 
 	Il completamento del provisioning del cluster può richiedere alcuni minuti.
 
@@ -375,7 +375,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
 Durante il provisioning di un cluster è possibile usare le altre opzioni di configurazione, ad esempio la connessione a più contenitori di archiviazioni BLOB di Azure, tramite una rete virtuale o un database SQL di Azure per metastore Hive e Oozie. In questo modo è possibile separare la durata dei dati e dei metadati da quella del cluster.
 
-> [AZURE.NOTE]I cmdlet di Windows PowerShell rappresentano l'unica soluzione consigliata per modificare le variabili di configurazione in un cluster HDInsight. Le modifiche apportate ai file di configurazione Hadoop durante la connessione al cluster con Desktop remoto possono essere sovrascritte in caso di applicazione di patch del cluster. I valori di configurazione impostati tramite Azure PowerShell vengono conservati se al cluster sono applicate patch.
+> [AZURE.NOTE] I cmdlet di Windows PowerShell rappresentano l'unica soluzione consigliata per modificare le variabili di configurazione in un cluster HDInsight. Le modifiche apportate ai file di configurazione Hadoop durante la connessione al cluster con Desktop remoto possono essere sovrascritte in caso di applicazione di patch del cluster. I valori di configurazione impostati tramite Azure PowerShell vengono conservati se al cluster sono applicate patch.
 
 - Eseguire i comandi seguenti da una finestra di Windows PowerShell:
 
@@ -418,7 +418,7 @@ Durante il provisioning di un cluster è possibile usare le altre opzioni di con
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
 		        New-AzureHDInsightCluster -Name $clusterName -Location $location -VirtualNetworkId $vnetID -SubnetName $subNetName
 
-	>[AZURE.NOTE]Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
+	>[AZURE.NOTE] Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
 
 **Per elencare cluster HDInsight**
 
@@ -429,7 +429,7 @@ Durante il provisioning di un cluster è possibile usare le altre opzioni di con
 
 ### Usare l'interfaccia della riga di comando di Azure
 
-> [AZURE.NOTE]A partire da 29/8/2014 non è più possibile associare l'interfaccia della riga di comando di Azure a una rete virtuale di Azure.
+> [AZURE.NOTE] A partire da 29/8/2014 non è più possibile associare l'interfaccia della riga di comando di Azure a una rete virtuale di Azure.
 
 Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux. È possibile installare l'interfaccia della riga di comando dai percorsi seguenti:
 
@@ -472,7 +472,7 @@ Seguire queste procedure per configurare il computer Linux per l'uso dell'interf
 
 Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall'interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
-> [AZURE.NOTE]Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows modificare le proprietà della cartella o usare Crittografia unità BitLocker.
+> [AZURE.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows modificare le proprietà della cartella o usare Crittografia unità BitLocker.
 
 
 1.	Aprire una finestra del terminale.
@@ -509,7 +509,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Se viene visualizzato un messaggio di errore in cui si informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE] Se viene visualizzato un messaggio di errore in cui si informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
 
 5.	Eseguire il comando seguente per verificare l'installazione:
 
@@ -531,7 +531,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall'interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
-> [AZURE.NOTE]Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
+> [AZURE.NOTE] Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
 
 
 1.	Aprire **Command Prompt**.
@@ -623,7 +623,7 @@ In genere, si effettua il provisioning di un cluster HDInsight, si eseguono i pr
 		#Run this command to create a cluster by using the config file
 		azure hdinsight cluster create --config <file>
 
-	>[AZURE.NOTE]Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
+	>[AZURE.NOTE] Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
 
 
 	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
@@ -801,4 +801,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

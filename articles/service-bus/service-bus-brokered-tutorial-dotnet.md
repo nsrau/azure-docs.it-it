@@ -103,7 +103,7 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@ Il passaggio successivo consiste nel creare un progetto di Visual Studio e scriv
 
 Dal menu **Compila** in Visual Studio, è possibile fare clic su **Compila soluzione** o premere F6 per confermare la correttezza del lavoro svolto finora.
 
-Creazione di credenziali di gestione
-
-Questa è la seconda fase nell'esercitazione sulle funzionalità di messaggistica del bus di servizio. In questa fase, si definiscono le operazioni di gestione utilizzate per creare le credenziali di firma condivisa (SAS) con cui l'applicazione verrà autorizzata.
-
 ## Creazione delle credenziali di gestione
 
 In questa fase, si definiscono le operazioni di gestione utilizzate per creare le credenziali di firma condivisa (SAS) con cui l'applicazione verrà autorizzata.
@@ -262,7 +260,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
 1. Il passaggio successivo consiste nel creare credenziali della firma di accesso condiviso utilizzando un oggetto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). Il metodo di creazione accetta il nome della chiave della firma di accesso condiviso e il valore ottenuto nel metodo `CollectUserInput()`. Aggiungere il codice seguente al metodo `Queue()`:
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -278,7 +276,7 @@ In questa fase, si definiscono le operazioni di gestione utilizzate per creare l
 	```
 ### Creazione della gestione dello spazio dei nomi
 
-1. Creare un nuovo oggetto di gestione dello spazio dei nomi, con un URI che contiene il nome dello spazio dei nomi e le credenziali di gestione ottenute nell'ultimo passaggio, come argomenti. Aggiungere questo codice direttamente sotto il codice aggiunto nel passaggio precedente:
+1. Creare un nuovo oggetto di gestione dello spazio dei nomi, con un URI che contiene il nome dello spazio dei nomi e le credenziali di gestione ottenute nel passaggio precedente, come argomenti. Aggiungere questo codice direttamente sotto il codice aggiunto nel passaggio precedente:
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -455,7 +453,7 @@ Nel metodo `Queue()`, scorrere la coda e ricevere messaggi utilizzando il metodo
 
 ### Terminare il metodo `Queue()` e pulire le risorse
 
-Direttamente sotto il codice precedente, aggiungere il codice seguente per pulire la factory del messaggio e le risorse della coda:
+Direttamente dopo il codice precedente, aggiungere il codice seguente per pulire la factory del messaggio e le risorse della coda:
 
 	```
 	factory.Close();
@@ -652,4 +650,4 @@ Per altre informazioni sul [Bus di servizio](https://azure.microsoft.com/service
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

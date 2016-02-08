@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web
@@ -31,7 +31,7 @@ Sono due le macchine virtuali del server Web in cui distribuire le applicazioni 
 
 Innanzitutto, è necessario configurare il bilanciamento del carico interno in modo che Azure distribuisca in modo uniforme tra i due server Web il traffico dei client destinato all'applicazione line-of-business. A tale scopo è necessario specificare un'istanza del servizio di bilanciamento del carico interno con un nome e un proprio indirizzo IP, assegnato dallo spazio degli indirizzi di subnet assegnato alla rete virtuale di Azure.
 
-> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+> [AZURE.NOTE] Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Specificare i valori per le variabili, rimuovendo i caratteri < and >. Nei set di comandi di Azure PowerShell seguenti vengono utilizzati i valori delle tabelle seguenti:
 
@@ -109,7 +109,7 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale.
+> [AZURE.NOTE] Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale.
 
 Usare il client desktop remoto preferito e creare una connessione Desktop remoto a ogni macchina virtuale del server Web. Usare il nome computer o il nome DNS della Intranet e le credenziali dell'account amministratore locale.
 
@@ -126,10 +126,10 @@ Dopo il riavvio per riconnettersi alle macchine virtuali usare un account con pr
 A questo punto, installare e configurare IIS per ogni server Web.
 
 1. Eseguire Server Manager, quindi fare clic su **Aggiungi ruoli e funzionalità**.
-2. Nella pagina Prima di iniziare, fare clic su **Avanti**.
+2. Nella pagina Prima di iniziare fare clic su **Avanti**.
 3. Nella pagina Selezione tipo di installazione fare clic su **Avanti**.
 4. Nella pagina Selezione server di destinazione fare clic su **Avanti**.
-5. Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco **Ruoli**.
+5. Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco dei **Ruoli**.
 6. Quando richiesto, fare clic su **Aggiungi funzionalità**, quindi su **Avanti**.
 7. Nella pagina Selezione funzionalità fare clic su **Avanti**.
 8. Nella pagina Server Web (IIS) fare clic su **Avanti**.
@@ -151,4 +151,4 @@ Questo diagramma illustra la configurazione ottenuta al termine di questa fase.
 
 - Seguire la [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) per completare la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

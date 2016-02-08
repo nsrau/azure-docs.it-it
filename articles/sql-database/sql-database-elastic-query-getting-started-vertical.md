@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # Introduzione alle query tra database (partizionamento verticale) 
@@ -109,4 +109,4 @@ Per informazioni sui prezzi, vedere [Database SQL - Prezzi](/pricing/details/sql
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

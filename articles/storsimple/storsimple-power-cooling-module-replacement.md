@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
@@ -26,7 +26,7 @@ In questa esercitazione viene illustrato come:
 - Rimuovere un PCM
 - Installare un PCM sostitutivo
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un PCM, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di rimuovere e sostituire un PCM, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Prima di sostituire un PCM:
 
@@ -40,11 +40,14 @@ Prima di sostituire il PCM, tenere presente i seguenti aspetti importanti:
 
 - La sostituzione del modulo PCM richiede solo alcuni minuti, ma deve essere completata entro 10 minuti dalla rimozione del PCM guasto per impedire il surriscaldamento.
 
-## Rimozione di un PCM
+- Notare che i moduli 764 W PCM di sostituzione forniti dal produttore non contengono il modulo batteria di backup. È necessario rimuovere la batteria dal PCM non funzionante, quindi inserirla nel modulo di sostituzione prima di eseguire la sostituzione. Per altre informazioni, vedere come [rimuovere e inserire un modulo batteria di backup](storsimple-battery-replacement.md).
+
+
+## Rimuovere un PCM
 
 Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dal dispositivo Microsoft Azure StorSimple, seguire queste istruzioni.
 
->[AZURE.NOTE]Prima di rimuovere il PCM, verificare di disporre di una sostituzione appropriata (764 W per lo chassis principale o 580 W per lo chassis EBOD).
+>[AZURE.NOTE] Prima di rimuovere il PCM, verificare di disporre di una sostituzione appropriata (764 W per lo chassis principale o 580 W per lo chassis EBOD).
 
 #### Per rimuovere un PCM:
 
@@ -114,7 +117,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
 
 ## Installazione di un PCM sostitutivo
 
-Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
+Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple. Verificare di avere inserito il modulo batteria di backup prima di installare il PCM di sostituzione (si applica solo a 764 W PCM). Per altre informazioni, vedere come [rimuovere e inserire un modulo batteria di backup](storsimple-battery-replacement.md).
 
 #### Per installare un PCM:
 
@@ -126,7 +129,7 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
 
 2. Verifica la presenza di danni sullo chassis, prestando particolare attenzione ai connettori.
 										
-    >[AZURE.NOTE]**Non installare il modulo se i perni dei connettori sono piegati.**
+    >[AZURE.NOTE] **Non installare il modulo se i perni dei connettori sono piegati.**
 
 3. Con il punto di manipolazione del PCM in posizione aperta, far scorrere il modulo nello chassis.
 
@@ -136,7 +139,7 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
 
 4. Chiudere manualmente il punto di manipolazione del PCM. Quando il punto di manipolazione viene attivato si dovrebbe ascoltare un clic.
 										
-    >[AZURE.NOTE]Per assicurasi che i perni dei connettori siano attivati, è possibile tirare delicatamente il punto di manipolazione senza rilasciare il chiavistello. Se il PCM scorre fuori, il chiavistello è stato chiuso prima dell'attivazione dei connettori.
+    >[AZURE.NOTE] Per assicurasi che i perni dei connettori siano attivati, è possibile tirare delicatamente il punto di manipolazione senza rilasciare il chiavistello. Se il PCM scorre fuori, il chiavistello è stato chiuso prima dell'attivazione dei connettori.
 
 5. Connettere i cavi di alimentazione alla fonte di alimentazione e al PCM.
 
@@ -146,10 +149,10 @@ Seguire queste istruzioni per installare un PCM nel dispositivo StorSimple.
 
 8. Verificare che la sostituzione sia stata completata correttamente: nel portale di Azure classico del servizio StorSimple Manager, passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi**, lo stato del PCM dovrebbe essere verde.
 										
-    >[AZURE.NOTE]L'inizializzazione completa del PCM sostitutivo potrebbe richiedere alcuni minuti.
+    >[AZURE.NOTE] L'inizializzazione completa del PCM sostitutivo potrebbe richiedere alcuni minuti.
 
 ## Passaggi successivi
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

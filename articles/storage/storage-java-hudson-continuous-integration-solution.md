@@ -86,11 +86,11 @@ Per usare il servizio BLOB con Hudson, è necessario installare il plug-in di Ar
 2. Nella pagina **Manage Hudson** fare clic su **Configure System**.
 3. Nella sezione **Microsoft Azure Storage Account Configuration**:
 
-    a. Immettere il nome dell'account di archiviazione che è possibile ottenere dal [portale di Azure](portal.azure.com).
+    a. Immettere il nome dell'account di archiviazione che è possibile ottenere dal [portale di Azure](https://portal.azure.com).
 
-    b. Immettere la chiave dell'account di archiviazione che è possibile ottenere dal [portale di Azure](portal.azure.com).
+    b. Immettere la chiave dell'account di archiviazione che è possibile ottenere dal [portale di Azure](https://portal.azure.com).
 
-    c. Se si utilizza il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si utilizza un servizio Cloud di Azure diverso, utilizzare l'endpoint specificato nel [portale di Azure](portal.azure.com) per l'account di archiviazione.
+    c. Se si utilizza il servizio Cloud di Azure pubblico, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si utilizza un servizio Cloud di Azure diverso, utilizzare l'endpoint specificato nel [portale di Azure](https://portal.azure.com) per l'account di archiviazione.
 
     d. Fare clic su **Validate storage credentials** per convalidare l'account di archiviazione.
 
@@ -129,7 +129,7 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 13. Nel dashboard di Hudson fare clic su **Build Now** per eseguire **MyJob**. Esaminare l'output di console per ottenere informazioni sullo stato. I messaggi di stato per il servizio di archiviazione di Azure verranno inclusi nell'output della console quando l'operazione post-compilazione avvierà il caricamento degli elementi di compilazione.
 14. Dopo avere completato il processo, è possibile esaminare gli elementi di compilazione aprendo il BLOB pubblico.
 
-    a. Accedere al [portale di Azure](portal.azure.com).
+    a. Accedere al [portale di Azure](https://portal.azure.com).
 
     b. Fare clic su **Storage**.
 
@@ -166,7 +166,7 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel [portale di Azure](portal.azure.com) per determinare l'endpoint dell'URL.
+    Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel [portale di Azure](https://portal.azure.com) per determinare l'endpoint dell'URL.
 
     Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore utilizzato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato utilizzato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
 
@@ -177,4 +177,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [Come creare un account di archiviazione]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

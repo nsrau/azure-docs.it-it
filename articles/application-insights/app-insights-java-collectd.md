@@ -27,7 +27,7 @@ In genere, si usa se [il servizio Web Java è già stato instrumentato con Appli
 
 ## Ottenere la chiave di strumentazione
 
-Nel [portale di Microsoft Azure](http://portal.azure.com) aprire la risorsa [Application Insights](start) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](app-insights-create-new-resource.md).
+Nel [portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](start) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](app-insights-create-new-resource.md).
 
 Copiare la chiave di strumentazione, che identifica la risorsa.
 
@@ -143,4 +143,4 @@ Separare le direttive con un valore NewLine.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

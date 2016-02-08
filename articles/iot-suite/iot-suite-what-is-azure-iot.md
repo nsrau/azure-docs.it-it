@@ -2,13 +2,14 @@
  pageTitle="Soluzioni di Azure per Internet delle cose | Microsoft Azure"
  description="Una panoramica di IoT in Azure, inclusa un'architettura della soluzione di esempio e la sua relazione con Suite IoT di Azure e le soluzioni preconfigurate"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -47,4 +48,4 @@ Esplorare queste risorse per ulteriori informazioni su IoT in Azure:
 [Azure Machine Learning]: https://azure.microsoft.com/it-IT/services/machine-learning/
 [Archiviazione di Azure]: https://azure.microsoft.com/it-IT/services/storage/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

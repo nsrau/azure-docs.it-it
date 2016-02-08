@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # Protezione dell'accesso ai dati in DocumentDB #
@@ -115,7 +115,7 @@ Una risorsa utente di DocumentDB è associata a un database di DocumentDB. Ogni 
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]Ogni utente di DocumentDB dispone di una proprietà PermissionsLink che può essere usata per recuperare l'elenco di autorizzazioni associate all'utente.
+> [AZURE.NOTE] Ogni utente di DocumentDB dispone di una proprietà PermissionsLink che può essere usata per recuperare l'elenco di autorizzazioni associate all'utente.
 
 Una risorsa autorizzazione di DocumentDB è associata a un utente di DocumentDB. Ogni utente può includere zero o più autorizzazioni di DocumentDB. Una risorsa autorizzazione fornisce l'accesso a un token di sicurezza di cui l'utente ha bisogno quando deve accedere a una risorsa applicazione specifica. Sono disponibili due livelli di accesso che possono essere forniti da una risorsa autorizzazione:
 
@@ -123,7 +123,7 @@ Una risorsa autorizzazione di DocumentDB è associata a un utente di DocumentDB.
 - Lettura: l'utente può solo leggere i contenuti della risorsa, ma non può eseguire operazioni di scrittura, aggiornamento o eliminazione sulla risorsa.
 
 
-> [AZURE.NOTE]Per eseguire le stored procedure di DocumentDB, l'utente deve disporre dell'autorizzazione All per la raccolta in cui verrà eseguita la stored procedure.
+> [AZURE.NOTE] Per eseguire le stored procedure di DocumentDB, l'utente deve disporre dell'autorizzazione All per la raccolta in cui verrà eseguita la stored procedure.
 
 
 Il frammento di codice seguente illustra come creare una risorsa autorizzazione, leggere il token delle risorse (token) della risorsa autorizzazione e associare le autorizzazioni all'utente creato in precedenza.
@@ -154,7 +154,7 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]I token delle risorse hanno un intervallo di tempo valido predefinito di 1 ora. La durata del token, tuttavia, può essere specificata in modo esplicito, fino a un massimo di 5 ore.
+> [AZURE.TIP] I token delle risorse hanno un intervallo di tempo valido predefinito di 1 ora. La durata del token, tuttavia, può essere specificata in modo esplicito, fino a un massimo di 5 ore.
 
 ##<a name="NextSteps"></a>Passaggi successivi
 
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

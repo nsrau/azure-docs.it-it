@@ -24,7 +24,7 @@ Le connessioni ibride possono connettere le app per le API del [servizio app di 
 
 In questa esercitazione si apprenderà come creare un'app per le API del servizio app nell’[anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) che si connette a un database locale di SQL Server mediante la funzionalità Connessione ibrida. Questa esercitazione presuppone che l'utente non abbia mai usato Azure o SQL Server.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -75,7 +75,7 @@ Se SQL Server è già installato in una configurazione e in un ambiente che sodd
 <a name="InstallSQL"></a>
 ## Installare SQL Server Express, abilitare TCP/IP e creare un database SQL Server locale
 
-Questa sezione illustra come installare SQL Server Express, abilitare TCP/IP e creare un database in modo che l'app per le API funzioni con il [portale di anteprima di Azure](https://portal.azure.com).
+Questa sezione illustra come installare SQL Server Express, abilitare TCP/IP e creare un database in modo che l'app per le API funzioni con il [portale di anteprima di Azure](https://portal.azure.com/).
 
 <a name="InstallSQLDB"></a>
 ### Installare SQL Server Express
@@ -202,7 +202,7 @@ Questa sezione illustra in modo dettagliato la creazione della demo di app per l
 
 10. Sostituire il codice nel file `SpeakersController.cs` con il codice seguente. Assicurarsi di specificare valori personalizzati per i segnaposto &lt;serverName> e &lt;password> in `connectionString`. Il valore &lt;serverName> corrisponde al nome del computer in cui si trova SQL Server e il valore &lt;password> corrisponde al valore impostato durante l'installazione e la configurazione di SQL Server.
 
-	> [AZURE.NOTE]Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	> [AZURE.NOTE] Il frammento di codice seguente include le informazioni sulla password. Ciò permette di mantenere semplice la demo. In un ambiente di produzione reale, è consigliabile non archiviare le credenziali nel codice. Vedere invece le [Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 		using System;
 		using System.Collections.Generic;
@@ -332,7 +332,7 @@ Dopo il test locale dell'app, è possibile distribuire l'app in Azure.
 	- Se si dispone di più sottoscrizioni di Azure, selezionare quella da usare.
 	- In **Piano di servizio app** selezionare uno dei piani di servizio app esistenti oppure selezionare **Crea nuovo piano di servizio app** e immettere il nome di un nuovo piano. 
 	- In **Gruppo di risorse** selezionare i gruppi di risorse esistenti oppure selezionare **Crea nuovo gruppo di risorse** e immettere un nome. Il nome deve essere univoco; provare a usare il nome dell'app come un prefisso e ad aggiungere alcune informazioni personali, ad esempio l'ID Microsoft (senza il simbolo @).  
-	- In **Livello di accesso** selezionare **Disponibile** per chiunque. Questa opzione renderà l'API pubblica completamente, il che è corretto per questa esercitazione. È possibile in un secondo momento limitare l'accesso tramite il [portale di anteprima di Azure](https://portal.azure.com).
+	- In **Livello di accesso** selezionare **Disponibile** per chiunque. Questa opzione renderà l'API pubblica completamente, il che è corretto per questa esercitazione. È possibile in un secondo momento limitare l'accesso tramite il [portale di anteprima di Azure](https://portal.azure.com/).
 	- Scegliere un'area,
 
 	Fare clic su **OK** per creare l'app per le API nella sottoscrizione.
@@ -355,7 +355,7 @@ La finestra **Attività del servizio app di Azure** mostra l'avanzamento della d
 
 ## Creare una connessione ibrida e un servizio BizTalk ##
 
-1. Nel browser passare al [portale di anteprima di Azure](https://portal.azure.com). 
+1. Nel browser passare al [portale di anteprima di Azure](https://portal.azure.com/). 
 
 2. Fare clic sull'opzione **Esplora tutto** a sinistra.
 
@@ -432,4 +432,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,12 +1,12 @@
 #### Per creare endpoint pubblici nel dispositivo virtuale
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Microsoft Azure classico.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale che viene utilizzata come dispositivo virtuale.
 
-- Fare clic su **Endpoint**. Nella pagina Endpoint sono elencati tutti gli endpoint disponibili per la macchina virtuale.
+- Fare clic su **Endpoint**. Nella pagina **Endpoint** sono elencati tutti gli endpoint disponibili per la macchina virtuale.
 
-- Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo Aggiungi endpoint. Fare clic sulla freccia per continuare.
+- Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo **Add Endpoint**. Fare clic sulla freccia per continuare.
 
 - Nel campo **Nome** digitare il nome seguente per l'endpoint: **WinRMHttps**.
 
@@ -20,4 +20,4 @@
 
 Dopo aver creato l'endpoint, è possibile visualizzarne i dettagli e determinare l'indirizzo IP virtuale pubblico (VIP, Virtual Private Network). Registrare tale indirizzo.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

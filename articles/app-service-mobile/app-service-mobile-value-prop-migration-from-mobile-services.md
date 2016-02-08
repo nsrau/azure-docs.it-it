@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
@@ -44,7 +44,7 @@ Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili*
 
 
 ##Connettere un'*app per dispositivi mobili* all'API SaaS
-Il *servizio app di Azure* semplifica la connessione dell'app per dispositivi mobili alle API SaaS, ad esempio Office 365, Dynamics, Salesforce, SAP, e altre ancora. Il *servizio app di Azure* offre un'esperienza di autenticazione chiavi in mano per conto dell'utente e consente di implementare l'autenticazione Single Sign-On in tutte le API SaaS in uso, grazie all'associazione di token per le singole API SaaS alla propria identità primaria.
+Il *servizio app di Azure* semplifica la connessione dell'app per dispositivi mobili alle API SaaS, ad esempio Office 365, Dynamics, Salesforce, SAP, e altre ancora. Il *servizio app di Azure* offre un'esperienza di autenticazione pronta all'uso per conto dell'utente e consente di implementare l'autenticazione Single Sign-On in tutte le API SaaS in uso, grazie all'associazione di token per le singole API SaaS alla propria identità primaria.
 
 ##Accesso ai dati locali tramite reti virtuali
 Con Servizi mobili è oggi già possibile usare connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure*, è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
@@ -53,7 +53,7 @@ Con Servizi mobili è oggi già possibile usare connessioni ibride per accedere 
 Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piattaforme di sviluppo tra cui Java, PHP e Python, oltre al supporto per .NET e Node.js già disponibile in Servizi mobili.
 
 ##Impostazione della scalabilità automatica
-Con Servizi mobili, tutte le istanze del codice back-end vengono eseguite in macchine virtuali del tipo Piccola. Il *servizio app di Azure* permette di selezionare le dimensioni delle macchine virtuali da un set di opzioni molto più ampio. È anche possibile aumentare il numero di istanze o scalare orizzontalmente per gestire qualsiasi carico di lavoro dei clienti in ingresso, in base a varie metriche delle prestazioni.
+Con Servizi mobili, tutte le istanze del codice back-end vengono eseguite in macchine virtuali del tipo Piccola. Il *servizio app di Azure* permette di selezionare le dimensioni delle macchine virtuali da un set di opzioni molto più ampio. È anche possibile aumentarele prestazioni o il numero di istanze per gestire qualsiasi carico di lavoro in ingresso dei clienti, in base a varie metriche delle prestazioni.
 
 ##Tutto sotto controllo
 Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di avanzate funzionalità analitiche e di monitoraggio fornite da New Relic e AppInsights consentono di ottenere informazioni ancora più complete sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi a livello di codice e tramite portale in base a diverse metriche delle prestazioni.
@@ -64,9 +64,7 @@ Backup automatico del back-end e del database. Il codice e i dati sono sempre al
 ##Sviluppo, test, produzione
 Con il *servizio app di Azure* è ora possibile creare più ambienti privati di test e staging per le app per dispositivi mobili. Usare questi ambienti per testare le app prima della distribuzione. Passaggio alla produzione con tempo di inattività pari a zero. Le app Web sono precaricate per garantire la miglior esperienza utente possibile.
 
-
-
-Al momento del passaggio dell'*app per dispositivi mobili del servizio app di Azure* alla fase di disponibilità generale, verrà fornita una soluzione per eseguire la migrazione dei servizi mobili esistenti al servizio app. Nel frattempo, è possibile iniziare a esplorare il *servizio app* e sperimentando i vantaggi nel proprio servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-migrating-from-mobile-services.md).
+È possibile iniziare a usare il *servizio app* sperimentando i vantaggi per il servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-migrating-from-mobile-services.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

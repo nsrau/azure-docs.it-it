@@ -47,7 +47,7 @@ Con questa configurazione, ogni messaggio da terminali POS viene reso disponibil
 
 ## Mostra il codice
 
-[Creare applicazioni che utilizzano le code del Bus di servizio](service-bus-create-queues.md) descrive come registrare un account per un Bus di servizio e creare uno spazio dei nomi del servizio. Per utilizzare uno spazio dei nomi del Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. Il modo più semplice per fare riferimento alle dipendenze del Bus di servizio è installare il [pacchetto Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).del Bus di servizio È inoltre possibile trovare l'assembly come parte di Azure SDK. Il download è disponibile all'indirizzo di [pagina di download di Azure SDK](http://azure.microsoft.com/downloads/).
+[Creare applicazioni che utilizzano le code del Bus di servizio](service-bus-create-queues.md) descrive come registrare un account per un Bus di servizio e creare uno spazio dei nomi del servizio. Per utilizzare uno spazio dei nomi del Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. Il modo più semplice per fare riferimento alle dipendenze del Bus di servizio è installare il [pacchetto Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).del Bus di servizio È inoltre possibile trovare l'assembly come parte di Azure SDK. Il download è disponibile all'indirizzo di [pagina di download di Azure SDK](https://azure.microsoft.com/downloads/).
 
 ### Creare l'argomento e le sottoscrizioni
 
@@ -150,4 +150,4 @@ Tutti i motivi per utilizzare l’accodamento messaggi descritto in [Creare appl
 
 Vedere [Creare applicazioni che utilizzano le code del Bus di servizio](service-bus-create-queues.md) per informazioni su come usare le code nello scenario di vendita al dettaglio POS.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

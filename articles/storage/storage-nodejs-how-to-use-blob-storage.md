@@ -67,7 +67,7 @@ Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla p
 
 Il modulo di Azure leggerà le variabili di ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createBlobService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](portal.azure.com) per un'app Web di Azure, vedere [App Web Node.js con archiviazione]
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un'app Web di Azure, vedere [App Web Node.js con archiviazione]
 
 ## Creare un contenitore
 
@@ -75,7 +75,7 @@ L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]È possibile accedere a un BLOB in modo anonimo usando **createBlobServiceAnonymous** e specificando l'indirizzo host. Ad esempio, usare `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE] È possibile accedere a un BLOB in modo anonimo usando **createBlobServiceAnonymous** e specificando l'indirizzo host. Ad esempio, usare `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -182,7 +182,7 @@ L'esempio di codice seguente carica il contenuto del file **test.txt** nel BLOB 
 	  }
 	});
 
-> [AZURE.NOTE]I BLOB di pagine sono costituiti da "pagine" da 512 byte. Potrebbe essere visualizzato un errore quando si caricano dati con una dimensione diversa da un multiplo di 512.
+> [AZURE.NOTE] I BLOB di pagine sono costituiti da "pagine" da 512 byte. Potrebbe essere visualizzato un errore quando si caricano dati con una dimensione diversa da un multiplo di 512.
 
 ## Elencare i BLOB in un contenitore
 
@@ -270,7 +270,7 @@ Se il valore è stato modificato, significa che un altro client o un'altra istan
 
 Le operazioni successive sul BLOB **myblob** devono fornire il parametro `options.leaseId`. L'ID del lease viene restituito come `result.id` da **acquireLease**.
 
-> [AZURE.NOTE]Per impostazione predefinita, la durata del lease è infinita. Per definire una durata non infinita (compresa tra 15 e 60 secondi), specificare il parametro `options.leaseDuration`.
+> [AZURE.NOTE] Per impostazione predefinita, la durata del lease è infinita. Per definire una durata non infinita (compresa tra 15 e 60 secondi), specificare il parametro `options.leaseDuration`.
 
 Per rimuovere un lease, usare il metodo **releaseLease**. Per interrompere un lease e impedire ad altri di ottenere un nuovo lease fintanto che la durata originale non scade, usare il metodo **breakLease**.
 
@@ -278,7 +278,7 @@ Per rimuovere un lease, usare il metodo **releaseLease**. Per interrompere un le
 
 Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare a BLOB e contenitori senza specificare il nome o le chiavi dell'account di archiviazione. Tali firme vengono spesso usate per fornire accesso limitato ai dati, ad esempio per consentire a un'app per dispositivi mobili di accedere ai BLOB.
 
-> [AZURE.NOTE]Benché sia anche possibile consentire l'accesso anonimo ai BLOB, le firme di accesso condiviso garantiscono un accesso più controllato, in quanto devono essere generate.
+> [AZURE.NOTE] Benché sia anche possibile consentire l'accesso anonimo ai BLOB, le firme di accesso condiviso garantiscono un accesso più controllato, in quanto devono essere generate.
 
 Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una firma di accesso condiviso tramite il metodo **generateSharedAccessSignature** dell'oggetto **BlobService** e la fornisce a un'applicazione non attendibile o parzialmente attendibile, ad esempio a un'app per dispositivi mobili. La firma di accesso condiviso viene generata tramite un criterio che indica le date di inizio e di fine del periodo di validità della firma, nonché il livello di accesso concesso al titolare della firma.
 
@@ -377,4 +377,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

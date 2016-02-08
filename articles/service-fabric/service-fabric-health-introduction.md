@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -21,7 +21,7 @@ Con Azure Service Fabric è stato introdotto un modello di integrità che offre 
 
 I componenti di Service Fabric usano questo modello di integrità per segnalare il proprio stato corrente ed è possibile avvalersi dello stesso meccanismo per segnalare l'integrità delle proprie applicazioni. La qualità e il livello di dettaglio dei report sull'integrità specifici delle proprie condizioni personalizzate determinano il grado di facilità con cui sarà possibile rilevare e risolvere i problemi relativi all'applicazione in esecuzione.
 
-> [AZURE.NOTE]Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric fornisce aggiornamenti monitorati che permettono di aggiornare un cluster o un'applicazione senza tempi di inattività, con un intervento minimo o addirittura nessun intervento da parte dell'utente e con la disponibilità completa del cluster e dell'applicazione. A tale scopo, l'aggiornamento verifica l'integrità in base ai criteri di aggiornamento configurati e prosegue solo se l'integrità rientra nelle soglie specificate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
+> [AZURE.NOTE] Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric fornisce aggiornamenti monitorati che permettono di aggiornare un cluster o un'applicazione senza tempi di inattività, con un intervento minimo o addirittura nessun intervento da parte dell'utente e con la disponibilità completa del cluster e dell'applicazione. A tale scopo, l'aggiornamento verifica l'integrità in base ai criteri di aggiornamento configurati e prosegue solo se l'integrità rientra nelle soglie specificate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
 
 ## Archivio integrità
 L'archivio integrità mantiene le informazioni di integrità relative alle entità del cluster per facilitarne il recupero e la valutazione. Viene implementato come servizio con stato persistente di Service Fabric per garantire la scalabilità e una disponibilità elevata. L'archivio integrità fa parte dell'applicazione **fabric:/System** e diventa disponibile non appena il cluster è operativo.
@@ -79,7 +79,7 @@ Gli stati di integrità possibili sono i seguenti:
 ## Criteri di integrità
 L'archivio integrità applica criteri di integrità per determinare se un'entità è integra in base ai relativi report e agli elementi figlio.
 
-> [AZURE.NOTE]I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare in criteri personalizzati, che verranno usati solo per la valutazione in questione.
+> [AZURE.NOTE] I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare in criteri personalizzati, che verranno usati solo per la valutazione in questione.
 
 Per impostazione predefinita, per la relazione gerarchica padre-figlio Service Fabric applica regole severe, in base alle quali tutti gli elementi devono essere integri. Se anche uno solo degli elementi figlio presenta un evento non integro, l'elemento padre è considerato non integro.
 
@@ -334,4 +334,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

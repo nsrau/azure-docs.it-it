@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Primo accesso ad Azure Multi-Factor Authentication" 
 	description="In questa pagina viene descritta la prima esperienza d’accesso per gli utenti." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="come usare directory di azure, active directory nel cloud, esercitazione di active directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # Esperienza di installazione per Azure multi-Factor Authentication
 
@@ -36,4 +37,4 @@ Metodo|Descrizione
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

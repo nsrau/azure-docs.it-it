@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Uso del bus di servizio da PHP con AMQP 1.0
@@ -25,7 +25,7 @@ Proton-PHP è un binding di linguaggio PHP per Proton-C. In altri termini, Proto
 
 È possibile scaricare Proton-C e i rispettivi binding associati, incluso PHP, da [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Il download è in formato codice sorgente. Per compilare il codice, seguire le istruzioni contenute nel pacchetto scaricato.
 
-> [AZURE.IMPORTANT]Al momento della stesura di questo articolo, il supporto SSL in Proton-C è disponibile solo per sistemi operativi Linux. Poiché il bus di servizio di Azure richiede l'uso di SSL, è attualmente possibile usare Proton-C e i binding di linguaggio solo per accedere al bus di servizio da Linux. L'abilitazione di Proton-C per l'uso con SSL in Windows è in fase di realizzazione. Verificare periodicamente la presenza di aggiornamenti.
+> [AZURE.IMPORTANT] Al momento della stesura di questo articolo, il supporto SSL in Proton-C è disponibile solo per sistemi operativi Linux. Poiché il bus di servizio di Azure richiede l'uso di SSL, è attualmente possibile usare Proton-C e i binding di linguaggio solo per accedere al bus di servizio da Linux. L'abilitazione di Proton-C per l'uso con SSL in Windows è in fase di realizzazione. Verificare periodicamente la presenza di aggiornamenti.
 
 ## Utilizzo di code, argomenti e sottoscrizioni del bus di servizio da PHP
 
@@ -82,7 +82,7 @@ $message->properties["TestString"] = "Service Bus";
 $message->properties["TestObject"] = new UUID("1234123412341234");   
 ```
 
-Nell'API del bus di servizio le proprietà dell'applicazione di messaggi vengono inserite nella raccolta **Properties** di [BrokeredMessage][]. Il seguente codice mostra come leggere le proprietà dell'applicazione di un messaggio ricevuto da un client PHP.
+Nelle API del bus di servizio le proprietà dell'applicazione di messaggi vengono inserite nella raccolta **Properties** di [BrokeredMessage][]. Il seguente codice mostra come leggere le proprietà dell'applicazione di un messaggio ricevuto da un client PHP.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -156,7 +156,7 @@ La tabella seguente indica i mapping tra i tipi di proprietà .NET e i tipi di p
 
 | Tipo di proprietà .NET | Tipo di proprietà PHP | Note |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Classe Proton-PHP | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Decimal non è attualmente supportato con Proton. | | bool | boolean | - | | Guid | UUID | Classe Proton-PHP | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks con mapping al tipo AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks con mapping al tipo AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri con mapping al tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | integer | - | | sbyte | integer | - | | char | Char | Classe Proton-PHP | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Decimal non è attualmente supportato con Proton. | | bool | boolean | - | | Guid | UUID | Classe Proton-PHP | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks con mapping al tipo AMQP:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | Timespan.Ticks con mapping al tipo AMQP:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | Uri.AbsoluteUri con mapping al tipo AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### Proprietà standard
 
@@ -184,9 +184,7 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

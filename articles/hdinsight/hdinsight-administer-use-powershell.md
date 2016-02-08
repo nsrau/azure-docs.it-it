@@ -29,7 +29,7 @@ Azure PowerShell è un ambiente di scripting potente che può essere usato per c
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##Installare Azure PowerShell 1.0 e versioni successive
 
@@ -164,7 +164,7 @@ Utilizzare il comando seguente per eliminare un cluster:
 ##Ridimensionare i cluster
 La funzionalità di scalabilità del cluster consente di modificare il numero di nodi del ruolo di lavoro usati da un cluster in esecuzione in Azure HDInsight senza dover ricreare il cluster.
 
->[AZURE.NOTE]Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Acquisire familiarità con l'interfaccia del portale cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Sono supportati solo i cluster con HDInsight versione 3.1.3 o successive. Se non si è certi della versione del cluster, è possibile controllare la pagina delle proprietà. Vedere [Acquisire familiarità con l'interfaccia del portale cluster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogni tipo di cluster supportato da HDInsight:
 
@@ -241,7 +241,7 @@ Per concedere:
 	
 	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
->[AZURE.NOTE]La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
+>[AZURE.NOTE] La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
 Questa operazione può essere eseguita anche tramite il portale. Vedere [Amministrare cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-admin-portal]
 
@@ -332,4 +332,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -40,7 +40,7 @@ Progettazione e selezione costituiscono il passaggio di **miglioramento dei dati
 * **Progettazione di funzionalità**: questo processo tenta di creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e di aumentare le potenzialità predittive dell'algoritmo di apprendimento.
 * **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
-Questo argomento tratta solo gli aspetti relativi a progettazione e selezione di funzioni del processo di miglioramento dei dati. Per altre informazioni sul passaggio di pre-elaborazione dei dati, guardare il video sulla [pre-elaborazione dei dati in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Questo argomento tratta solo gli aspetti relativi a progettazione e selezione di funzioni del processo di miglioramento dei dati. Per altre informazioni sul passaggio di pre-elaborazione dei dati, guardare il video sulla [pre-elaborazione dei dati in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## Creazione di funzioni dai dati: progettazione di funzioni
@@ -135,4 +135,4 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

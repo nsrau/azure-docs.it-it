@@ -32,9 +32,9 @@ Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a
 
 * **Computer client**: è necessario un computer client basato su Windows per eseguire lo script di distribuzione del cluster di Azure PowerShell (se si sceglie tale metodo di distribuzione) e l'invio di processi di Excel e SOA di esempio al cluster.
 
-* **Sottoscrizione di Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Sottoscrizione di Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Se si usa un modello di Guida introduttiva di Azure, tenere presente che la quota di core in Gestione risorse è indicata per area di Azure, quindi potrebbe essere necessario aumentare la quota in un'area specifica. Vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md). Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Se si usa un modello di Guida introduttiva di Azure, tenere presente che la quota di core in Gestione risorse è indicata per area di Azure, quindi potrebbe essere necessario aumentare la quota in un'area specifica. Vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md). Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 
 ## Passaggio 1. Configurazione di un cluster HPC Pack in Azure
@@ -57,11 +57,11 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità e 
 
     ![Salvare il modello][template]
 
-    b. Nella pagina **Parametri** immettere i valori per i parametri del modello. (Per visualizzare informazioni della Guida, fare clic sull'icona accanto a ogni impostazione). Nella seguente schermata vengono visualizzati valori di esempio. In questo esempio viene creato un nuovo cluster HPC Pack denominato *hpc01* nel dominio *hpc.local* composto da un nodo head e 2 nodi di calcolo. I nodi di calcolo verranno creati da un'immagine di VM di HPC Pack che include Microsoft Excel.
+    b. Nella pagina **Parametri**, immettere i valori per i parametri del modello. (Per visualizzare informazioni della Guida, fare clic sull'icona accanto a ogni impostazione). Nella seguente schermata vengono visualizzati valori di esempio. In questo esempio viene creato un nuovo cluster HPC Pack denominato *hpc01* nel dominio *hpc.local* composto da un nodo head e 2 nodi di calcolo. I nodi di calcolo verranno creati da un'immagine di VM di HPC Pack che include Microsoft Excel.
 
     ![Immettere i parametri][parameters]
 
-    >[AZURE.NOTE]La VM del nodo head verrà creata automaticamente [dall'immagine più recente del Marketplace](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di HPC Pack 2012 R2 su Windows Server 2012 R2. Attualmente l'immagine è basata su HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE]La VM del nodo head verrà creata automaticamente [dall'immagine più recente del Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di HPC Pack 2012 R2 su Windows Server 2012 R2. Attualmente l'immagine è basata su HPC Pack 2012 R2 Update 3.
     >
     >Le VM del nodo di calcolo verranno create dall'immagine più recente della famiglia di nodi di calcolo selezionata. Selezionare l'opzione **ComputeNode** per l'immagine più recente del nodo di calcolo di HPC Pack 2012 R2 Update 3 per usi generici. Selezionare l'opzione **ComputeNodeWithExcel** per l'immagine più recente del nodo di calcolo di HPC Pack che include una versione di valutazione di Microsoft Excel Professional Plus 2013. Se si desidera distribuire un cluster per sessioni SOA generiche o per l'offload di UDF di Excel, scegliere l'opzione **ComputeNode** (senza Excel installato).
     >
@@ -97,7 +97,7 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
 
 * **Azure PowerShell**: [installare e configurare Azure PowerShell](../powershell-install-configure.md) (versione 0.8.10 o versione successiva) nel computer client.
 
-* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Controllare la versione dello script eseguendolo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.5.0 o versione successiva.
+* **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dal [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Controllare la versione dello script eseguendolo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.5.0 o versione successiva.
 
 **Creazione del file di configurazione**
 
@@ -264,9 +264,9 @@ Per eseguire l'offload di una cartella di lavoro di Excel da eseguire nel cluste
 
 Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3 della precedente configurazione del computer client. Per le funzioni definite dall'utente di Excel, non è necessario che l'applicazione Excel sia installata sui nodi di calcolo, pertanto nel passaggio 1 è possibile scegliere un'immagine normale del nodo di calcolo anziché l'immagine del nodo di calcolo con Excel.
 
->[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell’impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster. Si noti che per i cluster di aggiornamento 2 è necessario l’aggiornamento 2 QFE KB3085833 (scaricare [qui](http://www.microsoft.com/it-IT/download/details.aspx?id=48725)) per l'API della sessione SOA nel computer client per supportare questa soluzione alternativa.
+>[AZURE.NOTE] Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell’impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster. Si noti che per i cluster di aggiornamento 2 è necessario l’aggiornamento 2 QFE KB3085833 (scaricare [qui](http://www.microsoft.com/it-IT/download/details.aspx?id=48725)) per l'API della sessione SOA nel computer client per supportare questa soluzione alternativa.
 
-Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall'utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, vedere queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
+Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall'utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, consultare queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
 
 1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio. Se il ClusterUDF32 non esiste nel computer client, è possibile copiarlo dalla cartella %CCP\_HOME%Bin\\XLL32 nel nodo head.
 
@@ -381,4 +381,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

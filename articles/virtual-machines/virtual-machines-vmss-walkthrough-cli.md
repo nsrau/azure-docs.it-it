@@ -41,7 +41,7 @@ Prima di iniziare con i passaggi illustrati in questa esercitazione, [installare
 
 1. **Accedere a Microsoft Azure**: nell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi), assicurarsi di essere in modalità Gestione risorse digitando `azure config mode arm`, quindi [accedere con l'id di lavoro o di scuola](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni per un'esperienza di accesso interattivo al proprio account Azure.
 
-	> [AZURE.NOTE]Se si ha un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per eseguire l'accesso senza una sessione interattiva. Se non si ha un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] Se si ha un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per eseguire l'accesso senza una sessione interattiva. Se non si ha un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md).
 
 2. **Creare un gruppo di risorse**: tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstest1**:
 
@@ -604,4 +604,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 Scopri il modello di [scalabilità automatica di un set di scalabilità di VM che eseguono un'applicazione Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) per impostare un LAMP stack e verificare la funzionalità di scalabilità automatica dei set si scalabilità di macchine virtuali.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

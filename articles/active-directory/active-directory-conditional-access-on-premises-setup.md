@@ -21,7 +21,8 @@
 
 I dispositivi di proprietà degli utenti possono essere contrassegnati come noti all'organizzazione richiedendo agli utenti di aggiungerli all'area di lavoro nel servizio Registrazione dispositivo di Azure Active Directory. Di seguito è riportata una guida dettagliata per abilitare l'accesso condizionale alle applicazioni locali tramite Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 
-> [AZURE.NOTE]Quando si usano dispositivi registrati nei criteri di accesso condizionale del servizio Registrazione dispositivo di Azure Active Directory, è necessaria la licenza di Office 365 o la licenza di Azure AD Premium. Questo include i criteri applicati da Active Directory Federation Services (AD FS) alle risorse locali.
+> [AZURE.NOTE]
+Quando si usano dispositivi registrati nei criteri di accesso condizionale del servizio Registrazione dispositivo di Azure Active Directory, è necessaria la licenza di Office 365 o la licenza di Azure AD Premium. Questo include i criteri applicati da Active Directory Federation Services (AD FS) alle risorse locali.
 
 Per altre informazioni sugli scenari di accesso condizionale per risorse locali, vedere [Aggiunta all'area di lavoro da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](https://technet.microsoft.com/library/dn280945.aspx).
 
@@ -73,7 +74,7 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 | Attività | Riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Abilitare Registrazione dispositivo nel tenant di Azure Active Directory per consentire l'aggiunta dei dispositivi all'area di lavoro. Per impostazione predefinita, l'autenticazione a più fattori non è abilitata per il servizio. L'autenticazione a più fattori è tuttavia consigliata quando si registra un dispositivo. Prima di abilitare l'autenticazione a più fattori in ADRS, assicurarsi che AD FS sia configurato per un provider di autenticazione a più fattori. | [Abilitare Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
-| I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md). |
+| I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory.](active-directory-conditional-access-device-registration-overview.md) |
 
 ##Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure AD
 
@@ -118,13 +119,14 @@ Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza 
 5.	Nella sezione **distribuisci e gestisci** eseguire i passaggi da 1 a 3 per integrare Azure Active Directory con la directory locale.
   1.	Aggiungere i domini.
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio. >[AZURE.NOTE]Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. >[AZURE.NOTE]Non è necessario configurare le funzionalità di anteprima.
+  3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio. >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. >[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
   
    
 
 
 ## Aggiornare lo schema di Servizi di dominio Active Directory
-> [AZURE.NOTE]L'aggiornamento dello schema di Active Directory non può essere annullato. È quindi consigliabile eseguirlo prima in un ambiente di test.
+> [AZURE.NOTE]
+L'aggiornamento dello schema di Active Directory non può essere annullato. È quindi consigliabile eseguirlo prima in un ambiente di test.
 
 1. Accedere al controller di dominio con un account che abbia sia i diritti di amministratore dell'organizzazione sia di amministratore dello schema.
 2. Copiare la directory **[media]\\support\\adprep** e le sottodirectory in uno dei controller di dominio Active Directory. 
@@ -132,12 +134,13 @@ Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza 
 4. Al prompt dei comandi passare alla directory adprep ed eseguire: **adprep.exe /forestprep**. Seguire le istruzioni visualizzate per completare l'aggiornamento dello schema.
 
 ## Preparare Active Directory per supportare i dispositivi
->[AZURE.NOTE]Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
+>[AZURE.NOTE] Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
 
 
 ##Preparare la foresta Active Directory per supportare i dispositivi
 
-> [AZURE.NOTE]Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
+> [AZURE.NOTE]
+Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
 
 ### Preparare la foresta Active Directory
 
@@ -183,6 +186,9 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 3. Selezionare **Aggiungi**.
 4. Quando richiesto, accedere con le proprie credenziali. Il dispositivo ora è aggiunto.
 
+###Aggiungere un dispositivo Windows 7 con Registrazione dispositivo di Azure Active Directory
+Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il pacchetto software di registrazione dispositivo. Il pacchetto software è denominato "Workplace Join for Windows 7" ed è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Le istruzioni per l'uso del pacchetto sono disponibili in [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+
 ### Aggiungere un dispositivo Android con Registrazione dispositivo di Azure Active Directory
 
 L'[argomento Azure Authenticator per Android](active-directory-conditional-access-azure-authenticator-app.md) include istruzioni su come installare l'app Azure Authenticator in un dispositivo Android e aggiungere un account aziendale. Quando viene creato un account aziendale in un dispositivo Android, tale dispositivo viene aggiunto all'area di lavoro nell'organizzazione.
@@ -198,13 +204,14 @@ Per impostazione predefinita, gli oggetti dispositivo di cui viene eseguito il w
 Considerare lo scenario seguente: si crea un trust della relying party per l'applicazione in AD FS e si configura una regola di autorizzazione rilascio che consente solo dispositivi registrati. Ora solo i dispositivi registrati possono accedere all'applicazione. Per semplificare l'accesso degli utenti all'applicazione, si configura un messaggio di accesso negato personalizzato che include istruzioni su come aggiungere il dispositivo dell'utente. A questo punto gli utenti hanno un modo per registrare i propri dispositivi per accedere a un'applicazione.
 
 Nei passaggi seguenti viene mostrato come implementare questo scenario.
->[AZURE.NOTE]Questa sezione presuppone che sia già stato configurato un trust della relying party per l'applicazione in AD FS.
+>[AZURE.NOTE]
+Questa sezione presuppone che sia già stato configurato un trust della relying party per l'applicazione in AD FS.
 
 1. Aprire lo strumento AD FS di MMC e passare ad AD FS > Relazioni di trust > Trust relying party.
 2. Trovare l'applicazione a cui si applicherà questa nuova regola di accesso. Fare clic con il pulsante destro del mouse sull'applicazione e scegliere Modifica regole attestazione.
 3. Selezionare la scheda **Regole di autorizzazione rilascio** e quindi selezionare **Aggiungi regola**.
 4. Nell'elenco a discesa **Modello di regola attestazione** selezionare **Consentire o negare l'accesso agli utenti in base a un'attestazione in ingresso**. Selezionare **Avanti**.
-5. Nel campo Nome regola attestazione digitare **Consenti accesso dai dispositivi registrati**
+5. Nel campo Nome regola attestazione digitare **Consenti accesso dai dispositivi registrati**.
 6. Nell'elenco a discesa Tipo di attestazione in ingresso selezionare **È un utente registrato**.
 7. Nel campo Valore attestazione in ingresso digitare: **true**
 8. Selezionare il pulsante di opzione **Consenti accesso agli utenti con questa attestazione in ingresso**.
@@ -237,4 +244,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 ![Schermata di un errore visualizzato quando gli utenti non hanno registrato il dispositivo con Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

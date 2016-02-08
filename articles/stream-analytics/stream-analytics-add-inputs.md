@@ -22,7 +22,7 @@
 
 # Aggiungere input dei flussi di dati ai processi di analisi di flusso
 
-I processi di Analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definisce una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](http://azure.microsoft.com/services/event-hubs/) e l’[archivio BLOB di Azure](./storage/storage-dotnet-how-to-use-blobs.md)all'interno e all'esterno della sottoscrizione processo. Esistono due tipi di input distinti in Analisi di flusso: dati di riferimento e flussi di dati.
+I processi di Analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definisce una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e l’[archivio BLOB di Azure](./storage/storage-dotnet-how-to-use-blobs.md)all'interno e all'esterno della sottoscrizione processo. Esistono due tipi di input distinti in Analisi di flusso: dati di riferimento e flussi di dati.
 
 - **Flussi di dati**: I processi di analisi di flusso devono includere almeno un input del flusso dei dati che deve essere utilizzato e trasformato dal processo stesso. L'archivio BLOB di Azure e Hub eventi di Azure sono supportati come origini di input del flusso dei dati. Gli Hub eventi di Azure vengono usati per raccogliere flussi di eventi da più dispositivi, servizi e applicazioni connessi. Si può usare l'archivio BLOB di Azure come origine di input per l'inserimento di dati in blocco come flusso.  
 - **Dati di riferimento**: l’analisi di flusso supporta un secondo tipo di input ausiliario denominato dati di riferimento. Al contrario dei dati in continua evoluzione, questi dati sono statici o cambiano molto lentamente. In genere vengono utilizzati per l'esecuzione di ricerche e correlazioni con flussi di dati per creare un set di dati più ampio. L'archivio BLOB di Azure attualmente è l'unica origine di input supportata per i dati di riferimento.  
@@ -80,4 +80,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Per iniziare, è innanzitutto necessario creare una tabella nell'account di arch
 
 - Per altre informazioni sulla modifica di tabelle a livello di codice, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md).
 - Vedere[documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/)per informazioni generali sull'archiviazione di Azure.
-- Vedere[documentazione dei servizi Cloud](http://azure.microsoft.com/documentation/services/cloud-services/)per informazioni generali sui servizi cloud di Azure.
+- Vedere la [documentazione dei servizi Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
 - Vedere[ASP.NET](http://www.asp.net)per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
 ## Accesso alle tabelle nel codice
@@ -50,7 +50,7 @@ Per accedere alle tabelle nei progetti di servizio cloud, è necessario includer
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]Utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
+> [AZURE.NOTE]  Utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
 
 3. Ottenere un oggetto **CloudTableClient** per fare riferimento agli oggetti delle tabelle nell'account di archiviazione.
 
@@ -269,4 +269,4 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,7 +18,7 @@
 
 # Visualizzare, modificare e creare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
 
-In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
+In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -56,7 +56,7 @@ Esplora script può essere avviato da qualsiasi pannello di account, database e 
 	![Schermata di Esplora script con risultati del filtro](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]La funzionalità di filtro di Esplora script consente di filtrare solo dal set di script caricati ***correntemente*** e non aggiorna automaticamente la raccolta selezionata.
+	> [AZURE.IMPORTANT] La funzionalità di filtro di Esplora script consente di filtrare solo dal set di script caricati ***correntemente*** e non aggiorna automaticamente la raccolta selezionata.
 
 5. Per aggiornare l'elenco di script caricati da Esplora script, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
 
@@ -91,7 +91,7 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 
 	![Schermata della vista delle proprietà dello script di Esplora script](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come epoch time, ma Esplora script consente di visualizzare il valore in formato GMT leggibile.
+	> [AZURE.NOTE] La proprietà timestamp (\_ts) viene rappresentata internamente come epoch time, ma Esplora script consente di visualizzare il valore in formato GMT leggibile.
 
 - Per eliminare uno script, selezionarlo in Esplora script e scegliere il comando **Elimina**.
 
@@ -106,4 +106,4 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

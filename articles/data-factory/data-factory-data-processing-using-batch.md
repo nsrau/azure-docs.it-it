@@ -53,7 +53,7 @@ La soluzione conta il numero di occorrenze del termine di ricerca ("Microsoft") 
 
 ### Prerequisiti
 
-1.  **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+1.  **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  **Account di archiviazione di Azure** In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). La soluzione di esempio usa l'archivio BLOB.
 
@@ -500,7 +500,7 @@ La procedura dettagliata seguente fornisce dettagli aggiuntivi.
 
 ### Passaggio 1: Creare la data factory
 
-1.  Dopo l'accesso al [portale di Azure](http://portal.azure.com/), seguire questa procedura:
+1.  Dopo l'accesso al [portale di Azure](https://portal.azure.com/), seguire questa procedura:
 
     1.  Fare clic su **NUOVO** nel menu a sinistra.
 
@@ -707,7 +707,7 @@ In questo passaggio si creerà un altro set di dati di tipo AzureBlob per rappre
 
 In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività personalizzata creata in precedenza.
 
-> [AZURE.IMPORTANT]Prima di creare la pipeline, caricare il **file.txt** nelle cartelle di input nel contenitore BLOB, se ancora non è stato fatto. La proprietà **isPaused** è impostata su false nello script JSON della pipeline, quindi la pipeline verrà eseguita immediatamente non appena sarà trascorsa la data di **inizio**.
+> [AZURE.IMPORTANT] Prima di creare la pipeline, caricare il **file.txt** nelle cartelle di input nel contenitore BLOB, se ancora non è stato fatto. La proprietà **isPaused** è impostata su false nello script JSON della pipeline, quindi la pipeline verrà eseguita immediatamente non appena sarà trascorsa la data di **inizio**.
 
 1.  Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo.
 
@@ -761,11 +761,11 @@ In questo passaggio si creerà una pipeline con un'attività, ovvero l'attività
 
 	-   **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di \<spazio dei nomi\>.\<nomeclasse\> nel codice.
+	-   **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.** Si tratta in sostanza di <spazio dei nomi>.<nomeclasse> nel codice.
 
 	-   **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato lo stesso account di archiviazione di Azure.
 
-	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: \<contenitoreperlozip\>/\<nomedellozip.zip\>.
+	-   **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: <contenitoreperlozip>/<nomedellozip.zip>.
 
 	-   L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
 
@@ -929,4 +929,4 @@ Dopo l'elaborazione dei dati, è possibile utilizzarli con strumenti online come
 
     -   [Introduzione alla libreria di Azure Batch per .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

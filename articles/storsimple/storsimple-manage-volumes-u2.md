@@ -50,7 +50,7 @@ I volumi a livelli sono volumi con thin provisioning in cui i dati a cui si acce
 
 Per progettare un volume a livelli come volume di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. I volumi di archivio usano una dimensione di 512 KB per il blocco di deduplicazione, invece i volumi non di archivio usano una dimensione di 64 KB. La maggiore dimensione del blocco di deduplicazione consente al dispositivo di trasferire nel cloud blocchi di dati più grandi.
 
->[AZURE.NOTE]I volumi di archivio creati con una versione precedente all'aggiornamento 2 di StorSimple verranno importati a livelli con la casella di controllo dell'archivio selezionata.
+>[AZURE.NOTE] I volumi di archivio creati con una versione precedente all'aggiornamento 2 di StorSimple verranno importati a livelli con la casella di controllo dell'archivio selezionata.
 
 ### Capacità con provisioning
 
@@ -136,13 +136,13 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u2.md#step-6-creat
 
 Il volume è pronto per l'utilizzo.
 
->[AZURE.NOTE]Se si crea un volume aggiunto in locale e quindi se ne crea un altro subito dopo, i processi di creazione dei volumi vengono eseguiti in sequenza. Il primo processo di creazione del volume deve terminare prima che possa iniziare quello successivo.
+>[AZURE.NOTE] Se si crea un volume aggiunto in locale e quindi se ne crea un altro subito dopo, i processi di creazione dei volumi vengono eseguiti in sequenza. Il primo processo di creazione del volume deve terminare prima che possa iniziare quello successivo.
 
 ## Modificare un volume
 
 Modificare un volume quando occorre espanderlo o modificare gli host che vi accedono.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Se si modifica la dimensione del volume nel dispositivo, è necessario modificare anche le esigenze di dimensioni del volume sull’host. 
 > - Le procedure host-side descritte di seguito sono per Windows Server 2012 (2012R2). Procedure per Linux o altri sistemi operativi host saranno diverse. Quando si modifica il volume di un host che esegue un altro sistema operativo, fare riferimento alle istruzioni del sistema operativo dell’host. 
@@ -163,7 +163,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 5. In **Impostazioni aggiuntive** è possibile modificare l'ACR, purché il volume sia offline. Se il volume è online, sarà necessario portarlo prima offline. Fare riferimento ai passaggi riportati in [Portare un volume offline](#take-a-volume-offline) prima di modificare gli ACR.
 
-    > [AZURE.NOTE]Non è possibile modificare l’opzione **Abilita backup predefinito** per il volume.
+    > [AZURE.NOTE] Non è possibile modificare l’opzione **Abilita backup predefinito** per il volume.
 
 6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Il portale di Azure classico mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
@@ -174,11 +174,11 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
    3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
    4. Completare la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
 
-    >[AZURE.NOTE]Se si espande un volume aggiunto in locale e quindi se ne espande un altro subito dopo, i processi di espansione dei volumi vengono eseguiti in sequenza. Il primo processo di espansione del volume deve terminare prima che possa iniziare quello successivo.
+    >[AZURE.NOTE] Se si espande un volume aggiunto in locale e quindi se ne espande un altro subito dopo, i processi di espansione dei volumi vengono eseguiti in sequenza. Il primo processo di espansione del volume deve terminare prima che possa iniziare quello successivo.
 
 ![Video disponibile](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come espandere un volume, fare clic [qui](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Per guardare un video che illustra come espandere un volume, fare clic [qui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Modificare il tipo di volume
 
@@ -189,11 +189,11 @@ Per guardare un video che illustra come espandere un volume, fare clic [qui](htt
 
 Quando un volume aggiunto in locale viene creato, ne viene effettuato il provisioning completo. Se si sta convertendo un volume a livelli in un volume aggiunto in locale, StorSimple verifica che lo spazio sul dispositivo sia sufficiente prima di avviare la conversione. Se lo spazio non è sufficiente, verrà visualizzato un errore e l'operazione verrà annullata.
 
-> [AZURE.NOTE]Prima di iniziare una conversione da un volume a livelli a uno aggiunto in locale, considerare i requisiti di spazio degli altri carichi di lavoro.
+> [AZURE.NOTE] Prima di iniziare una conversione da un volume a livelli a uno aggiunto in locale, considerare i requisiti di spazio degli altri carichi di lavoro.
 
 È possibile, ad esempio, passare da un volume aggiunto in locale a un volume a livelli se è necessario spazio aggiuntivo per il provisioning di altri volumi. Quando si converte il volume aggiunto in locale in uno a livelli, la capacità disponibile nel dispositivo aumenta della dimensione della capacità rilasciata. Se problemi di connettività impediscono la conversione di un volume dal tipo locale al tipo a livelli, il volume locale presenterà le proprietà di un volume a livelli fino al completamento della conversione. Infatti è possibile che alcuni dati siano stati distribuiti nel cloud. Questi dati trasferiti continueranno a occupare lo spazio locale nel dispositivo, che non può essere liberato fino al riavvio e al completamento dell'operazione.
 
->[AZURE.NOTE]La conversione di un volume può richiedere tempo e non è possibile annullarla una volta avviata. Il volume rimane online durante la conversione ed è possibile eseguire i backup, ma non è possibile espandere o ripristinare il volume mentre la conversione è in corso.
+>[AZURE.NOTE] La conversione di un volume può richiedere tempo e non è possibile annullarla una volta avviata. Il volume rimane online durante la conversione ed è possibile eseguire i backup, ma non è possibile espandere o ripristinare il volume mentre la conversione è in corso.
 
 #### Per modificare il tipo di volume
 
@@ -237,11 +237,11 @@ Potrebbe essere necessario portare un volume offline per modificarlo o eliminarl
 
     Quando un volume è offline, l’opzione **Porta online** diventa disponibile.
 
-> [AZURE.NOTE]Il comando **Porta offline** invia al dispositivo una richiesta di portare il volume offline. Se gli host stanno ancora utilizzando il volume, le connessioni saranno interrotte ma il volume sarà portato offline.
+> [AZURE.NOTE] Il comando **Porta offline** invia al dispositivo una richiesta di portare il volume offline. Se gli host stanno ancora utilizzando il volume, le connessioni saranno interrotte ma il volume sarà portato offline.
 
 ## Eliminare un volume
 
-> [AZURE.IMPORTANT]È possibile eliminare un volume solo se è offline.
+> [AZURE.IMPORTANT] È possibile eliminare un volume solo se è offline.
 
 Completare la procedura seguente per eliminare un volume.
 
@@ -257,7 +257,7 @@ Completare la procedura seguente per eliminare un volume.
 
 5. Alla richiesta di conferma fare clic su **Sì**. Il volume verrà eliminato e nella pagina **Volumi** sarà visualizzato l’elenco aggiornato di volumi presenti nel contenitore.
 
-    >[AZURE.NOTE]Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+    >[AZURE.NOTE] Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
  
 ## Monitorare a volume
 
@@ -285,4 +285,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

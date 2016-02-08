@@ -203,4 +203,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlet di testabilità di Service Fabric di Azure](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

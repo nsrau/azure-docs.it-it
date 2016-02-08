@@ -18,11 +18,17 @@
 	
 # Precaricamento di risorse in un endpoint della rete CDN di Azure
 
+Per impostazione predefinita, gli asset vengono prima di tutto memorizzati nella cache quando vengono richiesti. Questo significa che la prima richiesta da ogni area potrebbe richiedere più tempo, poiché i server perimetrali non avranno il contenuto memorizzato nella cache e la richiesta dovrà essere inoltrata al server di origine. Il precaricamento del contenuto consente di evitare questa latenza della prima richiesta.
+
+Oltre a fornire una migliore esperienza utente, il precaricamento di asset memorizzati nella cache può inoltre ridurre il traffico di rete sul server di origine.
+
+> [AZURE.NOTE] Il precaricamento degli asset è utile per eventi di grandi dimensioni o il contenuto che diventa disponibile contemporaneamente per un numero elevato di utenti, ad esempio la nuova versione di un film o un aggiornamento software.
+
 Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto memorizzato nella cache in tutti i nodi perimetrali della rete CDN di Azure.
 
 ## Procedura dettagliata
 
-1. Nel [portale di Azure](http://portal.azure.com) passare al profilo di rete CDN contenente l'endpoint che si vuole precaricare. Viene visualizzato il pannello del profilo.
+1. Nel [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN contenente l'endpoint che si vuole precaricare. Viene visualizzato il pannello del profilo.
 
 2. Fare clic sull'endpoint nell'elenco. Viene visualizzato il pannello dell'endpoint.
 
@@ -36,7 +42,7 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 	
 4. Immettere il percorso completo di ogni asset da caricare, ad esempio */pictures/kitten.png*, nella casella di testo **Percorso**.
 
-	> [AZURE.TIP]Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset. È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
+	> [AZURE.TIP] Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset. È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
 	>
 	> I percorsi devono essere URL relativi. L'asterisco (*) può essere usato come carattere jolly.
 	
@@ -51,4 +57,4 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

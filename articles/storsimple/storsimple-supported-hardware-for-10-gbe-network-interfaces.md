@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 In questo articolo vengono fornite informazioni sull'hardware supplementare che funziona con il dispositivo StorSimple di Microsoft Azure.
 
-## Elenco dei dispositivi supportati
+## Elenco dei dispositivi testati da Microsoft
 
 Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form factor, cavi e switch per assicurarsi che funzionino in modo ottimale con i dispositivi. (Le seguenti tabelle saranno aggiornate non appena verificato il nuovo hardware).
 
@@ -48,7 +48,25 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | 2\. |Cisco|N3K-C3048-ZM-F|
 | 3\. |Cisco|N5K-C5596UP-FA|
 
-## Elenco di dispositivi supportati da Mellanox  
+## Elenco dei dispositivi testati nel campo
+
+Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti correttamente nel campo dai clienti di StorSimple. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
+ 
+| Parametro | Valore |
+|-----------------------------------|------------------------------------------|
+| Marca switch | Juniper |
+| Modello switch | ex4550-32F |
+| Versione sistema operativo switch | JunOS 12.3R9.4 |
+| Modello pannello | Porte caricate (PIC 0) |
+| Marca ricetrasmettitore | Juniper |
+| Modello ricetrasmettitore | Codice 740-021308 <br></br> Codice 740-030658 |
+| Versione firmware ricetrasmettitore | Rev 01 Versione 0.0 (segnalato) |
+| Modello cavo | Ponticello duplex LC/LC 50/125µ, OM3, LSZH |
+| Modello StorSimple | 8600 |
+| Versione software StorSimple | 6\.3.9600.17491 |
+
+
+## Elenco dei dispositivi testati da provider OEM (Mellanox)  
 
 Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form factor, cavi e switch per assicurarsi che funzionino in modo ottimale con le interfacce di rete Mellanox come le interfacce di rete 10 GbE sul dispositivo StorSimple.
 
@@ -112,4 +130,4 @@ Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono
 
 [Ulteriori informazioni sui componenti hardware di StorSimple](storsimple-monitor-hardware-status.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

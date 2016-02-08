@@ -23,13 +23,13 @@
 
 L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight basati su Linux. In questo documento verrà descritto come creare modelli di Gestione risorse di Azure per configurare un cluster di HDInsight e l’archiviazione associata, quindi utilizzare cURL per distribuire il modello per l'API REST di Azure per creare un nuovo cluster HDInsight.
 
-> [AZURE.IMPORTANT]I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ###Prerequisiti
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Interfaccia della riga di comando di Azure__. L’interfaccia della riga di comando di Azure viene utilizzata per creare un’entità servizio, quindi viene utilizzata per generare i token di autenticazione per le richieste all'API REST di Azure.
 
@@ -37,7 +37,7 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 
 - __cURL__. Questa utilità è disponibile tramite il sistema di gestione del pacchetto o può essere scaricata da [http://curl.haxx.se/](http://curl.haxx.se/).
 
-    > [AZURE.NOTE]Se si utilizza PowerShell per eseguire i comandi in questo documento, è necessario innanzitutto rimuovere l’alias `curl` creato per impostazione predefinita. Questo alias utilizza Invoke-WebRequest, un cmdlet di PowerShell, anziché cURL quando si utilizza il comando `curl` da un prompt di PowerShell e restituisce errori per molti dei comandi utilizzati in questo documento.
+    > [AZURE.NOTE] Se si utilizza PowerShell per eseguire i comandi in questo documento, è necessario innanzitutto rimuovere l’alias `curl` creato per impostazione predefinita. Questo alias utilizza Invoke-WebRequest, un cmdlet di PowerShell, anziché cURL quando si utilizza il comando `curl` da un prompt di PowerShell e restituisce errori per molti dei comandi utilizzati in questo documento.
     > 
     > Per rimuovere l'alias, utilizzare la seguente procedura dal prompt di PowerShell:
     >
@@ -263,7 +263,7 @@ Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'int
 
 ##Creare un’entità servizio
 
-> [AZURE.IMPORTANT]Quando si esegue la procedura descritta nell'articolo al collegamento di seguito, è necessario apportare le modifiche seguenti:
+> [AZURE.IMPORTANT] Quando si esegue la procedura descritta nell'articolo al collegamento di seguito, è necessario apportare le modifiche seguenti:
 > 
 > * Quando i passaggi indicano di utilizzare un valore di __lettore__, è necessario utilizzare invece __proprietario__. Verrà creata un’entità servizio in grado di apportare modifiche ai servizi sulla sottoscrizione, necessaria per la creazione di un cluster HDInsight.
 >
@@ -290,7 +290,7 @@ Utilizzare le operazioni seguenti per ottenere un nuovo token da Azure. Sostitui
 
 Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON.
 
-> [AZURE.IMPORTANT]Il documento JSON restituito da questa richiesta contiene un elemento denominato __access\_token__; il valore di questo elemento è il token di accesso da utilizzare per l'autenticazione delle richieste utilizzate nelle sezioni successive di questo documento.
+> [AZURE.IMPORTANT] Il documento JSON restituito da questa richiesta contiene un elemento denominato __access\_token__; il valore di questo elemento è il token di accesso da utilizzare per l'autenticazione delle richieste utilizzate nelle sezioni successive di questo documento.
 
 ##Creare un gruppo di risorse
 
@@ -315,13 +315,13 @@ Utilizzare le operazioni seguenti per distribuire la configurazione del cluster 
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{impostare la stringa del corpo su modello e parametri}"
 
-> [AZURE.NOTE]Se il documento JSON contenente il modello e i parametri è stato salvato in un file, è possibile utilizzare quanto indicato di seguito invece di `-d "{modello e parametri}"':
+> [AZURE.NOTE] Se il documento JSON contenente il modello e i parametri è stato salvato in un file, è possibile utilizzare quanto indicato di seguito invece di `-d "{modello e parametri}"':
 >
 > ```--data-binary "@/path/to/file.json"```
 
 Se la richiesta ha esito positivo, si riceverà una risposta serie 200 e il corpo della risposta conterrà un documento JSON che include le informazioni dell’operazione di distribuzione.
 
-> [AZURE.IMPORTANT]Si noti che la distribuzione è stata inviata, ma non è stata completata in questo momento. Possono essere necessari diversi minuti, in genere circa 15, per completare la distribuzione.
+> [AZURE.IMPORTANT] Si noti che la distribuzione è stata inviata, ma non è stata completata in questo momento. Possono essere necessari diversi minuti, in genere circa 15, per completare la distribuzione.
 
 ##Controllare lo stato di una distribuzione
 
@@ -355,4 +355,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

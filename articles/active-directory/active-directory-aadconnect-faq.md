@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Domande frequenti su Azure AD Connect
@@ -83,11 +83,11 @@ No. Questa opzione non recupererà tutte le impostazioni di configurazione e non
 
 [Forum di Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=WindowsAzureAD)
 
-- È possibile cercare e sfogliare le domande e risposte tecniche dalla community o porre le proprie domande facendo clic [qui](https://social.msdn.microsoft.com/Forums/azure/it-IT/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+- Per cercare e passare in rassegna domande e risposte tecniche della community o porre domande, fare clic [qui](https://social.msdn.microsoft.com/Forums/azure/it-IT/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 
 [Assistenza clienti per Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 - Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

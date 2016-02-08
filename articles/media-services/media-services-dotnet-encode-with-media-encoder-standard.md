@@ -46,7 +46,7 @@ I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft
 
 ##Scaricare un esempio
 
-È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Esempio
 
@@ -147,4 +147,4 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 [Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

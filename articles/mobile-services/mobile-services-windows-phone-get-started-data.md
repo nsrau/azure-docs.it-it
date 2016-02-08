@@ -37,7 +37,7 @@ Questo argomento descrive come usare Servizi mobili di Azure per sfruttare i dat
 
 + Visual Studio 2012 Express per Windows Phone 8 e [Windows Phone 8 SDK] in esecuzione su Windows 8. Per creare un'app per Windows Phone 8.1 mediante questa esercitazione, è necessario usare Visual Studio 2013 Update 2 o versione successiva.
 
-+ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
 ##<a name="download-app"></a>Scaricare il progetto GetStartedWithData
 
@@ -196,4 +196,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

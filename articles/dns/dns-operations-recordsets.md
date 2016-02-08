@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmon" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Come gestire i record DNS utilizzando PowerShell
@@ -32,9 +32,9 @@ Questa guida descrive come gestire i set di record e i record per la zona DNS.
 
 I set di record vengono creati usando il cmdlet New-AzureRmDnsRecordSet. È necessario specificare il nome, la zona, il Time-to-Live (TTL) e il tipo di record del set di record.
 
->[AZURE.NOTE]Il nome del set di record deve essere un nome relativo, escluso il nome della zona. Ad esempio, il nome del set di record "www" nella zona "contoso.com" creerà un record impostato con il nome completo "www.contoso.com".
+Il nome del set di record deve essere un nome relativo, escluso il nome della zona. Ad esempio, il nome del set di record "www" nella zona "contoso.com" creerà un record impostato con il nome completo "www.contoso.com".
 
->Per un set di record all'apice della zona, usare "@" come nome del set di record, includendo le virgolette. Il nome completo del set di record è quindi uguale al nome della zona, in questo caso "contoso.com".
+Per un set di record all'apice della zona, usare "@" come nome del set di record, includendo le virgolette. Il nome completo del set di record è quindi uguale al nome della zona, in questo caso "contoso.com".
 
 DNS di Azure supporta i seguenti tipi di record: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. I set di record di tipo SOA vengono creati automaticamente con ogni zona, non possono essere creati separatamente.
 
@@ -48,15 +48,15 @@ Nell'esempio precedente la zona viene specificata usando un oggetto di zona, res
 
 New-AzureRmDnsRecordSet restituisce un oggetto locale che rappresenta il set di record creato nel DNS di Azure.
 
->[AZURE.NOTE]I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Ad esempio, è possibile creare contemporaneamente un record CNAME con il nome relativo "www" e un record A con il nome relativo '"www". Dal momento che il vertice della zona (name = ‘@’) contiene sempre i set di record NS e SOA creati quando viene creata la zona, ciò significa che non è possibile creare un set di record CNAME al vertice della zona. Questi vincoli sono causati dagli standard DNS, non sono limitazioni del servizio DNS di Azure.
+>[AZURE.IMPORTANT] I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Ad esempio, è possibile creare contemporaneamente un record CNAME con il nome relativo "www" e un record A con il nome relativo '"www". Dal momento che il vertice della zona (name = ‘@’) contiene sempre i set di record NS e SOA creati quando viene creata la zona, ciò significa che non è possibile creare un set di record CNAME al vertice della zona. Questi vincoli sono causati dagli standard DNS, non sono limitazioni del servizio DNS di Azure.
 
 ### Record con caratteri jolly
 
 DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly).
 
->[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
+Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
 
->I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
+I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
 ## Ottenere un set di record
 
@@ -169,7 +169,7 @@ Il cmdlet Set-AzureRmDnsRecordSet usa i controlli "etag" per verificare che le m
 
 ### Modificare il record SOA
 
->[AZURE.NOTE]Non è possibile aggiungere o rimuovere i record dal set di record SOA creato automaticamente set al vertice della zona (name = ‘@’), ma è possibile modificare i parametri all'interno del record SOA e la durata (TTL) del set di record.
+>[AZURE.NOTE] Non è possibile aggiungere o rimuovere i record dal set di record SOA creato automaticamente set al vertice della zona (name = ‘@’), ma è possibile modificare i parametri all'interno del record SOA e la durata (TTL) del set di record.
 
 L'esempio seguente mostra come modificare la proprietà "Email" del record SOA:
 
@@ -179,7 +179,7 @@ L'esempio seguente mostra come modificare la proprietà "Email" del record SOA:
 
 ### Modificare i record NS al vertice della zona
 
->[AZURE.NOTE]Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = ‘@’). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
+>[AZURE.NOTE] Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = ‘@’). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
 
 L'esempio seguente illustra come modificare la proprietà della durata (TTL) del set di record NS:
 
@@ -252,7 +252,7 @@ Dal momento che un set di record CNAME può contenere al massimo un record, la r
 ## Eliminare un set di record
 È possibile eliminare i set di record usando il cmdlet Remove-AzureRmDnsRecordSet.
 
->[AZURE.NOTE]Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = ‘@’) che vengono creati automaticamente quando viene creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
+>[AZURE.NOTE] Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = ‘@’) che vengono creati automaticamente quando viene creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
 
 Usare uno dei tre metodi seguenti per rimuovere un set di record:
 
@@ -287,4 +287,4 @@ L'oggetto del set di record può essere anche reindirizzato invece che passato c
 [Creare record DNS](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS utilizzando PowerShell](dns-operations-dnszones.md)<BR> [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

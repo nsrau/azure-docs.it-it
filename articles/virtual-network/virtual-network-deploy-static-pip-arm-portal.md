@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Distribuire una VM con un IP pubblico statico tramite il portale di Azure
@@ -31,7 +31,7 @@
 
 Per creare una VM con un IP pubblico statico nel portale di Azure, seguire i passaggi riportati sotto.
 
-1. Da un browser, passare al [portale di Azure](http://portal.azure.com) e, se necessario, accedere con l'account Azure.
+1. Da un browser, passare al [portale di Azure](https://portal.azure.com) e, se necessario, accedere con l'account Azure.
 2. Nell'angolo superiore sinistro del portale, fare clic su **Nuovo**>>**Calcolo**>**Windows Server 2012 R2 Datacenter**.
 3. Nell'elenco **Selezionare un modello di distribuzione**, selezionare **Gestione risorse** e fare clic su **Crea**.
 4. Nel pannello **Nozioni di base**, immettere le informazioni della VM come illustrato di seguito, quindi fare clic su **OK**.
@@ -59,4 +59,4 @@ Per creare una VM con un IP pubblico statico nel portale di Azure, seguire i pas
 
 	![Portale di Azure: Creare l'indirizzo IP pubblico](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

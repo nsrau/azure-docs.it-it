@@ -46,7 +46,7 @@ Se la versione installata non è la 0.9.11 o una versione successiva, sarà nece
 
 ### Impostare l'account e la sottoscrizione di Azure
 
-Se non è già disponibile una sottoscrizione di Azure, ma se ne ha una di Visual Studio, è possibile attivare i [Benefici della sottoscrizione di Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se non è già disponibile una sottoscrizione di Azure, ma se ne ha una di Visual Studio, è possibile attivare i [Benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Per utilizzare i modelli di gestione risorse di Azure, è necessario disporre di un account aziendale o dell'istituto di istruzione o di un'identità dell'account Microsoft. Se si dispone di uno di questi account, digitare il comando seguente.
 
@@ -59,7 +59,7 @@ L'output ottenuto sarà il seguente:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Se non è disponibile un account Azure, verrà visualizzato un messaggio di errore che indica la necessità di un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Se non è disponibile un account Azure, verrà visualizzato un messaggio di errore che indica la necessità di un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Aprire [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in un browser e immettere il codice indicato nell'output del comando.
 
@@ -136,7 +136,7 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Creare un account DocumentDB nel gruppo di risorse nuovo o esistente immettendo il comando seguente nel prompt dei comandi:
 
-> [AZURE.TIP]Se si esegue questo comando in Azure PowerShell o Windows PowerShell si riceverà un errore relativo a un token imprevisto. Eseguire invece questo comando nel prompt dei comandi di Windows.
+> [AZURE.TIP] Se si esegue questo comando in Azure PowerShell o Windows PowerShell si riceverà un errore relativo a un token imprevisto. Eseguire invece questo comando nel prompt dei comandi di Windows.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@ Dopo il completamento del comando, lo stato dell'account sarà **Creazione** per
 
 Se vengono visualizzati errori come `Deployment provisioning state was not successful` durante la creazione dell'account di database o del gruppo di risorse, sono disponibili alcune opzioni per la risoluzione dei problemi.
 
-> [AZURE.NOTE]Se si forniscono caratteri non validi nel nome dell'account di database o si specifica una località in cui non è disponibile DocumentDB, possono verificarsi errori di distribuzione. I nomi account dei database possono contenere solo lettere minuscole, numeri, il carattere '-' e devono essere compresi fra 3 e 50 caratteri. Tutte le località degli account di database valide sono disponibili nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
+> [AZURE.NOTE] Se si forniscono caratteri non validi nel nome dell'account di database o si specifica una località in cui non è disponibile DocumentDB, possono verificarsi errori di distribuzione. I nomi account dei database possono contenere solo lettere minuscole, numeri, il carattere '-' e devono essere compresi fra 3 e 50 caratteri. Tutte le località degli account di database valide sono disponibili nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 - Se l'output contiene quanto segue `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, esaminare le informazioni sull'errore nel file azure.err.
 
@@ -349,6 +349,6 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 -	[Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
 
-Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/).
+Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

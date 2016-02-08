@@ -3,7 +3,7 @@
    description="Informazioni su come usare il log di controllo nell'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,16 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Azure Privileged Identity Management: Come usare il log di controllo
 
-## Uso del log di controllo
-È possibile usare il log di controllo di Privileged Identity Management per visualizzare tutte le assegnazioni utente e le attivazioni per un periodo di tempo specificato.
+È possibile usare il log di controllo di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni per un periodo di tempo specificato.
 
 ## Accesso al log di controllo
-È possibile accedere al log di controllo facendo clic su Cronologia controlli nel dashboard di PIM.
+È possibile accedere al log di controllo facendo clic su **Cronologia dei controlli** nel dashboard di PIM.
 
 ## Grafico del log di controllo
 È possibile usare il log di controllo per visualizzare il totale delle attivazioni, il numero massimo di attivazioni per giorno e il numero medio di attivazioni per giorno in un grafico a linee. È anche possibile filtrare i dati per ruolo se sono presenti più ruoli nella cronologia di controlli.
@@ -51,10 +50,10 @@ Modificare l'intervallo di date del log di controllo scegliendo uno dei pulsanti
 
 Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruolo che si desidera includere o escludere dal log.
 
-Dopo aver impostato tutti i filtri desiderati per il log di controllo, fare clic sul pulsante di aggiornamento per filtrare i dati nel log. Se i dati non vengono visualizzati immediatamente, fare clic sul pulsante **Aggiorna**.
+Dopo aver impostato tutti i filtri desiderati per il log di controllo, fare clic sul pulsante di aggiornamento per filtrare i dati nel log. Se i dati non vengono visualizzati immediatamente, aggiornare la pagina.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

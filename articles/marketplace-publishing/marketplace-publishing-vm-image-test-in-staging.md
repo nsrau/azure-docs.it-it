@@ -28,7 +28,7 @@ Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sa
 
 2. Se il portale di pubblicazione notifica eventuali errori, correggerli.
 3.	Nella finestra di dialogo **Chi può accedere all'offerta di gestione temporanea?** immettere l'elenco delle sottoscrizioni di Azure che verrà utilizzato per l'anteprima dell’offerta nel [portale di anteprima di Azure](https://portal.azure.com).
-4. Accedere al [portale di anteprima di Azure](http://portal.azure.com) usando una delle sottoscrizioni di Azure elencate nel passaggio precedente.
+4. Accedere al [portale di anteprima di Azure](https://portal.azure.com) usando una delle sottoscrizioni di Azure elencate nel passaggio precedente.
 5. Individuare la propria offerta e convalidare i punti dell'immagine della macchina virtuale:
   1. Assicurarsi che il contenuto di marketing venga visualizzato correttamente nel Marketplace.
 
@@ -36,9 +36,9 @@ Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sa
 
   2. Distribuzione end-to-end dell'immagine della VM.
 
-> [AZURE.IMPORTANT]L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [**Pubblica** > **"Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'attivazione dell'offerta.
+> [AZURE.IMPORTANT] L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [**Pubblica** > **"Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'attivazione dell'offerta.
 
-> La replica tra i datacenter può richiedere fino a 48 ore. Una volta completata la replica, l'offerta verrà elencata in [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> La replica tra i datacenter può richiedere fino a 48 ore. Una volta completata la replica, l'offerta verrà elencata in [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Passaggi successivi
 Ora che l'offerta è in "gestione temporanea" e ne sono stati testati le funzionalità e i contenuti di marketing, è possibile procedere alla fase di pubblicazione finale, ovvero il **Passaggio 4**: [Distribuzione dell'offerta nel Marketplace](marketplace-publishing-push-to-production.md).
@@ -46,4 +46,4 @@ Ora che l'offerta è in "gestione temporanea" e ne sono stati testati le funzion
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

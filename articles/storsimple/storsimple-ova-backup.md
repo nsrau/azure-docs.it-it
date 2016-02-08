@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Eseguire il backup di StorSimple Virtual Array (anteprima)
@@ -23,7 +23,7 @@ Questa esercitazione si applica solo a Microsoft Azure StorSimple Virtual Array 
 
 StorSimple Virtual Array è un dispositivo virtuale locale di archiviazione cloud ibrido che può essere configurato come file server o server iSCSI. Può creare backup, ripristinare da backup ed eseguire failover del dispositivo nel caso in cui sia necessario il ripristino di emergenza. Quando viene configurato come file server, consente anche il ripristino a livello di elemento. Questa esercitazione illustra come usare il portale di Azure classico o l'interfaccia utente web StorSimple per creare backup pianificati e manuali di StorSimple Virtual Array.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple Virtual Array è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
 >- Se si riscontrano problemi con StorSimple Virtual Array, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -32,7 +32,7 @@ StorSimple Virtual Array è un dispositivo virtuale locale di archiviazione clou
 
 I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o di un volume sul dispositivo StorSimple in due modi: **pianificato** o **manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
 
-> [AZURE.NOTE]In questa versione, i backup pianificati vengono creati secondo un criterio predefinito che esegue il backup ogni giorno in un orario specificato di tutte le condivisioni o di tutti i volumi nel dispositivo. Al momento non è possibile creare criteri personalizzati per i backup pianificati.
+> [AZURE.NOTE] In questa versione, i backup pianificati vengono creati secondo un criterio predefinito che esegue il backup ogni giorno in un orario specificato di tutte le condivisioni o di tutti i volumi nel dispositivo. Al momento non è possibile creare criteri personalizzati per i backup pianificati.
 
 ## Modificare la pianificazione dei backup
 
@@ -98,8 +98,14 @@ Eseguire i passaggi seguenti nel portale di Azure classico per visualizzare i ba
 
     I backup associati alla condivisione o al volume selezionati devono essere visualizzati nell'elenco dei set di backup.
 
+![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Video disponibile**
+
+Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
+
 ## Passaggi successivi
 
-Scoprire come [amministrare lo StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Altre informazioni sulla [gestione di StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

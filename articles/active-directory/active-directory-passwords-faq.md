@@ -37,9 +37,9 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
  
  > **R:** è possibile usando DirSync o PowerShell oppure tramite il [portale di gestione di Azure](https://manage.windowsazure.com) o il portale di amministrazione di Office. Per altre informazioni su questa funzionalità vedere il post di blog relativo al miglioramento della privacy per Azure AD MFA e i numeri di telefono per la reimpostazione della password e leggere l'argomento relativo alle informazioni sul modo in cui i dati vengono usati per la reimpostazione della password.
  
- - **D: è possibile sincronizzare i dati per le domande di sicurezza dall'ambiente locale??**
+ - **D: È possibile sincronizzare i dati per le domande di sicurezza dall'ambiente locale?**
  
- > **R:** no, attualmente non è possibile, ma è un aspetto in fase di valutazione.
+ > **R:** No, attualmente non è possibile, ma è un aspetto in fase di valutazione.
  
  - **D: gli utenti possono registrare i dati in modo che non siano visibili ad altri utenti?**
  
@@ -159,14 +159,14 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
  
  > **R:** sì, è possibile visualizzare un massimo di 1.000 righe nei report di gestione delle password, sia quando vengono riprodotti nell'interfaccia utente sia quando vengono scaricati. Attualmente si sta esaminando come aumentare questo limite.
 
- - **D: esiste un'API per accedere alla reimpostazione della password o alla raccolta dei dati di registrazione?**
+ - **D: Esiste un'API per accedere alla reimpostazione della password o alla raccolta dei dati di registrazione?**
 
- > **R** sì, vedere la documentazione seguente per informazioni su come accedere al flusso dei dati del report sulla reimpostazione della password. [Informazioni su come accedere agli eventi di report della reimpostazione della password a livello di programmazione](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+ > **R:** Sì, vedere la documentazione seguente per informazioni su come accedere al flusso dei dati del report sulla reimpostazione della password. [Informazioni su come accedere agli eventi di report della reimpostazione della password a livello di programmazione](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
 ## Writeback password
  - **D: Come funziona il writeback della password in background?**
  
- > **R:** per una spiegazione dettagliata delle operazioni eseguite quando si abilita il writeback delle password, nonché del modo in cui i dati transitano dal sistema all'ambiente locale, vedere l'articolo relativo al funzionamento del writeback delle password. Per informazioni su come viene garantita l'elevata sicurezza del servizio di writeback della password, vedere la sezione in cui viene descritto il "modello di sicurezza per il writeback della password" nell'articolo relativo al funzionamento del writeback delle password.
+ > **R:** Per una spiegazione dettagliata delle operazioni eseguite quando si abilita il writeback delle password, nonché del modo in cui i dati transitano dal sistema all'ambiente locale, vedere [Funzionamento del writeback delle password](active-directory-passwords-learn-more.md#how-password-writeback-works). Per informazioni su come viene garantita l'elevata sicurezza del servizio di writeback della password, vedere la sezione [Modello di sicurezza del writeback della password](active-directory-passwords-learn-more.md#password-writeback-security-model) in Panoramica del writeback delle password.
 
  - **D: entro quanto tempo si attiva il funzionamento del writeback della password? Esiste un ritardo di sincronizzazione come per la sincronizzazione di hash della password?**
  
@@ -182,7 +182,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
  - **D: il writeback della password è sicuro? Come si può essere certi di non essere oggetto di un attacco?**
  
- > **R:** sì, il writeback della password è estremamente sicuro. Per altre informazioni sui 4 livelli di sicurezza implementati dal servizio di writeback della password, vedere la sezione in cui viene descritto il "modello di sicurezza per il writeback della password" nell'articolo relativo al relativo al funzionamento del writeback delle password.
+ > **R:** sì, il writeback della password è estremamente sicuro. Per altre informazioni sui 4 livelli di sicurezza implementati dal servizio di writeback della password, vedere la sezione [Modello di sicurezza del writeback della password](active-directory-passwords-learn-more.md#password-writeback-security-model) in Panoramica del writeback delle password.
 
 
 <br/> <br/> <br/>
@@ -203,4 +203,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

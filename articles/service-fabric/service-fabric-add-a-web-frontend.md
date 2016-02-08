@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="01/19/2016"
    ms.author="seanmck"/>
 
 
@@ -42,7 +42,7 @@ ASP.NET 5 è un framework di sviluppo Web multipiattaforma leggero, che consente
 
     Una volta creato il progetto API Web, l'applicazione includerà due servizi. Man mano che si compila l'applicazione, si aggiungeranno altri servizi seguendo esattamente la stessa procedura e, per ogni servizio, sarà possibile eseguire in modo indipendente il controllo della versione e l'aggiornamento.
 
->[AZURE.NOTE]A partire dalla versione di anteprima pubblica di novembre di Service Fabric, sono stati rilevati problemi noti con percorsi lunghi durante la gestione di progetti ASP.NET. Quando si creano questi tipi di progetti, quindi, per evitare qualsiasi problema è consigliabile scegliere nomi brevi per le applicazioni e i tipi di servizio, nonché per i nomi dei pacchetti di codice e di configurazione.
+>[AZURE.NOTE] A partire dalla versione di anteprima pubblica di novembre di Service Fabric, sono stati rilevati problemi noti con percorsi lunghi durante la gestione di progetti ASP.NET. Quando si creano questi tipi di progetti, quindi, per evitare qualsiasi problema è consigliabile scegliere nomi brevi per le applicazioni e i tipi di servizio, nonché per i nomi dei pacchetti di codice e di configurazione.
 
 ## Eseguire l'applicazione
 
@@ -139,7 +139,7 @@ Dopo aver definito l'interfaccia, è ora necessario implementarla nel servizio c
 
 Con l'interfaccia `ICounter` implementata, il passaggio finale per consentire al servizio con stato di essere chiamato da altri servizi è l'apertura di un canale di comunicazione. Per i servizi con stato, Service Fabric fornisce un metodo sostituibile denominato `CreateServiceReplicaListeners`, in cui è possibile specificare uno o più listener di comunicazione in base al tipo di comunicazione che si vuole abilitare per il servizio.
 
->[AZURE.NOTE]Il metodo equivalente per aprire un canale di comunicazione con i servizi senza stato è denominato `CreateServiceInstanceListeners`.
+>[AZURE.NOTE] Il metodo equivalente per aprire un canale di comunicazione con i servizi senza stato è denominato `CreateServiceInstanceListeners`.
 
 In questo caso, si sostituirà il metodo `CreateServiceReplicaListeners` esistente e si specificherà un'istanza dell'oggetto `ServiceRemotingListener`, che crea un endpoint RPC chiamabile dai client tramite `ServiceProxy`.
 
@@ -189,7 +189,7 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
     La prima riga del codice è quella più importante. Per creare il proxy ICounter per il servizio con stato, è necessario fornire due informazioni: un ID partizione e il nome del servizio.
 
-    Il partizionamento consente di ridimensionare i servizi con stato suddividendone lo stato in diversi bucket in base a una chiave definita, ad esempio l'ID cliente o il CAP. In questa semplice applicazione la chiave non è importante, perché il servizio con stato ha una sola partizione e qualsiasi chiave specificata restituirà la stessa partizione. Per altre informazioni sul partizionamento dei servizi, consultare l'articolo relativo al [partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning).
+    Il partizionamento consente di ridimensionare i servizi con stato suddividendone lo stato in diversi bucket in base a una chiave definita, ad esempio l'ID cliente o il CAP. In questa semplice applicazione la chiave non è importante, perché il servizio con stato ha una sola partizione e qualsiasi chiave specificata restituirà la stessa partizione. Per altre informazioni sul partizionamento dei servizi, consultare l'articolo relativo al [partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md).
 
     Il nome del servizio è un URI in formato fabric:/&lt;application\_name&gt;/&lt;service\_name&gt;.
 
@@ -237,4 +237,4 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -57,7 +57,7 @@ Sebbene in questo modo venga abilitata la connettività per i client tramite Int
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE]È importante tenere presente che quando si usa questa tecnica per comunicare con SQL Server, tutti i dati restituiti vengono considerati come traffico in uscita dal data center. Questa tecnica è soggetta ai normali [prezzi dei trasferimenti di dati in uscita](http://azure.microsoft.com/pricing/details/data-transfers). Ciò vale anche se si usa questa tecnica da un altro computer o da un servizio cloud nello stesso data center di Azure, poiché il traffico passa comunque attraverso il servizio pubblico di bilanciamento del carico di Azure.
+>[AZURE.NOTE] È importante tenere presente che quando si usa questa tecnica per comunicare con SQL Server, tutti i dati restituiti vengono considerati come traffico in uscita dal data center. Questa tecnica è soggetta ai normali [prezzi dei trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/). Ciò vale anche se si usa questa tecnica da un altro computer o da un servizio cloud nello stesso data center di Azure, poiché il traffico passa comunque attraverso il servizio pubblico di bilanciamento del carico di Azure.
 
 ### Connettersi a SQL Server nella stessa rete virtuale
 
@@ -100,4 +100,4 @@ Per la procedura di configurazione della connettività e del provisioning, veder
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

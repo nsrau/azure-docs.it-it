@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Funzionalità del sistema operativo in Servizio app di Azure #
@@ -105,10 +105,10 @@ Le app hanno accesso in sola lettura alla maggior parte del Registro di sistema 
 
 L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista dell'app, l'accesso in scrittura al Registro di sistema nell'ambiente Azure non deve mai essere considerato affidabile poiché le app sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'app è la struttura della directory dei contenuti per app archiviata nelle condivisioni UNC del servizio app.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

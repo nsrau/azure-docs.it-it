@@ -28,7 +28,7 @@ I BLOB di archiviazione si trovano nei contenitori esattamente come i file si tr
 
 - Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md).
 - Per informazioni generali su Archiviazione di Azure, vedere [la documentazione relativa all'archiviazione](https://azure.microsoft.com/documentation/services/storage/).
-- Per informazioni generali sui servizi cloud di Azure, vedere [la documentazione sui servizi cloud](http://azure.microsoft.com/documentation/services/cloud-services/).
+- Per informazioni generali sui servizi cloud di Azure, vedere [la documentazione sui servizi cloud](https://azure.microsoft.com/documentation/services/cloud-services/).
 - Per altre informazioni sulla programmazione delle applicazioni ASP.NET, vedere [ASP.NET](http://www.asp.net).
 
 ## Accesso ai contenitori BLOB nel codice
@@ -58,11 +58,11 @@ Per accedere ai BLOB a livello di codice nei progetti di servizio cloud, è nece
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Usare tutto il codice illustrato nella procedura precedente prima del codice illustrato nelle sezioni seguenti.
+> [AZURE.NOTE] Usare tutto il codice illustrato nella procedura precedente prima del codice illustrato nelle sezioni seguenti.
 
 ## Creazione di un contenitore nel codice
 
-> [AZURE.NOTE]Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Il codice nell'esempio seguente presuppone che si stiano usando metodi di programmazione asincroni.
+> [AZURE.NOTE] Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET sono asincrone. Per altre informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Il codice nell'esempio seguente presuppone che si stiano usando metodi di programmazione asincroni.
 
 Per creare un contenitore nell'account di archiviazione, è sufficiente eseguire una chiamata a **CreateIfNotExistsAsync** come nel codice seguente:
 
@@ -257,4 +257,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

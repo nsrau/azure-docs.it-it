@@ -34,7 +34,7 @@ Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso 
 
 #### Per connettersi al servizio
 
-1. Accedere a [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Accedere a [http://azure.microsoft.com/](https://azure.microsoft.com/)
 
 1. Utilizzando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure classico (in alto a destra del riquadro).
 
@@ -57,15 +57,15 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|Pagine a livello di dispositivo|
 |---|---|---|---|
 |Servizio StorSimple Manager|Dashboard del servizio|Pagina dashboard||
-||Dispositivi →|Monitoraggio|
-||Catalogo di backup|Contenitori di volume →|Volumi|
-||Configura (servizio)|Criteri di backup||
-||Processi|Configura (dispositivo)|
-||Avvisi|Manutenzione|
+|Dispositivi →|Monitoraggio|
+|Catalogo di backup|Contenitori di volume →|Volumi|
+|Configura (servizio)|Criteri di backup||
+|Processi|Configura (dispositivo)|
+|Avvisi|Manutenzione|
 
 ![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
+Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestire il dispositivo StorSimple tramite il servizio StorSimple Manager
 
@@ -114,4 +114,4 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

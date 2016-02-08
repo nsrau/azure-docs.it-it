@@ -11,9 +11,9 @@
 
 ## Utilizzare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure
 
-Prima di utilizzare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Gestione risorse al fine di distribuire i carichi di lavoro e le risorse di Azure tramite gruppi di risorse, è necessario disporre di un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Prima di utilizzare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Gestione risorse al fine di distribuire i carichi di lavoro e le risorse di Azure tramite gruppi di risorse, è necessario disporre di un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE]Se non è già un account Azure, ma è una sottoscrizione di abbonamento MSDN, è possibile ottenere i crediti di Azure attivando il [abbonati MSDN dei vantaggi qui](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure è possibile utilizzare l'account gratuito. Uno funzionerà per l'accesso ad Azure.
+> [AZURE.NOTE] Se non è già un account Azure, ma è una sottoscrizione di abbonamento MSDN, è possibile ottenere i crediti di Azure attivando il [abbonati MSDN dei vantaggi qui](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure è possibile utilizzare l'account gratuito. Uno funzionerà per l'accesso ad Azure.
 
 ### Passaggio 1: verificare la versione dell'interfaccia della riga di comando di Azure
 
@@ -62,6 +62,6 @@ Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della ri
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]È possibile passare nuovamente per l'utilizzo di comandi di gestione del servizio di Azure digitando `azure config mode asm`.
+> [AZURE.NOTE] È possibile passare nuovamente per l'utilizzo di comandi di gestione del servizio di Azure digitando `azure config mode asm`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

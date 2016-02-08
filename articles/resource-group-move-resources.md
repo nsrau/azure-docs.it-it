@@ -65,6 +65,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 - Macchine virtuali
 - Archiviazione
+- Express Route
 
 Quando si usano le app Web non è possibile spostare solo un piano di servizio app. Per spostare le app Web, le opzioni disponibili sono:
 
@@ -116,4 +117,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

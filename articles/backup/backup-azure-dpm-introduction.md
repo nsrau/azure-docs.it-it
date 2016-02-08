@@ -46,7 +46,7 @@ Per eseguire il backup di una macchina virtuale è prima necessario acquisire un
 
 Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i dati all'insieme di credenziali per il backup. Il servizio provvede a identificare e trasferire soltanto i blocchi che sono stati modificati dopo l'ultimo backup, rendendo in questo modo efficienti l'archiviazione dei backup e la rete. Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino. È possibile visualizzare tale punto di ripristino nel portale di gestione di Azure.
 
->[AZURE.NOTE]Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
+>[AZURE.NOTE] Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
 
 ## Prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
@@ -90,6 +90,6 @@ Questi tipi di file non sono supportati:
 - Flusso compresso
 - Flusso di tipo sparse
 
->[AZURE.NOTE]A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
+>[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

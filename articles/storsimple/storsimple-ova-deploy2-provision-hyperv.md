@@ -274,4 +274,4 @@ Guardare il video per vedere come è possibile eseguire il provisioning di StorS
 
 -   [Configurare StorSimple Virtual Array come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

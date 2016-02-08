@@ -29,7 +29,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 ## Prerequisiti di configurazione
 
-- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](http://azure.microsoft.com/downloads). Per istruzioni dettagliate su come configurare il computer per l'uso dei moduli Azure PowerShell, seguire le istruzioni contenute nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
+- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate su come configurare il computer per l'uso dei moduli Azure PowerShell, seguire le istruzioni contenute nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
 - Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md) e ai [flussi di lavoro](expressroute-workflows.md).
 
 ## Per creare un circuito ExpressRoute ed eseguirne il provisioning
@@ -286,7 +286,7 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 
 Il componente aggiuntivo Premium è ora disabilitato per il circuito.
 
->[AZURE.IMPORTANT]Questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
+>[AZURE.IMPORTANT] Questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
 >
 >- È necessario assicurarsi che il numero di reti virtuali collegate al circuito sia minore di 10 prima di eseguire il downgrade da premium a standard. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe premium.
 - È necessario scollegare tutte le reti virtuali in altre aree geopolitiche. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe premium.
@@ -310,7 +310,7 @@ Consultare la pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs
 
 Il circuito verrà ridimensionato sul lato di Microsoft. È necessario contattare il provider di connettività per aggiornare le configurazioni corrispondenti in base a questa modifica. Si noti che inizierà la fatturazione per la larghezza di banda aggiornata da questo punto in poi.
 
->[AZURE.IMPORTANT]Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
+>[AZURE.IMPORTANT] Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
 
 ##  Eliminare un circuito ExpressRoute ed eseguire il deprovisioning
 
@@ -328,4 +328,4 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 
 - [Configurare il routing](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

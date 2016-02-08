@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
@@ -34,7 +34,7 @@ La sincronizzazione offline ha diversi usi potenziali:
 * Permettere agli utenti finali di creare e modificare i dati anche in mancanza di accesso di rete, supportando scenari con connettività scarsa o assente
 * Sincronizzare i dati tra più dispositivi e rilevare i conflitti quando lo stesso record viene modificato da due dispositivi
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
 >
 > Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
@@ -99,7 +99,7 @@ La sincronizzazione offline di Servizi mobili di Azure consente agli utenti fina
 
     In questo esempio vengono recuperati tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando una query. Il primo parametro di `PullAsync()` è un ID di query usato per la sincronizzazione incrementale, che usa il timestamp `UpdatedAt` per ottenere i soli record modificati dopo l'ultima sincronizzazione. L'ID di query deve essere una stringa descrittiva univoca per ogni query logica presente nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `null` come ID di query. In ogni operazione pull verranno recuperati tutti i record e questo potrebbe creare inefficienze.
 
-    >[AZURE.NOTE]Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
+    >[AZURE.NOTE] Per rimuovere i record dall'archivio locale del dispositivo quando sono stati eliminati dal database del servizio mobile, è necessario abilitare l'[eliminazione temporanea]. In alternativa, l'app deve periodicamente chiamare `IMobileServiceSyncTable.PurgeAsync()` per ripulire l'archivio locale.
 
     Si noti che può verificarsi `MobileServicePushFailedException` per un'operazione sia push che pull. L'esercitazione successiva, [Gestione dei conflitti con il supporto offline per Servizi mobili], mostra come gestire queste eccezioni relative alla sincronizzazione.
 
@@ -115,7 +115,7 @@ In questa sezione si procederà alla modifica dell'app in modo che non effettui 
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     Ora, `RefreshAsync()` caricherà i dati solo dall'archivio locale, ma non effettuerà alcuna connessione al back-end dell'app.
 
@@ -166,8 +166,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 ## Passaggi successivi
 
-* [Gestione dei conflitti con il supporto offline per Servizi mobili]
-
 * [Come usare il componente client Xamarin per Servizi mobili di Azure]
 
 <!-- Anchors. -->
@@ -178,7 +176,7 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 <!-- Images -->
 
 <!-- URLs. -->
-[Gestione dei conflitti con il supporto offline per Servizi mobili]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Gestione dei conflitti con il supporto offline per Servizi mobili]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
 [Come usare il componente client Xamarin per Servizi mobili di Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminazione temporanea]: mobile-services-using-soft-delete.md
@@ -187,4 +185,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [estensione Xamarin]: http://xamarin.com/visual-studio
 [portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

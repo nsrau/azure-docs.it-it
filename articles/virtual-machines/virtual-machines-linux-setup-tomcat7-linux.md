@@ -32,7 +32,7 @@ Si acquisiranno le nozioni seguenti:
 -	Come preparare la macchina virtuale per tomcat7.
 -	Come installare tomcat7.
 
-Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/overview/what-is-azure/).
+Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](https://azure.microsoft.com/). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 In questo argomento si presuppone che l'utente abbia una conoscenza pratica di base di tomcat e Linux.
 
@@ -306,4 +306,4 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

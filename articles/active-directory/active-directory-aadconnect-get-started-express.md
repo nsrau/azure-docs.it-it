@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath;andkjell"/>
 
 # Introduzione alle impostazioni rapide per Azure AD Connect
@@ -63,4 +63,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

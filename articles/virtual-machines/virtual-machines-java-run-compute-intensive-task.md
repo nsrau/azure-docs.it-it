@@ -105,7 +105,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
-1. Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](http://azure.microsoft.com/develop/java/).
+1. Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](https://azure.microsoft.com/develop/java/).
 2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. In questa esercitazione verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. In questa esercitazione verrà usato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
@@ -484,7 +484,8 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 
  Se non si specifica un numero, il risolutore verrà eseguito per 10 città. Mano a mano che rileva le route attualmente più brevi, il risolutore le aggiunge alla coda.
 
-> [AZURE.NOTE]Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
+> [AZURE.NOTE]
+Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
 
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
@@ -520,4 +521,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

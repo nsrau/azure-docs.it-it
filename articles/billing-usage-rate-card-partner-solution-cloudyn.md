@@ -31,7 +31,7 @@ L’utilizzo di queste API fornisce informazioni chiave sull'utilizzo e sui cost
 ## Integrazione di Cloudyn con API RateCard e API di utilizzo
 L'API RateCard richiede diversi parametri di input, come informazioni relative all’area, alla valuta e alle impostazioni locali, ma il più importante è OfferDurableID, che consente di specificare il tipo di offerta Azure utilizzato dal cliente (pagamento in base al consumo, piani di impegno legacy di 6 e 12 mesi, offerte MSDN, offerte MPN, offerte promozionali e altre). Il parametro OfferDurableID è disponibile nel [portale di utilizzo e di fatturazione di Azure](https://account.windowsazure.com/Subscriptions), in "ID offerta" per una determinata sottoscrizione.
 
-Al momento della registrazione ai servizi [Cloudyn per Azure](https://www.cloudyn.com/microsoft-azure/), è possibile aggiungere il codice OfferDurableID, che consente a Cloudyn di estrarre le informazioni rilevanti sui prezzi tramite l'API RateCard. Informazioni sui diversi tipi di offerte sono disponibili nella pagina [Dettagli delle offerte per Microsoft Azure](http://azure.microsoft.com/en-gb/support/legal/offer-details/).
+Al momento della registrazione ai servizi [Cloudyn per Azure](https://www.cloudyn.com/microsoft-azure/), è possibile aggiungere il codice OfferDurableID, che consente a Cloudyn di estrarre le informazioni rilevanti sui prezzi tramite l'API RateCard. Informazioni sui diversi tipi di offerte sono disponibili nella pagina [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ![Panoramica sul motore ITFM di Cloudyn][2]
 
@@ -77,7 +77,7 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 + Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Altre informazioni
-+ Per ulteriori informazioni sulle offerte relative al contratto di Microsoft Azure Enterprise, visitare [Licenze di Azure per l’azienda](http://azure.microsoft.com/pricing/enterprise-agreement/)
++ Per ulteriori informazioni sulle offerte relative al contratto di Microsoft Azure Enterprise, visitare [Licenze di Azure per l’azienda](https://azure.microsoft.com/pricing/enterprise-agreement/)
 + Per ulteriori informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 + Per ulteriori informazioni sulla suite di strumenti necessari per conoscere la spesa relativa al cloud, fare riferimento all’articolo di Gartner sulla [Guida di mercato agli strumenti ITFM](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
@@ -90,4 +90,4 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

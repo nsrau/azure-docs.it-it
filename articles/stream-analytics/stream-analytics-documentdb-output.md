@@ -19,7 +19,7 @@
 
 # Usare Azure DocumentDB per l'output JSON di Analisi di flusso
 
-Analisi di flusso può usare [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Informazioni su come implementare al meglio questa integrazione.
+Analisi di flusso può usare [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Informazioni su come implementare al meglio questa integrazione.
 
 Per chi non ha familiarità con DocumentDB, vedere l'articolo che descrive il [percorso di apprendimento di DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per un’introduzione.
 
@@ -62,4 +62,4 @@ La creazione di DocumentDB come output in Analisi di flusso genera una richiesta
 -   **Chiave di partizione **: nome del campo negli eventi di output usato per specificare la chiave per il partizionamento dell'output tra le raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
 -   **ID documento**: valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

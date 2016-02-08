@@ -29,7 +29,7 @@ Il modo più rapido per iniziare a utilizzare [Docker] consiste nell’andare in
 
 ## Accedere al portale
 
-Questa è la parte più facile, a meno che non si sia ancora privi di un account Azure. [È altrettanto facile ottenerne uno gratuitamente](http://azure.microsoft.com/pricing/free-trial/).
+Questa è la parte più facile, a meno che non si sia ancora privi di un account Azure. [È altrettanto facile ottenerne uno gratuitamente](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Creare una VM con l'immagine Docker di Canonical e MSOpenTech
 
@@ -78,4 +78,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

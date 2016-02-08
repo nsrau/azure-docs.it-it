@@ -26,7 +26,7 @@
  
 Tutti i controller del progetto sono dotati dell'attributo **Authorize**. Questo attributo richiede l'autenticazione dell'utente prima dell'accesso alle API definite dai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

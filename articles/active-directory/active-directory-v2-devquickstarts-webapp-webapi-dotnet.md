@@ -50,7 +50,7 @@ In alternativa, è possibile [scaricare l'app completata come file con estension
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
-- Creare una **chiave privata app** di tipo **Password** e copiare il relativo valore per usarlo in seguito.
+- Creare una **Chiave privata app** di tipo **Password** e copiare il relativo valore per usarlo in seguito.
 - Aggiungere la piattaforma **Web** per l'app.
 - Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `https://localhost:44326/`.
 
@@ -73,7 +73,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
--	Aprire il file `App_Start\Startup.Auth.cs` e aggiungere istruzioni `using` per le librerie di cui sopra.
+-	Aprire il file `App_Start\Startup.Auth.cs` e aggiungere istruzioni `using` per le librerie sopra indicate.
 - Nello stesso file, implementare il metodo `ConfigureAuth(...)`. I parametri forniti in `OpenIDConnectAuthenticationOptions` fungeranno da coordinate per consentire all'app di comunicare con Azure AD.
 
 ```C#
@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 					ClientId = clientId,
 					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-					Scope = "openid offline_access",
+					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
 					TokenValidationParameters = new TokenValidationParameters
@@ -114,12 +114,12 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
+## 3\. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
 Nella notifica `AuthorizationCodeReceived` si desidera usare [OAuth 2.0 in parallelo con OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) per riscattare l'authorization\_code per un token di accesso al servizio To Do List. ADAL può semplificare il processo:
 
 - Per prima cosa installare la versione di anteprima di ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
 - Aggiungere quindi un'altra istruzione `using` al file `App_Start\Startup.Auth.cs` per ADAL. 
 - Aggiungere ora un nuovo metodo, il gestore dell'evento `OnAuthorizationCodeReceived`. Questo gestore userà ADAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di ADAL per usi successivi:
 
@@ -203,8 +203,8 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 ## Passaggi successivi
 
-Per altre risorse consultare:
-- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
+Per altre risorse consultare: 
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

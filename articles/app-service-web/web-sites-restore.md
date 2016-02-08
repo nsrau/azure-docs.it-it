@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Ripristinare un'app nel Servizio app di Azure
@@ -22,7 +22,7 @@ In questo articolo viene illustrato come ripristinare un'app del servizio app in
 
 La funzionalità di ripristino del servizio app consente di ripristinare su richiesta uno stato precedente dell'app con i relativi database collegati (Database SQL o MySQL) oppure di creare una nuova app basata su uno dei backup dell'applicazione originale. Creare una nuova app eseguita in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
-La funzionalità di ripristino del servizio app, disponibile nel pannello **Backup** del [portale di Azure](http://portal.azure.com), è disponibile solo nei piani tariffari Standard e Premium. Per informazioni su come ridimensionare l'app utilizzando i piani Standard o Premium, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md). Si noti che il piano Premium consente di eseguire un maggior numero di backup giornalieri rispetto al piano Standard.
+La funzionalità di ripristino del servizio app, disponibile nel pannello **Backup** del [portale di Azure](https://portal.azure.com), è disponibile solo nei piani tariffari Standard e Premium. Per informazioni su come ridimensionare l'app utilizzando i piani Standard o Premium, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md). Si noti che il piano Premium consente di eseguire un maggior numero di backup giornalieri rispetto al piano Standard.
 
 <a name="PreviousBackup"></a>
 ## Per ripristinare un'app da un backup eseguito in precedenza
@@ -41,7 +41,7 @@ La funzionalità di ripristino del servizio app, disponibile nel pannello **Back
 
 	![](./media/web-sites-restore/022ChooseDestination.png)
 	
-	>[AZURE.WARNING]Se si sceglie **Sovrascrivi**, tutti i dati relativi all'app esistente verranno cancellati. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
+	>[AZURE.WARNING] Se si sceglie **Sovrascrivi**, tutti i dati relativi all'app esistente verranno cancellati. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
 	
 	È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di utilizzare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione del database in quello definito nel backup dell’app.
 	
@@ -73,14 +73,14 @@ La funzionalità di ripristino del servizio app, disponibile nel pannello **Back
 	
 1. Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app, selezionare **Log di controllo** nel pannello **Sfoglia** principale. 
 	
-	Nel pannello **Log audio** vengono visualizzate tutte le operazioni, insieme ai dettagli relativi a livello, stato, risorsa e tempo.
+	Nel pannello **Log di controllo** vengono visualizzate tutte le operazioni, insieme ai dettagli relativi a livello, stato, risorsa e tempo.
 	
 2. Scorrere il pannello per individuare le operazioni correlate all'app.
 3. Per visualizzare altri dettagli su un'operazione, selezionare tale operazione nell'elenco.
 	
 Nel pannello dei dettagli verranno visualizzate le informazioni disponibli correlate all'operazione.
 	
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
@@ -106,4 +106,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

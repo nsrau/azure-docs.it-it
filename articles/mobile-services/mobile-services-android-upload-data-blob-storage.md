@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # Caricare immagini nell'archiviazione di Azure da un dispositivo Android
@@ -35,7 +35,7 @@ Prima di iniziare questa esercitazione, è necessario completare la procedura in
 
 Per completare questa esercitazione, è necessario disporre anche di:
 
-+ Un [account di archiviazione Azure](../storage-create-storage-account.md)
++ Un [account di archiviazione Azure](../storage/storage-create-storage-account.md)
 + Un dispositivo Android con fotocamera
 
 ## Funzionamento dell'app
@@ -49,7 +49,7 @@ Il caricamento dell'immagine fotografica è un processo a più fasi:
 
 Informazioni sulla firma di accesso condiviso
 
-L'archiviazione delle credenziali necessarie per caricare i dati nel servizio Archiviazione di Azure all'interno dell'app client non è sicura. Queste credenziali devono essere invece archiviate nel servizio mobile e devono essere usate per generare la firma di accesso condiviso che concede le autorizzazioni per il caricamento di una nuova immagine. La firma di accesso condiviso, una credenziale con scadenza dopo 5 minuti, viene restituita in modo sicuro da Servizi mobili all'app client. L'app usa quindi questa credenziale temporanea per caricare l'immagine. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+L'archiviazione delle credenziali necessarie per caricare i dati nel servizio Archiviazione di Azure all'interno dell'app client non è sicura. Queste credenziali devono essere invece archiviate nel servizio mobile e devono essere usate per generare la firma di accesso condiviso che concede le autorizzazioni per il caricamento di una nuova immagine. La firma di accesso condiviso, una credenziale con scadenza dopo 5 minuti, viene restituita in modo sicuro da Servizi mobili all'app client. L'app usa quindi questa credenziale temporanea per caricare l'immagine. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 ## Esempio di codice
 [Qui](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)è disponibile la parte di codice sorgente client completo di questa app. Per eseguirlo è necessario completare le parti di back-end di servizi mobili di questa esercitazione.
@@ -426,4 +426,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Riferimento per i concetti e le procedure di .NET per Servizi mobili]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

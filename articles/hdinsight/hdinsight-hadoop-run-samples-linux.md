@@ -28,7 +28,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 ##Prerequisiti
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Un cluster HDInsight basato su Linux**: vedere [ Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -69,7 +69,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 **Codice sorgente**: il codice sorgente per questi esempi è incluso nel cluster HDInsight in **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
-> [AZURE.NOTE]Nel percorso, `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
+> [AZURE.NOTE] Nel percorso, `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
 
 ## Come eseguire gli esempi ##
 
@@ -103,7 +103,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     L'output per questo esempio verrà archiviato in ****wasb:///example/data/davinciwordcount**.
 
-    > [AZURE.NOTE]Come indicato nelle informazioni della guida per l'esempio wordcount, è anche possibile specificare più file di input. Ad esempio, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` eseguirebbe il conteggio delle parole in davinci.txt e in ulysses.txt.
+    > [AZURE.NOTE] Come indicato nelle informazioni della guida per l'esempio wordcount, è anche possibile specificare più file di input. Ad esempio, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` eseguirebbe il conteggio delle parole in davinci.txt e in ulysses.txt.
 
 5. Dopo il completamento del processo, usare il comando seguente per visualizzare l'output:
 
@@ -144,7 +144,7 @@ Esiste un modo certo per costruire un puzzle Sudoku: non è possibile ripetere u
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE]La parte `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
+> [AZURE.NOTE] La parte `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
 
 Per eseguire questo esempio di Sudoku, usare il comando seguente:
 
@@ -186,7 +186,7 @@ In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 - **TeraGen**: programma MapReduce che genera righe di dati da ordinare.
 
-- **TeraSort**: esegue il campionamento dei dati di input e utilizza MapReduce per ordinare i dati in un ordine totale
+- **TeraSort** esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
 
     TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che usa un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Ciò garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 
@@ -236,4 +236,4 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

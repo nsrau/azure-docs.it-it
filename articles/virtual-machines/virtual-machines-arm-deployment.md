@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET
@@ -28,7 +28,7 @@ Questa esercitazione illustra come usare le librerie di calcolo, archiviazione e
 Per completare questa esercitazione sono inoltre necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Account di archiviazione di Azure](../storage-create-storage-account.md)
+- [Account di archiviazione di Azure](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -73,7 +73,7 @@ I pacchetti NuGet sono il modo più semplice per installare le librerie necessar
 
 6. Digitare *Microsoft.Azure.Management.Network* nella casella di ricerca, fare clic su **Installa** per le librerie di rete .NET e quindi seguire le istruzioni per l'installazione del pacchetto.
 
-7. Digitare *Microsoft.Azure.Management.Storage* nella casella di ricerca, fare clic su **Installa** per le librerie di rete .NET e quindi seguire le istruzioni per l'installazione del pacchetto.
+7. Digitare *Microsoft.Azure.Management.Storage* nella casella di ricerca, fare clic su **Installa** per le librerie .NET di archiviazione, quindi seguire le istruzioni per l'installazione del pacchetto.
 
 8. Digitare *Microsoft.Azure.Management.Resources* nella casella di ricerca e quindi fare clic su **Installa** per le librerie di gestione delle risorse.
 
@@ -489,7 +489,7 @@ Ora che sono state create tutte le risorse di supporto, è possibile creare una 
 	}
 	```
 
-	>[AZURE.NOTE]Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md).
+	>[AZURE.NOTE] Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md).
 
 2. Aggiungere il codice seguente al metodo Main per chiamare il metodo appena aggiunto:
 
@@ -548,4 +548,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

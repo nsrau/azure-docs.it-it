@@ -67,7 +67,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 È possibile usare la pagina **Catalogo di backup** per ripristinare il volume StorSimple da un backup specifico. Tenere presente che, effettuando il ripristino, lo stato di un volume torna a quello in cui si trovava al momento dell'esecuzione del backup. Tutti i dati aggiunti dopo l'operazione di backup andranno persi.
 
-> [AZURE.WARNING]Il ripristino da un backup sostituisce i volumi esistenti dal backup. Ciò può comportare la perdita dei dati scritti dopo l'esecuzione del backup.
+> [AZURE.WARNING] Il ripristino da un backup sostituisce i volumi esistenti dal backup. Ciò può comportare la perdita dei dati scritti dopo l'esecuzione del backup.
 
 ### Per ripristinare il volume
 
@@ -85,7 +85,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Accedere ai volumi sulla pagina **Contenitori di volumi**, quindi attenersi alla procedura descritta in [Disattivare un volume](storsimple-manage-volumes-u2.md#take-a-volume-offline) per disattivarli.
 
-    > [AZURE.IMPORTANT]Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se non si eseguono i volumi offline nell'host, si potrebbe verificare un danneggiamento dei dati.
+    > [AZURE.IMPORTANT] Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se non si eseguono i volumi offline nell'host, si potrebbe verificare un danneggiamento dei dati.
 
 4. Tornare alla scheda **Catalogo di backup** e selezionare un set di backup.
 
@@ -101,7 +101,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 ![Video disponibile](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile usare le funzionalità di clonazione e ripristino in StorSimple per ripristinare file eliminati, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Per guardare un video che illustra come è possibile usare le funzionalità di clonazione e ripristino in StorSimple per ripristinare file eliminati, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## Se il ripristino ha esito negativo
 
@@ -115,4 +115,4 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 
 - Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

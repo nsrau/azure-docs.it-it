@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="10/15/2015"
+   ms.date="01/25/2016"
    ms.author="coreyp"/>
    
 #Compilazione di configurazioni in Azure Automation DSC#
@@ -56,9 +56,9 @@ Una volta scelto il metodo di compilazione, è possibile seguire le rispettive p
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
     while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
-    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    {
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
-    
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
@@ -70,33 +70,34 @@ La dichiarazione dei parametri nelle configurazioni DSC, inclusi i tipi e le pro
 
 L'esempio seguente usa due parametri denominati **FeatureName** e **IsPresent**, per determinare i valori delle proprietà nella configurazione del nodo **ParametersExample.sample**, generati durante la compilazione.
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
-    	[Parameter(Mandatory=$true)]
+    		[Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+    		[string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-    )
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-    $EnsureString = "Present"
-    if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
-    
-    }
-    
-    Node "sample" {
-    
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
     		}
     	}
     }
 
-È possibile compilare configurazioni DSC che usano parametri di base nel portale di Azure Automation DSC o in Azure PowerShell:
+È possibile compilare configurazioni DSC che usano parametri di base nel portale di Automation DSC per Azure o con Azure PowerShell:
 
 ###Portale###
 
@@ -123,31 +124,28 @@ Per informazioni sul passaggio di PSCredentials come parametri, vedere <a href="
 
 **ConfigurationData** consente di separare la configurazione strutturale dalla configurazione specifica di qualsiasi ambiente mentre si usa PowerShell DSC. Vedere il blog relativo alla [distinzione tra "cosa" e "dove" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) per altre informazioni su **ConfigurationData**.
 
->[AZURE.NOTE]È possibile usare **ConfigurationData** quando si compila in Azure Automation DSC con Azure PowerShell, ma non nel portale di Azure.
+>[AZURE.NOTE] È possibile usare **ConfigurationData** quando si compila in Azure Automation DSC con Azure PowerShell, ma non nel portale di Azure.
 
 La configurazione DSC di esempio seguente usa **ConfigurationData** con le parole chiave **$ConfigurationData** e **$AllNodes**. Per questo esempio sarà necessario anche il [modulo **xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/):
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
-È possibile compilare la configurazione DSC precedente con PowerShell, che aggiunge due configurazioni di nodo al server di pull di Azure Automation DSC: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
+È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni di nodo al server di pull di Automation DSC per Azure, **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
 
     $ConfigData = @{
     	AllNodes = @(
@@ -195,45 +193,39 @@ Per comunicare a PowerShell DSC che l'output delle credenziali in testo normale 
 
 L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di Automazione.
 
-    Configuration CredentialSample {
-    
+    Configuration CredentialSample
+    {
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
     			SourcePath = "\\Server\share\path\file.ext" 
     			DestinationPath = "C:\destinationPath" 
     			Credential = $Cred 
-    
        		}
-    
     	}
-    
     }
 
-È possibile compilare la configurazione DSC precedente con PowerShell, che aggiunge due configurazioni di nodo al server di pull di Azure Automation DSC: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni di nodo al server di pull di Automation DSC per Azure, **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 
     $ConfigData = @{
     	AllNodes = @(
-    		 @{
+    		@{
     			NodeName = "*"
     			PSDscAllowPlainTextPassword = $True
     		},
-    
     		@{
     			NodeName = "MyVM1"
     		},
-    
     		@{
     			NodeName = "MyVM2"
     		}
     	)
-    } 
-    
-    
+    }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

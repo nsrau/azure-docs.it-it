@@ -204,7 +204,7 @@ Si immagini uno scenario in cui si invia una notifica push a tutti i clienti per
 
 - **Distribuire il carico nel tempo.** Se si controlla la tempistica di determinati eventi (ad esempio la trasmissione di notifiche push) che si prevede generino un picco di richieste e la tempistica di tali eventi non è un fattore essenziale, è consigliabile distribuirli nel tempo. Nell'esempio precedente, probabilmente è accettabile avvisare i clienti della disponibilità di nuovo contenuto nell'app in gruppi nell'arco di un giorno anziché tutti contemporaneamente. Considerare la possibilità di suddividere i clienti in gruppi e quindi impostare il recapito in fasi della notifica ai vari gruppi. Se si usa Hub di notifica, un modo semplice per implementare questa strategia consiste nell'applicare un tag aggiuntivo per contrassegnare ogni gruppo e quindi inviare una notifica push al tag. Per altre informazioni sui tag, vedere [Utilizzo di Hub di notifica per inviare le ultime notizie](../notification-hubs-windows-store-dotnet-send-breaking-news.md).
 - **Usare l'archiviazione BLOB e tabelle, quando possibile.** Spesso il contenuto visualizzato dai clienti durante il picco è prevalentemente statico e non è necessario archiviarlo in un database SQL, in quanto è improbabile che sia necessario eseguire query relazionali su di esso. In questo caso, è consigliabile archiviare il contenuto nell'archiviazione BLOB o nell'archiviazione tabelle. È possibile accedere ai BLOB pubblici nell'archiviazione BLOB direttamente dal dispositivo. Per accedere ai BLOB in modo sicuro o per usare l'archiviazione tabelle, sarà necessario usare un'API personalizzata di Servizi mobili per proteggere la chiave di accesso alle risorse di archiviazione. Per altre informazioni, vedere [Caricamento di immagini in Archiviazione di Azure utilizzando Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md).
-- **Usare una cache in memoria**. Un'altra possibilità consiste nell'archiviare i dati normalmente accessibili durante un picco di traffico in una cache in memoria, ad esempio la [Cache di Azure](http://azure.microsoft.com/services/cache/). In questo modo le richieste in ingresso possono recuperare le informazioni necessarie dalla memoria, anziché eseguire query ripetute sul database.
+- **Usare una cache in memoria**. Un'altra possibilità consiste nell'archiviare i dati normalmente accessibili durante un picco di traffico in una cache in memoria, ad esempio la [Cache di Azure](https://azure.microsoft.com/services/cache/). In questo modo le richieste in ingresso possono recuperare le informazioni necessarie dalla memoria, anziché eseguire query ripetute sul database.
 
 <a name="Advanced"></a>
 ## Risoluzione dei problemi avanzata
@@ -279,7 +279,8 @@ Se si usano i livelli Basic, Standard e Premium, nel portale di gestione sono im
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Eseguire la query sul database **master** del server, la vista **sys.resource\_stats** è presente solo in questo database.
+> [AZURE.NOTE]
+Eseguire la query sul database **master** del server, la vista **sys.resource\_stats** è presente solo in questo database.
 
 Nel risultato sono presenti le seguenti metriche utili: CPU (% del limite del livello), Archiviazione (MB), Letture dati fisiche (% del limite del livello), Scritture nei log (% del limite del livello), Memoria (% del limite del livello), Conteggio Worker, Conteggio sessioni e così via.
 
@@ -292,7 +293,8 @@ La vista **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.asp
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Eseguire la query sul database **master** del server, la vista **sys.event\_log** è presente solo in questo database.
+> [AZURE.NOTE]
+Eseguire la query sul database **master** del server, la vista **sys.event\_log** è presente solo in questo database.
 
 <a name="AdvancedIndexing" ></a>
 ### Indicizzazione avanzata
@@ -305,7 +307,8 @@ Una tabella o una vista può contenere i tipi di indice seguenti:
 
 Per fornire un'analogia reale: considerare un libro o un manuale tecnico. Il contenuto di ogni pagina è un record, il numero di pagina è l'indice cluster e l'indice degli argomenti in fondo al libro è l'indice non cluster. Ogni voce nell'indice degli argomenti punta all'indice cluster, il numero di pagina.
 
-> [AZURE.NOTE]Per impostazione predefinita, il back-end JavaScript di Servizi mobili di Azure imposta **\_createdAt** come indice cluster. Se si rimuove questa colonna o si desidera un indice cluster diverso, assicurarsi di seguire le [linee guida per la progettazione di indici cluster](#ClusteredIndexes) di seguito. Nel back-end .NET, la classe `EntityData` definisce `CreatedAt` come indice cluster usando l'annotazione `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]
+Per impostazione predefinita, il back-end JavaScript di Servizi mobili di Azure imposta **\_createdAt** come indice cluster. Se si rimuove questa colonna o si desidera un indice cluster diverso, assicurarsi di seguire le [linee guida per la progettazione di indici cluster](#ClusteredIndexes) di seguito. Nel back-end .NET, la classe `EntityData` definisce `CreatedAt` come indice cluster usando l'annotazione `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Linee guida per la progettazione di indici cluster
@@ -488,4 +491,4 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 <!-- BLOG LINKS -->
 [Costo delle chiavi]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

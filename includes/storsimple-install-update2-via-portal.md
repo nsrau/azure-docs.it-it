@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/11/16-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Per installare l'aggiornamento 2 dal portale di Azure
 
@@ -8,7 +8,7 @@
 
 3. Nella sezione **Aggiornamenti software** presente nella stessa pagina, è possibile verificare la presenza dei nuovi aggiornamenti del software. Si consiglia di leggere le note sulla versione prima di installare l'aggiornamento 2 nel dispositivo.
 
-    ![Installare gli aggiornamenti del software](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Installare gli aggiornamenti del software](./media/storsimple-install-update2-via-portal/scanupdate1.png)
 
 4. Nella parte inferiore della pagina, fare clic su **Installa aggiornamenti**.
 
@@ -39,7 +39,7 @@
    	 ![Controllo preliminare non riuscito](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE]Se si sta installando da un software pre-aggiornato con aggiornamento 1, dopo aver applicato l'aggiornamento 2 nel dispositivo StorSimple, gli aggiornamenti futuri non avranno bisogno dei controlli DATA 2, DATA 3 e del gateway. Gli altri controlli preliminari saranno ancora necessari. Se si aggiorna a partire dall'aggiornamento 1 o aggiornamenti successivi, i controlli preliminari DATA 2, DATA 3 e del gateway non vengono eseguiti.
+	> [AZURE.NOTE] Se si sta installando da un software pre-aggiornato con aggiornamento 1, dopo aver applicato l'aggiornamento 2 nel dispositivo StorSimple, gli aggiornamenti futuri non avranno bisogno dei controlli DATA 2, DATA 3 e del gateway. Gli altri controlli preliminari saranno ancora necessari. Se si aggiorna a partire dall'aggiornamento 1 o aggiornamenti successivi, i controlli preliminari DATA 2, DATA 3 e del gateway non vengono eseguiti.
 
 
 8. Dopo aver completato tutti i controlli preliminari all'aggiornamento, verrà creato un processo di aggiornamento. Una volta creato tale processo, l'utente riceve una notifica.
@@ -57,8 +57,10 @@
 12. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2 della serie 8000 di StorSimple (6.3.9600.17673)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**.
 
 
-13. Si vedrà ora che sono disponibili gli aggiornamenti in modalità manutenzione. Questi aggiornamenti sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo. Seguire i passaggi elencati nella sezione sull'[installazione e la verifica dell'aggiornamento rapido in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfix) per installare questi aggiornamenti in modalità di manutenzione.
+13. Si vedrà ora che sono disponibili gli aggiornamenti in modalità manutenzione. In alcuni casi, quando si esegue l'aggiornamento 1.2, il firmware del disco risulta già aggiornato. In questi casi, il portale lo rileva automaticamente e non richiede gli aggiornamenti in modalità manutenzione.
 
-> [AZURE.NOTE]In alcuni casi, il messaggio che indica che gli aggiornamenti in modalità manutenzione sono disponibili può essere visualizzato fino a 24 ore dopo la corretta applicazione di tali aggiornamenti sul dispositivo.
+	Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo. Seguire i passaggi elencati nella sezione [Per installare e verificare l'aggiornamento rapido in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfix) per installare questi aggiornamenti in modalità manutenzione.
 
-<!---HONumber=AcomDC_0114_2016-->
+> [AZURE.NOTE] In alcuni casi, il messaggio che indica che gli aggiornamenti in modalità manutenzione sono disponibili può essere visualizzato fino a 24 ore dopo la corretta applicazione di tali aggiornamenti sul dispositivo.
+
+<!---HONumber=AcomDC_0128_2016-->

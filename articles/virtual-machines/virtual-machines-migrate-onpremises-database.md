@@ -47,7 +47,7 @@ Per ridurre al minimo il tempo di inattività durante il processo di migrazione 
 
 Se non è possibile usare i metodi sopra indicati, eseguire manualmente la migrazione del database. Se si adotta questo metodo, in genere si esegue un backup del database, quindi si copia il backup del database in Azure e infine si esegue un ripristino del database. In alternativa, è possibile copiare i file del database in Azure e collegarli. Esistono diversi metodi che consentono di eseguire questo processo di migrazione manuale di un database in una macchina virtuale di Azure.
 
-> [AZURE.NOTE]Durante l'aggiornamento a SQL Server 2014 o SQL Server 2016 da versioni precedenti di SQL Server, è necessario considerare se sono necessarie modifiche. È consigliabile prendere in considerazione tutte le dipendenze sulle funzionalità non supportate dalla nuova versione di SQL Server come parte del progetto di migrazione. Per altre informazioni sulle edizioni e sugli scenari supportati, vedere [Aggiornamento a SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
+> [AZURE.NOTE] Durante l'aggiornamento a SQL Server 2014 o SQL Server 2016 da versioni precedenti di SQL Server, è necessario considerare se sono necessarie modifiche. È consigliabile prendere in considerazione tutte le dipendenze sulle funzionalità non supportate dalla nuova versione di SQL Server come parte del progetto di migrazione. Per altre informazioni sulle edizioni e sugli scenari supportati, vedere [Aggiornamento a SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
 
 Nella tabella seguente sono elencati tutti i principali metodi di migrazione e viene illustrato quando l'utilizzo di ciascun metodo è più appropriato.
 
@@ -164,7 +164,7 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 2.	Caricare i file dei dischi rigidi virtuali su Archiviazione di Azure usando il [cmdlet Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3.	Distribuire una nuova macchina virtuale utilizzando il disco rigido virtuale caricato.
 
-> [AZURE.NOTE]Per eseguire la migrazione di un'intera applicazione, è consigliabile usare [Azure Site Recovery](../services/site-recovery/).
+> [AZURE.NOTE] Per eseguire la migrazione di un'intera applicazione, è consigliabile usare [Azure Site Recovery](../services/site-recovery/).
 
 ## Spedizione del disco rigido
 
@@ -174,4 +174,4 @@ Usare il [metodo del servizio di importazione/esportazione di Windows](../storag
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

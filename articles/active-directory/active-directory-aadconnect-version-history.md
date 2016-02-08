@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -50,7 +50,7 @@ Data di rilascio: novembre 2015
 **Nuove funzionalità di anteprima:**
 
 - [Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md).
-- Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](active-directory-ds-getting-started.md)
+- Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](active-directory-get-started.md)
 
 **Nuovo scenario supportato:**
 
@@ -105,7 +105,7 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 **Nuove funzionalità:**
 
 - Installazione mediante le [impostazioni rapide](active-directory-aadconnect-get-started-express.md)
-- È possibile [configurare ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- È possibile [configurare ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs):
 - È possibile [aggiornare da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - Introdotta la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode)
@@ -209,4 +209,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

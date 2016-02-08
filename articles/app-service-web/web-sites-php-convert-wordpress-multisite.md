@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -79,7 +79,7 @@ Con il plug-in [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domai
 La modalità piano **gratuito** di [Servizio App](http://go.microsoft.com/fwlink/?LinkId=529714) non supporta l'aggiunta di domini ad App Web. È quindi necessario passare alla modalità **condivisa** o **standard**. A tale scopo, effettuare l'operazione seguente:
 
 * Accedere al portale di Azure e individuare l'app Web. 
-* Fare clic sulla scheda **Scale** nell'area del contenuto principale.
+* Fare clic sulla scheda **Aumenta prestazioni** in **Impostazioni**.
 * In **General** selezionare *SHARED* o *STANDARD*
 * Fare clic su **Save**.
 
@@ -134,7 +134,7 @@ Per impostazione predefinita, il nuovo dominio verrà riscritto nel dominio del 
 
 App Web di Azure consente di aggiungere un numero illimitato di domini a un'app Web. Per aggiungere altri domini, sarà necessario eseguire per ciascun dominio le operazioni descritte nelle sezioni **Verificare il dominio** e **Configurare il record A del dominio**.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -153,4 +153,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

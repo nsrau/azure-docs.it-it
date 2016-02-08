@@ -3,7 +3,7 @@
 	description="Descrive cosa è successo al progetto Visual Studio .NET dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi connessi."
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Cosa è successo al progetto Visual Studio -NET dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi connessi?
 
@@ -39,6 +39,6 @@ Nel file App.xaml.cs è stato creato un oggetto **MobileServiceClient** con l'UR
 Se viene creato un servizio mobile .NET nel provider di servizi connessi, verrà creato un progetto di Servizi mobili, che verrà aggiunto alla soluzione.
 
 
-[Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Altre informazioni sui servizi mobili](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

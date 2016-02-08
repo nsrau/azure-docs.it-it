@@ -22,13 +22,13 @@
 
 ## Panoramica
 
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il [portale di Azure](portal.azure.com) o Windows PowerShell o a livello di codice mediante la libreria del client di archiviazione.
+Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il [portale di Azure](https://portal.azure.com) o Windows PowerShell o a livello di codice mediante la libreria del client di archiviazione.
 
 Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
 ## Come abilitare le metriche usando il portale di Azure
 
-Seguire questi passaggi per abilitare le metriche nel [portale di Azure](portal.azure.com):
+Seguire questi passaggi per abilitare le metriche nel [portale di Azure](https://portal.azure.com):
 
 1. Passare all'account di archiviazione. 
 1. Aprire il pannello **Impostazioni** e selezionare **Diagnostica**.
@@ -36,7 +36,7 @@ Seguire questi passaggi per abilitare le metriche nel [portale di Azure](portal.
 1. Selezionare le metriche per i servizi che si desidera monitorare.
 2. Specificare un criterio di conservazione per indicare per quanto tempo conservare le metriche e dati di log.
 
-Il [portale di Azure](portal.azure.com) attualmente non consente di configurare le metriche al minuto nell'account di archiviazione; è necessario abilitare le metriche al minuto usando PowerShell o a livello di codice.
+Il [portale di Azure](https://portal.azure.com) attualmente non consente di configurare le metriche al minuto nell'account di archiviazione; è necessario abilitare le metriche al minuto usando PowerShell o a livello di codice.
 
 ## Come abilitare le metriche usando PowerShell
 
@@ -94,9 +94,9 @@ Il frammento C# seguente illustra come abilitare le metriche e la registrazione 
     
 ## Visualizzazione di Metriche di archiviazione
 
-Una volta configurate le metriche dell’analisi di archiviazione per monitorare l'account di archiviazione, l’analisi di archiviazione registra le metriche in un set di tabelle note nell'account di archiviazione. È possibile configurare i grafici per visualizzare le metriche orarie nel [portale di Azure](portal.azure.com):
+Una volta configurate le metriche dell’analisi di archiviazione per monitorare l'account di archiviazione, l’analisi di archiviazione registra le metriche in un set di tabelle note nell'account di archiviazione. È possibile configurare i grafici per visualizzare le metriche orarie nel [portale di Azure](https://portal.azure.com):
 
-1. Passare all'account di archiviazione nel [portale di Azure](portal.azure.com).
+1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
 2. Nella sezione **Monitoraggio**, fare clic su **Aggiungi riquadri** per aggiungere un nuovo grafico. Nella **Raccolta dei riquadri**, selezionare la metrica che si desidera visualizzare e trascinarla nella sezione **Monitoraggio**.
 3. Per modificare le metriche visualizzate in un grafico, fare clic sul collegamento **Modifica**. È possibile aggiungere o rimuovere singole metriche selezionandole o deselezionandole.
 4. Fare clic su **Salva** al termine della modifica delle metriche.
@@ -134,7 +134,7 @@ Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa
 
 I dati di esempio sopra riportati mostrano tutti i record per un solo minuto (a partire dalle 11.00). La somma del numero di richieste QueryEntities, del numero di richieste QueryEntity e del numero di richieste UpdateEntity è sette, che corrisponde al totale visualizzato nella riga user:All. Analogamente, è possibile ricavare la latenza end-to-end media 104,4286 nella riga user:All calcolando ((143,8 * 5) + 3 + 9) / 7.
 
-È consigliabile impostare gli avvisi nel [portale di Azure](portal.azure.com) nella pagina Monitoraggio in modo che Metriche di archiviazione possa notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Per un elenco di strumenti di esplorazione di archiviazione disponibili, vedere il post di blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+È consigliabile impostare gli avvisi nel [portale di Azure](https://portal.azure.com) nella pagina Monitoraggio in modo che Metriche di archiviazione possa notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Per un elenco di strumenti di esplorazione di archiviazione disponibili, vedere il post di blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 
 
@@ -204,4 +204,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

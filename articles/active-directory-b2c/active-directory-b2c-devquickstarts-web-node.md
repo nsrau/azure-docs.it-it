@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di B2C: Aggiungere l'accesso a un'app Web NodeJS
@@ -21,7 +21,8 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+> [AZURE.NOTE]
+	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
 **Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere rilasciato in modo non invadente in qualsiasi applicazione Web basata su Express o Resitify. Una gamma completa di strategie supporta l'autenticazione mediante nome utente e password, Facebook, Twitter e altro ancora. È stata sviluppata una strategia per Microsoft Azure Active Directory. Dopo l'installazione di questo modulo, verrà aggiunto il plug-in `passport-azure-ad` di Microsoft Azure Active Directory.
 
@@ -38,7 +39,7 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-> [AZURE.WARNING]Per l'Anteprima B2C è necessario utilizzare lo stesso ID client/ID applicazione e i criteri per il server dell’attività Web API e per il client che effettua la connessione. Questo vale per i tutorial iOS e Android. Se è stato creata in precedenza un'applicazione con una delle guide rapide, utilizzare tali valori anziché crearne di nuovi in basso.
+> [AZURE.WARNING] 	Per l'Anteprima B2C è necessario utilizzare lo stesso ID client/ID applicazione e i criteri per il server dell’attività Web API e per il client che effettua la connessione. Questo vale per i tutorial iOS e Android. Se è stato creata in precedenza un'applicazione con una delle guide rapide, utilizzare tali valori anziché crearne di nuovi in basso.
 
 ## 1\. Ottenere una directory di Azure AD B2C
 
@@ -46,11 +47,11 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 ## 2\. Creare un'applicazione
 
-A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app client che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché costituiscono una singola app per la logica. Per creare un'app, seguire [queste istruzioni](active-directory-b2c-app-registration.md). Assicurarsi di
+A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app del client che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `http://localhost/TodoListService` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare una **Chiave privata app** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -61,7 +62,7 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** dei criteri dopo averli creati. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -120,8 +121,8 @@ var log = bunyan.createLogger({
 - Successivamente, usare la strategia a cui è stato fatto riferimento per gestire le richieste di accesso.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -157,7 +158,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport usa un modello simile per tutte le strategie (Twitter, Facebook e così via) che soddisfano i requisiti degli scrittori della strategia. Osservando la strategia, è possibile notare che a quest'ultima è stata passata una funzione() con parametri token e done. La strategia verrà restituita al termine dell'esecuzione. Una volta restituita, è opportuno archiviare l'utente e mettere da parte il token in modo che non sia necessario richiederlo nuovamente.
 
-> [AZURE.IMPORTANT]Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un'applicazione di esempio, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
+> [AZURE.IMPORTANT]
+Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un'applicazione di esempio, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
 
 - Successivamente, aggiungere i metodi che consentiranno di tenere traccia degli utenti connessi come richiesto da Passport. Questa operazione include la serializzazione e deserializzazione delle informazioni dell'utente:
 
@@ -250,7 +252,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -263,7 +265,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -304,7 +306,7 @@ app.get('/logout', function(req, res){
     -	La route `/` viene reindirizzata alla vista index.ejs passando l'utente nella richiesta (se presente).
     - La route `/account` prima di tutto ***verificherà che l'autenticazione sia stata eseguita*** (vedere di seguito l'implementazione), quindi passerà l'utente nella richiesta in modo da ottenere informazioni aggiuntive su quest'ultimo.
     - La route `/login` chiamerà l'autenticatore azuread-openidconnect da `passport-azuread` e, se l'operazione non riesce, reindirizzerà l'utente a /login.
-    - La route `/logout` chiamerà semplicemente logout.ejs (e la route) che cancellerà i cookie e restituirà quindi l'utente a index.ejs.
+    - La route `/logout` chiamerà logout.ejs (e la route) che consente di cancellare i cookie e restituisce quindi l'utente a index.ejs.
 
 
 - Per l'ultima parte di `app.js`, aggiungere il metodo EnsureAuthenticated usato precedentemente in `/account`.
@@ -429,4 +431,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

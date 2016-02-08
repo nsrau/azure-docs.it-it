@@ -22,7 +22,8 @@
 ##Panoramica
 Questa esercitazione illustra come compilare un'app Web Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure.
 
->[AZURE.NOTE]Per una versione MVC di questa esercitazione, vedere [Creazione di un'app ASP.NET MVC con autenticazione e database SQL e alla distribuzione in Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>[AZURE.NOTE] 
+Per una versione MVC di questa esercitazione, vedere [Creazione di un'app ASP.NET MVC con autenticazione e database SQL e alla distribuzione in Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 È possibile aprire gratuitamente un account Azure e, se non si dispone già di Visual Studio 2013, con l'SDK verrà installato automaticamente Visual Studio Express 2013 per il Web. È possibile iniziare a sviluppare per Azure gratuitamente.
 
@@ -39,9 +40,10 @@ Si apprenderà come:
 
 Verrà creata una semplice applicazione Web di elenco contatti basata su Web Form ASP.NET 4.5 che usa Entity Framework per l'accesso al database. L'immagine seguente mostra la pagina Web Form che consente l'accesso in lettura e scrittura al database:
 
-	![Pagina Contatti - Modifica](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
+![Pagina Contatti - Modifica](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione Visual Studio</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Azure prima di iscriversi per ottenere un account, vedere la pagina di [prova del servizio app](https://tryappservice.azure.com/) in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] 
+Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione Visual Studio</a> oppure <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>. Per iniziare a usare Azure prima di iscriversi per ottenere un account, vedere la pagina di [prova del servizio app](https://tryappservice.azure.com/) in cui è possibile creare immediatamente e gratuitamente un sito di base ASP.NET temporaneo in Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Configurare l'ambiente di sviluppo 
 Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare l'ambiente di sviluppo.
@@ -50,14 +52,15 @@ Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare
 2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013. in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.  
 
 3. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
-4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione.  
+4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione. 
 	![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
       Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.
 
 5. Se **Visual Studio Update 2** non è installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versione successiva.
 
-	>[AZURE.NOTE]È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
+	>[AZURE.NOTE]  
+	È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
 
@@ -223,8 +226,8 @@ Dopo avere creato ed eseguito l'applicazione in locale, è possibile distribuirl
 L'applicazione creata verrà ora eseguita nel cloud. Alla successiva distribuzione dell'applicazione da Visual Studio, verranno distribuiti solo i file modificati o nuovi.  
 	![App nel browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms10.png)
 
->[AZURE.NOTE]Se si verifica un errore durante la pubblicazione in un sito Web già esistente, è possibile cancellare il percorso prima di aggiungere i nuovi file. Pubblicare di nuovo l'applicazione, ricordando di selezionare la scheda **Impostazioni** nella finestra di dialogo **Pubblica App Web**. Impostare quindi la configurazione su **Debug** e selezionare l'opzione **Rimuovi i file aggiuntivi nella destinazione**. Selezionare **Pubblica** per distribuire di nuovo l'applicazione.  
-	![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms11.png)
+>[AZURE.NOTE] 
+Se si verifica un errore durante la pubblicazione in un sito Web già esistente, è possibile cancellare il percorso prima di aggiungere i nuovi file. Pubblicare di nuovo l'applicazione, ricordando di selezionare la scheda **Impostazioni** nella finestra di dialogo **Pubblica App Web**. Impostare quindi la configurazione su **Debug** e selezionare l'opzione **Rimuovi i file aggiuntivi nella destinazione**. Selezionare **Pubblica** per distribuire di nuovo l'applicazione. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms11.png)
 
 ##Aggiungere un database all'applicazione 
 Si passerà quindi all'aggiornamento dell'applicazione Web Form, in modo da aggiungere la funzionalità per la visualizzazione e l'aggiornamento dei contatti e per l'archiviazione dei dati in un database. Durante la procedura di creazione del progetto Web Form, per impostazione predefinita è stato creato anche un database. L'applicazione userà Entity Framework per accedere al database e per leggere e aggiornare i dati nel database.
@@ -687,7 +690,8 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 
 10. Fare quindi clic su **Pubblica**. L'applicazione verrà pubblicata in Azure.
 
->[AZURE.NOTE]Se Visual Studio è stato chiuso e riaperto dopo la creazione del profilo di pubblicazione, è possibile che la stringa di connessione non sia visualizzata nell'elenco a discesa. In tale caso, invece di modificare il profilo di pubblicazione creato in precedenza, crearne uno in base alla stessa procedura eseguita in precedenza, quindi attenersi alle istruzioni visualizzate nella scheda **Settings**.
+>[AZURE.NOTE]  
+Se Visual Studio è stato chiuso e riaperto dopo la creazione del profilo di pubblicazione, è possibile che la stringa di connessione non sia visualizzata nell'elenco a discesa. In tale caso, invece di modificare il profilo di pubblicazione creato in precedenza, crearne uno in base alla stessa procedura eseguita in precedenza, quindi attenersi alle istruzioni visualizzate nella scheda **Settings**.
 
 ###Verificare l'applicazione in Azure 
 1. Nel browser fare clic sul collegamento **Contact Demo**. Viene visualizzato l'elenco di contatti.  
@@ -741,10 +745,11 @@ Nei passaggi precedenti dell'esercitazione, per aggiungere utenti al ruolo canEd
 3. Nella tabella **dbo.AspNetUsers** individuare l'utente da inserire nel ruolo, copiare l'*Id* dell'utente,
 4. quindi incollarlo nel campo **UserId** della nuova riga nella tabella **AspNetUserRoles**.  
 
->[AZURE.NOTE]Microsoft sta attualmente lavorando alla creazione di uno strumento per semplificare la gestione di utenti e ruoli.
+>[AZURE.NOTE]  
+Microsoft sta attualmente lavorando alla creazione di uno strumento per semplificare la gestione di utenti e ruoli.
 
 ##Passaggi successivi
-Per altre informazioni su Web Form ASP.NET, vedere l'articolo relativo alle [informazioni si Web Form ASP.NET](http://www.asp.net/web-forms) nel sito Web dedicato ad ASP.NET e gli argomenti relativi alle [guide ed esercitazioni per Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/#net).
+Per altre informazioni su Web Form ASP.NET, vedere l'articolo relativo alle [informazioni si Web Form ASP.NET](http://www.asp.net/web-forms) nel sito Web dedicato ad ASP.NET e gli argomenti relativi alle [guide ed esercitazioni per Microsoft Azure](https://azure.microsoft.com/documentation/services/web-sites/#net).
 
 Questa esercitazione è basata sull'esercitazione MVC [Distribuzione di un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in un sito Web di Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) scritta da Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con il supporto di Tom Dykstra e Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
@@ -752,4 +757,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

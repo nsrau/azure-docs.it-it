@@ -28,7 +28,7 @@
 
 Questo argomento illustra come registrare le proprie app in modo da usare Google per l'autenticazione con Servizi mobili di Azure.
 
->[AZURE.NOTE]Questa esercitazione riguarda [Servizi mobili di Azure](http://azure.microsoft.com/services/mobile-services/), una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione [Introduzione all'autenticazione](mobile-services-ios-get-started-users.md) che illustra come consentire agli utenti l'accesso alla propria app. <br/>Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili](mobile-services-ios-get-started.md).
+>[AZURE.NOTE] Questa esercitazione riguarda [Servizi mobili di Azure](https://azure.microsoft.com/services/mobile-services/), una soluzione che consente di creare applicazioni scalabili per dispositivi mobili compatibili con qualsiasi piattaforma. Servizi mobili semplifica attività come la sincronizzazione di dati, l'autenticazione di utenti e l'invio di notifiche push. Questa pagina supporta l'esercitazione [Introduzione all'autenticazione](mobile-services-ios-get-started-users.md) che illustra come consentire agli utenti l'accesso alla propria app. <br/>Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili](mobile-services-ios-get-started.md).
 
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
@@ -51,7 +51,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 8. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
-    > [AZURE.IMPORTANT]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
+    > [AZURE.IMPORTANT] Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
 
 È ora possibile configurare il servizio mobile in modo da usare l'accesso Google per l'autenticazione nell'app.
 
@@ -64,4 +64,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

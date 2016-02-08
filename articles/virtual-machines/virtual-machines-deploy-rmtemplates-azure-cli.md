@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
+Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
 
@@ -58,11 +58,11 @@ Se la versione installata non corrisponde alla 0.9.0 o a una versione successiva
 
 ### Impostare l'account e la sottoscrizione di Azure
 
-Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [Accedere all'account Azure in modo interattivo](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni dell'esperienza interattiva per l'accesso all'account Azure.
 
-> [AZURE.NOTE]Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md) per accedere nello stesso modo.
+> [AZURE.NOTE] Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](resource-group-create-work-id-from-personal.md) per accedere nello stesso modo.
 
 L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
 
@@ -124,7 +124,7 @@ Innanzitutto, creare il gruppo di risorse.
 
 In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'interfaccia della riga di comando di Azure, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md). In questo articolo è riportato un breve elenco delle immagini più diffuse. Verrà creata un'immagine stabile di CoreOS per questa creazione rapida.
 
-> [AZURE.NOTE]Per ComputeImageVersion, è anche possibile specificare semplicemente 'latest' come parametro nel linguaggio di modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile usare sempre la versione dell'immagine più recente e con l'applicazione di tutte le patch necessarie senza dover modificare script o modelli, come illustrato di seguito.
+> [AZURE.NOTE] Per ComputeImageVersion, è anche possibile specificare semplicemente 'latest' come parametro nel linguaggio di modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile usare sempre la versione dell'immagine più recente e con l'applicazione di tutte le patch necessarie senza dover modificare script o modelli, come illustrato di seguito.
 
 | PublisherName | Offerta | Sku | Versione |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -1171,7 +1171,7 @@ A questo punto, utilizzare il comando `azure group deployment create` e l'opzion
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-Si noti che questo modello distribuisce un'immagine di Windows Server. Questa immagine potrebbe essere tuttavia sostituita con qualsiasi immagine Linux. Si vuole creare un cluster Docker con più swarm manager? [Sì, è possibile](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Si noti che questo modello distribuisce un'immagine di Windows Server. Questa immagine potrebbe essere tuttavia sostituita con qualsiasi immagine Linux. Si vuole creare un cluster Docker con più swarm manager? [Sì, è possibile](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Attività: Rimuovere un gruppo di risorse
 
@@ -1264,7 +1264,7 @@ Selezionare quindi myVM1:
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Per archiviare e modificare l'output dei comandi della console a livello di codice, è possibile usare uno strumento di analisi JSON, ad esempio **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o le librerie dei linguaggi idonee per l'attività.
+> [AZURE.NOTE] Per archiviare e modificare l'output dei comandi della console a livello di codice, è possibile usare uno strumento di analisi JSON, ad esempio **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o le librerie dei linguaggi idonee per l'attività.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
@@ -1276,7 +1276,7 @@ Eseguire questo comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilizzare questo parametro per mantenere l'IP virtuale (VIP) del vnet, qualora fosse l'ultima macchina virtuale inclusa vnet. <br><br> Se si usa il parametro `StayProvisioned`, i costi per la macchina virtuale continueranno a essere addebitati.
+>[AZURE.IMPORTANT] Utilizzare questo parametro per mantenere l'IP virtuale (VIP) del vnet, qualora fosse l'ultima macchina virtuale inclusa vnet. <br><br> Se si usa il parametro `StayProvisioned`, i costi per la macchina virtuale continueranno a essere addebitati.
 
 ## <a id="start-a-virtual-machine"></a>Attività: Avviare una macchina virtuale
 
@@ -1303,6 +1303,6 @@ Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o i
 
 Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
 
-Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](http://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
+Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

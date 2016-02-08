@@ -22,7 +22,7 @@
 
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile consultare l'articolo [Usare Oozie con HDInsight][hdinsight-use-oozie]. Per informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data factory](../data-factory/data-factory-pig-hive-activities.md).
 
-> [AZURE.NOTE]Questo articolo richiede un cluster HDInsight basato su Windows. Per informazioni sull'utilizzo di Oozie, inclusi i processi basati sul tempo, in un cluster basato su Linux, vedere[utilizzo di Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight basati su Linux](hdinsight-use-oozie-linux-mac.md)
+> [AZURE.NOTE] Questo articolo richiede un cluster HDInsight basato su Windows. Per informazioni sull'utilizzo di Oozie, inclusi i processi basati sul tempo, in un cluster basato su Linux, vedere[utilizzo di Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight basati su Linux](hdinsight-use-oozie-linux-mac.md)
 
 ##<a id="whatisoozie"></a>Informazioni su Oozie
 
@@ -54,41 +54,40 @@ Il flusso di lavoro contiene due azioni:
 
 2.  Un'azione di Sqoop esporta l'output dell'azione di HiveQL in una tabella di un database SQL di Azure. Per altre informazioni su Sqoop, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Per informazioni sulle versioni di Oozie supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Per informazioni sulle versioni di Oozie supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
 
-> [AZURE.NOTE]Questa esercitazione usa il cluster HDInsight versioni 2.1 e 3.0. Il contenuto di questo articolo non è stato testato su HDInsight Emulator.
+> [AZURE.NOTE] Questa esercitazione usa il cluster HDInsight versioni 2.1 e 3.0. Il contenuto di questo articolo non è stato testato su HDInsight Emulator.
 
 
 ##<a id="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di Windows PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Per altre informazioni, vedere l'articolo relativo all'[esecuzione degli script di Windows PowerShell][powershell-script].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire script di Windows PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Per altre informazioni, vedere l'articolo relativo all'[esecuzione degli script di Windows PowerShell][powershell-script].
 - **Un cluster HDInsight**. Per informazioni sulla creazione di un cluster HDInsight, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision] o [Introduzione all'uso di HDInsight][hdinsight-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
 
 	<table border = "1">
-	<tr><th>Proprietà del cluster</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
-	<tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Cluster HDInsight su cui si eseguirà questa esercitazione.</td></tr>
-	<tr><td>Nome utente del cluster HDInsight</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster HDInsight. </td></tr>
-	<tr><td>Password utente del cluster HDInsight </td><td>$clusterPassword</td><td></td><td>La password utente del cluster HDInsight.</td></tr>
-	<tr><td>Nome dell'account di archiviazione di Azure</td><td>$storageAccountName</td><td></td><td>Un account di archiviazione di Azure disponibile per il cluster HDInsight. Ai fini di questa esercitazione, usare l'account di archiviazione predefinito, specificato durante il processo di provisioning del cluster.</td></tr>
-	<tr><td>Nome del contenitore BLOB di Azure</td><td>$containerName</td><td></td><td>Per questo esempio, usare il contenitore di archiviazione BLOB di Azure usato come file system predefinito del cluster HDInsight. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster HDInsight.</td></tr>
-	</table>
+<tr><th>Proprietà del cluster</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
+<tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Cluster HDInsight su cui si eseguirà questa esercitazione.</td></tr>
+<tr><td>Nome utente del cluster HDInsight</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster HDInsight. </td></tr>
+<tr><td>Password utente del cluster HDInsight </td><td>$clusterPassword</td><td></td><td>La password utente del cluster HDInsight.</td></tr>
+<tr><td>Nome dell'account di archiviazione di Azure</td><td>$storageAccountName</td><td></td><td>Un account di archiviazione di Azure disponibile per il cluster HDInsight. Ai fini di questa esercitazione, usare l'account di archiviazione predefinito, specificato durante il processo di provisioning del cluster.</td></tr>
+<tr><td>Nome del contenitore BLOB di Azure</td><td>$containerName</td><td></td><td>Per questo esempio, usare il contenitore di archiviazione BLOB di Azure usato come file system predefinito del cluster HDInsight. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster HDInsight.</td></tr>
+</table>
 
 - **Un database SQL di Azure**. È necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere [Introduzione al database SQL di Azure][sqldatabase-get-started]. Questo articolo fornisce uno script di Windows PowerShell per consentire la creazione della tabella del database SQL di Azure necessaria per questa esercitazione.
 
 	<table border = "1">
-	<tr><th>Proprietà del database SQL</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
-	<tr><td>Nome del server di database SQL</td><td>$sqlDatabaseServer</td><td></td><td>Il server di database SQL in cui Sqoop esporterà i dati. </td></tr>
-	<tr><td>Nome di accesso al database SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Il nome di accesso al database SQL.</td></tr>
-	<tr><td>Password di accesso al database SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>La password di accesso al database SQL.</td></tr>
-	<tr><td>Nome del database SQL</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure in cui Sqoop esporterà i dati. </td></tr>
+<tr><th>Proprietà del database SQL</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
+<tr><td>Nome del server di database SQL</td><td>$sqlDatabaseServer</td><td></td><td>Il server di database SQL in cui Sqoop esporterà i dati. </td></tr>
+<tr><td>Nome di accesso al database SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Il nome di accesso al database SQL.</td></tr>
+<tr><td>Password di accesso al database SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>La password di accesso al database SQL.</td></tr>
+<tr><td>Nome del database SQL</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure in cui Sqoop esporterà i dati. </td></tr>
 	</table>
+	> [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di anteprima di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL][sqldatabase-create-configure].
 
-	> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di anteprima di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL][sqldatabase-create-configure].
 
-
-> [AZURE.NOTE]L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
+> [AZURE.NOTE] L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
 
 
 ##<a id="defineworkflow"></a>Definire il flusso di lavoro di Oozie e lo script HiveQL correlato
@@ -188,22 +187,21 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 	RunHiveScript è caratterizzato da diverse variabili. I valori verranno passati quando si invia il processo Oozie dalla workstation con Azure PowerShell.
 
 	<table border = "1">
-	<tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
-	<tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare <strong>jobtrackerhost:9010</strong> nel cluster HDInsight versione 3.0 e 2.0.</td></tr>
-	<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
-	<tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare <strong>default</strong>.</td></tr>
-	</table><table border = "1">
-	<tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
-	<tr><td>${hiveDataFolder}</td><td>La directory di origine per il comando Hive Create Table.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
-	<tr><td>${hiveTableName}</td><td>Il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
-	</table><table border = "1">
-	<tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
-	<tr><td>${sqlDatabaseConnectionString}</td><td>Stringa di connessione del database SQL.</td></tr>
-	<tr><td>${sqlDatabaseTableName}</td><td>La tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
+<tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
+<tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare <strong>jobtrackerhost:9010</strong> nel cluster HDInsight versione 3.0 e 2.0.</td></tr>
+<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare <strong>default</strong>.</td></tr>
+</table><table border = "1">
+<tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
+<tr><td>${hiveDataFolder}</td><td>La directory di origine per il comando Hive Create Table.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
+<tr><td>${hiveTableName}</td><td>Il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
+</table><table border = "1">
+<tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>Stringa di connessione del database SQL.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>La tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
 	</table>
-
 	Per altre informazioni sul flusso di lavoro di Oozie e sull'utilizzo di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per cluster HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per cluster HDInsight versione 2.1).
 
 2. Salvare il file come **C:\\Tutorials\\UseOozie\\workflow.xml** usando la codifica ANSI (ASCII). Usare il blocco note se l'editor di testo non offre questa opzione.
@@ -250,9 +248,9 @@ Quando si effettua il provisioning di un cluster HDInsight, vengono designati co
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi **asv://* precedente è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0.
+> [AZURE.NOTE] Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi **asv://* precedente è supportata nei cluster HDInsight 2.1 e 1.6, ma non è supportata nei cluster HDInsight 3.0.
 
-> [AZURE.NOTE]Il percorso wasb:// è un percorso virtuale. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
+> [AZURE.NOTE] Il percorso wasb:// è un percorso virtuale. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con HDInsight][hdinsight-storage].
 
 È possibile accedere da HDInsight a un file archiviato nel contenitore del file system predefinito usando uno degli URI seguenti (in questo esempio si userà workflow.xml):
 
@@ -285,7 +283,7 @@ Per altre informazioni, vedere l'[articolo introduttivo alle tabelle interne ed 
 
 	Verrà richiesto di immettere le credenziali dell'account Azure. Questo metodo, che prevede l'aggiunta di una connessione alla sottoscrizione, scade dopo 12 ore, di conseguenza sarà necessario eseguire nuovamente il cmdlet.
 
-	> [AZURE.NOTE]Se si dispone di più sottoscrizioni di Azure e non si desidera usare quella predefinita, eseguire il cmdlet <strong>Select-AzureSubscription</strong> per selezionare una sottoscrizione.
+	> [AZURE.NOTE] Se si dispone di più sottoscrizioni di Azure e non si desidera usare quella predefinita, eseguire il cmdlet <strong>Select-AzureSubscription</strong> per selezionare una sottoscrizione.
 
 3. Copiare lo script seguente nel riquadro di script e impostare le prime sei variabili:
 
@@ -516,7 +514,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 		</configuration>
 		"@
 
-	>[AZURE.NOTE]La differenza principale rispetto al file di payload di invio del flusso di lavoro è la variabile **oozie.coord.application.path**. Quando si invia un processo del flusso di lavoro si usa invece la variabile **oozie.wf.application.path**.
+	>[AZURE.NOTE] La differenza principale rispetto al file di payload di invio del flusso di lavoro è la variabile **oozie.coord.application.path**. Quando si invia un processo del flusso di lavoro si usa invece la variabile **oozie.wf.application.path**.
 
 4. Aggiungere il codice seguente allo script. Questa parte consente di verificare lo stato del servizio Web Oozie:
 
@@ -554,7 +552,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE]Quando si invia un processo del flusso di lavoro, è necessario creare un'altra chiamata del servizio Web per avviare il processo dopo che questo è stato creato. In tal caso, il processo del coordinatore viene attivato dal tempo. Il processo verrà avviato automaticamente.
+	> [AZURE.NOTE] Quando si invia un processo del flusso di lavoro, è necessario creare un'altra chiamata del servizio Web per avviare il processo dopo che questo è stato creato. In tal caso, il processo del coordinatore viene attivato dal tempo. Il processo verrà avviato automaticamente.
 
 6. Aggiungere il codice seguente allo script. Questa parte consente di verificare lo stato del processo Oozie:
 
@@ -738,4 +736,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

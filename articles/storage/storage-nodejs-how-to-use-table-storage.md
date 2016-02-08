@@ -71,7 +71,7 @@ Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazion
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](portal.azure.com) per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione].
 
 ## Creare una tabella
 
@@ -125,7 +125,7 @@ Nell'esempio seguente viene definita un'entità. **dueDate** è definito come ti
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [AZURE.NOTE]Per ogni record è anche presente un campo **Timestamp**, impostato da Azure quando viene inserita o aggiornata un'entità.
+> [AZURE.NOTE] Per ogni record è anche presente un campo **Timestamp**, impostato da Azure quando viene inserita o aggiornata un'entità.
 
 È anche possibile usare **entityGenerator** per creare le entità. Nell'esempio seguente viene creata la stessa entità Task tramite **entityGenerator**.
 
@@ -151,7 +151,7 @@ Esempio di risposta:
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]Per impostazione predefinita, **insertEntity** non restituisce l'entità inserita come parte delle informazioni di `response`. Se si prevede di eseguire altre operazioni su questa entità o si intende memorizzare le informazioni nella cache, è opportuno che l'entità venga restituita insieme a `result`. A tale scopo, abilitare **echoContent** come segue:
+> [AZURE.NOTE] Per impostazione predefinita, **insertEntity** non restituisce l'entità inserita come parte delle informazioni di `response`. Se si prevede di eseguire altre operazioni su questa entità o si intende memorizzare le informazioni nella cache, è opportuno che l'entità venga restituita insieme a `result`. A tale scopo, abilitare **echoContent** come segue:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -175,7 +175,7 @@ Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'
       }
     });
 
-> [AZURE.NOTE]Per impostazione predefinita, l'aggiornamento di un'entità non comporta la verifica dei dati per controllare se siano stati modificati da altri processi. Per supportare gli aggiornamenti simultanei:
+> [AZURE.NOTE] Per impostazione predefinita, l'aggiornamento di un'entità non comporta la verifica dei dati per controllare se siano stati modificati da altri processi. Per supportare gli aggiornamenti simultanei:
 >
 > 1. Recuperare il valore ETag dell'oggetto da aggiornare. Questo valore viene restituito insieme a `response` per qualsiasi operazione associata all'entità e può essere recuperato tramite `response['.metadata'].etag`.
 >
@@ -302,7 +302,7 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 	  }
 	});
 
-> [AZURE.NOTE]Quando si eliminano elementi, è bene valutare l'uso di ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Aggiornare un'entità](#update-an-entity) per informazioni sull'uso di ETag.
+> [AZURE.NOTE] Quando si eliminano elementi, è bene valutare l'uso di ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Aggiornare un'entità](#update-an-entity) per informazioni sull'uso di ETag.
 
 ## Eliminare una tabella
 
@@ -448,4 +448,4 @@ Per altre informazioni, vedere le risorse seguenti:
   [Applicazione Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

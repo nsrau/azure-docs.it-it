@@ -29,7 +29,7 @@ I cmdlet di PowerShell per Azure Site Recovery (ASR) disponibili con Azure Power
 
 Questo articolo descrive,con l'aiuto di un esempio, come usare Windows PowerShell® con ARM per distribuire Azure Site Recovery per configurare e orchestrare la protezione dei server in Azure. L'esempio usato in questo articolo illustra come proteggere, eseguire il failover e ripristinare in Azure le macchine virtuali di un host Hyper-V usando Azure PowerShell con ARM.
 
-> [AZURE.NOTE]I cmdlet di PowerShell per Azure Site Recovery attualmente consentono di configurare gli scenari da sito VMM a sito VMM, da sito VMM ad Azure e da sito Hyper-V ad Azure. Il supporto per gli altri scenari ASR verrà aggiunto a breve.
+> [AZURE.NOTE] I cmdlet di PowerShell per Azure Site Recovery attualmente consentono di configurare gli scenari da sito VMM a sito VMM, da sito VMM ad Azure e da sito Hyper-V ad Azure. Il supporto per gli altri scenari ASR verrà aggiunto a breve.
 
 Non è necessario essere un esperto di PowerShell per utilizzare questo articolo, ma si presume che si conoscano i concetti di base, come moduli, cmdlet e sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) e [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
@@ -43,8 +43,8 @@ Non è necessario essere un esperto di PowerShell per utilizzare questo articolo
 
 Assicurarsi che siano rispettati i prerequisiti seguenti:
 
-- È necessario un account [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/). Inoltre, è possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](http://azure.microsoft.com/pricing/details/site-recovery/).
-- Sarà necessario Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Azure PowerShell 1.0](http://azure.microsoft.com/).
+- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/). Inoltre, è possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Sarà necessario Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/).
 - I moduli [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) e [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) dovranno essere installati. È possibile ottenere le ultime versioni di questi moduli da [PowerShell Gallery](https://www.powershellgallery.com/)
 
 Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell con ARM per configurare e gestire la protezione dei server. L'esempio usato in questo articolo illustra come proteggere in Azure una macchina virtuale eseguita su un host Hyper-V. I prerequisiti che seguono sono specifici di questo esempio. Per un set più completo di requisiti per i diversi scenari ASR, vedere la documentazione relativa a uno scenario specifico.
@@ -87,7 +87,7 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
 		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
 
-	>[AZURE.TIP]L'abilitazione dell'accesso al provider di Servizi di ripristino nella sottoscrizione potrebbe richiedere fino a un'ora dopo il completamento del comando precedente. I tentativi eseguiti nel frattempo di registrare il provider di Servizi di ripristino nella sottoscrizione con il comando `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` potrebbero non riuscire. In questo caso, attendere un'ora e riprovare.
+	>[AZURE.TIP] L'abilitazione dell'accesso al provider di Servizi di ripristino nella sottoscrizione potrebbe richiedere fino a un'ora dopo il completamento del comando precedente. I tentativi eseguiti nel frattempo di registrare il provider di Servizi di ripristino nella sottoscrizione con il comando `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` potrebbero non riuscire. In questo caso, attendere un'ora e riprovare.
 
 	Una volta abilitato l'accesso al provider di Servizi di ripristino nella sottoscrizione, registrare il provider nella sottoscrizione eseguendo questo comando.
 
@@ -113,7 +113,7 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
 	Per recuperare un elenco di insiemi di credenziali esistenti, usare il cmdlet `Get-AzureRmRecoveryServicesVault`.
 
-> [AZURE.NOTE]Per eseguire operazioni sugli insiemi di credenziali ASR creati usando il portale classico o il modulo di PowerShell di gestione dei servizi di Azure, è possibile recuperare un elenco di tali insiemi di credenziali usando il cmdlet `Get-AzureRmSiteRecoveryVault`. Per tutte le nuove operazioni, è consigliabile creare un nuovo insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Site Recovery creati prima continueranno a essere supportati, ma non avranno le ultime funzionalità.
+> [AZURE.NOTE] Per eseguire operazioni sugli insiemi di credenziali ASR creati usando il portale classico o il modulo di PowerShell di gestione dei servizi di Azure, è possibile recuperare un elenco di tali insiemi di credenziali usando il cmdlet `Get-AzureRmSiteRecoveryVault`. Per tutte le nuove operazioni, è consigliabile creare un nuovo insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Site Recovery creati prima continueranno a essere supportati, ma non avranno le ultime funzionalità.
 
 ## Passaggio 3: generare una chiave di registrazione dell'insieme di credenziali
 
@@ -164,7 +164,7 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
 	Controllare il processo restituito per assicurarsi che la creazione del criterio di replica sia riuscita.
 
-	>[AZURE.IMPORTANT]L'account di archiviazione specificato deve essere nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino e avere la replica geografica abilitata.
+	>[AZURE.IMPORTANT] L'account di archiviazione specificato deve essere nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino e avere la replica geografica abilitata.
 	>
 	> - Se l'account di archiviazione di ripristino specificato è di tipo Archiviazione di Azure (classico), il failover dei computer protetti ripristinerà il computer in IaaS Azure (classico).
 	> - Se l'account di archiviazione di ripristino specificato è di tipo Archiviazione di Azure (ARM), il failover dei computer protetti ripristinerà il computer in IaaS Azure (ARM).
@@ -192,7 +192,7 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 		$Ostype = "Windows"                                 # "Windows" or "Linux"
 		$DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-	>[AZURE.IMPORTANT]L'account di archiviazione specificato deve essere nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino e avere la replica geografica abilitata.
+	>[AZURE.IMPORTANT] L'account di archiviazione specificato deve essere nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino e avere la replica geografica abilitata.
 	>
 	> - Se l'account di archiviazione di ripristino specificato è di tipo Archiviazione di Azure (classico), il failover dei computer protetti ripristinerà il computer in IaaS Azure (classico).
 	> - Se l'account di archiviazione di ripristino specificato è di tipo Archiviazione di Azure (ARM), il failover dei computer protetti ripristinerà il computer in IaaS Azure (ARM).
@@ -261,4 +261,4 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

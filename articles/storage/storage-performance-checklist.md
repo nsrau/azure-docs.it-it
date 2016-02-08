@@ -33,51 +33,51 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 
 |Operazione completata|	Area|	Categoria|	Domanda
 |----|------|-----------|-----------
-||Tutti i servizi| Obiettivi di scalabilità|[L'applicazione è progettata per evitare di raggiungere gli obiettivi di scalabilità?](#subheading1)
-||Tutti i servizi| Rete| [I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#subheading2)
-||Tutti i servizi| Rete| [I dispositivi sul lato client hanno un collegamento di qualità adeguata?](#subheading3)
-||Tutti i servizi| Rete| [L'applicazione client si trova "accanto" all'account di archiviazione?](#subheading4)
-||Tutti i servizi| Distribuzione di contenuti| [Viene usata una rete CDN per la distribuzione del contenuto?](#subheading5)
-||Tutti i servizi| Accesso client diretto| [Si stanno usando le firme di accesso condiviso (SAS) e la condivisione risorse tra le origini (CORS) al posto del proxy per consentire l'accesso diretto all'archiviazione?](#subheading6)
-||Tutti i servizi| Caching| [Is your application caching data that is repeatedly used and changes rarely?](#subheading7)
-||Tutti i servizi| Caching| [L'applicazione sta creando batch di aggiornamenti (memorizzandoli nella cache sul lato client e caricandoli in set più grandi)?](#subheading8)
-||Tutti i servizi| Configurazione .NET| [Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#subheading9)
-||Tutti i servizi| Configurazione .NET| [.NET è stato configurato per usare un numero sufficiente di thread?](#subheading10)
-||Tutti i servizi| Configurazione .NET| [Si sta usando .NET 4.5 o versione successiva, che dispone di una funzionalità migliorata di Garbage Collection?](#subheading11)
-||Tutti i servizi| Parallelismo| [È stata verificata la corretta associazione del parallelismo in modo da non sovraccaricare le capacità del client o gli obiettivi di scalabilità?](#subheading12)
-||Tutti i servizi| Strumenti| [Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#subheading13)
-||Tutti i servizi| Tentativi| [Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#subheading14)
-||Tutti i servizi| Tentativi| [L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#subheading15)
-||BLOB| Obiettivi di scalabilità| [L'applicazione sta restando all'interno della larghezza di banda o dell'obiettivo di scalabilità delle operazioni per un singolo BLOB?](#subheading16)
-||BLOB| Copia dei BLOB| [La copia dei BLOB sta avvenendo in modo efficiente?](#subheading17)
-||BLOB| Copia dei BLOB| [Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18)
-||BLOB| Copia dei BLOB| [Si sta usando Importazione/Esportazione di Azure per trasferire volumi di dati molto grandi?](#subheading19)
-||BLOB| Usare i metadati| [Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20)
-||BLOB| Caricamento rapido| [Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21)
-||BLOB| Caricamento rapido| [Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22)
-||BLOB| Tipo di BLOB corretto| [Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#subheading23)
-||Tabelle| Obiettivi di scalabilità| [Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#subheading24)
-||Tabelle| Configurazione| [Si sta usando JSON per le richieste della tabella?](#subheading25)
-||Tabelle| Configurazione| [Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading26)
-||Tabelle| Tabelle e partizioni| [I dati sono stati partizionati correttamente?](#subheading27)
-||Tabelle| Partizioni critiche| [Si stanno evitando i modelli Solo accodamenti e Solo anteposizioni?](#subheading28)
-||Tabelle| Partizioni critiche| [Gli inserimenti/aggiornamenti sono distribuiti in più partizioni?](#subheading29)
-||Tabelle| Ambito delle query| [Lo schema è stato progettato per consentire l'uso delle query di tipo punto nella maggior parte dei casi e delle query sulle tabelle solo in casi limitati?](#subheading30)
-||Tabelle| Densità delle query| [Le query in genere analizzano e restituiscono solo le righe usate dall'applicazione?](#subheading31)
-||Tabelle| Limitazione dei dati restituiti| [Vengono usati dei filtri per evitare che vengano restituite entità non necessarie?](#subheading32)
-||Tabelle| Limitazione dei dati restituiti| [Viene usata la proiezione per evitare che vengano restituite proprietà non necessarie?](#subheading33)
-||Tabelle| Denormalizzazione| [I dati sono stati denormalizzati in modo da evitare query non efficaci o più richieste di lettura quando si tenta di ottenere i dati?](#subheading34)
-||Tabelle| Inserimento/aggiornamento/eliminazione| [Si stanno creando dei batch per le richieste che devono essere transazionali o che possono essere eseguite simultaneamente per ridurre i round-trip?](#subheading35)
-||Tabelle| Inserimento/aggiornamento/eliminazione| [Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36)
-||Tabelle| Inserimento/aggiornamento/eliminazione| [È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37)
-||Tabelle| Inserimento/aggiornamento/eliminazione| [Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38)
-||Code| Obiettivi di scalabilità| [Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39)
-||Code| Configurazione| [Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40)
-||Code| Dimensioni del messaggio| [I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41)
-||Code| Recupero bulk| [Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading41)
-||Code| Frequenza di polling| [Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading42)
-||Code| Aggiornamento del messaggio| [Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading43)
-||Code| Architettura| [Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading44)
+|Tutti i servizi|	Obiettivi di scalabilità|[L'applicazione è progettata per evitare di raggiungere gli obiettivi di scalabilità?](#subheading1)
+|Tutti i servizi|	Rete|	[I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#subheading2)
+|Tutti i servizi|	Rete|	[I dispositivi sul lato client hanno un collegamento di qualità adeguata?](#subheading3)
+|Tutti i servizi|	Rete|	[L'applicazione client è "accanto" all'account di archiviazione?](#subheading4)
+|Tutti i servizi|	Distribuzione del contenuto|	[Viene usata una rete CDN per la distribuzione del contenuto?](#subheading5)
+|Tutti i servizi|	Accesso client diretto|	[Si stanno usando le firme di accesso condiviso (SAS) e la condivisione risorse tra le origini (CORS) al posto del proxy per consentire l'accesso diretto all'archiviazione?](#subheading6)
+|Tutti i servizi|	Memorizzazione nella cache|	[L'applicazione sta memorizzando nella cache i dati usati di frequente e modificati raramente?](#subheading7)
+|Tutti i servizi|	Memorizzazione nella cache|	[L'applicazione sta creando batch di aggiornamenti (memorizzandoli nella cache sul lato client e caricandoli in set più grandi)?](#subheading8)
+|Tutti i servizi|	Configurazione .NET|	[Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#subheading9)
+|Tutti i servizi|	Configurazione .NET|	[.NET è stato configurato per usare un numero sufficiente di thread?](#subheading10)
+|Tutti i servizi|	Configurazione .NET|	[Si sta usando .NET 4.5 o versione successiva, che dispone di una funzionalità migliorata di Garbage Collection?](#subheading11)
+|Tutti i servizi|	Parallelismo|	[È stata verificata la corretta associazione del parallelismo in modo da non sovraccaricare le capacità del client o gli obiettivi di scalabilità?](#subheading12)
+|Tutti i servizi|	Strumenti|	[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#subheading13)
+|Tutti i servizi|	Tentativi|	[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#subheading14)
+|Tutti i servizi|	Tentativi|	[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#subheading15)
+|BLOB|	Obiettivi di scalabilità|	[L'applicazione sta restando all'interno della larghezza di banda o dell'obiettivo di scalabilità delle operazioni per un singolo BLOB?](#subheading16)
+|BLOB|	Copia dei BLOB|	[La copia dei BLOB sta avvenendo in modo efficace?](#subheading17)
+|BLOB|	Copia dei BLOB|	[Si sta usando AzCopy per le copie bulk dei BLOB?](#subheading18)
+|BLOB|	Copia dei BLOB|	[Si sta usando Importazione/Esportazione di Azure per trasferire volumi di dati molto grandi?](#subheading19)
+|BLOB|	Usare i metadati|	[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#subheading20)
+|BLOB|	Caricamento rapido|	[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#subheading21)
+|BLOB|	Caricamento rapido|	[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#subheading22)
+|BLOB|	Tipo di BLOB corretto|	[Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#subheading23)
+|Tables|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per le entità al secondo?](#subheading24)
+|Tables|	Configurazione|	[Si sta usando JSON per le richieste della tabella?](#subheading25)
+|Tables|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading26)
+|Tables|	Tabelle e partizioni|	[I dati sono stati partizionati correttamente?](#subheading27)
+|Tables|	Partizioni critiche|	[Si stanno evitando i modelli Solo accodamenti e Solo anteposizioni?](#subheading28)
+|Tables|	Partizioni critiche|	[Gli inserimenti/aggiornamenti sono distribuiti in più partizioni?](#subheading29)  
+|Tables|	Ambito delle query|	[Lo schema è stato progettato per consentire l'uso delle query di tipo punto nella maggior parte dei casi e delle query sulle tabelle solo in casi limitati?](#subheading30)
+|Tables|	Densità delle query|	[Le query in genere analizzano e restituiscono solo le righe usate dall'applicazione?](#subheading31)
+|Tables|	Limitazione dei dati restituiti|	[Vengono usati dei filtri per evitare che vengano restituite entità non necessarie?](#subheading32)
+|Tables|	Limitazione dei dati restituiti|	[Viene usata la proiezione per evitare che vengano restituite proprietà non necessarie?](#subheading33)
+|Tables|	Denormalizzazione|	[I dati sono stati denormalizzati in modo da evitare query non efficaci o più richieste di lettura quando si tenta di ottenere i dati?](#subheading34)
+|Tables|	Inserimento/aggiornamento/eliminazione|	[Si stanno creando dei batch per le richieste che devono essere transazionali o che possono essere eseguite simultaneamente per ridurre i round-trip?](#subheading35)
+|Tables|	Inserimento/aggiornamento/eliminazione|	[Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36)
+|Tables|	Inserimento/aggiornamento/eliminazione|	[È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37)
+|Tables|	Inserimento/aggiornamento/eliminazione|	[Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38)
+|Code|	Obiettivi di scalabilità|	[Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39)
+|Code|	Configurazione|	[Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40)
+|Code|	Dimensioni del messaggio|	[I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41)
+|Code|	Recupero bulk|	[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading41)
+|Code|	Frequenza di polling|	[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading42)
+|Code|	Aggiornamento del messaggio|	[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading43)
+|Code|	Architettura|	[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading44)
 
 
 ##<a name="allservices"></a>Tutti i servizi
@@ -102,7 +102,7 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 -	Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)). È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei metodi descritti), tuttavia questo comporta che l'applicazione non riprende a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
 
 ####Risorse utili
-I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità: - È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md). - Vedere [Replica di archiviazione di Azure](storage-redundancy.md) e il blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) per informazioni sulle opzioni di ridondanza di archiviazione. - Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Prezzi di Azure](http://azure.microsoft.com/pricing/overview/).
+I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità: - È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md). - Vedere [Replica di archiviazione di Azure](storage-redundancy.md) e il blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) per informazioni sulle opzioni di ridondanza di archiviazione. - Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/overview/).
 
 ###Rete
 Oltre alle chiamate API, anche i vincoli fisici della rete dell'applicazione hanno spesso effetti significativi sulle prestazioni. Di seguito vengono descritte alcune limitazioni che gli utenti possono incontrare.
@@ -125,7 +125,7 @@ Anche nel caso di applicazioni client non ospitate in Azure (ad esempio, app di 
 ###<a name="subheading5"></a>Distribuzione di contenuti
 A volte un'applicazione deve fornire lo stesso contenuto a più utenti (ad esempio, un video dimostrativo di un prodotto usato nella home page di un sito Web) che si trovano in un'unica area o in aree diverse. In questo scenario è opportuno usare una rete per la distribuzione di contenuti (CDN, Content Delivery Network), ad esempio la rete CDN di Azure, che usa l'archiviazione di Azure come origine dei dati. A differenza di un account di archiviazione di Azure, presente in un'unica area e che non può fornire contenuti con una bassa latenza in altre aree, la rete CDN di Azure usa diversi server in più data center in tutto il mondo. Inoltre, una rete CDN in genere supporta limiti in uscita molto più elevati rispetto a un singolo account di archiviazione.
 
-Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](http://azure.microsoft.com/services/cdn/).
+Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](https://azure.microsoft.com/services/cdn/).
 
 ###<a name="subheading6"></a>Uso delle firme di accesso condiviso (SAS) e della condivisione risorse tra le origini (CORS)
 Per autorizzare codice come JavaScript in un Web browser dell'utente o in un'app di un telefono cellulare per accedere ai dati nell'archiviazione di Azure, un approccio consiste nell'usare un'applicazione nel ruolo Web come proxy: il dispositivo dell'utente viene autenticato con il ruolo Web che a sua volta viene autenticato con il servizio di archiviazione. In questo modo si evita di esporre le chiavi dell'account di archiviazione in dispositivi non sicuri. Tuttavia, ciò causa un notevole sovraccarico del ruolo Web perché tutti i dati trasferiti tra il dispositivo dell'utente e il servizio di archiviazione devono passare attraverso il ruolo Web. È possibile evitare l'uso di un ruolo Web come proxy per il servizio di archiviazione usando le firme di accesso condiviso, talvolta insieme alle intestazioni di condivisione risorse tra le origini (CORS). Con le firme di accesso condiviso è possibile consentire al dispositivo dell'utente di indirizzare le richieste direttamente a un servizio di archiviazione attraverso un token con accesso limitato. Ad esempio, se un utente vuole caricare una foto nell'applicazione, il ruolo Web può generare e inviare al dispositivo dell'utente un token SAS che concede un'autorizzazione di scrittura in uno specifico BLOB o in un contenitore per i successivi 30 minuti (dopo i quali il token SAS scade).
@@ -365,7 +365,7 @@ Le prestazioni e la scalabilità della coda diminuiscono con l'aumentare delle d
 ###<a name=subheading43"></a>Intervallo di polling della coda
 La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, che può costituire una delle principali origini di transazioni per l'applicazione. L'intervallo di polling deve essere scelto con attenzione: se si esegue il polling con eccessiva frequenza, l'applicazione potrebbe avvicinarsi all'obiettivo di scalabilità per la coda. Tuttavia, al prezzo di 0,01 USD per 200.000 transazioni (al momento della stesura di questo documento), il costo del polling eseguito da un singolo processore una volta al secondo per un intero mese non supererebbe 15 centesimi. Il costo non è dunque un fattore determinante nella scelta dell'intervallo di polling.
 
-Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](http://azure.microsoft.com/pricing/details/storage/).
+Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
 È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Con l'operazione **UpdateMessage**, l'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.
@@ -382,4 +382,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

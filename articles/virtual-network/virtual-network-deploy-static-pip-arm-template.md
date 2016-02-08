@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Distribuire una VM con un IP pubblico statico tramite un modello
@@ -184,4 +184,4 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

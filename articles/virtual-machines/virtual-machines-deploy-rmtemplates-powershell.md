@@ -193,7 +193,7 @@ Nel comando seguente sostituire *resource group name* con il nome del gruppo di 
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
+> [AZURE.NOTE] È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
 
 Se non si usa il parametro -Force, verrà richiesta una conferma:
 
@@ -216,4 +216,4 @@ Il video seguente illustra l'esecuzione di questa attività:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

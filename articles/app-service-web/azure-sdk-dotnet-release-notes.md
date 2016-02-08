@@ -65,9 +65,9 @@ Questo argomento contiene collegamenti alle note sulla versione di Azure SDK per
 
 ##Argomenti correlati
 
-[Azure SDK per .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[Azure SDK per .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [Note sulla versione di Azure SDK su MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

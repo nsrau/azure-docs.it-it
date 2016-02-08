@@ -27,7 +27,7 @@ Per istruzioni dettagliate su come registrare un account venditore con Microsoft
 - Verificare che le parti interessate al processo di pubblicazione di Azure ricevano i messaggi di posta elettronica inviati a questo indirizzo. È necessario monitorare l'indirizzo e rispondere al messaggio per completare il processo di pubblicazione.
 - Evitare di associare l'account associato a una sola persona. Se tale persona lascia l'azienda, questo potrebbe influire sulla possibilità di accedere alle informazioni e di pubblicare le SKU.
 
-> [AZURE.IMPORTANT]Non è necessario inserire le informazioni fiscali e bancarie dell'azienda se si intende pubblicare solo offerte gratuite (o Bring Your Own License).
+> [AZURE.IMPORTANT] Non è necessario inserire le informazioni fiscali e bancarie dell'azienda se si intende pubblicare solo offerte gratuite (o Bring Your Own License).
 
 > Per iniziare, è necessario completare la registrazione dell'azienda. Tuttavia, mentre la società si occupa delle informazioni fiscali e bancarie nell'account del Centro per sviluppatori, gli sviluppatori possono iniziare a lavorare alla creazione dell'immagine di macchina virtuale nel [portale di pubblicazione](https://publish.windowsazure.com), ottenere la certificazione ed eseguire il testing nell'ambiente di gestione temporanea di Azure. L'approvazione completa dell'account venditore è necessaria solo per il passaggio finale di pubblicazione dell'offerta in Azure Marketplace.
 
@@ -35,10 +35,11 @@ Per istruzioni dettagliate su come registrare un account venditore con Microsoft
 
 
 ## Acquisire una sottoscrizione di Azure con pagamento in base al consumo
-Si tratta della sottoscrizione che si userà per creare le immagini di VM e distribuire le immagini in [Azure Marketplace](http://azure.microsoft.com/marketplace). Se non si dispone di una sottoscrizione esistente, iscriversi a https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Si tratta della sottoscrizione che si userà per creare le immagini di VM e distribuire le immagini in [Azure Marketplace](https://azure.microsoft.com/marketplace/). Se non si dispone di una sottoscrizione esistente, iscriversi a https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## Paesi di origine della vendita
-> [AZURE.WARNING]Per vendere i propri servizi in Microsoft Azure Marketplace, è necessario assicurarsi che l'entità registrata si trovi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per l'elenco completo, vedere la sezione 1b delle [politiche di partecipazione ad Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]
+Per vendere i propri servizi in Microsoft Azure Marketplace, è necessario assicurarsi che l'entità registrata si trovi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per l'elenco completo, vedere la sezione 1b delle [politiche di partecipazione ad Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Passaggi successivi
 Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare clic sul collegamento all'articolo per il tipo di offerta corrispondente che si desidera creare per Azure Marketplace.
@@ -50,4 +51,4 @@ Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

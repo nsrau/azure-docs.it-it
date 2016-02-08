@@ -40,9 +40,9 @@ Il diagramma seguente illustra le due reti virtuali create nell'articolo su come
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
@@ -54,7 +54,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Due reti virtuali di Azure con connettività VPN**. Per istruzioni, vedere [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-vnet].
 
->[AZURE.NOTE]I nomi dei servizi Azure e i nomi delle macchine virtuali devono essere univoci. Il nome usato in questa esercitazione è Contoso-[servizio di Azure/nome macchina virtuale]-[EU/US]. Ad esempio, Contoso-VNet-EU è la rete virtuale di Azure nel data center in Europa settentrionale; Contoso-DNS-US è la macchina virtuale del server DNS nel data center degli Stati Uniti orientali. È necessario indicare dei nomi a scelta.
+>[AZURE.NOTE] I nomi dei servizi Azure e i nomi delle macchine virtuali devono essere univoci. Il nome usato in questa esercitazione è Contoso-[servizio di Azure/nome macchina virtuale]-[EU/US]. Ad esempio, Contoso-VNet-EU è la rete virtuale di Azure nel data center in Europa settentrionale; Contoso-DNS-US è la macchina virtuale del server DNS nel data center degli Stati Uniti orientali. È necessario indicare dei nomi a scelta.
  
  
 ##Creare macchine virtuali di Azure da usare come server DNS
@@ -220,4 +220,4 @@ In questa esercitazione si è appreso come configurare la risoluzione dei nomi t
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

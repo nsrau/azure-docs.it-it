@@ -25,7 +25,7 @@
 Informazioni introduttive È consigliabile provare alcune delle interessanti opzioni che Microsoft ha rilasciato con Azure Active Directory. Usare queste funzionalità per aggiungere valore alla gestione delle identità e degli accessi dell'organizzazione. Leggere la documentazione per ottenere informazioni su come configurare queste funzionalità. Vedere quindi come avviare il test di queste funzionalità eseguendo il primo passaggio e assegnando le licenze di valutazione ad amministratori e utenti.
 
 
-> [AZURE.NOTE]Azure AD è disponibile gratuitamente per chiunque. Per avere una directory, basta iscriversi a una sottoscrizione di valutazione di Azure. La directory gratuita resta di proprietà dell'utente, che si effettuino acquisti o meno. [Provare Azure AD adesso](http://azure.microsoft.com/trial/get-started-active-directory/)
+> [AZURE.NOTE] Azure AD è disponibile gratuitamente per chiunque. Per avere una directory, basta iscriversi a una sottoscrizione di valutazione di Azure. La directory gratuita resta di proprietà dell'utente, che si effettuino acquisti o meno. [Provare Azure AD adesso](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Proteggere l'accesso dell'organizzazione
 Proteggere i dati di identità dell'organizzazione nel cloud usando Multi-Factor Authentication per garantire l'accesso locale e remoto protetto. [Altre informazioni su Multi-Factor Authentication](../multi-factor-authentication.md)
@@ -44,4 +44,4 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

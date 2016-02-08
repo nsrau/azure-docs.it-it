@@ -32,6 +32,6 @@ Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agl
 * [Strumenti di Visual Studio](app-insights-release-notes-vsix.md)
 * [Altre piattaforme](https://github.com/Microsoft/ApplicationInsights-Home)
 
-Leggere anche [Aggiornamenti dei servizi](http://azure.microsoft.com/updates/?service=application-insights) in cui vengono riepilogati i principali miglioramenti apportati all'intero servizio Application Insights.
+Leggere anche [Aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=application-insights) in cui vengono riepilogati i principali miglioramenti apportati all'intero servizio Application Insights.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

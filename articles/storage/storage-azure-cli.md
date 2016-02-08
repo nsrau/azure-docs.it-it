@@ -19,19 +19,19 @@
 
 ## Panoramica
 
-L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](portal.azure.com), nonché funzionalità di accesso ai dati complessi.
+L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com), nonché funzionalità di accesso ai dati complessi.
 
 In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-install.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
-> [AZURE.NOTE]La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Microsoft Azure gestione delle risorse](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
+> [AZURE.NOTE] La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Microsoft Azure gestione delle risorse](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
 
 ## Iniziare a utilizzare archiviazione di Azure e Azure CLI in 5 minuti
 
 In questa guida utilizza Ubuntu per gli esempi, ma altre piattaforme del sistema operativo devono eseguire in modo analogo.
 
-**Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
+**Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
 
 Per altre informazioni sugli account [Azure, vedere Gestire account, sottoscrizioni e ruoli amministrativi](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -129,7 +129,7 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](storage-manage-access-to-resources.md).
 
 ### Caricare un BLOB in un contenitore
 
@@ -215,10 +215,10 @@ Copiare un BLOB in una directory del file:
 
 Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
-- [Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Riferimento all'API REST di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

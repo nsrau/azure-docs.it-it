@@ -25,13 +25,13 @@ Quando si distribuisce il pacchetto di un'applicazione di servizi cloud in Azure
 * Nel portale di Azure: fare clic sulla distribuzione del servizio cloud, selezionare **Tutte le impostazioni** e quindi **Proprietà**.
 * Nel portale di Azure classico: fare clic sulla distribuzione del servizio cloud e selezionare **DASHBOARD** che si trova nell'angolo inferiore destro della pagina (in **Riepilogo rapido**). Tenere presente che il testo "Proprietà" è mancante in questo riquadro.
 
-> [AZURE.NOTE]È possibile copiare il contenuto del riquadro Proprietà negli Appunti facendo clic sull'icona nell'angolo superiore destro del riquadro.
+> [AZURE.NOTE] È possibile copiare il contenuto del riquadro Proprietà negli Appunti facendo clic sull'icona nell'angolo superiore destro del riquadro.
 
 ## Contattare l'assistenza clienti di Azure
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/).
 
-In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto per Azure, vedere le [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto per Azure, vedere le [Domande frequenti sul supporto tecnico di Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla risoluzione di questo problema, vedere il post di b
    * Se l'istanza del ruolo è occupata, controllare il codice dell'applicazione per vedere se l'evento [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) è gestito. Potrebbe essere necessario aggiungere o correggere il codice mediante il quale viene gestito l'evento.
    * Esaminare i dati diagnostici e gli scenari per la risoluzione di problemi nel post di blog relativo ai [dati di diagnostica del calcolo Azure PaaS].
 
->[AZURE.WARNING]Se si riavvia il servizio cloud, si reimpostano le proprietà per la distribuzione, cancellando effettivamente le informazioni per il problema originale.
+>[AZURE.WARNING] Se si riavvia il servizio cloud, si reimpostano le proprietà per la distribuzione, cancellando effettivamente le informazioni per il problema originale.
 
 ## Passaggi successivi
 
@@ -88,4 +88,4 @@ Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&servic
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

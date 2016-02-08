@@ -22,6 +22,11 @@ Se nell'applicazione è già stata integrata una versione precedente dell'SDK, �
 
 Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Se ad esempio si esegue la migrazione dalla versione 0.10.1 alla 0.11.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 0.9.0 alla 0.10.1" e quindi la procedura per la migrazione "dalla 0.10.1 alla 0.11.0".
 
+##Dalla versione 3.2.0 alla 3.3.0
+
+### Risorse
+Questo passaggio riguarda solo le risorse personalizzate. Se sono state personalizzate le risorse fornite dall'SDK (html, immagini, sovrimpressioni) è necessario eseguirne il backup prima dell'aggiornamento e riapplicare la personalizzazione alle risorse aggiornate.
+
 ##Dalla versione 3.1.0 alla 3.2.0
 
 ### Risorse
@@ -151,7 +156,7 @@ Questo passaggio riguarda solo le risorse personalizzate. Se sono state personal
 
 La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement.
 
-> [Azure.IMPORTANT]Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement
+> [Azure.IMPORTANT] Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement
 
 Se si esegue la migrazione da una versione precedente, consultare il sito web Capptain per eseguire prima la migrazione a 1.1.1, quindi applicare la procedura seguente
 
@@ -227,7 +232,7 @@ Al termine di queste operazioni, è necessario sostituire i riferimenti di Cappt
 		</engagement:EngagementPage>
 
 4. Modifiche alle pagine di sovrimpressione
-	> [AZURE.IMPORTANT]Anche la sovrimpressione cambia. Il nuovo spazio dei nomi è `Microsoft.Azure.Engagement.Overlay`. Deve essere usato sia nei file xaml sia nei file cs. Inoltre, `CapptainGrid` deve essere denominato `EngagementGrid` e `capptain_notification_content` e `capptain_announcement_content` sono denominati `engagement_notification_content` e `engagement_announcement_content`.
+	> [AZURE.IMPORTANT] Anche la sovrimpressione cambia. Il nuovo spazio dei nomi è `Microsoft.Azure.Engagement.Overlay`. Deve essere usato sia nei file xaml sia nei file cs. Inoltre, `CapptainGrid` deve essere denominato `EngagementGrid` e `capptain_notification_content` e `capptain_announcement_content` sono denominati `engagement_notification_content` e `engagement_announcement_content`.
 	
 	Per la sovrimpressione:
 	
@@ -289,4 +294,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

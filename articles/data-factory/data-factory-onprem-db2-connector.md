@@ -31,6 +31,9 @@ Perché Gateway di gestione dati si connetta al database DB2, è necessario inst
 
 Vi sono problemi noti segnalati da IBM riguardo all'installazione di IBM DB2 Data Server Driver su Windows 8, per cui sono necessari ulteriori passaggi di installazione. Per altre informazioni su IBM DB2 Data Server Driver in Windows 8, vedere [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
+
 ## Esempio: Copiare i dati da DB2 a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -215,7 +218,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- | 
-| type | La proprietà type deve essere impostata su: **OnPremisesDB2** | Sì |
+| type | La proprietà del tipo deve essere impostata su: **OnPremisesDB2** | Sì |
 | server | Nome del server DB2. | Sì |
 | database | Nome del database DB2. | Sì |
 | schema | Nome dello schema nel database. | No |
@@ -309,4 +312,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

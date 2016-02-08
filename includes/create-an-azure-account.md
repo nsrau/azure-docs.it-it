@@ -3,9 +3,9 @@ Per distribuire applicazioni in Azure, è necessario disporre di un account. Que
 ## Creare un account Azure
 
 1.  Aprire un Web browser e passare a <http://azure.microsoft.com>.
-2.  Se si dispone di una sottoscrizione MSDN, passare alla pagina [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) e seguire le istruzioni visualizzate per creare un account attivando i benefici per gli abbonati MSDN.
+2.  Se si dispone di una sottoscrizione MSDN, passare alla pagina [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) e seguire le istruzioni visualizzate per creare un account attivando i benefici per gli abbonati MSDN.
 
-   In caso contrario, passare alla pagina relativa alla [creazione di un account di valutazione gratuito](http://azure.microsoft.com/pricing/free-trial/) e seguire le istruzioni visualizzate per creare un account di prova. Sarà necessario specificare un numero di carta di credito e un numero di telefono cellulare per dimostrare la propria identità, ma non verranno addebitati costi.
+   In caso contrario, passare alla pagina relativa alla [creazione di un account di valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/) e seguire le istruzioni visualizzate per creare un account di prova. Sarà necessario specificare un numero di carta di credito e un numero di telefono cellulare per dimostrare la propria identità, ma non verranno addebitati costi.
 
 ## Abilitare le funzionalità di anteprima di Azure
 
@@ -18,4 +18,4 @@ Per distribuire applicazioni in Azure, è necessario disporre di un account. Que
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

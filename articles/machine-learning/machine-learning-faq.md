@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
@@ -47,7 +47,7 @@ Vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learnin
 
 **Come funziona la fatturazione di Machine Learning?**
 
-Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi](http://azure.microsoft.com/pricing/details/machine-learning/).
+Per informazioni sulla fatturazione e i prezzi, vedere [Machine Learning Prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Machine Learning offre una versione di valutazione gratuita?**
 
@@ -95,6 +95,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. 
 <!--<SEE CLOUD DS PROCESS>-->
+
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -162,7 +163,7 @@ Attualmente, i nuovi moduli personalizzati possono essere creati solo in R.
 
 **Quali pacchetti R sono disponibili in Machine Learning Studio?**
 
-Attualmente, Machine Learning Studio supporta più di 400 pacchetti R e l'elenco è in costante aumento. Vedere [Estendere l'esperimento con R](machine-learning-extend-your-experiment-with-r.md) per informazioni su come ottenere un elenco di pacchetti R supportati. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231).
+Attualmente, Machine Learning Studio supporta oltre 400 pacchetti CRAN R e l'elenco è in costante aumento. Vedere [Estendere l'esperimento con R](machine-learning-extend-your-experiment-with-r.md) per informazioni su come ottenere un elenco di pacchetti R supportati. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **È possibile compilare un modulo R personalizzato?**
 
@@ -217,7 +218,9 @@ Una volta inserito in produzione un modello predittivo, è possibile monitorarlo
 
 Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
 
- ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ **È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ 
+ ****Dove è possibile trovare informazioni sui codici di errore? I codici di errore vengono descritti [qui](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
 ## Scalabilità
 
@@ -309,4 +312,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

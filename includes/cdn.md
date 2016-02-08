@@ -7,7 +7,7 @@ Questa attività include i passaggi seguenti:
 * [Passaggio 1: Creare un account di archiviazione](#Step1)
 * [Passaggio 2: Creare un nuovo endpoint della rete CDN per l'account di archiviazione](#Step2)
 * [Passaggio 3: Accedere al contenuto della rete CDN](#Step3)
-* [Passaggio 4: Rimuovere contenuto dalla rete CDN](#Step4)
+* [Passaggio 4: Rimuovere il contenuto dalla rete CDN](#Step4)
 
 L'uso della rete CDN per la memorizzazione dei dati di Azure nella cache offre molti vantaggi, inclusi i seguenti:
 
@@ -22,7 +22,7 @@ Usare la procedura seguente per creare un nuovo account di archiviazione per una
 
 Per creare un account di archiviazione, è necessario essere amministratori del servizio o coamministratori della sottoscrizione.
 
-> [AZURE.NOTE]Per informazioni sull'esecuzione di questa operazione tramite l'API di gestione servizi di Azure, vedere l'argomento di riferimento [Creare un account di archiviazione](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
+> [AZURE.NOTE] Per informazioni sull'esecuzione di questa operazione tramite l'API di gestione servizi di Azure, vedere l'argomento di riferimento [Creare un account di archiviazione](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx).
 
 **Per creare un account di archiviazione per una sottoscrizione di Azure**
 
@@ -43,9 +43,9 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 	Questo valore viene usato anche come nome dell'account di archiviazione nel portale o quando si accede a questo account a livello di codice.
 
-5.  Dall'elenco a discesa **Regione/gruppo di affinità** selezionare una regione o un gruppo di affinità per l'account di archiviazione. Selezionare un gruppo di affinità invece di una regione se si desidera che servizi di archiviazione si trovino nello stesso data center con gli altri servizi di Microsoft Azure in uso. Ciò può migliorare le prestazioni e non sono previste spese in uscita.
+5.  Dall'elenco a discesa **Regione/gruppo di affinità** selezionare un'area o un gruppo di affinità per l'account di archiviazione. Selezionare un gruppo di affinità anziché un'area se si desidera che i servizi di archiviazione siano nello stesso data center insieme agli altri servizi Windows Azure in uso. Ciò può migliorare le prestazioni e non sono previste spese in uscita.
 
-    **Nota:** per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Microsoft Azure. Per altre informazioni, vedere [Operazioni sui gruppi di affinità].
+    **Nota:** per creare un gruppo di affinità, aprire l'area **Impostazioni** del portale di gestione, fare clic su **Gruppi di affinità** e quindi fare clic su **Aggiungi un gruppo di affinità** o su **Aggiungi**. È anche possibile creare e gestire i gruppi di affinità tramite l'API di gestione dei servizi Windows Azure. Per altre informazioni, vedere [Operazioni sui gruppi di affinità].
 
 6. Dall'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione con cui verrà usato l'account di archiviazione.
 7.  Fare clic su **Crea account di archiviazione**. Il completamento del processo di creazione dell'account di archiviazione potrebbe richiedere diversi minuti.
@@ -70,7 +70,7 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 	Il dominio di origine indica l'ubicazione da cui i contenuti vengono memorizzati nella cache dalla rete CDN. Il dominio di origine può essere un account di archiviazione o un servizio cloud. In questo esempio viene usato un account di archiviazione. Il contenuto di archiviazione viene memorizzato nella cache dei server perimetrali in base all'impostazione di controllo della cache specificata dall'utente o dall'euristica predefinita della rete di memorizzazione nella cache.
 
 
-    > [AZURE.NOTE]la configurazione creata per l'endpoint non sarà disponibile immediatamente. Per la propagazione della registrazione nella rete CDN potrebbero essere necessari fino a 60 minuti. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 (Richiesta non valida) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
+    > [AZURE.NOTE] la configurazione creata per l'endpoint non sarà disponibile immediatamente. Per la propagazione della registrazione nella rete CDN potrebbero essere necessari fino a 60 minuti. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 400 (Richiesta non valida) fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
 
 <a id="Step3"> </a> <h2>Passaggio 3: Accedere al contenuto della rete CDN</h2>
 
@@ -83,13 +83,13 @@ http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblicoPersonale*>/<*Nom
 Se non si desidera più memorizzare un oggetto nella cache della rete per la distribuzione di contenuti (rete CDN) di Azure, è possibile eseguire una delle operazioni seguenti:
 
 -   Per un oggetto BLOB di Azure è possibile eliminare tale oggetto dal contenitore pubblico.
--   È possibile rendere privato il contenitore, invece di pubblico. Per ulteriori informazioni, vedere [Limitare l'accesso a contenitori e Blob](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs).
+-   È possibile rendere privato il contenitore, invece di pubblico. Per ulteriori informazioni, vedere [Limitare l'accesso a contenitori e Blob](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs).
 -   È possibile disabilitare o eliminare l'endpoint della rete CDN usando il portale di gestione.
 -   È possibile modificare il servizio ospitato, in modo che non risponda più a richieste per l'oggetto.
 
 Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino alla scadenza della durata prevista per l'oggetto. Al termine della durata prevista, la rete CDN verificherà se l'endpoint della rete CDN è ancora valido e se l'oggetto è ancora accessibile in modo anonimo. In caso contrario, l'oggetto non sarà più memorizzato nella cache.
 
-Nel portale di gestione di Azure non è attualmente supportata una funzionalità per ripulire immediatamente il contenuto. Se è necessario ripulire immediatamente il contenuto, contattare il [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/).
+Nel portale di gestione di Azure non è attualmente supportata una funzionalità per ripulire immediatamente il contenuto. Se è necessario ripulire immediatamente il contenuto, contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
 ## Risorse aggiuntive
 
@@ -111,4 +111,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@ Prima di iniziare l'esercitazione, accertarsi che i seguenti prerequisiti siano 
 
 ### Prerequisiti di Azure
 
-- È necessario un account [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
+- È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
 - Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/storage-introduction.md).
 - È necessaria una rete virtuale di Azure in modo che le macchine virtuali di Azure siano connesse a una rete quando si esegue il failover dal sito primario.
 
@@ -167,8 +167,8 @@ In alternativa è possibile installare il provider di Azure Site Recovery dalla 
 
 4. Eseguire questo comando per completare la registrazione:
 
-    	CD C:\Program Files\Microsoft Azure Site Recovery Provider
-    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
+    		C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 I parametri includono:
 
@@ -208,7 +208,7 @@ I gruppi di protezione dati sono raggruppamenti logici di macchine virtuali che 
 
 Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezione.
 
->[AZURE.NOTE]La protezione di macchine virtuali che eseguono Linux con un indirizzo IP statico non è supportata.
+>[AZURE.NOTE] La protezione di macchine virtuali che eseguono Linux con un indirizzo IP statico non è supportata.
 
 1. Nella scheda **Macchine** del gruppo di protezione, fare clic** su Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione.
 2. Nella pagina **Abilita protezione macchine virtuali** selezionare le macchine virtuali da proteggere.
@@ -292,4 +292,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

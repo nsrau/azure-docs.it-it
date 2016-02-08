@@ -77,7 +77,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo f
 
 	1. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-		>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
+		>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
 	1. In **Scegli un dispositivo di destinazione** per i volumi dei contenitori selezionati, selezionare un dispositivo di destinazione dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità disponibile vengono visualizzati nell'elenco a discesa.
 
@@ -103,7 +103,7 @@ Se si dispone di un solo dispositivo ed è necessario eseguire un failover, eseg
 
 1. Per il nuovo dispositivo, completare innanzitutto la configurazione minima del dispositivo.
 												
-	>[AZURE.IMPORTANT]**Se non viene prima completata la configurazione minima, il ripristino di emergenza avrà esito negativo a causa di un bug nell'implementazione corrente. Questo problema verrà risolto in una versione successiva.**
+	>[AZURE.IMPORTANT] **Se non viene prima completata la configurazione minima, il ripristino di emergenza avrà esito negativo a causa di un bug nell'implementazione corrente. Questo problema verrà risolto in una versione successiva.**
 
 1. Selezionare il dispositivo precedente (stato offline) e fare clic su **Failover**. Nella procedura guidata che viene visualizzata, eseguire il failover di questo dispositivo e specificare come dispositivo di destinazione il dispositivo appena registrato. Per istruzioni dettagliate, fare riferimento a [Failover su un altro dispositivo fisico](#fail-over-to-another-physical-device).
 
@@ -131,7 +131,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 													
 	a. Nell'elenco dei contenitori di volumi, selezionare i contenitori di volumi di cui si desidera eseguire il failover.
 
-	>[AZURE.NOTE]**Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
+	>[AZURE.NOTE] **Vengono visualizzati solo i contenitori di volumi con gli snapshot del cloud e i volumi offline associati.**
 
 	b. In **Scegli un dispositivo di destinazione per i volumi dei contenitori selezionati**, selezionare un dispositivo virtuale dall'elenco a discesa dei dispositivi disponibili. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 	
@@ -146,7 +146,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 ![Video disponibile](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Ripristino di emergenza di continuità aziendale (BCDR)
 
@@ -162,4 +162,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

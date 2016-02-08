@@ -62,12 +62,12 @@ Nel diagramma seguente sono illustrati i componenti di alto livello utilizzati n
 
 Guardando le caselle verdi del diagramma precedente, si noterà che la soluzione WhatToPedia è basata su questi servizi:
 
-- [Ricerca di Azure](http://azure.microsoft.com/services/search/)
-- [Siti Web di Azure con MVC 4](http://azure.microsoft.com/services/websites/)
+- [Ricerca di Azure](https://azure.microsoft.com/services/search/)
+- [Siti Web di Azure con MVC 4](https://azure.microsoft.com/services/websites/)
 - [Azure WebJobs per le attività pianificate](../websites-webjobs-resources.md)
-- [Database SQL di Azure](http://azure.microsoft.com/services/sql-database/)
-- [Archiviazione BLOB di Azure](http://azure.microsoft.com/services/storage/)
-- [Recapito della posta elettronica SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
+- [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/)
+- [Recapito della posta elettronica SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 Il fulcro della soluzione è rappresentato dai dati e dalla ricerca. Di seguito è illustrato il flusso di dati dal provider del rivenditore al cliente finale:
 
@@ -170,7 +170,7 @@ Tutti i processi Web sono stati sviluppati come applicazioni console che possono
 
 Il processo è pianificato per essere eseguito ogni 5 minuti come attività Web pianificata. Abbiamo calcolato che il servizio richiede circa 3 minuti per caricare 3.000 documenti, il che rientrava nei nostri requisiti.
 
-> [AZURE.NOTE]Una funzionalità di indicizzatore prototipo è stata introdotta di recente in Ricerca di Azure. Tale funzionalità è stata introdotta troppo tardi perché potessimo utilizzarla nella prima versione, ma sembra risolvere lo stesso problema per il quale è stato utilizzato il processo indicizzatore, ovvero per automatizzare le operazioni di caricamento dei dati.
+> [AZURE.NOTE] Una funzionalità di indicizzatore prototipo è stata introdotta di recente in Ricerca di Azure. Tale funzionalità è stata introdotta troppo tardi perché potessimo utilizzarla nella prima versione, ma sembra risolvere lo stesso problema per il quale è stato utilizzato il processo indicizzatore, ovvero per automatizzare le operazioni di caricamento dei dati.
 
 
 ###Strategia di backup
@@ -193,7 +193,7 @@ In precedenza, il nostro codice implementava paging, conteggi, e altri comportam
 
 La sfida più grande durante l'implementazione è stata che si trattava di una versione di anteprima ed era difficile trovare informazioni ed esperienze condivise. Dopo aver acquisito una visione d’insieme, abbiamo scoperto che utilizzare il servizio Ricerca di Azure era molto semplice grazie all’API REST e al formato di dati JSON. Potevamo chiamare il framework direttamente dalla maggior parte dei plugin open source, quali JQuery JSON.Net e potevamo utilizzare strumenti come Fiddler per la sperimentazione e il debug rapidi.
 
-> [AZURE.NOTE]Oltre a disporre dei dati preparati, è stato utile che i membri del team che compilavano il prototipo conoscessero già di funzionamento della tecnologia di ricerca, rendendoci più produttivi e maggiormente in grado di apprezzare le funzionalità integrate. Se è necessario partire da zero sulla costruzione della query di ricerca, sull’esplorazione in base a facet, sui filtri e così via, è necessario aspettarsi che la realizzazione del prototipo richieda tempi più lunghi.
+> [AZURE.NOTE] Oltre a disporre dei dati preparati, è stato utile che i membri del team che compilavano il prototipo conoscessero già di funzionamento della tecnologia di ricerca, rendendoci più produttivi e maggiormente in grado di apprezzare le funzionalità integrate. Se è necessario partire da zero sulla costruzione della query di ricerca, sull’esplorazione in base a facet, sui filtri e così via, è necessario aspettarsi che la realizzazione del prototipo richieda tempi più lunghi.
 
 ###Facet di controllo nella pagina di presentazione della ricerca
 
@@ -217,7 +217,7 @@ Ci auguriamo che questo case study risulti utile. Se si continua a utilizzare Ri
 
 - [Forum MSDN dedicato a Ricerca di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [Anche StackOverflow dispone di un tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Pagina della documentazione su Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Pagina della documentazione su Azure.com](https://azure.microsoft.com/documentation/services/search/)
 - [Documentazione relativa a Ricerca di Azure Search su MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
@@ -421,4 +421,4 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

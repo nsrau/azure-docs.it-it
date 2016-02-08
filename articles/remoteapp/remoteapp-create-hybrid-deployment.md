@@ -40,13 +40,13 @@ Questa esercitazione illustra la creazione di una raccolta ibrida. Sono previsti
 
 Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
-- [Accedere](http://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp. 
+- [Accedere](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp. 
 - Creare in Active Directory un account utente da usare come account del servizio RemoteApp di Azure. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 - Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
 - Installare il modulo [Azure PowerShell](../install-configure-powershell.md).
 - Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
 - Scegliere un'immagine modello. Un'immagine modello di RemoteApp di Azure contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp di Azure](remoteapp-imageoptions.md). 
-- Se si desidera usare l'immagine di Office 365 ProPlus, Consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
+- Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - [Configurare Active Directory per RemoteApp](remoteapp-ad.md).
 
 
@@ -149,4 +149,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stat
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

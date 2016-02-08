@@ -94,7 +94,7 @@ In [Edizioni di Azure Active Directory](../active-directory/active-directory-edi
 
 
 ## Passaggio 3: Iscriversi a PowerApps Enterprise con la sottoscrizione aziendale di Azure
-> [AZURE.NOTE]Per eseguire le operazioni seguenti è necessario che l'amministratore della sottoscrizione acceda al portale di Azure e invii una richiesta.
+> [AZURE.NOTE] Per eseguire le operazioni seguenti è necessario che l'amministratore della sottoscrizione acceda al portale di Azure e invii una richiesta.
 
 Dopo aver ottenuto il tenant di Active Directory e una sottoscrizione di Azure, gli amministratori delle sottoscrizioni aziendali possono iscriversi a PowerApps Enterprise. L'amministratore può inoltre aggiungere utenti della società affinché svolgano attività di 'amministrazione' di PowerApps, tra cui assegnazione di autorizzazioni agli utenti e gestione delle pubblicazioni di PowerApps nella sottoscrizione di Azure.
 
@@ -133,7 +133,7 @@ L'ambiente del servizio app di Azure regolare presenta numerose funzionalità. P
 - Accesso al portale di Azure come amministratore di PowerApps ("proprietario" di PowerApps) o amministratore della sottoscrizione.
 
 ### Creare un ambiente del servizio app
-> [AZURE.NOTE]Se non è presente l'opzione per creare l'ambiente del servizio app, l'ambiente è già stato creato per il tenant. Per visualizzare i dettagli, selezionare **Impostazioni** per aprire l'ambiente del servizio app.
+> [AZURE.NOTE] Se non è presente l'opzione per creare l'ambiente del servizio app, l'ambiente è già stato creato per il tenant. Per visualizzare i dettagli, selezionare **Impostazioni** per aprire l'ambiente del servizio app.
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
  
@@ -143,13 +143,13 @@ L'ambiente del servizio app di Azure regolare presenta numerose funzionalità. P
 
 4. Nel pannello di **PowerApps** selezionare **Crea un ambiente del servizio app per iniziare** o selezionare **Ambiente del servizio app** in *Impostazioni*: ![][5]
 
-	> [AZURE.NOTE]Se si seleziona **Crea un ambiente del servizio app per iniziare**, viene visualizzato un pannello aggiuntivo con informazioni dettagliate sull'ambiente del servizio app. Fare clic sul collegamento Crea nel pannello per avviare il pannello correlato.
+	> [AZURE.NOTE] Se si seleziona **Crea un ambiente del servizio app per iniziare**, viene visualizzato un pannello aggiuntivo con informazioni dettagliate sull'ambiente del servizio app. Fare clic sul collegamento Crea nel pannello per avviare il pannello correlato.
 
 5. Successivamente, immettere il nome, selezionare la sottoscrizione che si desidera usare, selezionare o creare un nuovo gruppo di risorse e selezionare una rete virtuale. **Si noti** che dopo aver scelto una rete virtuale, non è possibile modificarla: ![][6] Per altre informazioni sul funzionamento delle reti virtuali con un ambiente del servizio app, vedere [Come creare un ambiente del servizio app](../app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Selezionare **Aggiungi** per completare la creazione dell'ambiente del servizio app.
 
-> [AZURE.TIP]Quando si crea l'ambiente del servizio app usando PowerApps, non viene chiesto di configurare il pool delle risorse di calcolo. Questa operazione viene eseguita automaticamente.
+> [AZURE.TIP] Quando si crea l'ambiente del servizio app usando PowerApps, non viene chiesto di configurare il pool delle risorse di calcolo. Questa operazione viene eseguita automaticamente.
 
 Tenere presente che è possibile aggiungere anche app Web, app per dispositivi mobili e app per le API a questo ambiente del servizio app. È in effetti l'ambiente personale ad aggiungere dati a supporto dell'ambiente del servizio app.
 
@@ -159,9 +159,9 @@ Per ottenere l'accesso all'ambiente del servizio app e creare API, connessioni e
 
 1. Selezionare l'ambiente del servizio app appena creato.
 2. In Informazioni di base selezionare la proprietà **Resource group**. Viene visualizzato il gruppo di risorse che contiene l'ambiente del servizio app: ![][7]
-3. Selezionare l'icona RBAC per gestire le autorizzazioni: ![][8] L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) in Azure.
+3. Selezionare l'icona RBAC per gestire le autorizzazioni: ![][8] L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) in Azure.
 
-> [AZURE.NOTE]Attualmente, non è possibile assegnare autorizzazioni RBAC all'ambiente del servizio app. È possibile assegnare autorizzazioni RBAC a livello di gruppo di risorse padre.
+> [AZURE.NOTE] Attualmente, non è possibile assegnare autorizzazioni RBAC all'ambiente del servizio app. È possibile assegnare autorizzazioni RBAC a livello di gruppo di risorse padre.
 
 ## Riepilogo e passaggi successivi
 La società è ora iscritta a PowerApps e dispone di un ambiente del servizio app. Successivamente, è possibile aggiungere le API e le connessioni che possono essere usate dalle app.
@@ -181,4 +181,4 @@ La società è ora iscritta a PowerApps e dispone di un ambiente del servizio ap
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

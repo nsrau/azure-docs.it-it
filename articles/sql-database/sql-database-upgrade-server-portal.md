@@ -54,7 +54,7 @@ Dopo l'aggiornamento alla V12, [le indicazioni per i livelli di servizio](sql-da
 
 ## Avviare l'aggiornamento
 
-1. Nel [portale di Azure](http://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **ESPLORA TUTTO** > **Server SQL** e selezionando il server desiderato.
+1. Nel [portale di Azure](https://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **ESPLORA TUTTO** > **Server SQL** e selezionando il server desiderato.
 2. Selezionare **Ultimo aggiornamento del database SQL**, quindi selezionare **Upgrade this server**.
 
       ![aggiornamento del server][1]
@@ -111,7 +111,7 @@ Seguire le istruzioni presenti nell’articolo [Creare un pool di database elast
 
 ## Monitorare i database dopo l'aggiornamento alla V12 di Database SQL
 
->[AZURE.IMPORTANT]Eseguire l'aggiornamento alla versione più recente di SQL Server Management Studio (SSMS) per sfruttare le nuove funzionalità della versione 12. [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Eseguire l'aggiornamento alla versione più recente di SQL Server Management Studio (SSMS) per sfruttare le nuove funzionalità della versione 12. [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 	
 Dopo l’aggiornamento, si consiglia di monitorare il database in maniera attiva per assicurarsi che le applicazioni offrano le prestazioni desiderati e per ottimizzare l’utilizzo in base alle esigenze.
 
@@ -169,4 +169,4 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

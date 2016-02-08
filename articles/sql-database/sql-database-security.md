@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="tmullaney"
    manager="jeffreyg"
-   editor=""/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/21/2015"
+   ms.date="01/22/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -77,7 +77,7 @@ Esistono modi per limitare ulteriormente le operazioni possibili con il database
 * È possibile utilizzare il [Mascheramento dei dati](sql-database-dynamic-data-masking-get-started.md) per limitare l'esposizione dei dati sensibili
 * È possibile utilizzare le [Stored procedure](https://msdn.microsoft.com/library/ms190782) per limitare le operazioni che possono essere eseguite nel database.
 
-La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per ulteriori informazioni su questo argomento, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../role-based-access-control-configure.md).
+La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per ulteriori informazioni su questo argomento, vedere [Controllo di accesso basato sui ruoli nel portale di Azure](../role-based-access-control-configure.md).
 
 
 ## Crittografia
@@ -104,6 +104,6 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 
 ## Conformità
 
-Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
+Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

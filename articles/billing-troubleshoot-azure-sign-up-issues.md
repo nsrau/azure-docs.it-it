@@ -55,9 +55,9 @@ Suggerimenti: - Se non si dispone di una chiave di attivazione del servizio onli
 ## È già stata usata in passato una sottoscrizione di Azure e ora si sta tentando di attivare una versione di valutazione gratuita di Azure?
 Le condizioni per l'utilizzo di Azure prevedono un limite di una sola attivazione della versione di valutazione gratuita per ogni utente che non ha mai usato Azure in precedenza. Se quindi si è già usato un qualsiasi altro tipo di sottoscrizione di Azure, non sarà possibile attivare una versione di valutazione gratuita.
 
-Suggerimenti: - Se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione della versione di valutazione gratuita non riesce, prendere in considerazione l'acquisto di una sottoscrizione con pagamento in base al consumo. L'utente potrebbe inoltre aver diritto a un'offerta con vantaggi. Per altre informazioni, vedere la [pagina dettagli dell'offerta Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) anziché il piano della versione di valutazione gratuita di Azure. Si noti che i piani con vantaggi richiedono prerequisiti specifici.
+Suggerimenti: - Se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione della versione di valutazione gratuita non riesce, prendere in considerazione l'acquisto di una sottoscrizione con pagamento in base al consumo. L'utente potrebbe inoltre aver diritto a un'offerta con vantaggi. Per altre informazioni, vedere la [pagina dettagli dell'offerta Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) anziché il piano della versione di valutazione gratuita di Azure. Si noti che i piani con vantaggi richiedono prerequisiti specifici.
 
 ## I problemi di iscrizione non sono stati risolti?
 Se i problemi di iscrizione non sono stati risolti o se l'errore riscontrato non è descritto in questo articolo, [contattare il supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per richiedere assistenza.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

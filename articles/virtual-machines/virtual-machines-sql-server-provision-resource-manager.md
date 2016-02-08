@@ -45,11 +45,11 @@ In questa esercitazione si apprenderà come:
 
 - [Passaggi successivi](#Next)
 
-In questa esercitazione si presuppone che sia già disponibile un account Azure. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+In questa esercitazione si presuppone che sia già disponibile un account Azure. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a id="Provision">Effettuare il provisioning di un'immagine della VM di SQL dalla raccolta con il modello di distribuzione di Gestione risorse
 
-1. Accedere al [portale di Azure](http://portal.azure.com) con il proprio account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
 1. Nel portale di Azure fare clic su **+Nuovo**. Nel portale si aprirà il pannello **Nuovo**. I modelli di VM di SQL Server sono nel gruppo **Calcolo** del Marketplace.
 
 1. Nel pannello **Nuovo** fare clic su **Calcolo**.
@@ -87,7 +87,7 @@ Nel pannello **Crea macchina virtuale** configurare l'archiviazione di Azure, la
 
 - In **Archiviazione** specificare un tipo di disco. Archiviazione Premium è l'impostazione consigliata per i carichi di lavoro di produzione.
 
->[AZURE.NOTE]L'opzione Archiviazione Premium è abilitata per impostazione predefinita. Reimposta automaticamente la macchina virtuale alle dimensioni che supportano Archiviazione Premium. Se si disabilita Archiviazione Premium, verranno usate le dimensioni della macchina virtuale selezionate in precedenza.
+>[AZURE.NOTE] L'opzione Archiviazione Premium è abilitata per impostazione predefinita. Reimposta automaticamente la macchina virtuale alle dimensioni che supportano Archiviazione Premium. Se si disabilita Archiviazione Premium, verranno usate le dimensioni della macchina virtuale selezionate in precedenza.
 
 - In **Account di archiviazione** è possibile accettare il nome dell'account di archiviazione fornito automaticamente o fare clic su **Account di archiviazione** per scegliere un account esistente e configurare il tipo di account di archiviazione. Per impostazione predefinita, Azure crea un nuovo account di archiviazione con archiviazione con ridondanza locale.
 
@@ -129,7 +129,7 @@ Se si richiede l'autenticazione di SQL Server, fare clic su **Abilita** in **Aut
 
 Se si abilita l'autenticazione di SQL Server specificare un **Nome di accesso** e una **Password**. Questo nome utente sarà un account di accesso con autenticazione di SQL Server e membro del ruolo predefinito del server sysadmin. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](http://msdn.microsoft.com/library/ms144284.aspx). Per impostazione predefinita, SQL Server non abilita l'autenticazione di SQL Server. In questo scenario gli amministratori locali nella macchina virtuale possono connettersi all'istanza di SQL Server.
 
->[AZURE.NOTE]Se si prevede di accedere a SQL Server tramite internet, ovvero l'opzione di connettività Pubblico, è necessario abilitare l'autenticazione di SQL in questa area. L'accesso pubblico a SQL Server richiede l'uso dell'autenticazione di SQL.
+>[AZURE.NOTE] Se si prevede di accedere a SQL Server tramite internet, ovvero l'opzione di connettività Pubblico, è necessario abilitare l'autenticazione di SQL in questa area. L'accesso pubblico a SQL Server richiede l'uso dell'autenticazione di SQL.
 
 ### Ottimizzazione dell'archiviazione
 Fare clic su **Configurazione dell'archiviazione** per specificare i requisiti di archiviazione. È possibile specificare requisiti come operazioni di I/O al secondo, velocità effettiva in Mbps e dimensioni di archiviazione totali. Configurare questi elementi usando i dispositivi di scorrimento. Il portale calcola automaticamente il numero di dischi in base a questi requisiti.
@@ -142,7 +142,7 @@ Per impostazione predefinita, Azure ottimizza l'archiviazione per 5000 operazion
 
 L'immagine seguente mostra il pannello Configurazione dell'archiviazione. <br/>![Archiviazione di Gestione risorse di Azure per SQL](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE]I limiti per la configurazione dell'archiviazione dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
+>[AZURE.NOTE] I limiti per la configurazione dell'archiviazione dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
 
 ### Applicazione di patch
 **Applicazione automatica delle patch di SQL** è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. Specificare un giorno della settimana, un'ora e una durata per la finestra di manutenzione. Azure eseguirà l'applicazione di patch nella finestra di manutenzione. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Se non si vuole consentire ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo, fare clic su **Disabilita**.
@@ -197,7 +197,7 @@ Per connettersi al motore di database di SQL Server da Internet, sono necessari 
 
 Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Gestione risorse, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblico** per l'opzione di connettività SQL e si abilita l'autenticazione di SQL Server. Per accedere all'istanza di SQL Server da Internet, è tuttavia necessario completare alcuni passaggi rimanenti.
 
->[AZURE.NOTE]Se non si è selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Gestione risorse) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
+>[AZURE.NOTE] Se non si è selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Gestione risorse) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
 
 I passaggi seguenti non sono necessari se si deve solo accedere alla macchina virtuale in locale o dall'interno della stessa rete virtuale.
 
@@ -206,4 +206,4 @@ I passaggi seguenti non sono necessari se si deve solo accedere alla macchina vi
 ##<a id="Next">Passaggi successivi
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

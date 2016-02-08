@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -38,39 +38,35 @@ Seguendo questa esercitazione, verrà creata una semplice app Web di registrazio
 
 ![Sito Web PHP di Azure][running-app]
 
->[AZURE.NOTE]Per iniziare a utilizzare Servizio app di Azureprima di registrare un account di Azure, andare alla pagina di [prova di Servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare immediatamente un'app Web temporanea in Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a utilizzare Servizio app di Azureprima di registrare un account di Azure, andare alla pagina di [prova di Servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare immediatamente un'app Web temporanea in Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ##Creare un'app Web e configurare la pubblicazione FTP
 
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
-1. Eseguire l'accesso al [portale Azure][management-portal].
-2. Fare clic sull'icona **+ Nuovo** nella parte inferiore sinistra del portale di Azure.
+1. Eseguire l'accesso al [portale di Azure][management-portal].
+2. Fare clic sull'icona **+ Nuovo ** nella parte superiore sinistra del portale di Azure.
 
 	![Creazione di un nuovo sito Web di Azure][new-website]
 
-3. Fare clic su **Web + Mobile**, quindi su **App Web + MySQL**.
+3. Nella casella di ricerca digitare **App Web e MySQL** e fare clic su **App Web e MySQL**.
 
 	![Creazione personalizzata di un nuovo sito Web][custom-create]
 
-4. Immettere un nome valido per il gruppo di risorse.
+4. Fare clic su **Create**. Immettere un nome di servizio app univoco, un nome valido per il gruppo di risorse e un nuovo piano di servizio.
 
     ![Gruppo di risorse denominato ADF.][resource-group]
 
-5. Immettere i valori per la nuova app Web.
-
-     ![Crea app Web][new-web-app]
 
 6. Immettere i valori per il nuovo database e accettare termini e condizioni.
 
 	![Creazione di un nuovo database MySQL][new-mysql-db]
 	
-7. Una volta creata l'app Web, verrà visualizzato il nuovo gruppo di risorse. Fare clic sul nome dell'app Web per configurarne le impostazioni.
+7. Una volta creata l'app Web, verrà visualizzato il pannello del nuovo servizio app.
 
-	![Applicazione web Open][go-to-webapp]
 
-6. Scorrere fino a **Impostare le credenziali di distribuzione**.
+6. Fare clic su **Impostazioni** > **Credenziali per la distribuzione**.
 
 	![Reimpostare le credenziali di distribuzione][set-deployment-credentials]
 
@@ -118,7 +114,8 @@ Per creare ed eseguire l'app in locale, attenersi alla procedura seguente. Si no
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE]> Sarà necessario aggiornare i valori per <code>$user</code> e <code>$pwd</code> con il mome utente e la password di MySQL locali.
+	> [AZURE.NOTE] 
+	> Sarà necessario aggiornare i valori per <code>$user</code> e <code>$pwd</code> con il mome utente e la password di MySQL locali.
 
 4. Aprire un browser Web e andare a [http://localhost/registration/createtable.php][localhost-createtable]. Verrà creata la tabella `registration_tbl` nel database.
 
@@ -171,7 +168,8 @@ Per creare ed eseguire l'app in locale, attenersi alla procedura seguente. Si no
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]Anche in questo caso sarà necessario aggiornare i valori di <code>$user</code> e <code>$pwd</code> con il nome utente e la password MySQL locali.
+	> [AZURE.NOTE]
+	Anche in questo caso sarà necessario aggiornare i valori di <code>$user</code> e <code>$pwd</code> con il nome utente e la password MySQL locali.
 
 7. Dopo il codice di connessione al database, aggiungere il codice per l'inserimento delle informazioni di registrazione nel database.
 
@@ -222,11 +220,15 @@ A questo punto è possibile passare a [http://localhost/registration/index.php][
 
 Per connettersi al database MySQL in esecuzione in App Web, saranno necessarie le informazioni sulla connessione. Per recuperare le informazioni sulla connessione a MySQL, attenersi alla procedura seguente:
 
+1. Nel pannello dell'app Web del servizio app fare clic sul collegamento Gruppo di risorse:
+
+	![Selezionare Gruppo di risorse][select-resourcegroup]
+
 1. Dal gruppo di risorse, fare clic sul database:
 
 	![Selezionare il database][select-database]
 
-2. Dal riepilogo del database, selezionare **Proprietà**.
+2. Nel riepilogo del database selezionare **Impostazioni** > **Proprietà**.
 
     ![Selezionare le proprietà][select-properties]
 	
@@ -292,6 +294,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 
@@ -300,4 +303,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
@@ -25,7 +25,7 @@
 
 Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chiave di App per dispositivi mobili del servizio app di Azure. Azure Mobile Apps SDK aiuta a lavorare con i client mobili dall'applicazione ASP.NET.
 
->[AZURE.TIP]L'[SDK del server .NET per App per dispositivi mobili di Azure](https://github.com/Azure/azure-mobile-apps-net-server) è open source su GitHub. Il repository contiene l’intero gruppo di test dell’unità SDK del server, nonché alcuni progetti di esempio.
+>[AZURE.TIP] L'[SDK del server .NET per App per dispositivi mobili di Azure](https://github.com/Azure/azure-mobile-apps-net-server) è open source su GitHub. Il repository contiene l’intero gruppo di test dell’unità SDK del server, nonché alcuni progetti di esempio.
 
 ## Documentazione di riferimento
 
@@ -184,7 +184,7 @@ Per un esempio di un controller tabelle che usa Entity Framework per accedere ai
 
 ## Procedura: Definire un controller API personalizzato
 
-Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller di API specifico per dispositivi mobili utilizzando l'attributo `MobileAppControllerAttribute`. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
+Il controller API personalizzato fornisce le funzionalità di base per il back-end dell'app per dispositivi mobili esponendo un endpoint. È possibile registrare un controller API specifico per dispositivi mobili usando l'attributo [MobileAppController]. Questo attributo registra la route e configura anche il serializzatore JSON delle app per dispositivi mobili.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sulla cartella Controller e quindi scegliere **Aggiungi** > **Controller**, selezionare **Controller API Web 2&mdash;Vuoto** e fare clic su **Aggiungi**.
 
@@ -194,7 +194,7 @@ Il controller API personalizzato fornisce le funzionalità di base per il back-e
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Applicare **MobileAppControllerAttribute** alla definizione della classe controller API, come nell'esempio seguente:
+4. Applicare l'attributo **[MobileAppController]** alla definizione della classe controller API, come nell'esempio seguente:
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -242,7 +242,7 @@ Per informazioni su come autenticare i client nel back-end di App per dispositiv
 
 Sarà necessario fornire la propria logica per determinare se un utente deve essere registrato. È possibile, ad esempio, confrontare le password con salting e hashing in un database. Nell'esempio seguente il metodo `isValidAssertion()` è responsabile di questi controlli e viene definito altrove.
 
-L'autenticazione personalizzata viene esposta creando un nuovo ApiController ed esponendo le azioni di registrazione e accesso come quella seguente. Il client può tentare l'accesso raccogliendo le informazioni pertinenti dall'utente e inviando un POST HTTPS all'API con le informazioni utente nel corpo. Una volta che il server convalida l'asserzione, è possibile eseguire un token usando il metodo `AppServiceLoginHandler.CreateToken()`.
+L'autenticazione personalizzata viene esposta creando un nuovo ApiController ed esponendo le azioni di registrazione e accesso come quella seguente. Il client può tentare l'accesso raccogliendo le informazioni pertinenti dall'utente e inviando un POST HTTPS all'API con le informazioni utente nel corpo. Dopo la convalida dell'asserzione da parte del server, è possibile rilasciare un token con il metodo `AppServiceLoginHandler.CreateToken()`.
 
 Ecco un esempio di azione di accesso:
 
@@ -280,19 +280,19 @@ Il metodo `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` include un
 
 È anche necessario fornire una durata per il token rilasciato, oltre a eventuali attestazioni che si vuole includere. È necessario fornire un'attestazione dell'oggetto, come mostrato nel codice di esempio.
 
-È anche possibile semplificare il codice client per usare il metodo `loginAsync()` (la denominazione può variare da una piattaforma all'altra) anziché una richiesta HTTP POST manuale. Verrà usato l'overload che accetta un parametro token aggiuntivo e che è correlato all'oggetto di asserzione della richiesta POST. Il provider in questo caso deve essere un nome personalizzato a scelta. Nel server, l'azione di accesso deve essere nel percorso _/.auth/login/{customProviderName}_ che include il nome personalizzato. Per inserire il controller in questo percorso, aggiungere una route a HttpConfiguration prima di applicare MobileAppConfiguration.
+È anche possibile semplificare il codice client per usare il metodo `loginAsync()`, il cui nome può variare a seconda della piattaforma, anziché un HTTP POST manuale. Verrà usato l'overload che accetta un parametro token aggiuntivo e che è correlato all'oggetto di asserzione della richiesta POST. Il provider in questo caso deve essere un nome personalizzato a scelta. Nel server l'azione di accesso deve avvenire nel percorso _/.auth/login/{customProviderName}_ che include il nome personalizzato. Per inserire il controller in questo percorso, aggiungere una route a HttpConfiguration prima di applicare MobileAppConfiguration.
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
 		
 Sostituire la stringa "CustomAuth" riportata in precedenza con il nome del controller che ospita l'azione di accesso.
 
->[AZURE.TIP]Usare l'approccio loginAsync() assicura che il token di autenticazione sia collegato a ogni chiamata successiva al servizio.
+>[AZURE.TIP] Usare l'approccio loginAsync() assicura che il token di autenticazione sia collegato a ogni chiamata successiva al servizio.
 
 ###<a name="user-info"></a>Procedura: Recuperare le informazioni sull'utente autenticato
 
 Quando un utente viene autenticato dal servizio app, è possibile accedere all'ID utente assegnato e ad altre informazioni nel codice di back-end .NET. Questa opzione è utile per prendere decisioni relative alle autorizzazioni per un determinato utente nel back-end, ad esempio per decidere se un utente può accedere a una riga di tabella o a un'altra risorsa. Il codice seguente illustra come ottenere l'ID utente per un utente connesso:
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -446,4 +446,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->
