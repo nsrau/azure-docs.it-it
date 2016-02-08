@@ -302,7 +302,7 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 	![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
 13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archivio BLOB di Azure usato dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
 
-> [AZURE.NOTE]Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto Data factory, non è necessario eseguire gli ultimi due passaggi della creazione del file zip e caricarlo manualmente nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare dati da BLOB di Azure a SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di entità di Data factory con Visual Studio.
+> [AZURE.NOTE] Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto Data factory, non è necessario eseguire gli ultimi due passaggi della creazione del file zip e caricarlo manualmente nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare dati da BLOB di Azure a SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di entità di Data factory con Visual Studio.
 
 ### Metodo Execute
 
@@ -422,7 +422,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 #### Creare un servizio collegato Azure HDInsight 
 Il servizio Data factory di Azure supporta la creazione di un cluster su richiesta e lo usa per elaborare l'input per generare i dati di output. È anche possibile usare il proprio cluster per eseguire la stessa operazione. Quando si usa il cluster HDInsight su richiesta, viene creato un cluster per ogni sezione. Invece, se si usa il proprio cluster HDInsight, il cluster è pronto per elaborare immediatamente la sezione. Quindi, quando si usa un cluster su richiesta, i dati di output potrebbero non essere visualizzati tanto rapidamente quanto i dati nel proprio cluster.
 
-> [AZURE.NOTE]Al runtime, un'istanza di un'attività .NET viene eseguita solo in un nodo di lavoro nel cluster HDInsight, ma non può essere scalata al fine di essere eseguita in più nodi. È possibile eseguire più istanze di attività .NET contemporaneamente su diversi nodi del cluster HDInsight.
+> [AZURE.NOTE] Al runtime, un'istanza di un'attività .NET viene eseguita solo in un nodo di lavoro nel cluster HDInsight, ma non può essere scalata al fine di essere eseguita in più nodi. È possibile eseguire più istanze di attività .NET contemporaneamente su diversi nodi del cluster HDInsight.
 
 Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è stata estesa con la procedura dettagliata di [Usare Pig e Hive con Data factory di Azure][hivewalkthrough], è possibile ignorare la creazione di questo servizio collegato e usare il servizio collegato già disponibile in ADFTutorialDataFactory.
 
@@ -701,7 +701,7 @@ Per accedere alle proprietà estese seguenti nel metodo **Execute**, usare un co
 
 
 ## <a name="AzureBatch"></a> Usare il servizio collegato Azure Batch
-> [AZURE.NOTE]Per una panoramica del servizio Azure Batch, vedere [Nozioni di base su Azure Batch][batch-technical-overview]. Per iniziare subito a usare il servizio Azure Batch, vedere [Introduzione alla libreria di Azure Batch per .NET][batch-get-started].
+> [AZURE.NOTE] Per una panoramica del servizio Azure Batch, vedere [Nozioni di base su Azure Batch][batch-technical-overview]. Per iniziare subito a usare il servizio Azure Batch, vedere [Introduzione alla libreria di Azure Batch per .NET][batch-get-started].
 
 È possibile eseguire le attività .NET personalizzate utilizzando Azure Batch come risorsa di calcolo. È necessario creare il proprio pool di Batch di Azure e specificare il numero di macchine virtuali e altre configurazioni. I pool di Batch Azure fornisce ai clienti le funzionalità seguenti:
 
@@ -750,7 +750,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 		  }
 		}
 
-	> [AZURE.IMPORTANT]L'**URL** nel **pannello dell'account di Azure Batch** è nel formato seguente: nomeaccount.area.batch.azure.com. Per la proprietà **batchUri** nel codice JSON, sarà necessario **rimuovere "nomeaccount."** dall'URL e usare il **nome account** della proprietà JSON **accountName**.
+	> [AZURE.IMPORTANT] L'**URL** nel **pannello dell'account di Azure Batch** è nel formato seguente: nomeaccount.area.batch.azure.com. Per la proprietà **batchUri** nel codice JSON, sarà necessario **rimuovere "nomeaccount."** dall'URL e usare il **nome account** della proprietà JSON **accountName**.
 
 	Per la proprietà **poolName** è anche possibile specificare l'ID del pool anziché il nome del pool.
 
@@ -762,11 +762,11 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 
 	![Attività di Azure Batch][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE]Il servizio Data Factory non supporta un'opzione su richiesta per il Batch di Azure come accade per HDInsight. È possibile utilizzare solo il proprio pool di Batch di Azure in una data factory di Azure.
+> [AZURE.NOTE] Il servizio Data Factory non supporta un'opzione su richiesta per il Batch di Azure come accade per HDInsight. È possibile utilizzare solo il proprio pool di Batch di Azure in una data factory di Azure.
 
 ## Vedere anche
 
-[Aggiornamenti della Data factory di Azure: eseguire le attività .NET personalizzate per ADF usando Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Aggiornamenti della Data factory di Azure: eseguire le attività .NET personalizzate per ADF usando Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -803,4 +803,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

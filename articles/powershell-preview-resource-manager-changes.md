@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Modifiche dei cmdlet di PowerShell di gestione di Gestione risorse di Azure
@@ -91,4 +91,4 @@ Il cmdlet precedente filtrerà i risultati per visualizzare i percorsi supportat
 
 È stato aggiunto il supporto dei criteri a Gestione risorse di Azure. I cmdlet PowerShell per gestire i criteri sono stati aggiunti in questa versione. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

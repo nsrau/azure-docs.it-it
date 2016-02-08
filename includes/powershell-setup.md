@@ -48,7 +48,7 @@ Per istruzioni e un collegamento alla versione più recente, vedere l'argomento 
 
 ### Impostare l'account e la sottoscrizione di Azure
 
-Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Aprire un prompt dei comandi di Azure PowerShell e usare il comando seguente per accedere ad Azure.
 
@@ -78,4 +78,4 @@ Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti a
 
 Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

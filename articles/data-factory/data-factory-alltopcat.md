@@ -136,7 +136,6 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 | Titolo | Descrizione |
 | :-- | :-- |
-| [Editor di Data factory di Azure](data-factory-editor.md) | Descrive l'editor di Data factory di Azure, che consente di creare, modificare e distribuire definizioni JSON di servizi, tabelle e pipeline collegati usando una semplice interfaccia utente basata sul Web. |
 | [Data factory di Azure - Domande frequenti](data-factory-faq.md) | Domande frequenti su Data factory di Azure. |
 | [Data factory di Azure - Regole di denominazione](data-factory-naming-rules.md) | Descrive le regole di denominazione per le entità di Data factory. |
 | [Note sulla versione di Data factory di Azure](data-factory-release-notes.md) | Note sulla versione di Data factory |
@@ -145,10 +144,10 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 #### Dati aggiuntivi
 
-- [Grafica del percorso di apprendimento per Data factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Ricerca della documentazione di Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Ricerca alternativa per la documentazione di Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [Visualizzare gli aggiornamenti più recenti per il servizio data factory](http://azure.microsoft.com/updates/?service=data-factory)
-- [Grafiche del percorso di apprendimento per i servizi di Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
+- [Grafica del percorso di apprendimento per Data factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Ricerca della documentazione di Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Ricerca alternativa per la documentazione di Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [Visualizzare gli aggiornamenti più recenti per il servizio data factory](https://azure.microsoft.com/updates/?service=data-factory)
+- [Grafiche del percorso di apprendimento per i servizi di Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

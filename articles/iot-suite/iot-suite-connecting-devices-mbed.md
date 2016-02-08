@@ -2,13 +2,14 @@
    pageTitle="Connettere un dispositivo utilizzando C in mbed | Microsoft Azure"
    description="Descrive come connettere un dispositivo alla soluzione di monitoraggio remoto preconfigurata Azure IoT Suite con un’applicazione scritta in C in esecuzione in un dispositivo mbed."
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -39,7 +40,7 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
 
 2. Verificare che la piattaforma hardware usata venga visualizzata nell'angolo superiore destro della finestra oppure fare clic sull'icona nell'angolo destro per selezionare la piattaforma hardware.
 
-3. Fare clic su **Importa** nel menu principale. Fare quindi clic sul collegamento **Click here** per importare da URL accanto al logo con il mondo di mbed.
+3. Fare clic su **Import** nel menu principale. Fare quindi clic sul collegamento **Click here** per importare da URL accanto al logo con il mondo di mbed.
 
     ![][6]
 
@@ -101,4 +102,4 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

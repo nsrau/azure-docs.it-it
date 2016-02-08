@@ -24,7 +24,7 @@ Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariff
 
 Si noti che è possibile che fino a 24 ore di utilizzo latente dal periodo di fatturazione precedente vengano segnalati nel periodo di fatturazione corrente.
 
-Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
 I collegamenti riportati di seguito riguardano un elenco completo di tutti i servizi di Microsoft Azure.
 
@@ -262,4 +262,4 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

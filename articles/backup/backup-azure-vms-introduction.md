@@ -31,7 +31,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 ### Coerenza dei dati
 Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che è necessario eseguire il backup mentre le applicazioni che generano i dati sono in esecuzione. Per risolvere il problema, il servizio Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft avvalendosi del Servizio Copia Shadow del volume per garantire che la scrittura dei dati nell'archiviazione venga effettuata correttamente.
 
->[AZURE.NOTE]Per le macchine virtuali Linux, sono disponibili solo backup coerenti con i file, perché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.
+>[AZURE.NOTE] Per le macchine virtuali Linux, sono disponibili solo backup coerenti con i file, perché Linux non ha una piattaforma equivalente al Servizio Copia Shadow del volume.
 
 Backup di Azure esegue backup VSS completi nelle macchine virtuali di Windows (altre informazioni su [backup VSS completi](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Per abilitare i backup VSS di copia è necessario impostare la seguente chiave di registro nella macchina virtuale.
 
@@ -91,7 +91,7 @@ Il Backup di Azure non crittografa i dati come parte del processo di backup. È 
 
 
 ## Modalità di calcolo delle istanze protette
-Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a [fatturazione sulla base dei prezzi di tale servizio](http://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”.
+Le macchine virtuali di Azure di cui viene eseguito il backup mediante Backup di Azure sono soggette a [fatturazione sulla base dei prezzi di tale servizio](https://azure.microsoft.com/pricing/details/backup/). Il calcolo delle istanze protette si basa sulle dimensioni *effettive* della macchina virtuale, ovvero sul totale di tutti i dati presenti in quest'ultima con esclusione del “disco risorse”.
 
 La fatturazione *non* sarà basata sulle dimensioni massime supportate per ogni disco dati collegato alla macchina virtuale, ma sui dati effettivi archiviati nel disco dati. Analogamente, la fattura relativa all'archiviazione dei backup è basata sulla quantità di dati archiviata con Backup di Azure, ovvero sul totale dei dati effettivi presenti in ogni punto di ripristino.
 
@@ -120,4 +120,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

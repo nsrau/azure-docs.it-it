@@ -17,9 +17,9 @@
 
 # Domande frequenti sui prezzi del bus di servizio
 
-In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/).
+In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE]Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Quali sono le modalità di addebito per il bus di servizio?](#how-do-you-charge-for-service-bus)
 - [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ In questa sezione vengono fornite le risposte ad alcune delle domande più frequ
 
 ## Quali sono le modalità di addebito per il bus di servizio?
 
-Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](https://msdn.microsoft.com/library/dn831889.aspx) e [dettagli sui prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) più avanti in questo documento.
+Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](https://msdn.microsoft.com/library/dn831889.aspx) e [dettagli sui prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) più avanti in questo documento.
 
 ## Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?
 
@@ -116,4 +116,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

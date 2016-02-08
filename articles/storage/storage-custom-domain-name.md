@@ -24,11 +24,11 @@
 È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
 
 
-> [AZURE.NOTE]Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.
+> [AZURE.NOTE]	Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.
 
 Esistono due modi per puntare il dominio personalizzato all'endpoint BLOB per l'account di archiviazione. Il modo più semplice consiste nel creare un record CNAME per eseguire il mapping del dominio personalizzato e del sottodominio all'endpoint BLOB. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine è rappresentato dal dominio personalizzato e dal relativo sottodominio. Si noti che il sottodominio è sempre obbligatorio. Il dominio di destinazione è l'endpoint del servizio BLOB.
 
-Il processo di mapping del dominio personalizzato all'endpoint BLOB può tuttavia comportare un breve periodo di inattività del dominio durante la registrazione di quest'ultimo nel [portale di Azure classico](manage.windowsazure.com). Se il dominio personalizzato supporta attualmente un'applicazione con un contratto di servizio in base al quale non sono consentiti tempi di inattività, è possibile usare il sottodominio **asverify** di Azure per fornire un passaggio di registrazione intermedio in modo che gli utenti possano accedere al dominio durante l'applicazione del mapping DNS.
+Il processo di mapping del dominio personalizzato all'endpoint BLOB può tuttavia comportare un breve periodo di inattività del dominio durante la registrazione di quest'ultimo nel [portale di Azure classico](https://manage.windowsazure.com). Se il dominio personalizzato supporta attualmente un'applicazione con un contratto di servizio in base al quale non sono consentiti tempi di inattività, è possibile usare il sottodominio **asverify** di Azure per fornire un passaggio di registrazione intermedio in modo che gli utenti possano accedere al dominio durante l'applicazione del mapping DNS.
 
 Nella tabella seguente sono illustrati gli URL di esempio per accedere ai dati BLOB in un account di archiviazione denominato **mystorageaccount**. Il dominio personalizzato registrato per l'account di archiviazione è **www.contoso.com**:
 
@@ -48,7 +48,7 @@ Per configurare un nome di dominio personalizzato, è necessario creare un nuovo
 
 Ogni registrar prevede un metodo simile ma leggermente diverso per specificare un record CNAME. Il concetto di base è tuttavia identico. Si noti che molti pacchetti di base di registrazione dei domini non offrono la configurazione dei DNS, quindi può essere necessario aggiornare il pacchetto prima di creare il record CNAME.
 
-1.  Nel [portale di Azure classico](manage.windowsazure.com)passare alla scheda **Archiviazione**.
+1.  Nel [portale di Azure classico](https://manage.windowsazure.com)passare alla scheda **Archiviazione**.
 
 2.  Nella scheda **Storage** fare clic sul nome dell'account di archiviazione di cui eseguire il mapping al dominio personalizzato.
 
@@ -74,7 +74,7 @@ Usare questa procedura per registrare un dominio personalizzato che attualmente 
 
 Il sottodominio asverify è un sottodominio speciale riconosciuto da Azure. Anteponendo **asverify** al proprio sottodominio, si consente ad Azure di riconoscere il dominio personalizzato senza modificare il relativo record DNS. Dopo aver modificato il record DNS per il dominio, verrà eseguito il mapping all'endpoint BLOB senza tempi di inattività.
 
-1.  Nel [portale di Azure classico](manage.windowsazure.com)passare alla scheda **Archiviazione**.
+1.  Nel [portale di Azure classico](https://manage.windowsazure.com)passare alla scheda **Archiviazione**.
 
 2.  Nella scheda **Storage** fare clic sul nome dell'account di archiviazione di cui eseguire il mapping al dominio personalizzato.
 
@@ -116,4 +116,4 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

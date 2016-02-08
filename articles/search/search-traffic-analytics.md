@@ -27,7 +27,7 @@ Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che con
 ## Come abilitare Analisi del traffico di ricerca
 
 ### 1\. Tramite il portale
-Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
+Aprire il servizio Ricerca di Azure nel [portale di Azure](https://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
 
 ![][1]
 
@@ -36,7 +36,7 @@ Selezionare questa opzione e verrà visualizzato un nuovo pannello. Modificare l
 ![][2]
 
 
-> [AZURE.IMPORTANT]L'account di archiviazione deve essere nella stessa area e nella stessa sottoscrizione del servizio di ricerca.
+> [AZURE.IMPORTANT] L'account di archiviazione deve essere nella stessa area e nella stessa sottoscrizione del servizio di ricerca.
 > 
 > Per questo account di archiviazione si applicano le tariffe standard.
 
@@ -221,4 +221,4 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

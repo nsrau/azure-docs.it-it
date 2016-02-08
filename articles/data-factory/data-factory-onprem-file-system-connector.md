@@ -22,7 +22,10 @@ Questo articolo illustra come usare l'attività di copia in una data factory per
 
 Data factory supporta la connessione da e verso il file system locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento dei dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate su come configurare il gateway.
 
-**Nota:** tranne il Gateway di gestione dati, non è necessario installare altri file binari per la comunicazione da e verso il file system locale.
+> [AZURE.NOTE] 
+Tranne il Gateway di gestione dati, non è necessario installare altri file binari per la comunicazione da e verso il file system locale.
+> 
+> Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ## Condivisione file Linux 
 
@@ -483,7 +486,7 @@ Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. �
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
-> [AZURE.NOTE]filename e fileFilter non possono essere usati contemporaneamente.
+> [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
 
 ### Uso della proprietà partionedBy
 
@@ -603,4 +606,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

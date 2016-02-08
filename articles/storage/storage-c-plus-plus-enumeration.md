@@ -19,7 +19,7 @@
 
 Elenco operazioni fondamentali per numerosi scenari di sviluppo con la risorsa di archiviazione di Azure. In questo articolo viene descritto come enumerare in modo più efficiente gli oggetti in archiviazione di Azure utilizzando l'elenco interfacce API fornito nella libreria client di archiviazione di Microsoft Azure per C++.
 
->[AZURE.NOTE]Questa guida fa riferimento alla libreria Client di archiviazione Azure per la C++. versione 1.x, disponibile tramite[NuGet](http://www.nuget.org/packages/wastorage)o[GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Questa guida fa riferimento alla libreria Client di archiviazione Azure per la C++. versione 1.x, disponibile tramite[NuGet](http://www.nuget.org/packages/wastorage)o[GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elencare o effettuare una query degli oggetti nel servizio di archiviazione Azure. In questo articolo vengono affrontati i seguenti scenari:
 
@@ -182,6 +182,6 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Come usare l’archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](http://azure.github.io/azure-storage-cpp/)
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

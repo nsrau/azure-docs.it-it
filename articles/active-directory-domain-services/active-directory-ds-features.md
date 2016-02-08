@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)*
@@ -39,10 +39,10 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio.
 
-- **Disponibile in più aree di Azure:** vedere la pagina delle [aree di Azure supportate](active-directory-ds-regions.md) per un elenco delle aree di Azure in cui è disponibile Servizi di dominio Azure AD.
+- **Disponibile in più aree di Azure:** per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 
 - **Disponibilità elevata:** Servizi di dominio Azure AD offre un'elevata disponibilità per il dominio. Ciò garantisce tempi di attività e resilienza agli errori migliori. Il monitoraggio dell'integrità incluso offre funzionalità automatizzate di correzione degli errori, attivando nuove istanze per sostituire quelle in errore e offrire la continuità del servizio per il dominio.
 
 - **Usare strumenti familiari di gestione:** è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini forniti da Servizi di dominio Azure AD.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

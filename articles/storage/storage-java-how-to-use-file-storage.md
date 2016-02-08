@@ -50,7 +50,7 @@ Per utilizzare la condivisione di file, è necessario connettersi all'account di
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Sostituire your\_storage\_account\_name e your\_storage\_account\_key con i valori effettivi dell'account di archiviazione.
+> [AZURE.NOTE] Sostituire your\_storage\_account\_name e your\_storage\_account\_key con i valori effettivi dell'account di archiviazione.
 
 ## Connessione a un account di archiviazione di Azure
 
@@ -222,4 +222,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

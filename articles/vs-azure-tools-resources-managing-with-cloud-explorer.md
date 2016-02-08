@@ -30,7 +30,7 @@ Cloud Explorer viene installato come parte di Visual Studio Tools per Azure SDK 
 - Visual Studio 2015 RTM.
 
 - Visual Studio Tools per Azure SDK.
-- Per visualizzare le risorse di Azure in Cloud Explorer, è necessario avere un account di Azure e avere effettuato l'accesso. Se non si dispone di un account, è possibile crearne uno in un paio di minuti. Se si dispone di un abbonamento MSDN, vedere [Vantaggi di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). In caso contrario, vedere [creare un account di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Per visualizzare le risorse di Azure in Cloud Explorer, è necessario avere un account di Azure e avere effettuato l'accesso. Se non si dispone di un account, è possibile crearne uno in un paio di minuti. Se si dispone di un abbonamento MSDN, vedere [Vantaggi di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). In caso contrario, vedere [creare un account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Se Cloud Explorer non è visibile, è possibile visualizzarlo scegliendo **Visualizzazione**, **Altre finestre,** **Cloud Explorer** sulla barra dei menu.
 
@@ -50,7 +50,7 @@ Se si usa Azure per la prima volta o non sono stati aggiunti gli account necessa
 
     ![Selezione di sottoscrizioni di Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
 
-1. Selezionare le caselle di controllo per le sottoscrizioni di account che si desiderano individuare, poi premere il tasto**Applica**.
+1. Selezionare le caselle di controllo relative alle sottoscrizioni di account da esplorare, quindi fare clic su **Apply**.
 
     Le risorse di Azure per le sottoscrizioni selezionate verranno visualizzate in Cloud Explorer.
 
@@ -71,7 +71,7 @@ Per visualizzare le risorse di Azure, è possibile scegliere la visualizzazione 
 - La visualizzazione Resource Groups classifica le risorse di Azure in base al gruppo di risorse di Azure a cui sono associate.
 
  
-	Un gruppo di risorse è un bundle di risorse di Azure, in genere usate da un'applicazione specifica. Per ulteriori informazioni sui gruppi di risorse di Azure, vedere [Panoramica di gestione delle risorse di Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+	Un gruppo di risorse è un bundle di risorse di Azure, in genere usate da un'applicazione specifica. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Gestione risorse di Microsoft Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
 
 ## Visualizzare ed esplorare le risorse
 
@@ -95,4 +95,4 @@ Per trovare risorse con un nome specifico nelle sottoscrizioni dell'account Azur
 
 Quando si immettono caratteri nella casella Search, nell'albero delle risorse vengono visualizzate solo le risorse corrispondenti ai caratteri immessi.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

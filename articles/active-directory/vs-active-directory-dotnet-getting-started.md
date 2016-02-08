@@ -75,6 +75,6 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
     &lt;/html>
 </pre>
 
-[Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

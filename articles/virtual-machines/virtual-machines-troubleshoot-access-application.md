@@ -24,7 +24,7 @@
 
 Se è impossibile accedere a un'applicazione in esecuzione in una macchina virtuale di Azure, in questo articolo viene descritto un approccio metodico per isolare l'origine del problema e risolverlo.
 
-> [AZURE.NOTE]Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessione a Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]  Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessione a Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 Esistono quattro aree principali per risolvere i problemi di accesso di un'applicazione che è in esecuzione in una macchina virtuale di Azure.
 
@@ -116,8 +116,8 @@ Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività de
 
 Se si sono seguiti i passaggi indicati in questo articolo e si desidera ulteriore assistenza per risolvere il problema, è possibile:
 
-- Ottenere assistenza dagli esperti di Azure in tutto il mondo. Presentare il problema nei forum MSDN Azure o Stack Overflow. Per altre informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
-- Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e alla fatturazione**.
+- Ottenere assistenza dagli esperti di Azure in tutto il mondo. Presentare il problema nei forum MSDN Azure o Stack Overflow. Per altre informazioni vedere [Forum di Microsoft Azure](https://azure.microsoft.com/support/forums/).
+- Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e alla fatturazione**.
 
 ## Risorse aggiuntive
 
@@ -125,4 +125,4 @@ Se si sono seguiti i passaggi indicati in questo articolo e si desidera ulterior
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

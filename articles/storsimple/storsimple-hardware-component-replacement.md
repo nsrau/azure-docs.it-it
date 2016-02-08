@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Sostituzione di componenti hardware di StorSimple
 
 ## Panoramica
 
-Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
+Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple serie 8000 e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
 
->[AZURE.IMPORTANT]Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le[convenzioni di sicurezza](#safety-icon-conventions)e altre[precauzioni di sicurezza](storsimple-safety.md).
+>[AZURE.IMPORTANT] Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le[convenzioni di sicurezza](#safety-icon-conventions)e altre[precauzioni di sicurezza](storsimple-safety.md).
  
 ### Convenzioni di sicurezza
 
@@ -57,7 +57,7 @@ Quando si sostituisce un modulo,**non lasciare MAI un alloggiamento vuoto nella 
 
 ## Procedure di sostituzione di componenti hardware
 
-Il dispositivo Microsoft Azure StorSimple è costituito da diversi moduli plug-in primari e/o chiassis EBOD. Il modello 8100 ha un solo chassis principale, mentre il 8600 è un dispositivo a chassis doppio con un chassis principale e uno EBOD.
+Il dispositivo Microsoft Azure StorSimple serie 8000 è costituito da diversi moduli plug-in negli chassis primari e/o EBOD. Il modello 8100 ha un solo chassis principale, mentre il 8600 è un dispositivo a chassis doppio con un chassis principale e uno EBOD.
 
 Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel dispositivo. Fare clic sul collegamento nella colonna della **Procedura di sostituzione** per passare all'esercitazione associata.
 
@@ -122,9 +122,9 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 - Chassis (incluso il pannello operativo integrato)
 
-- Power and Cooling Modules (PCM) da 764W AC
+- PCM con AC da 764 W
 
-- Power and Cooling Modules (PCM) da 580W AC
+- PCM con AC da 580 W
 
 - Unità disco rigido con modulo unità carrier
 
@@ -142,4 +142,4 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 Rivedere tutte le[informazioni sulla sicurezza](storsimple-safety.md)prima di tentare di sostituire un componente hardware StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

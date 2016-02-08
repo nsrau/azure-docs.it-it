@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Installazione di una foresta Active Directory in una rete virtuale di Azure | Microsoft Azure" 
 	description="Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="macchina virtuale active directory, installazione di una foresta active directory, video su azure active directory"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/05/2016" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@ Altri argomenti di interesse:
 
 In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite nei server aggiunti al dominio. Le macchine virtuali che eseguono i server applicazioni e le macchine virtuali che eseguono i controller di dominio sono installate nel proprio servizio cloud in una rete virtuale di Azure. Sono anche incluse in un set di disponibilità per una migliore tolleranza di errore.
 
-![][1] 7
+![Foresta Active Directory in una macchina virtuale in Rete virtuale di Azure][1] 7
 ## Differenze rispetto all'installazione locale
 
 Non esistono molte differenze tra l'installazione locale di un controller di dominio e l'installazione in Azure. Le differenze principali sono elencate nella tabella seguente.
@@ -137,4 +138,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

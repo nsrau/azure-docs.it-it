@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/21/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
@@ -221,7 +221,7 @@ Fino ad ora sono state discusse singole regole di sincronizzazione, ma è necess
 
 ![Regole di sincronizzazione in ingresso](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
-La precedenza per le regole di sincronizzazione è impostata in gruppi mediante l'installazione guidata. Le regole di un gruppo hanno tutte lo stesso nome, ma sono collegate a diverse directory connesse. L'installazione guidata assegnerà la precedenza più alta alla regola **In from AD – User Join** e ripeterà l'operazione per tutte le directory AD connesse. Procederà quindi con i successivi gruppi di regole secondo un ordine predefinito. All'interno di un gruppo le regole vengono aggiunte nell'ordine in cui i connettori sono stati aggiunti alla procedura guidata. Se con la procedura guidata viene aggiunto un altro connettore, le regole di sincronizzazione verranno riordinate e il nuovo connettore sarà inserito in ciascun gruppo all'ultimo posto.
+La precedenza per le regole di sincronizzazione è impostata in gruppi mediante l'installazione guidata. Le regole di un gruppo hanno tutte lo stesso nome, ma sono collegate a diverse directory connesse. L'Installazione guidata assegnerà la precedenza più alta alla regola **In from AD – User Join** e ripeterà l'operazione per tutte le directory AD connesse. Procederà quindi con i successivi gruppi di regole secondo un ordine predefinito. All'interno di un gruppo le regole vengono aggiunte nell'ordine in cui i connettori sono stati aggiunti alla procedura guidata. Se con la procedura guidata viene aggiunto un altro connettore, le regole di sincronizzazione verranno riordinate e il nuovo connettore sarà inserito in ciascun gruppo all'ultimo posto.
 
 ### Riassumendo
 
@@ -241,4 +241,4 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

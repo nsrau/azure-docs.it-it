@@ -18,13 +18,13 @@
 
 # Abilitare il monitoraggio e la diagnostica
 
-Nel [portale di Azure](http://portal.azure.com), è possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle risorse. È possibile usare anche l'[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per configurare la diagnostica a livello di codice.
+Nel [portale di Azure](https://portal.azure.com), è possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle risorse. È possibile usare anche l'[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per configurare la diagnostica a livello di codice.
 
 I dati di diagnostica, di monitoraggio e delle metriche di Azure vengono salvati nell'account di archiviazione preferito. Questo consente di usare qualsiasi strumento per leggere i dati, ad esempio uno strumento di esplorazione di archiviazione, Power BI o uno strumento di terze parti.
 
 ## Quando si crea una risorsa
 
-La maggior parte dei servizi consente di abilitare la diagnostica quando li si crea nel [portale di Azure](http://portal.azure.com).
+La maggior parte dei servizi consente di abilitare la diagnostica quando li si crea nel [portale di Azure](https://portal.azure.com).
 
 1. Andare a **Nuovo** e scegliere la risorsa a cui si è interessati. 
 
@@ -71,4 +71,4 @@ Tenere presente che in questo momento non sono supportate alcune distribuzioni d
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio. 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

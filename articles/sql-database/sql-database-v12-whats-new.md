@@ -27,7 +27,7 @@ Questo argomento descrive i molti vantaggi offerti dalla versione 12 del databas
 Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
 
 
-- Filtrato per [servizio Database SQL](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtrato per [servizio Database SQL](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtrato per Disponibilità generale[annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
 
 
@@ -70,7 +70,7 @@ Se il programma client si connette a SQL Database V12 mentre il client viene ese
 - 14000-14999
 
 
-Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per informazioni dettagliate sulle porte per il database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
+Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulteriori informazioni sulle porte per il Database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
 
 
 ## Migliore supporto per i fornitori di soluzioni cloud SaaS
@@ -132,7 +132,7 @@ Ci sono molti altri buoni motivi per i quali i clienti dovrebbero eseguire l'agg
 Per verificare in modo semplice se è in esecuzione un database o un server logico in una versione precedente del servizio Database SQL, eseguire le operazioni seguenti:
 
 
-1. Accedere al [portale di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Sfoglia**.
 3. Fare clic su **SQL Server**.
 4. L'icona accanto al server o al database è significativa:
@@ -159,6 +159,6 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 - Dal 31 luglio 2015, tutte le aree sono state promosse a Disponibilità generale (GA).
 - La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di Anteprima.
 
-[Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

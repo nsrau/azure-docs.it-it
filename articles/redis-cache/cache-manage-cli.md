@@ -28,7 +28,7 @@ L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infr
 
 Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure, è necessario completare i passaggi seguenti.
 
--	È necessario disporre di un account Azure. Se non si dispone di uno, è possibile creare un [account di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
+-	È necessario disporre di un account Azure. Se non si dispone di uno, è possibile creare un [account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
 -	[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 -	Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login`. Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md).
 -	Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm`. Per ulteriori informazioni, vedere [Impostare la modalità di gestione risorse di Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
@@ -152,7 +152,7 @@ Per elencare tutte le cache di all'interno della sottoscrizione o un gruppo di r
 
 	azure rediscache list [options]
 
-Per altre informazioni su questo comando, eseguire il comando `azure rediscache list -h`.
+Per ulteriori informazioni su questo comando, eseguire il comando `azure rediscache list -h`.
 
 	C:\>azure rediscache list -h
 	help:    List all Redis Caches within your Subscription or Resource Group
@@ -271,4 +271,4 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

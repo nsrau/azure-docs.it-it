@@ -20,7 +20,7 @@
 
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse di Microsoft Azure.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
+> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
 ## Domande generali
 
@@ -28,7 +28,7 @@ Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio ch
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ### In che modo è possibile accedere al Centro sicurezza di Azure?
-Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](http://azure.microsoft.com/features/azure-portal/). ([Accedere al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino a **Centro sicurezza**). È possibile visualizzare subito alcuni suggerimenti per la sicurezza nel dashboard. Ciò avviene poiché il servizio consente di valutare lo stato di sicurezza di alcuni controlli in base alla relativa configurazione in Azure. Per attivare il set completo delle funzionalità di monitoraggio di sicurezza, dei suggerimenti e degli avvisi, è necessario [abilitare la raccolta dati](#data-collection).
+Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). ([Accedere al portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino a **Centro sicurezza**). È possibile visualizzare subito alcuni suggerimenti per la sicurezza nel dashboard. Ciò avviene poiché il servizio consente di valutare lo stato di sicurezza di alcuni controlli in base alla relativa configurazione in Azure. Per attivare il set completo delle funzionalità di monitoraggio di sicurezza, dei suggerimenti e degli avvisi, è necessario [abilitare la raccolta dati](#data-collection).
 
 ## Fatturazione
 
@@ -103,4 +103,4 @@ I suggerimenti sull'elenco di controllo di accesso sono attualmente validi per l
 ### Sono supportate le macchine virtuali Linux?
 Il Centro sicurezza di Azure offre il monitoraggio della baseline per le macchine virtuali Linux (solo per le versioni 12.04, 14.04, 14.10 e 15.04 di Ubuntu). In futuro, saranno disponibili ulteriori funzioni di monitoraggio dello stato di sicurezza e per la raccolta/analisi dei dati, nonché il supporto di altre distribuzioni Linux.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

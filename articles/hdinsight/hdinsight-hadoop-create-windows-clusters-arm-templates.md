@@ -27,7 +27,7 @@ Informazioni su come creare cluster HDInsight tramite modelli di Gestione risors
 
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
-- [Sottoscrizione di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/o [interfaccia della riga di comando di Azure](xplat-cli-install.md). 
 
 ## Modelli di Gestione risorse di Azure
@@ -444,4 +444,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

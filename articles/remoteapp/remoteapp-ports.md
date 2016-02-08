@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 In uscita: TCP: 443, TCP: 10101-10175 
-*	 Facoltativo: UDP: 10201-10275 
+*	 Facoltativo: UDP: 10201-10275  
  
 ## I client RemoteApp di Azure devono accedere ai seguenti endpoint e URL: 
 
@@ -44,6 +44,6 @@ Per client si intende desktop, dispositivi e così via, usati per connettersi al
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  In uscita: TCP: 443  
--  Facoltativo: UDP: 10201-10275
+-  Facoltativo: UDP: 3391 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

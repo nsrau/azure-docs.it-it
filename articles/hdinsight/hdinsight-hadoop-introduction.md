@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="cgronlun"/>
 
 
@@ -85,7 +85,7 @@ Per informazioni su come sviluppare azioni script personalizzate, vedere [Svilup
 
 I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
-* **[Ambari](#ambari)**: provisioning, gestione e monitoraggio dei cluster.
+* **[Ambari](#ambari)**: provisioning, gestione, monitoraggio e utilità del cluster.
 
 * **[Avro](#avro)** (la libreria Microsoft .NET per Avro): serializzazione dei dati per l'ambiente Microsoft .NET.
 
@@ -93,7 +93,7 @@ I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
 * **[Mahout](#mahout)**: Machine Learning.
 
-* **[MapReduce e YARN](#mapreduce)**: elaborazione distribuita e gestione delle risorse.
+* **[MapReduce](#mapreduce)**: framework legacy per l'elaborazione distribuita e la gestione delle risorse Hadoop. Vedere [YARN](#yarn), il framework risorse di nuova generazione.
 
 * **[Oozie](#oozie)**: gestione dei flussi di lavoro.
 
@@ -105,13 +105,15 @@ I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
 * **[Tez](#tez)**: consente di eseguire in modo efficiente a livello di scalabilità processi a elevato utilizzo di dati.
 
+* **[YARN](#yarn)**: parte della libreria centrale Hadoop e della prossima generazione di framework software MapReduce.
+
 * **[ZooKeeper](#zookeeper)**: coordinamento di processi in sistemi distribuiti.
 
-> [AZURE.NOTE]Per informazioni sui componenti specifici e sulle versioni, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][component-versioning].
+> [AZURE.NOTE] Per informazioni sui componenti specifici e sulle versioni, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][component-versioning].
 
-###<a name="ambari"></a>Ambari
+### <a name="ambari"></a>Ambari
 
-Apache Ambari viene usato per il provisioning, la gestione e il monitoraggio di cluster Apache Hadoop. Comprende una raccolta di strumenti operatore intuitivi e un set affidabile di API che nascondono la complessità di Hadoop, semplificando le operazioni sui cluster. I cluster HDInsight basati su Linux forniscono sia l'interfaccia utente Web Ambari che l'API REST Ambari, mentre i cluster basati su Windows forniscono un subset dell'API REST.
+Apache Ambari viene usato per il provisioning, la gestione e il monitoraggio di cluster Apache Hadoop. Comprende una raccolta di strumenti operatore intuitivi e un set affidabile di API che nascondono la complessità di Hadoop, semplificando le operazioni sui cluster. I cluster HDInsight basati su Linux forniscono sia l'interfaccia utente Web Ambari che l'API REST Ambari, mentre i cluster basati su Windows forniscono un subset dell'API REST. Le viste di Ambari nei cluster HDInsight consentono funzionalità di plug-in dell'interfaccia utente.
 
 Vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md) (solo Linux), [Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari](hdinsight-monitor-use-ambari-api.md) e i <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md"> riferimenti all'API Apache Ambari</a>.
 
@@ -134,12 +136,12 @@ Hadoop Distributed File System (HDFS) è un file system distribuito che, insieme
 
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> è una libreria scalabile di algoritmi di Machine Learning eseguita in Hadoop. Usando i principi della statistica, le applicazioni di Machine Learning istruiscono i sistemi in modo che apprendano dai dati e usino i risultati precedenti per determinare i comportamenti futuri. Vedere [Generare consigli sui film usando Mahout in Hadoop](hdinsight-mahout.md).
 
-### <a name="mapreduce"></a>MapReduce e YARN
-Hadoop MapReduce è un framework software per la scrittura di applicazioni per l'elaborazione di set di Big Data in parallelo. Un processo MapReduce suddivide i set di dati di grandi dimensioni e organizza i dati in coppie chiave-valore per l'elaborazione.
+### <a name="mapreduce"></a>MapReduce
+MapReduce è un software legacy per Hadoop per la scrittura di applicazioni per l'elaborazione batch di set di Big Data in parallelo. Un processo MapReduce suddivide i set di dati di grandi dimensioni e organizza i dati in coppie chiave-valore per l'elaborazione.
 
-Apache YARN rappresenta MapReduce di nuova generazione (MapReduce 2.0 o MRv2) che suddivide le due attività principali di JobTracker, la gestione delle risorse e la pianificazione/monitoraggio dei processi, in entità separate.
+[YARN](#yarn) è il framework applicazioni e lo strumento di gestione delle risorse di nuova generazione di Hadoop e viene denominato MapReduce 2.0. I processi MapReduce verranno eseguiti in YARN.
 
-Per altre informazioni su MapReduce, vedere <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in Hadoop Wiki. Per informazioni su YARN, vedere <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>.
+Per altre informazioni su MapReduce, vedere <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in Hadoop Wiki.
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop. È integrato con lo stack Hadoop e supporta i processi Hadoop per MapReduce, Pig, Hive e Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell. Vedere [Uso del coordinatore Oozie basato sul tempo con HDInsight](hdinsight-use-oozie-coordinator-time.md).
@@ -157,9 +159,49 @@ Per altre informazioni su MapReduce, vedere <a target="_blank" href="http://wiki
 ### <a name="tez"></a>Tez
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> è un framework di applicazione basato su Hadoop YARN che esegue grafici complessi, aciclici di elaborazione dati generali. È il successore più flessibile e potente del framework MapReduce, che consente l’esecuzione di processi di uso intensivo di dati, ad esempio Hive, in modo più efficiente a livello di scalabilità. Vedere ["Usare Apache Tez per ottenere prestazioni migliorate" in Uso di Hive e HiveQL](hdinsight-use-hive.md#usetez).
 
+### <a name="yarn"></a>YARN
+Apache YARN rappresenta la nuova generazione di MapReduce (MapReduce 2.0 o MRv2) e supporta scenari di elaborazione dati che superano l'elaborazione batch di MapReduce, offrendo maggiore scalabilità ed elaborazione in tempo reale. YARN offre un framework applicazioni distribuito e gestione delle risorse. I processi MapReduce verranno eseguiti in YARN.
+
+Per informazioni su YARN, vedere <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>.
+
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordina i processi in sistemi distribuiti di grandi dimensioni mediante uno spazio dei nomi gerarchico condiviso di registri di dati (znode). Gli Znode contengono piccole quantità di metainformazioni necessarie per il coordinamento dei processi: stato, posizione, configurazione e così via.
+
+## Linguaggi di programmazione in HDInsight
+
+I cluster di HDInsight - cluster Hadoop, HBase, Storm e Spark - supportano diversi linguaggi di programmazione, ma per impostazione predefinita alcuni linguaggi non sono installati. Per le librerie, i moduli o i pacchetti non installati per impostazione predefinita, usare un'azione script per installare il componente. Vedere l'articolo relativo allo [sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Supporto per i linguaggi di programmazione predefiniti
+
+Per impostazione predefinita, i cluster HDInsight supportano:
+
+* Java
+
+* Python
+
+È possibile installare lingue aggiuntive usando azioni script, vedere l'articolo relativo allo [sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Linguaggi per macchine virtuali Java
+
+È possibile eseguire molti linguaggi diversi da Java usando una macchina virtuale Java (JVM). L'esecuzione di alcuni di questi linguaggi può tuttavia richiedere l'installazione di componenti aggiuntivi nel cluster.
+
+I linguaggi basati su JVM sono supportati nei cluster HDInsight:
+
+* Clojure
+
+* Jython (Python per Java)
+
+* Scala
+
+### Linguaggi specifici di Hadoop
+
+I cluster HDInsight offrono supporto per i linguaggi seguenti, specifici dell'ecosistema Hadoop:
+
+* Pig Latin per processi Pig
+
+* HiveQL per processi Hive e SparkSQL
+
 
 ## <a name="advantage"></a>Vantaggi di Hadoop nel cloud
 
@@ -189,7 +231,7 @@ Integrare questa introduzione a Hadoop nel cloud e nell'analisi dei Big Data con
 
 ### Documentazione di Hadoop per HDInsight.
 
-* [Documentazione HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/): pagina relativa alla documentazione per Azure HDInsight con collegamenti ad articoli, video e altre risorse.
+* [Documentazione HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/): pagina relativa alla documentazione per Azure HDInsight con collegamenti ad articoli, video e altre risorse.
 
 * [Introduzione a HDInsight su Linux](hdinsight-hadoop-linux-tutorial-get-started.md): un'esercitazione introduttiva per il provisioning di cluster HDInsight Hadoop in Linux e l'esecuzione di query Hive di esempio.
 
@@ -250,4 +292,4 @@ Usare l'analisi dei Big Data sui dati dell'organizzazione per ottenere informazi
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

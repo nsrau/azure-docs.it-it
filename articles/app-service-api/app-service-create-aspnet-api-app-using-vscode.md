@@ -24,7 +24,7 @@
 
 Questa esercitazione illustra come creare un'app per le API ASP.NET 5 usando [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode). ASP.NET 5 è una riprogettazione significativa di ASP.NET. ASP.NET 5 è un nuovo framework open source e multipiattaforma per la compilazione tramite .NET di moderne applicazioni Web basate sul cloud. Per altre informazioni, vedere [Introduzione ad ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/) oppure [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/). È anche possibile provare gratuitamente gli [esempi di app del servizio app](http://tryappservice.azure.com).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/) oppure [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/). È anche possibile provare gratuitamente gli [esempi di app del servizio app](http://tryappservice.azure.com).
 
 ## Prerequisiti  
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare un'app per le API ASP.NET 5 usando [Vi
 ## Installare ASP.NET 5 e DNX
 ASP.NET 5/DNX è uno stack .NET snello per la creazione di un cloud moderno e di app Web in esecuzione su OS X, Linux e Windows. È stato completamente riprogettato per fornire un framework di sviluppo ottimizzato per le app che vengono distribuite nel cloud o eseguite in locale. È costituito da componenti modulari con un overhead minimo, in modo da garantire la massima flessibilità durante la creazione di soluzioni.
 
-> [AZURE.NOTE]ASP.NET 5 e DNX (l'ambiente di esecuzione .NET) sono ancora in versione Beta/Anteprima per OS X e Linux.
+> [AZURE.NOTE] ASP.NET 5 e DNX (l'ambiente di esecuzione .NET) sono ancora in versione Beta/Anteprima per OS X e Linux.
 
 Questa esercitazione è stata realizzata per consentire la creazione di applicazioni con le più recenti versioni di sviluppo di ASP.NET 5 e DNX. Per un'esperienza più stabile e rilasciata, visitare la pagina [http://www.asp.net/vnext](http://www.asp.net/vnext). Le istruzioni seguenti sono specifiche di Windows. Per istruzioni di installazione più dettagliate per OS X, Linux e Windows, vedere l'articolo relativo all'[installazione di ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -130,34 +130,34 @@ namespace ContactsList.Models
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-	}
-	</pre>
+}
+</pre>
 
 3. Fare clic con il pulsante destro del mouse sulla cartella **Controllers** e aggiungere un file *ContactsController.cs* in modo che venga visualizzato come segue:
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Assicurarsi che tutti i file vengano salvati selezionando **File** > **Save All**.
 5. In **Command Palette** immettere quanto segue per eseguire l'app in locale:
@@ -310,9 +310,9 @@ Più avanti in questa esercitazione si sostituirà la stringa del segnaposto URL
 
 ## Creare un'app per le API nel portale di anteprima di Azure
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/) oppure [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/). È anche possibile provare gratuitamente gli [esempi di app del servizio app](http://tryappservice.azure.com).
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/) oppure [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/). È anche possibile provare gratuitamente gli [esempi di app del servizio app](http://tryappservice.azure.com).
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
 
 2. Fare clic su **NUOVO** nella parte inferiore sinistra del portale.
 
@@ -426,7 +426,7 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripubblicarla selezionando l'opzione **Commit All** in VSCode e immettendo il comando **git push azure master** in **GitBash**.
+> [AZURE.NOTE] Se si apportano modifiche all'app, è possibile ripubblicarla selezionando l'opzione **Commit All** in VSCode e immettendo il comando **git push azure master** in **GitBash**.
 
 ## Visualizzare la definizione dell'API nel portale di anteprima di Azure
 Dopo aver distribuito un'API nell'app per le API, è possibile visualizzare la definizione dell'API nel portale di anteprima di Azure. Per iniziare, è necessario riavviare il gateway per consentire ad Azure di riconoscere che la definizione dell'API dell'app per le API è stata modificata. Il gateway è un'app Web che gestisce l'autorizzazione e l'amministrazione dell'API per le app per le API in un gruppo di risorse.
@@ -444,4 +444,4 @@ Nel portale di anteprima di Azure passare al pannello **HOST APP PER LE API** re
 In questa esercitazione si è appreso come creare un'app per le API in Visual Studio Code. Per altre informazioni su Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/Docs/). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Preparazione dell'ambiente per il backup di macchine virtuali di Azure | Microsoft Azure"
-	description="Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali di Azure"
+	description="Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="backup; eseguire il backup;"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
-# Preparare l'ambiente per il backup di macchine virtuali di Azure
-Prima di eseguire il backup di una macchina virtuale di Azure, è necessario completare questi prerequisiti per preparare l'ambiente. Se questa operazione è già stata eseguita, è possibile avviare il [backup delle macchine virtuali](backup-azure-vms.md). In caso contrario, seguire questa procedura per assicurarsi che l'ambiente sia pronto.
 
+# Preparare l'ambiente per il backup di macchine virtuali di Azure
+
+Prima di eseguire il backup di una macchina virtuale di Azure, è necessario completare questi prerequisiti. Se è già stato preparato l'ambiente per i backup, è possibile avviare [il backup delle macchine virtuali](backup-azure-vms.md). In caso contrario, seguire questa procedura per assicurarsi che l'ambiente sia pronto.
 
 ## 1\. Insieme di credenziali per il backup
 
@@ -79,7 +81,7 @@ Il compromesso è tra gestibilità, controllo granulare e costo.
 ### Uso di un proxy HTTP per i backup delle VM
 Quando si esegue il backup di una VM, i comandi di gestione snapshot vengono inviati dall'estensione di backup ad Archiviazione di Azure con un'API HTTPS. Questo traffico deve essere instradato dall'estensione attraverso il proxy, perché solo il proxy verrà configurato per poter avere accesso a Internet pubblico.
 
->[AZURE.NOTE]Non esiste alcuna raccomandazione per il proxy da usare. Assicurarsi di scegliere un proxy compatibile con i passaggi di configurazione descritti di seguito.
+>[AZURE.NOTE] Non esiste alcuna raccomandazione per il proxy da usare. Assicurarsi di scegliere un proxy compatibile con i passaggi di configurazione descritti di seguito.
 
 Nell'esempio seguente la VM app deve essere configurata per usare la VM proxy per tutto il traffico HTTP associato a Internet pubblico. La VM proxy deve essere configurata per consentire il traffico in ingresso dalle VM nella rete virtuale. Per il gruppo di sicurezza di rete (denominato *NSG-lockdown*), infine, è necessaria una nuova regola di sicurezza che consente il traffico Internet in uscita dalla VM proxy.
 
@@ -159,7 +161,7 @@ L'agente VM è già presente nelle VM create dalla raccolta di Azure. Nelle macc
 | Convalida dell'installazione dell'agente VM | <li>Passare alla cartella *C:\\WindowsAzure\\Packages* nella VM di Azure. <li>La cartella dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. | - |
 
 
-Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Estensione di backup
 
@@ -176,7 +178,7 @@ L'estensione per il backup viene installata se la macchina virtuale è in esecuz
 - Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-- Il backup di macchine virtuali tramite il servizio Backup di Azure è supportato in tutte le aree pubbliche di Azure (vedere l'[elenco di controllo](http://azure.microsoft.com/regions/#services) delle aree supportate). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+- Il backup di macchine virtuali tramite il servizio Backup di Azure è supportato in tutte le aree pubbliche di Azure (vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - Il backup di macchine virtuali con il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi:
   - **Linux**: vedere [l'elenco delle distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
@@ -195,4 +197,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Eseguire il backup di macchine virtuali](backup-azure-vms.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

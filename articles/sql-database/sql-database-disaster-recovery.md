@@ -34,10 +34,10 @@ L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica
 1. Si è verificato un errore di connettività permanente dal livello applicazione al database.
 2. Il portale di Azure classico visualizza un avviso relativo a un evento imprevisto con un vasto impatto nell'area.
 
-> [AZURE.NOTE]Dopo avere ripristinato il database è possibile configurarlo per utilizzarlo seguendo la guida [Configurare il database dopo il ripristino](#postrecovery).
+> [AZURE.NOTE] Dopo avere ripristinato il database è possibile configurarlo per utilizzarlo seguendo la guida [Configurare il database dopo il ripristino](#postrecovery).
 
 ## Failover al database secondario con replica geografica
-> [AZURE.NOTE]È necessario eseguire la configurazione per disporre di un database secondario da utilizzare per il failover. La funzionalità di replica geografica è disponibile solo per i database Standard e Premium. Informazioni su [come configurare la replica geografica](sql-database-business-continuity-design.md)
+> [AZURE.NOTE] È necessario eseguire la configurazione per disporre di un database secondario da utilizzare per il failover. La funzionalità di replica geografica è disponibile solo per i database Standard e Premium. Informazioni su [come configurare la replica geografica](sql-database-business-continuity-design.md)
 
 ###Portale di Azure classico
 Utilizzare il portale di Azure classico per terminare la relazione di copia continua con il database secondario con replica geografica.
@@ -64,7 +64,7 @@ Utilizzare REST per iniziare il failover a un database secondario a livello di p
 
 In caso di interruzione del servizio di un database, è possibile ripristinare il database dalla più recente copia di backup con ridondanza geografica usando la funzionalità di ripristino geografico.
 
-> [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure classico
 Per ripristinare un database SQL tramite il Ripristino geografico nel portale di Azure classico, osservare la seguente procedura.
@@ -131,4 +131,4 @@ Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere 
 
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

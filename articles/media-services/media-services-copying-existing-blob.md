@@ -20,13 +20,13 @@
 
 Questo argomento illustra come copiare BLOB da un account di archiviazione in un nuovo asset di Servizi multimediali di Microsoft Azure.
 
-I BLOB possono essere presenti sia in un account di archiviazione associato al proprio account di Servizi multimediali sia in un account di archiviazione non associato all'account di Servizi multimediali. Questo argomento illustra come copiare BLOB da un account di archiviazione in un asset di Servizi multimediali. Tenere presente che è possibile copiare anche in più data center. Questa operazione, tuttavia, può comportare l'addebito di costi. Per altre informazioni sui prezzi, vedere [Trasferimenti di dati](http://azure.microsoft.com/pricing/#header-11).
+I BLOB possono essere presenti sia in un account di archiviazione associato al proprio account di Servizi multimediali sia in un account di archiviazione non associato all'account di Servizi multimediali. Questo argomento illustra come copiare BLOB da un account di archiviazione in un asset di Servizi multimediali. Tenere presente che è possibile copiare anche in più data center. Questa operazione, tuttavia, può comportare l'addebito di costi. Per altre informazioni sui prezzi, vedere [Trasferimenti di dati](https://azure.microsoft.com/pricing/#header-11).
 
->[AZURE.NOTE]È sconsigliabile tentare di modificare i contenuti dei contenitori BLOB generati da Servizi multimediali senza usare le API di Servizi multimediali.
+>[AZURE.NOTE] È sconsigliabile tentare di modificare i contenuti dei contenitori BLOB generati da Servizi multimediali senza usare le API di Servizi multimediali.
 
 ##Scaricare un esempio
 
-È possibile ottenere ed eseguire un esempio [qui](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ##Prerequisiti
 
@@ -316,4 +316,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

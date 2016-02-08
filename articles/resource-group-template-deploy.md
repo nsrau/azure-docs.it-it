@@ -234,7 +234,7 @@ Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Crea
 
 ## Distribuire con il portale
 
-Novità Ogni applicazione creata con il [portale](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. Per distribuire un'applicazione con Gestione risorse di Azure, è sufficiente selezionare l'icona **Nuovo**.
+Novità Ogni applicazione creata con il [portale](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuova** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
 
 ![Nuovo](./media/resource-group-template-deploy/new.png)
 
@@ -257,19 +257,29 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
 
 La dimensione del file di parametro non può essere superiore a 64 KB.
 
+Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md/#parameters) Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
+
 ## Passaggi successivi
 - Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Per informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md).
-- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modelli](resource-group-template-functions.md)
+- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -29,7 +29,7 @@ Il Data factory è un servizio di integrazione delle informazioni basato sul clo
 
 Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in pipeline di dati, altamente disponibili e gestiti nel cloud. Queste pipeline di dati possono essere pianificate per inserire, preparare, trasformare, analizzare e pubblicare i dati e l’ADF gestirà e organizzerà tutti i dati complessi e le dipendenze di elaborazione. Le soluzioni possono essere compilate e distribuite nel cloud, collegando un numero crescente di origini dati locali e cloud.
 
-È consigliabile utilizzare ADF quando i dati devono essere continuamente migrati in uno scenario ibrido che accede a risorse locali e cloud, nonché quando i dati vengono trasferiti, devono essere modificati o presentano logiche di business aggiunte nel corso della migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. L’ADF dispone anche di altre funzionalità quali il supporto per operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](http://azure.microsoft.com/services/data-factory/).
+È consigliabile utilizzare ADF quando i dati devono essere continuamente migrati in uno scenario ibrido che accede a risorse locali e cloud, nonché quando i dati vengono trasferiti, devono essere modificati o presentano logiche di business aggiunte nel corso della migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. L’ADF dispone anche di altre funzionalità quali il supporto per operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Scenario
 
@@ -46,10 +46,10 @@ Il tutorial presuppone:
 
 * Un **sottoscrizione Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Accedere a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
+* Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
-> [AZURE.NOTE]In questa procedura viene utilizzato il [portale di Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] In questa procedura viene utilizzato il [portale di Azure](https://ms.portal.azure.com/).
 
 ##<a name="upload-data"></a> Caricare i dati sul SQL Server locale
 
@@ -95,7 +95,7 @@ Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio
 
 Creare tabelle che specificano la struttura, la posizione e la disponibilità dei set di dati con le seguenti procedure basate su script. I file JSON vengono utilizzati per definire le tabelle. Per ulteriori informazioni sulla struttura di questi file, vedere[Set di dati](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+> [AZURE.NOTE]  È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
 
 Le definizioni basate su JSON nelle tabelle utilizzano i nomi seguenti:
 
@@ -108,7 +108,7 @@ Per questa pipeline ADF sono necessarie tre definizioni di tabella:
 2. [Tabella BLOB](#adf-table-blob-store)
 3. [Tabella SQL Azure](#adf-table-azure-sql)
 
-> [AZURE.NOTE]Le procedure seguenti utilizzano Azure PowerShell per definire e creare le attività del file ADF. Tuttavia, queste attività possono inoltre essere eseguite tramite il portale di Azure. Per ulteriori informazioni, vedere[Creazione di set di dati di input e di output](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
+> [AZURE.NOTE]  Le procedure seguenti utilizzano Azure PowerShell per definire e creare le attività del file ADF. Tuttavia, queste attività possono inoltre essere eseguite tramite il portale di Azure. Per ulteriori informazioni, vedere[Creazione di set di dati di input e di output](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>Tabella SQL locale
 
@@ -212,7 +212,7 @@ Specificare le attività che appartengono alla pipeline e creare la pipeline con
 * Lo script presuppone che il **nome della pipeline** sia *AMLDSProcessPipeline*.
 * Si noti inoltre che abbiamo impostato la periodicità della pipeline per l’esecuzione su base giornaliera e utilizza il tempo di esecuzione predefinito per il processo (12 am UTC).
 
-> [AZURE.NOTE]Le procedure seguenti utilizzano Azure PowerShell per definire e creare la pipeline del file ADF. Tuttavia, questa attività può inoltre essere eseguita tramite il portale di Azure. Per ulteriori informazioni, vedere [Creazione ed esecuzione di una pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]  Le procedure seguenti utilizzano Azure PowerShell per definire e creare la pipeline del file ADF. Tuttavia, questa attività può inoltre essere eseguita tramite il portale di Azure. Per ulteriori informazioni, vedere [Creazione ed esecuzione di una pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Se si utilizzano le definizioni di tabella sopra riportate, la definizione della pipeline per il file ADF viene specificata come segue:
 
@@ -300,6 +300,6 @@ I valori del parametro *startdate* ed *enddate* devono essere sostituiti con le 
 
 Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizzati nel contenitore selezionato per il blob, un file al giorno.
 
-Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](http://azure.microsoft.com/services/data-factory/).
+Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -45,8 +45,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
   1. Identificare un dispositivo di destinazione. Si tratta del percorso in cui verrà creato il clone. È possibile scegliere lo stesso dispositivo o specificare un altro dispositivo. Se si sceglie un volume associato ad altri provider di servizi cloud (non Azure), nell'elenco a discesa per il dispositivo di destinazione verranno visualizzati solo i dispositivi fisici. Non è possibile clonare un volume associato con altri provider di servizi cloud in un dispositivo virtuale.
 
-        >  [AZURE.NOTE] Assicurarsi che la capacità richiesta per il clone sia inferiore a quella disponibile nel dispositivo di destinazione.
-
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
   3. Fare clic sull'icona di freccia ![icona a forma di freccia](./media/storsimple-clone-volume/HCS_ArrowIcon.png) per passare alla pagina successiva.
 
@@ -62,7 +61,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
   1. Nella pagina **Dispositivi**, fare clic sulla scheda **Contenitori di volumi**.
   2. Selezionare il contenitore del volume associato al volume di origine clonato. Nell'elenco di volumi, verrà visualizzato il clone che è stato appena creato.
 
->[AZURE.NOTE]Il monitoraggio e il backup predefinito vengono disabilitati automaticamente in un volume clonato.
+>[AZURE.NOTE] Il monitoraggio e il backup predefinito vengono disabilitati automaticamente in un volume clonato.
 
 Un clone creato in questo modo è un clone temporaneo. Per ulteriori informazioni sui tipi di cloni, vedere [Cloni temporanei e cloni permanenti](#transient-vs.-permanent-clones).
 
@@ -84,7 +83,7 @@ Nelle sezioni seguenti vengono descritte situazioni di esempio in cui è possibi
  
 ![Video disponibile](./media/storsimple-clone-volume/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Test nell'ambiente di produzione con un clone permanente
 
@@ -97,4 +96,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

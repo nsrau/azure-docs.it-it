@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Servizio di sincronizzazione Azure AD Connect: connettore Generic LDAP"
+   pageTitle="Servizio di sincronizzazione Azure AD Connect: connettore LDAP generico | Microsoft Azure"
    description="Questo articolo descrive come configurare il connettore Generic LDAP di Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic LDAP
@@ -279,4 +279,4 @@ Per le directory con un log delle modifiche delta basato su data/ora, è consigl
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

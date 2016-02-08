@@ -30,7 +30,7 @@ In questo articolo viene illustrato come creare una macchina virtuale nel lab ut
 
 ## Aggiungere una macchina virtuale con gli elementi
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -76,7 +76,7 @@ Seguire questi passaggi per ogni elemento da aggiungere alla macchina virtuale:
 
 **Modifica dell'ordine di esecuzione degli elementi**
 
-Poiché si aggiunge e configura elementi per la macchina virtuale, viene visualizzato un collegamento che mostra il numero corrente di elementi all'inizio del pannello **Aggiungi elementi**. Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ordine in cui vengono aggiunte alla macchina virtuale. Per modificare l'ordine in cui vengono eseguiti gli elementi, semplicemente trascinare e rilasciare gli elementi nell'elenco e toccare **OK** al termine.
+Quando si aggiunge e configura elementi per la macchina virtuale, viene visualizzato un collegamento che mostra il numero corrente di elementi nella parte superiore del pannello **Aggiungi elementi**. Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ordine in cui vengono aggiunte alla macchina virtuale. Per modificare l'ordine in cui vengono eseguiti gli elementi, semplicemente trascinare e rilasciare gli elementi nell'elenco e toccare **OK** al termine.
 
 **Visualizzazione/Modifica degli elementi selezionati**
 
@@ -98,4 +98,4 @@ Seguire questi passaggi per visualizzare o modificare i parametri degli elementi
 
 Informazioni su come [creare elementi personalizzati per la macchina virtuale](devtest-lab-artifact-author.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

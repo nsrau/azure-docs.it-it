@@ -27,7 +27,7 @@ Attualmente il plug-in funziona per progetti Mavern e progetti Dynamic Web in Ec
 Sono necessari gli elementi seguenti:
 
 * Oracle JRE 1.6 o versione successiva
-* Una sottoscrizione a [Microsoft Azure](http://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione a [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * [ Eclipse IDE per sviluppatori Java EE](http://www.eclipse.org/downloads/), Indigo o versioni successive.
 * Windows 7 o versioni successive o Windows Server 2008 o versioni successive
 
@@ -207,7 +207,7 @@ I contatori delle prestazioni sono visibili come metriche personalizzate in [Esp
 
 ## Test Web di disponibilità
 
-Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire l'impostazione][availability], scorrere verso il basso e fare clic su Disponibilità.
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. [Per eseguire la configurazione][availability], scorrere verso il basso e fare clic su Disponibilità.
 
 ![Scorrere verso il basso, fare clic su Disponibilità, quindi su Aggiungi test Web](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -260,4 +260,4 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

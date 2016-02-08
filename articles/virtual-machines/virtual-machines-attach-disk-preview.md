@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Come collegare un disco dati nel portale di Azure
@@ -27,21 +27,17 @@ In questo articolo viene illustrato come collegare dischi sia nuovi che esistent
 - Per utilizzare l'archiviazione Premium, è necessario utilizzare una macchina virtuale della serie DS o serie GS. È possibile utilizzare dischi dagli account di archiviazione sia Premium che Standard con queste macchine virtuali. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
 - Dischi collegati a macchine virtuali sono effettivamente file con estensione .vhd in un account di archiviazione di Azure. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md).
 - Per un nuovo disco, non è necessario crearlo prima perché Azure lo crea quando lo si collega.
-- Per un disco esistente, il file .vhd deve essere disponibile in un account di archiviazione di Azure. È possibile utilizzarne uno esistente, se non è collegato a un'altra macchina virtuale o caricare il proprio file.vhd nell'account di archiviazione.
+- Per un disco esistente, il file .vhd deve essere disponibile in un account di archiviazione di Azure. È possibile usare un .vhd già esistente se non è collegato a un'altra macchina virtuale o caricare il proprio file .vhd nell'account di archiviazione.
 
 ## Trovare la macchina virtuale
 
 1. Accedere al portale di Azure.
 
-2. Nel menu Hub fare clic su **Sfoglia**.
+2. Nel menu Hub, fare clic su **Macchine virtuali**.
 
-3. Nel pannello di ricerca scorrere verso il basso e fare clic su **Macchine virtuali**.
+3.	Selezionare la macchina virtuale dall'elenco.
 
-	![Cercare macchine virtuali](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
-
-4.	Selezionare la macchina virtuale dall'elenco.
-
-5. A destra, in **Essentials**, fare clic su **Tutte le impostazioni**, quindi fare clic su **Dischi**.
+4. A destra, in **Essentials**, fare clic su **Tutte le impostazioni**, quindi fare clic su **Dischi**.
 
 	![Aprire le impostazioni del disco](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -59,13 +55,13 @@ Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un di
 
 ## Opzione 2: Collegare un disco esistente
 
-1.	Nel pannello **Dischi** fare clic su **Collega esistente**.
+1.	Nel pannello **Dischi**, fare clic su **Collega esistente**.
 
 2.	In **Collega un disco esistente** fare clic su **File VHD**.
 
 	![Collegare un disco esistente](./media/virtual-machines-attach-disk-preview/attach-existing.png)
 
-3.	In **Account di archiviazione** selezionare l'account e un contenitore che contiene il file con estensione vhd.
+3.	In **Account di archiviazione**, selezionare l'account e un contenitore che contiene il file con estensione vhd.
 
 	![Individuare il percorso di un VHD](./media/virtual-machines-attach-disk-preview/find-storage-container.png)
 
@@ -73,7 +69,7 @@ Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un di
 
 5.	In **Collega un disco esistente** il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
 
-6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
+6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
 ## Passaggi successivi
 
@@ -90,4 +86,4 @@ Dopo aver aggiunto il disco, è necessario prepararlo per l'utilizzo nel sistema
 
 [Informazioni sugli account di archiviazione di Azure]: ../storage-whatis-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

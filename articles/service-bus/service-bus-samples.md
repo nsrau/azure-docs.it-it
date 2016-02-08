@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Esempi relativi al bus di servizio
 
-Gli esempi relativi al bus di servizio illustrano come usare le funzionalità principali del bus di servizio (servizio cloud) e del bus di servizio per Windows Server. Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
+Gli esempi relativi al bus di servizio illustrano come usare le funzionalità principali del [bus di servizio](https://azure.microsoft.com/services/service-bus/) (servizio cloud) e del [bus di servizio per Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
->[AZURE.NOTE]Gli esempi relativi al bus di servizio non vengono installati con l'SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com).
+>[AZURE.NOTE] Gli esempi relativi al bus di servizio non vengono installati con l'SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 
 ## Messaggistica negoziata del bus di servizio
 
@@ -132,4 +132,4 @@ Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 - [Architettura del bus di servizio](service-bus-architecture.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

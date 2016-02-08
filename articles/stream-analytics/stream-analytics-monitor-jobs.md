@@ -27,7 +27,7 @@
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - Visual Studio 2012 o 2013
-- Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Un processo di Analisi dei flussi esistente che richiede l'attivazione del monitoraggio.
 
 ## Configurare un progetto
@@ -139,7 +139,8 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
 
 Il codice seguente consentirà di abilitare il monitoraggio per un processo di Analisi dei flussi **esistente**. La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene utilizzata la proprietà "Id" (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio per il processo di Analisi dei flussi.
 
-> [AZURE.WARNING]Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o in modo programmato mediante il seguente codice, **è consigliabile fornire lo stesso nome di account di archiviazione fornito quando è stato precedentemente abilitato il monitoraggio.**
+> [AZURE.WARNING]
+Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o in modo programmato mediante il seguente codice, **è consigliabile fornire lo stesso nome di account di archiviazione fornito quando è stato precedentemente abilitato il monitoraggio.**
 > 
 > L'account di archiviazione è collegato all'area in cui è stato creato il processo di analisi di flusso, non specificamente al processo stesso.
 > 
@@ -179,4 +180,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

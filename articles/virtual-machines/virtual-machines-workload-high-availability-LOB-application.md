@@ -40,7 +40,7 @@ Una rete virtuale cross-premise è connessa a una rete locale mediante una conne
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-È possibile creare questo ambiente di sviluppo/testing gratuitamente con il proprio [abbonamento a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [sottoscrizione di valutazione di Azure](http://azure.microsoft.com/pricing/free-trial/).
+È possibile creare questo ambiente di sviluppo/testing gratuitamente con il proprio [abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [sottoscrizione di valutazione di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Il passaggio successivo consiste nel creare un'applicazione line-of-business a disponibilità elevata in Azure.
 
@@ -86,4 +86,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 - Ottenere una [panoramica](virtual-machines-workload-high-availability-lob-application-overview.md) del carico di lavoro di produzione prima di approfondire la configurazione.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

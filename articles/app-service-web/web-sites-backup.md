@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Eseguire il backup di un'app Web nel servizio app di Azure
@@ -35,14 +35,14 @@ Le app Web possono effettuare il backup delle seguenti informazioni:
 
 Il backup di tali informazioni viene effettuato nell'account di archiviazione di Azure e nel contenitore specificato.
 
-> [AZURE.NOTE]Ciascun backup è una copia offline completa dell'app, non un aggiornamento incrementale.
+> [AZURE.NOTE] Ciascun backup è una copia offline completa dell'app, non un aggiornamento incrementale.
 
 <a name="requirements"></a>
 ## Requisiti e restrizioni
 
 * Per usufruire della funzionalità di backup e ripristino è necessario che il piano di servizio app si trovi in un livello Standard o superiore. Per ulteriori informazioni sul ridimensionamento del piano di servizio app per utilizzare un livello superiore, vedere [Scalare un'app Web nel servizio app di Azure](web-sites-scale.md). Si noti che il livello Premium consente un maggior numero di backup giornalieri rispetto al livello Standard.
 
-* Per usufruire della funzionalità di backup e ripristino è necessario un account di archiviazione di Azure che appartenga alla stessa sottoscrizione dell'app Web da sottoporre a backup. Se ancora non si dispone di un account di archiviazione, è possibile crearne uno facendo clic su **Account di archiviazione** nel pannello **Backup** del [Portale di Azure](http://portal.azure.com), quindi scegliere l'**Account di archiviazione** e il **Contenitore** dal pannello **Destinazione**. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) al termine di questo articolo.
+* Per usufruire della funzionalità di backup e ripristino è necessario un account di archiviazione di Azure che appartenga alla stessa sottoscrizione dell'app Web da sottoporre a backup. Se ancora non si dispone di un account di archiviazione, è possibile crearne uno facendo clic su **Account di archiviazione** nel pannello **Backup** del [Portale di Azure](https://portal.azure.com/), quindi scegliere l'**Account di archiviazione** e il **Contenitore** dal pannello **Destinazione**. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) al termine di questo articolo.
 
 * La funzionalità di Backup e ripristino supporta fino a 10 GB di contenuto del sito Web e database. Se non è possibile proseguire a utilizzare la funzionalità di backup perché il payload supera questo limite, verrà riportato un errore.
 
@@ -66,7 +66,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 
 	![Scelta dell'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
+	> [AZURE.NOTE] 	Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
 
 6. Nel pannello **Configura impostazioni di backup**, fare clic su **Salva**.
 6. Nel pannello **Backup**, selezionare la **Destinazione di backup**. È necessario scegliere un account di archiviazione e contenitore esistenti.
@@ -98,7 +98,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 
 	![Scelta dell'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
+	> [AZURE.NOTE] 	Per visualizzare un database nell'elenco è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni app Web** del portale.
 
 6. Nel pannello **Configura impostazioni di backup**, fare clic su **Salva**.
 
@@ -107,7 +107,7 @@ Il backup di tali informazioni viene effettuato nell'account di archiviazione di
 
 * Assicurarsi di configurare correttamente le stringhe di connessione di ogni database nel pannello **Impostazioni app Web** in **Impostazioni** dell'app Web in modo che la funzionalità di backup e ripristino possa includere i database.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <a name="partialbackups"></a>
 ## Eseguire il backup solo di una parte dell'app Web
@@ -138,7 +138,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 		D:\home\site\wwwroot\Images\2014
 		D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE]L'ultima riga illustra che è possibile escludere singoli file e cartelle.
+	[AZURE.NOTE] L'ultima riga illustra che è possibile escludere singoli file e cartelle.
 
 2. Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel file, ma rimuovere `D:\home`. Elencare una directory o un file per ogni riga. Il contenuto del file dovrebbe essere analogo al seguente:
 
@@ -150,7 +150,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 
 Eventuali file e cartelle specificati in `_backup.filter` verranno ora esclusi dal backup. In questo esempio i file di log e i file di immagine del 2013 e del 2014 non verranno più inclusi nel backup, oltre al file brand.png.
 
->[AZURE.NOTE]È possibile ripristinare i backup parziali del sito nello stesso modo in cui si [ripristina un backup regolare](web-sites-restore.md). Il processo di ripristino eseguirà le operazioni corrette.
+>[AZURE.NOTE] È possibile ripristinare i backup parziali del sito nello stesso modo in cui si [ripristina un backup regolare](web-sites-restore.md). Il processo di ripristino eseguirà le operazioni corrette.
 >
 >Dopo il ripristino di un backup completo, tutti i contenuti del sito vengono sostituiti dai contenuti del backup. Se un file è presente nel sito ma non nel backup, verrà eliminato. Quando viene ripristinato un backup parziale, tuttavia, eventuali contenuti presenti in una delle directory disattivate o in un file disattivato verranno lasciati invariati.
 
@@ -162,7 +162,7 @@ Dopo l'esecuzione di uno o più backup per l'app Web, i backup saranno visibili 
 
 Il backup del database per l'app Web viene archiviato nella radice del file con estensione zip. Per un database SQL può essere un file BACPAC (nessuna estensione di file) e può essere importato. Per creare un nuovo database SQL basato sull'esportazione BACPAC, vedere [Importare un file BACPAC per creare un nuovo database utente](http://technet.microsoft.com/library/hh710052.aspx).
 
-> [AZURE.WARNING]La modifica di qualsiasi file nel contenitore **websitebackups** può danneggiare il backup rendendolo non valido e dunque non ripristinabile.
+> [AZURE.WARNING] La modifica di qualsiasi file nel contenitore **websitebackups** può danneggiare il backup rendendolo non valido e dunque non ripristinabile.
 
 <a name="nextsteps"></a>
 ## Passaggi successivi
@@ -189,4 +189,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

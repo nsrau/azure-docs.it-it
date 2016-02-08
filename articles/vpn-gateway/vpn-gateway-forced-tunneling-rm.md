@@ -59,9 +59,9 @@ Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Front
 
 Prima di iniziare la configurazione, verificare di essere in possesso dei requisiti seguenti.
 
-- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlet di Azure PowerShell (1.0 o versione successiva). È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](http://azure.microsoft.com/downloads/). Questa documentazione è stata scritta per PowerShell 1.0 o versioni successive. I cmdlet necessari per questa configurazione non sono presenti nelle versioni precedenti.
+- Cmdlet di Azure PowerShell (1.0 o versione successiva). È possibile scaricare e installare questa versione dalla sezione Windows PowerShell della [pagina di download](https://azure.microsoft.com/downloads/). Questa documentazione è stata scritta per PowerShell 1.0 o versioni successive. I cmdlet necessari per questa configurazione non sono presenti nelle versioni precedenti.
 
 - Se non si ha familiarità con Gestione risorse di Azure e PowerShell, vedere [questo articolo](../articles/powershell-azure-resource-manager.md) per altre informazioni.
 
@@ -136,4 +136,4 @@ Prima di iniziare la configurazione, verificare di essere in possesso dei requis
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

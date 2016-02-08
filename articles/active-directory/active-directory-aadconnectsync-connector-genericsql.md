@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Servizio di sincronizzazione Azure AD Connect: connettore Generic SQL"
+   pageTitle="Servizio di sincronizzazione Azure AD Connect: connettore SQL generico | Microsoft Azure"
    description="Questo articolo descrive come configurare il connettore Generic SQL di Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic SQL
@@ -295,4 +295,4 @@ Se l'utente sceglie l'opzione SQL query, l'esportazione richiede 3 diverse query
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

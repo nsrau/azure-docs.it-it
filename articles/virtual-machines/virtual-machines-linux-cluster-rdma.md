@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="09/21/2015"
+ ms.date="01/21/2015"
  ms.author="danlep"/>
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 Questo articolo illustra come configurare un cluster Linux RDMA in Azure con [macchine virtuali di dimensioni A8 e A9](virtual-machines-a8-a9-a10-a11-specs.md) per eseguire applicazioni MPI (Message Passing Interface) parallele. Quando si configurano macchine virtuali di dimensioni A8 e A9 basate su Linux per eseguire un'implementazione MPI supportata, le applicazioni MPI comunicano in modo efficiente su una rete a bassa latenza e a elevata velocità effettiva in Azure che è basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
 
->[AZURE.NOTE]Azure Linux RDMA è attualmente supportata con Intel MPI Library versione 5 in esecuzione su SUSE Linux Enterprise Server 12 (SLES 12). Questo articolo si riferisce a Intel MPI versione 5.0.3.048.
+>[AZURE.NOTE] Azure Linux RDMA è attualmente supportato con Intel MPI Library versione 5 in esecuzione su un'immagine SUSE Linux Enterprise Server 12 (SLES 12) in Azure Marketplace. Questo articolo si riferisce a Intel MPI versione 5.0.3.048.
 >
 > Azure fornisce inoltre istanze A10 e A11 con utilizzo intensivo di calcolo, che hanno capacità di elaborazione identiche alle istanze A8 e A9, ma non dispongono di una connessione a una rete RDMA di back-end. Per eseguire carichi di lavoro MPI in Azure, in genere si otterranno prestazioni migliori con le istanze A8 e A9.
 
@@ -32,31 +32,31 @@ Questo articolo illustra come configurare un cluster Linux RDMA in Azure con [ma
 
 Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux RDMA con o senza un'utilità di pianificazione del processo.
 
-* **HPC Pack**: creare un cluster Microsoft HPC Pack in Azure e aggiungere nodi di calcolo che eseguono distribuzioni Linux supportate (il supporto per i nodi di calcolo Linux è disponibile a partire da HPC Pack 2012 R2 Update 2). Alcuni nodi Linux possono essere configurati per l'accesso alla rete RDMA. Vedere l'articolo di [introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster.md).
+* **HPC Pack**: creare un cluster Microsoft HPC Pack in Azure e aggiungere nodi di calcolo che eseguono distribuzioni Linux supportate. Alcuni nodi Linux possono essere configurati per l'accesso alla rete RDMA. Vedere l'articolo di [introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster.md).
 
-* **Script dell'interfaccia della riga di comando di Azure**: come mostrato nelle procedure del resto di questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per Mac, Linux e Windows per creare script per la distribuzione di una rete virtuale e degli altri componenti necessari per creare un cluster Linux. L'interfaccia della riga di comando nella modalità di distribuzione classica (Gestione dei servizi) crea i nodi del cluster in modo seriale, pertanto la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti.
+* **Script dell'interfaccia della riga di comando di Azure**: come illustrato nei restanti passaggi di questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) (CLI, Command Line Interface) per Mac, Linux e Windows per creare script per la distribuzione di una rete virtuale e degli altri componenti necessari per la creazione di un cluster Linux. L'interfaccia della riga di comando nella modalità di distribuzione classica (Gestione dei servizi) crea i nodi del cluster in modo seriale, pertanto la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti.
 
-* **Modelli di Gestione risorse di Azure**: creando un semplice file modello JSON di Gestione risorse di Azure ed eseguendo i comandi dell'interfaccia della riga di comando di Azure per Gestione risorse o usando il portale di Azure, distribuire più VM Linux A8 e A9 e definire reti virtuali, indirizzi IP statici, impostazioni DNS e altre risorse per creare un cluster di elaborazione in grado di sfruttare la rete RDMA per eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o consultare la [pagina dei modelli di Avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse in genere rappresentano il modo più veloce e affidabile per distribuire un cluster Linux.
+* **Modelli di Gestione risorse di Azure**: usare il modello di distribuzione Gestione risorse di Azure per distribuire più VM Linux A8 e A9 e definire reti virtuali, indirizzi IP statici, impostazioni DNS e altre risorse per un cluster di elaborazione in grado di sfruttare la rete RDMA ed eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o consultare la [pagina dei modelli di Avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse riescono a fornire un modo veloce e affidabile per distribuire un cluster Linux.
 
 ## Distribuzione in Gestione dei servizi di Azure con gli script dell'interfaccia della riga di comando di Azure
 
-I passaggi seguenti consentiranno di utilizzare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale SLES 12, installare Intel MPI Library e altre personalizzazioni, creare un'immagine della macchina virtuale personalizzata, quindi lo script della distribuzione di un cluster di macchine virtuali A8 o A9.
+I passaggi seguenti consentono l'uso dell'interfaccia della riga di comando di Azure per distribuire una VM SUSE Linux Enterprise Server 12, installare Intel MPI Library e altre personalizzazioni, creare un'immagine di VM personalizzata, quindi lo script della distribuzione di un cluster di VM A8 o A9.
 
 ### Prerequisiti
 
 *   **Computer client**: sarà necessario un computer client basato su Mac, Linux o Windows per comunicare con Azure. Nella procedura si presuppone che venga usato un client Linux.
 
-*   **Sottoscrizione di Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+*   **Sottoscrizione di Azure**: se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-*   **Quota di core**: potrebbe essere necessario aumentare la quota di core per distribuire un cluster di macchine virtuali A8 o A9. Ad esempio, se si desidera distribuire macchine virtuali A9 8 come illustrato in questo articolo, sarà necessario disporre di almeno 128 core. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+*   **Quota di core**: potrebbe essere necessario aumentare la quota di core per distribuire un cluster di macchine virtuali A8 o A9. Ad esempio, se si desidera distribuire macchine virtuali A9 8 come illustrato in questo articolo, sarà necessario disporre di almeno 128 core. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 *   **Interfaccia della riga di comando di Azure**: [installare](../xplat-cli-install.md) l'interfaccia della riga di comando di Azure e [configurarla](../xplat-cli-connect.md) per la connessione alla sottoscrizione di Azure dal computer client.
 
-*   **Intel MPI**: come parte della personalizzazione di un'immagine di macchina virtuale Linux per il cluster (vedere i dettagli più avanti in questo articolo), è necessario scaricare e installare il runtime di Intel MPI Library 5 dal [sito Intel.com](https://software.intel.com/it-IT/intel-mpi-library/) in una macchina virtuale Linux di Azure di cui si esegue il provisioning. Come preparazione, dopo aver eseguito la registrazione a Intel, fare clic sul collegamento contenuto nel messaggio di posta elettronica di conferma per accedere alla relativa pagina Web e copiare il collegamento di download del file con estensione tgz per la versione appropriata di Intel MPI. Questo articolo si riferisce a Intel MPI versione 5.0.3.048.
+*   **Intel MPI**: come parte della personalizzazione di un'immagine di VM Linux per il cluster (vedere i dettagli più avanti in questo articolo), è necessario scaricare e installare il runtime di Intel MPI Library 5 dal [sito Intel.com](https://software.intel.com/it-IT/intel-mpi-library/). Come preparazione, dopo aver eseguito la registrazione a Intel, fare clic sul collegamento contenuto nel messaggio di posta elettronica di conferma per accedere alla relativa pagina Web e copiare il collegamento di download del file con estensione tgz per la versione appropriata di Intel MPI. Questo articolo si riferisce a Intel MPI versione 5.0.3.048.
 
 ### Provisioning di una macchina virtuale SLES 12
 
-Dopo essersi connessi ad Azure con l'interfaccia della riga di comando di Azure, eseguire `azure config list` per verificare che l'output indichi la modalità **asm** e, di conseguenza, che l'interfaccia della riga di comando sia in modalità Gestione dei servizi di Azure. Se non lo è, impostare la modalità eseguendo questo comando:
+Dopo l'accesso ad Azure con l'interfaccia della riga di comando di Azure, eseguire `azure config list` per verificare che l'output indichi la modalità **asm** e che l'interfaccia della riga di comando sia nella modalità di gestione dei servizi di Azure. Se non lo è, impostare la modalità eseguendo questo comando:
 
 ```
 azure config mode asm
@@ -176,7 +176,7 @@ Per acquisire l'immagine, eseguire prima il comando seguente nella macchina virt
 sudo waagent -deprovision
 ```
 
-Quindi, dal computer client, utilizzare i comandi dell'interfaccia della riga di comando di Azure seguenti per acquisire l'immagine. Per informazioni dettagliate, vedere [Come acquisire una macchina virtuale Linux da usare come modello](virtual-machines-linux-capture-image.md).
+Quindi, dal computer client, utilizzare i comandi dell'interfaccia della riga di comando di Azure seguenti per acquisire l'immagine. Vedere [Come acquisire una macchina virtuale Linux classica come immagine](virtual-machines-linux-capture-image.md) per dettagli.
 
 ```
 azure vm shutdown <vm-name>
@@ -221,8 +221,64 @@ for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
+
+## Aggiornare i driver Linux RDMA per SLES 12
+
+Dopo la creazione del cluster Linux RDMA basato su un'immagine SLES 12 HPC, è possibile aggiornare i driver RDMA nelle VM per la connettività di rete RDMA.
+
+>[AZURE.IMPORTANT]Attualmente questo passaggio è **obbligatorio** per le distribuzioni dei cluster Linux RDMA nella maggior parte delle aree di Azure. **Le uniche VM SLES 12 da non aggiornare sono quelle create nelle seguenti aree di Azure: Stati Uniti occidentali, Europa occidentale e Giappone orientale.**
+
+Prima di aggiornare i driver, arrestare tutti i processi **zypper** o tutti i processi che bloccano i database repository SUSE nella VM. In caso contrario, i driver rischiano di non essere aggiornati correttamente.
+
+
+Aggiornare i driver Linux RDMA in ogni VM eseguendo uno dei seguenti set di comandi dell'interfaccia della riga di comando di Azure nel computer client.
+
+**Per una VM sottoposta a provisioning nella gestione dei servizi di Azure**
+
+```
+azure config mode asm
+
+azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+**Per una VM sottoposta a provisioning nella Gestione risorse di Azure**
+
+```
+azure config mode arm
+
+azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+>[AZURE.NOTE]L'installazione dei driver può richiedere un po' di tempo e il comando viene restituito senza output. Dopo l'aggiornamento, la VM viene riavviata e nel giro di qualche minuto è pronta per l'uso.
+
+È possibile creare script di aggiornamento del driver in tutti i nodi del cluster. Ad esempio, lo script seguente aggiorna i driver del cluster di 8 nodi creato dallo script nel passaggio precedente.
+
+```
+
+#!/bin/bash -x
+
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+
+vmname=cluster
+
+# Plug in appropriate numbers in the for loop below.
+
+for (( i=11; i<19; i++ )); do
+
+# For ASM VMs use the following command in your script.
+
+azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+# For ARM VMs use the following command in your script.
+
+# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+done
+
+```
+
 ## Configurazione ed esecuzione di Intel MPI
 
 Per eseguire applicazioni MPI su Azure Linux RDMA, è necessario configurare determinate variabili di ambiente specifiche di Intel MPI. Di seguito è riportato uno script Bash di esempio per configurare le variabili ed eseguire un'applicazione.
@@ -370,4 +426,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

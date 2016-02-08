@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Guida introduttiva alle query elastiche per il partizionamento orizzontale
@@ -44,7 +44,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 ## Creare un database di query elastico
 
 1. Aprire il [portale di Azure](https://portal.azure.com) ed effettuare l’accesso.
-2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery". 
+2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery".
 
 	![Portale di Azure e il livello di prezzo][3]
 
@@ -129,7 +129,7 @@ Tutte le righe dalla tabella **Clienti**, archiviate in diverse partizioni sono 
 ### Costi
 Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database.
 
-Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

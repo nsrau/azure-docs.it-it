@@ -27,7 +27,7 @@ I **processi elastici di database** consentono una gestione semplice e affidabil
 
 ## Prerequisiti
 
-* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un pool elastico di database. Vedere l'articolo relativo ai [pool elastici di database](sql-database-elastic-pool.md)
 * Installazione dei componenti del servizio relativo ai processi elastici di database. Vedere l'articolo sull'[installazione del servizio relativo ai processi elastici di database](sql-database-elastic-jobs-service-installation.md).
 
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

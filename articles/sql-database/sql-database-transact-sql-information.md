@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
+   ms.date="01/21/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
@@ -53,7 +53,8 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 
 - Regole di confronto di oggetti di sistema
 - Connessione correlata: istruzioni di Endpoint, ORIGINAL\_DB\_NAME. L'autenticazione di Windows non è disponibile per gli accessi o gli utenti del database indipendente.
-- Query tra database, concatenamento della proprietà tra database, impostazione TRUSTWORTHY
+- Query tra database per le operazioni INSERT, UPDATE e DELETE. Le query tra database di sola lettura sono supportate.
+- Concatenamento della proprietà tra database, impostazione TRUSTWORTHY
 - Agente di raccolta dati
 - Diagrammi di database
 - Posta elettronica database
@@ -106,4 +107,4 @@ Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQ
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

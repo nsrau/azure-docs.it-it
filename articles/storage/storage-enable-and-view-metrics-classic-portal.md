@@ -22,13 +22,13 @@
 
 ## Panoramica
 
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il [portale di Azure classico](manage.windowsazure.com) o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione.
+Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il [portale di Azure classico](https://manage.windowsazure.com) o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione.
 
 Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
 ## Come abilitare Metriche di archiviazione usando il portale di Azure classico
 
-Nel [portale di Azure classico](manage.windowsazure.com), usare la pagina Configura per fare in modo che un account di archiviazione controlli le metriche di archiviazione. Per il monitoraggio, è possibile impostare un livello e un periodo di memorizzazione in giorni per ciascun BLOB, tabella e coda. In ciascun caso, il livello è uno dei seguenti:
+Nel [portale di Azure classico](https://manage.windowsazure.com), usare la pagina Configura per fare in modo che un account di archiviazione controlli le metriche di archiviazione. Per il monitoraggio, è possibile impostare un livello e un periodo di memorizzazione in giorni per ciascun BLOB, tabella e coda. In ciascun caso, il livello è uno dei seguenti:
 
 - Disattivato: non vengono raccolte metriche.
 
@@ -211,4 +211,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione della registrazione di Analisi archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

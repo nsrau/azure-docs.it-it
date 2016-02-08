@@ -22,7 +22,7 @@
 I [database basati sull'edizione Web e sull'edizione Business del database SQL di Azure stanno per essere ritirati](sql-database-web-business-sunset-faq.md), pertanto è necessario aggiornare i database Web o Business esistenti ai [livelli di servizio Basic, Standard, Premium o Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]Quando si esegue l'aggiornamento a un nuovo livello di servizio, i database Web o Business restano online. Il database rimarrà online e disponibile per tutta l'operazione di aggiornamento.
+> [AZURE.IMPORTANT] Quando si esegue l'aggiornamento a un nuovo livello di servizio, i database Web o Business restano online. Il database rimarrà online e disponibile per tutta l'operazione di aggiornamento.
 
 
 A questo scopo, il servizio database SQL consiglia un livello di servizio e un livello di prestazioni appropriato (piano tariffario) per ogni database. Analizzando l'utilizzo cronologico di ogni database, il servizio consiglia un livello più adatto per l'esecuzione del carico di lavoro del database esistente.
@@ -91,7 +91,7 @@ I livelli di prestazioni e le funzionalità del nuovo livello di servizio vengon
 |:--|:--|
 |[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale classico o mediante viste a gestione dinamica). |
 |[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
-|[Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/)|Informazioni dettagliate sui prezzi per i diversi livelli di servizio e di prestazioni.|
+|[Database SQL - Prezzi](https://azure.microsoft.com/pricing/details/sql-database/)|Informazioni dettagliate sui prezzi per i diversi livelli di servizio e di prestazioni.|
 
 <br>
 
@@ -150,7 +150,7 @@ Per esaminare i dettagli relativi al consumo di risorse di un database, è possi
 
 I dati relativi al consumo di risorse dei database Web e Business sono accessibili tramite la vista [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) nel database master del server logico in cui si trova il database corrente. Visualizza i dati sul consumo delle risorse come percentuali del limite del livello di prestazioni. Questa vista fornisce i dati fino a un massimo di 14 giorni fa, a intervalli di 5 minuti.
 
-> [AZURE.NOTE]È ora possibile usare la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) nei database Web e Business per un livello di granularità più elevato (ogni 15 secondi) di dati relativi al consumo di risorse. Poiché sys.dm\_db\_resource\_stats consente di mantenere solo i dati cronologici per un'ora, è possibile eseguire una query per la DMV ogni ora e archiviare i dati per un'ulteriore analisi.
+> [AZURE.NOTE] È ora possibile usare la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) nei database Web e Business per un livello di granularità più elevato (ogni 15 secondi) di dati relativi al consumo di risorse. Poiché sys.dm\_db\_resource\_stats consente di mantenere solo i dati cronologici per un'ora, è possibile eseguire una query per la DMV ogni ora e archiviare i dati per un'ulteriore analisi.
 
 Per recuperare il consumo di DTU medio per un database, inoltrare la seguente query sul database master:
 
@@ -290,7 +290,7 @@ Dopo l'aggiornamento del database Web/Business al nuovo livello, è consigliabil
     ORDER BY end_time DESC;
 
  
-Informazioni dettagliate sull'uso di questa DMV, sono disponibili nella [documentazione](http://msdn.microsoft.com/library/dn800981.aspx) aggiuntiva. In [Linee guida sulle prestazioni del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) viene illustrato come monitorare e ottimizzare l'applicazione.
+Informazioni dettagliate sull'uso di questa DMV sono disponibili nella [documentazione](http://msdn.microsoft.com/library/dn800981.aspx) aggiuntiva. In [Linee guida sulle prestazioni del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) viene illustrato come monitorare e ottimizzare l'applicazione.
 
 
 - **Avvisi:** configurare "Avvisi" nel portale di Azure classico per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un determinato livello elevato. Nel portale di Azure classico si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. 
@@ -317,4 +317,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

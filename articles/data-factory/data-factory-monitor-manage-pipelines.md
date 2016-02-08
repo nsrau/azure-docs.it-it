@@ -25,7 +25,7 @@ Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pip
 Con il portale di Azure, è possibile visualizzare la data factory come diagramma, visualizzare le attività in una pipeline, visualizzare i set di dati di input e output e altro ancora. Questa sezione illustra anche come avviene la transizione di una sezione da uno stato a un altro.
 
 ### Passare alla data factory
-1.	Accedere al [portale di Azure](http://portal.azure.com).
+1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **Esplora tutto** e selezionare **Data factory**.
 	
 	![Esplora tutto -> Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -540,9 +540,7 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori:
-- FailedRuns
-- SuccessfulRuns
+*metricName* supporta al momento 2 valori: - FailedRuns - SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 
@@ -569,4 +567,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 
 È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

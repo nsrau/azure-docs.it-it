@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Pianificazione ed esecuzione con Data factory
@@ -22,7 +22,7 @@ Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello
 
 ## Pianificazione delle attività
 
-La sezione **scheduler** del file JSON dell'attività consente di specificare una pianificazione ricorrente per l'attività. È possibile pianificare, ad esempio, che l'attività venga eseguita a cadenza oraria, come riportato di seguito:
+La sezione **scheduler** del file JSON dell'attività consente di specificare una pianificazione ricorrente per l'attività. È ad esempio possibile pianificare che l'attività venga eseguita a cadenza oraria, come riportato di seguito:
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ La sezione **scheduler** del file JSON dell'attività consente di specificare un
     
 ![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Come sopra illustrato, se si specifica una pianificazione oraria si creano esecuzioni di attività corrispondenti a una serie di finestre a cascata, costituite da serie di intervalli temporali di dimensioni fisse, contigue e non sovrapposte.
+Come illustrato in precedenza, se si specifica una pianificazione per l'attività vengono create finestre a cascata costituite da serie di intervalli temporali di dimensioni fisse, contigue e non sovrapposte. Queste finestre logiche a cascata per l'attività vengono denominate **finestre attività**.
  
-Per l'esecuzione di attività in corso, è possibile accedere all'intervallo di tempo con le variabili di sistema **WindowStart** e **WindowEnd** del file JSON dell'attività. Queste variabili, in realtà, possono essere usate per vari scopi nel file JSON dell'attività e negli script associati all'attività, ad esempio per selezionare dati da set di dati di input o output che rappresentano dati in serie temporale.
+Per l'esecuzione di finestre attività in corso, è possibile accedere all'intervallo di tempo associato alla finestra attività con le variabili di sistema **WindowStart** e **WindowEnd** nel file JSON dell'attività. Queste variabili, in realtà, possono essere usate per vari scopi nel file JSON dell'attività e negli script associati all'attività, ad esempio per selezionare dati da set di dati di input o output che rappresentano dati in serie temporale.
 
-Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine dell'intervallo di tempo, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
+Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine della finestra attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
 
 ## Set di dati in serie temporale e sezioni di dati
 
@@ -523,7 +523,7 @@ WindowEnd | Fine dell'intervallo di tempo relativo alla finestra di esecuzione d
 SliceStart | Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione | set di dati<br/>attività | <ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'utilizzo dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol>
 SliceEnd | Fine dell'intervallo di tempo relativo alla sezione di dati in fase di produzione | set di dati<br/>attività | come sopra. 
 
-> [AZURE.NOTE]La data factory richiede attualmente che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella disponibilità del set di dati di output. In questo modo, il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd verrà sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
+> [AZURE.NOTE] La data factory richiede attualmente che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella disponibilità del set di dati di output. In questo modo, il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd verrà sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
  
 ## Riferimenti alle funzioni della data factory
 
@@ -577,7 +577,7 @@ Text | Format(X) | X: variabile stringa | Formatta il testo.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
+> [AZURE.NOTE] Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
   
 
 ## Approfondimento della dipendenza dei dati
@@ -678,4 +678,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

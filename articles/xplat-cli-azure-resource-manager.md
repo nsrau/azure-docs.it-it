@@ -27,7 +27,7 @@
 
 In questo articolo viene descritto come creare e gestire le risorse di Azure tramite l’interfaccia della riga di comando (CLI) di Azure per Mac, Linux e Windows nella modalità di Gestione risorse di Azure.
 
->[AZURE.NOTE]Per creare e gestire risorse di Azure tramite la riga di comando, sarà necessario un account Azure ([per ottenere una versione di valutazione gratuita, fare clic qui](http://azure.microsoft.com/pricing/free-trial/)). Sarà inoltre necessario [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [accedere per usare le risorse di Azure associate al proprio account](xplat-cli-connect.md). Se queste operazioni sono già state eseguite, si è pronti per proseguire.
+>[AZURE.NOTE] Per creare e gestire risorse di Azure tramite la riga di comando, sarà necessario un account Azure ([per ottenere una versione di valutazione gratuita, fare clic qui](https://azure.microsoft.com/pricing/free-trial/)). Sarà inoltre necessario [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [accedere per usare le risorse di Azure associate al proprio account](xplat-cli-connect.md). Se queste operazioni sono già state eseguite, si è pronti per proseguire.
 
 ## Risorse di Azure
 
@@ -45,7 +45,7 @@ L'uso di Gestione risorse di Azure tramite l'interfaccia della riga di comando d
 
 Per altre informazioni sull'autenticazione a Microsoft Azure, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per maggiori dettagli, vedere [Controllo di accesso in base al ruolo Azure](./active-directory/role-based-access-control-configure.md).
+>[AZURE.NOTE] Quando si usa un account aziendale o dell'istituto di istruzione, che viene gestito da Azure Active Directory, è anche possibile usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso e l'uso delle risorse di Azure. Per maggiori dettagli, vedere [Controllo di accesso in base al ruolo Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Impostare la modalità di gestione risorse di Azure
 
@@ -53,7 +53,7 @@ Poiché la modalità Gestione risorse non è abilitata per impostazione predefin
 
 	azure config mode arm
 
->[AZURE.NOTE]La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
+>[AZURE.NOTE] La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
 ## Ricercare le posizioni
 
@@ -84,7 +84,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare 
 * Password = `adminPassword`
 * Nome di dominio per la macchina virtuale = `dnsLabelPrefix`
 
->[AZURE.TIP]Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 1. Seguire il collegamento "Altre informazioni con GitHub" per scaricare i file azuredeploy.json e azuredeploy.parameters.json da GitHub in una cartella di lavoro nel computer locale. Assicurarsi di selezionare il formato _raw_ formato di ogni file in GitHub.
 
@@ -149,7 +149,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare 
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
 
-	>[AZURE.NOTE]Se ci si accorge che la configurazione non è corretta ed è necessario arrestare una distribuzione a lunga esecuzione, usare il comando seguente.
+	>[AZURE.NOTE] Se ci si accorge che la configurazione non è corretta ed è necessario arrestare una distribuzione a lunga esecuzione, usare il comando seguente.
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
@@ -168,13 +168,13 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare 
 	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
 
-> [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
+> [AZURE.NOTE] È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
 
 ## Utilizzo delle risorse
 
 Mentre i modelli consentono di dichiarare modifiche a livello di interi gruppi in ambito di configurazione, è talvolta necessario lavorare su una risorsa specifica. A tale scopo, è possibile usare i comandi `azure resource`.
 
-> [AZURE.NOTE]Quando si usano comandi `azure resource` diversi da `list`, è necessario specificare la versione dell'API della risorsa usata tramite il parametro `-o`. Se non si è certi della versione dell'API da utilizzare, consultare il file di modello e trovare il campo **apiVersion** relativo alla risorsa.
+> [AZURE.NOTE] Quando si usano comandi `azure resource` diversi da `list`, è necessario specificare la versione dell'API della risorsa usata tramite il parametro `-o`. Se non si è certi della versione dell'API da utilizzare, consultare il file di modello e trovare il campo **apiVersion** relativo alla risorsa.
 
 1. Per elencare tutte le risorse in un gruppo, usare il comando seguente.
 
@@ -192,7 +192,7 @@ Mentre i modelli consentono di dichiarare modifiche a livello di interi gruppi i
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE]È possibile salvare i dati JSON nel file usando il carattere &gt; per inviare l'output al file. Ad esempio:
+	>[AZURE.NOTE] È possibile salvare i dati JSON nel file usando il carattere &gt; per inviare l'output al file. Ad esempio:
 	>
 	> `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -215,4 +215,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

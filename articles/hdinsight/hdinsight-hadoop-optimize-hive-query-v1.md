@@ -34,7 +34,7 @@ Aumentando il numero di nodi di lavoro in un cluster è possibile usare più map
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, come illustrato di seguito. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Abilitare Tez
 
@@ -218,4 +218,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

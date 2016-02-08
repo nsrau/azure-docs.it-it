@@ -23,9 +23,9 @@ Questo articolo analizza le differenze e le analogie presenti tra i due tipi di 
 
 Microsoft Azure supporta due tipi di meccanismi di code: **code di Azure** e **code del bus di servizio**.
 
-Le **code di Azure**, che fanno parte dell'infrastruttura di [archiviazione di Azure](http://azure.microsoft.com/services/storage/), offrono un'interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che fornisce messaggistica affidabile e persistente in e tra i servizi.
+Le **code di Azure**, che fanno parte dell'infrastruttura di [archiviazione di Azure](https://azure.microsoft.com/services/storage/), offrono un'interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che fornisce messaggistica affidabile e persistente in e tra i servizi.
 
-Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](http://azure.microsoft.com/services/service-bus/) più ampia che supporta l'accodamento, oltre a modelli di pubblicazione, sottoscrizione, comunicazione remota del servizio Web e integrazione. Per altre informazioni su code, argomenti, sottoscrizioni e inoltri del bus di servizio, vedere [Panoramica dei modelli di messaggistica del bus di servizio](service-bus-messaging-overview.md).
+Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](https://azure.microsoft.com/services/service-bus/) più ampia che supporta l'accodamento, oltre a modelli di pubblicazione, sottoscrizione, comunicazione remota del servizio Web e integrazione. Per altre informazioni su code, argomenti, sottoscrizioni e inoltri del bus di servizio, vedere [Panoramica dei modelli di messaggistica del bus di servizio](service-bus-messaging-overview.md).
 
 Anche se entrambe le tecnologie di accodamento sono disponibili contemporaneamente, le code di Azure sono state introdotte prima, come meccanismo dedicato di archiviazione delle code creato nei servizi di archiviazione di Azure. Le code del bus di servizio vengono create nell'infrastruttura di "messaggistica negoziata" più ampia progettata per integrare applicazioni e componenti delle applicazioni in grado di estendere più protocolli di comunicazione, contratti dati, domini trusted e/o ambienti di rete.
 
@@ -204,8 +204,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Protocollo di gestione|**REST su HTTP/HTTPS**|**REST su HTTPS**|
-|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**|
-|API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
+|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**| |API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
 |C++ nativo|**Sì**|**No**|
 |API Java|**Sì**|**Sì**|
 |API PHP|**Sì**|**Sì**|
@@ -289,7 +288,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - In base al supporto per polling prolungato, l'uso di code del bus di servizio può essere economicamente conveniente in situazioni in cui è richiesto il recapito a bassa latenza.
 
->[AZURE.NOTE]Tutti i costi sono soggetti a modifiche. Questa tabella presenta il prezzo corrente al momento della stesura di questo articolo e non include i costi di eventuali offerte promozionali che possono essere attualmente disponibili. Per informazioni aggiornate sui prezzi di Azure, vedere la pagina relativa ai [prezzi di Azure](http://azure.microsoft.com/pricing/). Per altre informazioni sui prezzi del bus di servizio, vedere [Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] Tutti i costi sono soggetti a modifiche. Questa tabella presenta il prezzo corrente al momento della stesura di questo articolo e non include i costi di eventuali offerte promozionali che possono essere attualmente disponibili. Per informazioni aggiornate sui prezzi di Azure, vedere la pagina relativa ai [prezzi di Azure](https://azure.microsoft.com/pricing/). Per altre informazioni sui prezzi del bus di servizio, vedere [Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusioni
 
@@ -315,4 +314,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 [portale di Azure classico]: http://manage.windowsazure.com
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

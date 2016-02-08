@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # Scalare il piano tariffario in Azure App Service
@@ -22,13 +22,13 @@ Per migliorare le prestazioni e la velocità effettiva delle app in Microsoft Az
 
 Il livello di servizio con il piano di servizio App dipende il [*piano tariffario* per il piano](/pricing/details/app-service/). Livelli di servizio più elevati quali le modalità **Standard** e **Premium** offrono maggiore potenza e flessibilità nella determinazione della modalità di uso delle risorse in Azure. La modifica del piano tariffario influisce sul numero di core e sulla quantità di memoria posseduta dal servizio e questo viene definito come *Aumento* (o *Riduzione*).
 
-Oltre all'aumento del piano tariffario, è possibile aumentare il numero di istanze possedute dal servizio. Questa operazione viene detta *Aumento* o *Riduzione*. Vedere l'articolo relativo alla [scalabilità del numero di istanze manuale o automatica](../insights-how-to-scale.md) per altre informazioni su come *aumentare* e *ridimensionare*.
+Oltre al passaggio a un piano tariffario superiore , è possibile aumentare il numero di istanze possedute dal servizio. Questa operazione viene detta *Aumento* o *Riduzione*. Vedere l'articolo relativo alla [scalabilità del numero di istanze manuale o automatica](../insights-how-to-scale.md) per altre informazioni su come *aumentare* e *ridimensionare*.
 
 Per informazioni su Azure App Service Per informazioni sui piani di servizio app, vedere [Informazioni sui piani di servizio app](../web-sites-web-hosting-plan-overview.md) e [Panoramica approfondita dei piani di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app, vedere [Dettagli prezzi del servizio app](/pricing/details/app-service/).
 
 Infine, la scalabilità funziona in modo diverso se si desidera utilizzare un oggetto dedicato[ambiente App](app-service-app-service-environment-intro.md). Vedere[la scalabilità di applicazioni web in un ambiente App](app-service-web-scale-a-web-app-in-an-app-service-environment.md)per ulteriori dettagli.
 
-> [AZURE.NOTE]Prima di passare dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione di Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione di Microsoft Azure App Service, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Prima di passare dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione di Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione di Microsoft Azure App Service, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -85,7 +85,7 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 
 - Per informazioni dettagliate su tutte le altre funzionalità disponibili nei piani di servizio app, inclusi i prezzi e le funzionalità di interesse per tutti gli utenti (compresi gli sviluppatori), vedere [Dettagli prezzi del servizio app](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <a name="Next Steps"></a>
 ## Passaggi successivi
@@ -130,4 +130,4 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

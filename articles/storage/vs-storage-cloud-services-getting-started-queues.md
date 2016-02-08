@@ -28,7 +28,7 @@ L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti Nu
 
  - Per ulteriori informazioni su come manipolare le code nel codice, vedere [Come utilizzare l’archiviazione code da .NET](storage-dotnet-how-to-use-queues.md).
  - Vedere la [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
- - Vedere la [documentazione dei servizi Cloud](http://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
+ - Vedere la [documentazione dei servizi Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
  - Vedere [ASP.NET](http://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
 
@@ -180,7 +180,7 @@ In questo esempio viene illustrato come utilizzare il modello Async-Await con AP
 
 ## Eliminare una coda
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Delete** sull'oggetto coda.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Elimina** sull'oggetto coda.
 
     // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
@@ -192,4 +192,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Del
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

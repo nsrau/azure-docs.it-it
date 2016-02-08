@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Foglio informativo in formato PDF di SQL per DocumentDB | Microsoft Azure" 
-	description="Un foglio informativo PDF sulle query SQL stampabile che consente di utilizzare la sintassi in stile SQL di DocumentDB per eseguire query in documenti JSON nel database NoSQL." 
+	description="Un foglio informativo con estensione pdf sulle query SQL stampabile che consente di usare la sintassi in stile SQL di DocumentDB per eseguire query in documenti JSON nel database NoSQL - Riferimento rapido di SQL" 
 	keywords="foglio informativo SQL, pdf foglio informativo sql , foglio informativo query sql"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 
 **Scaricare qui il foglio informativo SQL: [foglio informativo SQL di Microsoft Azure DocumentDB](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Foglio informativo sulle query SQL di DocumentDB: riferimento rapido alla grammatica SQL supportata da DocumentDB.][cheat-sheet]
+![Foglio informativo sulle query SQL di DocumentDB: un riferimento rapido PDF per la sintassi SQL supportata da DocumentDB - foglio informativo SQL, foglio informativo SQL PDF, riferimento rapido SQL][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali de
 - Per un esplorare le opzioni delle query disponibili in DocumentDB, vedere [Query di DocumentDB](documentdb-sql-query.md).
 - Per la documentazione di riferimento correlata, vedere [Linguaggio delle query SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

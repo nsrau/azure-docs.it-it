@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Azure AD Connect: Installazione personalizzata | Microsoft Azure"
-	description="Questo documento descrive le opzioni di installazione personalizzata per Azure AD Connect."
+	description="Questo documento descrive le opzioni di installazione personalizzata per Azure AD Connect. Usare queste istruzioni per installare Active Directory con Azure AD Connect."
 	services="active-directory"
+    keywords="che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/25/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
@@ -45,7 +46,7 @@ Durante l'installazione dei servizi di sincronizzazione, è possibile lasciare d
 
 | Configurazione facoltativa | Descrizione |
 | ------------- | ------------- |
-| Usare un server SQL esistente | Permette di specificare il nome di SQL Server e il nome dell'istanza. Scegliere questa opzione se si dispone già di un server di database che si desidera usare. Se SQL Server non dispone di esplorazione abilitato ed è necessario specificare un numero di porta nella casella **Nome istanza**, immettere il nome dell'istanza seguito da una virgola e dal numero di porta. |
+| Usare un server SQL esistente | Permette di specificare il nome di SQL Server e il nome dell'istanza. Scegliere questa opzione se si dispone già di un server di database che si desidera usare. Se in SQL Server l'esplorazione non è abilitata ed è necessario specificare un numero di porta nella casella **Nome istanza**, immettere il nome dell'istanza seguito da una virgola e dal numero di porta. |
 | Usare un account di servizio esistente | Per impostazione predefinita, Azure AD Connect crea un account di servizio locale che verrà usato dai servizi di sincronizzazione. La password viene generata automaticamente e non è nota alla persona che installa Azure AD Connect. Se si usa un server SQL remoto, è necessario disporre di un account di servizio nel dominio e conoscere la password. In questi casi, immettere l'account di servizio da usare. Assicurarsi che l'utente che esegue l'installazione sia un'associazione di sicurezza in SQL, in modo che sia possibile creare un accesso per l'account del servizio. Vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Specificare i gruppi di sincronizzazione personalizzati | Per impostazione predefinita, Azure AD Connect crea quattro gruppi locali nel server quando vengono installati i servizi di sincronizzazione. I gruppi sono: gruppo Administrators, gruppo Operators, gruppo Browse e Gruppo Password Reset. Se si vuole specificare gruppi personalizzati, è possibile farlo qui. I gruppi devono essere locali sul server e non possono trovarsi nel dominio. |
 
@@ -99,7 +100,7 @@ Attributo personale|Questa opzione consente di selezionare un attributo personal
 
 - **UserPrincipalName**: l'attributo userPrincipalName è l'attributo che gli utenti useranno per l'accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso. Questo attributo è noto come **ID alternativo**. Il valore dell'attributo ID alternativo deve essere conforme allo standard RFC822. È possibile usare un ID alternativo sia con una soluzione di accesso Single Sign-On tramite password che Single Sign-On federativo.
 
->[AZURE.WARNING]L'uso di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx).
+>[AZURE.WARNING] L'uso di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx).
 
 
 
@@ -108,7 +109,7 @@ Il filtro sulla funzionalità dei gruppi consente di eseguire una piccola distri
 
 Per usare questa funzionalità, nel percorso personalizzato verrà visualizzata questa pagina: ![Filtro sincronizzazione](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING]Questa funzionalità è destinata solo a una distribuzione pilota e non deve essere usata in una distribuzione di produzione completa.
+>[AZURE.WARNING] Questa funzionalità è destinata solo a una distribuzione pilota e non deve essere usata in una distribuzione di produzione completa.
 
 In un ambiente di distribuzione della produzione completo è difficile mantenere un singolo gruppo con tutti gli oggetti da sincronizzare. È invece necessario usare uno dei metodi in [Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md).
 
@@ -118,7 +119,7 @@ Questa schermata consente di selezionare le funzionalità facoltative per gli sc
 
 ![Funzionalità facoltative](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
-> [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect
+> [AZURE.WARNING] Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect
 
 Funzionalità facoltative | Descrizione
 -------------------    | ------------- |
@@ -165,7 +166,7 @@ Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di poc
 Immettere qui i server specifici nei quali si desidera installare ADFS. È possibile aggiungere uno o più server in base alle esigenze di pianificazione della capacità. Questi server devono essere tutti uniti a un dominio di Active Directory prima di eseguire questa configurazione. Si consiglia di installare un singolo server ADFS per le distribuzioni di test e progetto pilota e di distribuire server aggiuntivi aprendo Azure AD Connect e distribuendo ADFS su altri server per soddisfare le esigenze di scalabilità.
 
 
-> [AZURE.NOTE]Assicurarsi che tutti i server vengano uniti a un dominio di Active Directory prima di eseguire questa configurazione.
+> [AZURE.NOTE] Assicurarsi che tutti i server vengano uniti a un dominio di Active Directory prima di eseguire questa configurazione.
 
 ![Server ADFS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -175,7 +176,8 @@ Immettere qui i server specifici nei quali si desidera installare ADFS. È possi
 Immettere qui i server specifici che si desidera utilizzare come server Proxy applicazione Web. Il server Proxy applicazione Web viene distribuito nel DMZ (per la rete Extranet) e supporta le richieste di autenticazione dalla rete Extranet. È possibile aggiungere uno o più server in base alle esigenze di pianificazione della capacità. Si consiglia di installare un singolo server Proxy applicazione Web per le distribuzioni di test e progetto pilota e di distribuire server aggiuntivi aprendo Azure AD Connect e distribuendo il server Proxy applicazione Web su altri server. In genere, è consigliabile disporre di un numero equivalente di server proxy per soddisfare l'autenticazione dalla Intranet.
 
 
-> [AZURE.NOTE]- Se l'account che si usa per installare Azure AD Connect non è un amministratore locale dei server ADFS, verranno richieste le credenziali per un account dotato di autorizzazioni sufficienti. - Accertarsi che esista connettività HTTP/HTTPS tra il server Azure AD Connect e il proxy applicazione Web prima di configurare questo passaggio. - Assicurarsi inoltre che sia presente connettività HTTP/HTTPS tra il server applicazione Web e il server ADFS per consentire il flusso delle richieste di autenticazione.
+> [AZURE.NOTE]
+- Se l'account che si usa per installare Azure AD Connect non è un amministratore locale dei server ADFS, verranno richieste le credenziali per un account dotato di autorizzazioni sufficienti. - Accertarsi che esista connettività HTTP/HTTPS tra il server Azure AD Connect e il proxy applicazione Web prima di configurare questo passaggio. - Assicurarsi inoltre che sia presente connettività HTTP/HTTPS tra il server applicazione Web e il server ADFS per consentire il flusso delle richieste di autenticazione.
 
 
 ![App Web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -251,4 +253,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

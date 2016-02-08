@@ -3,7 +3,7 @@
 	description="Viene descritto cosa è successo al progetto di Servizi mobili di Azure in Visual Studio .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="01/05/2016" 
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Cosa accade a un progetto Javascript quando si aggiungono i servizi per dispositivi mobili di Azure utilizzando i servizi di Visual Studio connessi?
 
@@ -38,4 +38,4 @@ Nella cartella dei servizi sono stati aggiunti file di configurazione dei serviz
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,11 @@ Nel modello di messaggistica inoltrata, un servizio locale si connette al serviz
 
 ## Passaggi successivi
 
-Per ulteriori dettagli sull’inoltro del bus di servizio, vedere gli argomenti seguenti.
+Per informazioni dettagliate sull'inoltro del bus di servizio, vedere gli argomenti seguenti.
 
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
-
 - [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

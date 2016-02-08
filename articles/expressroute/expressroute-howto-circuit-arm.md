@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute tramite Gestione risorse di Azure e PowerShell
@@ -169,7 +169,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 		
 		CircuitProvisioningState         : Enabled
 
-	*ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider del servizio, mentre Status indica lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
+	*ServiceProviderProvisioningState* offre informazioni sullo stato di provisioning corrente sul lato provider di servizi, mentre Status indica lo stato sul lato Microsoft. Un circuito ExpressRoute può essere usato solo se è associato allo stato seguente.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -183,7 +183,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 
 
-5. **Controllare periodicamente lo stato e la condizione della chiave del circuito.**
+6. **Controllare periodicamente lo stato e la condizione della chiave del circuito.**
 
 	In questo modo è possibile sapere quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, il parametro *ServiceProviderProvisioningState* verrà visualizzato come *Provisioned*, come illustrato nell'esempio riportato di seguito.
 
@@ -213,16 +213,12 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **Creare la configurazione di routing.**
-	
-	Fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md) per istruzioni dettagliate.
+7. **Configurare il routing e collegare una rete virtuale**
 
->[AZURE.IMPORTANT]Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
+	a. **Creare la configurazione di routing.** Per istruzioni dettagliate, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md).
 
-
-7. **Collegare una rete virtuale a un circuito ExpressRoute.** 
-
-	Collegare ora una rete virtuale a un circuito ExpressRoute. Fare riferimento a [Collegamento di reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-arm.md) per istruzioni dettagliate.
+		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	b. **Collegare una rete virtuale a un circuito ExpressRoute**. Dopo aver verificato che il routing sia stato configurato, è necessario collegare la rete virtuale al circuito ExpressRoute. Per istruzioni dettagliate, fare riferimento a [Collegamento di reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
@@ -289,14 +285,14 @@ La risposta sarà simile a quella riportata nel seguente esempio:
 
 ## Per modificare un circuito ExpressRoute
 
-È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività.
+È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività. Per altre informazioni su limiti e limitazioni, fare riferimento alla pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-A questo punto è possibile eseguire le attività seguenti:
+È possibile modificare le impostazioni seguenti senza incorrere in tempi di inattività:
 
-- Abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute senza tempo di inattività.
+- Abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute senza tempi di inattività.
 - Aumentare la larghezza di banda del circuito ExpressRoute senza alcun tempo di inattività.
 
-Per altre informazioni su limiti e limitazioni, fare riferimento alla pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
 
 ### Come abilitare il componente aggiuntivo ExpressRoute Premium
 
@@ -304,7 +300,7 @@ Per altre informazioni su limiti e limitazioni, fare riferimento alla pagina del
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +310,13 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 
 ### Come disabilitare il componente aggiuntivo ExpressRoute Premium
 
-È possibile disabilitare il componente aggiuntivo ExpressRoute Premium per il circuito esistente usando il cmdlet di PowerShell riportato di seguito:
+È possibile disabilitare il componente aggiuntivo ExpressRoute Premium per il circuito esistente. Quando si disabilita il componente aggiuntivo ExpressRoute Premium, tenere presente quanto segue:
+
+- È necessario assicurarsi che il numero di reti virtuali collegate al circuito sia minore di 10 prima di eseguire il downgrade da premium a standard. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe Premium.
+- È necessario scollegare tutte le reti virtuali in altre aree geopolitiche. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe premium.
+- La tabella di route deve includere meno di 4000 route per il peering privato. Se la tabella di route include più di 4000 route, la sessione BGP verrà eliminata e non verrà abilitata finché il numero di prefissi pubblicati non scenderà al di sotto di 4000.
+
+Per disabilitare il componente aggiuntivo Premium, usare l'esempio di cmdlet PowerShell riportato di seguito. Questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -323,19 +325,13 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-Il componente aggiuntivo Premium è ora disabilitato per il circuito.
-
-Notare che questa operazione può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
-
-- È necessario assicurarsi che il numero di reti virtuali collegate al circuito sia minore di 10 prima di eseguire il downgrade da premium a standard. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe premium.
-- È necessario scollegare tutte le reti virtuali in altre aree geopolitiche. In caso contrario, la richiesta di aggiornamento avrà esito negativo e verranno fatturate le tariffe premium.
-- La tabella di route deve includere meno di 4000 route per il peering privato. Se la tabella di route include più di 4000 route, la sessione BGP verrà eliminata e non verrà abilitata finché il numero di prefissi pubblicati non scenderà al di sotto di 4000.
-
-
 ### Come aggiornare la larghezza di banda del circuito ExpressRoute
 
-Consultare la pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md) per larghezze di banda supportate per il provider. È possibile scegliere qualsiasi dimensione maggiore della dimensione del circuito esistente. Dopo aver stabilito le dimensioni necessarie, è possibile usare il comando seguente per ridimensionare il circuito.
+Consultare la pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs.md) per larghezze di banda supportate per il provider. È possibile scegliere qualsiasi dimensione **maggiore** della dimensione del circuito esistente senza incorrere in tempi di inattività.
+
+>[AZURE.IMPORTANT] Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
+
+Dopo aver stabilito le dimensioni necessarie, usare il comando seguente per ridimensionare il circuito. Dopo aver eseguito i cmdlet, il circuito verrà ridimensionato sul lato Microsoft. È necessario contattare il provider di connettività per aggiornare le configurazioni corrispondenti in base a questa modifica. Si noti che inizierà la fatturazione per la larghezza di banda aggiornata da questo punto in poi.
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -343,24 +339,25 @@ Consultare la pagina delle [Domande frequenti su ExpressRoute](expressroute-faqs
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Il circuito verrà ridimensionato sul lato di Microsoft. È necessario contattare il provider di connettività per aggiornare le configurazioni corrispondenti in base a questa modifica. Si noti che inizierà la fatturazione per la larghezza di banda aggiornata da questo punto in poi.
-
->[AZURE.IMPORTANT]Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
-
 ## Eliminare un circuito ExpressRoute ed eseguire il deprovisioning
 
-È possibile eliminare un circuito ExpressRoute eseguendo questo comando:
+È possibile eliminare il circuito ExpressRoute. Quando si elimina un circuito ExpressRoute, tenere conto di quanto segue:
+
+- Affinché l'operazione abbia esito positivo, è necessario scollegare tutte le reti virtuali da ExpressRoute. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
+
+- Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
+
+- Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+
+Per eliminare il circuito ExpressRoute, usare l'esempio di cmdlet PowerShell riportato di seguito.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-Si noti che è necessario scollegare tutte le reti virtuali da ExpressRoute perché l'operazione abbia esito positivo. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
-
-Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
-
-Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet precedente, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
-
 ## Passaggi successivi
 
-- [Configurare il routing](expressroute-howto-routing-arm.md)
+Dopo aver creato il circuito, assicurarsi di eseguire le operazioni seguenti:
 
-<!---HONumber=AcomDC_0114_2016-->
+1.  [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
+2.  [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
+
+<!---HONumber=AcomDC_0128_2016-->

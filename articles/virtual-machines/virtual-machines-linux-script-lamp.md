@@ -104,10 +104,10 @@ Dopo aver eseguito l'estensione CustomScript, è possibile esplorare la pagina P
 
 Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della riga di comando di Azure, Linux e l'estensione CustomScript:
 
-[Automatizzare le attività di personalizzazione delle macchine virtuali Linux utilizzando l'estensione CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Automatizzare le attività di personalizzazione delle macchine virtuali Linux utilizzando l'estensione CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

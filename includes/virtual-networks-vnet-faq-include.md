@@ -24,7 +24,7 @@ Per una tabella che consenta di scegliere la migliore opzione di progettazione d
 
 ### Come iniziare?
 
-Per iniziare, vedere [la documentazione della rete virtuale](http://azure.microsoft.com/documentation/services/virtual-network/). Questa pagina include collegamenti a passaggi di configurazione comuni, nonché informazioni utili per comprendere ciò che è necessario considerare durante la progettazione della rete virtuale.
+Per iniziare, vedere [la documentazione della rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/). Questa pagina include collegamenti a passaggi di configurazione comuni, nonché informazioni utili per comprendere ciò che è necessario considerare durante la progettazione della rete virtuale.
 
 ### Quali servizi è possibile usare con le reti virtuali?
 
@@ -143,7 +143,7 @@ Sì. È possibile modificare l'elenco dei server DNS per la rete virtuale in qua
 
 Il DNS fornito da Azure è un servizio DNS multi-tenant offerto da Microsoft. Azure registra tutte le macchine virtuali e le istanze del ruolo nel servizio. Questo servizio fornisce la risoluzione dei nomi dal nome host per le macchine virtuali e le istanze del ruolo contenute all'interno dello stesso servizio cloud e da FQDN per le macchine virtuali e le istanze del ruolo nella stessa rete virtuale.
 
-> [AZURE.NOTE]Al momento esiste una limitazione ai primi 100 servizi cloud nella rete virtuale per la risoluzione dei nomi cross-tenant utilizzando il DNS fornito da Azure. Se si utilizza il proprio server DNS, questa limitazione non viene applicata.
+> [AZURE.NOTE] Al momento esiste una limitazione ai primi 100 servizi cloud nella rete virtuale per la risoluzione dei nomi cross-tenant utilizzando il DNS fornito da Azure. Se si utilizza il proprio server DNS, questa limitazione non viene applicata.
 
 ### È possibile ignorare le impostazioni DNS in base alla macchina virtuale/al servizio?
 
@@ -171,7 +171,7 @@ Sì. È possibile distribuire qualsiasi distributore di Linux supportato da Azur
 
 ### Quale indirizzo IP riceverà la macchina virtuale?
 
-- **Indirizzo IP interno**: se si distribuisce una macchina virtuale su una rete virtuale, la macchina virtuale riceve un indirizzo IP interno da un pool di indirizzi IP interni specificato. Le macchine virtuali comunicano all’interno delle reti virtuali utilizzando gli indirizzi IP interni. Sebbene Azure assegni un indirizzo IP interno dinamico, è possibile richiedere un indirizzo statico per la macchina virtuale. Per altre informazioni sugli indirizzi IP interni statici, consultare [Come impostare un indirizzo IP interno statico](virtual-networks-reserved-private-ip.md).
+- **Indirizzo IP interno**: se si distribuisce una macchina virtuale su una rete virtuale, la macchina virtuale riceve un indirizzo IP interno da un pool di indirizzi IP interni specificato. Le macchine virtuali comunicano all’interno delle reti virtuali utilizzando gli indirizzi IP interni. Sebbene Azure assegni un indirizzo IP interno dinamico, è possibile richiedere un indirizzo statico per la macchina virtuale. Per ulteriori informazioni sugli indirizzi IP interni statici, consultare [Come impostare un indirizzo IP interno statico](virtual-networks-reserved-private-ip.md).
 
 - **Indirizzo VIP**: la macchina virtuale è inoltre associata a un indirizzo VIP, sebbene un indirizzo VIP non venga mai assegnato direttamente alla macchina virtuale. Un indirizzo VIP è un indirizzo IP pubblico che può essere assegnato al servizio cloud. È possibile riservare un indirizzo VIP per il servizio cloud. Vedere [IP pubblico riservato](virtual-networks-reserved-public-ip.md).
 
@@ -193,7 +193,7 @@ No, non è necessario modificare le proprietà dell'interfaccia delle macchine v
 
 Niente. Gli indirizzi IP (sia l’indirizzo VIP pubblico sia l’indirizzo IP interno) rimarranno associati al servizio cloud o alla macchina virtuale.
 
-> [AZURE.NOTE]Se si vuole semplicemente arrestare la macchina virtuale, non usare il portale di gestione per eseguire questa operazione. Attualmente, il pulsante di arresto deallocherà la macchina virtuale.
+> [AZURE.NOTE] Se si vuole semplicemente arrestare la macchina virtuale, non usare il portale di gestione per eseguire questa operazione. Attualmente, il pulsante di arresto deallocherà la macchina virtuale.
 
 ### È possibile spostare le macchine virtuali da una subnet a un'altra in una rete virtuale senza ripetere la distribuzione?
 
@@ -224,9 +224,9 @@ Sì. È possibile distribuire App Web all'interno di una rete virtuale utilizzan
 
 - [Creare app Web in un ambiente del servizio app](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Integrazione della rete virtuale di app Web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integrazione della rete virtuale di app Web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integrazione di un'app Web in una rete virtuale di Azure](web-sites-integrate-with-vnet.md)
 
@@ -266,4 +266,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

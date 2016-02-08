@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Pianificazioni in Automazione di Azure
 
 Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuzione automatica dei runbook. Può trattarsi di una singola data e ora per un'unica esecuzione del runbook oppure di una pianificazione ricorrente per avviare il runbook più volte. Alle pianificazioni non è in genere possibile accedere dai runbook.
 
->[AZURE.NOTE]Le pianificazioni attualmente non supportano le configurazioni DSC di automazione di Azure.
+>[AZURE.NOTE]  Le pianificazioni attualmente non supportano le configurazioni DSC di automazione di Azure.
 
 ## Cmdlet di Windows PowerShell
 
@@ -68,4 +68,4 @@ Il cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Pianificazione di un runbook in Automazione di Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Disponibilità dei servizi di Service Fabric
@@ -38,7 +38,7 @@ Il concetto di replica primaria o replica secondaria attiva è noto come ruolo d
 ### Ruoli di replica
 Il ruolo di una replica viene usato per gestire il ciclo di vita dello stato gestito da tale replica. Una replica con ruolo primario gestisce le richieste di lettura. Essa gestisce anche le richieste di scrittura aggiornando il proprio stato e replicando le modifiche nelle repliche secondarie attive del relativo set di repliche. Il ruolo di una replica secondaria attiva è quello di ricevere i cambiamenti di stato che la replica primaria ha replicato e di aggiornare la visualizzazione dello stato.
 
->[AZURE.NOTE]Modelli di programmazione di livello superiore come il [framework Reliable Actors](service-fabric-reliable-actors-introduction.md) sottraggono il concetto di ruolo di replica alla consapevolezza dello sviluppatore.
+>[AZURE.NOTE] Modelli di programmazione di livello superiore come il [framework Reliable Actors](service-fabric-reliable-actors-introduction.md) sottraggono il concetto di ruolo di replica alla consapevolezza dello sviluppatore.
 
 ## Passaggi successivi
 
@@ -50,4 +50,4 @@ Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli ar
 
 - [Definizione e gestione dello stato](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

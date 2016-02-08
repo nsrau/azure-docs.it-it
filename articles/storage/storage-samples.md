@@ -26,7 +26,7 @@ La [libreria degli esempi di codice per Azure](https://azure.microsoft.com/docum
 
 ## Esempi .NET
 
-Per esplorare gli esempi .NET, scaricare la [libreria client di archiviazione .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) da NuGet. La libreria client di archiviazione .NET è disponibile anche nell'[Azure SDK per .NET](http://azure.microsoft.com/downloads/).
+Per esplorare gli esempi .NET, scaricare la [libreria client di archiviazione .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) da NuGet. La libreria client di archiviazione .NET è disponibile anche nell'[Azure SDK per .NET](https://azure.microsoft.com/downloads/).
 
 * [Introduzione all'uso di BLOB, tabelle e code di Azure in 5 minuti](storage-getting-started-guide.md)
 * [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -85,4 +85,4 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 - [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
 - [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

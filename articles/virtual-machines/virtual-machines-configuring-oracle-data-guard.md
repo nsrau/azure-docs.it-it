@@ -29,7 +29,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 
 - Lettura della sezione dedicata alle considerazioni sulla disponibilità elevata e il ripristino di emergenza nell'argomento [Immagini di macchine virtuali Oracle - considerazioni varie](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Si noti che Azure attualmente supporta istanze autonome di Oracle Database, ma non cluster Oracle RAC (Oracle Real Application Cluster).
 
-- Creazione di due macchine virtuali (VM) in Azure usando la stessa immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) e [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-load-balance.md) e nella stessa [rete virtuale](azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È inoltre consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-manage-availability.md) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Si noti che Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle VM fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](storage-windows-attach-disk.md).
+- Creazione di due macchine virtuali (VM) in Azure usando la stessa immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) e [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-load-balance.md) e nella stessa [rete virtuale](azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È inoltre consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-manage-availability.md) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Si noti che Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle macchine virtuali fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](storage-windows-attach-disk.md).
 
 - Impostazione dei nomi di macchina virtuale "Machine1" per la VM primaria e "Machine2" per la VM di standby nel portale di Azure classico.
 
@@ -75,7 +75,7 @@ Creare un database di standby fisico
 
 6. Verificare il database di standby fisico
 
-> [AZURE.IMPORTANT]Questa esercitazione è stata predisposta e testata con la seguente configurazione hardware e software:
+> [AZURE.IMPORTANT] Questa esercitazione è stata predisposta e testata con la seguente configurazione hardware e software:
 >
 >| | **Database primario** | **Database di standby** |
 >|----------------------|-------------------------------------------|-------------------------------------------|
@@ -134,7 +134,7 @@ Per implementare un database di standby, è necessario abilitare 'Force Logging'
 
 Per riuscire a distribuire e applicare i log archiviati dal server primario al server di standby, la password sys deve essere identica nel server primario e in quello di standby. Questo è il motivo per cui si crea un file di password nel database primario e lo si copia nel server di standby.
 
->[AZURE.IMPORTANT]Se si usa Oracle Database 12c, esiste un nuovo utente **SYSDG**, che è possibile usare per amministrare Oracle Data Guard. Per altre informazioni, vedere le [modifiche della versione Oracle Database 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
+>[AZURE.IMPORTANT] Se si usa Oracle Database 12c, esiste un nuovo utente **SYSDG**, che è possibile usare per amministrare Oracle Data Guard. Per altre informazioni, vedere le [modifiche della versione Oracle Database 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
 
 Assicurarsi inoltre che l'ambiente ORACLE\_HOME sia già definito in Machine1. In caso contrario, è necessario definirlo come variabile di ambiente tramite la finestra di dialogo Variabili d'ambiente. Per accedere a questa finestra di dialogo, avviare l'utilità **Sistema** facendo doppio clic sull'icona Sistema nel **Pannello di controllo**, quindi fare clic sulla scheda **Avanzate** e scegliere **Variabili d'ambiente**. Fare clic sul pulsante **Nuova** in **Variabili di sistema** per impostare le variabili di ambiente. Dopo aver impostato le variabili di ambiente, chiudere il prompt dei comandi di Windows esistente e aprirne uno nuovo.
 
@@ -527,7 +527,7 @@ Avviare il database:
 
 Connettersi con desktop remoto alla macchina virtuale (Machine2) ed eseguire l'utilità RMAN specificando una stringa di connessione completa sia per l'istanza TARGET (database primario, Machine1) che per l'istanza AUXILLARY (database di standby, Machine2).
 
->[AZURE.IMPORTANT]Non usare l'autenticazione del sistema operativo perché nella macchina del server di standy non è ancora presente alcun database.
+>[AZURE.IMPORTANT] Non usare l'autenticazione del sistema operativo perché nella macchina del server di standy non è ancora presente alcun database.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
 
@@ -625,4 +625,4 @@ Se non è stato abilitato il flashback nel database primario originale, è consi
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
@@ -26,125 +26,118 @@ Possono essere varie le cause degli errori SSH durante il tentativo di connessio
 
 Questo articolo si applica solo a macchine virtuali di Azure che eseguono Linux. Per macchine virtuali di Azure che eseguono Windows, vedere [Risolvere i problemi di connessione Desktop remoto a una macchina virtuale di Azure](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-## Contattare il supporto tecnico di Azure
-
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/).
-
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
+Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](http://azure.microsoft.com/support/faq/).
 
 
-## Procedura per correggere gli errori comuni SSH nel modello di distribuzione classica
+## Correggere errori SSH comuni
 
-Per risolvere gli errori di connessione SSH più comuni nelle macchine virtuali create con il modello di distribuzione classica, provare a eseguire questi passaggi:
+In questa sezione vengono elencati alcuni passaggi per una correzione rapida dei comuni problemi di connessione SSH.
 
-1. **Reimpostare l'accesso remoto** dal [portale di Azure](https://portal.azure.com). Fare clic su **Sfoglia tutto** > **Macchine virtuali (classico)**, quindi selezionare la macchina virtuale che si desidera reimpostare e fare clic su > **Reimposta accesso remoto**.
+### Macchine virtuali create con il modello di distribuzione classico
 
-	![Schermata che mostra la reimpostazione della configurazione SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
+Provare a eseguire questi passaggi per risolvere gli errori di connessione SSH più comuni:
 
-2. **Riavviare** la macchina virtuale. Dal [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia tutto** > **Macchine virtuali (classico)**, quindi selezionare la macchina virtuale che si desidera riavviare e fare clic su > **Riavvia**. Dal [portale di Azure classico](https://manage.windowsazure.com) aprire **Macchine virtuali** > **Istanze** e fare clic su **Riavvia**.
+1. _Reimpostare l'accesso remoto_ dal [portale di Azure](https://portal.azure.com).<br> Fare clic su **Sfoglia** > **Macchine virtuali (classico)** > la macchina virtuale Linux > **Reimposta accesso...**.
 
-3. [**Ridimensionare** la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+2. Riavviare la macchina virtuale.<br> Dal [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia** > **Macchine virtuali (classico)** > la macchina virtuale Windows > **Riavvia**.<br> Dal [portale di Azure classico](https://manage.windowsazure.com), aprire le **Macchine virtuali** > **Istanze** > **Riavvia**.
+
+3. [Ridimensionare la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 
 4. Seguire le istruzioni in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) nella macchina virtuale per:
 
 	- Reimpostare la password o la chiave SSH.
-	- Creare un nuovo account utente sudo.
+	- Creare un nuovo account utente _sudo_.
 	- Reimpostare la configurazione SSH.
 
-5. Controllare l'integrità delle risorse della macchina virtuale per qualsiasi problema di piattaforma. Fare clic su Esplora tutto > Macchine virtuali (classico) > macchina virtuale Linux > **Controlla integrità**.
+5. Controllare l'integrità delle risorse della VM per qualsiasi problema di piattaforma.<br> Fare clic su **Sfoglia** > **Macchine virtuali (classico)** > la macchina virtuale Linux > **Impostazioni** > **Controlla integrità**.
 
 
-## Procedura per correggere gli errori comuni SSH nel modello di distribuzione di Gestione risorse
+### Macchine virtuali create con il modello di distribuzione di Gestione risorse
 
 Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello di distribuzione di Gestione risorse, provare a eseguire i passaggi seguenti.
 
-1. **Reimpostare la connessione SSH** alla macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md) versione 2.0.5 o successiva.
+1. _Reimpostare la connessione SSH_ alla macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md) versione 2.0.5 o successiva.
 
-	**Utilizzare l'interfaccia della riga di comando di Azure**
+**Usare l'interfaccia della riga di comando di Azure**:
 
-	a. Se necessario, [installare l'interfaccia della riga di comando di Azure e connettersi alla sottoscrizione di Azure](../xplat-cli-install.md) con il comando `azure login`.
+a. Se necessario, [installare l'interfaccia della riga di comando di Azure e connettersi alla sottoscrizione di Azure](../xplat-cli-install.md) con il comando `azure login`.
 
-	b. Passare alla modalità Gestione risorse.
+b. Verificare di essere in modalità Gestione risorse. Versioni più recenti del valore predefinito dell'interfaccia della riga di comando di Azure in modalità Gestione risorse.
 
 	```
 	azure config mode arm
 	```
 
-	c. È possibile reimpostare la connessione SSH con uno dei due metodi seguenti.
+c. È possibile reimpostare la connessione SSH con uno dei due metodi seguenti.
 
-	* Usare il comando `vm reset-access` come nell'esempio seguente.
+* Usare il comando `vm reset-access` come nell'esempio seguente.
 
 	```
-	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	azure vm reset-access -g YourResourceGroupName -n YourVirtualMachineName -r
 	```
 
-	L'estensione `VMAccessForLinux` verrà installata nella macchina virtuale.
+L'estensione `VMAccessForLinux` verrà installata nella macchina virtuale.
 
-	* In alternativa, creare un file denominato PrivateConf.json con il contenuto seguente:
+* In alternativa, creare un file denominato PrivateConf.json con il contenuto seguente:
 
 	```
 	{  
-	"reset_ssh":"True"
+		"reset_ssh":"True"
 	}
 	```
 
-	Eseguire quindi manualmente l'estensione `VMAccessForLinux` per reimpostare la connessione SSH.
+Eseguire quindi manualmente l'estensione `VMAccessForLinux` per reimpostare la connessione SSH.
 
 	```
-	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	azure vm extension set "YourResourceGroupName" "YourVirtualMachineName" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-	**Uso di Azure PowerShell**
+**Usare Azure PowerShell**:
 
-	a. Se necessario, [installare Azure PowerShell e connettersi alla sottoscrizione di Azure](../powershell-install-configure.md) con il metodo di Azure AD.
+a. Se necessario, [installare Azure PowerShell e connettersi alla sottoscrizione di Azure](../powershell-install-configure.md) con il metodo di Azure AD. Nelle versioni di Azure PowerShell prima di 1.0.x, è necessario attivare in modo esplicito la modalità Gestione risorse tramite _Switch-AzureMode_.
 
-	b. Passare alla modalità Gestione risorse.
-
-	```
-	Switch-AzureMode -Name AzureResourceManager
-	```
-
-	c. Eseguire l'estensione `VMAccessForLinux` per reimpostare la connessione SSH, come illustrato nell'esempio seguente. (Se si usa Azure PowerShell 1.0 o versioni successive, il seguente commandlet è `Set-AzureRMVMExtension`.)
+b. Eseguire l'estensione `VMAccessForLinux` per reimpostare la connessione SSH, come illustrato nell'esempio seguente. Nelle versioni precedenti, il comando è _Set-AzureVMExtension_.
 
 	```
-	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	Set-AzureRmVMExtension -ResourceGroupName "yourRG" -VMName "yourVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. **Riavviare** la macchina virtuale Linux dal portale. Dal [portale di Azure](https://portal.azure.com) fare clic su **Esplora tutto** > **Macchine virtuali** > macchina virtuale Windows > **Riavvia**.
+2. Riavviare la VM Linux dal [portale di Azure](https://portal.azure.com).<br> Fare clic su **Sfoglia** > **Macchine virtuali** > la macchina virtuale Linux > **Riavvia**.
 
-	![Schermata che mostra il riavvio di una macchina virtuale V2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
+3. _Reimpostare la password o la chiave SSH_ per la macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. È possibile anche creare un nuovo nome utente e una nuova password con l'autorità _sudo_ come illustrato nell'esempio seguente.
 
-3. **Reimpostare la password o la chiave SSH** per la macchina virtuale Linux nella riga di comando usando l'interfaccia della riga di comando di Azure o Azure PowerShell. È anche possibile creare un nuovo nome utente e una password con l'autorità sudo, come illustrato nell'esempio seguente.
+**Usare l'interfaccia della riga di comando di Azure**:
 
-	**Utilizzare l'interfaccia della riga di comando di Azure**
+Installare e configurare l'interfaccia della riga di comando di Azure, come indicato sopra. Passare alla modalità Gestione risorse, se richiesto, quindi eseguire l'estensione con uno dei due metodi seguenti.
 
-	Installare e configurare l'interfaccia della riga di comando di Azure, come indicato sopra. Passare alla modalità Gestione risorse e quindi eseguire l'estensione con uno dei due metodi seguenti.
-
-	* Eseguire il comando `vm reset-access` per impostare una delle credenziali SSH.
+* Eseguire il comando `vm reset-access` per impostare una delle credenziali SSH.
 
 	```
 	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
 	```
 
-	Per altre informazioni su questo comando, digitare `azure vm reset-access -h` nella riga di comando.
+Per altre informazioni su questo comando, digitare `azure vm reset-access -h` nella riga di comando.
 
-	* In alternativa, creare un file denominato PrivateConf.json con il contenuto seguente. ```
+* In alternativa, creare un file denominato PrivateConf.json con i contenuti seguenti.
+
+	```
 	{
-	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+		"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
 	}
 	```
 
-	Eseguire quindi l'estensione Linux usando il file indicato sopra.
+Eseguire quindi l'estensione Linux usando il file indicato sopra.
 
 	```
 	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-	Tenere presente che, per provare altre variazioni, è possibile seguire passaggi simili a quelli riportati in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md). Ricordare di modificare le istruzioni dell'interfaccia della riga di comando di Azure per la modalità Gestione risorse.
+Tenere presente che, per provare altre variazioni, è possibile seguire passaggi simili a quelli riportati in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md). Ricordare di modificare le istruzioni dell'interfaccia della riga di comando di Azure per la modalità Gestione risorse.
 
-	**Uso di Azure PowerShell**
 
-	Installare e configurare Azure PowerShell, come indicato sopra. Passare alla modalità Gestione risorse e quindi eseguire l'estensione come indicato di seguito.
+**Usare Azure PowerShell**:
+
+Installare e configurare Azure PowerShell, come indicato sopra. Passare alla modalità Gestione risorse e quindi eseguire l'estensione come indicato di seguito.
 
 	```
 	$RGName = 'testRG'
@@ -158,11 +151,12 @@ Per risolvere i problemi SSH comuni alle macchine virtuali create con il modello
 	$PublicConf = '{}'
 	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
-
+	Set-AzureRmVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 	```
 
-	Assicurarsi di sostituire i valori di $RGName, $VmName e $Location e le credenziali SSH con i valori specifici della propria installazione.
+Assicurarsi di sostituire i valori di $RGName, $VmName e $Location e le credenziali SSH con i valori specifici della propria installazione.
+
+
 
 ## Risoluzione dettagliata dei problemi relativi agli errori SSH
 
@@ -172,7 +166,7 @@ Se il client SSH non riesce ancora a raggiungere il servizio SSH sulla macchina 
 
 Le informazioni nelle sezioni seguenti saranno utili per isolare l'origine dell'errore e individuare le soluzioni.
 
-### Passaggi prima della risoluzione dei problemi
+### Operazioni preliminari
 
 Prima di tutto controllare lo stato della macchina virtuale nel portale.
 
@@ -193,7 +187,7 @@ Per verificare la connettività di rete, controllare gli endpoint configurati e 
 Dopo questi passaggi, tentare nuovamente la connessione SSH.
 
 
-### Passaggi per la risoluzione dei problemi
+### Individuare l'origine del problema
 
 L'impossibilità per il client SSH nel computer in uso di raggiungere il servizio SSH nella macchina virtuale di Azure può essere dovuta alle seguenti origini di problemi o errori di configurazione possibili:
 
@@ -243,9 +237,9 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 #### Origine 3: endpoint del servizio cloud e ACL
 
-> [AZURE.NOTE]Questa origine si applica solo alle macchine virtuali create con il modello di distribuzione classica. Per le macchine virtuali create in Gestione risorse, passare a [Origine 4: Gruppi di sicurezza di rete](#nsg).
+> [AZURE.NOTE] Questa origine si applica solo alle macchine virtuali create con il modello di distribuzione classica. Per le macchine virtuali create in Gestione risorse, passare a [Origine 4: Gruppi di sicurezza di rete](#nsg).
 
-Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md), verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
+Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, per le macchine virtuali create con il [modello di distribuzione classica](../resource-manager-deployment-model.md) verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
 
 ![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -287,4 +281,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

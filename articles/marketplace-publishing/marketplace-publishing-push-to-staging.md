@@ -40,7 +40,7 @@ Nella scheda dei **Collegamenti** sulla barra a sinistra immettere tutti i colle
 ![disegno](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Immagini di esempio (facoltative)
-> [AZURE.NOTE]L’inclusione di un'immagine di esempio è un passaggio facoltativo. È possibile completare gli altri contenuti di marketing per soddisfare i requisiti per il push nella gestione temporanea.
+> [AZURE.NOTE] L’inclusione di un'immagine di esempio è un passaggio facoltativo. È possibile completare gli altri contenuti di marketing per soddisfare i requisiti per il push nella gestione temporanea.
 
 Nella scheda **Immagini di esempio** nel menu a sinistra caricare una nuova immagine facendo clic su **Carica una nuova immagine**. Se si dispone di un'immagine esistente e si desidera sostituirla, fare clic su **Sostituisci immagine**.
 
@@ -52,7 +52,7 @@ Nella scheda **Immagini di esempio** nel menu a sinistra caricare una nuova imma
 ### Note legali
 Nella scheda **Note legali** specificare un collegamento alle politiche/condizioni per l'utilizzo. Immettere o incollare le condizioni per l'utilizzo nella casella grande **Condizioni per l'utilizzo**.
 
-> [AZURE.IMPORTANT]Tutti i campi devono essere completati, incluse le immagini, per poter passare alla gestione temporanea.
+> [AZURE.IMPORTANT] Tutti i campi devono essere completati, incluse le immagini, per poter passare alla gestione temporanea.
 
 
 ## Passaggio 2: Impostare i prezzi
@@ -67,7 +67,7 @@ Nella scheda **Note legali** specificare un collegamento alle politiche/condizio
 
 **Modelli di prezzi disponibili per tipo di offerta**
 
-> [AZURE.IMPORTANT]La disponibilità di determinati modelli di prezzi variano in base al tipo di offerta. Vedere la tabella riportata di seguito.
+> [AZURE.IMPORTANT] La disponibilità di determinati modelli di prezzi variano in base al tipo di offerta. Vedere la tabella riportata di seguito.
 
 | | Solo Base | Solo Consumo | Base + Consumo |
 |---|---|---|---|
@@ -76,14 +76,14 @@ Nella scheda **Note legali** specificare un collegamento alle politiche/condizio
 | Servizio dati | Sì | No | No |
 
 ### 2\.1. Impostare i prezzi della VM
-> [AZURE.NOTE]BYOL è supportato solo per le macchine virtuali.
+> [AZURE.NOTE] BYOL è supportato solo per le macchine virtuali.
 
 1.	Nella scheda **Prezzi** vengono visualizzati tutti i mercati supportati. Selezionare quello appropriato per visualizzare i campi per l'impostazione dei prezzi.
 2.	Il collegamento fornito nel portale di pubblicazione mostrerà alcune informazioni sui prezzi quale forma di aiuto per determinare i prezzi degli SKU.
 3.	Se l’SKU è BYOL, selezionare la casella di controllo per disponibilità SKU (BYOL) concesso in licenza esternamente.
 4.	Se l’SKU è orario, immettere il prezzo del software. SKU senza prezzi non sono disponibili per l'acquisto o l’utilizzo.
 
-  >[AZURE.NOTE]Se si dispone sia di BYOL che di SKU orari, verificare che entrambi i requisiti siano soddisfatti: casella di controllo BYOL e valori del prezzo per orario.
+  >[AZURE.NOTE] Se si dispone sia di BYOL che di SKU orari, verificare che entrambi i requisiti siano soddisfatti: casella di controllo BYOL e valori del prezzo per orario.
 
 5.	Verrà aperta una procedura guidata relativa ai prezzi. Eseguire tutti i passaggi per completare l'impostazione dei prezzi, inclusi quelli per gli altri paesi se si è scelto di consentire gli acquisti al di fuori del mercato specificato.
 6.	Alcuni paesi sono paesi di rimessa ISV. Per vendere in un paese di rimessa ISV, è necessario essere in grado di addebitare e tassare gli SKU, nonché di calcolare e pagare le imposte all'autorità del paese. Microsoft non è in condizione di fornire supporto legale o fiscale. Vedere la sezione "Vendere a paesi dell'offerta" nell'Introduzione di questo documento per ulteriori informazioni su "Vendere a paesi".
@@ -115,7 +115,7 @@ Alcune di queste informazioni verranno completate durante il passaggio di certif
 La scheda **Categorie** fornisce una matrice delle selezioni. L'offerta può essere associata a tali opzioni ed è possibile selezionare fino a cinque categorie.
 
 ## Visualizzazione del marketing
-Di seguito è riportata una visualizzazione dettagliata di come vengono utilizzate le informazioni di marketing dell’offerta nel [sito Web di Azure Marketplace](http://azure.microsoft.com/marketplace) e nel [Portale di anteprima di Azure](https://ms.portal.azure.com).
+Di seguito è riportata una visualizzazione dettagliata di come vengono utilizzate le informazioni di marketing dell’offerta nel [sito Web di Azure Marketplace](https://azure.microsoft.com/marketplace/) e nel [Portale di anteprima di Azure](https://ms.portal.azure.com).
 
 ### Sito Web di Azure Marketplace
 ![disegno](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -144,7 +144,7 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono utilizza
 ## Passaggi successivi
 Ora che il contenuto del Marketplace è caricato, è possibile passare al test dell'offerta nella gestione temporanea. Tuttavia, è necessario selezionare il tipo di offerta appropriato dall'elenco riportato di seguito, poiché i passaggi variano in base al tipo di offerta.
 
-||Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
+|Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
 |----|----|----|----|----|
 | **Passaggio 3. Push dell'offerta nella gestione temporanea** | [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per gli sviluppatori nello staging | [Test dell'offerta del servizio dati nello staging](marketplace-publishing-data-service-test-in-staging.md) | [Test del modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
@@ -160,4 +160,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

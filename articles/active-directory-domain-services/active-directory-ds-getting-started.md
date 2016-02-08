@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)* - Introduzione
@@ -23,7 +23,7 @@ In questo articolo vengono illustrati i passaggi di configurazione necessari per
 ## Passaggio 1: Creare il gruppo 'AAD DC Administrators'
 Il primo passaggio consiste nel creare un gruppo amministrativo nel tenant di Azure Active Directory. Questo gruppo amministrativo speciale è chiamato **AAD DC Administrators**. Ai membri di questo gruppo verranno concessi privilegi di amministratore per i computer aggiunti al dominio di Servizi di dominio Azure AD che verrà configurato. Dopo l'aggiunta al dominio, questo gruppo verrà aggiunto al gruppo 'Administrators' nei computer aggiunti al dominio. Inoltre, i membri di questo gruppo potranno usare Desktop remoto per connettersi ai computer del dominio da remoto.
 
-> [AZURE.NOTE]Non sarà possibile esercitare i privilegi di amministratore di dominio o amministratore dell'organizzazione all'interno del dominio creato con Servizi di dominio Azure AD. Trattandosi di un dominio gestito, questi privilegi sono riservati dal servizio e non vengono resi disponibili agli utenti all'interno del tenant. Tuttavia, sarà possibile usare questo gruppo di amministratori speciale creato in questo passaggio di configurazione per eseguire alcune operazioni privilegiate, ad esempio aggiungere computer al dominio, gestire le appartenenze al gruppo Administrators nei computer del dominio, configurare Criteri di gruppo e così via.
+> [AZURE.NOTE] Non sarà possibile esercitare i privilegi di amministratore di dominio o amministratore dell'organizzazione all'interno del dominio creato con Servizi di dominio Azure AD. Trattandosi di un dominio gestito, questi privilegi sono riservati dal servizio e non vengono resi disponibili agli utenti all'interno del tenant. Tuttavia, sarà possibile usare questo gruppo di amministratori speciale creato in questo passaggio di configurazione per eseguire alcune operazioni privilegiate, ad esempio aggiungere computer al dominio, gestire le appartenenze al gruppo Administrators nei computer del dominio, configurare Criteri di gruppo e così via.
 
 In questo passaggio di configurazione verrà creato il gruppo e verranno aggiunti uno o più utenti nel tenant al gruppo. Eseguire i passaggi seguenti per creare il gruppo amministrativo per Servizi di dominio Azure AD:
 
@@ -37,7 +37,7 @@ In questo passaggio di configurazione verrà creato il gruppo e verranno aggiunt
 5. Fare clic su **Aggiungi gruppo** dal riquadro attività nella parte inferiore della pagina per aggiungere un gruppo alla directory.
 6. Creare un gruppo denominato **AAD DC Administrators**.
 
-    > [AZURE.WARNING]Per consentire l'accesso a Servizi di dominio Azure AD, è necessario creare un gruppo con questo nome esatto.
+    > [AZURE.WARNING] Per consentire l'accesso a Servizi di dominio Azure AD, è necessario creare un gruppo con questo nome esatto.
 
 	![Creare un gruppo di amministratori](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
@@ -50,4 +50,4 @@ In questo passaggio di configurazione verrà creato il gruppo e verranno aggiunt
 ---
 [**Passaggio successivo - Creare o selezionare una rete virtuale di Azure.**](active-directory-ds-getting-started-vnet.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="andkjell"/>
 
 # Topologie per Azure AD Connect
@@ -56,9 +56,17 @@ La procedura guidata di Azure AD Connect offrirà alcune opzioni per il consolid
 
 Le topologie comuni vengono illustrate nella sezione successive [Topologie separate](#multiple-forests-separate-topologies), [A maglia completa](#multiple-forests-full-mesh-with-optional-galsync) e [Account-Risorse](#multiple-forests-account-resource-forest).
 
-Nella configurazione predefinita disponibile nel servizio di sincronizzazione Azure AD Connect si presuppone quanto segue: 1. Gli utenti hanno solo un account abilitato e la foresta in cui si trova l'account viene usata per l'autenticazione dell'utente. Questo presupposto è applicato sia alla sincronizzazione delle password che alla federazione. I valori di userPrincipalName e sourceAnchor/immutableID avranno origine da questa foresta. 2. Gli utenti dispongono di una sola cassetta postale. 3. La foresta che ospita la cassetta postale dell'utente garantisce la migliore qualità dei dati per gli attributi visibili nell'Elenco indirizzi globale di Exchange. Se non è presente una cassetta postale per l'utente, è possibile usare qualsiasi foresta per recuperare questi valori di attributi. 4. Se è disponibile una cassetta postale collegata, sarà presente anche un altro account in una foresta diversa usato per l'accesso.
+Nella configurazione predefinita disponibile nel servizio di sincronizzazione Azure AD Connect si presuppone quanto segue:
 
-Se l'ambiente non soddisfa questi presupposti, si verificherà quanto segue: - Se sono disponibili più account attivi o più cassette postali, il motore di sincronizzazione sceglierà un account o una cassetta postale e ignorerà gli altri. - Se sono disponibili cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo. Una cassetta postale collegata in DirSync viene rappresentata come una cassetta postale normale. Si tratta quindi di un comportamento intenzionalmente diverso per supportare in modo migliore gli scenari con più foreste.
+1.	Gli utenti hanno solo un account abilitato e la foresta in cui si trova l'account viene usata per l'autenticazione dell'utente. Questo presupposto è applicato sia alla sincronizzazione delle password che alla federazione. I valori di userPrincipalName e sourceAnchor/immutableID avranno origine da questa foresta.
+2.	Gli utenti dispongono di una sola cassetta postale.
+3.	La foresta che ospita la cassetta postale dell'utente garantisce la migliore qualità dei dati per gli attributi visibili nell'Elenco indirizzi globale di Exchange. Se non è presente una cassetta postale per l'utente, è possibile usare qualsiasi foresta per recuperare questi valori di attributi.
+4.	Se è disponibile una cassetta postale collegata, sarà presente anche un altro account in una foresta diversa usato per l'accesso.
+
+Se l'ambiente non soddisfa questi presupposti, si verificherà quanto segue:
+
+-	Se sono presenti più account attivi o più cassette postali, il motore di sincronizzazione ne selezionerà uno e ignorerà gli altri.
+-	Se sono presenti cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo. Una cassetta postale collegata in DirSync viene rappresentata come una cassetta postale normale. Si tratta quindi di un comportamento intenzionalmente diverso per supportare in modo migliore gli scenari con più foreste.
 
 ### Più foreste, più server di sincronizzazione per una directory di Microsoft Azure
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -142,7 +150,10 @@ In questa topologia non viene effettuata alcuna sincronizzazione dell'elenco di 
 
 Questa topologia consente solo a una delle directory di Azure AD di abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory.
 
-Il requisito relativo a un set di oggetti a esclusione reciproca si applica anche al writeback. Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale. Le funzionalità includono, ad esempio, il writeback gruppi con configurazione predefinita e il writeback dispositivi.
+Il requisito relativo a un set di oggetti a esclusione reciproca si applica anche al writeback. Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale. Sono inclusi:
+
+-	Writeback dei gruppi con la configurazione predefinita
+-	Writeback dei dispositivi
 
 ### Ogni oggetto più volte in una directory di Azure AD
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +178,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

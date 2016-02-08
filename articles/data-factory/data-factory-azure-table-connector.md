@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
@@ -42,6 +42,8 @@ Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in 
 	    }
 	  }
 	}
+
+Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure: **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
 
 **Set di dati di input di tabelle di Azure**
 
@@ -203,6 +205,8 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB 
 	  }
 	}
 
+Data factory di Azure supporta due tipi di servizi collegati di Archiviazione di Azure: **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-services).
+
 **Set di dati di input del BLOB di Azure:**
 
 I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
@@ -340,14 +344,10 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
-## Proprietà del servizio collegato di archiviazione di Azure
+## Servizi collegati
+Esistono due tipi di servizi collegati, che consentono di collegare un archivio BLOB di Azure a una data factory di Azure. I due tipi di servizi sono: il servizio collegato **AzureStorage** e il servizio collegato **AzureStorageSas**. Il servizio collegato Archiviazione di Azure garantisce alla data factory l'accesso globale ad Archiviazione di Azure. Invece il servizio collegato Firma di accesso condiviso di Archiviazione di Azure garantisce alla data factory accesso limitato o a scadenza ad Archiviazione di Azure. Non esistono altre differenze tra questi due servizi collegati. Scegliere il servizio collegato più adatto alle proprie esigenze. Le sezioni seguenti forniscono altri dettagli su questi due servizi collegati.
 
-È possibile collegare un account di archiviazione di Azure a una data factory di Azure tramite un servizio collegato di archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di archiviazione di Azure.
-
-| Proprietà | Descrizione | Obbligatorio |
-| -------- | ----------- | -------- |
-| type | La proprietà del tipo deve essere impostata su: AzureStorage | Sì |
-| connectionString | Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. È possibile ottenere la proprietà connectionString per l'archivio Azure dal Portale di Azure classico. | Sì |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Proprietà del tipo del set di dati di tabelle di Azure
 
@@ -515,4 +515,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

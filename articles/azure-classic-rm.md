@@ -48,7 +48,7 @@ Le sezioni seguenti illustrano come configurare le risorse di Azure usando i var
 Azure offre due portali:
 
 - **[Portale di Azure](https://manage.windowsazure.com):** se si usa Azure da tempo si conosce già questo portale, che viene usato per creare e configurare le risorse più obsolete di Azure, che supportano il modello di distribuzione classico. Questo portale non permette invece di creare o configurare le risorse che supportano unicamente Gestione risorse. 
-- **[Portale di anteprima di Azure](http://azure.microsoft.com/overview/preview-portal/):** se si usa una risorsa di Azure più recente è probabile che questo portale sia già stato usato. Questo portale consente di creare e configurare alcune risorse di Azure. In futuro sarà possibile creare e configurare tutte le risorse di Azure in questo portale. Per alcune risorse che supportano entrambi i modelli di distribuzione, è possibile usare questo portale per creare e configurare una risorsa con uno dei due modelli di distribuzione. 
+- **[Portale di anteprima di Azure](https://azure.microsoft.com/overview/preview-portal/):** se si usa una risorsa di Azure più recente è probabile che questo portale sia già stato usato. Questo portale consente di creare e configurare alcune risorse di Azure. In futuro sarà possibile creare e configurare tutte le risorse di Azure in questo portale. Per alcune risorse che supportano entrambi i modelli di distribuzione, è possibile usare questo portale per creare e configurare una risorsa con uno dei due modelli di distribuzione. 
 
 Alcune risorse e funzionalità possono essere create e configurate solo in un portale o nell'altro. Non è ancora possibile creare o configurare alcune risorse o funzionalità in entrambi i portali, ma solo con PowerShell, l'interfaccia della riga di comando o entrambi. La documentazione per ciascuna risorsa di Azure descrive nel dettaglio con quale metodo può essere creata.
 
@@ -57,7 +57,7 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 
 - **Solo cmdlet PowerShell:** è possibile creare e configurare singolarmente ciascuna risorsa di Azure usando i cmdlet per ogni risorsa. È possibile eseguire questa operazione dalla riga di comando o includendo più comandi in uno script di PowerShell archiviabile e la cui versione può essere controllata.
 
-- **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md). Esistono anche diversi [modelli di Guida introduttiva](http://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.
+- **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md). Esistono anche diversi [modelli di Guida introduttiva](https://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.
 
 ## CLI
 È possibile creare e configurare le risorse di Azure da computer Windows, OS X o Linux usando l'interfaccia della riga di comando. Per installare l'interfaccia della riga di comando nel sistema operativo prescelto, leggere l'articolo [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). Come PowerShell, sono disponibili diversi comandi che devono essere usati a seconda che si creino risorse con i modelli di distribuzione [Gestione risorse](xplat-cli-azure-resource-manager.md) o [Classico (Gestione dei servizi)](virtual-machines-command-line-tools.md).
@@ -68,4 +68,4 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
 - Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

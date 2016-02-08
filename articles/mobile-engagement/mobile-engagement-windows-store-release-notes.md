@@ -18,6 +18,13 @@
 
 #Note sulla versione di Windows Universal Apps SDK
 
+##3\.3.0 (22/01/2016)
+
+-   Correggere la formattazione di arresto anomalo in app UWP in esecuzione in modalità di rilascio.
+-   Correggere il margine di 1px nelle notifiche per le app universali 8.1.
+-   Schemi ms-appx e ms-appdata disponibili negli URL di azione.
+-   Miglioramenti della stabilità.
+
 ##3\.2.0 (20/11/2015)
 
 -   Aggiunta del supporto per le applicazioni di Windows 10 Universal Windows Platform.
@@ -49,4 +56,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

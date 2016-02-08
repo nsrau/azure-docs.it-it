@@ -136,7 +136,7 @@ Nella funzione Main aggiungere il codice seguente.
 	KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 
-> [AZURE.NOTE]Modelli a oggetti dell'insieme di credenziali chiave
+> [AZURE.NOTE] Modelli a oggetti dell'insieme di credenziali chiave
 >
 >È importante capire che esistono in realtà due modelli a oggetti dell'insieme di credenziali chiave da tenere presenti: uno è basato sull'API REST (spazio dei nomi KeyVault) e l'altro è un'estensione per la crittografia lato client.
 
@@ -167,11 +167,11 @@ Aggiungere il codice seguente per crittografare un BLOB e caricarlo nell'account
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Di seguito è riportato uno screenshot del [portale di Azure classico](manage.windowsazure.com) relativo a un BLOB che è stato crittografato mediante la crittografia lato client con una chiave archiviata nell'insieme di credenziali delle chiavi. La proprietà **KeyId** è l'URI della chiave nell'insieme di credenziali delle chiavi che funziona come chiave KEK. La proprietà **EncryptedKey** contiene la versione crittografata della chiave CEK.
+Di seguito è riportato uno screenshot del [portale di Azure classico](https://manage.windowsazure.com) relativo a un BLOB che è stato crittografato mediante la crittografia lato client con una chiave archiviata nell'insieme di credenziali delle chiavi. La proprietà **KeyId** è l'URI della chiave nell'insieme di credenziali delle chiavi che funziona come chiave KEK. La proprietà **EncryptedKey** contiene la versione crittografata della chiave CEK.
 
 ![Screenshot che mostra i metadati BLOB con i metadati di crittografia][1]
 
-> [AZURE.NOTE]Se si osserva il costruttore BlobEncryptionPolicy, è possibile notare che è in grado di accettare una chiave e/o un resolver. Tenere presente che al momento non è possibile usare un resolver per la crittografia perché non supporta attualmente una chiave predefinita.
+> [AZURE.NOTE] Se si osserva il costruttore BlobEncryptionPolicy, è possibile notare che è in grado di accettare una chiave e/o un resolver. Tenere presente che al momento non è possibile usare un resolver per la crittografia perché non supporta attualmente una chiave predefinita.
 
 
 
@@ -191,7 +191,7 @@ Aggiungere quanto segue per decrittografare il BLOB appena caricato.
 	    blob.DownloadToStream(np, null, options, null);
 
 
-> [AZURE.NOTE]Esiste un paio di altri tipi di resolver per semplificare la gestione delle chiavi, ovvero AggregateKeyResolver e CachingKeyResolver.
+> [AZURE.NOTE] Esiste un paio di altri tipi di resolver per semplificare la gestione delle chiavi, ovvero AggregateKeyResolver e CachingKeyResolver.
 
 
 ## Uso dei segreti dell'insieme di credenziali delle chiavi
@@ -235,4 +235,4 @@ Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare i
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

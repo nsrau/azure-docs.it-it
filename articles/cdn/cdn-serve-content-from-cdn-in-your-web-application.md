@@ -18,6 +18,8 @@
 
 # Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web #
 
+> [AZURE.NOTE] Questa esercitazione si applica al servizio CDN classico. È in corso la creazione di un aggiornamento per la versione corrente della rete CDN.
+
 Questa esercitazione illustra come sfruttare la rete CDN di Azure per migliorare la capacità e le prestazioni dell'applicazione Web. La rete CDN di Azure consente di migliorare le prestazioni dell'applicazione Web nei casi seguenti:
 
 - Nelle pagine sono presenti molti collegamenti a contenuto statico o semistatico
@@ -43,7 +45,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Visual Studio 2013 con [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) per la GUI di gestione dei BLOB
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (usato dalla procedura per [automatizzare il caricamento del contenuto dall'applicazione ASP.NET all'endpoint della rete CDN](#upload))
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio i siti Web. È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio i siti Web. È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="static"></a>
 ## Rendere disponibile il contenuto statico da un endpoint della rete CDN di Azure ##
@@ -63,13 +65,13 @@ Seguire i passaggi descritti di seguito per iniziare a usare la rete CDN di Azur
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG)
 
-	>[AZURE.NOTE]Notare che si sta usando Asia orientale come area perché è abbastanza lontana dalla postazione per testare la rete CDN dall'America del Nord in un secondo momento.
+	>[AZURE.NOTE] Notare che si sta usando Asia orientale come area perché è abbastanza lontana dalla postazione per testare la rete CDN dall'America del Nord in un secondo momento.
 
 2. Non appena lo stato del nuovo account di archiviazione è **Online**, creare un nuovo endpoint della rete CDN collegato all'account di archiviazione creato. Fare clic su **Nuovo > Servizi app > Rete CDN > Creazione rapida**. Selezionare l'account di archiviazione creato e fare clic su **Crea**.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
-	>[AZURE.NOTE]Dopo aver creato la rete CDN, nel portale di Azure viene visualizzato il relativo URL e il dominio di origine a esso collegato. È tuttavia possibile che la completa propagazione della configurazione dell'endpoint della rete CDN a tutte le ubicazioni dei nodi richieda del tempo.
+	>[AZURE.NOTE] Dopo aver creato la rete CDN, nel portale di Azure viene visualizzato il relativo URL e il dominio di origine a esso collegato. È tuttavia possibile che la completa propagazione della configurazione dell'endpoint della rete CDN a tutte le ubicazioni dei nodi richieda del tempo.
 
 3. Eseguire il ping dell'endpoint della rete CDN per testarlo in modo da assicurarsi che sia online. Se l'endpoint della rete CDN non è stato propagato a tutti i nodi, verrà visualizzato un messaggio simile a quello mostrato di seguito.
 
@@ -93,7 +95,7 @@ Seguire i passaggi descritti di seguito per iniziare a usare la rete CDN di Azur
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG)
 
-	>[AZURE.NOTE]Benché non sia necessario abilitare la stringa di query per questa parte dell'esercitazione, è consigliabile farlo prima possibile per comodità, perché la propagazione al resto dei nodi di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti). Il vantaggio di questa operazione verrà illustrato in [Rendere immediatamente disponibile il contenuto aggiornato mediante le stringhe di query](#query).
+	>[AZURE.NOTE] Benché non sia necessario abilitare la stringa di query per questa parte dell'esercitazione, è consigliabile farlo prima possibile per comodità, perché la propagazione al resto dei nodi di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti). Il vantaggio di questa operazione verrà illustrato in [Rendere immediatamente disponibile il contenuto aggiornato mediante le stringhe di query](#query).
 
 6. In Esplora server di Visual Studio 2013 fare clic sul pulsante **Connessione a Microsoft Azure**.
 
@@ -126,7 +128,7 @@ Seguire i passaggi descritti di seguito per iniziare a usare la rete CDN di Azur
 
 13.	Se il rendering del BLOB viene visualizzato correttamente nel browser, modificare l'URL da `http://<yourStorageAccountName>.blob.core.windows.net` nell'URL della rete CDN di Azure. Quindi, per testare la prima immagine nell'endpoint della rete CDN, usare `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`.
 
-	>[AZURE.NOTE]È possibile trovare l'URL dell'endpoint della rete CDN nella scheda Rete CDN del portale di gestione di Azure.
+	>[AZURE.NOTE] È possibile trovare l'URL dell'endpoint della rete CDN nella scheda Rete CDN del portale di gestione di Azure.
 
 	Se si confrontano le prestazioni dell'accesso diretto al BLOB e dell'accesso alla rete CDN, si può osservare un miglioramento delle prestazioni derivante dall'uso della rete CDN di Azure. Di seguito è riportata la schermata degli strumenti di sviluppo F12 di Internet Explorer 11 per l'accesso con l'URL del BLOB dell'immagine:
 
@@ -155,7 +157,7 @@ Se si vuole caricare facilmente tutto il contenuto statico dell'applicazione Web
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-	>[AZURE.NOTE]Una volta importato, il file di impostazioni di pubblicazione diventerà l'account Azure predefinito usato per tutte le sessioni di Azure PowerShell. Ciò significa che i passaggi sopra descritti devono essere eseguiti solo una volta.
+	>[AZURE.NOTE] Una volta importato, il file di impostazioni di pubblicazione diventerà l'account Azure predefinito usato per tutte le sessioni di Azure PowerShell. Ciò significa che i passaggi sopra descritti devono essere eseguiti solo una volta.
 	
 1. Scaricare lo script dalla [pagina di download](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Salvarlo nella cartella di progetto dell'applicazione ASP.NET.
 2. Fare clic con il pulsante destro del mouse sullo script scaricato e scegliere **Proprietà**.
@@ -271,4 +273,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

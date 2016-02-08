@@ -39,7 +39,8 @@ Gli scenari definiti nella figura precedente sono:
 - **Identità sincronizzate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti. L'hash della password dell'utente viene sincronizzato dall'ambiente locale al cloud in ciò che viene chiamato un hash della password. Lo svantaggio di questa soluzione è che se un utente viene disabilitato nell'ambiente locale, la visualizzazione dello stato dell'account aggiornato in Azure AD può richiedere fino a 3 ore. Questo è dovuto all'intervallo di tempo del processo di sincronizzazione.
 - **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud. Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  
  
->[AZURE.NOTE]Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+>[AZURE.NOTE]
+Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna delle strategie seguenti:
 
@@ -81,7 +82,8 @@ Se nel corso dell'attività 1 è stato determinato che è in uso un provider di 
 - La transizione di Office all'autenticazione passiva consentirà di supportare solo provider di identità SAML 2.0, ma il supporto sarà garantito esclusivamente client per client
 
 
->[AZURE.NOTE]Per l'elenco più aggiornato, vedere l'articolo http://aka.ms/ssoproviders.
+>[AZURE.NOTE]
+Per l'elenco più aggiornato, vedere l'articolo http://aka.ms/ssoproviders.
 
 ## Definire la strategia di sincronizzazione
 Questa attività permette di definire gli strumenti che verranno usati per sincronizzare i dati locali dell'organizzazione con il cloud e la topologia da adottare. Poiché la maggior parte delle organizzazioni usa Active Directory, vengono fornite informazioni più dettagliate su come usare Azure AD Connect per rispondere alle domande precedenti. Per gli ambienti in cui non è presente Active Directory, vengono fornite informazioni sull'uso di FIM 2010 R2 o MIM 2016 per poter pianificare questa strategia. Tuttavia, le versioni future di Azure AD Connect supporteranno le directory LDAP, quindi, a seconda dei tempi previsti per l'adozione, è possibile che queste informazioni risultino utili.
@@ -89,14 +91,16 @@ Questa attività permette di definire gli strumenti che verranno usati per sincr
 ###Strumenti di sincronizzazione
 Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi scenari. Al momento, Azure AD Connect è lo strumento preferito per tutti gli scenari supportati. Anche AAD Sync e DirSync sono ancora in circolazione e potrebbero ancora essere presenti nell'ambiente in uso.
 
->[AZURE.NOTE]Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-aadconnect-get-started-tools-comparison.md).
+>[AZURE.NOTE]
+Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-aadconnect-get-started-tools-comparison.md).
 
 ### Topologie supportate
 Quando si definisce una strategia di sincronizzazione, è necessario determinare la topologia da usare. A seconda delle informazioni definite nel passaggio 2, è possibile stabilire la topologia corretta da usare. La topologia singola di Azure AD a foresta singola è quella più comune ed è costituita da una singola foresta Active Directory e una singola istanza di Azure AD. Questa topologia verrà usata nella maggior parte degli scenari ed è la topologia prevista quando si usa l'installazione rapida di Azure AD Connect come illustrato nella figura seguente.
  
 ![](./media/hybrid-id-design-considerations/single-forest.png) Scenario a foresta singola Le organizzazioni di grandi e piccole dimensioni hanno spesso più foreste, come illustrato nella figura 5.
 
->[AZURE.NOTE]Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](active-directory-aadconnect-topologies.md).
+>[AZURE.NOTE]
+Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](active-directory-aadconnect-topologies.md).
 
 
 ![](./media/hybrid-id-design-considerations/multi-forest.png)
@@ -114,7 +118,8 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 - Se non è presente una cassetta postale per l'utente, è possibile usare qualsiasi foresta per recuperare questi valori
 - Se è disponibile una cassetta postale collegata, è presente anche un altro account in una foresta diversa usato per l'accesso.
 
->[AZURE.NOTE]Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. Per altre considerazioni sull'uso dell'attributo SourceAnchor, vedere [Concetti di progettazione per Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
+>[AZURE.NOTE]
+Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. Per altre considerazioni sull'uso dell'attributo SourceAnchor, vedere [Concetti di progettazione per Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 Se le affermazioni precedenti non sono vere e sono presenti più account attivi o più cassette postali, Azure AD Connect selezionerà un account o una cassetta postale e ignorerà gli altri. Se sono presenti cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo. Questo comportamento è diverso da quanto accadeva in passato con DirSync ed è intenzionale, al fine di garantire un supporto migliore degli scenari con più foreste. La figura seguente mostra uno scenario con più foreste.
  
@@ -151,7 +156,8 @@ Tenere presente che le funzionalità seguenti non sono supportate e non devono e
 - Come previsto da progettazione, le directory di Azure AD sono isolate. Non è supportata la modifica della configurazione del servizio di sincronizzazione Azure AD Connect in modo da leggere dati da un'altra directory di Azure AD nel tentativo di creare un elenco di indirizzi globale comune e unificato tra le directory. Non è inoltre supportata l'esportazione di utenti come contatti in un'altra istanza locale di AD mediante il servizio di sincronizzazione Azure AD Connect.
 
 
->[AZURE.NOTE]Se l'organizzazione impedisce ai computer inclusi nella rete di connettersi a Internet, questo articolo elenca gli endpoint (FQDN e intervalli di indirizzi IPv4 e IPv6) da includere nell'elenco delle connessioni in uscita e nell'area siti attendibili di Internet Explorer dei computer client per garantire che i computer possano usare Office 365. Per altre informazioni, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=it-IT&rs=it-IT&ad=US).
+>[AZURE.NOTE]
+Se l'organizzazione impedisce ai computer inclusi nella rete di connettersi a Internet, questo articolo elenca gli endpoint (FQDN e intervalli di indirizzi IPv4 e IPv6) da includere nell'elenco delle connessioni in uscita e nell'area siti attendibili di Internet Explorer dei computer client per garantire che i computer possano usare Office 365. Per altre informazioni, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=it-IT&rs=it-IT&ad=US).
 
 ## Definire la strategia di autenticazione a più fattori
 In questa attività verrà definita la strategia di autenticazione a più fattori da usare. Azure Multi-Factor Authentication è disponibile in due diverse versioni. Una è basata sul cloud mentre l'altra è locale e usa il server Azure MFA. In base alla valutazione effettuata in precedenza, è possibile stabilire qual è la soluzione corretta per la strategia scelta. Usare la tabella seguente per determinare l'opzione di progettazione che meglio soddisfa i requisiti di sicurezza della società:
@@ -176,12 +182,14 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password | Entrambi |
 | Active Directory locale | Server Multi-Factor Authentication |
 
->[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste. Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+>[AZURE.NOTE]
+È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste. Per altre informazioni, leggere [Scegliere la soluzione di sicurezza a più fattori più adatta](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Provider di Multi-Factor Authentication
 La modalità Multi-Factor Authentication è disponibile per impostazione predefinita per gli amministratori globali che dispongono di un tenant Azure Active Directory. Tuttavia, se si intende estendere l'autenticazione a più fattori a tutti gli utenti e/o si vuole consentire agli amministratori globali di sfruttare i vantaggi offerti da funzionalità quali il portale di gestione, i messaggi di saluto personalizzati e i report, sarà necessario acquistare e configurare un provider Multi-Factor Authentication.
 
->[AZURE.NOTE]È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.
+>[AZURE.NOTE]
+È anche necessario assicurarsi che l'opzione di progettazione per l'autenticazione a più fattori selezionata supporti le funzionalità richieste.
 
 ##Passaggi successivi
 [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
@@ -189,4 +197,4 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

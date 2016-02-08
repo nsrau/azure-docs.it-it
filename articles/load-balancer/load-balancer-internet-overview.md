@@ -5,7 +5,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@
 
 Il bilanciamento del carico di Azure esegue il mapping dell'indirizzo IP pubblico e del numero di porta del traffico in ingresso all'indirizzo IP privato e al numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale.
 
->[AZURE.NOTE]Il servizio di bilanciamento del carico di Azure fornirà un traffico di rete di distribuzione hash tra più istanze di macchine virtuali utilizzando le impostazioni predefinite (ulteriori informazioni sulla distribuzione hash in [funzionalità del servizio di bilanciamento carico](load-balancer-overview.md#load-balancer-features). Se si vuole ottenere l'affinità di sessione, vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md).
+>[AZURE.NOTE] Il servizio di bilanciamento del carico di Azure fornirà un traffico di rete di distribuzione hash tra più istanze di macchine virtuali utilizzando le impostazioni predefinite (ulteriori informazioni sulla distribuzione hash in [funzionalità del servizio di bilanciamento carico](load-balancer-overview.md#load-balancer-features). Se si vuole ottenere l'affinità di sessione, vedere l'argomento relativo alla [modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md).
 
 Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è possibile definire un endpoint pubblico nella definizione del servizio (file con estensione csdef).
  
@@ -34,22 +34,18 @@ La figura seguente mostra un endpoint con carico bilanciato per il traffico Web 
 
 ![esempio di bilanciamento del carico pubblico](./media/load-balancer-internet-overview/IC727496.png))
 
-
-
 Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 443, il servizio di bilanciamento del carico di Azure esegue un bilanciamento del carico basato su hash di queste richieste tra le tre macchine virtuali del set con carico bilanciato. È possibile ottenere ulteriori informazioni sull'algoritmo di bilanciamento di carico in [pagina panoramica del bilanciamento di carico](load-balancer-overview.md#load-balancer-features).
 
 
 ## Passaggi successivi
 
-[Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
+Dopo aver ottenuto informazioni su un bilanciamento del carico con connessione Internet, è anche possibile leggere informazioni sul [bilanciamento del carico interno](load-balancer-internal-overview.md) e verificare quale bilanciamento del carico è più adatto alla distribuzione cloud.
 
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+È anche possibile [iniziare a creare un bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il bilanciamento del carico.
 
-[Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
-
-[Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
+Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

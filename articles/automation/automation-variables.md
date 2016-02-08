@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Asset di tipo variabile in Automazione di Azure
@@ -55,7 +55,7 @@ Le attività flusso di lavoro incluse nella tabella seguente vengono usate per a
 |Get-AutomationVariable|Recupera il valore di una variabile esistente.|
 |Set-AutomationVariable|Imposta il valore di una variabile esistente.|
 
->[AZURE.NOTE]È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationVariable** in un runbook o configurazione DSC perché ciò può complicare l'individuazione delle dipendenze tra i runbook o configurazioni DSC e le variabili di automazione durante la fase di progettazione.
+>[AZURE.NOTE] È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationVariable** in un runbook o configurazione DSC perché ciò può complicare l'individuazione delle dipendenze tra i runbook o configurazioni DSC e le variabili di automazione durante la fase di progettazione.
 
 ## Creazione di una nuova variabile di automazione
 
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

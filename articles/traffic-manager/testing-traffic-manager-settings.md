@@ -57,4 +57,4 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 [Informazioni sui metodi di routing di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

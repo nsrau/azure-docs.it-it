@@ -1,12 +1,4 @@
-
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
-	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+<properties pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." servizi ="active-directory-b2c" documentationCenter=”ios” autori="brandwe" manager="msmbaldwin" editor =""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -14,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione iOS
@@ -24,14 +16,12 @@
 Azure AD B2C consente di aggiungere potenti funzionalità di gestione delle identità self-service alle app iOS e alle API Web con pochi brevi passaggi. Questo articolo descrive come creare un'app iOS "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure AD B2C per gestire le identità utente e autenticare gli utenti.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
-> [AZURE.NOTE]
-	Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node.js. Questa procedura dettagliata presuppone che l’API Web Node.js di esempio sia configurata. Consultare l’[esempio API Web Azure Active Directory per Node.js](active-directory-b2c-devquickstarts-api-node.md`
-).
 
 > [AZURE.NOTE]
-	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione.
-Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+	Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node.js. Questa procedura dettagliata presuppone che l’API Web Node.js di esempio sia configurata. Consultare l’[esempio API Web Azure Active Directory per Node.js](active-directory-b2c-devquickstarts-api-node.md`).
+
+> [AZURE.NOTE]
+	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
 ## 1\. Ottenere una directory di Azure AD B2C
 
@@ -54,7 +44,7 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -70,10 +60,9 @@ Il codice per questa esercitazione è disponibile [in GitHub](https://github.com
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
 ```
 
-> [AZURE.NOTE]**Il download dello scheletro è necessario per completare questa esercitazione.** Data la complessità dell'implementazione di un'applicazione pienamente funzionante su iOS, lo **scheletro** prevede un codice UX che sarà eseguito dopo aver completato l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione iOS.
+> [AZURE.NOTE] **Il download dello scheletro è necessario per completare questa esercitazione.** Data la complessità dell'implementazione di un'applicazione pienamente funzionante su iOS, lo **scheletro** prevede un codice UX che sarà eseguito dopo aver completato l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione iOS.
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) o nel ramo
-`complete` dello stesso repository.
+L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 
 Caricare ora il podfile usando cocoapods. Verrà creata una nuova area di lavoro XCode che verrà caricata. Se non si dispone di Cocoapods, visitare [il sito Web per installare cocoapods](https://cocoapods.org).
@@ -210,16 +199,16 @@ Creare un file denominato `samplesPolicyData.m` con il codice seguente:
 {
     static samplesPolicyData *instance = nil;
     static dispatch_once_t onceToken;
-    
+
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
         instance.policyName = [dictionary objectForKey:@"policyName"];
         instance.policyID = [dictionary objectForKey:@"policyID"];
 
-        
+
     });
-    
+
     return instance;
 }
 
@@ -233,7 +222,7 @@ Il codice rapido per archiviare gli oggetti per l'interfaccia utente è completo
 
 Tutto il lavoro verrà eseguito in `samplesWebAPIConnector.m`.
 
-In primo luogo, creare l'implementazione `doPolicy()` scritta nel file di intestazione `samplesWebAPIConnector.h`:
+In primo luogo, creare l’implementazione `doPolicy()` scritta nel file di intestazione `samplesWebAPIConnector.h`:
 
 ```
 +(void) doPolicy:(samplesPolicyData *)policy
@@ -244,20 +233,20 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
     {
         [self readApplicationSettings];
     }
-    
+
     [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
-        
+
         if (userInfo == nil)
         {
             completionBlock(nil, error);
         }
-        
+
         else {
-            
+
             completionBlock(userInfo, nil);
         }
     }];
-    
+
 }
 
 
@@ -265,7 +254,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 Si noterà che il metodo è piuttosto semplice. Esso accetta come input l'oggetto `samplesPolicyData` appena creato, l'elemento ViewController parent e quindi un callback. Il callback è interessante e sarà trattato in maniera dettagliata.
 
-1. Si noterà che `completionBlock` ha ADProfileInfo come tipo che verrà restituito con un oggetto `userInfo`. ADProfileInfo è il tipo che contiene tutte le risposte dal server, in particolare le attestazioni. 
+1. Si noterà che `completionBlock` ha ADProfileInfo come tipo che verrà restituito con un oggetto `userInfo`. ADProfileInfo è il tipo che contiene tutte le risposte dal server, in particolare le attestazioni.
 2. Si noterà `readApplicationSettings`, che legge i dati forniti in `settings.plist`.
 3. È presente infine un metodo `getClaimsWithPolicyClearingCache` piuttosto esteso. Questo riguarda la chiamata effettiva a ADAL per iOS che è necessario scrivere, ma la si scriverà in un secondo momento.
 
@@ -287,19 +276,19 @@ Tale codice è riportato di seguito:
                 completionHandler:(void (^) (ADProfileInfo*, NSError*))completionBlock;
 {
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    
-    
+
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     if(!data.correlationId ||
        [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
     {
         authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
     }
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
     [authContext acquireTokenWithScopes:data.scopes
                       additionalScopes: data.additionalScopes
@@ -310,7 +299,7 @@ Tale codice è riportato di seguito:
                   extraQueryParameters: params.urlEncodedString
                                 policy: policy.policyID
                        completionBlock:^(ADAuthenticationResult *result) {
-                           
+
                            if (result.status != AD_SUCCEEDED)
                            {
                                completionBlock(nil, result.error);
@@ -325,7 +314,7 @@ Tale codice è riportato di seguito:
 
 ```
 
-La prima parte del codice dovrebbe essere familiare. Caricare le impostazioni fornite in `Settings.plist` e assegnare il tutto a `data`. Viene quindi impostata una classe `ADAuthenticationError` che accetti qualsiasi errore proveniente da ADAL per iOS. È anche possibile creare un oggetto `authContext`, ossia l'impostazione della chiamata ad ADAL, che viene passata ad *authority* per avviare i processi. Viene inoltre fornito a `authContext` un riferimento al controller padre in modo che sia possibile ritornare a esso. È anche possibile convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL. È necessario infine impostare un oggetto `correlationId`, che è semplicemente un UUID in grado di seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
+La prima parte del codice dovrebbe essere familiare. Caricare le impostazioni fornite in `Settings.plist` e assegnare il tutto a `data`. Viene quindi impostata una classe `ADAuthenticationError` che accetti qualsiasi errore proveniente da ADAL per iOS. È anche possibile creare un oggetto `authContext`, ossia l'impostazione della chiamata ad ADAL, che viene passata ad *authority* per avviare i processi. Viene inoltre fornito `authContext` un riferimento al controller padre in modo che sia possibile ritornare ad esso. È anche possibile convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL. È necessario infine impostare un oggetto `correlationId`, che è semplicemente un UUID in grado di seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
 
 Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispetto agli utilizzi precedenti di ADAL per iOS:
 
@@ -344,9 +333,9 @@ Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispett
 
 Si noterà che la chiamata è piuttosto semplice.
 
-**scopes**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà quindi aggiornato. **addtionalScopes**: ambiti aggiuntivi che è possibile usare per l'applicazione. Verranno usati in futuro. **clientId**: ID dell'applicazione ottenuto dal portale. **redirectURI**: reindirizzamento in cui si prevede che il token venga rispedito. **identifier**: modalità di identificazione dell'utente, in modo da controllare se è disponibile un token utilizzabile nella cache invece di dover sempre richiedere al server un altro token. Si noterà che questa operazione viene eseguita in un tipo denominato `ADUserIdentifier` e che è possibile specificare l'ID che si desidera usare. È consigliabile usare il nome utente. **promptBehavior**: deprecato, deve essere AD\_PROMPT\_ALWAYS. **extraQueryParameters**: qualsiasi parametro aggiuntivo che si desidera passare al server nel formato codificato dell'URL. **policy**: criterio che viene richiamato. La parte più importante di questa procedura dettagliata.
+**scopes**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà quindi aggiornato. **addtionalScopes**: ambiti aggiuntivi che è possibile usare per l'applicazione. Verranno usati in futuro. **clientId**: ID dell'applicazione ottenuto dal portale **redirectURI**: reindirizzamento in cui si prevede che il token venga rispedito. **identifier**: modalità di identificazione dell'utente, in modo da controllare se è disponibile un token utilizzabile nella cache invece di dover sempre richiedere al server un altro token. Si noterà che questo viene eseguito in un tipo denominato `ADUserIdentifier` e che è possibile specificare l’ID che si desidera utilizzare. È consigliabile utilizzare il nome utente. **promptBehavior** - è deprecato e deve essere AD\_PROMPT\_ALWAYS **extraQueryParameters** - qualsiasi parametro aggiuntivo che si desidera passare al server nel formato codificato dell’URL. **criteri** -il criterio che si richiama. La parte più importante di questa procedura dettagliata.
 
-Osservare come in completionBlock venga passato l'elemento `ADAuthenticationResult`, che dispone del token e delle informazioni sul profilo (se la chiamata ha avuto esito positivo)
+Si noti che nella completionBlock viene passato l’elemento `ADAuthenticationResult` che dispone del token e delle informazioni sul profilo (se la chiamata ha avuto esito positivo)
 
 Utilizzando il codice sopra, è possibile acquisire un token per il criterio fornito. Utilizzare questo token per chiamare l'API.
 
@@ -371,7 +360,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
 `getTasksList` fornisce una matrice che rappresenta le attività nel server. `addTask` e `deleteTask` eseguono l'azione successiva e restituiscono TRUE o FALSE in caso di esito positivo.
 
-Si scriverà prima `getTaskList`:
+Scrivere prima `getTaskList`:
 
 ```
 
@@ -382,53 +371,53 @@ Si scriverà prima `getTaskList`:
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    
+
     [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-        
+
         if (error != nil)
         {
             completionBlock(nil, error);
         }
         else
         {
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 if (error == nil && data != nil){
-                    
+
                     NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                    
+
                     //each object is a key value pair
                     NSDictionary *keyValuePairs;
                     NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
-                    
+
                     for(int i =0; i < tasks.count; i++)
                     {
                         keyValuePairs = [tasks objectAtIndex:i];
-                        
+
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
                         s.itemName = [keyValuePairs valueForKey:@"task"];
-                        
+
                         [sampleTaskItems addObject:s];
                     }
-                    
+
                     completionBlock(sampleTaskItems, nil);
                 }
                 else
                 {
                     completionBlock(nil, error);
                 }
-                
+
             }];
         }
     }];
-    
+
 }
 
 ```
@@ -443,7 +432,7 @@ Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
     completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
 {
     [self getClaimsWithPolicyClearingCache:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
-        
+
         if (accessToken == nil)
         {
             completionBlock(nil,error);
@@ -451,13 +440,13 @@ Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
         else
         {
             NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-            
+
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-            
+
             NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-            
+
             [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-            
+
             completionBlock(request, nil);
         }
     }];
@@ -477,10 +466,10 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-        
+
         if (error != nil)
         {
             completionBlock(NO, error);
@@ -488,27 +477,27 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
         else
         {
             NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-            
+
             NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-            
+
             [request setHTTPMethod:@"POST"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
-            
+
             NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
 
             NSLog(@"Request was: %@", request);
             NSLog(@"Request body was: %@", myString);
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
-                
+
                 if (error == nil){
-                    
+
                     completionBlock(true, nil);
                 }
                 else
@@ -529,17 +518,17 @@ Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implemen
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
+
     if (task.itemName){
         [dictionary setValue:task.itemName forKey:@"task"];
     }
-    
+
     return dictionary;
 }
 
 ```
 
-Si scriverà infine `deleteTask`:
+Verrà scritto infine `deleteTask`:
 
 ```
 +(void) deleteTask:(samplesTaskItem*)task
@@ -550,10 +539,10 @@ Si scriverà infine `deleteTask`:
     {
         [self readApplicationSettings];
     }
-    
+
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-        
+
         if (error != nil)
         {
             completionBlock(NO, error);
@@ -561,24 +550,24 @@ Si scriverà infine `deleteTask`:
         else
         {
             NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-            
+
             NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-            
+
             [request setHTTPMethod:@"DELETE"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
-            
+
             NSLog(@"%@", request);
-            
+
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
+
             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
+
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
-                
+
                 if (error == nil){
-                    
+
                     completionBlock(true, nil);
                 }
                 else
@@ -599,9 +588,9 @@ L'ultima cosa da fare è implementare la Disconnessione per l’applicazione. Qu
 +(void) signOut
 {
     [authContext.tokenCacheStore removeAll:nil];
-    
+
     NSHTTPCookie *cookie;
-    
+
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (cookie in [storage cookies])
     {
@@ -628,4 +617,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

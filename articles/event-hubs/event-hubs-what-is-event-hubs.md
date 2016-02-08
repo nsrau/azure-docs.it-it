@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # Che cos'è l'hub di eventi di Azure?
@@ -39,10 +39,10 @@ Per informazioni dettagliate sugli hub di eventi, vedere gli argomenti seguenti.
 - [Panoramica di Hub eventi](event-hubs-overview.md)
 - [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 - [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md)
-- Iniziare con un'[esercitazione di Hub eventi][].
+- Iniziare con un’[esercitazione di Hub eventi][].
 - Un'[applicazione di esempio completa che usa Hub eventi][]
 
 [esercitazione di Hub eventi]: event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

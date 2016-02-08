@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta di seguito. Questo articolo fornisce il set completo della documentazione di `2015-02-28-Preview`, anche se l'API sembra invariata.
+> [AZURE.NOTE] Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta di seguito. Questo articolo fornisce il set completo della documentazione di `2015-02-28-Preview`, anche se l'API sembra invariata.
 
 ## Panoramica ##
 
@@ -38,7 +38,7 @@ Sono attualmente supportate le origini dati seguenti:
 - il database SQL di Azure e SQL Server in macchine virtuali di Azure
 - Azure DocumentDB 
 
-La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
+La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 Vedere [Limiti del servizio](search-limits-quotas-capacity.md) per i limiti massimi relativi alle risorse di origine dati e dell'indicizzatore.
 
@@ -776,4 +776,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

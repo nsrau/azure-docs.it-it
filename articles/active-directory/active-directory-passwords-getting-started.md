@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Introduzione: Gestione delle password di Azure AD | Microsoft Azure" 
-	description="Consentire agli utenti di reimpostare le proprie password, individuare i prerequisiti per la reimpostazione delle password e abilitare il writeback delle password per gestire le password in locale in Active Directory." 
-	services="active-directory" 
+	description="La gestione delle password consente agli utenti di reimpostare le proprie password, individuare i prerequisiti per la reimpostazione delle password e abilitare il writeback delle password per gestire le password in locale in Active Directory." 
+	services="active-directory"
+	keywords="Gestione delle password di Active Directory, gestione delle password management, reimpostare la password di Azure AD" 
 	documentationCenter="" 
 	authors="asteen" 
 	manager="kbrint" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/25/2016" 
 	ms.author="asteen"/>
 
 # Introduzione alla gestione delle password
@@ -47,9 +48,9 @@ Prima di poter abilitare e usare la reimpostazione delle password self-service, 
 - Creare un tenant di AAD. Per altre informazioni, vedere [Introduzione ad Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Ottenere una sottoscrizione di Azure. Per altre informazioni, vedere [Che cos'è un tenant di Azure AD?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 - Associare il tenant di AAD alla sottoscrizione di Azure. Per altre informazioni, vedere [Associazione delle sottoscrizioni Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-- Eseguire l'aggiornamento ad Azure AD Premium o Basic. Per altre informazioni, vedere [Edizioni di Azure Active Directory](http://azure.microsoft.com/pricing/details/active-directory/).
+- Eseguire l'aggiornamento ad Azure AD Premium o Basic. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE]Per abilitare la reimpostazione delle password self-service, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory. Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
+  >[AZURE.NOTE] Per abilitare la reimpostazione delle password self-service, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory. Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
   
 - Creare almeno un account amministratore e un account utente nella directory di AAD.
 - Assegnare una licenza di AAD Premium o Basic agli account amministratore e utente creati.
@@ -60,7 +61,7 @@ Per configurare criteri di reimpostazione della password utente, completare i pa
 1.	Aprire il browser desiderato e accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2.	Nel [portale di gestione di Azure](https://manage.windowsazure.com) trovare l'**estensione Active Directory** nella barra di spostamento a sinistra.
 
-    ![][001]
+    ![Gestione delle password in Azure AD][001]
 
 3. Nella scheda **Directory** fare clic sulla directory in cui si vogliono configurare i criteri di reimpostazione della password utente, ad esempio Wingtip Toys.
 
@@ -72,7 +73,7 @@ Per configurare criteri di reimpostazione della password utente, completare i pa
 
 5.	Nella scheda **Configura** scorrere verso il basso fino alla sezione **Criteri di reimpostazione password utente**. In questa sezione è possibile configurare tutti gli aspetti dei criteri di reimpostazione della password utente per una determinata directory.
 
-    >[AZURE.NOTE]Questi **criteri si applicano solo agli utenti finali dell'organizzazione, non agli amministratori**. Per motivi di sicurezza, Microsoft controlla i criteri di reimpostazione delle password per gli amministratori. Se questa sezione non viene visualizzata, verificare di aver effettuato l'iscrizione ad Azure Active Directory Premium o Basic e di aver **assegnato una licenza** all'account amministratore che sta configurando questa funzionalità.
+    >[AZURE.NOTE] Questi **criteri si applicano solo agli utenti finali dell'organizzazione, non agli amministratori**. Per motivi di sicurezza, Microsoft controlla i criteri di reimpostazione delle password per gli amministratori. Se questa sezione non viene visualizzata, verificare di aver effettuato l'iscrizione ad Azure Active Directory Premium o Basic e di aver **assegnato una licenza** all'account amministratore che sta configurando questa funzionalità.
 
     ![][004]
 
@@ -82,7 +83,7 @@ Per configurare criteri di reimpostazione della password utente, completare i pa
 
 7.	Dopo avere configurato i criteri di reimpostazione della password utente nel modo desiderato per il proprio tenant, fare clic sul pulsante **Salva** nella parte inferiore della schermata.
 
-  >[AZURE.NOTE]È consigliabile usare criteri di reimpostazione della password utente basati su due test in modo da valutare l'uso di questa funzionalità nel caso più complesso.
+  >[AZURE.NOTE] È consigliabile usare criteri di reimpostazione della password utente basati su due test in modo da valutare l'uso di questa funzionalità nel caso più complesso.
 
   ![][006]
 
@@ -178,19 +179,19 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
 - Nel tenant deve essere stata configurata e abilitata la reimpostazione delle password. Per altre informazioni, vedere [Consentire agli utenti di reimpostare le password di Azure AD](#enable-users-to-reset-their-azure-ad-passwords).
 - È necessario avere almeno un account amministratore e un account utente test con una licenza Azure AD Premium da usare per testare questa funzionalità. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
-  >[AZURE.NOTE]Assicurarsi che l'account amministratore usato per abilitare il writeback delle password sia un account amministratore cloud (creato in Azure AD), non un account federato (creato in AD locale e sincronizzato in Azure AD).
+  >[AZURE.NOTE] Assicurarsi che l'account amministratore usato per abilitare il writeback delle password sia un account amministratore cloud (creato in Azure AD), non un account federato (creato in AD locale e sincronizzato in Azure AD).
   
 - È necessario avere una distribuzione locale di Active Directory con foresta singola o a più foreste in cui sia in esecuzione Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 o Windows Server 2012 R2 con i Service Pack più recenti installati.
 
-  >[AZURE.NOTE]Se si esegue una versione precedente di Windows Server 2008 o 2008 R2, è comunque possibile usare questa funzionalità, ma sarà necessario [scaricare e installare la KB 2386717](https://support.microsoft.com/kb/2386717) per poter applicare i criteri delle password di Active Directory locale nel cloud.
+  >[AZURE.NOTE] Se si esegue una versione precedente di Windows Server 2008 o 2008 R2, è comunque possibile usare questa funzionalità, ma sarà necessario [scaricare e installare la KB 2386717](https://support.microsoft.com/kb/2386717) per poter applicare i criteri delle password di Active Directory locale nel cloud.
   
 - È necessario che sia installato lo strumento Azure AD Connect e che l'ambiente Active Directory sia stato preparato per la sincronizzazione con il cloud. Per altre informazioni, vedere [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD Connect.
+  >[AZURE.NOTE] Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD Connect.
 
 - Se si usa Azure AD Sync o Azure AD Connect, è necessario aprire solo la porta **TCP 443** in uscita (e in alcuni casi la porta **TCP 9350-9354**). Per altre informazioni, vedere [Passaggio 3: Configurare il firewall](#step-3-configure-your-firewall). L'uso di DirSync per questo scenario non è più supportato. Se si usa ancora DirSync, eseguire l'aggiornamento all'ultima versione di Azure AD Connect prima di distribuire il writeback delle password.
 
-  >[AZURE.NOTE]È consigliabile che chiunque usi gli strumenti Azure AD Sync o DirSync esegua l'aggiornamento alla versione più recente di Azure AD Connect in modo da ottenere la migliore esperienza possibile e le nuove funzionalità non appena vengono rilasciate.
+  >[AZURE.NOTE] È consigliabile che chiunque usi gli strumenti Azure AD Sync o DirSync esegua l'aggiornamento alla versione più recente di Azure AD Connect in modo da ottenere la migliore esperienza possibile e le nuove funzionalità non appena vengono rilasciate.
   
 
 ### Passaggio 1: Scaricare la versione più recente di Azure AD Connect
@@ -207,7 +208,7 @@ Il writeback delle password è disponibile nelle versioni di Azure AD Connect o 
 
 Se il numero di versione è uguale o superiore a **1.0.0419.0911** oppure se si sta eseguendo l'installazione di Azure AD Connect, è possibile andare direttamente al [Passaggio 2: Abilitare il writeback delle password in Azure AD Connect tramite l'interfaccia utente o PowerShell e verificare il risultato](#step-2-enable-password-writeback-in-azure-ad-connect).
 
- >[AZURE.NOTE]Se è la prima volta che si installa lo strumento Azure AD Connect, è opportuno seguire alcune procedure consigliate per preparare l'ambiente per la sincronizzazione della directory. Prima di installare lo strumento Azure AD Connect, è necessario attivare la sincronizzazione della directory nel [portale dell'amministratore di Office 365](https://portal.microsoftonline.com) o nel [portale di gestione di Azure](https://manage.windowsazure.com). Per altre informazioni, vedere [Gestione di Azure AD Connect](active-directory-aadconnect-whats-next.md).
+ >[AZURE.NOTE] Se è la prima volta che si installa lo strumento Azure AD Connect, è opportuno seguire alcune procedure consigliate per preparare l'ambiente per la sincronizzazione della directory. Prima di installare lo strumento Azure AD Connect, è necessario attivare la sincronizzazione della directory nel [portale dell'amministratore di Office 365](https://portal.microsoftonline.com) o nel [portale di gestione di Azure](https://manage.windowsazure.com). Per altre informazioni, vedere [Gestione di Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Passaggio 2: Abilitare il writeback delle password in Azure AD Connect
@@ -222,7 +223,7 @@ Dopo aver scaricato lo strumento Azure AD Connect, è possibile abilitare il wri
 
 4.	Completare la procedura guidata. La pagina finale visualizzerà un riepilogo delle modifiche e includerà la modifica alla configurazione del writeback delle password.
 
-> [AZURE.NOTE]È possibile disabilitare il writeback delle password in qualsiasi momento, eseguendo di nuovo la procedura guidata e deselezionando la funzionalità oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com). Per altre informazioni sulla personalizzazione della procedura di reimpostazione delle password, vedere [Personalizzare: Gestione delle password di Azure AD](active-directory-passwords-customize.md).
+> [AZURE.NOTE] È possibile disabilitare il writeback delle password in qualsiasi momento, eseguendo di nuovo la procedura guidata e deselezionando la funzionalità oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com). Per altre informazioni sulla personalizzazione della procedura di reimpostazione delle password, vedere [Personalizzare: Gestione delle password di Azure AD](active-directory-passwords-customize.md).
 
 #### Per abilitare il writeback delle password con Windows PowerShell
 1.	Nel **computer in cui è installato Directory Sync** aprire una nuova **finestra di Windows PowerShell con privilegi elevati**.
@@ -231,7 +232,7 @@ Dopo aver scaricato lo strumento Azure AD Connect, è possibile abilitare il wri
 4.	Ottenere lo stato corrente del writeback per il connettore corrente eseguendo il cmdlet seguente: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`.
 5.	Abilitare il writeback delle password eseguendo il cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`.
 
-> [AZURE.NOTE]Se viene visualizzato un messaggio di richiesta delle credenziali, assicurarsi che l'account amministratore specificato per AzureADCredential sia un **account amministratore cloud (creato in Azure AD)**, non un account federato (creato in AD locale e sincronizzato in Azure AD).[AZURE.NOTE]È possibile disabilitare il writeback delle password tramite PowerShell ripetendo le stesse istruzioni precedenti, ma passando `$false` nel passaggio oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Se viene visualizzato un messaggio di richiesta delle credenziali, assicurarsi che l'account amministratore specificato per AzureADCredential sia un **account amministratore cloud (creato in Azure AD)**, non un account federato (creato in AD locale e sincronizzato in Azure AD).[AZURE.NOTE] È possibile disabilitare il writeback delle password tramite PowerShell ripetendo le stesse istruzioni precedenti, ma passando `$false` nel passaggio oppure impostando il **writeback delle password nella directory locale** su **No** nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
 
 #### Verificare che la configurazione sia stata eseguita correttamente
 Dopo il completamento della configurazione nella finestra di Windows PowerShell verrà visualizzato un messaggio che indica che il writeback per la reimpostazione delle password è abilitato oppure nell'interfaccia utente di configurazione verrà visualizzato un messaggio che indica il completamento dell'operazione.
@@ -259,7 +260,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 
   L'impostazione di queste autorizzazioni consentirà all'account del servizio dell'agente di gestione per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestire le password locali dal cloud. Di seguito sono descritti i passaggi dettagliati su come effettuare questa operazione usando lo snap-in di gestione di **Utenti e computer di Active Directory**:
 
->[AZURE.NOTE]La replica delle autorizzazioni in tutti gli oggetti nella directory può richiedere fino a un'ora.
+>[AZURE.NOTE] La replica delle autorizzazioni in tutti gli oggetti nella directory può richiedere fino a un'ora.
 
 #### Per impostare le autorizzazioni appropriate per l'esecuzione del writeback
 
@@ -279,9 +280,7 @@ Se non si è certi dell'identità dell'account al quale si fa riferimento, aprir
 8.	Nell'elenco a discesa nella parte superiore selezionare **Oggetti Utente discendente**.
 9.	Nella finestra di dialogo **Voci di autorizzazione** visualizzata selezionare la casella per **Reimpostare password**, **Modificare password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Quindi fare clic su **Applica/OK** nelle finestre di dialogo aperte.
 
@@ -352,4 +351,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

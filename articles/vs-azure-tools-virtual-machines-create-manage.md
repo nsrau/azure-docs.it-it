@@ -49,11 +49,11 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     - In **Immagini private** sono elencate le immagini di macchine virtuali specializzate e generalizzate create dall'utente.
 
-    Per altre informazioni sulle macchine virtuali specializzate e generalizzate, vedere il post di blog sull'[immagine della macchina virtuale](http://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Per informazioni su come trasformare una macchina virtuale in un modello da usare per creare rapidamente nuove macchine virtuali preconfigurate, vedere [Come acquisire una macchina virtuale Windows da usare come modello](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Per altre informazioni sulle macchine virtuali specializzate e generalizzate, vedere il post di blog sull'[immagine della macchina virtuale](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Per informazioni su come trasformare una macchina virtuale in un modello da usare per creare rapidamente nuove macchine virtuali preconfigurate, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
     È possibile fare clic sul nome di un'immagine di macchina virtuale per visualizzare informazioni sull'immagine nel lato destro della pagina.
 
-    >[AZURE.NOTE]Non è possibile aggiungere immagini di macchine virtuali agli elenchi **Immagini pubbliche** o **Immagini MSDN** perché sono di sola lettura. Tutte le macchine virtuali create vengono aggiunte all'elenco **Immagini private**.
+    >[AZURE.NOTE] Non è possibile aggiungere immagini di macchine virtuali agli elenchi **Immagini pubbliche** o **Immagini MSDN** perché sono di sola lettura. Tutte le macchine virtuali create vengono aggiunte all'elenco **Immagini private**.
 
     >Gli abbonati MSDN con una sottoscrizione di livello Visual Studio possono creare una macchina virtuale di Azure predefinita contenente Visual Studio, oltre a diverse altre immagini. Per altre informazioni, vedere [Creare una macchina virtuale in Visual Studio mediante le immagini, l'immagine della raccolta di Visual Studio 2013 per gli abbonati MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e le [sottoscrizioni di MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
@@ -61,17 +61,17 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     Il nuovo nome e la password verranno usati per accedere alla macchina con il desktop remoto, quindi è consigliabile prenderne nota. Dopo aver creato una macchina virtuale di Azure in Visual Studio, è possibile modificarne le dimensioni e le altre impostazioni nel [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Le macchine virtuali create in Visual Studio richiedono un servizio cloud. Nella pagina **Impostazioni del servizio cloud** selezionare un servizio cloud per la macchina virtuale oppure fare clic su **<Crea nuovo…>** nell'elenco a discesa se non si ha già un servizio cloud oppure si vuole usarne uno nuovo. È anche necessario un account di archiviazione, quindi sceglierne uno (o crearne uno nuovo) nell'elenco a discesa **Account di archiviazione**. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](./storage/storage-introduction/).
 
 1. Per specificare una rete virtuale (facoltativa) selezionarla negli elenchi a discesa Rete virtuale e Subnet.
 
-    Le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Per altre informazioni, vedere [Rete virtuale di Azure](http://www.windowsazure.com/services/virtual-network/).
+    Le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Per altre informazioni, vedere [Rete virtuale di Azure](https://azure.microsoft.com/services/virtual-network/).
 
 1. Se la macchina virtuale deve appartenere a un set di disponibilità (facoltativo), selezionare la casella di controllo **Specificare un set di disponibilità** e quindi scegliere un set di disponibilità nell'elenco a discesa. Al termine, scegliere il pulsante **Avanti**.
 
-    L'aggiunta della macchina virtuale a un set di disponibilità garantisce la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati. Per creare reti virtuali, subnet e set di disponibilità è necessario usare il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103). Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/).
+    L'aggiunta della macchina virtuale a un set di disponibilità garantisce la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati. Per creare reti virtuali, subnet e set di disponibilità è necessario usare il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103). Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/).
 
 1. Nella pagina **Endpoint** specificare gli endpoint pubblici che dovranno essere disponibili per gli utenti della macchina virtuale. Ad esempio, è possibile scegliere di abilitare il protocollo HTTP (porta 80) oltre agli endpoint Desktop remoto e PowerShell, che sono abilitati per impostazione predefinita. Per aggiungere un endpoint, sceglierne uno nell'elenco a discesa **Nome porta** e quindi scegliere **Aggiungi**. Per rimuovere un endpoint, scegliere la **X** rossa accanto al nome nell'elenco di endpoint.
 
@@ -79,7 +79,7 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
 
     Gli endpoint disponibili dipendono dal servizio cloud selezionato per la macchina virtuale. Per altre informazioni, vedere [Endpoint di servizio di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
-    >[AZURE.NOTE]L'abilitazione degli endpoint pubblici rende i servizi presenti sulla macchina virtuale disponibili in Internet. Assicurarsi di installare e configurare correttamente gli endpoint e i servizi sulla macchina virtuale, ad esempio impostando gli elenchi di controllo di accesso (ACL) per gli endpoint. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    >[AZURE.NOTE] L'abilitazione degli endpoint pubblici rende i servizi presenti sulla macchina virtuale disponibili in Internet. Assicurarsi di installare e configurare correttamente gli endpoint e i servizi sulla macchina virtuale, ad esempio impostando gli elenchi di controllo di accesso (ACL) per gli endpoint. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 1. Dopo aver terminato di configurare le impostazioni della macchina virtuale, scegliere **Crea** per creare la macchina virtuale.
 
@@ -141,7 +141,7 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 1. Se è già stato eseguito Sysprep in questa macchina virtuale, selezionare la casella **Sysprep eseguito sulla macchina virtuale**.
 
-    Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
 1. Dopo aver terminato di configurare le impostazioni di acquisizione, scegliere **Acquisisci** per creare il checkpoint.
 
@@ -177,4 +177,4 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -47,7 +47,7 @@ Per altre istruzioni sulle opzioni di distribuzione, vedere la [guida alla distr
 
 ### Dati raccolti dall'agente
 
-Le informazioni incluse nell'elenco seguente vengono raccolte dall'agente quando viene stabilita una connessione a un'applicazione Web. Le informazioni vengono raccolte solo per le applicazioni configurate dall'amministratore per l'individuazione. <br> È possibile modificare l'elenco di app cloud di cui l'agente effettua il monitoraggio tramite il pannello Cloud App Discovery nel [portale di Microsoft Azure](https://portal.azure.com), facendo clic su **Impostazioni**->**Raccolta dati**->**Elenco Raccolta di app**. Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Categoria delle informazioni**: Informazioni sull'utente<br> **Descrizione**: <br> Nome utente di Windows del processo che ha effettuato una richiesta all'applicazione Web di destinazione (ad esempio DOMINIO\\nomeutente), oltre al SID (Security Identifier) Windows dell'utente.
+Le informazioni incluse nell'elenco seguente vengono raccolte dall'agente quando viene stabilita una connessione a un'applicazione Web. Le informazioni vengono raccolte solo per le applicazioni configurate dall'amministratore per l'individuazione. <br> È possibile modificare l'elenco di app cloud di cui l'agente effettua il monitoraggio tramite il pannello Cloud App Discovery nel [portale di Microsoft Azure](https://portal.azure.com/), facendo clic su **Impostazioni**->**Raccolta dati**->**Elenco Raccolta di app**. Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Categoria delle informazioni**: Informazioni sull'utente<br> **Descrizione**: <br> Nome utente di Windows del processo che ha effettuato una richiesta all'applicazione Web di destinazione (ad esempio DOMINIO\\nomeutente), oltre al SID (Security Identifier) Windows dell'utente.
 
 
 **Categoria delle informazioni**: Informazioni sul processo <br> **Descrizione**: <br> Nome del processo che ha effettuato la richiesta all'applicazione Web di destinazione (ad esempio "iexplore.exe").
@@ -88,7 +88,7 @@ Informazioni HTTP seguenti:
 
 
 
-> [AZURE.NOTE]Le informazioni HTTP precedenti vengono raccolte per tutte le connessioni non crittografate. Per le connessioni TLS queste informazioni vengono acquisite solo se l'impostazione Ispezione approfondita è attivata nel portale. Questa impostazione è attivata per impostazione predefinita. Per informazioni dettagliate, vedere di seguito e vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] Le informazioni HTTP precedenti vengono raccolte per tutte le connessioni non crittografate. Per le connessioni TLS queste informazioni vengono acquisite solo se l'impostazione Ispezione approfondita è attivata nel portale. Questa impostazione è attivata per impostazione predefinita. Per informazioni dettagliate, vedere di seguito e vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
 Oltre ai dati sull'attività di rete, l'agente raccoglie anche informazioni anonime sulla configurazione software e hardware, segnalazioni errori e informazioni sull'uso dell'agente.
@@ -168,7 +168,7 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 
 
-> [AZURE.NOTE]Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 <br> Qualsiasi utente che accede ai dati nel portale deve avere una licenza per Azure AD Premium.
 
@@ -179,4 +179,4 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

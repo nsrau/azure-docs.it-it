@@ -50,7 +50,7 @@ Per questa configurazione si useranno i valori seguenti:
 
 ## Prima di iniziare
 
-Verificare di avere una sottoscrizione di Azure e avere installato il cmdlet di Azure PowerShell richiesto per questa configurazione (versione 1.0.2 o successiva). Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Verificare di avere una sottoscrizione di Azure e avere installato il cmdlet di Azure PowerShell richiesto per questa configurazione (versione 1.0.2 o successiva). Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
 **Informazioni sull'installazione dei moduli dei cmdlet PowerShell**
 
@@ -231,4 +231,4 @@ I certificati vengono usati per autenticare client VPN per VPN da punto a sito. 
 
 È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

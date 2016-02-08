@@ -46,7 +46,7 @@ Usare la stessa procedura guidata **Pubblica sul Web** per distribuire il codice
 
 Nell'esercitazione precedente è stata abilitata l'interfaccia utente di Swagger, quindi è possibile usarla per verificare che l'app per le API venga eseguita in Azure.
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com) passare al pannello **App per le API** relativo all'app per le API distribuita.
+1. Nel [portale di anteprima di Azure](https://portal.azure.com/) passare al pannello **App per le API** relativo all'app per le API distribuita.
 
 2. Fare clic sull'URL dell'app per le API.
 
@@ -62,7 +62,7 @@ Nell'esercitazione precedente è stata abilitata l'interfaccia utente di Swagger
 
 ## Visualizzare la definizione dell'API nel portale
 
-1. Nel [portale di anteprima di Azure](https://portal.azure.com) tornare al pannello **App per le API** relativo all'app per le API distribuita.
+1. Nel [portale di anteprima di Azure](https://portal.azure.com/) tornare al pannello **App per le API** relativo all'app per le API distribuita.
 
 4. Fare clic su **Definizione API**.
  
@@ -129,4 +129,4 @@ Le app API sono app web con funzionalità aggiuntive per l'hosting di API, il ch
 
 Per informazioni sulle funzionalità delle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

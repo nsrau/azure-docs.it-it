@@ -92,7 +92,7 @@ La documentazione dettagliata sull’API REST per i provider di calcolo, rete e 
 
 ## Domande frequenti
 
-**È possibile creare una macchina virtuale mediante la nuova funzionalità Gestione risorse di Azure per distribuire in una rete virtuale o un account di archiviazione creato utilizzando le API di gestione del servizio di Microsoft Azure?**
+**È possibile creare una macchina virtuale con il nuovo Gestione risorse di Azure per distribuire in una rete virtuale o un account di archiviazione creati tramite API di gestione dei servizi di Azure?**
 
 La funzionalità non è supportata al momento. Non è possibile eseguire la distribuzione mediante le API della nuova funzionalità Gestione risorse di Microsoft Azure per distribuire una rete virtuale o un account di archiviazione creato utilizzando le API di gestione del servizio di Microsoft Azure.
 
@@ -114,6 +114,6 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 **Dove è possibile trovare esempi di modelli di gestione risorse di Azure?**
 
-E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
+E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

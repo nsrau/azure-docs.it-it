@@ -46,9 +46,9 @@ L'impostazione di un ambiente di test del cloud ibrido comporta cinque fasi prin
 4.	Creare la connessione VPN da sito a sito.
 5.	Configurare DC2. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ottenere una [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ridurre i costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi correnti dell'ambiente](#costs) in questo argomento per ulteriori informazioni.
+>[AZURE.NOTE] Le macchine virtuali e i gateway di rete virtuale in Azure generano addebiti monetari in caso di esecuzione. Il costo viene addebitato sulla base della versione di valutazione gratuita, dell'abbonamento MSDN o della sottoscrizione a pagamento. Per ridurre i costi di esecuzione dell'ambiente di test quando non viene utilizzato, vedere [Ridurre al minimo i costi correnti dell'ambiente](#costs) in questo argomento per ulteriori informazioni.
 
 Questa configurazione richiede una subnet di test di fino a quattro computer connessi direttamente a Internet utilizzando un indirizzo IP pubblico. Se non si dispone di queste risorse, è anche possibile [impostare un ambiente di cloud ibrido simulato per i test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). L'ambiente di test cloud ibrida simulato richiede una sottoscrizione di Azure.
 
@@ -309,7 +309,7 @@ L'ambiente cloud ibrido è ora pronto per il testing.
 
 Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test\_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md).
 
-Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway seguendo questa procedura.
+Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](https://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway seguendo questa procedura.
 
 1.	Dal portale di gestione di Azure del computer locale fare clic su **Reti** nel riquadro sinistro, quindi su **TestVNET** e infine su **Dashboard**.
 2.	Nella barra delle applicazioni fare clic su **Elimina gateway**. Fare clic su **Sì** quando richiesto. Attendere l'eliminazione del gateway e l'impostazione del relativo stato su **Gateway non creato**.
@@ -329,4 +329,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

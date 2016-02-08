@@ -30,4 +30,4 @@ Per i clienti che stanno imparando a usare Azure Service Fabric Reliable Actors,
 
 * Mappare alla cieca i modelli di entità. Questa situazione riguarda gli sviluppatori che provengono da un universo relazionale in cui i problemi vengono modellati usando le entità e le rispettive relazioni. Sebbene questo approccio sia ancora utile per comprendere l'argomento, dovrebbe accompagnarsi a un ragionamento orientato ai servizi e al comportamento.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

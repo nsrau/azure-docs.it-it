@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure
@@ -35,7 +35,7 @@ Per altre informazioni sulla gestione di autenticazione e sottoscrizione, vedere
 
 Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][free-trial].
 
->[AZURE.NOTE]Se si utilizza una versione dell’interfaccia della riga di comando di Azure precedente alla versione 0.9.10, è possibile utilizzare il comando `azure login` solo per le identità dell’account aziendale o dell’istituto di istruzione. Le identità dell’account Microsoft non funzionano. Tuttavia, è possibile utilizzare qualsiasi identità per accedere all'account con il comando interattivo `azure login` con le versioni dell’interfaccia della riga di comando di Azure 0.9.10 e versioni successive.
+>[AZURE.NOTE] Se si utilizza una versione dell’interfaccia della riga di comando di Azure precedente alla versione 0.9.10, è possibile utilizzare il comando `azure login` solo per le identità dell’account aziendale o dell’istituto di istruzione. Le identità dell’account Microsoft non funzionano. Tuttavia, è possibile utilizzare qualsiasi identità per accedere all'account con il comando interattivo `azure login` con le versioni dell’interfaccia della riga di comando di Azure 0.9.10 e versioni successive.
 >
 Le versioni dell’interfaccia della riga di comando 0.9.9 e versioni successive supportano l’autenticazione a più fattori.
 
@@ -48,7 +48,7 @@ Utilizzare il comando `azure login` -- senza alcun argomento -- per autenticare 
 - un’identità dell’account aziendale o dell’istituto di istruzione che richiede l'autenticazione a più fattori, o
 - con un'identità dell'account Microsoft quando si desidera accedere alle funzionalità di modalità di distribuzione di Gestione risorse
 
-> [AZURE.NOTE]In entrambi i casi, l'autenticazione e l’autorizzazione vengono eseguite mediante Azure Active Directory. Se si utilizza un'identità dell'account Microsoft, il log nel processo accede al dominio predefinito di Azure Active Directory. (Se è stata effettuata l'iscrizione per una valutazione gratuita, si potrebbe non essere conoscenza della creazione di un dominio predefinito di Azure Active Directory per l'account.)
+> [AZURE.NOTE]  In entrambi i casi, l'autenticazione e l’autorizzazione vengono eseguite mediante Azure Active Directory. Se si utilizza un'identità dell'account Microsoft, il log nel processo accede al dominio predefinito di Azure Active Directory. (Se è stata effettuata l'iscrizione per una valutazione gratuita, si potrebbe non essere conoscenza della creazione di un dominio predefinito di Azure Active Directory per l'account.)
 
 L’accesso interattivo è semplice; digitare `azure login` e seguire le istruzioni, come illustrato di seguito:
 
@@ -96,9 +96,9 @@ Se è necessario usare soltanto i comandi classici (Gestione dei servizi) dell'i
 
 Verrà aperto il browser predefinito e richiesto di accedere al [portale di Azure classico][portal]. Dopo l'accesso, viene scaricato un file `.publishsettings`. Prendere nota del percorso in cui il file viene salvato.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] Se l'account è associato a più tenant Azure Active Directory, è possibile che venga richiesto di selezionare per quale istanza di Active Directory si desidera scaricare un file di impostazioni di pubblicazione.
+>
+> Dopo aver effettuato la selezione tramite la pagina di download oppure visitando il portale di Azure classico, il tenant Active Directory selezionato diventerà quello usato per impostazione predefinita nel portale classico e nella pagina di download. Dopo la scelta di un'impostazione predefinita, nella parte superiore della pagina di download verrà visualizzato un messaggio analogo al seguente: '__fare clic qui per tornare nella pagina di selezione__'. Usare il collegamento specificato per tornare nella pagina di selezione.
 
 * **Per importare il file di impostazioni di pubblicazione**, eseguire il comando seguente.
 
@@ -123,7 +123,7 @@ Nell'elenco precedente, la colonna **Current** indica la sottoscrizione predefin
 
 La sottoscrizione predefinita diventerà in questo modo Azure-sub-2.
 
-> [AZURE.NOTE]La modifica della sottoscrizione predefinita ha effetto immediato ed è una modifica globale. I nuovi comandi dell'interfaccia della riga di comando di Azure, sia che vengano eseguiti dalla stessa istanza della riga di comando o da una diversa, useranno la nuova sottoscrizione predefinita.
+> [AZURE.NOTE] La modifica della sottoscrizione predefinita ha effetto immediato ed è una modifica globale. I nuovi comandi dell'interfaccia della riga di comando di Azure, sia che vengano eseguiti dalla stessa istanza della riga di comando o da una diversa, useranno la nuova sottoscrizione predefinita.
 
 Se si desidera usare una sottoscrizione non predefinita con l'interfaccia della riga di comando di Azure, ma senza cambiare quella attualmente predefinita, è possibile usare l'opzione `--subscription` e specificare il nome della sottoscrizione da usare per l'operazione.
 
@@ -158,4 +158,4 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

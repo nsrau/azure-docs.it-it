@@ -20,7 +20,7 @@
 
 Il servizio Ricerca di Azure è un servizio di ricerca ospitato sul cloud che rende più semplice fornire un'esperienza di ricerca eccellente. Prima di poter eseguire ricerche, è necessario popolare un indice di Ricerca di Azure con i dati. Se i dati si trovano in un database SQL di Azure, il nuovo **Indicizzatore di Ricerca di Azure per il database SQL di Azure** (o **Indicizzatore SQL di Azure**, in breve) in Ricerca di Azure è in grado di automatizzare il processo di indicizzazione. Ciò significa che è necessario scrivere meno codice e preoccuparsi di meno infrastruttura.
 
-Attualmente, gli indicizzatori funzionano solo con il database SQL di Azure, SQL Server nelle macchine virtuali di Azure e [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). In questo articolo l’attenzione verrà focalizzata sugli indicizzatori che funzionano con il database SQL di Azure. Se si desidera visualizzare il supporto per altre origini dati, fornire commenti e suggerimenti sul [forum relativo ai commenti e suggerimenti di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
+Attualmente, gli indicizzatori funzionano solo con il database SQL di Azure, SQL Server nelle macchine virtuali di Azure e [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). In questo articolo l’attenzione verrà focalizzata sugli indicizzatori che funzionano con il database SQL di Azure. Se si desidera visualizzare il supporto per altre origini dati, fornire commenti e suggerimenti sul [forum relativo ai commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 In questo articolo verranno illustrati i meccanismi di utilizzo degli indicizzatori, ma verranno anche approfonditi funzionalità e comportamenti che sono disponibili solo con i database SQL (ad esempio, il rilevamento delle modifiche integrato).
 
@@ -279,4 +279,4 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

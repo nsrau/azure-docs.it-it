@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Come gestire i record DNS utilizzando CLI
@@ -24,7 +24,7 @@
 
 Questa guida descrive come gestire i set di record e i record per la zona DNS.
 
->[AZURE.NOTE]DNS di Azure è un servizio solo di Gestione risorse di Azure. Non include un’API ASM. È pertanto necessario garantire che l’interfaccia della riga di comando di Azure sia configurata per utilizzare la modalità di gestione risorse, utilizzando il comando 'azure config mode arm'.
+>[AZURE.NOTE] DNS di Azure è un servizio solo di Gestione risorse di Azure. Non include un’API ASM. È pertanto necessario garantire che l’interfaccia della riga di comando di Azure sia configurata per utilizzare la modalità di gestione risorse, utilizzando il comando 'azure config mode arm'.
 
 >Se viene visualizzato "errore: 'dns' non è un comando di azure" è probabilmente perché si sta utilizzando l’interfaccia della riga di comando di in modalità ASM, non in modalità gestione risorse.
 
@@ -34,27 +34,25 @@ Questa guida descrive come gestire i set di record e i record per la zona DNS.
 
 I set di record vengono creati utilizzando il comando `azure network dns record-set create`. È necessario specificare il nome, la zona, il Time-to-Live (TTL) e il tipo di record del set di record.
 
->[AZURE.NOTE]Il nome del set di record deve essere un nome relativo, escluso il nome della zona. Ad esempio, il nome del set di record "www" nella zona "contoso.com" creerà un record impostato con il nome completo "www.contoso.com".
+Il nome del set di record deve essere un nome relativo, escluso il nome della zona. Ad esempio, il nome del set di record "www" nella zona "contoso.com" creerà un record impostato con il nome completo "www.contoso.com".
 
->Per un set di record all'apice della zona, usare "@" come nome del set di record, includendo le virgolette. Il nome completo del set di record è quindi uguale al nome della zona, in questo caso "contoso.com".
+Per un set di record all'apice della zona, usare "@" come nome del set di record, includendo le virgolette. Il nome completo del set di record è quindi uguale al nome della zona, in questo caso "contoso.com".
 
 DNS di Azure supporta i seguenti tipi di record: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. I set di record di tipo SOA vengono creati automaticamente con ogni zona, non possono essere creati separatamente. Si noti che [il tipo di record SPF è stato deprecato dagli standard DNS a favore della creazione di record SPF utilizzando il tipo di record TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
->[AZURE.IMPORTANT]I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Ad esempio, è possibile creare contemporaneamente un record CNAME con il nome relativo "www" e un record A con il nome relativo '"www". Dal momento che il vertice della zona (name = ‘@’) contiene sempre i set di record NS e SOA creati quando viene creata la zona, ciò significa che non è possibile creare un set di record CNAME al vertice della zona. Questi vincoli sono causati dagli standard DNS, non sono limitazioni del servizio DNS di Azure.
+>[AZURE.IMPORTANT] I set di record CNAME non possono coesistere con altri set di record con lo stesso nome. Ad esempio, è possibile creare contemporaneamente un record CNAME con il nome relativo "www" e un record A con il nome relativo '"www". Dal momento che il vertice della zona (name = ‘@’) contiene sempre i set di record NS e SOA creati quando viene creata la zona, ciò significa che non è possibile creare un set di record CNAME al vertice della zona. Questi vincoli sono causati dagli standard DNS, non sono limitazioni del servizio DNS di Azure.
 
 ### Record con caratteri jolly
 
-DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly).
+DNS di Azure supporta [record con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly). Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
 
->[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
-
->I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
+I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
 ## Ottenere un set di record
-Per recuperare un set di record esistente, usare `azure network dns record-set show`, specificando gruppo di risorse, nome di zona, nome relativo del set di record e tipo di record:
+Per recuperare un set di record esistente, usare `azure network dns record-set show`, specificando gruppo di risorse, nome relativo del set di record e tipo di record:
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
@@ -79,7 +77,7 @@ In entrambi i casi si specificherà il nome del gruppo di risorse e il nome di z
 
 ## Aggiungere un record a un set di record
 
-I record vengono aggiunti ai set di record utilizzando il `azure network dns record-set add-record`.
+I record vengono aggiunti al set di record utilizzando il `azure network dns record-set add-record`.
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Ad esempio, quando si usa un set di record di tipo "A" sarà possibile specificare solo i record con il parametro "-a `<IPv4 address>`".
 
@@ -91,7 +89,7 @@ Per creare set di record, utilizzare `azure network dns record-set create`, spec
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE]Se il parametro --ttl non è definito, viene impostato il valore predefinito 4 (in secondi).
+>[AZURE.NOTE] Se il parametro --ttl non è definito, viene impostato il valore predefinito 4 (in secondi).
 
 
 Dopo aver creato il set di record A, aggiungere l’indirizzo IPv4 al set di record con `azure network dns record-set add-record`:
@@ -110,7 +108,7 @@ Dopo aver creato il set di record A, aggiungere l’indirizzo IPv4 al set di rec
 	
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
->[AZURE.NOTE]I record CNAME consentono solo un valore stringa singolo.
+>[AZURE.NOTE] I record CNAME consentono solo un valore stringa singolo.
 
 ### Creare un set di record MX con un singolo record
 
@@ -229,7 +227,7 @@ La rimozione dell'ultimo record da un set di record non elimina il set di record
 ## Eliminare un set di record
 È possibile eliminare i set di record usando il cmdlet Remove-AzureDnsRecordSet.
 
->[AZURE.NOTE]Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = ‘@’) che vengono creati automaticamente quando viene creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
+>[AZURE.NOTE] Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = ‘@’) che vengono creati automaticamente quando viene creata la zona. Verranno eliminati automaticamente quando si elimina la zona.
 
 Nell'esempio seguente, il set di record A "test-a" verrà rimosso dalla zona DNS contoso.com:
 
@@ -238,9 +236,10 @@ Nell'esempio seguente, il set di record A "test-a" verrà rimosso dalla zona DNS
 L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di conferma.
 
 
-##Vedere anche
+## Passaggi successivi
 
-[Delegare un dominio a DNS di Azure](dns-domain-delegation.md)<BR> [Gestire le zone DNS](dns-operations-dnszones-cli.md)<BR> [Automatizzare operazioni usando .NET SDK](dns-sdk.md)
+Dopo aver creato la zona e i record DNS, è possibile [delegare il dominio a DNS di Azure](dns-domain-delegation.md).<BR> Informazioni su come [gestire le zone DNS](dns-operations-dnszones-cli.md) mediante l'interfaccia della riga di comando.<BR> È anche possibile [automatizzare le operazioni usando .NET SDK](dns-sdk.md) per codificare le operazioni DNS di Azure nell'applicazione.
+
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

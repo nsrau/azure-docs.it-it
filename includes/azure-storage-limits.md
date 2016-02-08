@@ -28,7 +28,7 @@ Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree US)|20 
 Numero massimo in entrata <sup>2</sup> per account di archiviazione (aree europee e asiatiche)|5 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 10 Gbps per LRS
 Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree europee e asiatiche)|10 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 15 Gbps per LRS
 
-<sup>1</sup>Se sono necessari più di 100 account di archiviazione, contattare il [supporto Azure](http://azure.microsoft.com/support/faq/) per assistenza.
+<sup>1</sup>Se sono necessari più di 100 account di archiviazione, contattare il [supporto Azure](https://azure.microsoft.com/support/faq/) per assistenza.
 
 <sup>2</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
@@ -39,4 +39,4 @@ Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree europee
 - **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
 - **LRS**: archiviazione con ridondanza locale. 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

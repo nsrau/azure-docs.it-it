@@ -31,7 +31,7 @@ Analisi di flusso di Azure è un servizio completamente gestito che consente l'e
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - Installare Visual Studio 2012 o 2013.
-- Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).  
 
 
@@ -366,4 +366,4 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

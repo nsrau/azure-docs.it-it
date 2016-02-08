@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Questa guida illustra come usare Android SDK lato client per le app per dispositivi mobili per implementare scenari comuni, come l'esecuzione di query sui dati \(inserimento, aggiornamento ed eliminazione\), l'autenticazione degli utenti, la gestione degli errori e la personalizzazione del client. Fornisce anche un'analisi approfondita del codice client comune usato nella maggior parte della app per dispositivi mobili.
+Questa guida illustra come usare Android SDK lato client per le app per dispositivi mobili per implementare scenari comuni, come l'esecuzione di query sui dati (inserimento, aggiornamento ed eliminazione), l'autenticazione degli utenti, la gestione degli errori e la personalizzazione del client. Fornisce anche un'analisi approfondita del codice client comune usato nella maggior parte della app per dispositivi mobili.
 
 Questa guida descrive Android SDK lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere [Usare l'SDK del server back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Come usare Node.js SDK back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -71,7 +71,7 @@ Per accedere ad Azure, è necessario abilitare l'autorizzazione INTERNET per l'a
 
 Questa sezione illustra parte del codice nell'app dell'esercitazione introduttiva. Se non si è completata questa esercitazione, sarà necessario aggiungere il codice all'app.
 
-> [AZURE.NOTE]La stringa "MobileServices" ricorre più volte nel codice. In effetti, il codice fa riferimento a Mobile App SDK, ma è solo una voce riportata temporaneamente da versioni precedenti.
+> [AZURE.NOTE] La stringa "MobileServices" ricorre più volte nel codice. In effetti, il codice fa riferimento a Mobile App SDK, ma è solo una voce riportata temporaneamente da versioni precedenti.
 
 
 ###<a name="data-object"></a>Definire le classi di dati client
@@ -115,7 +115,7 @@ Se ad esempio include una colonna Priority di tipo Integer, è consigliabile agg
 	        mPriority = priority;
 	    }
 
-Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) \(back-end .NET\) o [Procedura: Definire le tabelle con uno schema dinamico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) \(back-end Node.js\). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure].
+Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end .NET) o [Procedura: Definire le tabelle con uno schema dinamico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end Node.js). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure].
 
 ###<a name="create-client"></a>Procedura: Creare il contesto client
 
@@ -125,7 +125,7 @@ Il codice seguente crea l'oggetto **MobileServiceClient** usato per accedere al 
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-In questo codice sostituire `MobileAppUrl` con l'URL del back-end dell'app per dispositivi mobili, che si trova nel pannello per il back-end dell'app per dispositivi mobili del [portale di Azure](https://portal.azure.com). Per consentire la compilazione di questa riga di codice, è necessario aggiungere anche l'istruzione **import** seguente:
+In questo codice sostituire `MobileAppUrl` con l'URL del back-end dell'app per dispositivi mobili, che si trova nel pannello per il back-end dell'app per dispositivi mobili del [portale di Azure](https://portal.azure.com/). Per consentire la compilazione di questa riga di codice, è necessario aggiungere anche l'istruzione **import** seguente:
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -319,9 +319,9 @@ L'esecuzione della query seguente restituisce tutti gli elementi della tabella *
 
 *mToDoTable* è il riferimento alla tabella di Servizi mobili creata in precedenza.
 
-Definire un filtro con la chiamata al metodo **where** sul riferimento a tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** \(uguale a\), **ne** \(non uguale a\), **gt** \(maggiore di\), **ge** \(maggiore di o uguale a\), **lt** \(minore di\), **le** \(minore di o uguale a\) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
+Definire un filtro con la chiamata al metodo **where** sul riferimento a tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore di o uguale a), **lt** (minore di), **le** (minore di o uguale a) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
-ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* \(due\) è uguale a 2013.
+ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* (due) è uguale a 2013.
 
 	mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -602,6 +602,85 @@ Per memorizzare nella cache i token di autenticazione, è necessario archiviare 
 
 Quando si prova a usare un token scaduto, viene visualizzata una risposta di tipo *401 - Non autorizzato*. L'utente deve quindi effettuare di nuovo l'accesso per ottenere nuovi token. Per evitare di scrivere codice per gestire questa situazione in ogni punto dell'app che chiama Servizi mobili, è possibile usare i filtri, che consentono di intercettare le chiamate inviate a e le risposte ricevute da Servizi mobili. Il codice di filtro verificherà quindi la risposta per un errore di tipo 401, attiverà, se necessario, il processo di accesso e quindi riprenderà la richiesta che ha generato l'errore. È anche possibile esaminare il token per controllare la scadenza.
 
+
+## <a name="adal"></a>Procedura: Autenticare gli utenti con Active Directory Authentication Library
+
+È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+
+2. Installare ADAL modificando il file build.gradle per includere quanto segue:
+
+	repositories { mavenCentral() flatDir { dirs 'libs' } maven { url "YourLocalMavenRepoPath\\.m2\\repository" } } packagingOptions { exclude 'META-INF/MSFTSIG.RSA' exclude 'META-INF/MSFTSIG.SF' } dependencies { compile fileTree(dir: 'libs', include: ['*.jar']) compile('com.microsoft.aad:adal:1.1.1') { exclude group: 'com.android.support' } // Recent version is 1.1.1 compile 'com.android.support:support-v4:23.0.0' }
+
+3. Aggiungere all'applicazione il codice riportato di seguito apportando le sostituzioni seguenti:
+
+* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
+
+* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
+
+* Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
+
+* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
+
 ## Procedura: Aggiungere notifiche push all'app
 
 È possibile [leggere una panoramica](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) che descrive in che modo Hub di notifica di Microsoft Azure supporta un'ampia gamma di notifiche push.
@@ -679,9 +758,9 @@ Si supponga che nel codice del client Java vengano utilizzati nomi standard Java
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
-### <a name="table"></a>Procedura: Eseguire il mapping di nomi di tabella diversi tra il client e il back-end.
+### <a name="table"></a>Procedura: Eseguire il mapping di nomi di tabella diversi tra il client e il back-end
 
-Il mapping del nome della tabella del client a un nome di tabella dei servizi mobili è un'operazione semplice, in cui viene usato uno solo degli override della funzione <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable\(\)</a>, come illustrato nel codice seguente.
+Il mapping del nome della tabella del client a un nome di tabella dei servizi mobili è un'operazione semplice, in cui viene usato uno solo degli override della funzione <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a>, come illustrato nel codice seguente.
 
 	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
@@ -692,7 +771,7 @@ Il mapping dei nomi di colonna per una tabella con poche colonne non è un'opera
 
 A tale scopo viene usata la libreria <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> che la libreria client Android usa in modo invisibile per serializzare oggetti Java in dati JSON, inviati a Servizi mobili di Azure.
 
-Nel codice seguente viene utilizzato il metodo *setFieldNamingStrategy\(\)*, nel quale viene definito un metodo *FieldNamingStrategy\(\)*. In tale metodo viene indicato di eliminare il carattere iniziale \(una "m"\), e quindi di applicare il minuscolo al carattere successivo per ogni nome di campo. Nel codice viene inoltre abilitata la pretty print dell'output di JSON.
+Nel codice seguente viene utilizzato il metodo *setFieldNamingStrategy()*, nel quale viene definito un metodo *FieldNamingStrategy()*. In tale metodo viene indicato di eliminare il carattere iniziale (una "m"), e quindi di applicare il minuscolo al carattere successivo per ogni nome di campo. Nel codice viene inoltre abilitata la pretty print dell'output di JSON.
 
 	client.setGsonBuilder(
 	    MobileServiceClient
@@ -763,4 +842,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

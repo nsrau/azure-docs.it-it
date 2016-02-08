@@ -6,7 +6,7 @@
 
 1. Verificare che **Nome**e**Porta pubblica** dell’endpoint del listener che si desidera utilizzare non siano già in uso. Nell'esempio seguente, il nome è "MyEndpoint" e la porta è "1433".
 
-1. Nel client locale, scaricare e installare[l'ultimo modulo PowerShell](http://azure.microsoft.com/downloads/).
+1. Nel client locale, scaricare e installare[l'ultimo modulo PowerShell](https://azure.microsoft.com/downloads/).
 
 1. Avviare **Azure PowerShell**. Viene aperta una nuova sessione di PowerShell con i moduli amministrativi di Azure caricati.
 
@@ -18,4 +18,4 @@
 
 	Una volta importato il file di impostazioni di pubblicazione, è possibile gestire la sottoscrizione di Azure nella sessione di PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

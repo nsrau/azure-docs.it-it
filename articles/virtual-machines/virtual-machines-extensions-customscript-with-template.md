@@ -37,7 +37,7 @@ I modelli di Gestione risorse di Azure consentono di specificare in modo dichiar
 
 ### Prerequisiti
 
-1. Installare i cmdlet di Azure PowerShell o l’interfaccia della riga di comando di Azure più recenti da [qui](http://azure.microsoft.com/downloads).
+1. Installare i cmdlet di Azure PowerShell o l’interfaccia della riga di comando di Azure più recenti da [qui](https://azure.microsoft.com/downloads/).
 2. Se gli script vengono eseguiti in una macchina virtuale esistente, assicurarsi che l'agente VM sia abilitato nella macchina virtuale; in caso contrario, fare riferimento a questo [articolo](virtual-machines-extensions-install) per installarne uno.
 3. Caricare gli script da eseguire sulla macchina virtuale in Archiviazione di Azure. Gli script possono provenire da uno o più contenitori di archiviazione.
 4. In alternativa è possibile caricare gli script in un account Github.
@@ -102,4 +102,4 @@ Consultare gli esempi seguenti per configurare applicazioni in una macchina virt
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Linux</a>. </br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Windows</a>.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

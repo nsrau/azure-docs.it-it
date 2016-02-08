@@ -24,9 +24,9 @@ Dopo aver [creato un lab](devtest-lab-create-lab.md), è possibile [aggiungervi 
 
 ## Creare un modello di macchina virtuale
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
-1. Toccare **Sfoglia** e quindi **Lab DevTest** nell'elenco.
+1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
 1. Nell'elenco dei lab toccare il lab desiderato.
 
@@ -86,4 +86,4 @@ Per aggiungere una nuova immagine del modello, sarà necessario accedere a un fi
 
 Dopo aver aggiunto un modello di macchina virtuale da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab DevTest](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

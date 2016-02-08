@@ -3,7 +3,7 @@
 	description="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Gestione del controllo di accesso basato sui ruoli con Windows PowerShell #
 
 > [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 Nel portale di Azure e nell'API di Gestione risorse di Azure, il controllo di accesso basato sui ruoli (RBAC) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
@@ -39,15 +38,15 @@ Per poter utilizzare Windows PowerShell per gestire RBAC, è necessario disporre
 
 Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
-Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet Get-Help.
+Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet `Get-Help`.
 
 	Get-Help <cmdlet-name> -Detailed
 
-Ad esempio, per informazioni sul cmdlet Add-AzureAccount, digitare:
+Ad esempio, per informazioni sul cmdlet `Add-AzureAccount` digitare:
 
 	Get-Help Add-AzureAccount -Detailed
 
-Leggere inoltre le seguenti esercitazioni per acquisire familiarità con l'utilizzo di Gestione risorse di Azure in Windows PowerShell:
+Vedere anche le esercitazioni seguenti per acquisire familiarità con la configurazione e l'uso di Gestione risorse di Azure in Windows PowerShell:
 
 - [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 - [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md)
@@ -55,19 +54,19 @@ Leggere inoltre le seguenti esercitazioni per acquisire familiarità con l'utili
 
 ## Connettersi alle sottoscrizioni
 
-Poiché RBAC funziona solo con Gestione risorse di Azure, occorre innanzitutto passare alla modalità Gestione risorse di Azure digitando:
+Poiché il controllo di accesso basato sui ruoli funziona solo con Gestione risorse di Azure, la prima cosa da fare è passare alla modalità Gestione risorse di Azure.
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 Per maggiori informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
 
-Per connettersi alle proprie sottoscrizioni di Azure, digitare:
+Per connettersi alle sottoscrizioni Azure, digitare:
 
     PS C:\> Add-AzureAccount
 
-Nel controllo del browser a comparsa, immettere il nome utente e la password dell'account Azure. PowerShell recupera tutte le sottoscrizioni esistenti per l'account e utilizza la prima come predefinita. Si noti che con RBAC sarà possibile ottenere le sottoscrizioni solo se si dispone di alcune autorizzazioni, sia come coamministratori che come aventi assegnazioni di ruolo.
+Nel controllo del browser a comparsa immettere il nome utente e la password dell'account Azure. PowerShell recupera tutte le sottoscrizioni esistenti per l'account e utilizza la prima come predefinita. Si noti che con RBAC sarà possibile ottenere le sottoscrizioni solo se si dispone di alcune autorizzazioni, sia come coamministratori che come aventi assegnazioni di ruolo.
 
-Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
+Se sono disponibili più sottoscrizioni e si vuole passare a un'altra, usare i comandi seguenti:
 
     # This will show you the subscriptions under the account.
     PS C:\> Get-AzureSubscription
@@ -84,17 +83,17 @@ Controllare ora quali assegnazioni di ruoli esistono già nella sottoscrizione. 
 
 Verranno restituite tutte le assegnazioni di ruoli nella sottoscrizione. Si notino due cose:
 
-1. È necessario disporre dell'accesso in lettura a livello di sottoscrizione.
+1. È necessario avere accesso in lettura a livello di sottoscrizione.
 2. Se la sottoscrizione conta numerose assegnazioni di ruoli, recuperarle tutte potrebbe richiedere qualche tempo.
 
-È possibile inoltre controllare le assegnazioni di ruoli esistenti per una determinata definizione di ruolo, in un dato ambito e per un utente specifico. Digitare:
+È anche possibile controllare le assegnazioni di ruoli esistenti per una determinata definizione di ruolo, in un dato ambito e per un utente specifico. Digitare:
 
     PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Verranno restituite tutte le assegnazioni di ruolo per un determinato utente nel tenant di AD con assegnazione del ruolo "Owner" per il gruppo di risorse "group1". L'assegnazione del ruolo può avere due origini:
 
 1. Un'assegnazione del ruolo di "Owner" all'utente per il gruppo di risorse.
-2. Un'assegnazione del ruolo "Owner" all'utente per l'entità principale del gruppo di risorse (in questo caso, la sottoscrizione), poiché se si dispone di un'autorizzazione per un determinato livello si avranno le stesse autorizzazioni anche per tutti i relativi elementi secondari.
+2. Un'assegnazione del ruolo "Proprietario" all'utente per il livello padre del gruppo di risorse, in questo caso la sottoscrizione, perché se si ha un'autorizzazione per un livello padre si avranno le stesse autorizzazioni anche per tutti i relativi elementi secondari.
 
 Tutti i parametri di questo cmdlet sono facoltativi. È possibile combinarli per controllare le assegnazioni dei ruoli con filtri diversi.
 
@@ -113,43 +112,34 @@ Quale ruolo assegnare: è possibile usare il cmdlet seguente per vedere le defin
 
     PS C:\> Get-AzureRoleDefinition
 
-Quale ambito assegnare: gli ambiti sono riconducibili a tre livelli
-
-    - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+Quale ambito assegnare: sono disponibili tre livelli per gruppo di risorse di ambiti - La sottoscrizione corrente - Un gruppo di risorse, per ottenere un elenco di gruppi di risorse, digitare `PS C:\> Get-AzureResourceGroup` - Una risorsa, per ottenere un elenco di risorse, digitare `PS C:\> Get-AzureResource`
 
 Usare quindi `New-AzureRoleAssignment` per creare un'assegnazione di ruolo. Ad esempio:
 
+	#This will create a role assignment at the current subscription level for a user as a reader.
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-Questo comando creerà per un utente un'assegnazione di ruolo come lettore al livello della sottoscrizione corrente.
-
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
-
-Questo comando creerà un'assegnazione di ruolo a livello di gruppo di risorse.
-
+	#This will create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-Questo comando creerà un'assegnazione di ruolo per un gruppo a livello di gruppo di risorse.
-
+	#This will create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-Questo comando creerà un'assegnazione di ruolo a livello di risorsa.
-
+	#This will create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
 ## Verificare le autorizzazioni
 
-Dopo aver controllato che l'account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni accordate da tali assegnazioni di ruoli eseguendo
+Dopo aver controllato che il proprio account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni concesse da tali assegnazioni eseguendo:
 
     PS C:\> Get-AzureResourceGroup
     PS C:\> Get-AzureResource
 
 Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si dispone dell'autorizzazione di lettura. Inoltre, verranno visualizzate anche le autorizzazioni di cui si dispone.
 
-Quando si proverà a eseguire un altro cmdlet, ad esempio `New-AzureResourceGroup`, verrà restituito un errore di accesso negato se non si dispone dell'autorizzazione necessaria.
+Quando si prova ad eseguire altri cmdlet come `New-AzureResourceGroup`, verrà visualizzato un errore di accesso negato se non si ha l'autorizzazione adeguata.
 
 ## Passaggi successivi
 
@@ -164,4 +154,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Configurazione del controllo di accesso basato sui ruoli usando l'interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli-install.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

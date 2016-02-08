@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -63,7 +63,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 È possibile creare le sottoscrizioni a un argomento anche tramite l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi recapitati alla coda virtuale della sottoscrizione.
 
-> [AZURE.NOTE]Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono relative, non vengono eliminate.
+> [AZURE.NOTE] Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono relative, non vengono eliminate.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -81,7 +81,7 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è 
 
 È possibile aggiungere i filtri a una sottoscrizione tramite il metodo **create\_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
-> [AZURE.NOTE]Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti **MatchAll** sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **delete\_rule** dell'oggetto **ServiceBusService**.
+> [AZURE.NOTE] Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti **MatchAll** sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **delete\_rule** dell'oggetto **ServiceBusService**.
 
 L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** personalizzata è maggiore di 3:
 
@@ -182,4 +182,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

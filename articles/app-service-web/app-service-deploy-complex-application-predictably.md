@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 
@@ -58,7 +58,7 @@ Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di 
 
 ### Esplora risorse di Azure ###
 
-Questo [strumento in anteprima](https://resources.azure.com) permette di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e le singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove. Le informazioni immediatamente disponibili nello strumento sono molto utili per la modifica del modello, perché mostrano quali proprietà è necessario impostare per un tipo di risorsa particolare, i valori corretti e così via. È anche possibile creare un gruppo di risorse personalizzato nel [Portale di Azure](https://portal.azure.com) e ispezionarne quindi le definizioni JSON nello strumento di esplorazione per creare un modello del gruppo di risorse.
+Questo [strumento in anteprima](https://resources.azure.com) permette di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e le singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove. Le informazioni immediatamente disponibili nello strumento sono molto utili per la modifica del modello, perché mostrano quali proprietà è necessario impostare per un tipo di risorsa particolare, i valori corretti e così via. È anche possibile creare un gruppo di risorse personalizzato nel [Portale di Azure](https://portal.azure.com/) e ispezionarne quindi le definizioni JSON nello strumento di esplorazione per creare un modello del gruppo di risorse.
 
 ### Pulsante Deploy to Azure per la distribuzione in Azure ###
 
@@ -129,7 +129,7 @@ Si inizierà con una semplice risorsa a livello di radice in JSON. In Struttura 
 
 Si noti che l'elemento `type` specifica la stringa per un piano di servizio app (che molto tempo fa era definito server farm), altri elementi e proprietà sono compilati con i parametri definiti nel file JSON e questa risorsa non include risorse annidate.
 
->[AZURE.NOTE]Notare anche che il valore `apiVersion` indica ad Azure quale versione dell'API REST usare con la definizione delle risorse JSON e può influire sulla formattazione della risorsa all'interno di `{}`.
+>[AZURE.NOTE] Notare anche che il valore `apiVersion` indica ad Azure quale versione dell'API REST usare con la definizione delle risorse JSON e può influire sulla formattazione della risorsa all'interno di `{}`.
 
 #### SQL Server ####
 
@@ -143,7 +143,7 @@ Nel codice JSON evidenziato notare quando indicato di seguito:
 -	La risorsa SQLServer ha due risorse annidate, ognuna con un valore diverso per `type`.
 -	Le risorse annidate in `“resources”: […]`, dove sono definite le regole di database e del firewall, includono un elemento `dependsOn` che specifica l'ID risorsa della risorsa SQLServer a livello di radice. Questo elemento indica a Gestione risorse di Azure che "prima di creare questa risorsa, deve esistere già l'altra risorsa e se l'altra risorsa è definita nel modello, dev'essere creata prima quella".
 
-	>[AZURE.NOTE]Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md).
+	>[AZURE.NOTE] Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md).
 
 -	L'elemento `dependsOn` indica a Gestione risorse di Azure quali risorse possono essere create in parallelo e quali devono essere create in sequenza.
 
@@ -176,7 +176,7 @@ Le stringhe di connessione vengono definite anche come risorsa annidata.
 
 Nell'elemento `properties` per `config/connectionstrings` ogni stringa di connessione è definita anche come coppia nome/valore con il formato specifico `“<name>” : {“value”: “…”, “type”: “…”}`. Per l'elemento `type` i valori possibili sono `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
 
->[AZURE.TIP]Per un elenco definitivo di tipi di stringhe di connessione, eseguire il comando seguente in Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP] Per un elenco definitivo di tipi di stringhe di connessione, eseguire il comando seguente in Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
 ##### Controllo del codice sorgente #####
 
@@ -186,13 +186,13 @@ Le impostazioni di controllo del codice sorgente vengono definite anche come ris
 
 `RepoUrl` e `branch` devono essere abbastanza intuitive e puntare al repository Git e al nome del ramo dal quale viene eseguita la pubblicazione. Anche in questo caso, sono definite dai parametri di input.
 
-Si noti che nell'elemento `dependsOn`, oltre alla risorsa app Web stessa, `sourcecontrols/web` dipende anche da `config/appsettings` e `config/connectionstrings`. Il motivo è che dopo la configurazione di `sourcecontrols/web`, il processo di distribuzione di Azure tenta automaticamente di distribuire, compilare e avviare il codice dell'applicazione. L'inserimento di questa dipendenza consente di assicurare che l'applicazione acceda alle impostazioni delle app e alle impostazioni di connessione necessarie prima di eseguire il codice dell'applicazione. [TODO: verificare se questa affermazione è vera].
+Si noti che nell'elemento `dependsOn`, oltre alla risorsa app Web stessa, `sourcecontrols/web` dipende anche da `config/appsettings` e `config/connectionstrings`. Il motivo è che dopo la configurazione di `sourcecontrols/web`, il processo di distribuzione di Azure tenta automaticamente di distribuire, compilare e avviare il codice dell'applicazione. L'inserimento di questa dipendenza consente di assicurare l'accesso dell'applicazione alle impostazioni delle app e alle impostazioni di connessione necessarie prima di eseguire il codice dell'applicazione.
 
->[AZURE.NOTE]Notare anche che `IsManualIntegration` è impostata su `true`. Questa proprietà è necessaria nell'esercitazione, perché non si è effettivamente il proprietario del repository GitHub e quindi non è possibile concedere ad Azure l'autorizzazione per configurare la pubblicazione continua da [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (vale a dire eseguire il push degli aggiornamenti automatici del repository ad Azure). È possibile usare il valore predefinito `false` per il repository specificato solo se le credenziali GitHub del proprietario sono già state configurate nel [portale di anteprima di Azure](https://portal.azure.com). In altre parole, se in precedenza è stato impostato il controllo del codice sorgente in GitHub o BitBucket per qualsiasi app nel [Portale di Azure](https://portal.azure.com) usando le proprie credenziali utente, Azure memorizzerà le credenziali e le userà ogni volta che in seguito si distribuirà un'app da GitHub o BitBucket. Tuttavia, se questa operazione non è ancora stata eseguita, la distribuzione del modello JSON non riuscirà quando Gestione risorse di Azure tenta di configurare le impostazioni di controllo del codice sorgente dell'app Web, perché non può connettersi a GitHub o BitBucket con le credenziali del proprietario del repository.
+>[AZURE.NOTE] Notare anche che `IsManualIntegration` è impostata su `true`. Questa proprietà è necessaria nell'esercitazione, perché non si è effettivamente il proprietario del repository GitHub e quindi non è possibile concedere ad Azure l'autorizzazione per configurare la pubblicazione continua da [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (vale a dire eseguire il push degli aggiornamenti automatici del repository ad Azure). È possibile usare il valore predefinito `false` per il repository specificato solo se le credenziali GitHub del proprietario sono già state configurate nel [portale di Azure](https://portal.azure.com/). In altre parole, se in precedenza è stato impostato il controllo del codice sorgente in GitHub o BitBucket per qualsiasi app nel [Portale di Azure](https://portal.azure.com/) usando le proprie credenziali utente, Azure memorizzerà le credenziali e le userà ogni volta che in seguito si distribuirà un'app da GitHub o BitBucket. Tuttavia, se questa operazione non è ancora stata eseguita, la distribuzione del modello JSON non riuscirà quando Gestione risorse di Azure tenta di configurare le impostazioni di controllo del codice sorgente dell'app Web, perché non può connettersi a GitHub o BitBucket con le credenziali del proprietario del repository.
 
 ## Confrontare il modello JSON con il gruppo di risorse distribuite ##
 
-Qui è possibile scorrere tutti i pannelli dell'app Web nel [portale di Azure](https://portal.azure.com), ma esiste un altro strumento altrettanto, se non più, utile. Passare allo strumento di anteprima di [Esplora risorse di Azure](https://resources.azure.com) che fornisce una rappresentazione JSON di tutti i gruppi di risorse nelle proprie sottoscrizioni, così come esistono effettivamente nel back-end di Azure. È anche possibile vedere in che modo la gerarchia JSON del gruppo di risorse in Azure corrisponde alla gerarchia nel file modello usato per crearla.
+Qui è possibile scorrere tutti i pannelli dell'app Web nel [portale di Azure](https://portal.azure.com/), ma esiste un altro strumento altrettanto, se non più, utile. Passare allo strumento di anteprima di [Esplora risorse di Azure](https://resources.azure.com) che fornisce una rappresentazione JSON di tutti i gruppi di risorse nelle proprie sottoscrizioni, così come esistono effettivamente nel back-end di Azure. È anche possibile vedere in che modo la gerarchia JSON del gruppo di risorse in Azure corrisponde alla gerarchia nel file modello usato per crearla.
 
 Ad esempio, se si passa allo strumento [Esplora risorse di Azure](https://resources.azure.com) e si espandono i nodi nello strumento, si vedranno il gruppo di risorse e le risorse a livello di radice raccolte nei rispettivi tipi di risorse.
 
@@ -264,11 +264,11 @@ Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il mo
  
 	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-	>[AZURE.NOTE]La scalabilità automatica è una funzionalità offerta nel livello **Standard** o superiore e gli avvisi a livello di piano sono funzionalità offerte nel livello **Basic** o superiore. Sarà necessario impostare il parametro **sku** su **Standard** o **Premium** per visualizzare tutte le nuove risorse di Application Insights evidenziate.
+	>[AZURE.NOTE] La scalabilità automatica è una funzionalità offerta nel livello **Standard** o superiore e gli avvisi a livello di piano sono funzionalità offerte nel livello **Basic** o superiore. Sarà necessario impostare il parametro **sku** su **Standard** o **Premium** per visualizzare tutte le nuove risorse di Application Insights evidenziate.
 	
 16.	Fare clic su **Distribuisci**. Se è stata selezionata l'opzione **Salva password**, la password verrà salvata nel file di parametri **come testo normale**. In caso contrario, verrà richiesto di immettere la password del database durante il processo di distribuzione.
 
-La procedura è terminata. A questo punto basta passare al [portale di Azure](https://portal.azure.com) e allo strumento [Esplora risorse di Azure](https://resources.azure.com) per visualizzare i nuovi avvisi e le impostazioni di scalabilità automatica aggiunte all'applicazione JSON distribuita.
+La procedura è terminata. A questo punto basta passare al [portale di Azure](https://portal.azure.com/) e allo strumento [Esplora risorse di Azure](https://resources.azure.com) per visualizzare i nuovi avvisi e le impostazioni di scalabilità automatica aggiunte all'applicazione JSON distribuita.
 
 I passaggi in questa sezione hanno eseguito principalmente le operazioni seguenti:
 
@@ -305,4 +305,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

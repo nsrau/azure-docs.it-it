@@ -27,13 +27,13 @@ In questo articolo viene illustrato come creare e caricare un disco rigido virtu
 ##Prerequisiti##
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-- **Una sottoscrizione Azure** - Se non si dispone di un account, è possibile crearne uno in pochi minuti. Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [creare un account di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).  
+- **Una sottoscrizione Azure** - Se non si dispone di un account, è possibile crearne uno in pochi minuti. Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [creare un account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).  
 
-- **Strumenti di Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Azure](http://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale si userà il cmdlet [Download di Azure](http://azure.microsoft.com/downloads/).
+- **Strumenti di Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Azure](https://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale si userà il cmdlet [Download di Azure](https://azure.microsoft.com/downloads/).
 
 - **Sistema operativo FreeBSD installato in un file VHD**: l'utente ha installato un sistema operativo FreeBSD supportato in un disco rigido virtuale. Sono disponibili diversi strumenti per creare file VHD, ad esempio per creare il file VHD e installare il sistema operativo, è possibile usare una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE]Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
+> [AZURE.NOTE] Il formato VHDX più recente non è supportato in Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Questa attività include i cinque passaggi illustrati di seguito.
 
@@ -141,7 +141,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 	![Nome del contenitore](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione "BLOB pubblico". Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione "Contenitore pubblico".
+    > [AZURE.NOTE] Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione "BLOB pubblico". Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione "Contenitore pubblico".
 
 ## Passaggio 3: preparare la connessione a Microsoft Azure ##
 
@@ -209,4 +209,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 	![immagine di FreeBSD in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

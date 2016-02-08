@@ -68,14 +68,17 @@ I dispositivi aggiunti al dominio useranno questo oggetto per trovare informazio
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]Sostituire [*connector account name*] con l'account di dominio usato come account connettore AD.
+>[AZURE.NOTE]
+ Sostituire [*connector account name*] con l'account di dominio usato come account connettore AD.
 
->[AZURE.NOTE]Il nome utente della credenziale da specificare quando viene visualizzato il popup Get-Credential deve essere nel formato *user@example.com*
+>[AZURE.NOTE]
+Il nome utente della credenziale da specificare quando viene visualizzato il popup Get-Credential deve essere nel formato **user@example.com*
 
 ### Configurare regole attestazioni per AD FS
 Questa procedura consente la registrazione immediata di un computer con Azure DRS, in modo da poterne eseguire l'autenticazione usando Kerberos/NTLM tramite AD FS. Senza questo passaggio, i computer dovranno accedere ad Azure AD con un certo ritardo (in base ai tempi di sincronizzazione di Azure AD Connect).
 
->[AZURE.NOTE]Se non si dispone di AD FS come server federativo locale, creare le regole attestazioni seguendo le istruzioni del fornitore.
+>[AZURE.NOTE]
+Se non si dispone di AD FS come server federativo locale, creare le regole attestazioni seguendo le istruzioni del fornitore.
 
 Nel server AD FS (o in una sessione connessa al server AD FS) eseguire i comandi di PowerShell seguenti:
 
@@ -109,7 +112,8 @@ Nel server AD FS (o in una sessione connessa al server AD FS) eseguire i comandi
  
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
->[AZURE.NOTE]I computer Windows 10 useranno l'autenticazione integrata di Windows per eseguire l'autenticazione a un endpoint WS-Trust attivo ospitato da AD FS. È quindi necessario verificare che l'endpoint sia abilitato. Se si sta usando il proxy per l'autenticazione Web, inoltre, è necessario verificare che l'endpoint sia stato pubblicato tramite il proxy. A tale scopo, controllare che nella console di gestione di AD FS la voce "adfs/services/trust/13/windowstransport" risulti abilitata nell'area Servizio > Endpoint.
+>[AZURE.NOTE]
+I computer Windows 10 useranno l'autenticazione integrata di Windows per eseguire l'autenticazione a un endpoint WS-Trust attivo ospitato da AD FS. È quindi necessario verificare che l'endpoint sia abilitato. Se si sta usando il proxy per l'autenticazione Web, inoltre, è necessario verificare che l'endpoint sia stato pubblicato tramite il proxy. A tale scopo, controllare che nella console di gestione di AD FS la voce "adfs/services/trust/13/windowstransport" risulti abilitata nell'area Servizio > Endpoint.
 
 
 ## Passaggio 2: Configurare la registrazione automatica dei dispositivi tramite Criteri di gruppo in Active Directory
@@ -127,7 +131,8 @@ Nel server AD FS (o in una sessione connessa al server AD FS) eseguire i comandi
  - Una specifica unità organizzativa (OU) in AD in cui verranno posizionati i computer aggiunti al dominio di Windows 10.
  - Uno specifico gruppo di sicurezza contenente i computer aggiunti al dominio di Windows 10 che verranno automaticamente registrati in Azure AD.
  
->[AZURE.NOTE]In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si esegue lo strumento Criteri di gruppo da un computer Windows 10, i criteri verranno visualizzati come: <br> **Registra i computer aggiunti a un dominio come dispositivi** e i criteri verranno memorizzati nel percorso seguente:<br> ***Configurazione computer/Criteri/Modelli amministrativi/Componenti di Windows/Registrazione dispositivo***
+>[AZURE.NOTE]
+In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si esegue lo strumento Criteri di gruppo da un computer Windows 10, i criteri verranno visualizzati come: <br> **Registra i computer aggiunti a un dominio come dispositivi** e i criteri verranno memorizzati nel percorso seguente:<br> ***Configurazione computer/Criteri/Modelli amministrativi/Componenti di Windows/Registrazione dispositivo***
 
  
 ## Informazioni aggiuntive
@@ -137,4 +142,4 @@ Nel server AD FS (o in una sessione connessa al server AD FS) eseguire i comandi
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,9 +26,9 @@ DevTest Lab consente di specificare i criteri principali che determinano come ve
 
 Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
-1. Toccare **Sfoglia** e quindi **Lab DevTest** nell'elenco.
+1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
 1. Nell'elenco dei lab toccare il lab desiderato.
 
@@ -100,4 +100,4 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 1. Toccare **Salva**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

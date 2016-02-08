@@ -26,7 +26,7 @@ Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flus
 
 ## Database SQL ##
 
-Un [database SQL di Azure](http://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso eseguiranno la scrittura in una tabella esistente di un database SQL di Azure. Si noti che lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
+Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso eseguiranno la scrittura in una tabella esistente di un database SQL di Azure. Si noti che lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
 
 | Nome proprietà | Descrizione |
 |---------------|-------------|
@@ -118,7 +118,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
 
-> [AZURE.NOTE]A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+> [AZURE.NOTE] A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
 
 ### Autorizzare un account Power BI
 
@@ -145,7 +145,7 @@ Dopo aver autenticato l'account Power BI, è possibile configurare le proprietà
 
 Per una procedura dettagliata di configurazione di un output di Power BI e del dashboard, vedere l'articolo [Analisi dei flussi di Azure e Power BI](stream-analytics-power-bi-dashboard.md).
 
-> [AZURE.NOTE]Non creare in modo esplicito il set di dati e la tabella nel dashboard di Power BI. Il set di dati e la tabella verranno compilati automaticamente quando il processo viene avviato e il processo inizia a generare output in Power BI. Si noti che se la query di processo non genera alcun risultato, il set di dati e la tabella non verranno creati. Tenere anche presente che se Power BI ha già un set di dati e una tabella con lo stesso nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
+> [AZURE.NOTE] Non creare in modo esplicito il set di dati e la tabella nel dashboard di Power BI. Il set di dati e la tabella verranno compilati automaticamente quando il processo viene avviato e il processo inizia a generare output in Power BI. Si noti che se la query di processo non genera alcun risultato, il set di dati e la tabella non verranno creati. Tenere anche presente che se Power BI ha già un set di dati e una tabella con lo stesso nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
 
 ### Rinnovare l'autorizzazione di Power BI
 
@@ -171,7 +171,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome tabella | Nome della tabella. Se non esiste, la tabella verrà creata. |
 | Chiave di partizione | Nome della colonna di output contenente la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione di una determinata tabella che costituisce la prima parte della chiave primaria di un'entità. Si tratta di un valore stringa le cui dimensioni massime sono di 1 KB. |
 | Chiave di riga | Nome della colonna di output contenente la chiave di riga. La chiave di riga è un identificatore univoco per un’entità all'interno di una determinata partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa le cui dimensioni massime sono di 1 KB. |
-| Dimensioni batch | Numero di record per un'operazione batch. Il valore predefinito in genere è sufficiente per la maggior parte dei processi. Per altri dettagli sulla modifica di questa impostazione, vedere la [specifica relativa alle operazioni Batch su tabella](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
+| Dimensioni batch | Numero di record per un'operazione batch. Il valore predefinito in genere è sufficiente per la maggior parte dei processi. Per altri dettagli sulla modifica di questa impostazione, vedere la [specifica relativa alle operazioni batch su tabella](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
 
 ## Code del bus di servizio
 
@@ -210,7 +210,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output DocumentDB.
 
@@ -267,4 +267,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

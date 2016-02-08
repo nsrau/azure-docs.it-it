@@ -1,9 +1,9 @@
 <properties
    pageTitle="Creazione e distribuzione di progetti Gruppo di risorse di Azure con Visual Studio | Microsoft Azure"
    description="Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -39,7 +39,7 @@ In questa procedura viene illustrato come creare un progetto di tipo Gruppo di r
 
     È anche possibile aggiungere altre risorse al gruppo di risorse in un secondo momento.
 
-    >[AZURE.NOTE]L'elenco dei modelli disponibili viene recuperato online ed è soggetto a modifiche.
+    >[AZURE.NOTE] L'elenco dei modelli disponibili viene recuperato online ed è soggetto a modifiche.
 
     Visual Studio crea un progetto di distribuzione di tipo Gruppo di risorse di Azure per un'app Web.
 
@@ -92,7 +92,7 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
     ![Finestra di dialogo Crea gruppo di risorse](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
 
-    >[AZURE.NOTE]In genere, quando si avvia un nuovo progetto di distribuzione è consigliabile creare un nuovo gruppo di risorse in cui eseguire la distribuzione.
+    >[AZURE.NOTE] In genere, quando si avvia un nuovo progetto di distribuzione è consigliabile creare un nuovo gruppo di risorse in cui eseguire la distribuzione.
 
 1. Immettere un nome e una posizione per il gruppo di risorse, quindi fare clic sul pulsante **Crea**.
 
@@ -108,15 +108,15 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
     - Il parametro *siteName* è la prima parte dell'URL della pagina Web. Ad esempio, per l'URL mywebsitename.azurewebsites.net, il nome del sito è **mywebsitename**.
 
-    - Il parametro *hostingPlanName* specifica il piano di hosting. Per questo esempio è possibile usare "Gratuito". Per altre informazioni sui piani di hosting, vedere [Panoramica approfondita dei piani del servizio app di Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
+    - Il parametro *hostingPlanName* specifica il piano di hosting. Per questo esempio è possibile usare "Gratuito". Per altre informazioni sui piani di hosting, vedere [Panoramica approfondita dei piani del servizio app di Azure](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
 
-    - Il parametro *siteLocation* fa riferimento all'area di Azure in cui il sito deve essere ospitato, ad esempio "Stati Uniti occidentali". Per un elenco delle aree disponibili, vedere [Aree di Azure](http://azure.microsoft.com/regions/).
+    - Il parametro *siteLocation* fa riferimento all'area di Azure in cui il sito deve essere ospitato, ad esempio "Stati Uniti occidentali". Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 1. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure.
 
     È possibile visualizzare lo stato di avanzamento della distribuzione nella finestra **Output**. In base alla configurazione, il completamento della distribuzione potrebbe richiedere alcuni minuti.
 
-    >[AZURE.NOTE]Potrebbe essere necessario installare i cmdlet di Microsoft Azure PowerShell. Poiché questi cmdlet sono necessari per distribuire i gruppi di risorse di Azure, sarà necessario installarli.
+    >[AZURE.NOTE] Potrebbe essere necessario installare i cmdlet di Microsoft Azure PowerShell. Poiché questi cmdlet sono necessari per distribuire i gruppi di risorse di Azure, sarà necessario installarli.
 
 1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/) da un browser. Poiché si tratta di una nuova modifica, nella scheda **Notifiche** dovrebbe essere disponibile un nuovo messaggio di notifica. Scegliere il messaggio per visualizzare i dettagli relativi al nuovo gruppo di risorse di Azure. Per visualizzare un elenco di tutti i gruppi di risorse disponibili, scegliere la scheda **Sfoglia** e quindi scegliere **Gruppi di risorse**.
 
@@ -196,4 +196,4 @@ Sono state apportate modifiche anche ad alcuni nomi di variabile e attività di 
 
 Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Modifica dei modelli di Gestione risorse con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

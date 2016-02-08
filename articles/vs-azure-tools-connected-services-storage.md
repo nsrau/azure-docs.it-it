@@ -90,8 +90,8 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Archiviazione in azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Archiviazione in azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Documentazione di archiviazione in azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Documentazione di archiviazione in azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

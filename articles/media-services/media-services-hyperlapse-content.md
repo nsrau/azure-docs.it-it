@@ -21,14 +21,14 @@
 
 Azure Media Hyperlapse è un processore di contenuti multimediali che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione. Elemento di pari livello basato sul cloud rispetto a [Hyperlapse Pro desktop per Microsoft Research e Hyperlapse Mobile basato su telefono](http://aka.ms/hyperlapse), Microsoft Hyperlapse per Servizi multimediali di Azure usa l'elevata scalabilità della piattaforma di elaborazione multimediale di Servizi multimediali di Azure per scalare orizzontalmente e parallelizzare l'elaborazione in blocco di Hyperlapse.
 
->[AZURE.IMPORTANT]Microsoft Hyperlapse per Servizi multimediali di Azure si trova attualmente in uno stato di anteprima pubblica gratuita. I processi sono limitati ai primi 10.000 fotogrammi dell'asset di input.
+>[AZURE.IMPORTANT] Microsoft Hyperlapse per Servizi multimediali di Azure si trova attualmente in uno stato di anteprima pubblica gratuita. I processi sono limitati ai primi 10.000 fotogrammi dell'asset di input.
 
 
 > Microsoft Hyperlapse è progettato per un utilizzo ottimale con contenuti in prima persona registrati con una fotocamera in movimento. Sebbene siano supportate anche riprese con telecamere fisse, le prestazioni e la qualità del processore di contenuti multimediali Azure Media Hyperlapse non può essere garantita con tipi di contenuti diversi. Per altre informazioni su Microsoft Hyperlapse per Servizi multimediali di Azure e vedere alcuni video di esempio, consultare il [post di blog introduttivo](http://aka.ms/azurehyperlapseblog) dall'anteprima pubblica.
 
 Un processo di Azure Media Hyperlapse accetta come input un file di asset MP4, MOV o WMV, insieme a un file di configurazione che specifica i fotogrammi del video da rendere in time-lapse e a quale velocità (ad esempio, i primi 10.000 fotogrammi a velocità doppia). L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
 
-Per gli aggiornamenti più recenti relativi ad Azure Media Hyperlapse, vedere i [blog di Servizi multimediali](http://azure.microsoft.com/blog/topics/media-services/).
+Per gli aggiornamenti più recenti relativi ad Azure Media Hyperlapse, vedere i [blog di Servizi multimediali](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## Eseguire Hyperlapse su un asset
 
@@ -78,9 +78,9 @@ Di seguito è riportato l'esempio di un file di configurazione conforme in XML e
 
 Il metodo seguente carica un file multimediale come asset e crea un processo mediante il processore di contenuti multimediali Azure Media Hyperlapse.
 
-> [AZURE.NOTE]Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare. Per altre informazioni, leggere l'[articolo sulla gestione dei contenuti](media-services-manage-content.md).
+> [AZURE.NOTE] Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare. Per altre informazioni, leggere l'[articolo sulla gestione dei contenuti](media-services-manage-content.md).
 
-> [AZURE.NOTE]L'argomento stringa "hyperConfig" deve essere un set di impostazioni di configurazione conforme scritto in JSON o XML, come descritto in precedenza.
+> [AZURE.NOTE] L'argomento stringa "hyperConfig" deve essere un set di impostazioni di configurazione conforme scritto in JSON o XML, come descritto in precedenza.
 
 	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
 	{
@@ -221,4 +221,4 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

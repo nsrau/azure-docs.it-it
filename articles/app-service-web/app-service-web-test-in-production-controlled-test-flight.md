@@ -48,19 +48,19 @@ In questa esercitazione si apprenderà come combinare gli scenari seguenti per t
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Configurare l'app Web di produzione
 
->[AZURE.NOTE]Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
+>[AZURE.NOTE] Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
 >
->Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
+>Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
 
 In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a cui si desidera apportare modifiche tramite la pubblicazione continua. In questo scenario si distribuirà nell'ambiente di produzione un modello sviluppato e testato.
 
-1.	Creare il fork personalizzato del repository [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Per informazioni sulla creazione del fork, vedere la pagina relativa al [fork di un repository](https://help.github.com/articles/fork-a-repo/). Una volta creata la biforcazione, è possibile visualizzarla nel browser.
+1.	Creare il fork personalizzato del repository [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Per informazioni sulla creazione della biforcazione, vedere la pagina relativa alla [biforcazione di un repository](https://help.github.com/articles/fork-a-repo/). Una volta creata la biforcazione, è possibile visualizzarla nel browser.
 
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
@@ -84,7 +84,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	Al termine dello script, tornare all'indirizzo del front-end (http://ToDoApp*&lt;your_suffix>*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
-5.	Accedere al [Portale di Azure](https://portal.azure.com) per vedere gli elementi creati.
+5.	Accedere al [Portale di Azure](https://portal.azure.com/) per vedere gli elementi creati.
 
 	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come sono configurate nel modello.
 
@@ -215,7 +215,7 @@ Poiché si raccolgono dati sul comportamento del client, si dovrà [aggiungere u
 
 5. Fare clic sul pulsante **Preferiti** per salvare le impostazioni correnti di Esplora metriche, che dovrebbero essere simili a **Eventi personalizzati: Produzione**. È possibile passare facilmente tra questa visualizzazione e una visualizzazione dello slot di distribuzione in un secondo momento.
 
-    > [AZURE.TIP]Per analisi ancora più avanzate, prendere in considerazione l'[l'integrazione della risorsa di Application Insights con Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Per analisi ancora più avanzate, prendere in considerazione l'[l'integrazione della risorsa di Application Insights con Power BI](app-insights-export-power-bi.md).
 
 ### Aggiungere tag specifici dello slot alla metrica dell'app server
 Di nuovo per completezza, si configurerà l'app sul lato server. A differenza dell'app client che è stata instrumentata in JavaScript, i tag specifici dello slot per l'app server sono instrumentati con codice .NET.
@@ -279,7 +279,7 @@ Di nuovo per completezza, si configurerà l'app sul lato server. A differenza de
 
     Al termine dell'esecuzione dello script tutte le risorse nel gruppo di risorse originale vengono mantenute, ma viene creato un nuovo slot denominato "beta" con la stessa configurazione dello slot di "staging" creato all'inizio.
 
-    >[AZURE.NOTE]Questo metodo per la creazione di diversi ambienti di distribuzione è diverso dal metodo descritto in [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md). Con questo metodo si creano ambienti di distribuzione con slot di distribuzione, mentre con l'altro si creano ambienti di distribuzione con gruppi di risorse. La gestione di ambienti di distribuzione con gruppi di risorse consente di mantenere l'ambiente di produzione inaccessibile per gli sviluppatori, ma non è facile eseguire test nell'ambiente di produzione, mentre possono essere eseguiti facilmente con gli slot.
+    >[AZURE.NOTE] Questo metodo per la creazione di diversi ambienti di distribuzione è diverso dal metodo descritto in [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md). Con questo metodo si creano ambienti di distribuzione con slot di distribuzione, mentre con l'altro si creano ambienti di distribuzione con gruppi di risorse. La gestione di ambienti di distribuzione con gruppi di risorse consente di mantenere l'ambiente di produzione inaccessibile per gli sviluppatori, ma non è facile eseguire test nell'ambiente di produzione, mentre possono essere eseguiti facilmente con gli slot.
 
 Se necessario, è anche possibile creare un'app alfa con il codice seguente
 
@@ -328,7 +328,7 @@ In questa sezione si instraderà il traffico all'app beta. Per chiarezza di dimo
 
 3. Nella risorsa di Application Insights filtrare la metrica per ambiente="beta".
 
-    > [AZURE.NOTE]Se si salva questa visualizzazione filtrata come un'altra preferita, è possibile passare facilmente tra le visualizzazioni beta e di produzione di Esplora metriche.
+    > [AZURE.NOTE] Se si salva questa visualizzazione filtrata come un'altra preferita, è possibile passare facilmente tra le visualizzazioni beta e di produzione di Esplora metriche.
 
 Si supponga che in Application Insights venga visualizzata una schermata simile alla seguente:
 
@@ -375,4 +375,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

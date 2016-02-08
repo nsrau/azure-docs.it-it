@@ -36,7 +36,7 @@ I contenuti come chat, commenti e post possono essere archiviati in DocumentDB s
 
 Le applicazioni che si integrano con diversi social network devono rispondere alla modifica degli schemi di queste reti. I dati, man mano che vengono automaticamente indicizzati in DocumentDB per impostazione predefinita, sono pronti per l'esecuzione di query in qualsiasi momento. Queste applicazioni hanno quindi la flessibilità necessaria per recuperare le proiezioni in base alle rispettive esigenze.
 
-Molte applicazioni di social networking vengono eseguite su scala globale e possono presentare modelli di utilizzo non prevedibili. La flessibilità nella scalabilità dell'archivio dati è essenziale man mano che il livello dell'applicazione viene scalato in modo da soddisfare la domanda di utilizzo. È possibile scalare orizzontalmente aggiungendo altre partizioni di dati con un account DocumentDB. Si possono anche creare altri account DocumentDB in più aree. Per la disponibilità delle aree del servizio DocumentDB, vedere [Aree di Azure](http://azure.microsoft.com/regions/#services).
+Molte applicazioni di social networking vengono eseguite su scala globale e possono presentare modelli di utilizzo non prevedibili. La flessibilità nella scalabilità dell'archivio dati è essenziale man mano che il livello dell'applicazione viene scalato in modo da soddisfare la domanda di utilizzo. È possibile scalare orizzontalmente aggiungendo altre partizioni di dati con un account DocumentDB. Si possono anche creare altri account DocumentDB in più aree. Per la disponibilità delle aree del servizio DocumentDB, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 ## Dati del catalogo
 Gli scenari di utilizzo dei dati di un catalogo includono l'archiviazione e l'esecuzione di query di un set di attributi per entità come persone, luoghi e prodotti. Gli account utente, i cataloghi di prodotti, i Registri di sistema dei dispositivi per IoT e i sistemi di distinta base sono alcuni esempi di dati di catalogo. Gli attributi di questi dati possono variare e cambiare nel corso del tempo per rispondere ai requisiti dell'applicazione.
@@ -68,7 +68,7 @@ Per altre informazioni sulle offerte di Azure per IoT, vedere [Creare il proprio
 
 ## Passaggi successivi
  
-Per iniziare a usare DocumentDB, è possibile creare un [account](http://azure.microsoft.com/pricing/free-trial/) e quindi seguire la [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per conoscere DocumentDB e trovare le informazioni necessarie.
+Per iniziare a usare DocumentDB, è possibile creare un [account](https://azure.microsoft.com/pricing/free-trial/) e quindi seguire la [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per conoscere DocumentDB e trovare le informazioni necessarie.
 
 Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le seguenti storie dei clienti:
 
@@ -79,4 +79,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). L'archivio del futuro si basa sulla velocità delle ricerche e su un flusso di dati scorrevole.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

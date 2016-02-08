@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come gestire un servizio cloud | Microsoft Azure" 
+	pageTitle="Attività comuni di gestione di servizi cloud (classico)| Microsoft Azure" 
 	description="Informazioni su come gestire i servizi cloud nel portale di Azure classico." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -49,7 +49,7 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 
 	Tenere presente che se si modificano le dimensioni di un ruolo, ovvero le dimensioni di una macchina virtuale che ospita un'istanza del ruolo, o il numero dei ruoli, è necessario ricreare l'immagine di ogni istanza del ruolo (macchina virtuale) e i dati locali andranno persi.
 
-7. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Update even if one or more role contain a single instance** per consentire l'esecuzione dell'aggiornamento.
+7. Se uno o più ruoli del servizio contengono una sola istanza del ruolo, selezionare la casella di controllo **Eseguire l'aggiornamento anche se uno o più ruoli contengono una sola istanza** per consentire l'esecuzione dell'aggiornamento.
 
 	Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata.
 
@@ -154,7 +154,8 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 5. Per eliminare il servizio cloud fare clic su **Delete cloud service**. Quindi, alla richiesta di conferma fare clic su **Yes**.
 
-> [AZURE.NOTE]Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle delle metriche, vedere "Procedura: accedere ai dati di monitoraggio dettagliati all'esterno del portale di Azure classico" in [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md).
+> [AZURE.NOTE]
+Se per il servizio cloud è configurato il monitoraggio dettagliato, i dati di monitoraggio dall'account di archiviazione non vengono eliminati quando si elimina il servizio cloud. I dati dovranno essere eliminati manualmente. Per informazioni sull'ubicazione delle tabelle delle metriche, vedere "Procedura: accedere ai dati di monitoraggio dettagliati all'esterno del portale di Azure classico" in [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md).
 
 ## Passaggi successivi
 
@@ -163,4 +164,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -26,7 +26,7 @@ Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
-Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -92,7 +92,7 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione ottiene 
         System.exit(-1);
     }
 
-I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. Gli oggetti [BrokeredMessage][] includono un insieme di proprietà standard, ad esempio [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx), un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di [BrokeredMessage][]. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java.IO.InputStream**.
+I messaggi inviati e ricevuti dalla coda del bus di servizio sono istanze della classe [BrokeredMessage][]. [Gli oggetti ][]BrokeredMessage[ includono un insieme di proprietà standard, ad esempio ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)Label[ e ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)TimeToLive, un dizionario utilizzato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore di [BrokeredMessage][]. In tal caso, per serializzare l'oggetto verrà utilizzato il serializzatore appropriato. In alternativa, è possibile fornire un oggetto **java.IO.InputStream**.
 
 L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto `TestQueue` **MessageSender** ottenuto nel frammento di codice precedente.
 
@@ -191,4 +191,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Gli oggetti ]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

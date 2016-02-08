@@ -35,7 +35,7 @@ Non essendo necessario preoccuparsi del server Web o del framework applicazioni,
 
 Gli strumenti di sviluppo Web più diffusi supportano uno o più di questi processi di distribuzione. Mentre lo strumento scelto determina i processi di distribuzione che è possibile sfruttare, l'effettiva funzionalità DevOps disponibile dipende dalla combinazione del processo di distribuzione e degli strumenti specifici scelti. Ad esempio, se si esegue Distribuzione Web da [Visual Studio con Azure SDK](#vspros), anche se non si usufruisce l'automazione da Kudu, si ottengono il ripristino del pacchetto e l'automazione di MSBuild in Visual Studio. Azure SDK fornisce anche una procedura guidata facile da usare per creare le risorse di Azure necessarie direttamente dall'interfaccia di Visual Studio.
 
->[AZURE.NOTE]Questi processi di distribuzione in realtà non [effettuano il provisioning delle risorse di Azure](resource-group-portal) che l'applicazione potrebbe richiedere, ad esempio il piano di servizio app, l'app del servizio app e il database SQL. La maggior parte degli articoli sulle procedure collegati mostra come effettuare il provisioning dell'app E distribuire il codice end-to-end. È anche possibile trovare altre opzioni per il provisioning delle risorse di Azure nella sezione [Automatizzare la distribuzione con gli strumenti da riga di comando](#automate).
+>[AZURE.NOTE] Questi processi di distribuzione in realtà non [effettuano il provisioning delle risorse di Azure](resource-group-portal) che l'applicazione potrebbe richiedere, ad esempio il piano di servizio app, l'app del servizio app e il database SQL. La maggior parte degli articoli sulle procedure collegati mostra come effettuare il provisioning dell'app E distribuire il codice end-to-end. È anche possibile trovare altre opzioni per il provisioning delle risorse di Azure nella sezione [Automatizzare la distribuzione con gli strumenti da riga di comando](#automate).
 
 ## <a name="ftp"></a>Distribuire copiando manualmente i file in Azure
 Se si è abituati a copiare manualmente il contenuto Web nei provider di servizi di hosting Web, un flusso di lavoro comune per gli sviluppatori PHP, è possibile usare un'utilità [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file, ad esempio Esplora risorse o [FileZilla](https://filezilla-project.org/).
@@ -201,8 +201,8 @@ Ecco altri vantaggi della distribuzione tramite Visual Studio Team Services:
 ###<a name="cloudgitmercurial"></a>Come distribuire da un repository Git o Mercurial basato sul cloud
 
 - [Pubblicazione dal controllo del codice sorgente ad App Web con Git](web-sites-publish-source-control.md). Come abilitare la distribuzione continua di repository da GitHub, CodePlex o BitBucket. Benché questa esercitazione contenga informazioni su come pubblicare un repository Git, il processo per i repository Mercurial ospitati in CodePlex o BitBucket è simile.
-- [Distribuzione in App Web con GitHub tramite Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Video di Scott Hanselman e David Ebbo che spiega come distribuire un'app Web direttamente da GitHub nel servizio app.
-- [Pulsante Distribuisci su Azure per App Web](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog riguardante un metodo per attivare la distribuzione da un repository Git.
+- [Distribuzione in App Web con GitHub tramite Kudu](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Video di Scott Hanselman e David Ebbo che spiega come distribuire un'app Web direttamente da GitHub nel servizio app.
+- [Pulsante Distribuisci su Azure per App Web](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog riguardante un metodo per attivare la distribuzione da un repository Git.
 - [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 Per ulteriori informazioni, vedere le risorse seguenti:
@@ -264,7 +264,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 Per altre informazioni, vedere la risorsa seguente:
 
-* [Simple Web Apps: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog di David Ebbo riguardante uno strumento che ha creato per facilitare l'uso di Distribuzione Web.
+* [Simple Web Apps: Deployment](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog di David Ebbo riguardante uno strumento che ha creato per facilitare l'uso di Distribuzione Web.
 * Documentazione ufficiale sullo [strumento di distribuzione Web](http://technet.microsoft.com/library/dd568996) sul sito Microsoft TechNet. Articolo datato, ma è ancora un buon punto di partenza.
 * Documentazione ufficiale relativa all'[utilizzo di Distribuzione Web](http://www.iis.net/learn/publish/using-web-deploy) sul sito Microsoft IIS.NET. Anche questo articolo è datato, ma è un buon punto di partenza.
 * [StackOverflow](http://www.stackoverflow.com). La migliore fonte di informazioni aggiornate su come utilizzare Distribuzione Web dalla riga di comando.
@@ -276,7 +276,7 @@ In alcuni scenari può essere necessario passare da una versione temporanea dell
 
 La definizione di un piano di backup e ripristino è una parte importante di un flusso di distribuzione. Per informazioni sulle funzionalità di backup e ripristino di App Web, vedere [Backup di App Web](web-sites-backup.md).
 
-Per informazioni su come utilizzare il controllo degli accessi in base al ruolo di Azure al fine di gestire l'accesso alla distribuzione di App Web, vedere [Controllo degli accessi in base al ruolo e pubblicazione di App Web](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
+Per informazioni su come utilizzare il controllo degli accessi in base al ruolo di Azure al fine di gestire l'accesso alla distribuzione di App Web, vedere [Controllo degli accessi in base al ruolo e pubblicazione di App Web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
 
 Per informazioni su altri argomenti relativi alla distribuzione, vedere la relativa sezione in [Documentazione di App Web](/documentation/services/web-sites/).
 
@@ -284,4 +284,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

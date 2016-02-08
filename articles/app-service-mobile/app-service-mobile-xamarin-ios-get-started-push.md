@@ -30,7 +30,7 @@ Questa esercitazione è basata sull'[esercitazione Creare un'app per Xamarin.iOS
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione gratuita di Azure e ottenere fino a un massimo di 10 backend di app per dispositivi mobili gratuite. Sarà possibile continuare a usarle anche dopo il termine del periodo di valutazione. Vedere [Versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione gratuita di Azure e ottenere fino a un massimo di 10 backend di app per dispositivi mobili gratuite. Sarà possibile continuare a usarle anche dopo il termine del periodo di valutazione. Vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un computer Mac in cui sono state installate le versioni [Xamarin Studio] e [Xcode] 4.4 o versioni successive. È anche possibile eseguire l'app per Xamarin.iOS in Visual Studio su un computer Windows, ma la procedura è più complessa poiché è necessario connettersi a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS. Per informazioni su questa procedura, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows].
 
@@ -153,7 +153,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 1. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
 	
-	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+	> [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
 2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
@@ -174,4 +174,4 @@ L'esercitazione è stata completata.
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

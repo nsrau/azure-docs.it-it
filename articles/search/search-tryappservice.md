@@ -13,40 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="01/13/2016"
    ms.author="heidist"/>
 
 # Prova gratuita della ricerca di Azure con il servizio app di Azure
 
-Il [servizio app di Azure](https://tryappservice.azure.com/) è un modo nuovo e interamente gratuito per provare i servizi di Azure selezionati, tra cui la ricerca di Azure, fino a un'ora, senza abbonamento ad Azure.
+[Prova Servizio app di Azure](https://tryappservice.azure.com/) è una sessione gratuita di un'ora basata su browser per provare i servizi di Azure, tra cui **Ricerca di Azure**, senza doversi iscrivere ad alcuna sottoscrizione. Il sito offre diversi modelli disponibili. Quando si seleziona il modello ASP.NET che include Ricerca di Azure, si ottiene accesso a un sito Web completamente funzionale, supportato dai servizi selezionati.
 
-Il sito offre diversi modelli disponibili. Quando si seleziona il modello ASP.NET che include la Ricerca di Azure, si ottiene un'ora di accesso a un sito web completamente funzionale, supportato dai servizi selezionati. Non sarà possibile aggiornare o eliminare i dati gestiti dalla Ricerca di Azure, ma è possibile eseguire query e apportare un numero di modifiche al codice che rimodella l'esperienza dell'utente. Se la sessione scade prima di aver terminato di esplorare, è possibile ricominciare con un'altra sessione o passare al periodo di prova o effettuare l’iscrizione completa se l'obiettivo consiste nel creare o caricare direttamente un indice.
+All'interno dell'offerta [Prova Servizio app di Azure](https://tryappservice.azure.com/), il servizio di Ricerca di Azure è già configurato e pronto per ricevere query di ricerca. Non è possibile caricare o usare il proprio indice o i propri dati, ma è possibile eseguire query e apportare modifiche al codice per ridefinire l'esperienza utente.
 
-Nel sito del [servizio app di Azure](https://tryappservice.azure.com/) la ricerca di Azure, parte del modello di app Web, garantisce un'esperienza di ricerca full-text avanzata con molteplici funzionalità basate sulla ricerca disponibili solo in questo servizio della piattaforma Azure.
-
-Anche se altri servizi di Azure, quali il Database SQL offrono la ricerca full-text, un servizio come la Ricerca di Azure fornisce l’ottimizzazione il controllo, l'impaginazione e i conteggi, poter evidenziare, usare completamento automatico nei suggerimenti delle query, l’assistenza sul linguaggio naturale, esplorazione in base a facet, filtro e così via. Come molti dei nostri [esempi](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) dimostrano, è possibile sviluppare un'applicazione completa basata sulla ricerca utilizzando solo la ricerca di Azure e ASP.NET.
-
-All'interno dell'offerta del [servizio app di Azure](https://tryappservice.azure.com/), il servizio di ricerca di Azure è già configurato e pronto per ricevere query di ricerca. Non è possibile caricare o utilizzare il proprio indice o i dati. I dati utilizzati, provenienti dallo [United States Geological Survey (USG)](http://geonames.usgs.gov/domestic/download_data.htm), sono costituiti da circa 3 milioni di righe di luoghi di interesse, siti di rilevanza storica, edifici e altri punti di riferimento negli Stati Uniti.
-
-Per sfruttare al meglio la sessione di un'ora, le istruzioni seguenti fungeranno da guida sulle query e sui codici.
-
-Prima di proseguire, è possibile dedicare alcuni minuti per esaminare alcuni punti chiave relativi al codice, al servizio e ai dati sui cui è possibile effettuare la ricerca. Avere una breve introduzione può rivelarsi utile se non si possiede già familiarità con la Ricerca di Azure.
-
-## Informazioni sul codice e la Ricerca di Azure
-
-La ricerca di Azure è un servizio [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service) completamente gestito che rende più semplice per gli sviluppatori l'integrazione di un'esperienza di ricerca avanzata nelle applicazioni Web e mobili. I Dati utilizzati nelle operazioni di ricerca vengono archiviati nel servizio di Ricerca in Azure, dove la prossimità dei dati alle operazioni permette una bassa latenza e una ricerca coerente. per approfondire il discorso:
-
-- I dati disponibili per la ricerca sono archiviati in un indice gestito dalla ricerca di Azure
-- Lo schema che definisce l'indice è definito dall'utente e specifica i campi di ricerca, i campi che non è possibile ricercare che però possono essere utili in un'espressione di filtro e costruisce profili di punteggio per l'ottimizzazione dei risultati.
-- Un indice di ricerca contiene uno o più documenti, analoghi alle righe di una tabella, in cui è possibile eseguire ricerche e che possono essere recuperati
-- La maggior parte degli indici vengono caricati da un singolo set di dati preparati in anticipo da parte dell'utente che includere solo i campi utili nel contesto delle operazioni di ricerca. 
-- I Dati possono essere caricati automaticamente da un indicizzatore (compatibile solo con Database SQL di Azure o Azure DocumentDB) o inseriti in un indice di ricerca tramite una delle API di Ricerca di Azure. Quando si utilizza l'API, è possibile inserire i dati da qualsiasi sorgente dati, basta che siano in formato JSON.
-
-Nell'opzione relativa al [servizio app di Azure](https://tryappservice.azure.com/) il modello "ASP.NET + Azure Search Site" fornisce il codice sorgente per l'applicazione Web. Il codice è modificabile in Visual Studio Team Services (disponibile nell'ambito della sessione di un'ora). Nessuno strumento di sviluppo distinto è necessari per visualizzare o modificare il codice.
-
-Il codice, scritto in C#, utilizza la [libreria client .NET della ricerca di Azure](https://msdn.microsoft.com/library/dn951165.aspx) per eseguire query sull'indice, consentire l’esplorazione basata su facet e visualizzare i conteggi e i risultati delle ricerche in una pagina Web.
-
-Un altro codice, non incluso nel modello, è stato utilizzato per creare e caricare l'indice di ricerca di gruppi di protezione utente. Poiché il servizio è di sola lettura, tutte le operazioni che richiedono l'utilizzo della scrittura sono state completate in anticipo. È possibile visualizzare una[copia dello schema](#schema) utilizzato per compilare lo schema alla fine di questo articolo.
+I dati di ricerca provengono dallo [United States Geological Survey (USG)](http://geonames.usgs.gov/domestic/download_data.htm) e sono costituiti da circa 3 milioni di righe di luoghi di interesse, siti di rilevanza storica, edifici e altri punti di riferimento negli Stati Uniti.
 
 ## Introduzione
 
@@ -87,7 +63,7 @@ Poiché l'indice di ricerca è completamente operativo, un buon primo passo cons
 
 - Iniziare con una ricerca con caratteri jolly, aggiungendo un asterisco (`*`). Questo indica il numero di documenti presenti nell'indice: 2,262,578.
 - Successivamente, immettere "Yellowstone", quindi aggiungere "+center", "+building" e "-ND" per restringere progressivamente i risultati della ricerca solo sul Centro visitatori di Yellowstone, escludendo quelli del Nord Dakota: `Yellowstone +center +building -ND`.  
-- Provare una frase di ricerca che combini gli operatori di precedenza e la stringa corrispondente a: `statue+(park+MT)`. Si otterrà un risultato simile alla schermata riportata di seguito. Si noti che le categorie di facet, compaiono sotto un’istanza di classe, offrendo un filtro autodidattico che filtra la navigazione a facet, una funzionalità comunemente presente nella maggior parte delle applicazioni di ricerca.
+- Provare una frase di ricerca che combina gli operatori degli precedenza e la stringa corrispondente:`statue+(park+MT)`. Si otterrà un risultato simile alla schermata riportata di seguito. Si noti che le categorie di facet, compaiono sotto un’istanza di classe, offrendo un filtro autodidattico che filtra la navigazione a facet, una funzionalità comunemente presente nella maggior parte delle applicazioni di ricerca.
 
     ![][7]
 
@@ -95,12 +71,12 @@ Pronto a Procedere? Modificare alcune righe di codice per controllare l'impatto 
 
 ## Modificare searchMode.All
 
-La ricerca di Azure dispone della proprietà **searchMode**, configurabile. Questa è utilizzabile per controllare il comportamento degli operatori di ricerca. I valori validi per questa proprietà sono `Any` (impostazione predefinita) o `All`. Per maggiori indicazioni sull'impostazione di queste opzioni, vedere [Semplice sintassi di query](https://msdn.microsoft.com/library/dn798920.aspx).
+La ricerca di Azure dispone della proprietà **searchMode**, configurabile. Questa è utilizzabile per controllare il comportamento degli operatori di ricerca. I valori validi per questa proprietà sono `Any` (impostazione predefinita) o `All`. Vedere[Sintassi Semplice delle Query ](https://msdn.microsoft.com/library/dn798920.aspx)per ulteriori informazioni sull'impostazione di queste opzioni.
 
 - **searchMode.Any** stabilisce che qualsiasi corrispondenza di un termine di ricerca è sufficiente per includere un elemento nei risultati della ricerca. Se la frase di ricerca è `Yellowstone visitor center`, qualsiasi documento contenente uno qualsiasi di questi termini è incluso nei risultati della ricerca. Questa modalità è orientata verso i *richiami*.
 - La modalità **searchModel.All**, utilizzata in questo esempio, richiede che tutti i termini specificati siano presenti nel documento. Questa modalità è più rigorosa di **searchMode.Any** ma se si predilige la *precisione* rispetto al richiamo è probabilmente la scelta giusta per l'applicazione. 
 
-> [AZURE.NOTE]**searchMode.Any** è ottimale quando le query sono composte principalmente da frasi, con un utilizzo minimo degli operatori. Una regola empirica generale è che la ricerca di applicazioni per il consumatore, come siti di e-commerce, tendono a utilizzare solo termini, mentre le persone che eseguono ricerche sul contenuto o su dati sono più probabile che includano operatori nella frase di ricerca. Se si ritiene molto probabile che le ricerche includano operatori, in particolare l’operatore `NOT (-)`, iniziare con **searchModel.All**. Al contrario, l'altra opzione, **searchMode.Any** contrappone con `OR` l'operatore `NOT` ad altri termini di ricerca, espandendo in modo sensibile i risultati, anziché limitarli. l’esempio seguente consente di comprendere la differenza.
+> [AZURE.NOTE] **searchMode.Any** è ottimale quando le query sono composte principalmente da frasi, con un utilizzo minimo degli operatori. Una regola empirica generale è che la ricerca di applicazioni per il consumatore, come siti di e-commerce, tendono a utilizzare solo termini, mentre le persone che eseguono ricerche sul contenuto o su dati sono più probabile che includano operatori nella frase di ricerca. Se si ritiene molto probabile che le ricerche includano operatori, in particolare l’operatore `NOT (-)`, iniziare con **searchModel.All**. Al contrario, l'altra opzione, **searchMode.Any** contrappone con `OR` l'operatore `NOT` ad altri termini di ricerca, espandendo in modo sensibile i risultati, anziché limitarli. l’esempio seguente consente di comprendere la differenza.
 
 In questa attività si modificherà la modalità **searchMode** e si confronteranno i risultati di ricerca in base alla modalità.
 
@@ -173,7 +149,7 @@ Quando si esegue questo esempio di codice, I termini imputati che hanno una corr
 
 È necessario salvare una copia del file **Search.cshtml** originale per confrontare le versioni.
 
-> [AZURE.NOTE]Per ridurre le dimensioni del file sono stati eliminati i commenti.
+> [AZURE.NOTE] Per ridurre le dimensioni del file sono stati eliminati i commenti.
  
     @using System.Collections.Specialized
     @using System.Configuration
@@ -307,18 +283,37 @@ Quando si esegue questo esempio di codice, I termini imputati che hanno una corr
     }
     }
 
+## Perché scegliere Ricerca di Azure?
+
+Anche se altri servizi di Azure, quali il Database SQL offrono la ricerca full-text, un servizio come la Ricerca di Azure fornisce l’ottimizzazione il controllo, l'impaginazione e i conteggi, poter evidenziare, usare completamento automatico nei suggerimenti delle query, l’assistenza sul linguaggio naturale, esplorazione in base a facet, filtro e così via. Come molti dei nostri [esempi](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search) dimostrano, è possibile sviluppare un'applicazione completa basata sulla ricerca utilizzando solo la ricerca di Azure e ASP.NET.
 
 ## Passaggi successivi
 
 Utilizzando il servizio di sola lettura disponibile sul sito di [prova del servizio app di Azure](https://tryappservice.azure.com/), è stato possibile vedere la sintassi della query con la ricerca full-text in azione, apprendere nozioni su searchMode e i filtri e aggiungere l’evidenziazione delle occorrenze all'applicazione di ricerca. Come passaggio successivo, prendere in considerazione la possibilità di creare e aggiornare gli indici Questo aggiunge la possibilità di:
 
 - [Definire i profili dei punteggi](https://msdn.microsoft.com/library/dn798928.aspx) utilizzati per ottimizzare i punteggi di ricerca in modo che gli elementi di maggior rilevanza siano visualizzati per primi.
-- [Definire i componenti per il suggerimento](https://msdn.microsoft.com/library/mt131377.aspx)che consentono di aggiungere suggerimenti di completamento automatico alle query digitate in risposta all'input dell'utente.
+- [Definire le componenti di suggerimento](https://msdn.microsoft.com/library/mt131377.aspx)che consentono di aggiungere suggerimenti alle query di digitate o il completamento automatico in risposta all'input dell'utente.
 - [Definire gli indicizzatori](https://msdn.microsoft.com/library/dn946891.aspx) che aggiornano l'indice automaticamente ogni volta che l'origine dati è un database SQL di Azure o Azure DocumentDB.
 
 Per eseguire tutte queste attività, è necessario iscriversi ad Azure in modo che sia possibile creare e popolare gli indici in un servizio. Per ulteriori informazioni su come registrarsi per un periodo di prova gratuita, visitare il sito [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Per ulteriori informazioni sulla ricerca di Azure, visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) all'indirizzo [http://azure.microsoft.com](http://azure.microsoft.com) o esaminare i numerosi [esempi e video](search-video-demo-tutorial-list.md) che consentono di esplorare tutte le funzionalità della ricerca di Azure.
+Per ulteriori informazioni sulla ricerca di Azure, visitare la [Pagina della documentazione](https://azure.microsoft.com/documentation/services/search/)su[http://azure.microsoft.com](https://azure.microsoft.com/)o verificare qualsiasi numero di[esempi e video](search-video-demo-tutorial-list.md)che esplorano le tutte le funzionalità della Ricerca di Azure.
+
+## Informazioni sul codice e la Ricerca di Azure
+
+La ricerca di Azure è un servizio [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service) completamente gestito che rende più semplice per gli sviluppatori l'integrazione di un'esperienza di ricerca avanzata nelle applicazioni Web e mobili. I Dati utilizzati nelle operazioni di ricerca vengono archiviati nel servizio di Ricerca in Azure, dove la prossimità dei dati alle operazioni permette una bassa latenza e una ricerca coerente. per approfondire il discorso:
+
+- I dati disponibili per la ricerca sono archiviati in un indice gestito da Ricerca di Azure.
+- Lo schema che definisce l'indice è definito dall'utente e specifica i campi di ricerca, i campi che non è possibile ricercare che però possono essere utili in un'espressione di filtro e costruisce profili di punteggio per l'ottimizzazione dei risultati.
+- Un indice di ricerca contiene uno o più documenti, analoghi alle righe di una tabella, in cui è possibile eseguire ricerche e che possono essere recuperati.
+- La maggior parte degli indici vengono caricati da un singolo set di dati preparati in anticipo da parte dell'utente che includere solo i campi utili nel contesto delle operazioni di ricerca. 
+- I Dati possono essere caricati automaticamente da un indicizzatore (compatibile solo con Database SQL di Azure o Azure DocumentDB) o inseriti in un indice di ricerca tramite una delle API di Ricerca di Azure. Quando si utilizza l'API, è possibile inserire i dati da qualsiasi sorgente dati, basta che siano in formato JSON.
+
+Nell'opzione relativa al [servizio app di Azure](https://tryappservice.azure.com/) il modello "ASP.NET + Azure Search Site" fornisce il codice sorgente per l'applicazione Web. Il codice è modificabile in Visual Studio Team Services (disponibile nell'ambito della sessione di un'ora). Nessuno strumento di sviluppo distinto è necessari per visualizzare o modificare il codice.
+
+Il codice, scritto in C#, utilizza la [libreria client .NET della ricerca di Azure](https://msdn.microsoft.com/library/dn951165.aspx) per eseguire query sull'indice, consentire l’esplorazione basata su facet e visualizzare i conteggi e i risultati delle ricerche in una pagina Web.
+
+Un altro codice, non incluso nel modello, è stato utilizzato per creare e caricare l'indice di ricerca di gruppi di protezione utente. Poiché il servizio è di sola lettura, tutte le operazioni che richiedono l'utilizzo della scrittura sono state completate in anticipo. È possibile visualizzare una[copia dello schema](#schema) utilizzato per compilare lo schema alla fine di questo articolo.
 
 <a name="Schema"></a>
 ## Informazioni sullo schema
@@ -528,4 +523,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

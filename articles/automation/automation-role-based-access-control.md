@@ -37,13 +37,13 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
 ## Configurare il controllo degli accessi in base al ruolo per l'account di automazione tramite il portale di Azure
 
-1.	Accedere al [portale di Azure](http://portal.azure.com/) e aprire l'account di automazione nel pannello Account di automazione.  
+1.	Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di automazione nel pannello Account di automazione.  
 
 2.	Fare clic sul comando **Accesso** nell'angolo superiore destro. Verrà visualizzato il pannello **Utenti** in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di automazione.
 
     ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE]**Amministratori della sottoscrizione** è già presente come utente predefinito. Il gruppo di Active Directory Amministratori della sottoscrizione include gli amministratori e i coamminstratori del servizio per la sottoscrizione di Azure. L'amministratore del servizio è il proprietario della sottoscrizione di Azure e delle relative risorse ed eredita anche il ruolo Proprietario per gli account di automazione. Ciò significa che l'accesso è **Ereditato** per **Amministratori e coamministratori del servizio** di una sottoscrizione ed è **Assegnato** per tutti gli altri utenti. Fare clic su **Amministratori della sottoscrizione** per visualizzare altri dettagli sulle relative autorizzazioni.
+>[AZURE.NOTE]  **Amministratori della sottoscrizione** è già presente come utente predefinito. Il gruppo di Active Directory Amministratori della sottoscrizione include gli amministratori e i coamminstratori del servizio per la sottoscrizione di Azure. L'amministratore del servizio è il proprietario della sottoscrizione di Azure e delle relative risorse ed eredita anche il ruolo Proprietario per gli account di automazione. Ciò significa che l'accesso è **Ereditato** per **Amministratori e coamministratori del servizio** di una sottoscrizione ed è **Assegnato** per tutti gli altri utenti. Fare clic su **Amministratori della sottoscrizione** per visualizzare altri dettagli sulle relative autorizzazioni.
 
 ### Aggiungere un nuovo utente e assegnare un ruolo
 
@@ -67,7 +67,7 @@ L'utente aggiunto verrà visualizzato nel pannello **Utenti** con assegnato il r
 
 ![Assegnare un ruolo dal pannello Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
->[AZURE.NOTE]Il controllo degli accessi in base al ruolo può essere impostato solo a livello di account di automazione e in nessun'altra risorsa al di sotto dell'account di automazione.
+>[AZURE.NOTE] Il controllo degli accessi in base al ruolo può essere impostato solo a livello di account di automazione e in nessun'altra risorsa al di sotto dell'account di automazione.
 
 È possibile assegnare più di un ruolo a un utente, un gruppo o un'applicazione. Ad esempio, se si aggiunge il ruolo **Automation Operator** oltre al ruolo **Lettore** per un utente, quest'ultimo potrà visualizzare tutte le risorse di automazione ed eseguire i processi del runbook. È possibile espandere l'elenco a discesa per visualizzare un elenco dei ruoli assegnati all'utente.
 
@@ -139,4 +139,4 @@ Nel cmdlet precedente sostituire il nome di accesso, l'ID sottoscrizione, il nom
 - Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un Runbook](automation-starting-a-runbook.md)
 - Per informazioni sui diversi tipi, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

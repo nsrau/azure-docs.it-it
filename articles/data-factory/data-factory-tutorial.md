@@ -27,7 +27,7 @@ In questa esercitazione verranno create pipeline di Data factory per valutare l'
 
 ## Preparazione per l'esercitazione
 1.	Per una panoramica di Data factory di Azure e per conoscere i concetti principali, leggere [Introduzione a Data factory di Azure][adfintroduction].
-2.	Per questa esercitazione, è necessario disporre di una sottoscrizione di Azure. Per informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) oppure [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+2.	Per questa esercitazione, è necessario disporre di una sottoscrizione di Azure. Per informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 3.	È necessario scaricare e installare [Azure PowerShell][download-azure-powershell] nel computer in uso. Si eseguiranno i cmdlet di Data factory per caricare i dati di esempio e gli script pig/hive per l'archivio BLOB. 
 2.	**(consigliato)** Esaminare ed eseguire l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted] per acquisire familiarità con il portale e i cmdlet.
 3.	**(consigliato)** Esaminare ed eseguire la procedura dettagliata nell'articolo [Usare Pig e Hive con Data factory di Azure][usepigandhive] sulla creazione di una pipeline per spostare i dati dall'origine dati locale a un archivio BLOB di Azure.
@@ -192,7 +192,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
  
 ## <a name="MainStep3"></a> Passaggio 3: creare servizi collegati
 
-> [AZURE.NOTE]Questo articolo usa il portale di Azure classico, in particolare l'Editor di Data factory per creare servizi collegati, tabelle, pipeline. Per eseguire questa esercitazione con Azure PowerShell, vedere l'esercitazione sull'[uso di Azure PowerShell][adftutorial-using-powershell].
+> [AZURE.NOTE] Questo articolo usa il portale di Azure classico, in particolare l'Editor di Data factory per creare servizi collegati, tabelle, pipeline. Per eseguire questa esercitazione con Azure PowerShell, vedere l'esercitazione sull'[uso di Azure PowerShell][adftutorial-using-powershell].
 
 In questo passaggio si creeranno i servizi collegati seguenti:
 
@@ -206,8 +206,6 @@ In questo passaggio si creeranno i servizi collegati seguenti:
 1.	Nel pannello **DATA FACTORY** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
 
 	![Riquadro Creare e distribuire][image-author-deploy-tile]
-
-	Per una panoramica dettagliata dell'editor di Data factory, vedere l'argomento [Editor di Data factory di Azure][data-factory-editor].
 
 2.  Nell'**Editor**, fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure.
 	
@@ -421,7 +419,6 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

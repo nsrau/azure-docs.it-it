@@ -27,7 +27,7 @@ Nella pagina **Catalogo di backup** del servizio StorSimple Manager vengono visu
 
 In questa esercitazione viene descritto come utilizzare un set di backup per clonare un singolo volume. Viene inoltre spiegata la differenza tra cloni *temporanei* e *permanenti*.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >Un volume aggiunto in locale verrà duplicato come volume a livelli. Se è necessario che il volume clonato venga aggiunto in locale, è possibile convertire il clone in un volume aggiunto in locale dopo il completamento dell'operazione di clonazione. Per informazioni sulla conversione di un volume a livelli in volume aggiunto in locale, vedere l'articolo relativo alla [Modificare il tipo di volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
 >
@@ -55,11 +55,11 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
   1. Identificare un dispositivo di destinazione. Si tratta del percorso in cui verrà creato il clone. È possibile scegliere lo stesso dispositivo o specificare un altro dispositivo. Se si sceglie un volume associato ad altri provider di servizi cloud (non Azure), nell'elenco a discesa per il dispositivo di destinazione verranno visualizzati solo i dispositivi fisici. Non è possibile clonare un volume associato con altri provider di servizi cloud in un dispositivo virtuale.
 
-        >[AZURE.NOTE] Assicurarsi che la capacità richiesta per il clone sia inferiore a quella disponibile nel dispositivo di destinazione.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
     
-        >[AZURE.NOTE] Il campo **Clona volume come** viene impostato su **A livelli** anche se si esegue la clonazione di un volume aggiunto in locale. Non è possibile modificare questa impostazione. Tuttavia, se è necessario che il volume clonato venga aggiunto anche in locale, è possibile convertire il clone in un volume aggiunto in locale dopo averlo creato. Per informazioni sulla conversione di un volume a livelli in un volume aggiunto in locale, consultare il documento relativo alla [modifica del tipo di volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -82,7 +82,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
   1. Nella pagina **Dispositivi**, fare clic sulla scheda **Contenitori di volumi**.
   2. Selezionare il contenitore del volume associato al volume di origine clonato. Nell'elenco di volumi, verrà visualizzato il clone che è stato appena creato.
 
->[AZURE.NOTE]Il monitoraggio e il backup predefinito vengono disabilitati automaticamente in un volume clonato.
+>[AZURE.NOTE] Il monitoraggio e il backup predefinito vengono disabilitati automaticamente in un volume clonato.
 
 Un clone creato in questo modo è un clone temporaneo. Per ulteriori informazioni sui tipi di cloni, vedere [Cloni temporanei e cloni permanenti](#transient-vs.-permanent-clones).
 
@@ -104,7 +104,7 @@ Nelle sezioni seguenti vengono descritte situazioni di esempio in cui è possibi
  
 ![Video disponibile](./media/storsimple-clone-volume-u2/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Test nell'ambiente di produzione con un clone permanente
 
@@ -117,4 +117,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

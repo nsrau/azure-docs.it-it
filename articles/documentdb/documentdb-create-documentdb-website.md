@@ -18,7 +18,7 @@
 
 # Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure #
 
-Questa esercitazione illustra come usare un modello di Gestione risorse di Azure per distribuire e integrare [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
+Questa esercitazione illustra come usare un modello di Gestione risorse di Azure per distribuire e integrare [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -27,11 +27,11 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 <a id="Prerequisites"></a>
 ## Prerequisiti ##
-> [AZURE.TIP]Sebbene questa esercitazione non presupponga esperienza nell'uso dei modelli di Gestione risorse di Azure, di JSON o di Azure PowerShell, qualora si intendano modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento saranno necessarie le opportune nozioni per ciascuna di tali aree.
+> [AZURE.TIP] Sebbene questa esercitazione non presupponga esperienza nell'uso dei modelli di Gestione risorse di Azure, di JSON o di Azure PowerShell, qualora si intendano modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento saranno necessarie le opportune nozioni per ciascuna di tali aree.
 
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
 
-- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/) oppure [Versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) oppure [Versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Un account di archiviazione di Azure Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 - Una workstation con Azure PowerShell 0.9.8. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Questa esercitazione non è ancora stata aggiornata per l'anteprima di Azure PowerShell 1.0. 
 
@@ -42,7 +42,7 @@ Per iniziare, scaricare i file di esempio che verranno usati in questa esercitaz
 
 2. Scaricare l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) in una cartella locale (ad esempio, C:\\DocumentDBTemplates), quindi estrarre i file. Questo esempio distribuirà un account DocumentDB, un'app Web del servizio app e modificherà la configurazione dell'app Web per rilevare in modo semplice le informazioni relative alla connessione di DocumentDB. Non è tuttavia inclusa alcuna applicazione Web.
 
-> [AZURE.TIP]Si noti che, a seconda delle impostazioni di sicurezza del computer, potrebbe essere necessario sbloccare i file estratti facendo clic con il pulsante destro del mouse, scegliendo **Proprietà**, quindi facendo clic su **Sblocca**.
+> [AZURE.TIP] Si noti che, a seconda delle impostazioni di sicurezza del computer, potrebbe essere necessario sbloccare i file estratti facendo clic con il pulsante destro del mouse, scegliendo **Proprietà**, quindi facendo clic su **Sblocca**.
 
 ![Schermata della finestra Proprietà con pulsante Sblocca evidenziato](./media/documentdb-create-documentdb-website/image1.png)
 
@@ -51,7 +51,7 @@ Per iniziare, scaricare i file di esempio che verranno usati in questa esercitaz
 
 Si procederà a questo punto alla distribuzione del primo modello.
 
-> [AZURE.TIP]Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
+> [AZURE.TIP] Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
 1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB, un'app Web del servizio app e distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (ad esempio, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
 
@@ -70,7 +70,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.
+	> [AZURE.TIP] Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.
 
 4. Di seguito è riportato un esempio di output risultante:
 
@@ -151,7 +151,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
 
 Si procederà ora alla distribuzione del secondo modello.
 
-> [AZURE.TIP]Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
+> [AZURE.TIP] Il modello non verifica che il nome dell'app Web e il nome dell'account DocumentDB siano validi e/o disponibili. È consigliabile verificare la disponibilità dei nomi che si vogliono usare prima di eseguire lo script di distribuzione di PowerShell.
 
 1. Aprire Microsoft Azure PowerShell e passare alla cartella in cui è stato scaricato ed estratto l'[esempio per creare un account DocumentDB e un'app Web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (ad esempio, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
 
@@ -169,7 +169,7 @@ Si procederà ora alla distribuzione del secondo modello.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.
+	> [AZURE.TIP] Si noti che verrà richiesto di immettere il nome utente e la password dell'account Azure come parte dell'esecuzione dello script. Il completamento della distribuzione richiederà tra 10 e 15 minuti.
 
 4. L'output della distribuzione sarà molto simile a quello del primo esempio di modello.
 5. Prima di aprire il portale di Azure, si cercheranno di individuare gli obiettivi raggiunti con il completamento della distribuzione:
@@ -207,7 +207,7 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale vedere: [Informazioni di riferimento per l'esplorazione del portale di Azure classico](http://go.microsoft.com/fwlink/?LinkId=529715)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

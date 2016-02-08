@@ -25,7 +25,7 @@ I gruppi di disponibilità AlwaysOn garantiscono un'elevata disponibilità dei g
 
 L'esercitazione presuppone che l'utente disponga degli elementi seguenti:
 
-- Una sottoscrizione di Azure attiva. È possibile [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial).
+- Una sottoscrizione di Azure attiva. È possibile [iscriversi per una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - Un gruppo di disponibilità AlwaysOn esistente in locale. Per altre informazioni sui gruppi di disponibilità, vedere [Gruppi di disponibilità AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -91,7 +91,7 @@ Questa sezione mostra come usare la **procedura guidata Aggiungi replica di Azur
 
 1. Verrà avviato il processo di provisioning. Al termine della procedura guidata, fare clic su **Chiudi** per uscire.
 
->[AZURE.NOTE]Durante la procedura guidata Aggiungi replica di Azure viene creato un file di registro in <Users><nome utente>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Questo file può essere usato per risolvere i problemi relativi alle distribuzioni delle repliche di Azure. Se una qualsiasi azione della procedura guidata ha esito negativo, verrà eseguito il rollback di tutte le operazioni precedenti, inclusa l'eliminazione della macchina virtuale di cui è stato eseguito il provisioning.
+>[AZURE.NOTE] Durante la procedura guidata Aggiungi replica di Azure viene creato un file di registro in <Users><nome utente>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Questo file può essere usato per risolvere i problemi relativi alle distribuzioni delle repliche di Azure. Se una qualsiasi azione della procedura guidata ha esito negativo, verrà eseguito il rollback di tutte le operazioni precedenti, inclusa l'eliminazione della macchina virtuale di cui è stato eseguito il provisioning.
 
 ## Creare un listener del gruppo di disponibilità
 
@@ -103,4 +103,4 @@ Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere a
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

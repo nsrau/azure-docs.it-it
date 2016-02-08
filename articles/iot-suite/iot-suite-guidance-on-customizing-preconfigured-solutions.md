@@ -2,13 +2,14 @@
 	pageTitle="Personalizzazione di soluzioni preconfigurate | Microsoft Azure"
 	description="Fornisce una guida alla personalizzazione delle soluzioni preconfigurate di Azure IoT Suite."
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -30,7 +31,7 @@ Questa origine viene fornita per illustrare un modello di implementazione delle 
 
 ## Modifica delle regole preconfigurate
 
-La soluzione per il monitoraggio remoto include due processi di [Analisi di flusso di Azure](http://azure.microsoft.com/services/stream-analytics) per implementare la telemetria e la logica di avviso visualizzate nel dashboard.
+La soluzione per il monitoraggio remoto include due processi di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) per implementare la telemetria e la logica di avviso visualizzate nel dashboard.
 
 Il primo processo seleziona tutti i dati del flusso in ingresso della telemetria e crea due diversi output. Il processo viene denominato **[nome soluzione]-Telemetry**.
 
@@ -41,7 +42,7 @@ Con l'interfaccia utente di analisi di flusso, è possibile modificare questi pr
 
 Il secondo processo interviene sui valori Device-to-Threshold creati nella pagina **Regole** della soluzione. Questo processo utilizza come dati di riferimento il valore soglia impostato per ogni dispositivo. Confronta il valore soglia per verificare se è maggiore (`>`) del valore effettivo. Questo processo può essere modificato, ad esempio, per cambiare l'operatore di confronto.
 
-> [AZURE.NOTE]Il dashboard per il monitoraggio remoto dipende da dati specifici, quindi la modifica dei processi può causare un errore del dashboard.
+> [AZURE.NOTE] Il dashboard per il monitoraggio remoto dipende da dati specifici, quindi la modifica dei processi può causare un errore del dashboard.
 
 ## Aggiunta di regole personalizzate
 
@@ -65,8 +66,8 @@ Gli [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks) forniscono librerie
 
 ## Passaggi successivi
 
-Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azure IoT](http://azure.microsoft.com/develop/iot) per trovare collegamenti e documentazione.
+Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/) per trovare collegamenti e documentazione.
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -36,9 +36,9 @@ Il tunneling forzato in Azure viene configurato tramite route definite dall’ut
 
 -  Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i 3 gruppi di route seguenti:
 
-	- **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale
+	- **Route della rete virtuale locale:** direttamente alla destinazione di macchine virtuali nella stessa rete virtuale
 	
-	- **Route locali:** al gateway VPN di Azure
+	- **Route locale:** al gateway VPN di Azure
 	
 	- **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati non rientranti nelle due route precedenti verranno eliminati.
 
@@ -54,7 +54,7 @@ Il tunneling forzato in Azure viene configurato tramite route definite dall’ut
 
 La procedura riportata di seguito consentirà di specificare il tunneling forzato in una rete virtuale. I passaggi di configurazione corrispondono all’esempio di file netcgf di rete virtuale riportato di seguito.
 
-Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*), con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l'uso del tunneling forzato.
+Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Frontend*, *Midtier* e *Backend*), con 4 connessioni cross-premise (*DefaultSiteHQ*) e 3 *Rami*. I passaggi seguenti consentiranno di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet *Midtier* e *Backend* per l’utilizzo del tunneling forzato.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -98,7 +98,7 @@ Nell'esempio, la rete virtuale "MultiTier-VNet", include 3 subnet (subnet *Front
 
 - Una rete virtuale configurata.
 
-- La versione più recente dei cmdlet PowerShell di Azure che utilizzano il programma di installazione di Web Platform. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](http://azure.microsoft.com/downloads/).
+- La versione più recente dei cmdlet PowerShell di Azure che utilizzano il programma di installazione di Web Platform. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
 
 ## È possibile configurare il tunneling forzato?
 
@@ -157,4 +157,4 @@ Di seguito sono riportasti alcuni altri cmdlet PowerShell che possono risultare 
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

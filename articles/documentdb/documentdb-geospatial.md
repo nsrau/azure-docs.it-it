@@ -18,7 +18,7 @@
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
 
-In questo articolo viene fornita un'introduzione alla funzionalità geospaziale in [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
+In questo articolo viene fornita un'introduzione alla funzionalità geospaziale in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 - Come è possibile archiviare i dati spaziali in Azure DocumentDB?
 - Come è possibile eseguire una query su dati geospaziali in Azure DocumentDB in SQL e LINQ?
@@ -43,7 +43,7 @@ Un **punto** indica una posizione singola nello spazio. In dati geospaziali, un 
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180 e 180,0 gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0 e 90,0.
+>[AZURE.NOTE] GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180° e 180,0° gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0° e 90,0°.
 >
 > DocumentDB interpreta le coordinate come rappresentate secondo il sistema di riferimento WGS-84. Per ulteriori informazioni sui sistemi di coordinate di riferimento, vedere di seguito.
 
@@ -77,7 +77,7 @@ Oltre ai punti, GeoJSON supporta oggetti linestring e poligoni. I **LineStrings*
        ]
     }
 
->[AZURE.NOTE]La specifica GeoJSON richiede che per i poligoni validi, l’ultima coppia di coordinate fornita sia la stessa della prima, per creare una forma chiusa.
+>[AZURE.NOTE] La specifica GeoJSON richiede che per i poligoni validi, l’ultima coppia di coordinate fornita sia la stessa della prima, per creare una forma chiusa.
 >
 >I punti all'interno di un poligono devono essere specificati in senso antiorario. Un poligono specificato in senso orario rappresenta l'inverso dell'area al suo interno.
 
@@ -198,7 +198,7 @@ Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
+>[AZURE.NOTE] Come per il funzionamento di tipi non corrispondenti nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutato **undefined** e il documento valutato verrà ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
 
 ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
 
@@ -345,7 +345,7 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE]Se il valore GeoJSON della posizione all'interno del documento è non corretto o non valido, non verrà indicizzato per le query spaziali. È possibile convalidare valori della posizione utilizzando ST\_ISVALID e ST\_ISVALIDDETAILED.
+> [AZURE.NOTE] Se il valore GeoJSON della posizione all'interno del documento è non corretto o non valido, non verrà indicizzato per le query spaziali. È possibile convalidare valori della posizione utilizzando ST\_ISVALID e ST\_ISVALIDDETAILED.
 
 ## Passaggi successivi
 Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in DocumentDB, è possibile:
@@ -355,4 +355,4 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

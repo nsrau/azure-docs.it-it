@@ -58,13 +58,13 @@ Pertanto, raccolte di processi premium hanno la stessa funzionalità come le rac
 
 ## Stato attivo e fatturazione
 
-Raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione rientra in uno stato temporaneo disabilitato a causa di problemi di fatturazione. È l'unico modo per assicurarsi che non viene addebitata una raccolta di processi per impostarlo sul piano _Gratuito_ o di eliminare la raccolta di processi.
+Raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione rientra in uno stato temporaneo disabilitato a causa di problemi di fatturazione. È l'unico modo per assicurarsi che non viene addebitata una raccolta di processi per impostarlo sul _Free_ piano o di eliminare la raccolta di processi.
 
 Anche se è possibile disabilitare tutti i processi all'interno di una raccolta di processi in un'unica operazione, non modifica lo stato di fatturazione della raccolta processi, la raccolta di processi verrà _ancora_ fatturato. Analogamente, raccolte di processi vuoto vengono considerati attivi e verranno fatturati.
 
 ## Prezzi
 
-Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](http://azure.microsoft.com/pricing/details/scheduler/).
+Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Vedere anche
  
@@ -75,7 +75,7 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](http://a
 
  [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/dn528946)
+ [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](http://a
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

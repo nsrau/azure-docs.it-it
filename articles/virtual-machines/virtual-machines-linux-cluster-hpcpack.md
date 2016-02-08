@@ -41,9 +41,9 @@ Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere [
 
 * **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.0 o versione successiva.
 
-* **Sottoscrizione di Azure**: è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Sottoscrizione di Azure**: è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Ad esempio in questo articolo, devono essere disponibili almeno 12 core. Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
+* **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Ad esempio in questo articolo, devono essere disponibili almeno 12 core. Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
 
 ### Creazione del file di configurazione
 
@@ -97,9 +97,9 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
     >[AZURE.NOTE]In alternativa, usare l'ID sottoscrizione per specificare la sottoscrizione che si vuole usare. Vedere il file Manual.rtf nella cartella dello script.
 
-* **StorageAccount**: tutti i dati persistenti per il cluster HPC Pack verranno archiviati nell'account di archiviazione specificato (allvhdsje in questo esempio). Se l'account di archiviazione non esiste, lo script lo crea nell'area specificata in **Location**.
+* **StorageAccount**: tutti i dati persistenti per il cluster HPC Pack verranno archiviati nell'account di archiviazione specificato (allvhdsje in questo esempio). Se l'account di archiviazione non esiste, lo script lo crea nell'area specificata in **Località**.
 
-* **Location**: area di Azure in cui verrà distribuito il cluster HPC Pack (Giappone orientale in questo esempio).
+* **Località**: area di Azure in cui verrà distribuito il cluster HPC Pack (Giappone orientale in questo esempio).
 
 * **VNet**: impostazioni della rete virtuale e subnet in cui verrà creato il cluster HPC. La rete virtuale e la subnet possono essere create manualmente prima di eseguire questo script, oppure lo script crea una rete virtuale con spazio di indirizzo 192.168.0.0/20 e una subnet con spazio di indirizzo 192.168.0.0/23. In questo esempio, lo script crea la rete virtuale centos7rdmavnetje e la subnet CentOS7RDMACluster.
 
@@ -182,7 +182,7 @@ Sono disponibili varie opzioni per spostare dati tra i nodi Linux e il nodo head
 
 ### Archiviazione file di Azure
 
-Il servizio [File di Azure](https://azure.microsoft.com/services/storage/files/) espone condivisioni di file usando il protocollo SMB 2.1 standard. Le VM e i servizi cloud di Azure possono condividere i dati dei file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati dei file in una condivisione tramite l'API della risorsa di archiviazione File. Per altre informazioni, vedere [Come usare l'archiviazione file di Azure con PowerShell e .NET](../storage/storage-dotnet-how-to-use-files.md).
+Il servizio [File di Azure](https://azure.microsoft.com/services/storage/files/) espone condivisioni di file usando il protocollo SMB 2.1 standard. Le VM e i servizi cloud di Azure possono condividere i dati dei file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati dei file in una condivisione tramite l'API della risorsa di archiviazione File. Per ulteriori informazioni, vedere [Come utilizzare l'archiviazione file di Azure con PowerShell e .NET](../storage/storage-dotnet-how-to-use-files.md).
 
 Per creare una condivisione di File di Azure, vedere la procedura dettagliata nell'[introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx). Per configurare connessioni persistenti, vedere la pagina relativa alle [connessioni persistenti a file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
@@ -236,7 +236,7 @@ Il primo comando crea una cartella denominata /openfoam in tutti i nodi del grup
 
 Il servizio NFS consente agli utenti di condividere e migrare i file tra computer che eseguono il sistema operativo Windows Server 2012 usando il protocollo SMB e i computer basati su Linux mediante il protocollo NFS. Il server NFS e tutti gli altri nodi devono essere distribuiti nella stessa rete virtuale. Consente di migliorare la compatibilità con i nodi di Linux rispetto a una condivisione SMB; ad esempio, supporta il collegamento di file.
 
-1. Per installare e configurare un server NFS, seguire la procedura riportata nel post di blog relativo al [server per condivisione file system di rete end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
+1. Per installare e configurare un server NFS, seguire la procedura riportata in [Server per condivisione primo Network File System end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
 
     Ad esempio, creare una condivisione NFS denominata nfs con le seguenti proprietà.
 
@@ -266,9 +266,9 @@ Esistono vari metodi per inviare i processi al cluster HPC Pack
 
 * API REST
 
-La procedura di invio di processi al cluster in Azure tramite gli strumenti dell'interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella usata per i nodi di calcolo di Windows. Vedere [Gestione processi di HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Come inviare processi da un client locale](virtual-machines-hpcpack-cluster-submit-jobs.md).
+La procedura di invio di processi al cluster in Azure tramite gli strumenti dell'interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella usata per i nodi di calcolo di Windows. Vedere [Gestione processi di HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Invio di processi da un client locale](virtual-machines-hpcpack-cluster-submit-jobs.md).
 
-Per inviare processi tramite l'API REST, vedere l'articolo relativo a [creazione e invio di processi tramite uso dell'API REST in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Vedere anche l'esempio di Python in [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756) per inviare processi da un client Linux.
+Per inviare processi tramite l'API REST, vedere l'articolo relativo a [creazione e invio di processi tramite uso dell'API REST in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Fare riferimento anche all'esempio Python nella pagina relativa all'[SDK HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) per inviare processi da un client Linux.
 
 ## ClusRun per i nodi Linux
 
@@ -292,7 +292,7 @@ Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su n
     > clusrun /interleaved /nodegroup:linuxnodes echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE]Potrebbe essere necessario usare determinati caratteri di escape nei comandi **clusrun**. Come illustrato in questo esempio, usare ^ in una finestra di comando per eseguire l'escape del simbolo ">".
+>[AZURE.NOTE] Potrebbe essere necessario usare determinati caratteri di escape nei comandi **clusrun**. Come illustrato in questo esempio, usare ^ in una finestra di comando per eseguire l'escape del simbolo ">".
 
 ## Passaggi successivi
 
@@ -316,4 +316,4 @@ Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su n
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

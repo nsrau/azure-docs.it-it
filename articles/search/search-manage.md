@@ -41,6 +41,10 @@ Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigl
 
 Quando si è pronti a effettuare l'iscrizione, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
+##Analisi di ricerca
+
+È possibile abilitare la raccolta dei dati nelle attività di ricerca dell'utente per comprendere il comportamento del servizio di ricerca, quali termini vengono usati e se tali termini abbiano restituito occorrenze. Il modo migliore per analizzare e visualizzare i dati è tramite un pacchetto di contenuti di Power BI. Il primo passaggio consiste nell'abilitare l'analisi del traffico di ricerca. Per informazioni su come procedere, vedere la pagina relativa all'[analisi del traffico di Ricerca di Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/).
+
 <a id="sub-2"></a>
 ## Attività amministrative
 
@@ -105,7 +109,7 @@ Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei doc
 +	[Ottenere le statistiche di indice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE]Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un numero documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
+> [AZURE.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un numero documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
 
 
 <a id="sub-6"></a>
@@ -145,6 +149,9 @@ Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni d
 
 Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](http://msdn.microsoft.com/library/dn798942.aspx)) per verificare quanta archiviazione è stata effettivamente usata.
 
+### Procedure consigliate per la scalabilità e la distribuzione del servizio tra più data center (video)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Avviare o arrestare il servizio
@@ -193,4 +200,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -114,7 +114,7 @@ Per impostazione predefinita, un indicizzatore di Ricerca di Azure arresta l'ind
 
 Anche se si sceglie di tollerare alcuni errori, le informazioni sui documenti per cui l'indicizzazione ha avuto esito negativo vengono restituite dall'[API Get Indexer Status](https://msdn.microsoft.com/library/azure/dn946884.aspx).
 
-A completamento di questo articolo, si consiglia di inviare commenti o suggerimenti per nuove idee di contenuto tramite tweet, usando l'hashtag #AzureSearch, o dalla [pagina del forum UserVoice](http://feedback.azure.com/forums/263029-azure-search).
+A completamento di questo articolo, si consiglia di inviare commenti o suggerimenti per nuove idee di contenuto tramite tweet, usando l'hashtag #AzureSearch, o dalla [pagina del forum UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

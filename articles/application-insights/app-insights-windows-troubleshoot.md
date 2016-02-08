@@ -35,7 +35,7 @@ Domande o problemi con [Visual Studio Application Insights in Windows][windows]?
 #### Non vengono più visualizzati i dati disponibili in precedenza
 
 * Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Come si aggiunge Application Insights a un'app universale?
@@ -82,7 +82,7 @@ Per semplificare la correlazione degli eventi nel client e nel server, generare 
 
 ## Schermata iniziale di Azure
 
-*Guardando nel [portale di Azure:](http://portal.azure.com): la mappa contiene informazioni sull'app?*
+*Guardando nel [portale di Azure:](https://portal.azure.com): la mappa contiene informazioni sull'app?*
 
 No, la mappa visualizza lo stato di integrità dei server Azure nelle varie parti del mondo.
 
@@ -124,4 +124,4 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

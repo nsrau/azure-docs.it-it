@@ -34,7 +34,7 @@ Per altre informazioni:
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Documentazione di Azure Media Player](http://aka.ms/ampdocs) 
-- [Blog di introduzione ad Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Blog di introduzione ad Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Iscriversi per restare aggiornati sulle ultime novità di Azure Media Player](http://aka.ms/ampsignup)
 - [Aggiungere richieste di nuove funzionalità, idee e commenti e suggerimenti](http://aka.ms/ampuservoice) 
 
@@ -82,4 +82,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

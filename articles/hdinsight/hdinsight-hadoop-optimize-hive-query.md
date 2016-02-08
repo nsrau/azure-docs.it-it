@@ -38,7 +38,7 @@ Aumentando il numero di nodi di lavoro in un cluster è possibile usare più map
 
 - In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, come illustrato di seguito. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Abilitare Tez
 
@@ -87,7 +87,7 @@ Per i cluster HDInsight basati su Windows, è necessario abilitare Tez in fase d
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
 
     
-> [AZURE.NOTE]I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
+> [AZURE.NOTE] I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
     
 
 ## Partizionamento Hive
@@ -226,4 +226,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

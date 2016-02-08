@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Concetti relativi a Servizi mobili
@@ -86,4 +86,4 @@ Gli argomenti seguenti forniscono esempi che illustrano come eseguire attività 
 - [Gestione degli errori](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Tasti di scelta rapida](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

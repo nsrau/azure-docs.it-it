@@ -56,7 +56,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 	![Request URI][image4]
 
-3. Passare alla pagina relativa all'[App Web del servizio di richiesta-risposta di Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) e fare clic su **Crea app Web**. Il modello consente di accedere al portale di Microsoft Azure classico in cui viene creata la nuova app Web.
+3. Passare al [portale di Azure](https://portal.azure.com), **Accedi**, fare clic su **Nuovo**, cercare e selezionare l'**app Web del servizio di richiesta/risposta di Azure ML** e quindi fare clic su **Crea**.
 
 	- Assegnare all'app Web un nome univoco. L'URL dell'app Web sarà il nome seguito da `.azurewebsites.net.` Ad esempio, `http://carprediction.azurewebsites.net.`
 
@@ -78,7 +78,7 @@ Dopo aver distribuito il servizio Web, è possibile seguire i passaggi seguenti 
 
 6. L'app Web visualizza la propria pagina **Configurazione app Web** con le impostazioni del servizio Web correnti. Qui è possibile apportare modifiche alle impostazioni usate dall'app Web.
 
-	> [AZURE.NOTE]La modifica delle impostazioni in questa pagina si applicano solo a questa app Web. Non vengono modificate le impostazioni predefinite del servizio Web. Ad esempio, se si modifica la voce **Description** qui, non viene modificata la descrizione indicata nel dashboard del servizio Web in Machine Learning Studio.
+	> [AZURE.NOTE] La modifica delle impostazioni in questa pagina si applicano solo a questa app Web. Non vengono modificate le impostazioni predefinite del servizio Web. Ad esempio, se si modifica la voce **Description** qui, non viene modificata la descrizione indicata nel dashboard del servizio Web in Machine Learning Studio.
 
 	Al termine, fare clic su **Save changes**, quindi fare clic su **Go to Home Page**.
 
@@ -125,4 +125,4 @@ Per altre informazioni su...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

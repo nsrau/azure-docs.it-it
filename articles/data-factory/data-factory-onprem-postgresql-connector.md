@@ -30,6 +30,8 @@ Data factory supporta solo lo spostamento di dati da PostgreSQL ad altri archivi
 
 Perché Gateway di gestione dati si connetta al database PostgreSQL, è necessario installare il [provider di dati Ngpsql per PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) nello stesso sistema del Gateway di gestione dati.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ## Esempio: Copiare i dati da PostgreSQL a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -306,4 +308,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

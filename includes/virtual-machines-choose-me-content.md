@@ -38,8 +38,8 @@ Oltre al sistema operativo, le altre scelte di configurazione disponibili con le
 
 Altri vantaggi da considerare per le macchine virtuali sono i seguenti:
 
-**Pagamento in base al consumo**. Azure addebita un costo orario in base alla dimensione e al sistema operativo della macchina virtuale. Per le ore parziali, Azure addebita il costo solo dei minuti usati. I costi di archiviazione vengono determinati e addebitati separatamente. Per informazioni dettagliate, vedere la pagina Web relativa ai [prezzi delle macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/).
+**Pagamento in base al consumo**. Azure addebita un costo orario in base alla dimensione e al sistema operativo della macchina virtuale. Per le ore parziali, Azure addebita il costo solo dei minuti usati. I costi di archiviazione vengono determinati e addebitati separatamente. Per informazioni dettagliate, vedere la pagina Web relativa ai [prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 **Resilienza**. Azure effettua il monitoraggio dell'hardware fisico che ospita ogni macchina virtuale in esecuzione. Se si verifica un problema su un server fisico che esegue una macchina virtuale, Azure rileva il problema, sposta la macchina virtuale su nuovo hardware e quindi la riavvia. Questo processo a volte viene indicato come correzione del servizio. Azure inoltre protegge i dati di una macchina virtuale mantenendo copie ridondanti dei dischi rigidi virtuali nell'archivio BLOB.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

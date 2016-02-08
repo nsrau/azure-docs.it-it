@@ -21,7 +21,7 @@
 
 Un secondo nodo head viene utilizzato dai cluster Hadoop basati su Linux distribuiti da Azure HDInsight. In questo modo aumenta la disponibilità e l’affidabilità dei servizi e dei processi Hadoop in esecuzione in Azure.
 
-> [AZURE.NOTE]I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Linux. Se si utilizza un cluster basato su Windows, vedere [Disponibilità e affidabilità dei cluster Hadoop basati su Windows in HDInsight](hdinsight-high-availability.md) per informazioni specifiche su Windows.
+> [AZURE.NOTE] I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Linux. Se si utilizza un cluster basato su Windows, vedere [Disponibilità e affidabilità dei cluster Hadoop basati su Windows in HDInsight](hdinsight-high-availability.md) per informazioni specifiche su Windows.
 
 ##Informazioni sui nodi head
 
@@ -29,7 +29,7 @@ Alcune implementazioni di Hadoop hanno un solo nodo head che ospita i servizi e 
 
 I cluster HDInsight forniscono un nodo head secondario, che consente ai servizi master e ai componenti di continuare a funzionare nel nodo secondario in caso di errore nel server primario.
 
-> [AZURE.IMPORTANT]Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster. Alcuni servizi, ad esempio HDFS o YARN, sono 'attivi' soltanto in un nodo head (e in ‘standby’ nell'altro nodo head). Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
+> [AZURE.IMPORTANT] Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster. Alcuni servizi, ad esempio HDFS o YARN, sono 'attivi' soltanto in un nodo head (e in ‘standby’ nell'altro nodo head). Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
 I nodi [ZooKeeper](http://zookeeper.apache.org/) (ZKs) vengono utilizzati per l’elezione del leader dei servizi master nei nodi head e per garantire che i servizi, i nodi di dati (ruolo di lavoro) e i gateway sappiano su quale nodo head è attivo un servizio master.
 
@@ -128,7 +128,7 @@ Ogni nodo head può avere voci di registro univoche, perciò è consigliabile co
 
 ###Ambari
 
-> [AZURE.NOTE]L’accesso ai file di registro tramite Ambari richiede un tunnel SSH, poichè i siti web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE] L’accesso ai file di registro tramite Ambari richiede un tunnel SSH, poichè i siti web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desidera visualizzare i registri (ad esempio, YARN) e quindi utilizzare **Collegamenti rapidi** per selezionare il nodo head per il quale si vuole visualizzare i registri.
 
@@ -136,7 +136,7 @@ Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desi
 
 ## Come configurare le dimensioni del nodo head ##
 
-È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene spiegato come specificare le dimensioni utilizzando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell], e [l’interfaccia della riga di comando di Azure][azure-cli]\:
 
@@ -166,4 +166,4 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

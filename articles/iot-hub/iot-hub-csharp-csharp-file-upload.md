@@ -24,7 +24,7 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 
 Questa esercitazione si basa sul codice presentato in [Inviare messaggi da cloud a dispositivo con l'hub IoT] per mostrare come usare i messaggi da cloud a dispositivo per fornire in modo sicuro al dispositivo un URI BLOB di Azure da usare per caricare il file e come usare le conferme di recapito di hub IoT per attivare l'elaborazione del file dal back-end app. Il vantaggio di questo approccio è la possibilità di riutilizzare l'identità del dispositivo dell'hub IoT e la conferma di recapito dei messaggi da cloud a dispositivo per informare il back-end app che il file è stato caricato correttamente.
 
-> [AZURE.NOTE]Lo stesso approccio usato qui può essere adottato per far scaricare ai dispositivi i file dal cloud in modo sicuro.
+> [AZURE.NOTE] Lo stesso approccio usato qui può essere adottato per far scaricare ai dispositivi i file dal cloud in modo sicuro.
 
 È possibile trovare altre informazioni sui messaggi da cloud a dispositivo e sulla sicurezza dell'hub IoT nella [Guida per sviluppatori di hub IoT].
 
@@ -33,13 +33,13 @@ Al termine di questa esercitazione si eseguiranno due applicazioni console Windo
 * **SimulatedDevice**, una versione modificata dell'app creata in [Inviare messaggi da cloud a dispositivo con l'hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo contenenti URI BLOB di Azure. Per ogni messaggio da cloud a dispositivo ricevuto, attiva un caricamento file nell'URI BLOB specificato.
 * **SendCloudToDevice**, che compila un URI BLOB di Azure (come illustrato in [Creare e usare una firma di accesso condiviso con il servizio BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md)), lo invia in un messaggio da cloud a dispositivo al dispositivo simulato con l'hub IoT e quindi ne riceve la conferma di recapito.
 
-> [AZURE.NOTE]L'hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo Azure IoT. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure. Gli SDK del servizio Azure IoT per Java e Node saranno presto disponibili.
+> [AZURE.NOTE] L'hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo Azure IoT. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure. Gli SDK del servizio Azure IoT per Java e Node saranno presto disponibili.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -79,7 +79,6 @@ Altre informazioni sull'hub IoT:
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Inviare messaggi da cloud a dispositivo con hub IoT]: iot-hub-csharp-csharp-c2d.md
 
 [portale di Azure]: https://portal.azure.com/
 
@@ -99,4 +98,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

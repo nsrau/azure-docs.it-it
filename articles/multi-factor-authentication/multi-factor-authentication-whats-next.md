@@ -53,7 +53,8 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 6.	Nella casella di controllo **Codice per segnalare illeciti durante il messaggio introduttivo iniziale** immettere un codice numerico da usare durante la verifica della chiamata. Se un utente immette questo codice insieme al simbolo # anziché solo il simbolo #, verrà segnalato un avviso di illecito. 
 7.	Nella parte inferiore fare clic su Salva.
 
->[AZURE.NOTE]I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere 0# per inviare un avviso di illecito. Se si usa un codice diverso da 0, sarà necessario registrare e caricare messaggi vocali personalizzati con le istruzioni appropriate.
+>[AZURE.NOTE]
+I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere 0# per inviare un avviso di illecito. Se si usa un codice diverso da 0, sarà necessario registrare e caricare messaggi vocali personalizzati con le istruzioni appropriate.
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 
 ### Per visualizzare il report sull'illecito
 
-1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Accedere a [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello che si desidera per visualizzare il report degli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
@@ -106,7 +107,7 @@ Un bypass monouso consente a un utente di eseguire l'autenticazione una sola vol
 
 ### Per visualizzare il report del bypass monouso
 
-1. Accedere a [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Accedere a [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore selezionare Provider di multi-factor authentication. Verrà visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Se si dispone di più di un provider di Multi-Factor Authentication, selezionare quello che si desidera per visualizzare il report degli avvisi di illecito e fare clic su Gestisci nella parte inferiore della pagina. Se si dispone di un solo provider, è sufficiente fare clic su Gestisci. Verrà aperto il portale di gestione di Azure Multi-Factor Authentication.
@@ -210,7 +211,7 @@ All'esterno della rete aziendale|Per i flussi del browser Multi-Factor Authentic
 
 In alcune app, come Office 2010 o versioni precedenti e Apple Mail, non è possibile usare Multi-Factor Authenticaton. Per usare queste app, è necessario usare "password dell'app" al posto della password tradizionale. Le password dell'app consentono all'applicazione di ignorare Multi-Factor Authentication e continuare a lavorare.
 
->[AZURE.NOTE]Autenticazione moderna per i client di Office 2013
+>[AZURE.NOTE] Autenticazione moderna per i client di Office 2013
 >
 > I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -230,7 +231,7 @@ Esperienza di autenticazione|Per le app basate su browser|Per le app non basate 
 - Al momento esiste un limite di 40 password per utente. Verrà richiesto di eliminare una delle password dell'app esistenti prima di crearne una nuova.
 - Dopo aver abilitato Multi-factor Authentication nell’account di un utente, le password di app possono essere utilizzate con la maggior parte dei client non basati su browser come Outlook e Lync, ma non è possibile eseguire azioni amministrative usando password di app tramite applicazioni non basate su browser come Windows PowerShell, anche se tale utente dispone di un account di amministrazione. Assicurarsi di creare un account di servizio con una password complessa per l'esecuzione degli script di PowerShell e di non abilitare tale account per Multi-factor Authentication.
 
->[AZURE.WARNING]Le password di app non funzioneranno in ambienti ibridi dove i client comunicano con endpoint di individuazione automatica sia locali che nel cloud.
+>[AZURE.WARNING]  Le password di app non funzioneranno in ambienti ibridi dove i client comunicano con endpoint di individuazione automatica sia locali che nel cloud.
 >
 >Tenere presente che le password di app non funzionano in ambienti ibridi dove i client comunicano con endpoint di individuazione automatica sia locali che nel cloud, poiché per l'autenticazione locale sono necessarie le password di dominio e per l’autenticazione nel cloud sono necessarie le password di app.
 
@@ -338,7 +339,7 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 - Se l'account aziendale dell'utente è stato compromesso
 - Se un dispositivo memorizzato viene smarrito o rubato
 
-> [AZURE.NOTE]Questa funzionalità è implementata come una cache di cookie del browser. Non funzionerà se i cookie del browser non sono abilitati.
+> [AZURE.NOTE] Questa funzionalità è implementata come una cache di cookie del browser. Non funzionerà se i cookie del browser non sono abilitati.
 
 ### Come abilitare o disabilitare la sospensione di Multi-Factor Authentication per i dispositivi memorizzati
 
@@ -351,4 +352,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

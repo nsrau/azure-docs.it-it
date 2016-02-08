@@ -88,7 +88,7 @@ Le macchine virtuali da replicare in Azure devono essere conformi ai [requisiti 
 
 ### È possibile replicare le macchine virtuali Hyper-V di seconda generazione in Azure?
 
-Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella seconda generazione. [Altre informazioni](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella seconda generazione. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Se si esegue la replica in Azure, come vengono addebitati i costi per le macchine virtuali di Azure? 
 
@@ -129,28 +129,28 @@ Durante la replica di macchine virtuali e server fisici tra siti locali, è supp
 
 È necessario un account di archiviazione con [archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md/#geo-redundant-storage). Un [account di archiviazione premium](../storage/storage-premium-storage-preview-portal/) è supportato solo se si esegue la replica di macchine virtuali VMware o server fisici Windows/Linux in Azure.
 
-Il supporto per l'archiviazione con ridondanza locale standard è in backlog. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+Il supporto per l'archiviazione con ridondanza locale standard è in backlog. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### Con quale frequenza è possibile eseguire la replica dei dati?
 - **Hyper-V:** le macchine virtuali Hyper-V possono essere replicate ogni 30 secondi, 5 minuti o 15 minuti. Se è stata configurata la replica SAN, la replica sarà sincrona.
 - **VMware e server fisici:** in questo caso la frequenza di replica non è rilevante. La replica sarà continua. 
 
 ### È possibile estendere la replica dal sito di ripristino esistente a un sito terziario?
-No, la replica concatenata o estesa non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+No, la replica concatenata o estesa non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### È possibile eseguire una replica offline la prima volta che si esegue la replica in Azure? 
 
-Questa funzionalità non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Questa funzionalità non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### È possibile escludere dischi specifici dalla replica?
 
-Questa funzionalità non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+Questa funzionalità non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### È possibile eseguire la replica delle macchine virtuali con i dischi dinamici?
 
-I dischi dinamici sono supportati durante la replica delle macchine virtuali Hyper-V, ma non sono supportati durante la replica dei server fisici o delle macchine virtuali VMware. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery).
+I dischi dinamici sono supportati durante la replica delle macchine virtuali Hyper-V, ma non sono supportati durante la replica dei server fisici o delle macchine virtuali VMware. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover? 
 
@@ -223,4 +223,4 @@ Sì, è possibile replicare macchine virtuali Hyper-V e Azure o tra siti del pro
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

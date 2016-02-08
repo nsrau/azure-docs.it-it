@@ -53,4 +53,4 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

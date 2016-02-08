@@ -33,8 +33,8 @@ Sebbene sia consigliabile evitare l'uso dello stato sessione, alcune applicazion
 ## Passaggi successivi
 Per altre informazioni sull'uso di Cache Redis di Azure:
  
-- [Documentazione relativa a Cache Redis di Azure](http://azure.microsoft.com/documentation/services/cache/): in questa pagina vengono forniti numerosi collegamenti utili relativi all’uso di Cache Redis di Azure.
-- [App per filmati MVC con Cache Redis di Azure in 15 minuti](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): nel post di blog vengono fornite informazioni di avvio rapido per l’uso di Cache Redis di Azure in un’app MVC ASP.NET.
+- [Documentazione relativa a Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/): in questa pagina vengono forniti numerosi collegamenti utili relativi all’uso di Cache Redis di Azure.
+- [App per filmati MVC con Cache Redis di Azure in 15 minuti](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): nel post di blog vengono fornite informazioni di avvio rapido per l’uso di Cache Redis di Azure in un’app MVC ASP.NET.
 - [Come utilizzare lo stato della sessione ASP.NET con i siti Web di Azure](../app-service-web/web-sites-dotnet-session-state-caching.md): in questo argomento viene illustrato come utilizzare il servizio Cache Redis di Azure per lo stato della sessione.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

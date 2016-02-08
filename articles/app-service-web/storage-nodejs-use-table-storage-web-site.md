@@ -37,7 +37,7 @@ Di seguito è riportata l'applicazione completata:
 
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -53,7 +53,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano installa
 
 Creare un account di archiviazione di Azure L'app utilizzerà questo account per archiviare gli elementi dell'elenco attività.
 
-1.  Accedere al [Portale di Azure](https://portal.azure.com).
+1.  Accedere al [Portale di Azure](https://portal.azure.com/).
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Archiviazione**. Assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
@@ -88,7 +88,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]Il parametro "-g" consente di installare il modulo a livello globale. In questo modo, è possibile usare **express** per generare lo scaffolding dell'app Web senza dover inserire informazioni aggiuntive sul percorso.
+	> [AZURE.NOTE] Il parametro "-g" consente di installare il modulo a livello globale. In questo modo, è possibile usare **express** per generare lo scaffolding dell'app Web senza dover inserire informazioni aggiuntive sul percorso.
 
 4. Per creare lo scaffolding per l'applicazione, immettere il comando **express**:
 
@@ -336,7 +336,7 @@ Un *controller* consente di gestire le richieste HTTP ed eseguire il rendering d
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE]nconf caricherà i valori di configurazione dalle variabili di ambiente oppure dal file **config.json**, che verrà creato più avanti.
+	> [AZURE.NOTE] nconf caricherà i valori di configurazione dalle variabili di ambiente oppure dal file **config.json**, che verrà creato più avanti.
 
 3. Nel file app.js scorrere verso il basso fino a individuare la riga seguente:
 
@@ -478,7 +478,7 @@ Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati ne
 
 Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
-> [AZURE.NOTE]È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
+> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com/). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
@@ -496,8 +496,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 
@@ -534,7 +533,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE]Se questa è la prima app Web del servizio app per la sottoscrizione, verrà indicato di utilizzare il Portale di Azure per la creazione dell'app Web. Per ulteriori informazioni, vedere [compilare e distribuire un'applicazione web di Node. js in Azure App servizio].
+	> [AZURE.NOTE] Se questa è la prima app Web del servizio app per la sottoscrizione, verrà indicato di utilizzare il Portale di Azure per la creazione dell'app Web. Per ulteriori informazioni, vedere [compilare e distribuire un'applicazione web di Node. js in Azure App servizio].
 
 ### Impostare le variabili di ambiente
 
@@ -546,7 +545,7 @@ In questo passaggio verranno aggiunte le variabili di ambiente per la configuraz
 
 Sostituire **<storage account name>** con il nome dell'account di archiviazione creato in precedenza e sostituire **<storage access key>** con la chiave di accesso primaria per l'account di archiviazione. Utilizzare gli stessi valori del file config.json creato in precedenza.
 
-In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com):
+In alternativa, è possibile impostare le variabili di ambiente nel [Portale di Azure](https://portal.azure.com/):
 
 1.  Aprire il pannello dell'app Web facendo clic su **Sfoglia** > **App Web ** > nome app Web.
 
@@ -637,4 +636,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Eseguire il debug dei processi di analisi di flusso con i log del servizio e dell'operazione
+# Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
 
 Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’eleborazione, fino all’output.
 
@@ -83,7 +83,7 @@ Nel portale di anteprima di Azure è possibile filtrare per livello di messaggio
 
   ![Dettagli operazione](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-Nel caso in cui sia necessario contattare il [Supporto](http://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics), tenere presente i dettagli dell'operazione, in particolare l’**ID di correlazione**.
+Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics), tenere presente i dettagli dell'operazione, in particolare l’**ID di correlazione**.
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -96,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

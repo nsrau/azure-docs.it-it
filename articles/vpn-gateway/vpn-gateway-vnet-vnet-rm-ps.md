@@ -84,7 +84,7 @@ In questo articolo verrà illustrata la connessione di due reti virtuali, VNet1 
 ### Prima di iniziare
 
 
-- Verificare di possedere una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Verificare di possedere una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Installare i moduli di PowerShell. Per configurare la connessione è necessario usare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure.[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
@@ -180,7 +180,7 @@ In questo passaggio verrà creato il gateway di rete virtuale per la VNet. Le co
 ## Passaggio 7 - Creare VNet2
 
 
-Dopo aver configurato VNet1, ripetere i passaggi precedenti per configurare VNet2 inclusa la configurazione del relativo gateway. Dopo aver completato la configurazione di entrambe le reti virtuali e i rispettivi gateway, procedere al Passaggio 8 **. Connettere i gateway**.
+Dopo aver configurato VNet1, ripetere i passaggi precedenti per configurare VNet2 inclusa la configurazione del relativo gateway. Dopo aver completato la configurazione per entrambe le reti virtuali e i rispettivi gateway, procedere a **Passaggio 8. Connettere i gateway**.
 
 ## Passaggio 8 - Connettere i gateway
 
@@ -255,11 +255,11 @@ Se è necessario aggiungere subnet di gateway alle reti virtuali, utilizzare l'e
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-Dopo aver verificato che le subnet del gateway sono configurate correttamente, continuare con il Passaggio 4 **. Richiedere un indirizzo IP pubblico** e seguire i passaggi.
+Dopo aver verificato che le subnet del gateway sono configurate correttamente, continuare con **Passaggio 4. Richiedere un indirizzo IP pubblico** e seguire i passaggi.
 
 
 ## Passaggi successivi
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

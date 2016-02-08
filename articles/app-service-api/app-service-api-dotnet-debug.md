@@ -72,7 +72,7 @@ Per abilitare il debug remoto, è necessario distribuire una build di debug in A
 
 A volte può essere opportuno eseguire il debug dell'app per le API localmente, ad esempio se i round trip al server Azure rallentano il debug. Questa sezione illustra come eseguire il debug dell'app per le API in locale usando l'interfaccia utente di Swagger come client di prova.
 
-2. Nel browser passare al [portale di anteprima di Azure](https://portal.azure.com). 
+2. Nel browser passare al [portale di anteprima di Azure](https://portal.azure.com/). 
 
 3. Scegliere il pulsante **Sfoglia** sulla barra laterale e selezionare **App per le API**.
 
@@ -138,4 +138,4 @@ In questa esercitazione si è visto come eseguire il debug di app per le API.
 
 Per altre informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Le app per le API sono app Web con funzionalità aggiuntive per l'hosting di servizi Web. È quindi possibile usare gli stessi strumenti per il debug e la risoluzione dei problemi delle app per le API usati per le app Web.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

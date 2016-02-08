@@ -6,6 +6,6 @@
 | Unità di scala | Illimitate<sup>1</sup> |
 | Integrazione di Azure Active Directory| Account utente illimitati<sup>1</sup> |
 
-<sup>1</sup>I limiti di Gestione API sono diversi per ogni livello di prezzo. Per visualizzare i livelli di prezzo con le opzioni di scalabilità e i limiti associati, vedere [Prezzi di Gestione API](http://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>I limiti di Gestione API sono diversi per ogni livello di prezzo. Per visualizzare i livelli di prezzo con le opzioni di scalabilità e i limiti associati, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

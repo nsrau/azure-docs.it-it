@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -27,15 +27,15 @@ I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un __g
 
 I passaggi illustrati in questo documento descrivono il processo di creazione di un nuovo cluster HDInsight tramite l'interfaccia della riga di comando di Azure e un modello:
 
-> [AZURE.IMPORTANT]I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Prerequisiti
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Interfaccia della riga di comando di Azure__. Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+- __Interfaccia della riga di comando di Azure__. Per informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ##Effettuare l'accesso alla sottoscrizione di Azure
 
@@ -66,7 +66,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 
 5. Aprire il file __azuredeploy.parameters.json__ in un editor e specificare i valori per gli elementi nella sezione `parameters`:
 
-    * __location__: data center in cui verranno create le risorse. Per un elenco delle posizioni consentite, visualizzare la sezione `location` nel file __azuredeploy.json__.
+    * __location__: data center in cui verranno create le risorse. Per un elenco delle località consentite, vedere la sezione `location` nel file __azuredeploy.json__.
     * __clusterName__: nome del cluster HDInsight. Questo nome deve essere univoco, altrimenti la distribuzione avrà esito negativo.
     * __clusterStorageAccountName__: nome dell'account di archiviazione di Azure che verrà creato per il cluster HDInsight. Questo nome deve essere univoco, altrimenti la distribuzione avrà esito negativo.
     * __clusterLoginPassword__: password dell'utente amministratore del cluster. Deve essere una password sicura, poiché viene usata per accedere ai siti Web e ai servizi REST nel cluster.
@@ -84,7 +84,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]Se il nome del percorso contiene spazi, racchiuderlo tra virgolette doppie, ad esempio "Stati Uniti centrali del sud".
+    > [AZURE.NOTE] Se il nome del percorso contiene spazi, racchiuderlo tra virgolette doppie, ad esempio "Stati Uniti centrali del sud".
 
 6. Usare il comando seguente per creare la distribuzione iniziale per questo gruppo di risorse. Sostituire __PATHTOTEMPLATE__ con il percorso del file modello __azuredeploy.json__. Sostituire__PATHTOPARAMETERSFILE__ con il percorso del file __azuredeploy.parameters.json__. Sostituire __RESOURCEGROUPNAME__ con il nome del gruppo creato nel passaggio precedente:
 
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

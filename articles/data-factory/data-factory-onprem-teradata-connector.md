@@ -30,6 +30,8 @@ Data factory supporta solo lo spostamento di dati da Teradata ad altri archivi d
 
 Perché Gateway di gestione dati si connetta al database Teradata, è necessario installare il [provider di dati .NET per Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) nello stesso sistema del Gateway di gestione dati.
 
+> [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+
 ### Esempio: Copiare i dati da Teradata a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -312,4 +314,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

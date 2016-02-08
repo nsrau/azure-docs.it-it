@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
@@ -138,7 +138,7 @@ Il file di configurazione del servizio non viene incluso nel pacchetto con l'app
 
 <p/>
 
- >[AZURE.NOTE]L'identificazione personale del certificato può essere aggiunta al file di configurazione usando un editor di testo oppure il valore può essere aggiunto nella scheda **Certificati** della pagina **Proprietà** del ruolo in Visual Studio.
+ >[AZURE.NOTE] L'identificazione personale del certificato può essere aggiunta al file di configurazione usando un editor di testo oppure il valore può essere aggiunto nella scheda **Certificati** della pagina **Proprietà** del ruolo in Visual Studio.
 
 
 
@@ -190,16 +190,16 @@ L'esempio seguente illustra la configurazione di un ruolo Web con un sito Web e 
 - **Modifica dell'identificazione personale del certificato** È possibile aggiornare un certificato solo quando un'istanza del ruolo è offline. Se un certificato viene aggiunto, eliminato o modificato mentre un'istanza del ruolo è online, in Azure l'istanza viene portata offline normalmente per aggiornare il certificato e riportata online dopo il completamento della modifica.
 
 ### Gestione delle modifiche di configurazione con gli eventi di runtime del servizio
-La [libreria di runtime di Azure](https://msdn.microsoft.com/library/azure/dn511024.aspx) include lo spazio dei nomi [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), che fornisce le classi per l'interazione con l'ambiente di Azure da codice in esecuzione in un'istanza di un ruolo. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) definisce gli eventi seguenti generati prima e dopo una modifica di configurazione:
+La [libreria di runtime di Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) include lo spazio dei nomi [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), che fornisce le classi per l'interazione con l'ambiente di Azure da codice in esecuzione in un'istanza di un ruolo. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) definisce gli eventi seguenti generati prima e dopo una modifica di configurazione:
 
 - **Evento [Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** Si verifica prima che la modifica di configurazione venga applicata a un'istanza specificata di un ruolo, offrendo la possibilità di interrompere il funzionamento delle istanze del ruolo, se necessario.
 - **Evento [Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx)** Si verifica dopo che la modifica della configurazione è stata applicata a un'istanza specificata di un ruolo.
 
-> [AZURE.NOTE]Poiché le modifiche ai certificati richiedono sempre che le istanze di un ruolo siano portate offline, non generano eventi RoleEnvironment.Changing o RoleEnvironment.Changed.
+> [AZURE.NOTE] Poiché le modifiche ai certificati richiedono sempre che le istanze di un ruolo siano portate offline, non generano eventi RoleEnvironment.Changing o RoleEnvironment.Changed.
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-Per distribuire un'applicazione come servizio cloud in Azure, è necessario prima creare un pacchetto dell'applicazione nel formato appropriato. È possibile usare lo strumento da riga di comando **CSPack** (installato con [Azure SDK](http://azure.microsoft.com/downloads/)) per creare il file del pacchetto come alternativa a Visual Studio.
+Per distribuire un'applicazione come servizio cloud in Azure, è necessario prima creare un pacchetto dell'applicazione nel formato appropriato. È possibile usare lo strumento da riga di comando **CSPack** (installato con [Azure SDK](https://azure.microsoft.com/downloads/)) per creare il file del pacchetto come alternativa a Visual Studio.
 
 **CSPack** usa il contenuto del file di definizione del servizio e del file di configurazione del servizio per definire il contenuto del pacchetto. Tramite **CSPack** viene generato un file del pacchetto dell'applicazione (con estensione cspkg) che è possibile caricare in Azure usando il [portale di Azure classico](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service). Per impostazione predefinita, il pacchetto viene denominato `[ServiceDefinitionFileName].cspkg`, ma è possibile specificare un nome diverso usando l'opzione `/out` di **CSPack**.
 
@@ -209,13 +209,15 @@ Per distribuire un'applicazione come servizio cloud in Azure, è necessario prim
 | 1\.7+ | C:\\Programmi\\Microsoft SDKs\\Azure\\.NET SDK\\[versione-sdk]\\bin\\ |
 | &lt;1.6 | C:\\Programmi\\Azure SDK\\[versione-sdk]\\bin\\ |
 
->[AZURE.NOTE]CSPack.exe (in Windows) è disponibile eseguendo il collegamento del **prompt dei comandi di Microsoft Azure** installato con l'SDK.
+>[AZURE.NOTE]
+CSPack.exe (in Windows) è disponibile eseguendo il collegamento del **prompt dei comandi di Microsoft Azure** installato con l'SDK.
 >  
 >Eseguire il programma CSPack.exe da solo per visualizzare la documentazione su tutte le possibili opzioni e comandi.
 
 <p />
 
->[AZURE.TIP]Eseguire il servizio cloud in locale nell'**emulatore di calcolo di Microsoft Azure**, usare l'opzione **/copyonly**. Questa opzione copia i file binari per l'applicazione in un layout di directory da cui possono essere eseguiti nell'emulatore di calcolo.
+>[AZURE.TIP]
+Eseguire il servizio cloud in locale nell'**emulatore di calcolo di Microsoft Azure**, usare l'opzione **/copyonly**. Questa opzione copia i file binari per l'applicazione in un layout di directory da cui possono essere eseguiti nell'emulatore di calcolo.
 
 ### Comando di esempio per creare un pacchetto di un servizio cloud
 L'esempio seguente crea un pacchetto dell'applicazione che contiene le informazioni per un ruolo Web. Nel comando vengono specificati il file di definizione del servizio da utilizzare, la directory in cui trovare i file binari e il nome del file del pacchetto.
@@ -262,12 +264,11 @@ Si sta usando Visual Studio e si vuole...
 * [Distribuire un progetto di servizio cloud][vs_deploy]
 * [Configurare il desktop remoto per un'istanza del servizio cloud][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

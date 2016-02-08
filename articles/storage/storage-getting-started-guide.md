@@ -30,7 +30,7 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
 1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer. 
 
-2. Installare la versione più recente [Azure SDK per .NET](http://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Installare la versione più recente [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
 
 3. Assicurarsi di avere [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installato nel computer, come richiesto per i progetti di esempio delle Guide rapide di Azure che verrà utilizzato in questa esercitazione.
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
 4. È necessaria una sottoscrizione di Azure e un account di archiviazione di Azure.
 
-    - Per ottenere una sottoscrizione Azure, vedere la versione di [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/) e le [Offerte per i membri](http://azure.microsoft.com/pricing/member-offers/)(per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
+    - Per ottenere una sottoscrizione Azure, vedere la versione di [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/)(per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
     - Per creare un account di archiviazione Standard in Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
 
 ## Eseguire la prima applicazione di Archiviazione di Azure in Archiviazione di Azure nel cloud
@@ -102,11 +102,11 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 * [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
 * [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
-* [Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
+* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Libreria client di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

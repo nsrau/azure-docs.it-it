@@ -245,7 +245,7 @@ Gli eventuali aggiornamenti principali di WordPress non avranno effetto sui file
 ```
 
 #### Configurare un ambiente di staging
-Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di Azure](http://portal.azure.com) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery.md). Fare clic su **Impostazioni** -> **Slot di distribuzione** -> **Aggiungi** per creare uno slot di distribuzione con nome stage. Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata in precedenza.
+Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di Azure](https://portal.azure.com/) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, fare clic [qui](web-sites-php-web-site-gallery.md). Fare clic su **Impostazioni** -> **Slot di distribuzione** -> **Aggiungi** per creare uno slot di distribuzione con nome stage. Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata in precedenza.
 
 ![Creare lo slot di distribuzione "stage"](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -372,21 +372,14 @@ Per procedere con la configurazione è necessario aggiornare il file courier.con
   </repositories>
  ```
 
-In `<repositories>` immettere l'URL del sito di produzione e le informazioni dell'utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>` e `<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Fare clic sulla scheda Courier2 nel dashboard dell'app Web Umbraco CMS e selezionare la località. Verrà visualizzato il nome del repository, come indicato in `courier.config`. Eseguire questa operazione nell'app Web di produzione e di staging.
 
@@ -428,7 +421,7 @@ Dopo aver aggiornato il sito di sviluppo locale, pubblicare le modifiche nell'ap
 
 ![Anteprima dello scambio per la distribuzione di Umbraco CMS.](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Vantaggi dello scambio dell'app Web e del database: 1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione. 2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche. 3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+Vantaggi dello scambio dell'app Web e del database: 1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione. 2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche. 3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Questo esempio illustra la flessibilità della piattaforma in cui è possibile creare moduli personalizzati simili al modulo Umbraco Courier per gestire la distribuzione in più ambienti.
 
@@ -439,4 +432,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

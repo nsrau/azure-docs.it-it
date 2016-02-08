@@ -26,7 +26,7 @@ Questo documento contiene le note sulla versione per Azure SDK per .NET 2.7.
 
 Questo documento contiene anche le note sulla versione per Azure SDK per .NET 2.7.1.
 
-Azure SDK 2.7 è supportato solo in Visual Studio 2015 e Visual Studio 2013. [Azure SDK 2.6](http://azure.microsoft.com/downloads/) è l'ultimo SDK supportato per Visual Studio 2012.
+Azure SDK 2.7 è supportato solo in Visual Studio 2015 e Visual Studio 2013. [Azure SDK 2.6](https://azure.microsoft.com/downloads/) è l'ultimo SDK supportato per Visual Studio 2012.
 
 Per informazioni dettagliate su questa versione, vedere il [post di annuncio di Azure SDK 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) e il [post di annuncio di Azure SDK 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
 
@@ -159,4 +159,4 @@ I Progetti LightSwitch non sono compatibili con questa versione. Questo problema
 
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

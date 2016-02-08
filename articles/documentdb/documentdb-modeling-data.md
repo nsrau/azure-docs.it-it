@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Modellazione dei dati in Azure DocumentDB | Microsoft Azure" 
-	description="Informazioni su come modellare i dati per un database di documenti NoSQL come Azure DocumentDB." 
+	description="Informazioni sulla modellazione dei dati per DocumentDB un database di documenti NoSQL." 
+	keywords="modellazione di dati"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -87,7 +88,7 @@ In generale, usare i modelli di dati incorporati quando:
 - - Esistono dati incorporati che non aumenteranno **senza limiti**.
 - - Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
 
-> [AZURE.NOTE]I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
+> [AZURE.NOTE] I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
 
 ###Quando non eseguire l'incorporamento
 
@@ -113,7 +114,7 @@ Consideriamo questo frammento JSON.
 
 Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata**, vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo sarà un problema qualora le dimensioni del documento aumentassero considerevolmente.
 
-> [AZURE.TIP]I documenti in DocumentDB hanno una dimensione massima. Per altre informazioni su questo argomento, fare riferimento a [Limiti di DocumentDB](documentdb-limits.md).
+> [AZURE.TIP] I documenti in DocumentDB hanno una dimensione massima. Per altre informazioni su questo argomento, fare riferimento a [Limiti di DocumentDB](documentdb-limits.md).
 
 Quando le dimensioni del documento aumentano, diventa più difficile trasmettere i dati nella rete come anche leggere e aggiornare il documento.
 
@@ -220,7 +221,7 @@ Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di az
 
 L'aspetto negativo di questo approccio diventa però immediatamente evidente se l'applicazione deve mostrare informazioni su ogni titolo disponibile quando si visualizza il portafoglio di una persona. In questo caso, sarebbe necessario accedere più volte al database per caricare le informazioni del documento di ogni titolo. Qui è stata presa la decisione di aumentare l'efficienza delle operazioni di scrittura, che vengono eseguite spesso durante la giornata, compromettendo però le operazioni di lettura che hanno un impatto potenzialmente minore sulle prestazioni di questo particolare sistema.
 
-> [AZURE.NOTE]I modelli di dati normalizzati **possono richiedere più round trip** al server.
+> [AZURE.NOTE] I modelli di dati normalizzati **possono richiedere più round trip** al server.
 
 ### Chiavi esterne
 Poiché attualmente non esiste alcun vincolo, chiave esterna o altro, le relazioni esistenti tra i documenti sono di fatto "collegamenti deboli" e non verranno verificate dal database. Per essere certi che i dati a cui un documento fa riferimento esistano davvero, è necessario operare nell'applicazione oppure tramite trigger lato server o stored procedure in DocumentDB.
@@ -233,7 +234,7 @@ In generale, usare i modelli di dati denormalizzati quando:
 - I dati correlati **cambiano spesso**.
 - È possibile che i dati a cui si fa riferimento **non siamo limitati**.
 
-> [AZURE.NOTE]La normalizzazione offre di solito migliori prestazioni di **scrittura**.
+> [AZURE.NOTE] La normalizzazione offre di solito migliori prestazioni di **scrittura**.
 
 ###Dove inserire le relazioni
 La crescita della relazione aiuterà a determinare in quale documento archiviare il riferimento.
@@ -389,7 +390,7 @@ Per informazioni sull'ottimizzazione degli indici in Azure DocumentDB, fare rife
 
 Per sapere come condividere i dati in più partizioni, fare riferimento a [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md).
 
-E infine, per informazioni aggiuntive sulla modellazione e la condivisione di dati per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+E infine, per informazioni aggiuntive sulla modellazione di dati e il partizionamento orizzontale per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

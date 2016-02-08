@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Porte di Azure AD Connect"
+	pageTitle="Azure AD Connect: porte | Microsoft Azure"
 	description="Questa pagina è una pagina di riferimento tecnico relativa alle porte che devono essere aperte per Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -79,4 +79,4 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere [la sezione Requisiti dell'agente di Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

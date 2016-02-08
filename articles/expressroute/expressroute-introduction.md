@@ -28,7 +28,7 @@ Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Micr
 - Connettività globale ai servizi Microsoft di tutte le aree con il componente aggiuntivo ExpressRoute Premium.
 - Routing dinamico tra la rete e Microsoft con protocolli standard del settore (BGP).
 - Ridondanza incorporata in ogni località di peering per una maggiore affidabilità.
-- [Contratto di servizio](http://azure.microsoft.com/support/legal/sla/) per i tempi di attività delle connessioni.
+- [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/) per i tempi di attività delle connessioni.
 - Qualità del servizio e supporto di più classi di servizio per applicazioni speciali, ad esempio Skype for Business.
 
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
@@ -55,7 +55,7 @@ Microsoft usa il protocollo di routing dinamico di standard del settore (BGP) pe
 
 ### Ridondanza
 
-Ogni circuito ExpressRoute è costituito da due connessioni a due router perimetrali Microsoft Enterprise (MSEE) dal provider di connettività o dal perimetro della rete. Microsoft richiederà una connessione BGP doppia dal provider di connettività/lato dell'utente, ognuna per ciascun MSEE. È possibile scegliere di non distribuire dispositivi ridondanti/circuiti Ethernet sul lato dell'utente. I provider di connettività tuttavia usano dispositivi ridondanti per garantire che le connessioni vengono passate a Microsoft in modo ridondante. Una connettività di livello 3 ridondante è un requisito per la validità del [contratto di servizio](http://azure.microsoft.com/support/legal/sla/).
+Ogni circuito ExpressRoute è costituito da due connessioni a due router perimetrali Microsoft Enterprise (MSEE) dal provider di connettività o dal perimetro della rete. Microsoft richiederà una connessione BGP doppia dal provider di connettività/lato dell'utente, ognuna per ciascun MSEE. È possibile scegliere di non distribuire dispositivi ridondanti/circuiti Ethernet sul lato dell'utente. I provider di connettività tuttavia usano dispositivi ridondanti per garantire che le connessioni vengono passate a Microsoft in modo ridondante. Una connettività di livello 3 ridondante è un requisito per la validità del [contratto di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 ### Connettività ai servizi cloud Microsoft
 
@@ -124,4 +124,4 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
@@ -20,6 +20,9 @@
 Ricerca di diagnostica è il pannello in [Application Insights][start] che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagina, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
 
 ## Quando viene visualizzata Ricerca diagnostica?
+
+
+### Nel portale di Azure
 
 È possibile aprire la ricerca diagnostica in modo esplicito:
 
@@ -38,7 +41,21 @@ Il corpo principale della Ricerca diagnostica è un elenco di elementi di teleme
 Gli eventi vengono in genere visualizzati nella ricerca diagnostica prima che vengano visualizzati nell’esploratore di metriche. Anche se il pannello viene automaticamente aggiornato a intervalli, è possibile fare clic su Aggiorna se in attesa di un determinato evento.
 
 
-> [AZURE.NOTE]Se l’app genera molti dati di telemetria (e si utilizza l’SDK ASP.NET versione 2.0.0-beta3 o successive), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
+### In Visual Studio
+
+Aprire la finestra Cerca in Visual Studio:
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+La finestra di ricerca ha le stesse funzionalità del portale Web:
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### Campionamento
+
+Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
+> [Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## Controllare i singoli elementi
@@ -140,7 +157,7 @@ Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n* AND r*
 Query di esempio | Effetto 
 ---|---
 lento|Individuazione di tutti gli eventi nell'intervallo di date i cui campi includono il termine "lento".
-database??|Trova la corrispondenza con database01, databaseAB,...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
+database??|Trova la corrispondenza con database01, databaseAB, ...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
 database*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
 mela OR banana<br/>mela banana|Individuazione degli eventi che contengono uno dei termini. Usare "OR", non "or".</br/>Forma breve.
@@ -203,4 +220,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

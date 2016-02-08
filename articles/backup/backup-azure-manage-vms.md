@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestire e monitorare i backup della macchina virtuale di Azure
 
@@ -51,7 +58,7 @@ Per eseguire un backup su richiesta di una macchina virtuale:
 
     ![Creazione del processo di backup](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]Per visualizzare i criteri associati a una macchina virtuale, eseguire il drill-down nella macchina virtuale nella pagina **Elementi protetti** e passare alla scheda dei criteri di backup.
+    >[AZURE.NOTE] Per visualizzare i criteri associati a una macchina virtuale, eseguire il drill-down nella macchina virtuale nella pagina **Elementi protetti** e passare alla scheda dei criteri di backup.
 
 3. Dopo la creazione del processo, è possibile fare clic sul pulsante **Visualizza processo** sulla barra degli strumenti per visualizzare il processo corrispondente nella pagina dei processi.
 
@@ -65,7 +72,7 @@ Per eseguire un backup su richiesta di una macchina virtuale:
 - Mantenere i dati di backup associati alla macchina virtuale nell'insieme di credenziali di Backup di Azure.
 - Eliminare i dati di backup associati alla macchina virtuale.
 
-Se si è scelto di conservare i dati di backup associati alla macchina virtuale, è possibile usarli per ripristinare la macchina virtuale. Per i dettagli relativi ai prezzi per queste macchine virtuali, fare clic [qui](http://azure.microsoft.com/pricing/details/backup/).
+Se si è scelto di conservare i dati di backup associati alla macchina virtuale, è possibile usarli per ripristinare la macchina virtuale. Per i dettagli relativi ai prezzi per queste macchine virtuali, fare clic [qui](https://azure.microsoft.com/pricing/details/backup/).
 
 Per arrestare la protezione per una macchina virtuale:
 
@@ -104,7 +111,7 @@ Dopo la riattivazione della protezione, lo stato di protezione della macchina vi
 
   ![Protezione VM riattivata](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]Quando si riattiva la protezione della macchina virtuale, è possibile scegliere un criterio diverso rispetto ai criteri con cui la macchina virtuale è stata protetta inizialmente.
+>[AZURE.NOTE] Quando si riattiva la protezione della macchina virtuale, è possibile scegliere un criterio diverso rispetto ai criteri con cui la macchina virtuale è stata protetta inizialmente.
 
 ## Annullare la registrazione di macchine virtuali
 
@@ -153,7 +160,7 @@ Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine
 
 ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]I valori nel dashboard vengono aggiornati ogni 24 ore.
+>[AZURE.NOTE] I valori nel dashboard vengono aggiornati ogni 24 ore.
 
 ## Operazioni di controllo
 Backup di Azure consente di esaminare i "log operazioni" delle operazioni di backup attivate dal cliente, per vedere più facilmente e con esattezza quali operazioni di gestione sono state eseguite nell'insieme di credenziali per il backup. I log operazioni offrono un ottimo supporto per i controlli e le relazioni finali sulle operazioni di backup.
@@ -186,7 +193,7 @@ Per visualizzare i log operazioni corrispondenti all'insieme di credenziali per 
 
     ![Log operazioni: recupero dei dettagli](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    La **Procedura guidata dettagli** include informazioni su operazione attivate, ID processo, risorsa nella quale è stata attivata l'operazione e la relativa data di inizio.
+    La procedura guidata **Dettagli** include informazioni su operazione attivate, ID processo, risorsa nella quale è stata attivata l'operazione e la relativa data di inizio.
 
     ![Dettagli operazione](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
@@ -249,4 +256,4 @@ Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 - [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

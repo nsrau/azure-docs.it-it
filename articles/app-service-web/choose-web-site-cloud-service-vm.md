@@ -123,7 +123,7 @@ Se il framework open source non è supportato in App Service, è possibile esegu
 
 ### <a id="lob"></a>Ho un'applicazione line-of-business che deve connettersi alla rete aziendale
 
-Per creare un'applicazione line-of-business, il sito Web potrebbe richiedere l'accesso diretto a servizi o dati nella rete aziendale. Ciò è possibile su Siti Web, Servizi cloud e Macchine virtuali usando il [servizio Azure App Service](/services/virtual-network/). Nel servizio app è possibile usare la nuova [funzionalità di integrazione VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), che consente l'esecuzione delle applicazioni Azure come se queste si trovassero sulla rete aziendale.
+Per creare un'applicazione line-of-business, il sito Web potrebbe richiedere l'accesso diretto a servizi o dati nella rete aziendale. Ciò è possibile su Siti Web, Servizi cloud e Macchine virtuali usando il [servizio Azure App Service](/services/virtual-network/). Nel servizio app è possibile usare la nuova [funzionalità di integrazione VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), che consente l'esecuzione delle applicazioni Azure come se queste si trovassero sulla rete aziendale.
 
 ### <a id="mobile"></a>Voglio ospitare un'API REST o un servizio Web per client mobili
 
@@ -153,7 +153,7 @@ Distribuzione codice con distribuzione Web|X||X|Servizi cloud supporta l'uso del
 Supporto WebMatrix|X||X|
 Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|
 Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|
-Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
+Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
 Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di Azure.
 Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|
 Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
@@ -170,7 +170,8 @@ Possibilità di definire/eseguire le attività di avvio||X|X|
 Possibilità di essere in ascolto di eventi ETW||X|X|
 
 
-> [AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrare un account, andare a la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un'app iniziale temporanea in Azure App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [AZURE.NOTE]
+Per iniziare a usare Azure App Service prima di registrare un account, andare a la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un'app iniziale temporanea in Azure App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ## <a id="nextsteps"></a> Passaggi successivi
@@ -204,4 +205,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

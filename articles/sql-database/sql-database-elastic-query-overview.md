@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/22/2016"
     ms.author="torsteng" />
 
 # Panoramica delle query su database elastico del database SQL di Azure (anteprima)
@@ -21,7 +21,7 @@ La funzionalità di query su database elastico, disponibile in anteprima, consen
 
 ## Novità delle query su database elastico
 
-* È ora possibile definire completamente in T-SQL gli scenari di query tra database con singoli database remoti. Ciò consente l'esecuzione di query di sola lettura sui database remoti e permette ai clienti locali di SQL Server di eseguire la migrazione delle applicazioni usando nomi in tre e quattro parti o un server collegato nel database SQL. 
+* È ora possibile definire completamente in T-SQL gli scenari di query tra database con singoli database remoti. Ciò consente l'esecuzione di query di sola lettura sui database remoti e permette ai clienti locali di SQL Server di eseguire la migrazione delle applicazioni usando nomi in tre e quattro parti o un server collegato nel database SQL.
 * La query elastica è ora supportata nel livello di prestazioni Standard, oltre che nel livello di prestazioni Premium. Per informazioni sulle limitazioni delle prestazioni per i livelli di prestazioni inferiori, vedere la sezione relativa alle limitazioni dell'anteprima.
 * Le query elastiche possono ora eseguire il push dei parametri SQL nei database remoti per l'esecuzione.
 * Le chiamate di stored procedure o di funzioni remote che usano sp\_execute\_fanout possono ora usare parametri analoghi a [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
@@ -39,9 +39,9 @@ L'obiettivo consiste nel semplificare gli scenari di query in cui più database 
 Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle topologie seguenti:
 
 * **Partizionamento verticale - Query tra database** (Topologia 1): i dati vengono partizionati verticalmente tra alcuni database in un livello di dati. In genere, diversi set di tabelle si trovano in diversi database. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database. I casi di utilizzo comuni con questa topologia richiedono l'esecuzione di query o la compilazione di report tra tabelle in diversi database.
-* **Partizionamento orizzontale - Partizionamento orizzontale** (Topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con partizionamento orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni. 
+* **Partizionamento orizzontale - Partizionamento orizzontale** (Topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con partizionamento orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni.
 
-> [AZURE.NOTE]La query di database elastico è adatta per scenari di reporting occasionali dove è possibile eseguire la maggior parte dell'elaborazione nel livello dati. Per carichi di lavoro di creazione di report elevati o per scenari di data warehousing con query più complesse è possibile usare anche [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+> [AZURE.NOTE] La query di database elastico è adatta per scenari di reporting occasionali dove è possibile eseguire la maggior parte dell'elaborazione nel livello dati. Per carichi di lavoro di creazione di report elevati o per scenari di data warehousing con query più complesse è possibile usare anche [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 
 
 ## Topologie di query su database elastico
@@ -74,7 +74,7 @@ L'uso delle query elastiche per eseguire attività di reporting su un livello da
 
 ![Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
 
-> [AZURE.NOTE]Il database elastico sottoposto a query dedicato deve essere un database SQL versione 12. Non esistono restrizioni su partizioni stesse.
+> [AZURE.NOTE] Il database elastico sottoposto a query dedicato deve essere un database SQL versione 12. Non esistono restrizioni su partizioni stesse.
 
 
 ## Implementazione delle query su database elastico
@@ -85,19 +85,19 @@ I passaggi per l'implementazione delle query elastiche per gli scenari di partiz
 
 I passaggi seguenti configurano le query su database elastici per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in un database SQL remoto:
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey 
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **RDBMS**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 Dopo l'esecuzione delle istruzioni DDL, sarà possibile accedere alla tabella remota "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente una connessione al database remoto, elabora la richiesta nel database remoto e restituisce i risultati. Per altre informazioni sui passaggi necessari per lo scenario di partizionamento verticale, vedere [Query elastiche per il partizionamento verticale](sql-database-elastic-query-vertical-partitioning.md).
 
-### Partizionamento orizzontale - Partizionamento orizzontale 
+### Partizionamento orizzontale - Partizionamento orizzontale
 
 I passaggi seguenti configurano le query su database elastico per scenari di partizionamento orizzontale che richiedono l'accesso a un set di tabelle situate, in genere, in alcuni database SQL remoti:
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    Creare una [mappa partizioni](sql-database-elastic-scale-shard-map-management.md) che rappresenta il livello dati usando la libreria client dei database elastici.   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **SHARD\_MAP\_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
@@ -117,7 +117,7 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Si noti che
 ## Limiti di anteprima
 * L'esecuzione della prima query elastica può richiedere alcuni minuti nel livello di prestazioni Standard. Questo intervallo di tempo è necessario per caricare le funzionalità delle query elastiche. Le prestazioni di caricamento risultano migliori nei livelli di prestazioni più elevati.
 * La creazione di script di origini dati esterne o tabelle esterne da SSMS o SSDT non è ancora supportata.
-* L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione. 
+* L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione.
 * Le query su database elastico supportano attualmente solo l'accesso in sola lettura alle tabelle esterne. È tuttavia possibile usare la funzionalità T-SQL completa nel database in cui viene definita la tabella esterna. Ciò può risultare utile, ad esempio, per rendere permanenti i risultati temporanei usando SELECT <column_list> INTO <local_table> oppure per definire stored procedure nel database elastico sottoposto a query che fanno riferimento a tabelle esterne.
 * Ad eccezione di nvarchar(max), i tipi LOB non sono supportati nelle definizioni di tabelle esterne. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
 * Le statistiche di colonna sulle tabelle esterne non sono attualmente supportate. Le statistiche di tabella sono supportate ma devono essere create manualmente.
@@ -135,7 +135,7 @@ Altre informazioni sugli scenari di query tra database e di partizionamento vert
 
 Per altre informazioni sugli scenari di partizionamento orizzontale, vedere:
 
-* [Panoramica del partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md) 
+* [Panoramica del partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md)
 * Per ottenere un esempio completo funzionante in pochi minuti, provare a seguire l'esercitazione dettagliata disponibile in [Introduzione alle query dei database elastici per il partizionamento orizzontale](sql-database-elastic-query-getting-started.md).
 
 
@@ -150,4 +150,4 @@ Per altre informazioni sugli scenari di partizionamento orizzontale, vedere:
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

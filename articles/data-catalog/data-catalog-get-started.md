@@ -24,15 +24,15 @@ In questo articolo è riportata un'esercitazione end-to-end degli scenari e dell
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
--	**Sottoscrizione di Azure**: se non si dispone di una sottoscrizione, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
--	**Azure Active Directory** - Catalogo dati di Azure usa [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) per la gestione delle identità e degli accessi.
+-	**Sottoscrizione di Azure**: se non si dispone di una sottoscrizione, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+-	**Azure Active Directory** - Catalogo dati di Azure usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per la gestione delle identità e degli accessi.
 -	**Origini dati** - Catalogo dati di Azure offre funzionalità per l'individuazione delle origine dati e per eseguire l'esercitazione è necessario avere accesso a una o più origini dati. L'esercitazione è stata scritta usando i database di esempio Adventure Works, ma è possibile usare qualsiasi origine dati supportata, se si preferisce lavorare con dati familiari e pertinenti al ruolo in uso.
 
 ## Esercizio 1: installare il database di esempio Adventure Works
 
 In questo esercizio, si installa l'esempio Adventure Works per il motore di database di SQL Server e SQL Server Analysis Services - Dati multidimensionali. Questi esempi vengono usati negli esercizi seguenti.
 
-> [AZURE.NOTE]Questo esercizio è facoltativo. Gli esercizi rimanenti dell'esercitazione sono scritti per fare riferimento ai database di esempio Adventure Works, ma è anche possibile scegliere di ignorare l'esercizio e usare origini dati di cui si dispone. Ecco i passaggi per installare Adventure Works.
+> [AZURE.NOTE] Questo esercizio è facoltativo. Gli esercizi rimanenti dell'esercitazione sono scritti per fare riferimento ai database di esempio Adventure Works, ma è anche possibile scegliere di ignorare l'esercizio e usare origini dati di cui si dispone. Ecco i passaggi per installare Adventure Works.
 
 ### Installare i database Adventure Works 2014 OLTP e Data Warehouse
 
@@ -111,11 +111,11 @@ Per questo esempio, si userà una ricerca per parola chiave. La ricerca del **Ca
 
 **Tecniche di query**<table><tr><td><b>Tecnica</b></td><td><b>Uso</b></td><td><b>Esempio</b></td></tr><tr><td>Proprietà ambito</td><td>Restituire solo le origini dati in cui viene confrontato il termine di ricerca nella proprietà specificata</td><td>Nome:prodotto</td></tr><tr><td>Operatori logici</td><td>Allargare o limitare una ricerca usando operazioni booleane, come descritto nella sezione operatori booleani in questa pagina</td><td>Finanza NON aziendali</td></tr><tr><td>Con parentesi di raggruppamento</td><td>Usare le parentesi per parti di gruppo della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani</td><td>Nome:prodotto AND (tag:illustrazione O tag:foto)</td></tr><tr><td>Operatori di confronto</td><td>Usare confronti e non uguaglianza per proprietà che dispongono di tipi di dati numerici e date</td><td>DataDiCreazione:&gt; 05/11/14</td></tr></table>
 
-In questo esempio, si esegue una ricerca di **raggruppamento** degli asset di dati in cui il nome equivale al prodotto e i tag equivalgono all’illustrazione o alla foto.
+In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove nome è prodotto e tags è illustrazione o foto.
 
 1.	Accedere al portale del **Catalogo dati di Azure**.
 2.	Fare clic su **Individua**.
-3.	Nella casella **Cerca** immettere una query di **raggruppamento**: (tags:descrizione O tags:foto).
+3.	Nella casella **Cerca** immettere una query di **raggruppamento**: (tags:description OR tags:photo).
 4.	Fare clic sull'icona di ricerca o premere INVIO. Nel **Catalogo dati di Azure** vengono visualizzati gli asset di dati per questa query di ricerca.
 
     ![search][8]
@@ -142,7 +142,7 @@ In questo esercizio sono state aggiunte informazioni descrittive agli asset di d
 
 In questo esercizio si usa un altro utente per aggiungere i metadati agli asset di dati nel catalogo. L'approccio di crowdsourcing del Catalogo dati di Azure per le annotazioni consente agli utenti di aggiungere tag, descrizioni e altri metadati in modo che qualsiasi utente con una prospettiva su un asset di dati e sul relativo uso possa rendere tale prospettiva acquisita e disponibile per altri utenti.
 
-> [AZURE.NOTE]Se un altro utente non è disponibile per questa esercitazione, non è un problema. Qualsiasi utente che accede al catalogo dati può aggiungere la propria prospettiva quando sceglie di eseguire questa operazione. Questo approccio crowdsourcing per i metadati consente di incrementare nel tempo il contenuto del catalogo e la quantità di metadati del catalogo.
+> [AZURE.NOTE] Se un altro utente non è disponibile per questa esercitazione, non è un problema. Qualsiasi utente che accede al catalogo dati può aggiungere la propria prospettiva quando sceglie di eseguire questa operazione. Questo approccio crowdsourcing per i metadati consente di incrementare nel tempo il contenuto del catalogo e la quantità di metadati del catalogo.
 
 ### Ecco come è possibile eseguire il crowdsourcing dei metadati relativi ad asset di dati
 
@@ -159,7 +159,7 @@ In questo esercizio sono state usate le funzionalità del Catalogo dati di Azure
 In questo esercizio si userà il portale del **Catalogo dati di Azure** per la connessione alle origini dati mediante Microsoft Excel.
 
 
-> [AZURE.NOTE]È importante ricordare che il **Catalogo dati di Azure** non consente agli utenti di accedere all'origine dati effettiva, ma ne semplifica per gli utenti l’individuazione e la comprensione. Quando gli utenti si connettono a un'origine dati, l'applicazione client scelta usa le credenziali di Windows o richiede le credenziali necessarie. Se l'utente non ha già ottenuto l'accesso all'origine dati, dovrà essere concesso l'accesso prima che possa connettersi.
+> [AZURE.NOTE] È importante ricordare che il **Catalogo dati di Azure** non consente agli utenti di accedere all'origine dati effettiva, ma ne semplifica per gli utenti l’individuazione e la comprensione. Quando gli utenti si connettono a un'origine dati, l'applicazione client scelta usa le credenziali di Windows o richiede le credenziali necessarie. Se l'utente non ha già ottenuto l'accesso all'origine dati, dovrà essere concesso l'accesso prima che possa connettersi.
 
 ### Di seguito viene illustrato come connettersi a un'origine dati da Excel
 
@@ -181,7 +181,7 @@ In questo esercizio ci si connette alle origini dati individuate tramite il Cata
 
 In questo esercizio si userà il portale del **Catalogo dati di Azure** per rimuovere i dati di anteprima dagli asset di dati registrati ed eliminare gli asset di dati dal catalogo.
 
-> [AZURE.NOTE]Il comportamento predefinito del catalogo consente a tutti gli utenti di registrare qualsiasi origine dati e consente a qualsiasi utente di eliminare qualsiasi asset di dati registrato. Le funzionalità di gestione incluse nell'**Edizione Standard del Catalogo dati di Azure** forniscono opzioni aggiuntive per acquisire la proprietà degli asset, limitando gli utenti che possono individuare ed eliminare gli asset.
+> [AZURE.NOTE] Il comportamento predefinito del catalogo consente a tutti gli utenti di registrare qualsiasi origine dati e consente a qualsiasi utente di eliminare qualsiasi asset di dati registrato. Le funzionalità di gestione incluse nell'**Edizione Standard del Catalogo dati di Azure** forniscono opzioni aggiuntive per acquisire la proprietà degli asset, limitando gli utenti che possono individuare ed eliminare gli asset.
 
 Nel **Catalogo dati di Azure** è possibile rimuovere l’anteprima dall'eliminazione di un singolo asset o di più asset.
 
@@ -232,4 +232,4 @@ In questa esercitazione sono state analizzate le funzionalità essenziali dell�
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

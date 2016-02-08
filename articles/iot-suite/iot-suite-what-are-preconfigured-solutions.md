@@ -2,13 +2,14 @@
  pageTitle="Soluzioni preconfigurate di Azure IoT | Microsoft Azure"
  description="Descrizione delle soluzioni preconfigurate di Azure IoT e della relativa architettura con collegamenti a risorse aggiuntive."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -36,8 +37,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoraggio remoto | Sì | Sì | Sì | Sì | - |
-| Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
+| Monitoraggio remoto | Sì | Sì | Sì | Sì | - | | Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
 
 ## Panoramica della soluzione preconfigurata per il monitoraggio remoto
 
@@ -92,7 +92,7 @@ Il portale della soluzione è un'interfaccia utente basata sul Web che viene dis
 - Inviare comandi a dispositivi specifici.
 - Gestire regole e azioni.
 
-> [AZURE.NOTE]Il portale della soluzione mantiene anche il [registro delle identità dei dispositivi][lnk-identity-registry] dell'hub IoT sincronizzato con l'archivio delle informazioni più dettagliate sullo stato dei dispositivi nel database DocumentDB della soluzione.
+> [AZURE.NOTE] Il portale della soluzione mantiene anche il [registro delle identità dei dispositivi][lnk-identity-registry] dell'hub IoT sincronizzato con l'archivio delle informazioni più dettagliate sullo stato dei dispositivi nel database DocumentDB della soluzione.
 
 In questa soluzione preconfigurata il portale della soluzione fa parte del *back-end della soluzione IoT* ed è incluso nella *connettività commerciale e di elaborazione* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
@@ -115,4 +115,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

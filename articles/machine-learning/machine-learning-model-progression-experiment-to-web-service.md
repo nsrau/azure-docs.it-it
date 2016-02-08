@@ -25,7 +25,7 @@ Una volta verificato l'esperimento, è possibile distribuirlo come ***servizio W
 
 In questo articolo verrà fornita una panoramica dei meccanismi in base ai quali il modello di Machine Learning passa da un esperimento di sviluppo a un servizio Web operativo.
 
->[AZURE.NOTE]È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per informazioni su come creare un servizio Web predittivo con R, vedere il post di blog sulla [compilazione e la distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>[AZURE.NOTE] È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per informazioni su come creare un servizio Web predittivo con R, vedere il post di blog sulla [compilazione e la distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 
 Anche se Azure Machine Learning Studio è progettato principalmente per sviluppare e distribuire un *modello di analisi predittiva*, è possibile usare Studio per sviluppare un esperimento che non include un modello di analisi predittiva. Un esperimento, ad esempio, potrebbe limitarsi a inserire i dati, manipolarli e quindi generare l'output dei risultati. Proprio come un esperimento di analisi predittiva, è possibile distribuirlo come esperimento non predittivo, ma il processo è più semplice perché l'esperimento non eseguirà il training né assegnerà un punteggio a un modello di Machine Learning. Anche se non è l'uso tipico di Studio, verrà incluso nella spiegazione seguente per poter offrire una panoramica completa del funzionamento di Studio.
 
@@ -57,7 +57,7 @@ Questa conversione viene eseguita automaticamente con i passaggi seguenti:
 
 In questo processo di conversione l'esperimento di training non viene rimosso. Al termine del processo, Studio includerà due schede: una per l'esperimento di training e una per l'esperimento predittivo. In questo modo, prima di distribuire il servizio Web, è possibile apportare modifiche all'esperimento di training e ricompilare l'esperimento predittivo. In alternativa, è possibile salvare una copia dell'esperimento di training per iniziare un'altra linea di sperimentazione.
 
->[AZURE.NOTE]Quando si fa clic su **Set Up Web Service**, si avvia un processo automatico per convertire l'esperimento di training in un esperimento predittivo e questo è l'ideale nella maggior parte dei casi. Se però l'esperimento di training è complesso (ad esempio, con più percorsi per il training uniti insieme), è preferibile eseguire questa conversione manualmente. Per altri dettagli su come funziona questo processo di conversione, vedere [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+>[AZURE.NOTE] Quando si fa clic su **Set Up Web Service**, si avvia un processo automatico per convertire l'esperimento di training in un esperimento predittivo e questo è l'ideale nella maggior parte dei casi. Se però l'esperimento di training è complesso (ad esempio, con più percorsi per il training uniti insieme), è preferibile eseguire questa conversione manualmente. Per altri dettagli su come funziona questo processo di conversione, vedere [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 ### Servizio Web
 
@@ -160,4 +160,4 @@ Per esempi dell'intero processo, vedere:
 
 -   [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 
 - Database SQL di Azure 
 - Azure SQL Data Warehouse  
-- Database SQL Server nell'organizzazione o in una macchina virtuale di Azure. È necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Gateway di gestione dati è un software che connette le origini dati locali o ospitate in macchine virtuali di Azure ai servizi cloud, in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati. 
+- Database SQL Server in una VM di Azure o dell'azienda. È necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Gateway di gestione dati è un software che connette le origini dati locali o ospitate in macchine virtuali di Azure ai servizi cloud, in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati. 
 
 Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
@@ -53,13 +53,15 @@ name | Nome dell'attività | Sì
 description | Testo descrittivo per lo scopo dell'attività | No
 type | SqlServerStoredProcedure | Sì
 inputs | Set di dati di input che devono essere disponibili (in stato 'Ready') per l'esecuzione dell'attività di stored procedure da eseguire. Gli input per l'attività di stored procedure vengono usati solo per la gestione delle dipendenze nel concatenamento di questa attività con le altre. I set di dati di input non possono essere utilizzati nella stored procedure come parametro | No
-outputs | Set di dati di output generati dall'attività di stored procedure. Assicurarsi che la tabella di output usi un servizio collegato che collega un database SQL di Azure o un Azure SQL Data Warehouse alla data factory. Gli output nell'attività di stored procedure possono essere utilizzati come un metodo per trasferire il risultato dell'attività di stored procedure per la successiva elaborazione e/o possono essere utilizzati per la gestione delle dipendenze quando si concatena questa attività con le altre | Sì
+outputs | Set di dati di output generati dall'attività di stored procedure. Assicurarsi che la tabella di output usi un servizio collegato che collega un database SQL di Azure, un Azure SQL Data Warehouse o un database SQL Server alla data factory. Gli output nell'attività di stored procedure possono essere utilizzati come un metodo per trasferire il risultato dell'attività di stored procedure per la successiva elaborazione e/o possono essere utilizzati per la gestione delle dipendenze quando si concatena questa attività con le altre | Sì
 storedProcedureName | Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. | Sì
 storedProcedureParameters | Specificare i valori dei parametri della stored procedure | No
 
 ## Procedura dettagliata di esempio
 
 ### Tabella di esempio e stored procedure
+> [AZURE.NOTE] Questo esempio usa il database SQL di Azure, ma funziona nello stesso modo per Azure SQL Data Warehouse e il database di SQL Server.
+
 1. Creare la seguente **tabella** nel database SQL di Azure usando SQL Server Management Studio o qualsiasi altro strumento conosciuto. La colonna datetimestamp riporta la data e l'ora in cui viene generato l'ID corrispondente. 
 
 		CREATE TABLE dbo.sampletable
@@ -84,10 +86,10 @@ storedProcedureParameters | Specificare i valori dei parametri della stored proc
 		    VALUES (newid(), @DateTime)
 		END
 
-	> [AZURE.IMPORTANT]Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per pipeline/attività. Nella definizione della stored procedure assicurarsi che **@** sia usato come prefisso per il parametro.
+	> [AZURE.IMPORTANT] Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per pipeline/attività. Nella definizione della stored procedure assicurarsi che **@** sia usato come prefisso per il parametro.
 	
 ### Creare un'istanza di Data factory  
-4. Dopo l'accesso al [portale di Azure](http://portal.azure.com/), seguire questa procedura:
+4. Dopo l'accesso al [portale di Azure](https://portal.azure.com/), seguire questa procedura:
 	1.	Fare clic su **NUOVO** nel menu a sinistra. 
 	2.	Fare clic su **Analisi dei dati** nel pannello **Crea**.
 	3.	Fare clic su **Data factory** nel pannello **Analisi dei dati**.
@@ -177,7 +179,7 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
 
 	Vedere [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) per informazioni dettagliate sul monitoraggio delle pipeline di Data Factory di Azure.
 
-> [AZURE.NOTE]Nell'esempio precedente, l'attività SprocActivitySample non contiene dati di input. Se si desidera concatenarla con un'attività upstream (ad esempio elaborazione precedente), è possibile usare gli output dell'attività upstream come input di questa attività. In questo caso, l'attività non verrà eseguita finché l'attività upstream non sarà completata e gli output delle attività upstream non saranno disponibili (in stato Ready). Non è possibile usare gli input direttamente come parametri dell'attività di stored procedure.
+> [AZURE.NOTE] Nell'esempio precedente, l'attività SprocActivitySample non contiene dati di input. Se si desidera concatenarla con un'attività upstream (ad esempio elaborazione precedente), è possibile usare gli output dell'attività upstream come input di questa attività. In questo caso, l'attività non verrà eseguita finché l'attività upstream non sarà completata e gli output delle attività upstream non saranno disponibili (in stato Ready). Non è possibile usare gli input direttamente come parametri dell'attività di stored procedure.
 
 ## Passaggio di un valore statico 
 A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario' nella tabella contenente un valore statico denominato 'Document sample'.
@@ -205,4 +207,4 @@ A tale scopo, passare il parametro di Scenario e il valore dall'attività di sto
 		}
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

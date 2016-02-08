@@ -63,9 +63,9 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 ## Considerazioni sulla sottoscrizione
 
-* **Account Azure**: se si intende distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento a consumo o altre opzioni di acquisto. È anche possibile usare la sottoscrizione MSDN. Vedere [Benefici di Azure per sottoscrittori MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Con una [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/) è possibile utilizzare solo un numero limitato di core di calcolo di Azure.
+* **Account Azure**: se si intende distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento a consumo o altre opzioni di acquisto. È anche possibile usare la sottoscrizione MSDN. Vedere [Benefici di Azure per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Con una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) è possibile utilizzare solo un numero limitato di core di calcolo di Azure.
 
-* **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure dal valore predefinito di 20 core per sottoscrizione (per le distribuzioni di Gestione servizi di Azure) o 20 core per area (per le distribuzioni di Gestione risorse di Azure), che non è sufficiente per molti scenari con istanze da 8 o 16 core. Per i test iniziali potrebbe essere necessario richiedere un aumento della quota a 100 core. A tale scopo, aprire un ticket di supporto gratuito, come descritto nelle [informazioni sui limiti e gli aumenti di Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure dal valore predefinito di 20 core per sottoscrizione (per le distribuzioni di Gestione servizi di Azure) o 20 core per area (per le distribuzioni di Gestione risorse di Azure), che non è sufficiente per molti scenari con istanze da 8 o 16 core. Per i test iniziali potrebbe essere necessario richiedere un aumento della quota a 100 core. A tale scopo, aprire un ticket di supporto gratuito, come descritto nelle [informazioni sui limiti e gli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Le quote di Azure sono limiti di credito e non garanzie di capacità. Viene addebitato solo l'uso dei core effettivamente impiegati.
 
@@ -77,13 +77,13 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 ### Considerazioni per HPC Pack e Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) è una soluzione gratuita di Microsoft per la gestione di cluster HPC e dei processi per Windows. A partire da HPC Pack 2012 R2 Update 2, HPC Pack supporta varie distribuzioni di Linux per l'esecuzione su nodi di calcolo distribuiti in macchine virtuali di Azure, gestite da un nodo head di Windows Server. Con la versione più recente di HPC Pack è possibile distribuire un cluster basato su Linux in grado di eseguire applicazioni MPI che accedono alla rete RDMA in Azure. Per altre informazioni, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) è una soluzione gratuita di Microsoft per la gestione di cluster HPC e dei processi per Windows. A partire da HPC Pack 2012 R2 Update 2, HPC Pack supporta varie distribuzioni di Linux per l'esecuzione su nodi di calcolo distribuiti in macchine virtuali di Azure, gestite da un nodo head di Windows Server. Con la versione più recente di HPC Pack è possibile distribuire un cluster basato su Linux in grado di eseguire applicazioni MPI che accedono alla rete RDMA in Azure. Per ulteriori informazioni, vedere[Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md)
 
 ### Considerazioni per HPC Pack e Windows
 
 HPC Pack non è necessario per l'utilizzo delle istanze A8, A9, A10 e A11 con Windows Server, ma è uno strumento consigliato per la creazione di cluster Windows HPC in Azure. Nel caso delle istanze A8 e A9, HPC Pack è lo strumento più efficiente per eseguire applicazioni Windows MPI che accedono alla rete RDMA in Azure. HPC Pack include un ambiente di runtime per l'implementazione Microsoft dell'interfaccia MPI (Message Passing Interface) per Windows.
 
-Per altre informazioni ed elenchi di controllo per usare le istanze a elevato utilizzo di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
+Per ulteriori informazioni ed elenchi di controllo per utilizzare le istanze con utilizzo intensivo di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster di Windows RDMA con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 ## Accesso alla rete RDMA
 
@@ -91,9 +91,9 @@ Per altre informazioni ed elenchi di controllo per usare le istanze a elevato ut
 
 All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano i driver RDMA Linux per la comunicazione tra le istanze. Attualmente Azure Linux RDMA è supportato solo con [Intel MPI Library 5](https://software.intel.com/it-IT/intel-mpi-library/).
 
->[AZURE.NOTE]Attualmente, i driver di Azure Linux RDMA non sono disponibili per l'installazione tramite estensioni del driver. Sono disponibili solo utilizzando l'immagine SLES 12 abilitata per RDMA da Azure Marketplace.
+>[AZURE.NOTE] Attualmente, i driver di Azure Linux RDMA non sono disponibili per l'installazione tramite estensioni del driver. Sono disponibili solo utilizzando l'immagine SLES 12 abilitata per RDMA da Azure Marketplace.
 
-Vedere la tabella seguente per i prerequisiti per applicazioni MPI Linux per l'accesso alla rete RDMA in cluster di nodi di calcolo (IaaS). Per la procedura di configurazione e le opzioni di distribuzione, vedere [Configurare un cluster RDMA di Linux per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
+Vedere la tabella seguente per i prerequisiti per applicazioni MPI Linux per l'accesso alla rete RDMA in cluster di nodi di calcolo (IaaS). Vedere[Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md)per la procedura di configurazione e le opzioni di distribuzione.
 
 Prerequisito | Macchine virtuali (IaaS)
 ------------ | -------------
@@ -126,8 +126,8 @@ MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC P
 
 ## Passaggi successivi
 
-* Per informazioni dettagliate sulla disponibilità e i prezzi delle istanze A8, A9, A10 e A11, vedere gli articoli relativi ai [prezzi delle macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/) e ai [prezzi dei servizi cloud](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Per informazioni dettagliate sulla disponibilità e i prezzi delle istanze A8, A9, A10 e A11, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Servizi cloud - Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Per distribuire e configurare un cluster Linux con istanze A8 e A9 per accedere alla rete RDMA di Azure, vedere [Configurare un cluster RDMA di Linux per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
 * Per iniziare a distribuire e usare istanze A8 e A9 con HPC Pack in Windows, vedere [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

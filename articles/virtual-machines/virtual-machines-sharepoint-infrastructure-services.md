@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # SharePoint nei servizi infrastruttura di Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
-Impostare la prima o successiva di sviluppo e test o produzione farm di SharePoint nei servizi infrastruttura di Microsoft Azure, dove è possibile sfruttare facilità di configurazione e la possibilità di espandere rapidamente la farm per includere la nuova capacità o l'ottimizzazione delle funzionalità chiave.
+Impostare la prima o la successiva farm SharePoint Server 2013 di sviluppo/test o produzione nei servizi di infrastruttura di Microsoft Azure, dove è possibile sfruttare la facilità di configurazione e la possibilità di espandere rapidamente la farm per includere la nuova capacità o l'ottimizzazione delle funzionalità chiave.
 
-> [AZURE.NOTE]Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Base farm di sviluppo e test di SharePoint
 
@@ -33,7 +33,7 @@ Vedere l'elemento [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/mark
 
 È anche possibile usare un modello di Gestione risorse di Azure. Vedere [Distribuire una farm di SharePoint a tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
+> [AZURE.NOTE] L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
 
 ## Farm di sviluppo e test di SharePoint a disponibilità elevata
 
@@ -43,7 +43,7 @@ Vedere l'elemento [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketpl
 
 È anche possibile usare un modello di Gestione risorse di Azure. Vedere [Distribuire una farm di SharePoint a nove server](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
+> [AZURE.NOTE] L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
 
 ## Farm di sviluppo e test cloud ibrida
 
@@ -57,16 +57,8 @@ Con la distribuzione di [SharePoint 2013 con gruppi di disponibilità di SQL Ser
 
 Questa configurazione usa il modello di distribuzione classica.
 
-## Risorse aggiuntive
+## Passaggio successivo
 
-[Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+- Scoprire ulteriori configurazioni [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
 
-[Siti Internet in Microsoft Azure tramite SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
-
-[Ripristino di emergenza di SharePoint Server 2013 in Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
-
-[Utilizzo di Microsoft Azure Active Directory per l'autenticazione di SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
-
-[Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

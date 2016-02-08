@@ -178,7 +178,7 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
 		        }
 		
-		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string path, string dlAccountName, string permission)
+		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string permission)
 		        {
 		            dataLakeStoreFileSystemClient.FileSystem.Mkdirs(path, dlAccountName, permission);
 		            return true;
@@ -190,6 +190,14 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 		            var frontend = new DataLakeStoreFrontEndAdapter(dlAccountName, dataLakeStoreFileSystemClient);
 		            var uploader = new DataLakeStoreUploader(parameters, frontend);
 		            uploader.Execute();
+		            return true;
+		        }
+		        
+		        public static bool AppendToFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string content)
+		        {
+		            var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+		            
+		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(filePath, accountName, stream);
 		            return true;
 		        }
 		
@@ -227,4 +235,4 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 - [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

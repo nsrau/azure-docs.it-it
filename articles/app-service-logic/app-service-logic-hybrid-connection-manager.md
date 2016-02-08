@@ -21,11 +21,11 @@ Per usare un sistema locale, il servizio app di Azure usa Gestione connessione i
 
 Gestione connessione ibrida è un programma di installazione di tipo ClickOnce che viene installato in un server IIS all'interno della rete protetta da un firewall. Con l'inoltro del bus di servizio di Azure, Gestione connessione ibrida autentica il sistema locale con il connettore in Azure.
 
-> [AZURE.NOTE]Gestione connessione ibrida è necessario solo se ci si connette a una risorsa locale protetta da un firewall. Se non ci si connette a un sistema locale, non è necessario usare Gestione connessione ibrida.
+> [AZURE.NOTE] Gestione connessione ibrida è necessario solo se ci si connette a una risorsa locale protetta da un firewall. Se non ci si connette a un sistema locale, non è necessario usare Gestione connessione ibrida.
 
 Per iniziare, è necessario:
 
-- Stringa di connessione della firma di accesso condiviso dello spazio dei nomi per l'inoltro del bus di servizio di Azure. Vedere i [prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/) per determinare quale livello include gli inoltri.
+- Stringa di connessione della firma di accesso condiviso dello spazio dei nomi per l'inoltro del bus di servizio di Azure. Vedere i [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) per determinare quale livello include gli inoltri.
 - Informazioni per l'accesso al sistema locale, inclusi il nome utente e la password. Per connettersi ad esempio a un'istanza di SQL Server locale, è necessario avere l'account di accesso e la password di SQL Server.
 - Informazioni del server locale, inclusi il nome del server e il numero di porta. Per connettersi ad esempio a un'istanza di SQL Server locale, è necessario avere il nome dell'istanza di SQL Server e il numero di porta TCP.
 
@@ -56,7 +56,7 @@ Al termine dell'installazione, verrà visualizzata la schermata seguente: <br/> 
 
 A questo punto, quando si passa di nuovo al connettore, lo stato della connessione ibrida sarà **Connesso**: Potrebbe essere necessario chiudere il connettore e riaprirlo: <br/> ![][4]
 
-> [AZURE.NOTE]Per passare alla stringa di connessione secondaria, eseguire nuovamente l'installazione della connessione ibrida e immettere la **Stringa di configurazione secondaria**.
+> [AZURE.NOTE] Per passare alla stringa di connessione secondaria, eseguire nuovamente l'installazione della connessione ibrida e immettere la **Stringa di configurazione secondaria**.
 
 
 ## Porte TCP e sicurezza
@@ -119,7 +119,7 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
 ## Altre informazioni
 
-[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

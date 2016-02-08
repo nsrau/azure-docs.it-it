@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -26,7 +26,7 @@ Informazioni su come gestire gli account, le origini dati, gli utenti e i proces
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure]https://azure.microsoft.com/it-IT/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -242,7 +242,7 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]La priorità predefinita di un processo è 1000 e il livello predefinito di parallelismo per un processo è 1.
+> [AZURE.NOTE] La priorità predefinita di un processo è 1000 e il livello predefinito di parallelismo per un processo è 1.
 
 
 ### Annullare i processi
@@ -392,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

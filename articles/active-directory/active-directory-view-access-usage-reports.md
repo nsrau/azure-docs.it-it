@@ -34,7 +34,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 > [AZURE.NOTE]
 >
 - Alcuni report di utilizzo di anomalie e risorse avanzati sono disponibili solo quando si abilita [Azure Active Directory Premium](active-directory-get-started-premium.md). I report avanzati consentono di migliorare la sicurezza dell'accesso, di rispondere a potenziali rischi e ottenere l'accesso alle analisi sull'accesso al dispositivo e l'utilizzo delle applicazioni.
-- Azure Active Directory Premium e le edizioni Basic sono disponibili per i clienti in Cina usando l'istanza a livello mondiale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Azure Active Directory Premium e le edizioni Basic sono disponibili per i clienti in Cina usando l'istanza a livello mondiale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Report
 
@@ -221,7 +221,7 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 | ----------------------								| ---------		|
 | Accessi al [Pannello di accesso](http://myapps.microsoft.com/) | Sì |
 | Accessi al [portale di gestione di Azure](https://manage.windowsazure.com/) | Sì |
-| Accessi al [portale di Microsoft Azure](http://portal.azure.com/) | Sì |
+| Accessi al [portale di Microsoft Azure](https://portal.azure.com/) | Sì |
 | Accessi per il [portale di Office 365](http://portal.office.com/) | Sì |
 | Accessi a un'applicazione nativa, ad esempio Outlook (vedere l'eccezione riportata di seguito) | Sì |
 | Accessi a un'app federativa/con provisioning tramite il pannello di accesso, come Salesforce | Sì |
@@ -253,7 +253,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 1. Nel portale di gestione di Azure, fare clic su **Active Directory**, fare clic sul nome della directory dell'organizzazione e quindi fare clic su **Report**.
 2. Nella pagina Report, fare clic sul report che si desidera visualizzare e/o scaricare.
 
-    > [AZURE.NOTE]Se questa è la prima volta che si usa la funzionalità di creazione di report di Azure Active Directory, verrà visualizzato un messaggio relativo al consenso esplicito. Se si accetta, fare clic sull'icona del segno di spunta per continuare.
+    > [AZURE.NOTE] Se questa è la prima volta che si usa la funzionalità di creazione di report di Azure Active Directory, verrà visualizzato un messaggio relativo al consenso esplicito. Se si accetta, fare clic sull'icona del segno di spunta per continuare.
 
 3. Fare clic sul menu a discesa accanto a Intervallo e quindi selezionare uno degli intervalli di tempo che devono essere usati durante la generazione di questo report:
     - Ultime 24 ore
@@ -271,11 +271,11 @@ Se si stanno visualizzando tutti i report anomalie, si noterà che è possibile 
 
 ## Notifiche automatiche tramite posta elettronica
 
-Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche di Report di Azure Active Directory](active-directory-reporting-notifications.md).
+Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche relative alla funzionalità di creazione di report di Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Passaggi successivi
 
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

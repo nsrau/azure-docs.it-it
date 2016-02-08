@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 1: Configurare Azure
@@ -62,7 +62,7 @@ Elemento | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 **Tabella S: Subnet nella rete virtuale**
 
-> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](virtual-networks-nsg.md) di Azure.
+> [AZURE.NOTE] Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](virtual-networks-nsg.md) di Azure.
 
 Per i due server DNS locali da usare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare la Tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
@@ -87,7 +87,7 @@ Elemento | Spazio degli indirizzi della rete virtuale
 
 In primo luogo, avviare un prompt di Azure PowerShell.
 
-> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+> [AZURE.NOTE] Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Innanzitutto, avviare un prompt di Azure PowerShell e accedere al proprio account.
 
@@ -220,4 +220,4 @@ Questa è la configurazione risultante dal corretto completamento di questa fase
 
 - Seguire la [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

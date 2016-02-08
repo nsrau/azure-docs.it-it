@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="Informazioni sull'accesso alle risorse in Azure" 
-                description="Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Informazioni sull'accesso alle risorse in Azure" 
+    description="Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Informazioni sull'accesso alle risorse in Azure
 
 
-> [AZURE.NOTE]Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo. In alternativa, il portale di anteprima di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) che permette di gestire le risorse di Azure con maggiore precisione.
+> [AZURE.NOTE] Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo. In alternativa, il portale di anteprima di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) che permette di gestire le risorse di Azure con maggiore precisione.
 
 Nel mese di ottobre 2013 il portale di gestione di Azure e le API di gestione dei servizi sono state integrate con Azure Active Directory al fine di creare i presupposti per migliorare l'esperienza utente per la gestione degli accessi alle risorse di Azure. Azure Active Directory offre già potenti funzionalità per la gestione degli utenti, per la sincronizzazione della directory locale, per l'autenticazione a più fattori e il controllo di accesso alle applicazioni. Naturalmente, queste funzionalità dovrebbero essere rese disponibili per la gestione delle risorse di Azure a livello generale.
 
@@ -37,11 +37,11 @@ Le funzionalità incluse nel portale di gestione di Azure consentono agli ammini
 
 
 
-> [AZURE.NOTE]Il comando **Modifica directory** nel portale di gestione di Azure non è disponibile per gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione, perché questi account possono accedere solo alla directory a cui appartengono.
+> [AZURE.NOTE] Il comando **Modifica directory** nel portale di gestione di Azure non è disponibile per gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione, perché questi account possono accedere solo alla directory a cui appartengono.
 
 <br><br>![Flusso di accesso utente semplice][3]
 
-Nel caso più semplice, un'organizzazione, ad esempio Contoso, imporrà la fatturazione e il controllo di accesso a livello dello stesso set di sottoscrizioni. Questo significa che la directory è associata alle sottoscrizioni di proprietà di un singolo account Azure. Dopo l'accesso al portale di gestione di Azure, gli utenti visualizzeranno due raccolte di risorse (illustrate in arancione nella figura precedente):
+Nel caso più semplice un'organizzazione, ad esempio Contoso, imporrà la fatturazione e il controllo di accesso nello stesso set di sottoscrizioni. Questo significa che la directory è associata alle sottoscrizioni di proprietà di un singolo account Azure. Dopo l'accesso al portale di gestione di Azure, gli utenti visualizzeranno due raccolte di risorse (illustrate in arancione nella figura precedente):
 
 
 - Directory in cui è presente l'account utente (originato o aggiunto come entità esterna). Si noti che la directory usata per l'accesso non è rilevante ai fini di questo calcolo, di conseguenza verranno sempre visualizzate tutte le directory, indipendentemente da quella usata per l'accesso.
@@ -64,4 +64,4 @@ Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare 
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

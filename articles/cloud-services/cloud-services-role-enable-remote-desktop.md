@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.
@@ -28,8 +28,8 @@ Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azur
 È possibile abilitare una connessione Desktop remoto nel ruolo durante lo sviluppo includendo i moduli di Desktop remoto nella definizione del servizio o è possibile scegliere di abilitare Desktop remoto tramite la relativa estensione. L'approccio migliore consiste nell'usare l'estensione di Desktop remoto, in quanto è possibile abilitare Desktop remoto anche dopo che l'applicazione viene distribuita senza doverla ridistribuire.
 
 
-## Configurare Remote Desktop dal portale
-Il portale usa l'approccio dell'estensione di Desktop remoto in modo da poter abilitare Desktop remoto anche dopo la distribuzione dell'applicazione. La pagina **Configura** per il servizio cloud consente di abilitare Desktop remoto, modificare l'account amministratore locale usato per connettersi alle macchine virtuali e il certificato usato nell'autenticazione e impostare la data di scadenza.
+## Configurare Remote Desktop dal portale di Azure classico
+Il portale di Azure classico usa l'approccio dell'estensione di Desktop remoto per poter abilitare Desktop remoto anche dopo la distribuzione dell'applicazione. La pagina **Configura** per il servizio cloud consente di abilitare Desktop remoto, modificare l'account amministratore locale usato per connettersi alle macchine virtuali e il certificato usato nell'autenticazione e impostare la data di scadenza.
 
 
 1. Fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Configura**.
@@ -38,7 +38,7 @@ Il portale usa l'approccio dell'estensione di Desktop remoto in modo da poter ab
     
     ![Servizi cloud remoti](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]Tutte le istanze del ruolo verranno riavviate la prima volta che si abilita Desktop remoto e si fa clic su OK (segno di spunta). Per evitare un riavvio, è necessario che nel ruolo sia installato il certificato usato per crittografare la password. Per evitare un riavvio [caricare un certificato per il servizio cloud](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) e quindi tornare alla finestra di dialogo.
+    > [AZURE.WARNING] Tutte le istanze del ruolo verranno riavviate la prima volta che si abilita Desktop remoto e si fa clic su OK (segno di spunta). Per evitare un riavvio, è necessario che nel ruolo sia installato il certificato usato per crittografare la password. Per evitare un riavvio [caricare un certificato per il servizio cloud](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) e quindi tornare alla finestra di dialogo.
     
 
 3. In **Ruoli** selezionare il ruolo da aggiornare oppure selezionare **Tutti** per tutti i ruoli.
@@ -61,7 +61,7 @@ Il portale usa l'approccio dell'estensione di Desktop remoto in modo da poter ab
 ## Accedere in remoto alle istanze del ruolo
 Dopo l'abilitazione di Desktop remoto per i ruoli è possibile accedere in remoto a un'istanza del ruolo tramite diversi strumenti.
 
-Per connettersi a un'istanza del ruolo dal portale:
+Per connettersi a un'istanza del ruolo dal portale di Azure classico:
     
   1.   Fare clic su **Istanze** per aprire la pagina **Istanze**.
   2.   Selezionare un'istanza del ruolo per cui è configurato Desktop remoto.
@@ -147,4 +147,4 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

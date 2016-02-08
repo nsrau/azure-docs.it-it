@@ -50,7 +50,7 @@ Il plug-in supporta il caricamento e la riproduzione di contenuto Smooth Streami
 
 ## Funzionalità supportate e problemi noti
 
-Per un elenco completo di funzionalità supportate, funzionalità non supportate e problemi noti, vedere [questo documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Per un elenco completo di funzionalità supportate, funzionalità non supportate e problemi noti, fare riferimento a [questo documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
 
 ## Caricamento del plug-in
@@ -410,6 +410,6 @@ Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagi
 
 ##Vedere anche
 
-[Plug-in di streaming adattivo Microsoft per aggiornamento OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+[Plug-in di streaming adattivo Microsoft per aggiornamento OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

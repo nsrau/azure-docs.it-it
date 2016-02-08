@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
@@ -52,7 +52,7 @@ Per applicare questo metodo, seguire questa procedura:
 1. Selezionare **Connettori** e quindi selezionare il primo connettore con il tipo **Servizi di dominio Active Directory**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**. Eseguire questa operazione per tutti i connettori di questo tipo.
 2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Esegui**, selezionare **Importazione completa** e fare clic su **OK**.
 4. Assicurarsi che Connettori sia ancora selezionata e per ogni connettore con il tipo **Servizi di dominio Active Directory** fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e fare clic su **OK**.
-5. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
+5. Selezionare il connettore con il tipo **Azure Active Directory** (Microsoft). Fare clic su **Esegui**, selezionare **Sincronizzazione differenziale** e quindi fare clic su OK.
 
 È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentiranno di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
 
@@ -110,8 +110,8 @@ Un metodo comune e supportato consiste nell'eseguire il motore di sincronizzazio
 Se non si usa SQL Server Express, fornito con Azure AD Connect, è necessario prendere in considerazione anche la disponibilità elevata per SQL Server. La sola soluzione a disponibilità elevata è il clustering SQL. Le soluzioni non supportate includono il mirroring e AlwaysOn.
 
 ## Passaggi successivi
-Altre informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

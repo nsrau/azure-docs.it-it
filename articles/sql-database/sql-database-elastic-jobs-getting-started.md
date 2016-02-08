@@ -417,7 +417,7 @@ Per sospendere l'esecuzione del processo ricorrente tramite un trigger di proces
  È possibile importare i risultati da di una query a un file di Excel.
 
 1. Avviare Excel 2013.
-2. 	Individuare la barra multifunzione **Dati**.
+2. 	Individuare il **dati** della barra multifunzione.
 3. 	Fare clic su**Da altre fonti**quindi**Da SQL Server**.
 
 	![Importazione di Excel da altre origini][5]
@@ -434,7 +434,7 @@ Tutte le righe dalla tabella **Clienti**, archiviate in diverse partizioni sono 
 ### Costi
 Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
 
-Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

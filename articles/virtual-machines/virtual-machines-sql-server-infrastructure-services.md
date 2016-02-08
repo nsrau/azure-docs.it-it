@@ -20,17 +20,17 @@
 # Panoramica di SQL Server in Macchine virtuali di Azure
 
 ## Introduzione
-È possibile ospitare [SQL Server in macchine virtuali Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) in una vasta gamma di configurazioni, da un singolo server di database a una configurazione con più computer utilizzando i gruppi di disponibilità AlwaysOn e una rete virtuale di Azure.
+È possibile ospitare [SQL Server in macchine virtuali Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) in una vasta gamma di configurazioni, da un singolo server di database a una configurazione con più computer utilizzando i gruppi di disponibilità AlwaysOn e una rete virtuale di Azure.
 
->[AZURE.NOTE]In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per altre informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
+>[AZURE.NOTE] In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per altre informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
-Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Distribuire un'istanza di SQL Server in una singola macchina virtuale
 
 Dopo l'iscrizione a una sottoscrizione, il modo più semplice per distribuire una macchina virtuale di SQL Server in Azure consiste nell'[effettuare il provisioning di un'immagine della raccolta di macchine virtuali di SQL Server nel portale di Azure classico](virtual-machines-provision-sql-server.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
 
->[AZURE.NOTE]Utilizzare il portale di Azure per eseguire il provisioning e gestire macchine virtuali di SQL Server. Utilizza l'archiviazione Premium per impostazione predefinita e offre l'applicazione automatizzata di patch, il backup automatizzato e configurazioni AlwaysOn.
+>[AZURE.NOTE] Utilizzare il portale di Azure per eseguire il provisioning e gestire macchine virtuali di SQL Server. Utilizza l'archiviazione Premium per impostazione predefinita e offre l'applicazione automatizzata di patch, il backup automatizzato e configurazioni AlwaysOn.
 
 La tabella seguente descrive una matrice di immagini di SQL Server disponibili nella raccolta di macchine virtuali.
 
@@ -44,9 +44,9 @@ La tabella seguente descrive una matrice di immagini di SQL Server disponibili n
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Versione di valutazione|
 
->[AZURE.NOTE]Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico.
+>[AZURE.NOTE] Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico.
 
-Oltre a queste immagini preconfigurate, è anche possibile [creare una macchina virtuale di Azure](virtual-machines-windows-tutorial.md) senza SQL Server preinstallato. È possibile installare qualsiasi istanza di SQL Server per cui si dispone di una licenza. Si esegue la migrazione della licenza in Azure per l'esecuzione di SQL Server in macchine virtuale di Azure usando la [mobilità delle licenze tramite Software Assurance in Azure](http://azure.microsoft.com/pricing/license-mobility/). In questo scenario si pagano solo i [costi](http://azure.microsoft.com/pricing/details/virtual-machines) di archiviazione e calcolo di Azure associati alla macchina virtuale.
+Oltre a queste immagini preconfigurate, è anche possibile [creare una macchina virtuale di Azure](virtual-machines-windows-tutorial.md) senza SQL Server preinstallato. È possibile installare qualsiasi istanza di SQL Server per cui si dispone di una licenza. Si esegue la migrazione della licenza in Azure per l'esecuzione di SQL Server in macchine virtuale di Azure usando la [mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). In questo scenario si pagano solo i [costi](https://azure.microsoft.com/pricing/details/virtual-machines/) di archiviazione e calcolo di Azure associati alla macchina virtuale.
 
 Per determinare le impostazioni di configurazione migliori della macchina virtuale per l'immagine di SQL Server, esaminare [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md). Per i carichi di lavoro di produzione, **DS3** è la dimensione minima consigliata della macchina virtuale per SQL Server Enterprise Edition e **DS2** è la dimensione minima consigliata della macchina virtuale per l'edizione Standard.
 
@@ -94,7 +94,7 @@ L'installazione di Windows Server nell'immagine della piattaforma contiene i com
 |Account Guest|Disabled|
 |Windows Firewall con sicurezza avanzata|Attivato|
 |.NET Framework|Versione 4|
-|Dischi|Le dimensioni selezionate limitano il numero di dischi dati che è possibile configurare. Vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md)|
+|Dischi|Le dimensioni selezionate limitano il numero di dischi dati che è possibile configurare. Vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-size-specs.md)|
 
 ### SQL Server
 
@@ -138,7 +138,7 @@ Il [programma Analisi utilizzo software](https://technet.microsoft.com/library/c
 
 Se si crea una macchina virtuale usando un'immagine di SQL Server fornita dalla piattaforma, è possibile trovare i supporti di installazione di SQL Server salvati nella macchina virtuale nella directory **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full**. È possibile eseguire il programma di installazione da questa directory per effettuare tutte le azioni di installazione, ad esempio l'aggiunta o la rimozione di funzionalità, l'aggiunta di una nuova istanza o il ripristino dell'istanza, se lo spazio su disco è sufficiente.
 
->[AZURE.NOTE]Azure offre più versioni di immagini di SQL Server. Se la data di rilascio della versione dell'immagine di SQL Server fornita dalla piattaforma è 15 maggio 2014 o successiva, contiene il codice Product Key per impostazione predefinita. Se si esegue il provisioning di una macchina virtuale usando un'immagine di SQL Server fornita dalla piattaforma che è stata pubblicata prima di tale data, la macchina virtuale non contiene il codice Product Key. È consigliabile selezionare sempre la versione di immagine più recente per il provisioning di una nuova macchina virtuale.
+>[AZURE.NOTE] Azure offre più versioni di immagini di SQL Server. Se la data di rilascio della versione dell'immagine di SQL Server fornita dalla piattaforma è 15 maggio 2014 o successiva, contiene il codice Product Key per impostazione predefinita. Se si esegue il provisioning di una macchina virtuale usando un'immagine di SQL Server fornita dalla piattaforma che è stata pubblicata prima di tale data, la macchina virtuale non contiene il codice Product Key. È consigliabile selezionare sempre la versione di immagine più recente per il provisioning di una nuova macchina virtuale.
 
 ## Risorse
 
@@ -148,4 +148,4 @@ Se si crea una macchina virtuale usando un'immagine di SQL Server fornita dalla 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Macchine virtuali di Azure](virtual-machines-about.md) 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

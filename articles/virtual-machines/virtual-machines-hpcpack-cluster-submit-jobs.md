@@ -39,7 +39,7 @@ Per consentire a un'interfaccia REST di inviare processi al cluster tramite HTTP
 
 Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Alcuni modelli di avvio rapido di Azure installano e configurano automaticamente i componenti Web. Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster, è possibile scegliere di installare e configurare i componenti Web durante la distribuzione.
+>[AZURE.TIP] Alcuni modelli di avvio rapido di Azure installano e configurano automaticamente i componenti Web. Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster, è possibile scegliere di installare e configurare i componenti Web durante la distribuzione.
 
 **Per installare i componenti Web**
 
@@ -66,7 +66,7 @@ Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft H
 
 4. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si usa lo script di distribuzione di HPC Pack IaaS per creare il cluster, il nome del certificato è nel formato CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di avvio rapido di Azure, il nome del certificato è nel formato CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE]È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
+    >[AZURE.NOTE] È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
 
 5. Per configurare il portale Web per l'invio di processi, digitare il comando seguente:
 
@@ -114,7 +114,7 @@ Per usare gli strumenti client di HPC Pack per inviare processi alla macchina vi
 
 
 
->[AZURE.SECURITY]Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non verrà riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
+>[AZURE.SECURITY] Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non verrà riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
 
 ## Passaggio 3: eseguire processi di prova sul cluster
 
@@ -134,7 +134,7 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]Nell'URL dell'Utilità di pianificazione usare il nome DNS completo del nodo head e non l'indirizzo IP. Se si specifica l'indirizzo IP, viene restituito un errore che indica che "è necessario che il certificato del server includa una catena di certificati valida o deve essere posizionato nell'archivio radice attendibile".
+    >[AZURE.TIP] Nell'URL dell'Utilità di pianificazione usare il nome DNS completo del nodo head e non l'indirizzo IP. Se si specifica l'indirizzo IP, viene restituito un errore che indica che "è necessario che il certificato del server includa una catena di certificati valida o deve essere posizionato nell'archivio radice attendibile".
 
 3. Quando richiesto, digitare il nome utente (nel formato &lt;DomainName&gt;\\&lt;UserName&gt;) e la password dell'amministratore del cluster HPC o di un altro utente cluster configurato. È possibile scegliere di archiviare le credenziali in locale per ulteriori operazioni di processo.
 
@@ -188,4 +188,4 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

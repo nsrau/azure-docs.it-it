@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Caricare un certificato di API di gestione di Microsoft Azure nel portale" 
-	description="Informazioni su come caricare il certificato di gestione API athe in Microsoft Azure" 
+	pageTitle="Caricare un certificato di gestione dell'API di Microsoft Azure nel portale" 
+	description="Informazioni su come caricare il certificato di gestione API in Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -17,26 +17,26 @@
 	ms.author="adegeo"/>
 
 
-# Caricare un certificato di gestione API di gestione di Azure
+# Caricare un certificato di gestione dell'API di gestione di Azure
 
-I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione del servizio fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) utilizzeranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
+I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure. Molti programmi e strumenti, ad esempio Visual Studio o Azure SDK, useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono in realtà correlati ai servizi cloud.
 
->[AZURE.WARNING]Pertanto, prestare attenzione prima di effettuare questa operazione. Questi tipi di certificati consentono a chiunque si autentica con loro di gestire la sottoscrizione in che cui sono associate.
+>[AZURE.WARNING] Fare attenzione. Questi tipi di certificati consentono a chiunque si autentichi di gestire la sottoscrizione a cui sono associati.
 
-Ulteriori informazioni sui certificati Azure (compresa la creazione di un certificato autofirmato sono )[disponibili](cloud-services/cloud-services-certs-create.md#what-are-management-certificates)per l'utente se è necessario.
+Se necessario, sono [disponibili](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) altre informazioni sui certificati di Azure, compresa la creazione di un certificato autofirmato.
 
-È inoltre possibile utilizzare[Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/)per autenticare il codice client per scopi di automazione.
+È inoltre possibile usare [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) per autenticare il codice client per scopi di automazione.
 
-## Creazione di un certificato di gestione
+## Creare un certificato di gestione
 
-Dopo aver ottenuto un certificato di gestione creato, (file con estensione .cer solo con la chiave pubblica), è possibile caricarlo nel portale. Quando il certificato è disponibile nel portale, chiunque disponga di una corrispondenza certificate (chiave privata) può connettersi tramite l'API di gestione e accedere alle risorse per la sottoscrizione associata.
+Dopo aver creato un certificato di gestione (file con estensione cer solo con la chiave pubblica), è possibile caricarlo nel portale. Quando il certificato è disponibile nel portale, chiunque disponga di un certificato corrispondete (chiave privata) può connettersi tramite l'API di gestione e accedere alle risorse per la sottoscrizione associata.
 
 1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
-2. Fare clic su**impostazioni**sul lato sinistro del portale (potrebbe essere necessario scorrere verso il basso). 
+2. Fare clic su **impostazioni** sul lato sinistro del portale (potrebbe essere necessario scorrere verso il basso). 
     
     ![Impostazioni](./media/azure-api-management-certs/settings.png)
 
-3. Scegliere i**certificati di gestione**scheda.
+3. Scegliere la scheda **Certificati di gestione**.
 
     ![Impostazioni](./media/azure-api-management-certs/certificates-tab.png)
     
@@ -44,12 +44,12 @@ Dopo aver ottenuto un certificato di gestione creato, (file con estensione .cer 
 
     ![Impostazioni](./media/azure-api-management-certs/upload.png)
     
-5. Compilare le informazioni della finestra di dialogo e fare clic su al completamento**segno di spunta**.
+5. Compilare le informazioni della finestra di dialogo e fare clic sul **segno di spunta** al completamento.
 
     ![Impostazioni](./media/azure-api-management-certs/upload-dialog.png)
 
 ## Passaggi successivi
 
-Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) a livello di programmazione connettersi alla[API REST di Gestione servizio](https://msdn.microsoft.com/library/azure/mt420159.aspx)e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
+Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) connettersi a livello di codice alla [API REST di Gestione dei servizi](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

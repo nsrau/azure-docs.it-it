@@ -25,9 +25,9 @@ L'esperienza dello sviluppatore di Azure Machine Learning è un'API del servizio
 Per informazioni su come creare e distribuire un servizio Web di Azure Machine Learning tramite Studio:
 
 - [Distribuire un servizio Web di Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introduzione a ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Introduzione a ML Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Anteprima di Azure Machine Learning](https://studio.azureml.net/)
-- [Centro di documentazione Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Centro di documentazione Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Servizio Web Azure Machine Learning ##
 
@@ -103,4 +103,4 @@ Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per
 2. Assegnare la chiave API con la chiave da un servizio Web. Scoprire come ottenere una chiave di autorizzazione ML di Azure.
 3. Assegnare l'URI del servizio con l'URI della richiesta. Scoprire come ottenere un URI della richiesta.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

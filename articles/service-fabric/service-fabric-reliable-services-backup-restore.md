@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Backup e ripristino di Reliable Services
@@ -87,7 +87,7 @@ In questo caso, il runtime rileva automaticamente la perdita dei dati e richiama
 
 L'autore del servizio deve eseguire le operazioni seguenti per il ripristino:
 
-- Eseguire l'override di **IReliableStateManager** per restituire un nuovo valore **ReliableStateManager** e fornire una funzione di callback da chiamare nel caso di un evento di perdita di dati.
+- Eseguire l'override di **CreateReliableStateManager** per restituire un nuovo valore **ReliableStateManager** e fornire una funzione di callback da chiamare nel caso di un evento di perdita di dati.
 
 - Trovare il backup più recente nella posizione esterna che include i backup del servizio.
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]Il valore RestorePolicy è Safe per impostazione predefinita. L'API **RestoreAsync** non riuscirà con ArgumentException se rileva che una cartella di backup include uno stato precedente o uguale allo stato contenuto nella replica. È possibile usare **RestorePolicy.Force** per ignorare questo controllo di sicurezza.
+>[AZURE.NOTE] Il valore RestorePolicy è Safe per impostazione predefinita. L'API **RestoreAsync** non riuscirà con ArgumentException se rileva che una cartella di backup include uno stato precedente o uguale allo stato contenuto nella replica. È possibile usare **RestorePolicy.Force** per ignorare questo controllo di sicurezza.
 
 ## Servizio eliminato o perso
 
@@ -158,4 +158,4 @@ Reliable State Manager consente di eseguire il ripristino da un backup con l'API
 
 **RestoreAsync** rilascia prima di tutto ogni stato esistente nella replica primaria su cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -41,7 +41,7 @@ La tabella seguente riepiloga le caratteristiche dei meccanismi di ripetizione d
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con strategia di rilevamento personalizzata) | Dichiarativa e a livello di codice | Blocchi di codice | Personalizzate |
 **Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies), alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
 
-> [AZURE.NOTE]Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
+> [AZURE.NOTE] Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
 
 ## Archiviazione di Azure - Linee guida per la ripetizione di tentativi
 
@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## Altre informazioni
 
-- [Suggerimenti per i criteri di ripetizione dei tentativi nella libreria client dell'archiviazione di Azure](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Suggerimenti per i criteri di ripetizione dei tentativi nella libreria client dell'archiviazione di Azure](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [Libreria client di archiviazione 2.0 - Implementazione dei criteri di ripetizione dei tentativi](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Database SQL con Entity Framework 6 - Linee guida per la ripetizione di tentativi
@@ -302,7 +302,7 @@ Quando si accede al database SQL con Entity Framework 6, tenere presente le line
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | Esponenziali | MaxRetryCount<br />MaxDelay | 3<br />750 ms | Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 750 ms<br />Tentativo 3 - intervallo di 750 ms |
 | Background<br /> o batch | 30 secondi | Esponenziali | MaxRetryCount<br />MaxDelay | 5<br />12 secondi | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~1 sec<br />Tentativo 3 - intervallo di ~3 sec<br />Tentativo 4 - intervallo di ~7 sec<br />Tentativo 5 - intervallo di 12 sec |
 
-> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ## Esempi (Database SQL con Entity Framework 6)
 
@@ -429,7 +429,7 @@ Quando si accede al database SQL con ADO.NET, tenere presente le linee guida seg
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | FixedInterval | Numero tentativi<br />Intervallo tra tentativi<br />Primo tentativo rapido | 3<br />500 ms<br />true | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms |
 | Background<br />o batch | 30 secondi | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
-> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ### Esempi (Database SQL con ADO.NET)
 
@@ -437,7 +437,7 @@ Questa sezione descrive come usare il Blocco di applicazioni per la gestione deg
 
 Nella versione corrente del Blocco di applicazioni per la gestione degli errori temporanei, tuttavia, questi approcci non supportano in modo nativo operazioni asincrone sul database SQL. È buona norma usare solo tecniche asincrone per accedere ai servizi di Azure come il database SQL ed è quindi opportuno avvalersi di una delle tecniche seguenti per usare il Blocco di applicazioni per la gestione degli errori temporanei con il database SQL.
 
-Nella versione 5 del linguaggio C#, è possibile usare il supporto asincrono semplificato per creare versioni asincrone dei metodi indicati dal blocco. Il codice seguente, ad esempio, mostra come creare una versione asincrona del metodo di estensione **ExecuteReaderWithRetry**. Sono evidenziate le parti modificate o aggiunte rispetto al codice originale. Il codice sorgente per Topaz è disponibile nell'articolo [Blocco di applicazioni per la gestione degli errori temporanei ("Topaz")](http://topaz.codeplex.com/SourceControl/latest) di GitHub.
+Nella versione 5 del linguaggio C#, è possibile usare il supporto asincrono semplificato per creare versioni asincrone dei metodi indicati dal blocco. Il codice seguente, ad esempio, mostra come creare una versione asincrona del metodo di estensione **ExecuteReaderWithRetry**. Sono evidenziate le parti modificate o aggiunte rispetto al codice originale. Il codice sorgente per Topaz in Codeplex in [Blocco applicazione per la gestione degli errori temporanei ("Topaz")](http://topaz.codeplex.com/SourceControl/latest).
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -713,7 +713,7 @@ La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizi
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Opzioni di configurazione | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />Massimo 5000 ms più SyncTimeout<br />1000 | Numero di nuovi tentativi di connessione durante l'operazione di connessione iniziale.<br />Timeout (ms) per operazioni di connessione. Non un intervallo tra i tentativi.<br />Tempo (ms) concesso per consentire operazioni sincrone. |
 
-> [AZURE.NOTE]SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE] SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Linee guida sull'uso dei criteri di ripetizione dei tentativi
 
@@ -936,7 +936,7 @@ Quando si usa Azure Active Directory, tenere presente le linee guida seguenti:
 | **Contesto** | **Destinazione di esempio E2E<br />latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 |----------------------|----------------------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Interattivo, interfaccia utente<br />o in primo piano | 2 secondi | FixedInterval | Numero tentativi<br />Intervallo tra tentativi<br />Primo tentativo rapido | 3<br />500 ms<br />true | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms |
-| Background<br /> o batch            | 60 secondi                                       | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~2 sec<br />Tentativo 3 - intervallo di \~6 sec<br />Tentativo 4 - intervallo di \~14 sec<br />Tentativo 5 - intervallo di 30 sec |
+| Background<br /> o batch | 60 secondi | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
 ## Esempi (Azure Active Directory)
 
@@ -1107,4 +1107,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

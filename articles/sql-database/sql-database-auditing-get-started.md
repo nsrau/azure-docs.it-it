@@ -21,7 +21,7 @@ Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 
-Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](http://azure.microsoft.com/support/trust-center/compliance).
+Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 + [Nozioni di base sul controllo del database SQL di Azure]
 + [Configurare il controllo per il database]
@@ -37,7 +37,7 @@ Il controllo del database SQL consente di:
 - **Creare report** sulle attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l’attività e la segnalazione di eventi.
 - **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
 
-> [AZURE.NOTE]È possibile ricevere avvisi proattivi sulle attività del database anomale che possono indicare potenziali minacce alla protezione utilizzando la nuova funzionalità**Threat Detection**, ora in anteprima. Threat Detection può essere attivato e configurate all'interno del pannello di configurazione del controllo. Vedere l'[introduzione a Threat Detection](sql-database-threat-detection-get-started.md) per altri dettagli.
+> [AZURE.NOTE] È possibile ricevere avvisi proattivi sulle attività del database anomale che possono indicare potenziali minacce alla protezione utilizzando la nuova funzionalità**Threat Detection**, ora in anteprima. Threat Detection può essere attivato e configurate all'interno del pannello di configurazione del controllo. Vedere l'[introduzione a Threat Detection](sql-database-threat-detection-get-started.md) per altri dettagli.
 
 È possibile configurare il controllo per le seguenti categorie di eventi:
 
@@ -178,4 +178,4 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

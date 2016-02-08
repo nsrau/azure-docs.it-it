@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="01/21/2016" 
 	ms.author="stepsic"/>
 
 
@@ -34,19 +34,19 @@ New Relic Standard è gratuito per gli utenti di Azure. New Relic Pro viene offe
 
 Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Marketplace](/marketplace/partners/newrelic/newrelic).
 
-> [AZURE.NOTE]Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
+> [AZURE.NOTE] Vengono indicati i prezzi solo fino a 10 istanze di elaborazione. Per un numero di istanze superiore a 10, contattare New Relic (sales@newrelic.com) per informazioni sui prezzi per volume.
 
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
 Iscriversi a New Relic usando Azure Marketplace
---
-New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service di Azure.
+
+New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service.
 
 Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa procedura in quattro semplici passaggi.
 
 ## Passaggio 1. Creare un account New Relic
 
-1. Accedere al [Portale di Azure](https://portal.azure.com) e fare clic su **Nuovo** nell'angolo.
+1. Accedere al [Portale di Azure](https://portal.azure.com/) e fare clic su **Nuovo** nell'angolo.
 3. Fare clic su **Servizi per gli sviluppatori** > **APM di New Relic**.
 4. Configurare l'account New Relic specificando quanto segue, quindi fare clic su **Crea**.
 	- **Nome**
@@ -62,7 +62,7 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 
 ## Passaggio 2: Configurare l'integrazione di New Relic per l'app Web
 
-1. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com).
+1. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com/).
 2. Nel menu "..." nella parte superiore del pannello fare clic su **Aggiungi riquadri**.
 3. Nella scheda **Monitoraggio** selezionare **Riepilogo applicazioni** e trascinarla nella posizione in cui si desidera che il riquadro venga visualizzato nel pannello dell'applicazione Web.
 4. Fare clic su Fine per terminare l'aggiunta di riquadri.
@@ -73,7 +73,7 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 
 	Al completamento dell'operazione di salvataggio, fare clic su **Tutte le impostazioni** nel pannello dell'app Web e quindi fare clic su **Impostazioni applicazione**. L'impostazione **NEWRELIC\_LICENSEKEY** verrà aggiunta alla sezione **Impostazioni applicazione** del pannello per supportare New Relic:
 
-	>[AZURE.NOTE]L'applicazione della nuova impostazione per l'app può richiedere fino a 30 secondi. Per forzare l'applicazione immediata delle impostazioni, riavviare l'app Web.
+	>[AZURE.NOTE] L'applicazione della nuova impostazione per l'app può richiedere fino a 30 secondi. Per forzare l'applicazione immediata delle impostazioni, riavviare l'app Web.
 
 ## Passaggio 3: Pubblicare l'app Web ASP.NET
 
@@ -83,7 +83,7 @@ Pubblicare l'app Web con Visual Studio. Se l'app Web è già stata pubblicata, p
 
 Per visualizzare il dashboard di New Relic:
 
-2. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com).
+2. Aprire il pannello dell'app Web nel [Portale di Azure](https://portal.azure.com/).
 3. Fare clic su **Monitoraggio applicazioni** > **nome applicazione** > **Visualizza in New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -121,8 +121,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br />
-<b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
+       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a></td>
@@ -130,8 +129,7 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br />
-<b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
+       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
     </tr>
     <tr>
        <td>Visualizzare i dettagli relativi al server applicazioni</td>
@@ -155,18 +153,17 @@ Di seguito è riportato un esempio del dashboard Applications Overview quando è
 
 Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiuntive:
 
- * [Installazione dell'agente .NET in Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual): procedure di installazione dell'agente .NET di New Relic 
+ * [Installazione dell'agente .NET nelle app Web di Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-preview-portal#install-new-relic-azure-webapps): procedure di installazione dell'agente .NET di New Relic 
  * [Interfaccia utente di New Relic](https://newrelic.com/docs/site/the-new-relic-ui): panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei profili utente, uso delle funzioni standard e dettagli sui drill-down dei dashboard
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): funzionalità disponibili nel dashboard Applications Overview di New Relic
  * [Apdex](https://newrelic.com/docs/site/apdex): panoramica delle misurazioni Apdex della soddisfazione degli utenti finali riguardo all'applicazione
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
->[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -180,4 +177,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

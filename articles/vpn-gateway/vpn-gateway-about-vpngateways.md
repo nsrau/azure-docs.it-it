@@ -33,7 +33,7 @@ Sono disponibili 3 SKU del Gateway VPN:
 - Standard
 - Prestazioni elevate
 
-La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU | Coesistenza gateway VPN ed ExpressRoute | Velocità effettiva del gateway di ExpressRoute | Velocità effettiva del gateway VPN | Tunnel IPsec massimi del gateway VPN |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
@@ -83,4 +83,4 @@ Selezionare il dispositivo VPN per la configurazione. Vedere [Informazioni sui d
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

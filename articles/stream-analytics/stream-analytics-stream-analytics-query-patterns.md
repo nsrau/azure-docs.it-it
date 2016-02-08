@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Introduzione ##
 
-Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query simile a SQL, documentato [qui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Questo documento descrive soluzioni per vari modelli di query comuni basati su scenari reali. È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
+Le query in analisi di flusso di Azure vengono espresse in un linguaggio di query simile a SQL, documentato nella guida di [riferimento sul linguaggio di query con l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
 
 ## Esempio di query: Conversioni di tipi di dati ##
 **Descrizione**: definire i tipi delle proprietà nel flusso di input. Ad esempio: il peso dell’auto è immesso nel flusso di input come stringa e deve essere convertito in INT per eseguire SUM dei vari valori.
@@ -382,7 +382,36 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 	WHERE
 	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Spiegazione**: usare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore Casa automobilistica. Quindi confrontare tale valore con il valore Casa automobilistica dell'evento corrente e ottenere l'evento di eventuale corrispondenza, quindi usare LAG per ottenere dati sull'auto precedente.
+**Spiegazione**: utilizzare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore per la casa automobilistica. Quindi confrontare tale valore con il valore Casa automobilistica dell'evento corrente e ottenere l'evento di eventuale corrispondenza, quindi usare LAG per ottenere dati sull'auto precedente.
+
+## Esempio di query: Rilevare la durata tra gli eventi
+**Descrizione**: individuare la durata di un dato evento ad esempio determinando il tempo dedicato a una funzionalità in base a un clickstream Web.
+
+**Input**:
+  
+| Utente | Funzionalità | Evento | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Inizia | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+  
+**Output**:
+  
+| Utente | Funzionalità | Durata |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**Soluzione**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**Spiegazione**: usare la funzione LAST per recuperare l'ultimo valore di Time quando il tipo di evento presenta il valore 'Start'. Notare che la funzione LAST usa PARTITION BY [user] per indicare che il risultato deve essere calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi 'Start' e 'Stop', ma è configurabile in base alle esigenze: LIMIT DURATION(hour, 1).
 
 ## Esempio di query: Rilevare la durata di una condizione ##
 **Descrizione**: scoprire per quanto tempo si è verificata una condizione. Ad esempio, si supponga un bug che ha generato un peso errato per tutte le automobili (oltre 20.000 libbre) e si desidera calcolare la durata del bug.
@@ -413,32 +442,17 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Soluzione**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**Spiegazione**: si ricercano 2 eventi corretti con un evento intermedio non valido e senza un evento intermedio valido a indicare che i 2 eventi sono i primi eventi precedenti e successivi ad almeno 1 evento non valido. Ottenere 2 eventi validi con 1 evento intermedio non valido è semplice utilizzando 2 JOIN e verificando di aver ottenuto: valido -> non valido -> valido tramite il controllo del peso e il confronto dei timestamp.
-
-Avvalendosi di quanto appreso su "LEFT Outer Join per includere valori NULL o per rilevare l’assenza di eventi", è possibile controllare che non si siano verificati eventi validi tra i 2 eventi validi esaminati.
-
-L'insieme restituisce valido -> non valido -> valido senza altri eventi non validi intermedi. A questo punto è possibile calcolare la durata tra l'inizio e la fine degli eventi validi ottenendo la durata del bug.
+**Spiegazione**: usare LAG per visualizzare il flusso di input per 24 ore e cercare le istanze in cui StartFault e StopFault vengono intervallati per peso < 20000.
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -452,4 +466,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

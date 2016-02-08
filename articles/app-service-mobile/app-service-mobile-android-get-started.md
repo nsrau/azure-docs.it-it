@@ -35,7 +35,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente.
 * L’SDK Android di Azure Mobile, a cui si fa automaticamente riferimento come parte del progetto della guida introduttiva da scaricare.
 * Un PC in cui sia installato [Visual Studio Community 2013] o versioni successive (non necessario per il back-end Node.js).
-* Un [account Azure attivo](http://azure.microsoft.com/pricing/free-trial/).
+* Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -56,4 +56,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,8 @@
 
 Le app che si integrano con Azure AD seguono un modello di autorizzazione che consente agli utenti di controllare la modalità di accesso ai dati da parte di un'app. In Modello app 2.0 l'implementazione di questo modello di autorizzazione è stata aggiornata, modificando la modalità di interazione di un'app con Azure AD. Questo argomento illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
 ## Ambiti e autorizzazioni
 
@@ -100,20 +101,29 @@ Il token di accesso risultante può quindi essere usato nelle richieste HTTP rel
 
 Per informazioni dettagliate sul protocollo OAuth 2.0 e su come ottenere i token di accesso, vedere il [riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md).
 
-## OpenID e Offline\_Access
 
-Modello app 2.0 dispone di due ambiti ben definiti che non si applicano a una risorsa specifica: `openid` e `offline_access`.
+## Ambiti di OpenId Connect
+
+L'implementazione della versione 2.0 di OpenID Connect presenta alcuni ambiti ben definiti che non si applicano a una risorsa in particolare: `openid`, `email`, `profile` e `offline_access`.
 
 #### OpenID
 
-Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella schermata di consenso dell'account aziendale come autorizzazione di accesso e nella schermata di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi mediante l'account Microsoft. Questa autorizzazione consente a un'app di accedere all'endpoint di informazioni sull'utente di OpenID Connect e pertanto richiede l'approvazione dell'utente. L'ambito `openid` può essere usato anche nell'endpoint del token 2.0 per acquisire token ID, che possono essere usati per proteggere le chiamate HTTP tra diversi componenti di un'app.
+Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella schermata di consenso dell'account aziendale come autorizzazione di accesso e nella schermata di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi mediante l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. L'ambito `openid` può essere usato anche nell'endpoint del token 2.0 per acquisire token ID, che possono essere usati per proteggere le chiamate HTTP tra diversi componenti di un'app.
 
-#### Offline\_Access
+#### Email
 
-L'ambito `offline_access` consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella schermata di consenso dell'account aziendale, l'ambito verrà visualizzato come autorizzazione per l'accesso ai dati in qualsiasi momento. Nella schermata di consenso dell'account personale Microsoft, verrà visualizzato come autorizzazione per l'accesso alle informazioni in qualsiasi momento. Quando un utente approva l'ambito `offline_access`, l'app viene abilitata per la ricezione di token di aggiornamento dall'endpoint del token 2.0. I token di aggiornamento hanno una durata elevata e consentono all'app di acquisire nuovi token di accesso alla scadenza dei precedenti.
+L'ambito `email` può essere incluso con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. L'attestazione `email` verrà inclusa nei token solo quando un indirizzo di posta elettronica è associato all'account utente, condizione che non è sempre vera. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
+
+#### Profilo
+
+L'ambito `profile` può essere incluso con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, ad esempio il nome e il cognome dell'utente, il nome utente preferito, l'ID dell'oggetto e così via. Per un elenco completo delle attestazioni profilo disponibili nei token ID per un determinato utente, vedere il [riferimento al token della versione 2.0](active-directory-v2-tokens.md).
+
+#### offline\_access
+
+L'[ambito `offline_access`](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella schermata di consenso dell'account aziendale, l'ambito verrà visualizzato come autorizzazione per l'accesso ai dati in qualsiasi momento. Nella schermata di consenso dell'account personale Microsoft, verrà visualizzato come autorizzazione per l'accesso alle informazioni in qualsiasi momento. Quando un utente approva l'ambito `offline_access`, l'app viene abilitata per la ricezione di token di aggiornamento dall'endpoint del token 2.0. I token di aggiornamento hanno una durata elevata e consentono all'app di acquisire nuovi token di accesso alla scadenza dei precedenti.
 
 Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), si riceverà solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimarrà valido per un breve periodo di tempo (in genere un'ora), per poi scadere. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, l'utente può o meno avere esigenza di immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
-Per altre informazioni su come ottenere e usare i token di aggiornamento, consultare il [riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md).
+Per altre informazioni su come ottenere e usare i token di aggiornamento, vedere il [riferimento al protocollo della versione 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

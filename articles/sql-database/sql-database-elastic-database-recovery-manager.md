@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ddove"/>
 
 # Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
@@ -32,15 +32,13 @@ Per le definizioni dei termini, vedere il [Glossario degli strumenti di database
 
 ## Perché usare Gestione ripristino
 
-In un ambiente di database partizionato dono presenti diversi server di database. Ogni server include un certo numero di database, uno per utente in una soluzione multi-tenant. Per ogni database deve essere eseguito il mapping, per consentire l'instradamento corretto delle chiamate al server e al database appropriati. I database vengono rilevati in base a una chiave di partizionamento orizzontale e a ogni server viene assegnato un intervallo di valori di chiave. Ad esempio, una chiave di partizionamento orizzontale può rappresentare i nomi dei clienti da "D" a "F." Il mapping di tutti i server i dei relativi intervalli di chiavi sono includi nella mappa globale partizioni. Ogni server include anche una mappa dei database presenti nella partizione, ovvero la mappa locale partizioni. La mappa locale partizioni si usa per convalidare i dati memorizzati nella cache. Quando un'app si connette a una partizione, il mapping viene memorizzato nella cache insieme all'app per consentire un recupero rapido. La mappa locale di partizioni convalida il mapping.
+In un ambiente con database partizionati sono presenti diversi database e potenzialmente un certo numero di database in più server logici. Ogni server include un certo numero di database, uno per tenant in una soluzione single-tenant. Per ogni database nella mappa delle partizioni deve essere eseguito il mapping, per consentire l'instradamento corretto delle chiamate al server e al database appropriati. I database vengono rilevati in base a una chiave di partizionamento orizzontale e a ogni partizione viene assegnato un intervallo di valori di chiave. Ad esempio, una chiave di partizionamento orizzontale può rappresentare i nomi dei clienti da "D" a "F." Il mapping di tutte le partizioni (ovvero i database) e i relativi intervalli di mapping sono inclusi nella mappa globale delle partizioni. Ogni database include anche una mappa degli intervalli presenti nella partizione, ovvero la mappa locale delle partizioni. La mappa locale partizioni si usa per convalidare i dati memorizzati nella cache. Quando un'app si connette a una partizione, il mapping viene memorizzato nella cache insieme all'app per consentire un recupero rapido. La mappa locale di partizioni convalida il mapping.
 
-È possibile spostare dati da una partizione all'altra con uno strumento, ad esempio la libreria di strumenti client dei database elastici. Se si verifica un'interruzione durante lo spostamento, la mappa globale partizioni e la mappa locale partizioni possono perdere la sincronizzazione. Ecco altri motivi:
+La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazione per i motivi seguenti:
 
-1. Si verifica un'incoerenza causata dall'eliminazione di una partizione con un intervallo che si riteneva non fosse più usato o dalla ridenominazione di una partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Anche un database rinominato può causare allo stesso modo un mapping di partizione orfana. In questo caso basta aggiornare il percorso della partizione. 
-2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server, il nome del database e/o i dettagli del mapping di partizione per tutte le partizioni in una mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. 
-3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. 
- 
-L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. È anche utile negli scenari di ripristino in cui sono stati eliminati dati accidentalmente.
+1. Si verifica un'incoerenza causata dall'eliminazione di una partizione con un intervallo che si riteneva non fosse più usato o dalla ridenominazione di una partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Anche un database rinominato può causare allo stesso modo un mapping di partizione orfana. A seconda della finalità, potrebbe essere necessario rimuovere la partizione o semplicemente aggiornarne il percorso. 
+2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server, il nome del database e/o i dettagli del mapping di partizione per tutte le partizioni in una mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali.
+3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente.
 
 Per altre informazioni sugli strumenti di database elastici per i database SQL di Azure, la replica geografica e il ripristino, vedere:
 
@@ -157,4 +155,4 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

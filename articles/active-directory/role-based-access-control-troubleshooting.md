@@ -3,7 +3,7 @@
 	description="Uso di diversi tipi di risorse per il controllo dell'accesso basato sui ruoli."
 	services="azure-portal"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,24 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
-# Risoluzione dei problemi del controllo di accesso basato sui ruoli
+# Risoluzione dei problemi del controllo degli accessi in base al ruolo
 
 ## Introduzione
 
-[Controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) è uno strumento efficace che consente di delegare con estrema precisione l'accesso alle risorse in Azure. Ciò significa che si può accordare a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
+[Controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) è uno strumento efficace che consente di delegare con estrema precisione l'accesso alle risorse in Azure. Ciò significa che si può concedere a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
 
-Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel portale di Azure classico. Ci sono tre ruoli comuni inclusi che coprono tutti i tipi di risorsa: * Proprietario * Collaboratore * Lettore
+Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel portale di Azure. Ci sono tre ruoli comuni inclusi che coprono tutti i tipi di risorsa: * Proprietario * Collaboratore * Lettore
 
-Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, con la differenza che il contributore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. [Vedere questo articolo](../role-based-access-control-configure.md) per maggiori dettagli sulle modalità di concessione dell'accesso.
+- Proprietario  
+- Collaboratore  
+- Lettore  
+
+Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere l'[articolo introduttivo sul controllo degli accessi in base al ruolo](../role-based-access-control-configure.md).
 
 ## Carichi di lavoro del servizio app
 
-### Con accesso in sola lettura
+### Funzionalità di accesso in scrittura
 
-Se si concede a un utente l'accesso in sola lettura a un'unica app Web, o si dispone personalmente di tale tipo di accesso, è possibile che alcune funzionalità siano disattivate. Per le funzionalità di gestione seguenti è necessario disporre dell'accesso **in scrittura** a un'app Web, come Collaboratore o Proprietario: tali funzionalità non saranno disponibili in uno scenario di sola lettura.
+Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Per le funzionalità di gestione seguenti è necessario avere accesso **in scrittura** a un'app Web, come Collaboratore o Proprietario. Tali funzionalità non saranno disponibili in uno scenario di sola lettura.
 
 1. Comandi, ad esempio avvio, interruzione e così via.
 2. Modifica di impostazioni quali la configurazione generale, le impostazioni di scalabilità, di backup e di monitoraggio.
@@ -43,7 +47,7 @@ Se si concede a un utente l'accesso in sola lettura a un'unica app Web, o si dis
 9. Test Web
 10. Rete virtuale, visibile per un lettore solo se in precedenza era già stata configurata una rete virtuale da un utente con accesso in scrittura.
 
-Se non è possibile accedere a nessuno di questi titoli, è necessario disporre dell'accesso come Collaboratore per l'app Web.
+Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per l'app Web.
 
 ### Gestione delle risorse correlate
 
@@ -68,18 +72,24 @@ Di conseguenza, se si concede l'accesso al solo sito Web, molte funzionalità de
 
 Analogamente a quanto accade con le app Web, alcune funzionalità del blade della macchina virtuale richiedono l'accesso in scrittura alla macchina virtuale o ad altre risorse del gruppo di risorse.
 
-Le risorse correlate delle macchine virtuali sono: * Nomi di dominio * Reti virtuali * Account di archiviazione * Regole di avviso
+Le risorse correlate delle macchine virtuali sono:
+
+- Nomi di dominio
+- Reti virtuali
+- Account di archiviazione
+- Regole di avviso
+
 
 1. I seguenti elementi richiedono l'accesso **in scrittura** alla Macchina virtuale:  
     * Endpoint
     * Indirizzi IP
     * Dischi
     * Estensioni
-2. I seguenti elementi richiedono l'accesso in scrittura sia alla Macchina virtuale che al **Gruppo di risorse**, così come al nome di dominio, a cui appartiene:  
+2. I seguenti elementi richiedono l'accesso in **scrittura** sia alla macchina virtuale che al **Gruppo di risorse**, così come al nome di dominio a cui appartiene:  
     * Set di disponibilità
     * Set con carico bilanciato
     * Regole di avviso
 
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

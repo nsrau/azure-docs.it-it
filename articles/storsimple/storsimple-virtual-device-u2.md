@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
-# Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Aggiornamento 2)
+# Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Update 2)
 
 > [AZURE.SELECTOR]
-- [Aggiornamento 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Aggiornamento 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Panoramica
@@ -125,8 +125,7 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
 
-Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
-[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
+Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Passaggio 3: (Facoltativo) Modificare le impostazioni di configurazione del dispositivo
 
@@ -235,7 +234,7 @@ Se si decide di ripristinare il dispositivo virtuale, sarà sufficiente disattiv
 
 Il ripristino di emergenza (DR, Disaster Recovery) rappresenta una delle situazioni principali per le quali il dispositivo è stato realizzato. In questo scenario, è possibile che il dispositivo fisico StorSimple o il data center completo non sia disponibile. Fortunatamente, è possibile utilizzare un dispositivo virtuale per ripristinare le operazioni in un percorso alternativo. Durante il ripristino di emergenza, i contenitori del volume del dispositivo di origine cambiano la proprietà e vengono trasferiti nel dispositivo virtuale. I prerequisiti per il ripristino di emergenza prevedono che sia stato creato e configurato il dispositivo virtuale, che tutti i volumi nel contenitore siano offline e che al contenitore del volume sia associata una snapshot cloud.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - Quando si usa un dispositivo virtuale come dispositivo secondario per il ripristino di emergenza, occorre ricordare che 8010 ha 30 TB di archiviazione Standard e 8020 ha 64 TB di archiviazione Premium. La capacità superiore del dispositivo virtuale 8020 potrebbe essere più adatta per uno scenario di ripristino di emergenza.
 > - Non è possibile eseguire il failover o la clonazione da un dispositivo con versione del software con Update 2 a un dispositivo con una versione precedente a Update 1. È tuttavia possibile eseguire il failover di un dispositivo che esegue la versione con Update 2 in un dispositivo con Update 1 (1.1 o 1.2)
@@ -259,4 +258,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
  
 - Ottenere informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

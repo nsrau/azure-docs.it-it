@@ -49,7 +49,7 @@ Come si crea una raccolta?
 - Consentire l'accesso completo alla rete locale e alla rete virtuale di Azure.
 - Include l'accesso con aggiunta al dominio per applicazioni e dati. Le applicazioni remote possono eseguire l'autenticazione in Active Directory in locale e possono quindi accedere alle risorse nel dominio.
 - Abilitare il monitoraggio e la gestione avanzati con soluzioni System Center e Criteri di gruppo di Windows esistenti (tramite un'immagine personalizzata creata in Windows Server 2012 R2)
-- Supportare [ExpressRoute](http://azure.microsoft.com/services/expressroute/) per connettere la rete virtuale di Azure alla rete locale virtuale.
+- Supportare [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per connettere la rete virtuale di Azure alla rete locale virtuale.
 
 Usare l'opzione **Crea con rete virtuale** e SCEGLIERE l'aggiunta a un dominio.
 
@@ -91,4 +91,4 @@ con la creazione della prima raccolta di Azure RemoteApp.
 
 [Creare una raccolta nel cloud](remoteapp-create-cloud-deployment.md) o [creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

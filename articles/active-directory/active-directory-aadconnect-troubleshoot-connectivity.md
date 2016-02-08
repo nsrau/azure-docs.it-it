@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="andkjell"/>
 
 # Risolvere i problemi di connettività con Azure AD Connect
@@ -26,7 +26,7 @@ Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il
 
 Prima di tutto è necessario verificare che [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) sia configurato correttamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE]In alcuni blog è invece documentato che le modifiche devono essere apportare a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
+> [AZURE.NOTE] In alcuni blog è invece documentato che le modifiche devono essere apportare a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
 
 Quindi occorre assicurarsi che winhttp sia configurato. A questo scopo, è possibile usare [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
@@ -37,9 +37,7 @@ Quelle riportate nella tabella seguente sono le impostazioni minime assolutament
 | URL | Porta | Descrizione |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. |
-| *.verisign.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. |
-| *.windows.net | HTTPS/443 | Usate per accedere ad Azure AD. |
-| *.microsoftonline.com | HTTPS/443 | Usate per configurare la directory di Azure AD e per importare/esportare dati. |
+| **.verisign.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. | | *.windows.net | HTTPS/443 | Usate per accedere ad Azure AD. | | *.microsoftonline.com | HTTPS/443 | Usate per configurare la directory di Azure AD e per importare/esportare dati. |
 
 ## Errori nella procedura guidata
 L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Le configurazioni che si apportano al proxy vengono riflesse globalmente nel computer, quindi se si verifica un problema, questo si manifesterà probabilmente già nella pagina **Connessione ad Azure AD** della procedura guidata.
@@ -126,4 +124,4 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!-----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

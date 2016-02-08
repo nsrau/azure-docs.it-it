@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Ripristinare da un backup di StorSimple Virtual Array (anteprima)
@@ -77,9 +77,7 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 3.  Tornare alla scheda **Catalogo di backup** e selezionare un set di backup.
 
-4.  Fare clic su **Ripristina come nuovo** nella parte inferiore della pagina.
-
-5.  In fondo alla pagina, fare clic su **Ripristina come nuovo**. Si avvia così la procedura guidata **Ripristina come nuovo volume**.
+5.  Nella parte inferiore della pagina, fare clic su **Ripristina come nuovo**. Si avvia così la procedura guidata per il **ripristino come nuovo volume**.
 
 1.  Nella pagina **Specificare nome e percorso**:
 
@@ -98,13 +96,13 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 1.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png). Si avvia così un processo di ripristino e viene visualizzata la notifica seguente in cui si indica che il processo è in corso.
 
-2.  Al completamento del processo di ripristino, verrà avviato il ripristino e un'altra notifica verrà visualizzata. Per monitorare lo stato del ripristino, fare clic su **Visualizza processo**. Si passa così alla pagina **Processi**.
+2.  Al completamento del processo di ripristino, verrà avviato il ripristino e un'altra notifica verrà visualizzata. Per monitorare lo stato del ripristino, fare clic su **Visualizza processo**. Si passerà così alla pagina **Processi**.
 
 3.  È possibile monitorare lo stato del processo di ripristino. Quando il ripristino è stato completato al 100%, tornare indietro alla pagina **Volumi** nel dispositivo.
 
 4.  È ora possibile visualizzare il nuovo volume ripristinato nell'elenco dei volumi nel dispositivo.
 
-	> [AZURE.NOTE]Il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
+	> [AZURE.NOTE] Il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
 
 ## Ripristino a livello di elemento (ILR)
 
@@ -130,9 +128,14 @@ Ogni condivisione dispone di una cartella *.backups* contenente i backup più re
 
 3.  Copiare il file o la cartella nella condivisione appropriata nel file server StorSimple.
 
+![video\_icon](./media/storsimple-ova-restore/video_icon.png) **Video disponibile**
+
+Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Passaggi successivi
 
-Scoprire di più su come [amministrare StorSimple Virtual Array con l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md).
+Altre informazioni su come [gestire StorSimple Virtual Array con l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

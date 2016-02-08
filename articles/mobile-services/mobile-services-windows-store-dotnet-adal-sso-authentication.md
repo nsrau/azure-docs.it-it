@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
@@ -32,7 +32,7 @@ Questa esercitazione consente di aggiungere l'autenticazione al progetto di guid
 Per poter autenticare gli utenti è necessario registrare l'app in Azure Active Directory. Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio mobile ed esporre le registrazioni sul servizio. In secondo luogo, è necessario registrare l'app di Windows Store e concederle accesso alle autorizzazioni.
 
 
->[AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come Servizi mobili consente di eseguire l'autenticazione con Single Sign-On di Azure Active Directory per le app di Windows Store con un'[operazione di accesso diretta dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx). Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
+>[AZURE.NOTE] Questa esercitazione è stata ideata per illustrare come Servizi mobili consente di eseguire l'autenticazione con Single Sign-On di Azure Active Directory per le app di Windows Store con un'[operazione di accesso diretta dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx). Se si tratta della prima esperienza con Servizi mobili, iniziare dall'esercitazione [Introduzione a Servizi mobili].
 
 
 ##Prerequisiti
@@ -76,21 +76,14 @@ A questo punto è necessario recuperare il SID pacchetto che verrà configurato 
 
     ![][3]
 
-2. Fare clic su **Servizi**
+2. Fare clic su **Gestione app** > **Identità app** e copiare il SID pacchetto dalla pagina.
 
     ![][4]
 
-3. Fare clic su **Sito di servizi Live**.
-
-    ![][5]
-
-4. Copiare il SID pacchetto dalla parte superiore della pagina.
-
-    ![][6]
 
 ###Creare la registrazione dell'app nativa
 
-1. Passare ad **Active Directory** nel [portale di Azure classico], quindi fare clic sulla directory.
+1. Passare ad **Active Directory** nel [portale classico], quindi fare clic sulla directory.
 
     ![][7]
 
@@ -130,7 +123,7 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. Nella finestra Esplora soluzioni di Visual Studio aprire il file MainPage.xaml.cs e aggiungere le istruzioni using seguenti.
+4. Nella finestra Esplora soluzioni di Visual Studio aprire il file MainPage.cs e aggiungere le istruzioni using seguenti.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -217,7 +210,8 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 <!-- URLs. -->
 [modalità di registrazione in Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portale di Azure classico]: https://manage.windowsazure.com/
+[portale classico]: https://manage.windowsazure.com/
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,13 +18,13 @@
 
 # Usare Active Directory per l'autenticazione nel servizio app di Azure #
 
-[App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente scenari di applicazione line-of-business aziendali supportando la modalità Single Sign-On (SSO) di utenti che accedono all'applicazione dall'ambiente locale o Internet pubblico. Può essere integrato con [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) o con il servizio token di sicurezza (STS) locale, come Active Directory Federation Services (AD FS), per autenticare gli utenti Active Directory (AD) interni e autorizzarli correttamente.
+[App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente scenari di applicazione line-of-business aziendali supportando la modalità Single Sign-On (SSO) di utenti che accedono all'applicazione dall'ambiente locale o Internet pubblico. Può essere integrato con [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) o con il servizio token di sicurezza (STS) locale, come Active Directory Federation Services (AD FS), per autenticare gli utenti Active Directory (AD) interni e autorizzarli correttamente.
 
 ## Autenticazione e autorizzazione senza problemi ##
 
-Con pochi clic è possibile abilitare l'autenticazione e l'autorizzazione per l'app Web. La configurazione dello stile della casella di testo in ciascuna app Web di Azure fornisce il controllo di accesso di base dell'app Web line-of-business. A tale scopo, prima di garantire agli utenti l'accesso al contenuto dell'app Web, vengono applicati HTTPS e l'autenticazione a un tenant di Azure AD di propria scelta. Per ulteriori informazioni, vedere [Autenticazione/Autorizzazione app Web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+Con pochi clic è possibile abilitare l'autenticazione e l'autorizzazione per l'app Web. La configurazione dello stile della casella di testo in ciascuna app Web di Azure fornisce il controllo di accesso di base dell'app Web line-of-business. A tale scopo, prima di garantire agli utenti l'accesso al contenuto dell'app Web, vengono applicati HTTPS e l'autenticazione a un tenant di Azure AD di propria scelta. Per ulteriori informazioni, vedere [Autenticazione/Autorizzazione app Web](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
->[AZURE.NOTE]Questa funzionalità è attualmente in anteprima.
+>[AZURE.NOTE] Questa funzionalità è attualmente in anteprima.
 
 ## Implementare manualmente l'autenticazione e l'autorizzazione ##
 
@@ -46,10 +46,10 @@ In molti scenari, si richiede la personalizzazione del comportamento di autentic
 	-	Possono gestire le [attestazioni](http://technet.microsoft.com/library/ee913571.aspx) su ogni singola applicazione.
 	-	È necessario avere una soluzione separata per accedere ai dati di AD in locale tramite il firewall aziendale.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

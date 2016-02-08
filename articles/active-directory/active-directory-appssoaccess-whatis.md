@@ -106,13 +106,13 @@ Informazioni introduttive Per distribuire il servizio Single Sign-On tra Azure A
 
 ###Utilizzo della raccolta di applicazioni di Azure AD
 
-La [raccolta di Applicazioni Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) fornisce un elenco di applicazioni che supportano un formato di Single Sign-On con Azure Active Directory.
+La [raccolta delle applicazioni di Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) fornisce un elenco di applicazioni che supportano una forma di Single Sign-On con Azure Active Directory.
 
 ![][1]
 
 Di seguito sono riportati alcuni suggerimenti per la ricerca delle applicazioni in base alle funzionalità che supportano:
 
-*	Azure AD supporta il provisioning e deprovisioning automatico per tutte le app "In primo piano" nella [raccolta di Applicazioni Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD supporta il provisioning e deprovisioning automatico per tutte le applicazioni “In primo piano” nella [raccolta di applicazioni di Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	Un elenco di applicazioni federate che supportano in particolare il Single Sign-On federato tramite un protocollo, ad esempio SAML, WS-Federation oppure OpenID Connect, è disponibile [qui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
@@ -131,7 +131,7 @@ Se l'applicazione non è presente nella raccolta di applicazioni Azure AD, sono 
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Richiedere l'integrazione di un'app**: richiedere il supporto per l'applicazione necessaria tramite il [forum dei commenti di Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Richiedere l'integrazione di un'app**: richiedere il supporto per l'applicazione necessaria tramite il [forum dei commenti di Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ###Utilizzo del portale di gestione di Azure
 
@@ -168,7 +168,7 @@ I metodi che è possibile scegliere per la distribuzione nell'organizzazione son
 
 ###Riquadro di accesso di Azure AD
 
-Il riquadro di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), è anche possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
+Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
 ![][3]
 
@@ -182,7 +182,7 @@ Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnat
 
 ![][4]
 
-Per altre informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzare l'app nell'icona di avvio delle app di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Accesso diretto alle applicazioni federate
 
@@ -220,4 +220,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

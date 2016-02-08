@@ -83,7 +83,7 @@ Per creare uno spazio dei nomi del servizio:
     ![Create a namespace dialog][create_namespace_dialog]
 5.  Dopo avere verificato la disponibilità del nome dello spazio dei nomi, scegliere l'area in cui dovrà essere ospitato. Assicurarsi di usare la stessa area in cui è ospitata la macchina virtuale.
 
-    > [AZURE.IMPORTANT]Selezionare la **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
+    > [AZURE.IMPORTANT] Selezionare la **stessa area** che si usa o si intende usare per la macchina virtuale. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6. Se si dispone di più sottoscrizioni di Azure per l'account con cui è stato eseguito l'accesso, selezionare la sottoscrizione da utilizzare per lo spazio dei nomi. Se si dispone di una sola sottoscrizione per l'account con cui è stato eseguito l'accesso, l'elenco a discesa contenente le sottoscrizioni non verrà visualizzato.
 7. Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
@@ -98,12 +98,12 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 1.  Nel riquadro di navigazione sinistro fare clic su **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![Schermata relativa agli spazi dei nomi disponibili][available_namespaces]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco: ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
-3. Fare clic su **Informazioni di connessione**. ![Pulsante Access Key][access_key_button]
+3. Fare clic su **Informazioni di connessione**.![Pulsante Access Key][access_key_button]
 4.  Nella finestra di dialogo, individuare la voce **Stringa di connessione**. Prendere nota di questo valore in quanto dovrà essere usato in seguito nell’esercitazione per eseguire operazioni con lo spazio dei nomi.
 
 ## Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo
 
-1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](http://azure.microsoft.com/develop/net/).
+1. Sul computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK per .NET](https://azure.microsoft.com/develop/net/).
 2. Creare un'applicazione console .NET con il progetto denominato TSPSolver. Verificare che il framework di destinazione sia impostato per .**NET Framework 4** o versione successiva (non **.NET Framework 4 Client Profile**). Il framework di destinazione può essere impostato dopo aver creato un progetto nel modo seguente: nel menu di Visual Studio, fare clic su **Progetti**, scegliere **Proprietà**, quindi fare clic sulla scheda **Applicazione** e impostare il valore per **Framework di destinazione**.
 3. Aggiungere la libreria Microsoft ServiceBus. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, fare clic sulla scheda **Sfoglia**, passare ad Azure .NET SDK (ad esempio, C:\\Programmi\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef) e selezionare **Microsoft.ServiceBus.dll** come riferimento.
 4. Aggiungere la libreria System Runtime Serialization. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse su **TSPSolver**, fare clic su **Aggiungi riferimento**, fare clic sulla scheda **.NET** e selezionare **System.Runtime.Serialization** come riferimento.
@@ -515,7 +515,8 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 
 Il risolutore eseguirà il comando finché non avrà terminato di esaminare tutte le route.
 
-> [AZURE.NOTE]Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
+> [AZURE.NOTE]
+Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
 
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione TSPSolver.
@@ -550,4 +551,4 @@ Per creare o eliminare la coda, è possibile utilizzare il [Portale di Azure cla
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,7 +25,7 @@ In questa esercitazione viene illustrato come utilizzare il servizio StorSimple 
 
 Il servizio StorSimple Manager è un’estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da una singola interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
 
-> [AZURE.NOTE]StorSimple di Azure consente di creare solo volumi di thin provisioning. Non è possibile creare volumi con provisioning completo o parziale in un sistema StorSimple di Azure.
+> [AZURE.NOTE] StorSimple di Azure consente di creare solo volumi di thin provisioning. Non è possibile creare volumi con provisioning completo o parziale in un sistema StorSimple di Azure.
 >
 > Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo risorse di archiviazione sufficienti, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire le risorse di archiviazione nel cloud in base alle variazioni nella domanda.
 
@@ -90,7 +90,7 @@ Il volume è pronto per l'utilizzo.
 
 Modificare un volume quando occorre espanderlo o modificare gli host che vi accedono.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Se si modifica la dimensione del volume nel dispositivo, è necessario modificare anche le esigenze di dimensioni del volume sull’host. 
 > - Le procedure host-side descritte di seguito sono per Windows Server 2012 (2012R2). Procedure per Linux o altri sistemi operativi host saranno diverse. Quando si modifica il volume di un host che esegue un altro sistema operativo, fare riferimento alle istruzioni del sistema operativo dell’host. 
@@ -108,14 +108,14 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
   - Modificare il **Nome** e il **Tipo di applicazione**.
   - Aumentare la **Capacità fornita**. La **Capacità fornita** può essere solo aumentata. Non è possibile ridurre un volume dopo averlo creato.
 
-    > [AZURE.NOTE]Non è possibile modificare un contenitore di volumi dopo che è stato assegnato a un volume.
+    > [AZURE.NOTE] Non è possibile modificare un contenitore di volumi dopo che è stato assegnato a un volume.
 
 5. In **Impostazioni aggiuntive**, procedere come segue:
 
   - Modificare gli ACR, purché il volume sia offline. Se il volume è online, sarà necessario portarlo prima offline. Fare riferimento ai passaggi riportati in [Portare un volume offline](#take-a-volume-offline) prima di modificare gli ACR.
   - Modificare l’elenco di ACR dopo aver portato il volume offiline.
  
-    > [AZURE.NOTE]Non è possibile modificare l’opzione **Abilita backup predefinito per questo volume** per il volume.
+    > [AZURE.NOTE] Non è possibile modificare l’opzione **Abilita backup predefinito per questo volume** per il volume.
 
 6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Il portale di Azure classico mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
@@ -128,7 +128,7 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 ![Video disponibile](./media/storsimple-manage-volumes/Video_icon.png) **Video disponibile**
 
-Per guardare un video che illustra come espandere un volume, fare clic [qui](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Per guardare un video che illustra come espandere un volume, fare clic [qui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Portare un volume offline
 
@@ -149,11 +149,11 @@ Potrebbe essere necessario portare un volume offline per modificarlo o eliminarl
 
     Quando un volume è offline, l’opzione **Porta online** diventa disponibile.
 
-> [AZURE.NOTE]Il comando **Porta offline** invia al dispositivo una richiesta di portare il volume offline. Se gli host stanno ancora utilizzando il volume, le connessioni saranno interrotte ma il volume sarà portato offline.
+> [AZURE.NOTE] Il comando **Porta offline** invia al dispositivo una richiesta di portare il volume offline. Se gli host stanno ancora utilizzando il volume, le connessioni saranno interrotte ma il volume sarà portato offline.
 
 ## Eliminare un volume
 
-> [AZURE.IMPORTANT]È possibile eliminare un volume solo se è offline.
+> [AZURE.IMPORTANT] È possibile eliminare un volume solo se è offline.
 
 Completare la procedura seguente per eliminare un volume.
 
@@ -198,4 +198,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

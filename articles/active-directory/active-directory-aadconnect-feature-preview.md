@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/30/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Altre informazioni sulle funzionalità in anteprima
@@ -46,22 +46,22 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 - Attualmente sono supportate solo le distribuzioni in organizzazioni di Exchange a foresta singola. Se sono presenti più organizzazioni di Exchange locali, sarà necessaria una soluzione GALSync locale per visualizzare questi gruppi nelle altre foreste.
 - La funzionalità di writeback dei gruppi al momento non gestisce gruppi di protezione o gruppi di distribuzione.
 
->[AZURE.NOTE]Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei gruppi.
+>[AZURE.NOTE] Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei gruppi.
 
 ## Writeback degli utenti
-> [AZURE.IMPORTANT]La funzionalità di anteprima di writeback degli utenti è stata temporaneamente rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
+> [AZURE.IMPORTANT] La funzionalità di anteprima di writeback degli utenti è stata temporaneamente rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
 
 La funzionalità di writeback degli utenti è in una fase iniziale di anteprima. Può essere usata solo quando l'origine per tutti gli oggetti utente è Azure AD e la directory Active Directory locale è vuota prima di abilitare la funzionalità (distribuzione vergine).
 
-> [AZURE.WARNING]Questa funzionalità dovrebbe essere valutata solo in un ambiente di test e non deve essere usata in una directory Azure AD destinata all'utilizzo in produzione.
+> [AZURE.WARNING] Questa funzionalità dovrebbe essere valutata solo in un ambiente di test e non deve essere usata in una directory Azure AD destinata all'utilizzo in produzione.
 
 .
 
->[AZURE.NOTE]Una sottoscrizione di Azure AD Premium è necessaria per il writeback degli utenti.
+>[AZURE.NOTE] Una sottoscrizione di Azure AD Premium è necessaria per il writeback degli utenti.
 
 ## Passaggi successivi
 Continuare l'[Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ La [raccolta di runbook](http://gallery.technet.microsoft.com/scriptcenter/site/
 
 È possibile importare solo direttamente dalla raccolta di runbook usando il portale di Azure o il portale di anteprima di Azure. Non è possibile eseguire questa funzione tramite Windows PowerShell.
 
->[AZURE.NOTE]È necessario convalidare il contenuto di qualsiasi runbook ottenuto dalla raccolta di runbook e prestare particolare attenzione durante la loro installazione ed esecuzione in un ambiente di produzione. |
+>[AZURE.NOTE] È necessario convalidare il contenuto di qualsiasi runbook ottenuto dalla raccolta di runbook e prestare particolare attenzione durante la loro installazione ed esecuzione in un ambiente di produzione. |
 
 ### Per importare un runbook dalla raccolta di runbook con il portale di Azure
 
@@ -54,7 +54,7 @@ La [raccolta di runbook](http://gallery.technet.microsoft.com/scriptcenter/site/
 
 Microsoft consiglia di aggiungere alla raccolta dei runbook i runbook ritenuti più utili per gli altri clienti. È possibile aggiungere un runbook [caricandolo nello Script Center](http://gallery.technet.microsoft.com/site/upload), a condizione che si considerino i seguenti dettagli.
 
-- È necessario specificare *Microsoft Azure* nel campo **Categoria** e *Automazione* nel campo **Sottocategoria** per il runbook da visualizzare nella procedura guidata.  
+- È necessario specificare *Windows Azure* nel campo **Categoria** e *Automazione* nel campo **Sottocategoria** per il runbook da visualizzare nella procedura guidata.  
 
 - Il caricamento deve interessare un singolo file con estensione PS1 o GRAPHRUNBOOK. Se il runbook richiede eventuali moduli, runbook figlio o asset, è consigliabile elencare questi elementi nella descrizione dell'invio e nella sezione dei commenti del runbook. Se si dispone di una soluzione che richiede più runbook, caricare ciascuna soluzione separatamente ed elencare i nomi dei runbook correlati in ognuna delle relative descrizioni. Assicurarsi di usare gli stessi tag in modo che vengano visualizzati nella stessa categoria. Un utente dovrà fare riferimento alla descrizione per sapere se sono necessari altri runbook per il corretto funzionamento della soluzione.
 
@@ -101,11 +101,11 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 
 ## Richiesta di un runbook o un modulo
 
-È possibile inviare richieste a [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Se è necessario supporto per la scrittura di un runbook o per inviare domande relative a PowerShell, inserire una domanda nel [forum](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+È possibile inviare richieste a [User Voice](https://feedback.azure.com/forums/246290-azure-automation/). Se è necessario supporto per la scrittura di un runbook o per inviare domande relative a PowerShell, inserire una domanda nel [forum](http://social.msdn.microsoft.com/Forums/windowsazure/it-IT/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Articoli correlati
 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

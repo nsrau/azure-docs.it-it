@@ -14,12 +14,12 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/05/2016" 
+  ms.date="01/22/2016" 
   ms.author="tamram"/>
 
 # Replica di Archiviazione di Azure
 
-I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio di Archiviazione di Azure](http://azure.microsoft.com/support/legal/sla/) anche in caso di errori hardware temporanei.
+I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio di Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/) anche in caso di errori hardware temporanei.
 
 Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
 
@@ -31,11 +31,11 @@ Quando si crea un account di archiviazione, è necessario selezionare una delle 
 Nella tabella seguente è riportata una breve panoramica delle differenze tra i vari tipi di archiviazione, mentre nelle sezioni successive verranno forniti altri dettagli su ogni tipo di replica.
 
 
-|Strategia di replica|Archiviazione con ridondanza locale|ZRS|Archiviazione con ridondanza geografica|RA-GRS
-|--------------------|---|---|---|------
-|I dati vengono replicati in più strutture|No|Sì|Sì|Sì|
-|I dati possono essere letti dalla posizione secondaria oltre che da quella primaria|No|No|No|Sì
-|Numero di copie di dati mantenute in nodi distinti|3|3|6|6
+| Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
+|:-----------------------------------------------------------------------------------|:----|:----|:----|:-------|
+| I dati vengono replicati in più strutture | No | Sì | Sì | Sì |
+| I dati possono essere letti dalla posizione secondaria oltre che da quella primaria | No | No | No | Sì |
+| Numero di copie di dati mantenute in nodi distinti | 3 | 3 | 6 | 6 |
 
 
 ## Archiviazione con ridondanza locale
@@ -56,7 +56,7 @@ Mentre per la maggior parte delle applicazioni è consigliabile adottare l'archi
 Con l'archiviazione con ridondanza della zona (ZRS) i dati vengono replicati in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Se per l'account di archiviazione è stata abilitata l'archiviazione con ridondanza della zona, la durabilità dei dati è assicurata anche in caso di problemi in una delle strutture.
 
 
->[AZURE.NOTE]ZONA è attualmente disponibile solo per i BLOB in blocchi ed è supportata solo nelle versioni 2014-02-14 e versioni successive. Tenere presente che dopo aver creato l'account di archiviazione e selezionato la replica con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
+>[AZURE.NOTE]  ZONA è attualmente disponibile solo per i BLOB in blocchi ed è supportata solo nelle versioni 2014-02-14 e versioni successive. Tenere presente che dopo aver creato l'account di archiviazione e selezionato la replica con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
 
 
 ## Archiviazione con ridondanza geografica
@@ -66,32 +66,30 @@ Con l'archiviazione con ridondanza geografica (GRS) i dati vengono replicati in 
 Per un account di archiviazione con l'archiviazione con ridondanza geografica abilitata, il commit di un aggiornamento viene eseguito prima nell'area primaria, dove viene replicato per tre volte. Quindi l'aggiornamento viene replicato nell'area secondaria, anche in questo caso per tre volte, in domini di errore e domini di aggiornamento distinti.
 
 
-> [AZURE.NOTE]Con l'archiviazione con ridondanza geografica, le richieste di scrittura dati vengono replicate in modo asincrono nell'area secondaria. È importante tenere presente che la scelta dell'archiviazione con ridondanza geografica non influisce sulla latenza delle richieste effettuate per l'area primaria. Tuttavia, poiché la replica asincrona implica un ritardo, in caso di un'emergenza locale è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
+> [AZURE.NOTE] Con l'archiviazione con ridondanza geografica, le richieste di scrittura dei dati vengono replicate in modo asincrono nell'area secondaria. È importante tenere presente che la scelta dell'archiviazione con ridondanza geografica non influisce sulla latenza delle richieste effettuate per l'area primaria. Tuttavia, poiché la replica asincrona implica un ritardo, in caso di un'emergenza locale è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria| L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. La tabella seguente illustra le associazioni di aree primarie e secondarie | Primarie | Secondarie |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|
+| Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
+| Stati Uniti centro-meridionali | Stati Uniti centro-settentrionali |
+| Stati Uniti orientali | Stati Uniti occidentali |
+| Stati Uniti occidentali | Stati Uniti orientali |
+| Stati Uniti orientali 2 | Stati Uniti centrali |
+| Stati Uniti centrali | Stati Uniti orientali 2 |
+| Europa settentrionale | Europa occidentale |
+| Europa occidentale | Europa settentrionale |
+| Asia sudorientale | Asia orientale |
+| Asia orientale | Asia sudorientale |
+| Cina orientale | Cina settentrionale |
+| Cina settentrionale | Cina orientale |
+| Giappone orientale | Giappone occidentale |
+| Giappone occidentale | Giappone orientale |
+| Brasile meridionale | Stati Uniti centro-meridionali |
+| Australia orientale | Australia sudorientale |
+| Australia sudorientale | Australia orientale |
+| India meridionale | India centrale |
+| India centrale | India meridionale |
+ |
+uth
 
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie:
-
-|Primaria |Secondario
-| ---------------   |----------------
-|Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali
-|Stati Uniti centro-meridionali |Stati Uniti centro-settentrionali
-|Stati Uniti orientali |Stati Uniti occidentali
-|Stati Uniti occidentali |Stati Uniti orientali
-|Stati Uniti orientali 2 |Stati Uniti centrali
-|Stati Uniti centrali |Stati Uniti orientali 2
-|Europa settentrionale |Europa occidentale
-|Europa occidentale |Europa settentrionale
-|Asia sudorientale |Asia orientale
-|Asia orientale |Asia sudorientale
-|Cina orientale |Cina settentrionale
-|Cina settentrionale |Cina orientale
-|Giappone orientale |Giappone occidentale
-|Giappone occidentale |Giappone orientale
-|Brasile meridionale |Stati Uniti centro-meridionali
-|Australia orientale |Australia sudorientale
-|Australia sudorientale|Australia orientale
-|India meridionale |India centrale
-|India centrale |India meridionale
-  
 
 ## Archiviazione con ridondanza geografica e accesso in lettura
 
@@ -101,9 +99,10 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 
 ## Passaggi successivi
 
+- [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account)
 - [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
 - [Opzioni di ridondanza di Archiviazione di Microsoft Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
 - [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

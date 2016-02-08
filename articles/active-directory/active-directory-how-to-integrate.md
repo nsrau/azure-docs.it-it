@@ -48,7 +48,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 ### Promuovere l'applicazione nei Marketplace di Azure e Office 365
 
-**Promuovere l'applicazione per farla conoscere a milioni di organizzazioni che usano già Azure AD.** Gli utenti che esplorano questi Marketplace usano già uno o più servizi cloud, di conseguenza rappresentano il pubblico di destinazione ideale per l'applicazione. Altre informazioni sulla promozione dell'applicazione in [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
+**Promuovere l'applicazione per farla conoscere a milioni di organizzazioni che usano già Azure AD.** Gli utenti che esplorano questi Marketplace usano già uno o più servizi cloud, di conseguenza rappresentano il pubblico di destinazione ideale per l'applicazione. Altre informazioni sulla promozione dell'applicazione in [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
 **Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.** Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [riquadro di accesso di Azure AD](active-directory-saas-access-panel-introduction.md).
 
@@ -68,7 +68,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 ### Funzionalità di sicurezza avanzate
 
-**Autenticazione a più fattori** Azure AD offre l'autenticazione a più fattori nativa. Gli amministratori IT possono richiedere l'autenticazione a più fattori per l'accesso all'applicazione, evitando così di dover scrivere il codice per garantire questo tipo di supporto. Altre informazioni su [Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Autenticazione a più fattori** Azure AD offre l'autenticazione a più fattori nativa. Gli amministratori IT possono richiedere l'autenticazione a più fattori per l'accesso all'applicazione, evitando così di dover scrivere il codice per garantire questo tipo di supporto. Altre informazioni su [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Rilevamento di attività di accesso con anomalie.** Azure AD elabora oltre un miliardo di accessi al giorno e si avvale di algoritmi di apprendimento automatico per rilevare attività sospette e notificare agli amministratori IT eventuali problemi. Grazie al supporto dell'accesso tramite Azure AD, l'applicazione può usufruire di questa ulteriore protezione. Altre informazioni sulla [visualizzazione del report degli accessi di Azure Active Directory](active-directory-view-access-usage-reports.md).
 
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,13 +28,13 @@ Dopo la lettura di questo articolo, si sarà in grado di rispondere alle domande
 
 ##<a id="HowDocumentDBIndexingWorks"></a> Come funziona l'indicizzazione di DocumentDB
 
-[Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) è un database privo di schema creato per JSON. Non prevede o richiede nessuno schema ne definizioni di indice secondario per indicizzare i dati su larga scala. Questa caratteristica consente di definire rapidamente modelli di dati di applicazioni ed eseguirne l'iterazione utilizzando DocumentDB. DocumentDB indicizza automaticamente tutte le proprietà dei documenti aggiunti a una raccolta in modo da renderle disponibili per l'esecuzione di query. L’indicizzazione automatica consente di archiviare documenti che appartengono a schemi completamente arbitrari senza doversi preoccupare degli schemi o degli indici secondari.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un database privo di schema creato per JSON. Non prevede o richiede nessuno schema ne definizioni di indice secondario per indicizzare i dati su larga scala. Questa caratteristica consente di definire rapidamente modelli di dati di applicazioni ed eseguirne l'iterazione utilizzando DocumentDB. DocumentDB indicizza automaticamente tutte le proprietà dei documenti aggiunti a una raccolta in modo da renderle disponibili per l'esecuzione di query. L’indicizzazione automatica consente di archiviare documenti che appartengono a schemi completamente arbitrari senza doversi preoccupare degli schemi o degli indici secondari.
 
 Con l'obiettivo di eliminare la mancata corrispondenza tra il database e i modelli di programmazione di applicazioni, DocumentDB sfrutta la semplicità di JSON e la sua mancanza di una definizione dello schema. Non fa ipotesi sui documenti e consente ai documenti all'interno di una raccolta di DocumentDB di variare nello schema, oltre ai valori specifici di istanza. A differenza di altri database di documenti, il motore di database di DocumentDB opera direttamente a livello di grammatica JSON, rimanendo agnostico al concetto di uno schema di documento e unendo valori di struttura e d’istanza dei documenti. Questo, a sua volta, gli consente di indicizzare automaticamente documenti senza schema o indici secondari.
 
 L'indicizzazione di DocumentDB sfrutta il fatto che la grammatica JSON consente la **rappresentazione dei documenti come strutture ad albero**. Per rappresentare un documento JSON come struttura ad albero, è necessario creare un nodo principale fittizio come elemento padre per il resto dei nodi sottostanti nel documento. Ogni etichetta che include gli indici di matrice in un documento JSON diventa un nodo dell'albero. La figura seguente illustra un documento JSON di esempio e la rappresentazione ad albero corrispondente.
 
->[AZURE.NOTE]Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio `{"locationId": 5, "city": "Moscow"}` rivela che sono disponibili due proprietà `locationId` e `city` che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
+>[AZURE.NOTE] Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio`{"locationId": 5, "city": "Moscow"}`rivela che sono disponibili due proprietà`locationId`e`city`e che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
 
 
 **Documenti JSON come strutture ad albero:**
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

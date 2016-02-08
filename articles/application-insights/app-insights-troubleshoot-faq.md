@@ -19,7 +19,7 @@
 
 ## Si può usare Application Insights con ...?
 
-[Vedere le piattaforme][platforms].
+[Vedere le piattaforme.][platforms]
 
 ## È gratuito?
 
@@ -32,7 +32,7 @@
 
 #### Quali vantaggi si ottengono a pagamento?
 
-* [Quota dati mensile](http://azure.microsoft.com/pricing/details/application-insights/) più elevata.
+* [Quota dati mensile](https://azure.microsoft.com/pricing/details/application-insights/) più elevata.
 * Possibilità di pagare l'"eccedenza" per continuare a raccogliere dati se viene superata la quota mensile. Quando i dati superano la quota prevista, l'addebito dei costi avviene per MB.
 * [Esportazione continua](app-insights-export-telemetry.md).
 
@@ -155,7 +155,7 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 #### Non vengono più visualizzati i dati disponibili in precedenza
 
 * Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 #### Non sono presenti tutti i dati previsti
@@ -252,4 +252,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

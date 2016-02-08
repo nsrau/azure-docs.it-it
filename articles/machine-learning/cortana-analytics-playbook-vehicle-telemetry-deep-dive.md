@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Berlina familiare
 
 [Soluzione Vehicle Telematics Simulator di Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Hub eventi di Azure](http://azure.microsoft.com/services/event-hubs/)
+[Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
 
 [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" 
 
 
 ## Preparazione
->[AZURE.ALERT]Questo passaggio della soluzione è applicabile solo all'elaborazione batch.
+>[AZURE.ALERT] Questo passaggio della soluzione è applicabile solo all'elaborazione batch.
 
 Il set di dati di diagnostica e segnali del veicolo semistrutturato non elaborato viene partizionato nel passaggio di preparazione dei dati in un formato YEAR/MONTH per l'esecuzione di query efficienti e l'archiviazione scalabile a lungo termine. Ciò significa che viene abilitato il passaggio da un account BLOB al successivo quando il primo è pieno. I dati di output (con etichetta *PartitionedCarEventsTable*) devono essere conservati per un lungo periodo di tempo nella forma di base meno elaborata dei dati nel "Data Lake" del cliente. I dati di input per questa pipeline vengono in genere eliminati perché i dati di output hanno la massima fedeltà all'input, sono semplicemente archiviati (partizionati) meglio per un uso successivo.
 
@@ -396,7 +396,7 @@ Fare clic su [Download di RealtimeDashboardApp](http://go.microsoft.com/fwlink/?
 
 *Figura 19: Accesso a Power BI da RealtimeDashboardApp*
 
->[AZURE.NOTE]Nota: per scaricare il set di dati di Power BI, eseguire RealtimeDashboardApp con il parametro "flushdata":
+>[AZURE.NOTE] Nota: per scaricare il set di dati di Power BI, eseguire RealtimeDashboardApp con il parametro "flushdata":
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

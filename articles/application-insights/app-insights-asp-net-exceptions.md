@@ -25,11 +25,31 @@ Monitorando l'applicazione con [Visual Studio Application Insights][start] è po
 
 Per monitorare un'app ASP.NET, è necessario [aggiungere Application Insights SDK][greenbrown] all'applicazione o [installare Status Monitor nel server IIS][redfield] oppure, se l'app è un'app Web di Azure, aggiungere l'[estensione Application Insights][azure].
 
-## Diagnosi degli errori 
+## Diagnosticare le eccezioni con Visual Studio
 
-Il riquadro Errori nel pannello Panoramica mostra i grafici delle eccezioni e delle richieste HTTP non riuscite insieme a un elenco di URL delle richieste che causano gli errori più frequenti.
+Aprire la soluzione dell'app in Visual Studio per facilitare il debug.
 
-![Selezionare gli errori](./media/app-insights-asp-net-exceptions/012-start.png)
+Eseguire l'app nel server o nel computer di sviluppo usando F5.
+
+Aprire la finestra di ricerca di Application Insights in Visual Studio e impostare la visualizzazione degli eventi dall'app. A questo scopo, durante il debug è sufficiente fare clic sul pulsante Application Insights.
+
+![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Apri.](./media/app-insights-asp-net-exceptions/34.png)
+
+Si noti che è possibile filtrare il report per visualizzare solo le eccezioni.
+
+*Se non vengono visualizzate eccezioni, vedere la sezione relativa all'[acquisizione delle eccezioni](#exceptions).*
+
+Fare clic su un report di eccezione per visualizzarne l'analisi dello stack.
+
+![Fare clic per visualizzare un'eccezione.](./media/app-insights-asp-net-exceptions/35.png)
+
+Fare clic su un riferimento di riga nell'analisi dello stack per aprire il relativo file.
+
+## Diagnosi degli errori con il portale di Azure
+
+Il riquadro Errori nel pannello di panoramica dell'app in Application Insights mostra i grafici delle eccezioni e delle richieste HTTP non riuscite, insieme a un elenco di URL delle richieste che causano gli errori più frequenti.
+
+![Selezionare Impostazioni, Errori.](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Fare clic su uno dei tipi di richieste non riuscite nell'elenco per visualizzare le singole occorrenze dell'errore. Fare quindi clic sulle eccezioni o sui dati di traccia associati alle eccezioni:
 
@@ -50,13 +70,15 @@ Sarà quindi possibile esaminare l'analisi dello stack e le proprietà dettaglia
 
 [Altre informazioni sulla ricerca diagnostica][diagnostic].
 
+
+
 ## Errori di dipendenze
 
-Una *dipendenza* è un servizio che l'applicazione chiama in genere tramite un'API REST o una connessione di database. [Application Insights Status Monitor][redfield] monitora automaticamente un'ampia gamma di tipi di chiamata alle dipendenze, misurando la durata della chiamata e l'esito, positivo o negativo.
+Una *dipendenza* è un servizio che l'applicazione chiama in genere tramite un'API REST o una connessione di database. [Application Insights Status Monitor][redfield] monitora automaticamente un'ampia gamma di tipi di chiamata delle dipendenze, misurando la durata della chiamata e l'esito, positivo o negativo.
 
 Per ottenere i dati delle dipendenze, è necessario [installare Status Monitor][redfield] nel server IIS o, se l'app è un'app Web di Azure, usare l'[estensione Application Insights][azure].
 
-Le chiamate non riuscite alle dipendenze sono elencate nel pannello Errori ma sono anche disponibili nella sezione Elementi correlati nei dettagli delle richieste e nei dettagli delle eccezioni.
+Le chiamate delle dipendenze non riuscite sono elencate nel pannello Errori ma sono anche disponibili nella sezione Elementi correlati nei dettagli delle richieste e nei dettagli delle eccezioni.
 
 *Se non vengono visualizzati errori di dipendenze, è una cosa positiva. Tuttavia, per verificare la ricezione dei dati sulle dipendenze, aprire il pannello Prestazioni ed esaminare il grafico Durata della dipendenza.*
 
@@ -79,14 +101,14 @@ Per visualizzare questi eventi, aprire [Cerca][diagnostic], quindi Filtro e infi
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](app-insights-sampling.md)
+> [AZURE.NOTE] Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](app-insights-sampling.md)
 
 ### Come visualizzare i dati POST di una richiesta
 
 I dettagli della richiesta non includono i dati inviati all'app in una chiamata POST. Per poter ottenere questi dati:
 
 * [Installare l'SDK][greenbrown] nel progetto dell'applicazione.
-* Inserire il codice nell'applicazione per chiamare [Microsoft.ApplicationInsights.TrackTrace()][api]. Inviare i dati POST nel parametro del messaggio. Esiste un limite per le dimensioni consentite, per cui è consigliabile provare a inviare solo i dati essenziali.
+* Inserire il codice nell'applicazione per chiamare [Microsoft.ApplicationInsights.TrackTrace()][api]. Inviare i dati POST nel parametro del messaggio. Esiste un limite per le dimensioni consentite, quindi è consigliabile provare a inviare solo i dati essenziali.
 * Quando si esamina una richiesta non riuscita, trovare le tracce associate.  
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
@@ -94,7 +116,7 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 
 ## <a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
 
-Inizialmente, nel portale non verranno visualizzate tutte le eccezioni che causano errori nell'app. Verranno visualizzate tutte le eccezioni del browser (se si usa [JavaScript SDK][client] nelle pagine Web). La maggior parte delle eccezioni del server vengono rilevate da IIS, ma è necessario scrivere qualche riga di codice per visualizzarle.
+Inizialmente, nel portale non verranno visualizzate tutte le eccezioni che causano errori nell'app. Verranno visualizzate tutte le eccezioni del browser (se si usa [JavaScript SDK][client] nelle pagine Web). La maggior parte delle eccezioni del server viene rilevata da IIS, ma è necessario scrivere qualche riga di codice per visualizzarle.
 
 È possibile:
 
@@ -184,7 +206,7 @@ Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti all
 
 ## MVC
 
-Se la configurazione di [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) è `Off`, le eccezioni potranno essere raccolte dal [modulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx). Se tuttavia è `RemoteOnly` (impostazione predefinita) o `On`, l'eccezione verrà cancellata e non potrà essere raccolta automaticamente da Application Insights. È possibile risolvere questo problema eseguendo l'override della [classe System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx) e applicando la classe di cui è stato eseguito l'override come illustrato per le diverse versioni MVC riportate di seguito ([origine github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Se la configurazione di [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) è `Off`, le eccezioni potranno essere raccolte dal [modulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx). Se tuttavia è `RemoteOnly` (impostazione predefinita) o `On`, l'eccezione verrà cancellata e non potrà essere raccolta automaticamente da Application Insights. È possibile risolvere questo problema eseguendo l'override della [classe System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx) e applicando la classe di cui è stato eseguito l'override, come illustrato per le diverse versioni MVC riportate di seguito ([origine github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
     using System;
     using System.Web.Mvc;
@@ -303,7 +325,7 @@ Sarà possibile aggiungere questo attributo di cui è stato eseguito l'override 
 
 [Esempio](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Ci sono alcuni casi in cui non è possibile gestire i filtri eccezioni. Ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller. 
 * Eccezioni generate dai gestori di messaggi. 
@@ -364,8 +386,8 @@ Aggiungere il codice seguente ai servizi in WebApiConfig:
 
 In alternativa, è possibile:
 
-2. Sostituire ExceptionHandler con un'implementazione personalizzata di IExceptionHandler. Questo elemento viene chiamato solo quando il framework può ancora scegliere il messaggio di risposta da inviare (non quando la connessione viene interrotta) 
-3. Filtri eccezioni (come descritto nella sezione relativa ai controller Web API 1.x precedente) - non vengono chiamati in tutti i casi.
+2. Sostituire ExceptionHandler con un'implementazione personalizzata di IExceptionHandler. Questo elemento viene chiamato solo quando il framework può ancora scegliere il messaggio di risposta da inviare, non quando la connessione viene interrotta. 
+3. Come descritto nella sezione relativa ai controller Web API 1.x precedente, i filtri eccezioni non vengono chiamati in tutti i casi.
 
 
 ## WCF
@@ -434,13 +456,13 @@ Aggiungere l'attributo alle implementazioni del servizio:
 
 ## Contatori delle prestazioni delle eccezioni
 
-Se si dispone di [Status Monitor istallato][redfield] sul server, è possibile ottenere un grafico della frequenza delle eccezioni, misurata da .NET. Include le eccezioni .NET gestite e non gestite.
+Se si dispone di [Status Monitor istallato][redfield] sul server, è possibile ottenere un grafico della frequenza delle eccezioni, misurata da .NET. Il grafico include le eccezioni .NET gestite e non gestite.
 
 Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **Frequenza eccezione**, elencata sotto a Contatori delle prestazioni.
 
-.NET framework calcola la frequenza tramite il conteggio del numero delle eccezioni in un intervallo e dividendolo per la lunghezza dell'intervallo.
+.NET framework calcola la frequenza contando il numero delle eccezioni in un intervallo e dividendolo per la lunghezza dell'intervallo.
 
-Si noti che tale conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e il SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
+Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e l'SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
 
 <!--Link references-->
 
@@ -455,4 +477,4 @@ Si noti che tale conteggio è diverso dal conteggio delle "Eccezioni" calcolato 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

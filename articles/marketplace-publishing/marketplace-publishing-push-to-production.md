@@ -31,9 +31,9 @@ Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing 
 
   ![disegno][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]È sempre possibile eliminare l'offerta mentre è in uno stato **Bozza** (ovvero quando non è **Push in gestione temporanea** o **Push in produzione**). Nella scheda **Cronologia** fare clic su **Elimina bozza** nella parte inferiore della pagina per eliminare una bozza.
+> [AZURE.IMPORTANT] È sempre possibile eliminare l'offerta mentre è in uno stato **Bozza** (ovvero quando non è **Push in gestione temporanea** o **Push in produzione**). Nella scheda **Cronologia** fare clic su **Elimina bozza** nella parte inferiore della pagina per eliminare una bozza.
 
-> Per le immagini di macchina virtuale, la replica tra i datacenter può richiedere fino a 24-48 ore. Una volta completata la replica, l'offerta verrà elencata in [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> Per le immagini di macchina virtuale, la replica tra i datacenter può richiedere fino a 24-48 ore. Una volta completata la replica, l'offerta verrà elencata in [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Passaggi successivi
 Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per convalidare il corretto funzionamento di tutti i contratti e le funzionalità nell'ambiente di produzione, come testato e convalidato nell'ambiente di gestione temporanea.
@@ -45,4 +45,4 @@ Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per conva
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

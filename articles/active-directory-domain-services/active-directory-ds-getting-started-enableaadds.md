@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)* - Introduzione
@@ -39,25 +39,25 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
 
     ![Abilita servizi di dominio](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
-    > [AZURE.NOTE]Quando si abilita Servizi di dominio Azure AD per il tenant, Azure AD genererà e archivierà gli hash delle credenziali Kerberos e NTLM necessari per l'autenticazione degli utenti.
+    > [AZURE.NOTE] Quando si abilita Servizi di dominio Azure AD per il tenant, Azure AD genererà e archivierà gli hash delle credenziali Kerberos e NTLM necessari per l'autenticazione degli utenti.
 
 7. Specificare il **Nome di dominio DNS di Servizi di dominio**.
    - Il nome di dominio predefinito della directory (ad esempio, un nome che termina con il suffisso di dominio **. onmicrosoft.com**) verrà selezionato per impostazione predefinita.
    - Nell'elenco sono contenuti tutti i domini che sono stati configurati per la directory di Azure AD, inclusi i domini verificati e non verificati configurati nella scheda 'Domini'.
    - Inoltre, è anche possibile aggiungere, digitandolo, un nome di dominio personalizzato all'elenco.
 
-     >[AZURE.WARNING]Assicurarsi che il prefisso del dominio del nome di dominio specificato (es. 'contoso' nel nome di dominio 'contoso.local') sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
+     >[AZURE.WARNING] Assicurarsi che il prefisso del dominio del nome di dominio specificato (es. 'contoso' nel nome di dominio 'contoso.local') sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
 
 8. Il passaggio successivo consiste nel selezionare una rete virtuale in cui si desidera rendere disponibile Servizi di dominio Azure AD. Selezionare la rete virtuale appena creata nell'elenco a discesa **Connetti Servizi di dominio a questa rete virtuale**.
    - Assicurarsi che la rete virtuale specificata appartenga a un'area di Azure supportata da servizi di dominio di Azure AD.
-   - Fare riferimento alla [pagina delle aree](active-directory-ds-regions.md) per visualizzare l'elenco di aree di Azure supportate.
+   - Per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 
 9. Dopo aver selezionato le opzioni precedenti, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina per abilitare Servizi di dominio Azure AD.
 10. Nella pagina verrà visualizzato lo stato 'In sospeso...' durante l'abilitazione di Servizi di dominio Azure AD per la directory.
 
     ![Abilitare i servizi di dominio - stato in sospeso](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-    > [AZURE.NOTE]Servizi di dominio Azure AD garantisce un'elevata disponibilità per il dominio gestito. Al momento dell'abilitazione di Servizi di dominio Azure AD per il dominio, è possibile notare che vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Servizi di dominio nella rete virtuale. Il secondo indirizzo IP verrà visualizzato dopo breve tempo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
+    > [AZURE.NOTE] Servizi di dominio Azure AD garantisce un'elevata disponibilità per il dominio gestito. Al momento dell'abilitazione di Servizi di dominio Azure AD per il dominio, è possibile notare che vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Servizi di dominio nella rete virtuale. Il secondo indirizzo IP verrà visualizzato dopo breve tempo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
 
 11. Dopo circa 20-30 minuti, il primo indirizzo IP in cui è disponibile Servizi di dominio nella rete virtuale verrà visualizzato nel campo **Indirizzo IP** nella pagina **Configura**.
 
@@ -67,10 +67,10 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
 
     ![Servizi di dominio abilitato - provisioning di entrambi gli indirizzi IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE]A seconda delle dimensioni della directory di Azure AD (numero di utenti, gruppi e così via), sarà richiesto del tempo prima che il contenuto della directory diventi disponibile in Servizi di dominio Azure AD. Questo processo di sincronizzazione avviene in background. Per directory di grandi dimensioni con decine di migliaia di oggetti, possono essere necessari anche un paio di giorni affinché tutti gli utenti, le appartenenze ai gruppi e le credenziali vengano sincronizzati e siano disponibili in Servizi di dominio Azure AD.
+> [AZURE.NOTE] A seconda delle dimensioni della directory di Azure AD (numero di utenti, gruppi e così via), sarà richiesto del tempo prima che il contenuto della directory diventi disponibile in Servizi di dominio Azure AD. Questo processo di sincronizzazione avviene in background. Per directory di grandi dimensioni con decine di migliaia di oggetti, possono essere necessari anche un paio di giorni affinché tutti gli utenti, le appartenenze ai gruppi e le credenziali vengano sincronizzati e siano disponibili in Servizi di dominio Azure AD.
 
 
 ---
 [**Passaggio successivo - Aggiornare le impostazioni DNS per la rete virtuale di Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

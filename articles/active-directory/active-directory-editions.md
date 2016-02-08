@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Edizioni di Azure Active Directory | Microsoft Azure"
-	description="Argomento che illustra la possibilità di scegliere tra edizioni gratuite e a pagamento di Azure Active Directory."
+	description="Argomento che illustra le opzioni relative alle edizioni gratuite e a pagamento di Azure Active Directory. Azure Active Directory Basic è l'edizione gratuita e Azure Active Directory Premium è l'edizione a pagamento."
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -28,7 +28,7 @@ Per migliorare Azure Active Directory, è possibile aggiungere funzionalità a p
 Le sottoscrizioni di Office 365 includono funzionalità di Azure Active Directory aggiuntive, descritte nella tabella di confronto seguente.
 
 
-> [AZURE.NOTE]Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
+> [AZURE.NOTE] Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
 
 
 - **Azure Active Directory Basic**: progettata per gli utenti che svolgono attività basate sul cloud, questa edizione garantisce l'accesso alle applicazioni incentrate su cloud e soluzioni di gestione delle identità self-service. L'edizione Basic di Azure Active Directory offre funzionalità per il miglioramento della produttività e la riduzione dei costi, ad esempio la gestione degli accessi basata sui gruppi, la reimpostazione delle password self-service per le applicazioni cloud e il proxy dell'applicazione di Azure Active Directory (per pubblicare applicazioni Web locali usando Azure Active Directory), supportate da un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%.
@@ -38,7 +38,8 @@ Le sottoscrizioni di Office 365 includono funzionalità di Azure Active Director
 Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 
-> [AZURE.NOTE]Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalità di Azure Active Directory:
+> [AZURE.NOTE] 
+Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalità di Azure Active Directory:
 >
 >- Active Directory B2C è la soluzione di gestione delle identità e degli accessi per le applicazioni rivolte ai consumatori. Per altre informazioni, vedere la pagina relativa ad [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
  
@@ -95,4 +96,4 @@ Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Intro
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

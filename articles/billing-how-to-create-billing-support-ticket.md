@@ -24,7 +24,7 @@ Questo articolo fornisce le informazioni necessarie per aprire un ticket con il 
 
 >[AZURE.NOTE]Le autorizzazioni per accedere al Centro account sono concesse solo all'amministratore dell'account Azure.
 
-1. Passare al sito Web del [Supporto di Azure](http://azure.microsoft.com/support) e fare clic su **Supporto tecnico**. In alternativa, è possibile inviare una richiesta di intervento dal portale di Microsoft Azure o dal Centro account di Azure.
+1. Passare al sito Web del [Supporto di Azure](https://azure.microsoft.com/support/) e fare clic su **Supporto tecnico**. In alternativa, è possibile inviare una richiesta di intervento dal portale di Microsoft Azure o dal Centro account di Azure.
 
  * Per inviare un ticket di supporto, nel [portale di Azure](https://manage.windowsazure.com/) fare clic sul nome dell'account e quindi su Contatta il supporto Microsoft.
  * Per inviare un ticket di supporto, nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions) selezionare una sottoscrizione e quindi fare clic su Contatta il supporto Microsoft.
@@ -49,4 +49,4 @@ Questo articolo fornisce le informazioni necessarie per aprire un ticket con il 
 
 Si verrà contattati da un rappresentante del supporto tecnico di Azure secondo quanto previsto dalle condizioni del contratto.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

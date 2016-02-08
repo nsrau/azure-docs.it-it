@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Scaricare gli aggiornamenti rapidi
 
@@ -20,7 +20,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
  
 6. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. L'aggiornamento viene scaricato in una cartella con lo stesso nome dell'aggiornamento nella posizione selezionata. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
        
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
 	> 
 	> - È inoltre necessario scaricare l'**aggiornamento del driver LSI** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900), l'**aggiornamento Storport** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), l'**aggiornamento Spaceport** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322) e l'**aggiornamento del firmware del disco** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899), quindi copiarli nella stessa cartella condivisa.
 	> - L'aggiornamento rapido deve essere accessibile da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
@@ -85,7 +85,7 @@ Eseguire i passaggi seguenti per installare e verificare gli aggiornamenti rapid
         ````
 		
 
-	> [AZURE.NOTE]In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
+	> [AZURE.NOTE] In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 	
 8. Al termine dell'aggiornamento del software, ripetere i passaggi da 3 a 5 per installare e monitorare l'agente SaaS e l'agente MDS con `CisMdsAgentUpdateBundle.exe`. Assicurarsi che `HcsMdsSoftwareUpdate.exe` sia installato prima di `CisMdsAgentUpdateBundle.exe`.
 
@@ -109,7 +109,11 @@ Eseguire i passaggi seguenti per installare e verificare gli aggiornamenti rapid
 
 #### Per installare e verificare l'aggiornamento rapido in modalità di manutenzione
 
-Usare il pacchetto `DiskFirmwarePackage.exe` (KB3121899) per installare gli aggiornamenti firmware del disco. Si tratta di aggiornamenti problematici che richiedono circa 30 minuti per il completamento. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo. Per installare gli aggiornamenti firmware del disco, seguire le istruzioni seguenti.
+Usare il pacchetto `DiskFirmwarePackage.exe` (KB3121899) per installare gli aggiornamenti firmware del disco. Si tratta di aggiornamenti problematici che richiedono circa 30 minuti per il completamento. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo.
+
+Notare che, se il firmware del disco è già aggiornato, non è necessario installare questi aggiornamenti. Eseguire il cmdlet `Get-HcsUpdateAvailability` dalla console seriale del dispositivo. Si riceverà una notifica in cui si comunica se gli aggiornamenti sono disponibili e se sono problematici (aggiornamenti in modalità manutenzione) o non problematici (regolari).
+ 
+Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni riportate sotto.
 
 1. Attivare la modalità di manutenzione per il dispositivo. Notare che non si deve utilizzare Windows PowerShell in remoto quando ci si connette a un dispositivo in modalità di manutenzione. È necessario eseguire questo cmdlet nel controller del dispositivo quando si è connessi tramite console seriale del dispositivo. Digitare:
 		
@@ -235,4 +239,4 @@ Usare il pacchetto `DiskFirmwarePackage.exe` (KB3121899) per installare gli aggi
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

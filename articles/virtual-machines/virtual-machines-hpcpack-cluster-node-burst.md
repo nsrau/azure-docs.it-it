@@ -25,7 +25,7 @@ In questo articolo viene illustrato come aggiungere nodi "burst" di Azure (istan
 
 ![Nodi burst][burst]
 
->[AZURE.TIP]Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
+>[AZURE.TIP] Se si usa lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) per creare il cluster in Azure, è possibile includere i nodi burst di Azure nella distribuzione automatizzata. Vedere gli esempi nell'articolo.
 
 I passaggi descritti in questo articolo consentiranno di aggiungere nodi di Azure rapidamente a una macchina virtuale del nodo head HPC Pack basato su cloud per una distribuzione di test o con modello di verifica. La procedura è essenzialmente identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -37,7 +37,7 @@ Se si desidera usare le dimensioni di istanze a elevato utilizzo di calcolo A8 o
 
 * **Sottoscrizione di Azure** - Per aggiungere nodi di Azure, è possibile scegliere la stessa sottoscrizione usata per distribuire la macchina virtuale del nodo head oppure una o più sottoscrizioni diverse.
 
-* **Quota di core** - Potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi di Azure con dimensioni multicore. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Quota di core** - Potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi di Azure con dimensioni multicore. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ## Passaggio 1: Creare un servizio cloud e un account di archiviazione per aggiungere nodi di Azure
 
@@ -46,7 +46,7 @@ Usare il Portale di Azure classico o strumenti equivalenti per configurare gli e
 * Un nuovo servizio cloud di Azure
 * Un nuovo account di archiviazione di Azure
 
->[AZURE.NOTE]Non riutilizzare un servizio cloud esistente nella sottoscrizione. Inoltre, non distribuire un pacchetto del servizio cloud personalizzato separato in questo servizio cloud. HPC Pack distribuisce automaticamente un pacchetto del servizio cloud all'avvio (provisioning) dei nodi di Azure.
+>[AZURE.NOTE] Non riutilizzare un servizio cloud esistente nella sottoscrizione. Inoltre, non distribuire un pacchetto del servizio cloud personalizzato separato in questo servizio cloud. HPC Pack distribuisce automaticamente un pacchetto del servizio cloud all'avvio (provisioning) dei nodi di Azure.
 
 **Considerazioni**
 
@@ -88,4 +88,4 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere l'ar
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

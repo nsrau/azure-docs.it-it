@@ -70,13 +70,13 @@ Per autenticare l'applicazione per accedere ai servizi di archiviazione, è poss
 ###Chiave condivisa
 L'autenticazione con la chiave condivisa implica che l'applicazione userà il nome account e la chiave dell'account per accedere ai servizi di archiviazione. Per mostrare rapidamente come usare l'archivio BLOB da iOS, in questa guida introduttiva verrà usata l'autenticazione con la chiave condivisa.
 
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]Il nome account e la chiave dell'account, che concedono l'accesso completo in lettura/scrittura all'account di archiviazione associato, verranno distribuiti a ogni persona che scarica l'app. Questa procedura **non** è consigliabile perché si rischia che la chiave venga compromessa da client non attendibili.
+> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Il nome account e la chiave dell'account, che concedono l'accesso completo in lettura/scrittura all'account di archiviazione associato, verranno distribuiti a ogni persona che scarica l'app. Questa procedura **non** è consigliabile perché si rischia che la chiave venga compromessa da client non attendibili.
 
 Quando si usa l'autenticazione con la chiave condivisa, si creerà una stringa di connessione. La stringa di connessione è costituita da:
 
 - **DefaultEndpointsProtocol**: è possibile scegliere HTTP o HTTPS. Tuttavia, è vivamente consigliato l'uso di HTTPS.
 - **Nome account**: nome dell'account di archiviazione
-- **Chiave account**: se si utilizza il [portale di Azure](portal.azure.com), passare all’account di archiviazione e fare clic sull’icona **Chiavi** per trovare queste informazioni. Se si utilizza il [portale di Azure classico](manage.windowsazure.com), passare all'account di archiviazione nel portale e fare clic su **Gestisci chiavi di accesso**. 
+- **Chiave account**: se si utilizza il [portale di Azure](https://portal.azure.com), passare all’account di archiviazione e fare clic sull’icona **Chiavi** per trovare queste informazioni. Se si utilizza il [portale di Azure classico](https://manage.windowsazure.com), passare all'account di archiviazione nel portale e fare clic su **Gestisci chiavi di accesso**. 
 
 Ecco come appare nell'applicazione:
 
@@ -114,7 +114,7 @@ L'esempio seguente mostra come usare l'interfaccia della riga di comando di Azur
 Come si può osservare, quando si usa un token di firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Vedere l'[esercitazione sulla firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1) per altre informazioni sull'argomento.
 
 ##Operazioni asincrone
-> [AZURE.NOTE]Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
+> [AZURE.NOTE] Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
 
 ## Creare un contenitore
 Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seguente mostra come creare un contenitore, denominato *newcontainer*, nell'account di archiviazione se non esiste già. Quando si sceglie un nome per il contenitore, tenere presenti le regole indicate in precedenza.
@@ -137,7 +137,7 @@ Ogni BLOB nell'archivio di Azure deve risiedere in un contenitore. L'esempio seg
         }];
     }
 
-È possibile verificarne il funzionamento controllando il [portale di Azure](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che *newcontainer* sia nell'elenco di contenitori dell'account di archiviazione.
+È possibile verificarne il funzionamento controllando il [portale di Azure](https://portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che *newcontainer* sia nell'elenco di contenitori dell'account di archiviazione.
 
 ## Impostare le autorizzazioni del contenitore
 Per impostazione predefinita, le autorizzazioni di un contenitore vengono configurate per l'accesso **Privato**. I contenitori, tuttavia, offrono alcune opzioni diverse per l'accesso al contenitore:
@@ -202,7 +202,7 @@ L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in qu
          }];
      }
 
-È possibile verificarne il funzionamento controllando il [portale di Azure](portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è possibile andare all'URI dei BLOB:
+È possibile verificarne il funzionamento controllando il [portale di Azure](https://portal.azure.com) o qualsiasi [strumento di esplorazione di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è possibile andare all'URI dei BLOB:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -353,10 +353,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Blog del team di Archiviazione di Azure]
 
-In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](http://feedback.azure.com/forums/217298-storage).
+In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
 [Libreria iOS di Archiviazione di Azure]: https://github.com/azure/azure-storage-ios
 [API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

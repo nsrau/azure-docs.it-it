@@ -37,7 +37,7 @@ Il monitoraggio consente di ottenere informazioni sul funzionamento di un sistem
 - Rilevamento di problemi che si verificano, dal report iniziale tramite l’analisi delle possibili cause, la rettifica, gli aggiornamenti software conseguenti e la distribuzione.
 - Operazioni di rilevamento e debug di versioni del software.
 
-> [AZURE.NOTE]Questo elenco non vuole essere completo. Questo documento focalizza questi scenari come le situazioni più comuni di esecuzione del monitoraggio ma altri scenari, meno comuni o specifici per questo ambiente, sono possibili.
+> [AZURE.NOTE] Questo elenco non vuole essere completo. Questo documento focalizza questi scenari come le situazioni più comuni di esecuzione del monitoraggio ma altri scenari, meno comuni o specifici per questo ambiente, sono possibili.
 
 Le sezioni seguenti descrivono questi scenari in modo più dettagliato. Le informazioni per ogni scenario sono esaminate nel seguente formato:
 
@@ -108,7 +108,7 @@ Quando il sistema si trova in più condizioni di stress per l’aumento del volu
 
 Le prestazioni del sistema dipendono da numerosi fattori. Ogni fattore in genere viene misurato tramite indicatori di prestazioni chiave (KPI), ad esempio il numero di transazioni di database al secondo o il volume di richieste di rete vengono gestiti correttamente nell'intervallo di tempo specificato. Alcuni di questi indicatori KPI potrebbero essere disponibili come misure specifiche delle prestazioni, mentre altri possono derivare da una combinazione di metriche.
 
-> [AZURE.NOTE]Determinando buone o scarse prestazioni, è necessario comprendere il livello di prestazioni in cui il sistema deve essere in grado di funzionare. È necessario osservare il sistema mentre funziona con un carico tipico e acquisire i dati per ogni indicatore KPI in un periodo di tempo. Questo potrebbe comportare l'esecuzione del sistema sotto un carico simulato in un ambiente di test e raccogliere i dati appropriati prima di distribuire il sistema in un ambiente di produzione.
+> [AZURE.NOTE] Determinando buone o scarse prestazioni, è necessario comprendere il livello di prestazioni in cui il sistema deve essere in grado di funzionare. È necessario osservare il sistema mentre funziona con un carico tipico e acquisire i dati per ogni indicatore KPI in un periodo di tempo. Questo potrebbe comportare l'esecuzione del sistema sotto un carico simulato in un ambiente di test e raccogliere i dati appropriati prima di distribuire il sistema in un ambiente di produzione.
 
 > Assicurarsi inoltre che il monitoraggio delle prestazioni non diventi un onere non autorizzato dal sistema. È possibile regolare dinamicamente il livello di dettaglio relativo ai dati raccolti dal processo di monitoraggio delle prestazioni.
 
@@ -194,7 +194,7 @@ Una funzionalità di monitoraggio della protezione è la varietà di origini da 
 ## Contratto di servizio di monitoraggio
 Molti sistemi commerciali che supportano i clienti paganti forniscono garanzie sulle prestazioni del sistema sotto forma di contratti di servizio. In pratica, i contratti di servizio affermano che il sistema è in grado di gestire un volume di lavoro all'interno di un intervallo di tempo concordato e senza perdita di dati critici. Il monitoraggio del contratto di servizio si occupa di garantire che il sistema è in grado di soddisfare i contratti di servizio misurabili.
 
-> [AZURE.NOTE]Il contratto di servizio di monitoraggio è strettamente correlato al monitoraggio delle prestazioni, ma mentre il monitoraggio delle prestazioni si occupa di garantire che il sistema funzioni _in modo ottimale_, il contratto di servizio di monitoraggio è disciplinato da obbligazioni contrattuali che definiscono cosa significhi _in modo ottimale_.
+> [AZURE.NOTE] Il contratto di servizio di monitoraggio è strettamente correlato al monitoraggio delle prestazioni, ma mentre il monitoraggio delle prestazioni si occupa di garantire che il sistema funzioni _in modo ottimale_, il contratto di servizio di monitoraggio è disciplinato da obbligazioni contrattuali che definiscono cosa significhi _in modo ottimale_.
 
 I contratti di servizio vengono spesso definiti in termini di:
 
@@ -202,7 +202,7 @@ I contratti di servizio vengono spesso definiti in termini di:
 - Velocità effettiva operativa. Questo aspetto viene spesso espresso come uno o più chiavi – soglie massime, quali la garanzia che il sistema sarà in grado di supportare fino a 100.000 richieste utente simultanee o gestire 10.000 transazioni aziendali simultanee
 - Tempo di risposta operativa. Il sistema potrebbe rendere garanzie la frequenza con cui vengono elaborate le richieste, ad esempio 99% di tutte le transazioni di business verrà completata entro 2 secondi e nessun singola transazione richiede più di 10 secondi.
 
-> [AZURE.NOTE]Alcuni contratti per i sistemi commerciali possono includere anche i contratti di servizio riguardanti il supporto tecnico, ad esempio tutte le richieste di help desk richiedono una risposta entro 5 minuti e che il 99% dei problemi sia risolto completamente entro un giorno lavorativo. Un’efficace [gestione dei problemi](#issue-tracking) (descritto più avanti in questa sezione) è la chiave per soddisfare i contratti di servizio come questi.
+> [AZURE.NOTE] Alcuni contratti per i sistemi commerciali possono includere anche i contratti di servizio riguardanti il supporto tecnico, ad esempio tutte le richieste di help desk richiedono una risposta entro 5 minuti e che il 99% dei problemi sia risolto completamente entro un giorno lavorativo. Un’efficace [gestione dei problemi](#issue-tracking) (descritto più avanti in questa sezione) è la chiave per soddisfare i contratti di servizio come questi.
 
 ### Requisiti per il monitoraggio del contratto di servizio
 A livello più alto, un operatore deve essere in grado di determinare rapidamente se il sistema soddisfa i contratti di servizio concordati o meno e, se non è quindi in grado di eseguire il drill-down ed esaminare i fattori sottostanti per determinare i motivi le prestazioni scarse.
@@ -218,7 +218,7 @@ Tutti questi indicatori devono poter essere filtrati per un periodo di tempo spe
 
 Un'applicazione cloud includerà probabilmente un numero di componenti e sottosistemi. Un operatore deve essere in grado di selezionare un indicatore di alto livello e vedere come viene creato dall’integrità degli elementi sottostanti. Ad esempio, se il tempo di attività dell'intero sistema scende al di sotto di un valore accettabile, un operatore deve essere in grado di eseguire lo zoom avanti e determinare quali elementi contribuiscono a questo errore.
 
-> [AZURE.NOTE]Il tempo di attività del sistema deve essere definito accuratamente. In un sistema che utilizza la ridondanza per garantire la massima disponibilità, potrebbero non riuscire singole istanze di elementi, ma il sistema può continuare a essere funzionale. I tempi di corretto funzionamento visualizzato dal monitoraggio dell'integrità devono indicare i tempi di corretto funzionamento aggregato di ogni elemento e non necessariamente se il sistema è stato effettivamente interrotto. Inoltre, gli errori potrebbero essere isolati, in modo che anche se non è disponibile un sistema specifico il resto del sistema potrebbe rimanere disponibile, anche se con una riduzione delle funzionalità (in un sistema di e-commerce, un errore nel sistema potrebbe impedire a un cliente l’immissione di ordini ma il cliente potrebbe essere ancora in grado di individuare il catalogo dei prodotti).
+> [AZURE.NOTE] Il tempo di attività del sistema deve essere definito accuratamente. In un sistema che utilizza la ridondanza per garantire la massima disponibilità, potrebbero non riuscire singole istanze di elementi, ma il sistema può continuare a essere funzionale. I tempi di corretto funzionamento visualizzato dal monitoraggio dell'integrità devono indicare i tempi di corretto funzionamento aggregato di ogni elemento e non necessariamente se il sistema è stato effettivamente interrotto. Inoltre, gli errori potrebbero essere isolati, in modo che anche se non è disponibile un sistema specifico il resto del sistema potrebbe rimanere disponibile, anche se con una riduzione delle funzionalità (in un sistema di e-commerce, un errore nel sistema potrebbe impedire a un cliente l’immissione di ordini ma il cliente potrebbe essere ancora in grado di individuare il catalogo dei prodotti).
 
 A scopo di avvertimento, il sistema deve essere in grado di generare un evento se uno qualsiasi degli indicatori di alto livello supera una soglia specificata. I dettagli di basso livello di vari fattori che costituiscono l'indicatore di alto livello devono essere disponibili come dati contestuali al sistema di avvisi.
 
@@ -316,7 +316,7 @@ Se un utente segnala un problema riconosciuto con una soluzione nota nel numero 
 ## Operazioni di rilevamento e debug di versioni del software.
 Quando un utente segnala un problema, spesso è l’unico a conoscenza dell'impatto immediato che tale problema ha sulle proprie operazioni. L'utente può solo segnalare i risultati della propria esperienza a un operatore responsabile della gestione del sistema. Queste esperienze sono in genere solo un sintomo visibile di uno o più problemi fondamentali. In molti casi, sarà necessario che un analista che, scorrendo la cronologia delle operazioni sottostanti, stabilirà la causa principale del problema (questo processo è denominato _analisi causa principale_).
 
-> [AZURE.NOTE]L’analisi delle Cause principali potrebbe rivelare inefficienze nella progettazione di un'applicazione. In queste situazioni, è possibile rielaborare gli elementi interessati e distribuirli come parte di una versione successiva. Questo processo richiede un attento controllo e i componenti aggiornati devono essere controllati attentamente.
+> [AZURE.NOTE] L’analisi delle Cause principali potrebbe rivelare inefficienze nella progettazione di un'applicazione. In queste situazioni, è possibile rielaborare gli elementi interessati e distribuirli come parte di una versione successiva. Questo processo richiede un attento controllo e i componenti aggiornati devono essere controllati attentamente.
 
 ### Requisiti per la traccia e il debug
 Per la traccia di eventi imprevisti e altri problemi, è fondamentale che i dati di monitoraggio forniscano informazioni sufficienti non solo sui problemi che si verificano a livello elevato, ma che includano anche dettagli sufficienti per consentire a un analista di risalire all'origine di questi problemi e ricostruire la sequenza degli eventi che si sono verificati. Queste informazioni devono essere sufficienti per consentire a un analista di diagnosticare la causa principale dei problemi in modo che uno sviluppatore possa apportare le modifiche necessarie per impedire che ricorrano.
@@ -346,7 +346,7 @@ Le informazioni utilizzate dal processo di monitoraggio possono provenire da ori
 
 Molte applicazioni utilizzano librerie e framework per eseguire attività comuni, ad esempio l'accesso a un archivio dati o la comunicazione in rete. Questi framework possono essere configurati per i propri messaggi di traccia e informazioni di diagnostica non elaborate, ad esempio la frequenza delle transazioni, l’esito positivo e negativo della trasmissione di dati e così via.
 
-> [AZURE.NOTE]Molti framework moderni pubblicano automaticamente le prestazioni ed eventi di traccia e per acquisire queste informazioni è sufficiente fornire un mezzo per recuperarle e archiviarle dove possono essere elaborate e analizzate.
+> [AZURE.NOTE] Molti framework moderni pubblicano automaticamente le prestazioni ed eventi di traccia e per acquisire queste informazioni è sufficiente fornire un mezzo per recuperarle e archiviarle dove possono essere elaborate e analizzate.
 
 Il sistema operativo in cui è in esecuzione l'applicazione può essere fonte di informazioni a livello di sistema di basso livello, ad esempio i contatori delle prestazioni che indicano la velocità I/O, l’utilizzo della memoria e l'utilizzo della CPU. Potrebbero inoltre risultare errori del sistema operativo (ad esempio l'errore per aprire un file correttamente).
 
@@ -366,11 +366,11 @@ Inoltre, il codice e/o l'infrastruttura sottostante possono generare eventi in p
 
 - **Utente reale monitoraggio**. Questo approccio registra le interazioni tra un utente e l'applicazione e osserva il flusso di ogni richiesta e risposta. Queste informazioni possono avere un duplice scopo: possono essere utilizzate per la valutazione dell'utilizzo di ogni utente e per determinare se gli utenti ricevono un’appropriata qualità del servizio (ad esempio, tempi di risposta rapidi, latenza bassa e minimi errori). I dati acquisiti possono essere utilizzati per identificare le aree del problema in cui si verificano più di frequente errori e gli elementi in cui il sistema subisce un rallentamento, probabilmente a causa di aree sensibili nell'applicazione o di un altro tipo di collo di bottiglia. Se questo approccio viene implementato con cautela, è possibile ricostruire i flussi degli utenti tramite l'applicazione per effettuare debug e test.
 
-	> [AZURE.IMPORTANT]I dati acquisiti mediante il monitoraggio di utenti reali devono essere considerati estremamente sensibili e possono contenere materiale riservato. Se i dati acquisiti vengono salvati, devono essere archiviati in modo sicuro. Se i dati vengono utilizzati per le prestazioni di monitoraggio o a scopo di debug, è necessario estrarre prima tutte le informazioni personali.
+	> [AZURE.IMPORTANT] I dati acquisiti mediante il monitoraggio di utenti reali devono essere considerati estremamente sensibili e possono contenere materiale riservato. Se i dati acquisiti vengono salvati, devono essere archiviati in modo sicuro. Se i dati vengono utilizzati per le prestazioni di monitoraggio o a scopo di debug, è necessario estrarre prima tutte le informazioni personali.
 
 - **Monitoraggio sintetico utente** In questo approccio, è possibile scrivere il proprio client di test che simula un utente ed esegue una serie configurabile ma tipica delle operazioni. È possibile rilevare le prestazioni dei client di test per determinare lo stato del sistema. È inoltre possibile utilizzare più istanze del client di test come parte di un'operazione di test di carico per stabilire la risposta del sistema in condizioni di stress e il tipo di monitoraggio di output che viene generato in queste condizioni.
 
-	> [AZURE.NOTE]È possibile implementare il monitoraggio degli utenti reali e sintetici includendo il codice che registra regola l'esecuzione di chiamate al metodo e altre parti critiche di un'applicazione.
+	> [AZURE.NOTE] È possibile implementare il monitoraggio degli utenti reali e sintetici includendo il codice che registra regola l'esecuzione di chiamate al metodo e altre parti critiche di un'applicazione.
 
 - **Profiling**. Questo approccio è principalmente destinato al monitoraggio e al miglioramento delle prestazioni dell'applicazione. Invece di operare al livello di funzionalità utilizzato dal monitoraggio degli utenti reali e sintetici, acquisisce informazioni di basso livello durante l'esecuzione dell'applicazione. La profilatura può essere implementata tramite il campionamento periodico dello stato di esecuzione di un'applicazione (determinare quale parte di codice l'applicazione esegue in un determinato punto nel tempo) o tramite la strumentazione che inserisce le ricerche nel codice in situazioni importanti (ad esempio l'inizio e fine di una chiamata al metodo) e registra quali metodi sono stati richiamati, a che ora e il tempo impiegato per ogni chiamata. Questi dati possono quindi essere analizzati per determinare quali parti dell'applicazione potrebbero causare problemi di prestazioni.
 
@@ -386,7 +386,7 @@ I dati di strumentazione verranno includono in genere informazioni scritte nei l
 
 - Il contenuto di un log di traccia può essere il risultato di dati di testo scritti dall'applicazione, dati binari creati come risultato di un evento di traccia (se l'applicazione utilizza Event Tracing per Windows – ETW) o possono essere generate dai registri di sistema che registrano gli eventi generati dalle parti dell'infrastruttura, ad esempio un server web. I messaggi di testo del registro spesso sono progettati per essere leggibili, ma devono essere scritti anche in un formato che ne consente facilmente l’analisi da parte di un sistema automatizzato. È inoltre necessario classificare i registri; non scrivere tutti i dati di traccia in un unico accesso, ma utilizzare registri separati per registrare l'output di traccia dai diversi aspetti operativi del sistema. Consente di filtrare rapidamente i messaggi di log leggendo il log appropriato, anziché dover elaborare un singolo file di lunga durata. Non si devono mai scrivere informazioni con requisiti di sicurezza diversi (ad esempio informazioni di controllo e i dati di debug) per lo stesso log.
 
-	> [AZURE.NOTE]Un log può essere implementato come un file nel file system o potrebbero essere bloccato in un altro formato, ad esempio un BLOB nell'archiviazione BLOB. Informazioni sul log potrebbero essere conservate anche in un servizio di archiviazione più strutturato, ad esempio le righe di una tabella.
+	> [AZURE.NOTE] Un log può essere implementato come un file nel file system o potrebbero essere bloccato in un altro formato, ad esempio un BLOB nell'archiviazione BLOB. Informazioni sul log potrebbero essere conservate anche in un servizio di archiviazione più strutturato, ad esempio le righe di una tabella.
 
 - Le metriche sono in genere semplicemente una misura o un conteggio di alcuni aspetti o delle risorse nel sistema in un momento specifico con uno o più tag o dimensioni associati (a volte definiti_esempio_). Una singola istanza di una metrica non è in genere utile in isolamento. Le metriche invece devono essere acquisite nel tempo. La cosa importante da considerare è quali metriche devono essere registrate e con quale frequenza. La generazione di dati per le metriche impone troppo spesso un carico aggiuntivo significativo nel sistema, mentre l’acquisizione sporadica di metriche può generare le circostanze che possono portare a un evento significativo. Le considerazioni possono variare da una metrica all’altra. Ad esempio, l'utilizzo della CPU in un server può variare significativamente da secondo a secondo, ma un utilizzo elevato diventa un problema solo se dura più minuti.
 
@@ -396,7 +396,7 @@ I dati di strumentazione verranno includono in genere informazioni scritte nei l
 
 Tutti i dati di monitoraggio devono riportare il timestamp nello stesso modo. Per coerenza, registrare tutte le date e le ore tramite Coordinated Universal Time. Ciò contribuirà a rintracciare più facilmente sequenze di eventi .
 
-> [AZURE.NOTE]Computer che operano in reti e fusi orari diversi potrebbero non essere sincronizzati, pertanto la correlazione dei dati di strumentazione che si estende su più computer non dipende solo dall’utilizzo del timestamp.
+> [AZURE.NOTE] Computer che operano in reti e fusi orari diversi potrebbero non essere sincronizzati, pertanto la correlazione dei dati di strumentazione che si estende su più computer non dipende solo dall’utilizzo del timestamp.
 
 ### Quali informazioni devono includere i dati di strumentazione?
 Quando si decide quali dati di strumentazione è necessario raccogliere, tenere presente quanto segue:
@@ -472,7 +472,7 @@ Un approccio all'implementazione del modello pull consiste nell'utilizzare gli a
 
 _Figura 3. Utilizzo di un agente di monitoraggio per l’estrazione di informazioni e la scrittura in archiviazione condivisa_
 
-> [AZURE.NOTE]L’utilizzo di un agente di monitoraggio è adatto per l'acquisizione dei dati di strumentazione naturalmente estratti da un'origine dati, ad esempio informazioni da SQL Server Management Views o la lunghezza di una coda di Azure Service Bus.
+> [AZURE.NOTE] L’utilizzo di un agente di monitoraggio è adatto per l'acquisizione dei dati di strumentazione naturalmente estratti da un'origine dati, ad esempio informazioni da SQL Server Management Views o la lunghezza di una coda di Azure Service Bus.
 
 
 Dati di telemetria per un'applicazione di piccole dimensioni in esecuzione su un numero limitato di nodi concretamente possono essere archiviati in un'unica posizione utilizzando l'approccio descritto in precedenza. Tuttavia, un'applicazione cloud globale, estremamente scalabile potrebbe facilmente generare grandi volumi di dati da centinaia di ruoli web e di lavoro, partizioni di database e altri servizi. Questa enorme quantità di dati può facilmente sovraccaricare la larghezza di banda di I/O disponibile con una singola posizione centrale. Pertanto, la soluzione di telemetria deve essere scalabile per evitare che funga da un collo di bottiglia quando il sistema si espande, e idealmente incorporare un livello di ridondanza per ridurre il rischio di perdere importanti informazioni di monitoraggio (ad esempio i dati di fatturazione o di controllo) se parte del sistema fallisce.
@@ -562,7 +562,7 @@ Tenere presente che affinché un sistema di dashboard funzioni in modo efficace,
 
 Un buon dashboard non solo visualizza le informazioni, ma fornisce anche un modo per consentire a un analista di formulare domande ad hoc su tali informazioni. Alcuni sistemi forniscono strumenti di gestione che l’operatore può utilizzare per eseguire queste attività ed esplorare i dati sottostanti. In alternativa, a seconda del repository utilizzato per memorizzare queste informazioni, è possibile interrogare direttamente i dati o importarli in strumenti quali Microsoft Excel per un'ulteriore analisi e la creazione del report.
 
-> [AZURE.NOTE]È consigliabile limitare l'accesso al dashboard a personale autorizzato; queste informazioni potrebbero essere delicate dal punto di vista commerciale. È inoltre necessario proteggere i dati sottostanti presentati dal dashboard per impedire agli utenti di modificarli.
+> [AZURE.NOTE] È consigliabile limitare l'accesso al dashboard a personale autorizzato; queste informazioni potrebbero essere delicate dal punto di vista commerciale. È inoltre necessario proteggere i dati sottostanti presentati dal dashboard per impedire agli utenti di modificarli.
 
 ### Creazione di avvisi
 L’invio di avvisi è il processo con cui vengono analizzati i dati di monitoraggio e strumentazione e viene generata una notifica se viene rilevato un evento significativo.
@@ -605,10 +605,10 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - L'articolo [Monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) del sito Web Microsoft.
 - L'articolo [Azure: nozioni fondamentali di telemetria e risoluzione dei problemi](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sito Web Microsoft.
 - Pagina [Abilitazione della diagnostica per servizi Cloud di Azure e macchine virtuali](cloud-services-dotnet-diagnostics.md) del sito Web Microsoft.
-- Le pagine [Cache Redis di Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), e [HDInsight](http://azure.microsoft.com/services/hdinsight/) del sito Web Microsoft.
+- Le pagine [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), e [HDInsight](https://azure.microsoft.com/services/hdinsight/) del sito Web Microsoft.
 - La pagina [Come utilizzare le code del Bus di servizio](service-bus-dotnet-how-to-use-queues.md) del sito Web Microsoft.
 - L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sito Web Microsoft.
 - Pagine [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) e [Tenere traccia dell’integrità del servizio](insights-service-health.md) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started.md) del sito Web Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

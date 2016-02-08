@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
@@ -24,7 +24,7 @@
 
 ##Criteri di conservazione delle metriche
 
->[AZURE.NOTE]I criteri di conservazione per le app della metrica variano in base alla granularità.
+>[AZURE.NOTE] I criteri di conservazione per le app della metrica variano in base alla granularità.
 
 - Le metriche di granularità **minuto** vengono mantenute per **24 ore**
 - Le metriche di granularità **ora** vengono mantenute per **7 giorni**
@@ -54,7 +54,7 @@ Nella modalità dell'app Web **Standard**, è possibile ricevere avvisi basati s
 
 È possibile configurare le app Web per l'esecuzione in modalità **Condivisa** o **Standard** dalla pagina di gestione **Scalabilità** dell'app Web nel [portale classico](https://manage.windowsazure.com). Ogni sottoscrizione Azure ha accesso a un pool di risorse fornito allo scopo di eseguire un massimo di 100 app Web per area in modalità **Condivisa**. Il pool di risorse disponibile per ogni sottoscrizione dell'app Web per questo scopo è condiviso da altre app Web nella stessa area configurata per l'esecuzione in modalità **Condivisa**. Poiché tali risorse sono condivise con altre app Web, tutte le sottoscrizioni prevedono un limite per l'utilizzo di tali risorse. I limiti applicati all'uso di queste risorse da parte della sottoscrizione sono espressi come quote di uso visualizzate nella sezione relativa alla panoramica sull'uso della pagina di gestione **Dashboard** di ogni app Web.
 
->[AZURE.NOTE]Quando un'app Web app è configurata per l'esecuzione in modalità **Standard**, le vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (predefinita), **Media** o **Grande**, come illustrato nella tabella in Dimensioni delle [macchine virtuali e dei servizi cloud per Azure][vmsizes]. Non sono previsti limiti alle risorse che una sottoscrizione può utilizzare per l'esecuzione di app Web in modalità **Standard**. Tuttavia, il numero di app Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
+>[AZURE.NOTE] Quando un'app Web app è configurata per l'esecuzione in modalità **Standard**, le vengono allocate risorse dedicate pari alle dimensioni delle macchine virtuali **Piccola** (predefinita), **Media** o **Grande**, come illustrato nella tabella in Dimensioni delle [macchine virtuali e dei servizi cloud per Azure][vmsizes]. Non sono previsti limiti alle risorse che una sottoscrizione può utilizzare per l'esecuzione di app Web in modalità **Standard**. Tuttavia, il numero di app Web in modalità **Standard** che è possibile creare per ogni area è pari a 500.
 
 ### Visualizzare quote di utilizzo per app Web configurate per la modalità Condivisa ###
 Per determinare il livello di impatto di un'app Web sulle quote di utilizzo delle risorse, eseguire la procedura seguente:
@@ -100,7 +100,7 @@ Nella sezione **application diagnostics** della pagina di gestione **Configure**
 
 Per ulteriori informazioni sugli account di archiviazione di Azure, vedere [Come gestire gli account di archiviazione](/manage/services/storage/how-to-manage-a-storage-account/).
 
-> [AZURE.NOTE]La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
+> [AZURE.NOTE] La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
 
 Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di un client di archiviazione per visualizzare i dati di log, risulta più utile quando si prevede di utilizzare un servizio o un'applicazione che riconosce come leggere ed elaborare i dati direttamente dall'archivio tabelle o BLOB di Azure. La registrazione nel file system genera file che possono essere scaricati nel computer locale mediante FTP o altre utilità descritte più avanti in questa sezione.
 
@@ -108,7 +108,7 @@ Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di 
 
 È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-> [AZURE.NOTE]La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare informazioni di registro, come il formato delle informazioni è specifico per la lingua in che dell'applicazione è scritta. Per informazioni specifiche della lingua sull'utilizzo di registrazione dell'applicazione, vedere gli articoli seguenti:
+> [AZURE.NOTE] La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare informazioni di registro, come il formato delle informazioni è specifico per la lingua in che dell'applicazione è scritta. Per informazioni specifiche della lingua sull'utilizzo di registrazione dell'applicazione, vedere gli articoli seguenti:
 >
 > - **.NET**: [Risolvere i problemi di un'app Web in Azure App Service tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js**: [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](web-sites-nodejs-debug.md)
@@ -134,7 +134,7 @@ La sezione **site diagnostics** della pagina di gestione **Configure** consente 
 
 Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salva** nella parte inferiore della pagina di gestione **Configurazione** per applicare le opzioni impostate.
 
-> [AZURE.IMPORTANT]Messaggi di errore dettagliati e Traccia delle richieste non riuscite sottopongono un'app Web a condizioni impegnative. È consigliabile disattivare queste funzionalità non appena sono stati riprodotti i problemi da risolvere.
+> [AZURE.IMPORTANT] Messaggi di errore dettagliati e Traccia delle richieste non riuscite sottopongono un'app Web a condizioni impegnative. È consigliabile disattivare queste funzionalità non appena sono stati riprodotti i problemi da risolvere.
 
 ### Configurazione avanzata ###
 
@@ -173,7 +173,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 1. Dalla **schermata Start** o dal **menu Start** cercare **Azure PowerShell**. Fare clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
 
-	> [AZURE.NOTE]Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
+	> [AZURE.NOTE] Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
 
 2. Dal prompt di Azure PowerShell, utilizzare i comandi seguenti per scaricare i file di log:
 
@@ -201,7 +201,7 @@ Verranno scaricati i file di log per l'app Web specificata da **webappname** e v
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-> [AZURE.NOTE]Se il comando **azure**non è installato, vedere [Come usare l'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md) per informazioni sull'installazione e la configurazione.
+> [AZURE.NOTE] Se il comando **azure**non è installato, vedere [Come usare l'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md) per informazioni sull'installazione e la configurazione.
 
 ### Lettura dei file di log ###
 
@@ -263,7 +263,7 @@ Dopo avere configurato il monitoraggio degli endpoint, è possibile eseguire il 
 7.	Facoltativamente, ripetere i passaggi precedenti per creare un secondo endpoint.
 8.	Fare clic su **Salva**. Potrebbero essere necessari alcuni istanti prima che i dati di monitoraggio dell'endpoint Web siano disponibili nelle schede **Dashboard** e **Monitor**.
 
-	Per creare una regola di posta elettronica, effettuare le operazioni seguenti:
+Per creare una regola di posta elettronica, effettuare le operazioni seguenti:
 
 9.	Nella barra di servizio a sinistra, fare clic su **Servizi di gestione**.
 10.	Fare clic su **Aggiungi regola** nella parte inferiore.
@@ -279,7 +279,7 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 
 - [Mantenere attivi i siti Web di Azure e monitorare gli endpoint, con Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -289,4 +289,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

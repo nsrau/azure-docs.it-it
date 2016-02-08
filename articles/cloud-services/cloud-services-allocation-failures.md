@@ -24,7 +24,7 @@
 ## Riepilogo
 Quando si distribuiscono istanze a un servizio Cloud o si aggiungono nuove istanze del ruolo di lavoro o web, Microsoft Azure alloca le risorse di calcolo. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](http://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del Supporto tecnico per Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del Supporto tecnico per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
 ### Informazioni preliminari: come funziona l'allocazione
 I server nei data center di Azure sono partizionati in cluster. Una nuova richiesta di allocazione del servizio cloud viene eseguita in più cluster. Quando la prima istanza è distribuita in un servizio cloud (in gestione temporanea o produzione), il servizio cloud viene bloccato su un cluster. Tutte le altre distribuzioni per il servizio cloud verranno eseguite nello stesso cluster. In questo articolo si farà riferimento a questa operazione con il termine "bloccata su un cluster". Il diagramma 1 seguente illustra un'allocazione normale eseguita in più cluster. Il diagramma 2 illustra un'allocazione bloccata sul Cluster 2, perché è quello che ospita il servizio cloud CS\_1.
@@ -67,7 +67,7 @@ Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione 
 	
 	- Eliminare slot di produzione e di gestione temporanea di un servizio cloud esistente in modo che il servizio cloud sia vuoto, quindi 
 	
-	- creare una nuova distribuzione nel servizio cloud esistente. Questo tenterà nuovamente di eseguire l’allocazione in tutti i cluster nell'area. Assicurarsi che il servizio cloud non sia associato a un gruppo di affinità.
+	- creare una nuova distribuzione nel servizio cloud esistente. Questo tenterà nuovamente di eseguire l'allocazione in tutti i cluster nell'area. Assicurarsi che il servizio cloud non sia associato a un gruppo di affinità.
 
 3. IP riservato: questa soluzione consente di mantenere gli indirizzi IP esistenti ma determinerà tempi di inattività dell'applicazione.
 	
@@ -86,6 +86,6 @@ Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione 
 ## Risorse aggiuntive
 ### Contattare il supporto tecnico di Azure
 
-Se questo articolo non ha consentito di risolvere il problema di Azure, esplorare i forum di Azure su [MSDN e Overflow dello stack](http://azure.microsoft.com/support/forums/). È anche possibile registrare una richiesta di supporto per Azure relativa al problema. Accedere al sito del [Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Se questo articolo non ha consentito di risolvere il problema di Azure, esplorare i forum di Azure su [MSDN e overflow dello stack](https://azure.microsoft.com/support/forums/). È anche possibile registrare una richiesta di supporto per Azure relativa al problema. Accedere al sito del [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su Ottenere supporto. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

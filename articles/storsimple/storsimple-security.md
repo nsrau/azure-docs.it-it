@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="v-sharos"/>
 
 # Sicurezza e protezione dei dati di StorSimple
@@ -38,9 +38,9 @@ Le sezioni seguenti descrivono le funzionalità di sicurezza di StorSimple che c
 
 StorSimple Manager è un servizio di gestione ospitato in Microsoft Azure che consente di gestire tutti i dispositivi StorSimple installati all'interno di un'organizzazione. È possibile accedere al servizio StorSimple Manager usando le credenziali aziendali nel portale di Azure classico con un Web browser.
 
-Per l'accesso al servizio StorSimple Manager, l'organizzazione deve disporre di una sottoscrizione Azure in cui sia incluso StorSimple. La sottoscrizione determina le funzionalità con cui accedere nel portale di Azure classico. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../sign-up-organization.md).
+Per l'accesso al servizio StorSimple Manager, l'organizzazione deve disporre di una sottoscrizione Azure in cui sia incluso StorSimple. La sottoscrizione determina le funzionalità con cui accedere nel portale di Azure classico. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../active-directory/sign-up-organization.md).
 
-Poiché il servizio StorSimple Manager è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Poiché il servizio StorSimple Manager è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 ## Protezione del dispositivo StorSimple
 
@@ -56,7 +56,7 @@ La chiave di registrazione del servizio è un codice lungo contenente più di 10
 
 Un dispositivo, dopo essere stato registrato, usa i token per comunicare con Microsoft Azure. La chiave di registrazione del servizio non viene usata dopo la registrazione del dispositivo.
 
-> [AZURE.NOTE]È consigliabile rigenerare la chiave di registrazione del servizio dopo ogni uso.
+> [AZURE.NOTE] È consigliabile rigenerare la chiave di registrazione del servizio dopo ogni uso.
 
 ## Proteggere la soluzione StorSimple con le password
 
@@ -114,7 +114,7 @@ Per altre informazioni su Gestione snapshot StorSimple, vedere [Che cos'è Gesti
 È consigliabile usare le linee guida seguenti per assicurarsi che le password di StorSimple siano complesse e protette:
 
 - Cambiare le password ogni tre mesi. La modifica della password viene richiesta ogni anno.
-- Usare password complesse. Per altre informazioni, vedere l'articolo relativo alla [creazione e protezione di password più complesse](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Usare password complesse. Per altre informazioni, vedere [Creare password più complesse e proteggerle](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Usare sempre password diverse per ogni meccanismo di accesso. Ogni password specificata deve essere univoca.
 - Non condividere le password con nessuno che non sia autorizzato ad accedere al dispositivo StorSimple.
 - Non parlare di una password davanti ad altri e non accennare al formato di una password.
@@ -127,7 +127,7 @@ Questa sezione descrive le funzionalità di sicurezza di StorSimple per i dati a
 
 Come descritto in altre sezioni, per autorizzare e autenticare gli utenti in modo da consentire loro l'accesso alla soluzione StorSimple è previsto l'uso di password. Un'altra considerazione sulla sicurezza riguarda la protezione dei dati dagli utenti non autorizzati durante il trasferimento da un sistema di archiviazione a un altro e durante l'archiviazione. Le sezioni seguenti descrivono le funzionalità di protezione dei dati offerte da StorSimple.
 
-> [AZURE.NOTE]La deduplicazione fornisce una protezione aggiuntiva per i dati archiviati nel dispositivo StorSimple e nell'archiviazione di Microsoft Azure. Quando i dati vengono deduplicati, gli oggetti dati vengono archiviati separatamente dai metadati usati per la mappatura e l'accesso: non è disponibile un contesto a livello di archiviazione per ricostruire i dati in base alla struttura del volume, al file system o al nome file.
+> [AZURE.NOTE] La deduplicazione fornisce una protezione aggiuntiva per i dati archiviati nel dispositivo StorSimple e nell'archiviazione di Microsoft Azure. Quando i dati vengono deduplicati, gli oggetti dati vengono archiviati separatamente dai metadati usati per la mappatura e l'accesso: non è disponibile un contesto a livello di archiviazione per ricostruire i dati in base alla struttura del volume, al file system o al nome file.
 
 ## Proteggere il flusso di dati attraverso il servizio
 
@@ -144,7 +144,7 @@ Il sistema di chiavi asimmetriche aiuta a proteggere il flusso di dati attravers
 
 La chiave DEK del servizio viene generata solo nel primo dispositivo registrato nel servizio. Ogni altro dispositivo registrato in seguito con il servizio deve usare la stessa chiave DEK del servizio.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > È molto importante creare una copia di questa chiave e salvarla in una posizione sicura. Si consiglia di archiviare una copia della chiave DEK del servizio in modo che sia accessibile a una persona autorizzata e possa essere facilmente comunicata all'amministratore del dispositivo.
 >
@@ -269,4 +269,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 [Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

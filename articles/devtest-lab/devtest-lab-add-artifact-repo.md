@@ -43,13 +43,13 @@ Per aggiungere un archivio elementi GitHub al lab, ottenere innanzitutto l’URL
 
 1. Nella pagina **Nuovo token di accesso personale** immettere una **Descrizione del token**, accettare le voci predefinite in **Seleziona ambiti**, e quindi scegliere **Genera token**.
 
-1. Salvare il token generato poichè sarà necessario successivamente.
+1. Salvare il token generato poiché sarà necessario successivamente.
 
 1. A questo punto, è possibile chiudere GitHub.
 
 ###Connettere il lab all'archivio GitHub
 
-1. Accedere al [portale di anteprima di Azure](http://portal.azure.com).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
@@ -115,4 +115,4 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
     4. Toccare **Salva**.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

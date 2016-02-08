@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
@@ -32,11 +32,11 @@ Questo articolo presuppone che l'utente abbia:
 
 1. **Una sottoscrizione di Microsoft Azure**: se non già disponibile è possibile [aprire un account Microsoft Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F). Si riceveranno dei crediti da usare per provare i servizi di Microsoft Azure a pagamento e, anche dopo avere esaurito i crediti, sarà possibile mantenere comunque l'account per usare i servizi di Microsoft Azure gratuiti, ad esempio Siti Web. Verranno applicati addebiti alla carta di credito solo se l'utente modifica le impostazioni e richiede esplicitamente l'addebito. È possibile inoltre [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Microsoft Azure a pagamento.
 
-2. **Microsoft Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l’uso della sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](http://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile [qui](../powershell-install-configure.md). Per caricare il VHD, usare il cmdlet [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) di Azure.
+2. **Microsoft Azure PowerShell**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l’uso della sottoscrizione. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](https://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile [qui](../powershell-install-configure.md). Per caricare il VHD, usare il cmdlet [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) di Azure.
 
 3. **Una versione supportata del sistema operativo Windows archiviata in un file con estensione vhd e collegata a una macchina virtuale**: sono disponibili più strumenti per la creazione di file con estensione vhd. Ad esempio, è possibile usare Hyper-V per creare una macchina virtuale e installare il sistema operativo. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx). Per informazioni dettagliate sui sistemi operativi, vedere [Supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
-> [AZURE.IMPORTANT]il formato VHDX non è supportato in Microsoft Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Per informazioni dettagliate, vedere questo [post di blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.IMPORTANT] il formato VHDX non è supportato in Microsoft Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Per informazioni dettagliate, vedere questo [post di blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
 ## Passaggio 1: Preparare il disco rigido virtuale 
 
@@ -66,7 +66,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 ### Opzione 1: Creare un account di archiviazione
 
-1. Accedere al portale di Microsoft Azure classico.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
 2. Sulla barra dei comandi fare clic su **New**.
 
@@ -98,11 +98,11 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 	![Nome del contenitore](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione **BLOB pubblico**. Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione **Contenitore pubblico**.
+	> [AZURE.NOTE] Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione **BLOB pubblico**. Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione **Contenitore pubblico**.
 
 ### Opzione 2: Ottenere le informazioni sull'account di archiviazione
 
-1.	Accedere al portale di Microsoft Azure classico.
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 
 2.	Nel riquadro di spostamento fare clic su **Archiviazione**.
 
@@ -114,7 +114,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 Prima di poter caricare un file VHD, è necessario stabilire una connessione sicura tra il computer e la sottoscrizione in Azure. Per effettuare questa operazione è possibile usare il metodo basato su Microsoft Azure Active Directory o quello basato sul certificato.
 
-> [AZURE.TIP]Per informazioni introduttive su Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni, vedere [Iniziare a usare i cmdlet di Microsoft Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+> [AZURE.TIP] Per informazioni introduttive su Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Per altre informazioni, vedere [Iniziare a usare i cmdlet di Microsoft Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ### Opzione 1: Usare Microsoft Azure AD
 
@@ -158,7 +158,7 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 ## Passaggio 5: Aggiungere l'immagine all'elenco di immagini personalizzate
 
-> [AZURE.TIP]Per usare Azure PowerShell invece del portale di Azure classico per aggiungere l'immagine, usare il cmdlet **Add-AzureVMImage**. Ad esempio:
+> [AZURE.TIP] Per usare Azure PowerShell invece del portale di Azure classico per aggiungere l'immagine, usare il cmdlet **Add-AzureVMImage**. Ad esempio:
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
@@ -188,19 +188,17 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 	![immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata](virtual-machines-create-custom.md).
+	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere l'articolo relativo alla [creazione di una macchina virtuale personalizzata](virtual-machines-create-custom.md).
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet PowerShell **Add-AzureVMImage** anziché il portale di Azure classico per aggiungere l'immagine (vedere il passaggio 5 precedente). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
+	> [AZURE.TIP] Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet PowerShell **Add-AzureVMImage** anziché il portale di Azure classico per aggiungere l'immagine (vedere il passaggio 5 precedente). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
 
-## Passaggi successivi ##
 
-Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale di SQL Server. Per istruzioni, vedere [Provisioning di una macchina virtuale di SQL Server in Microsoft Azure](virtual-machines-provision-sql-server.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

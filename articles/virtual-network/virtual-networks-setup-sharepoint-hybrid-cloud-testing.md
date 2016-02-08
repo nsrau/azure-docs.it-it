@@ -44,7 +44,7 @@ La configurazione di questo ambiente di test cloud ibrido prevede tre fasi princ
 2.	Configurare il computer SQL server (SQL1).
 3.	Configurare il server di SharePoint (SP1).
 
-Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizione per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizione per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Impostare l'ambiente cloud ibrido
 
@@ -54,7 +54,7 @@ Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-setup-sharepoint-hybrid-cloud-testing/CreateSPFarmHybridCloud_1.png)
 
-> [AZURE.NOTE]Per la fase 1, è possibile configurare l'ambiente di test cloud ibrido simulato. Vedere [Impostare un ambiente cloud ibrido simulato per i test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) per le istruzioni.
+> [AZURE.NOTE] Per la fase 1, è possibile configurare l'ambiente di test cloud ibrido simulato. Vedere [Impostare un ambiente cloud ibrido simulato per i test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) per le istruzioni.
  
 ## Fase 2: Configurare il computer SQL server (SQL1)
 
@@ -214,4 +214,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

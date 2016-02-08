@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 3: Configurare l'infrastruttura di SQL Server
@@ -25,7 +25,7 @@ In questa fase della distribuzione di un'applicazione line-of-business a disponi
 
 È necessario completare questa fase prima di passare alla [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-> [AZURE.NOTE]In queste istruzioni viene usata un'immagine di SQL Server della raccolta immagini di Azure e vengono addebitati i costi per l'utilizzo della licenza di SQL Server. È inoltre possibile creare macchine virtuali in Azure e installare licenze di SQL Server, ma è necessario disporre di Software Assurance e della mobilità delle licenze per utilizzare la licenza di SQL Server in una macchina virtuale, compresa una macchina virtuale di Azure. Per ulteriori informazioni sull'installazione di SQL Server in una macchina virtuale, vedere [Installazione per SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
+> [AZURE.NOTE] In queste istruzioni viene usata un'immagine di SQL Server della raccolta immagini di Azure e vengono addebitati i costi per l'utilizzo della licenza di SQL Server. È inoltre possibile creare macchine virtuali in Azure e installare licenze di SQL Server, ma è necessario disporre di Software Assurance e della mobilità delle licenze per utilizzare la licenza di SQL Server in una macchina virtuale, compresa una macchina virtuale di Azure. Per ulteriori informazioni sull'installazione di SQL Server in una macchina virtuale, vedere [Installazione per SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Creare le macchine virtuali del cluster SQL Server in Azure
 
@@ -41,7 +41,7 @@ Usare il seguente blocco di comandi di PowerShell per creare le macchine virtual
 
 È importante ricordare che la Tabella M è stata definita nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) e le Tabelle V, S, ST e A sono state definite nella [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per ulteriori informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+> [AZURE.NOTE] Il set di comandi seguente utilizza Azure PowerShell 1.0 e versioni successive. Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante al prompt di Azure PowerShell.
 
@@ -113,7 +113,7 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
+> [AZURE.NOTE] Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
 
 ## Configurare i computer che eseguono SQL Server
 
@@ -155,7 +155,7 @@ Usare due volte la procedura seguente, una per ogni macchina virtuale che esegue
 2. In **Connetti al Server**, fare clic su **Connetti**.
 3. Nel riquadro sinistro, fare clic con il pulsante destro del mouse sul nodo principale (l'istanza predefinita denominata dopo il computer), quindi fare clic su **Proprietà**.
 4.	In **Proprietà Server** fare clic su **Impostazioni database**.
-5.	In **Percorsi predefiniti database**, impostare i valori seguenti: 
+5.	In **Percorsi predefiniti database** impostare i valori seguenti: 
 	- Per **Dati**, impostare il percorso **F:\\Data**.
 	- Per **Log**, impostare il percorso **F:\\Log**.
 	- Per **Backup**, impostare il percorso **F:\\Backup**.
@@ -169,7 +169,7 @@ Usare due volte la procedura seguente, una per ogni macchina virtuale che esegue
 
 Usare la procedura seguente due volte, una volta per ogni istanza di SQL Server, per consentire le connessioni Desktop remoto tramite l'account sqladmin.
 
-1.	Nella schermata Start, fare doppio clic su **Computer**, quindi fare clic su **Proprietà**.
+1.	Nella schermata Start fare doppio clic su **Computer**, quindi fare clic su **Proprietà**.
 2.	Nella finestra **Sistem** fare clic su **Impostazioni di connessione remota**.
 3.	Nella sezione **Desktop remoto** fare clic su **Selezione utenti**, quindi su **Aggiungi**.
 4.	In **Immettere i nomi di oggetto da selezionare** digitare [domain]**\\sp\_farm\_db**, quindi fare clic su **OK** per tre volte.
@@ -215,11 +215,11 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 1.	Accedere alla macchina virtuale SQL Server primaria con l'account sqladmin creato nella [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 2.	Dalla schermata Start digitare **Failover**, quindi fare clic su **Gestione cluster di failover**.
 3.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Gestione cluster di failover**, quindi fare clic su **Crea cluster**.
-4.	Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
+4.	Nella pagina **Prima di iniziare** fare clic su **Avanti**.
 5.	Nella pagina **Selezione server** digitare il nome del computer SQL Server primario, fare clic su **Aggiungi**, quindi scegliere **Avanti**.
 6.	Nella pagina **Avviso di convalida** fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster.**, quindi fare clic su **Avanti**.
 7.	ìNella casella di testo **Nome cluster** della pagina **Punto di accesso per l'amministrazione del cluster**, digitare il nome del cluster, quindi fare clic su **Avanti**.
-8.	Nella pagina di **Conferma**, fare clic su **Avanti** per iniziare la creazione del cluster. 
+8.	Nella pagina di **conferma** fare clic su **Avanti** per iniziare la creazione del cluster. 
 9.	Nella pagina **Riepilogo** fare clic su **Fine**.
 10.	Nel riquadro sinistro fare clic sul nuovo cluster. Nella sezione **Risorse principali del cluster** del riquadro del contenuto, aprire il nome del cluster del server. La risorsa **Indirizzo IP** verrà visualizzata nello stato **Non riuscito**. Non è possibile connettere la risorsa indirizzo IP perché al cluster è assegnato lo stesso indirizzo IP della macchina. Il risultato è un indirizzo duplicato. 
 11.	Fare clic con il pulsante destro del mouse sulla risorsa **Indirizzo IP** non riuscita, quindi fare clic su **Proprietà**.
@@ -230,7 +230,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 16.	Per rimuovere l'indirizzo IP del cluster, fare doppio clic su **Indirizzo IP**, fare clic su **Rimuovi**, quindi fare clic su **Sì** quando richiesto. Non è più possibile connettere la risorsa cluster perché dipende dalla risorsa indirizzo IP. Tuttavia, un gruppo di disponibilità non dipende dall'indirizzo IP o dal nome del cluster per il corretto funzionamento. Pertanto il nome del cluster può rimanere offline.
 17.	Per aggiungere i restanti nodi al cluster, fare clic con il pulsante destro del mouse sul nome del cluster nel riquadro sinistro, quindi fare clic su **Aggiungi nodo**.
 18.	Nella pagina **Prima di iniziare**, fare clic su **Avanti**. 
-19.	Nella pagina **Selezione server** digitare il nome, quindi fare clic su **Aggiungi** per aggiungere il server SQL secondario e il nodo di maggioranza cluster al cluster. Dopo aver aggiunto i due computer, fare clic su **Avanti**. Se non è possibile aggiungere un computer e il messaggio di errore è "Servizio Registro di sistema remoto non è in esecuzione", effettuare le seguenti operazioni. Accedere al computer, aprire lo snap-in Servizi (Services. msc) e abilitare il Registro di sistema remoto. Per ulteriori informazioni, vedere [Impossibile connettersi al Servizio Registro di sistema remoto](http://technet.microsoft.com/library/bb266998.aspx). 
+19.	Nella pagina **Selezione server** digitare il nome, quindi fare clic su **Aggiungi** per aggiungere l'istanza secondaria di SQL Server e il nodo di maggioranza cluster al cluster. Dopo aver aggiunto i due computer, fare clic su **Avanti**. Se non è possibile aggiungere un computer e il messaggio di errore è "Servizio Registro di sistema remoto non è in esecuzione", effettuare le seguenti operazioni. Accedere al computer, aprire lo snap-in Servizi (Services. msc) e abilitare il Registro di sistema remoto. Per ulteriori informazioni, vedere [Impossibile connettersi al Servizio Registro di sistema remoto](http://technet.microsoft.com/library/bb266998.aspx). 
 20.	Nella pagina **Avviso di convalida** fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster.**, quindi fare clic su **Avanti**. 
 21.	Nella pagina di **Conferma**, fare clic su **Avanti**.
 22.	Nella pagina **Riepilogo** fare clic su **Fine**.
@@ -259,4 +259,4 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 - Seguire la [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

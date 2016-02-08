@@ -37,8 +37,9 @@ Una regola avanzata completa simile alla seguente: (parametroSinistro operatoreB
 
 Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito.
 
-La lunghezza totale del corpo della regola avanzata non può superare i 255 caratteri.
-> [AZURE.NOTE]Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null. Le stringhe contenenti le virgolette " devono essere precedute dal carattere di escape ', ad esempio user.department -eq "Sa`"les".
+La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
+> [AZURE.NOTE]
+Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null. Le stringhe contenenti le virgolette " devono essere precedute dal carattere di escape ', ad esempio user.department -eq "Sa`"les".
 
 ##Operatori delle regole di espressione supportati
 Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
@@ -148,14 +149,27 @@ Operatori consentiti
 | otherMails | Qualsiasi valore stringa. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Attributi di estensione ed attributi personalizzati
+Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.
+
+Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione:
+
+(user.extensionAttribute15 -eq "Marketing")
+
+Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension\_[GUID]\_\_[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
+
+user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
+
+È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
+
 ## Regola per i dipendenti diretti
 Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
 Per configurare un gruppo come gruppo "Manager"
 --------------------------------------------------------------------------------
 1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
-2. Digitare la regola con la sintassi seguente: Dipendenti diretti per *Dipendenti diretti per {IDutente\_di\_manager}*. Un esempio di regola valida per Dipendenti diretti è 
+2. Digitare la regola con la sintassi seguente: Direct Reports for *Direct Reports for {IDutente\_di\_manager}*. Ecco un esempio di regola valida per dipendenti diretti: 
 
-Dipendenti diretti per 62e19b97-8b3d-4d4a-a106-4ce66896a863"
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile nel portale di amministrazione di AAD nella scheda relativa al profilo della pagina utente dell'utente che rappresenta il manager.
 
@@ -173,4 +187,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

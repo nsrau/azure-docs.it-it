@@ -27,7 +27,7 @@ Questa estensione consente a SQL Server in una macchina virtuale di Azure di usa
 ## Prerequisiti
 Requisiti per l'uso dei cmdlet di Powershell:
 
-- SDK più recente della riga di comando di Azure [disponibile qui](http://azure.microsoft.com/downloads/)
+- SDK più recente della riga di comando di Azure [disponibile qui](https://azure.microsoft.com/downloads/)
 
 Requisiti per l'uso dell'estensione nella macchina virtuale:
 
@@ -49,7 +49,7 @@ Se si esegue il provisioning della VM di SQL Server usando il [portale di Azure]
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <AutoBackupSettings>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<CommonParameters>]
 
-> [AZURE.NOTE]È consigliabile omettere il parametro –Version. Se lo si omette, viene impostata la versione predefinita dell'estensione, ovvero quella più recente.
+> [AZURE.NOTE] È consigliabile omettere il parametro –Version. Se lo si omette, viene impostata la versione predefinita dell'estensione, ovvero quella più recente.
 
 ### Esempio
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ In alternativa, è possibile usare il cmdlet di Azure PowerShell seguente.
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<CommonParameters>]
 
-> [AZURE.NOTE]È possibile omettere il parametro –Version. Se lo si omette, viene impostata la versione predefinita dell'estensione, ovvero quella più recente.
+> [AZURE.NOTE] È possibile omettere il parametro –Version. Se lo si omette, viene impostata la versione predefinita dell'estensione, ovvero quella più recente.
 
 ### Esempio
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

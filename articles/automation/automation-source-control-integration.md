@@ -22,7 +22,7 @@ L'integrazione del controllo del codice sorgente consente di associare runbook n
 Il controllo del codice sorgente consente di effettuare il push del codice da Automazione di Azure al controllo del codice sorgente oppure effettuare il pull dei runbook dal controllo del codice sorgente ad Automazione di Azure. Questo articolo descrive come configurare il controllo del codice sorgente nell'ambiente di Automazione di Azure. Si inizierà configurando l'automazione di Azure per accedere all'archivio GitHub e si eseguiranno i passaggi di diverse operazioni che possono essere eseguite utilizzando l'integrazione del controllo del codice sorgente.
 
 
->[AZURE.NOTE]Il controllo del codice sorgente supporta il pull e il push di [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks), ma non supporta ancora [Runbook grafici](automation-runbook-types.md#graphical-runbooks).<br><br>
+>[AZURE.NOTE] Il controllo del codice sorgente supporta il pull e il push di [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks), ma non supporta ancora [Runbook grafici](automation-runbook-types.md#graphical-runbooks).<br><br>
 
 
 Per configurare il controllo del codice sorgente per l'account di automazione sono richiesti due semplici passaggi e solo uno se si ha già un account GitHub. Sono:
@@ -104,7 +104,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
     ![Pulsante Archivia](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]L'archiviazione da Automazione di Azure sovrascriverà il codice attualmente presente nel controllo del codice sorgente. L'istruzione della riga di comando Git equivalente per l'archiviazione è **git add + git commit + git push**
+     >[AZURE.NOTE] L'archiviazione da Automazione di Azure sovrascriverà il codice attualmente presente nel controllo del codice sorgente. L'istruzione della riga di comando Git equivalente per l'archiviazione è **git add + git commit + git push**
 
 3. Quando si fa clic su **Archivia**, viene visualizzato un messaggio. Fare clic su Sì per continuare.
 
@@ -114,13 +114,13 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
 
     ![Archiviazione del runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]I runbook di controllo del codice sorgente sono runbook di Automazione speciali che non è possibile visualizzare o modificare. Mentre verranno visualizzati nell'elenco di runbook, verranno visualizzati i processi di sincronizzazione nell'elenco dei processi.
+    >[AZURE.NOTE] I runbook di controllo del codice sorgente sono runbook di Automazione speciali che non è possibile visualizzare o modificare. Mentre verranno visualizzati nell'elenco di runbook, verranno visualizzati i processi di sincronizzazione nell'elenco dei processi.
  
 5. Il nome del runbook modificato viene inviato come parametro di input al runbook archiviato. È possibile [visualizzare i dettagli del processo](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) espandendo il runbook nel pannello **Sincronizzazione repository**.
 
     ![Archiviazione dell'input](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. Aggiornare il repository GitHub al termine del processo per visualizzare le modifiche. Nel repository dovrebbe essere presente un commit con un messaggio simile al seguente: ***Nome runbook* aggiornato in Automazione di Azure.**
+6. Aggiornare il repository GitHub al termine del processo per visualizzare le modifiche. Nel repository dovrebbe essere presente un commit con un messaggio simile al seguente: **Aggiornato *nome runbook* in Automazione di Azure.**
 
 
 
@@ -137,7 +137,7 @@ Il pulsante di sincronizzazione nel pannello di sincronizzazione del repository 
     ![Sincronizzazione dei runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]Una sincronizzazione del controllo del codice sorgente sovrascrive la versione bozza dei runbook attualmente presenti nell'account di automazione per **TUTTI** i runbook attualmente nel controllo del codice sorgente. L'istruzione della riga di comando Git equivalente per la sincronizzazione è **git pull**
+    >[AZURE.NOTE] Una sincronizzazione del controllo del codice sorgente sovrascrive la versione bozza dei runbook attualmente presenti nell'account di automazione per **TUTTI** i runbook attualmente nel controllo del codice sorgente. L'istruzione della riga di comando Git equivalente per la sincronizzazione è **git pull**
 
 
 ## Risoluzione dei problemi di controllo del codice sorgente
@@ -158,4 +158,4 @@ Per disconnettersi dall'account GitHub, aprire il pannello di sincronizzazione d
 
 Per altre informazioni sull'integrazione del controllo del codice sorgente, vedere le risorse seguenti: - [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Votare il sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook con Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

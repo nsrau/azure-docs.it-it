@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/07/2016"
 	ms.author="cephalin"/>
 
 
@@ -67,15 +67,15 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Configurare l'ambiente di produzione ##
 
->[AZURE.NOTE]Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
+>[AZURE.NOTE] Lo script usato in questa esercitazione configurerà automaticamente la pubblicazione continua dal repository GitHub. A questo scopo, è necessario che le credenziali GitHub siano già archiviate in Azure, altrimenti la distribuzione con script ha esito negativo quando si tenta di configurare le impostazioni di controllo del codice sorgente per le app Web.
 >
->Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
+>Per archiviare le credenziali GitHub in Azure, creare un'app Web nel [Portale di Azure](https://portal.azure.com/) e [configurare la distribuzione GitHub](web-sites-publish-source-control.md#Step7). È necessario eseguire questa operazione una sola volta.
 
 In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a cui si desidera apportare modifiche tramite la pubblicazione continua. In questo scenario, è necessario distribuire nell'ambiente di produzione un modello sviluppato, testato e usato, che verrà configurato in questa sezione.
 
@@ -83,7 +83,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	Aprire una sessione di Git Shell. Se non si dispone ancora di Git Shell, installare ora [GitHub per Windows](https://windows.github.com/).
+2.	Aprire una sessione di Git Shell. Se non si ha ancora Git Shell, installare [GitHub per Windows](https://windows.github.com/).
 
 3.	Creare un clone locale della biforcazione eseguendo il comando seguente:
 
@@ -99,7 +99,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Esaminare *&lt;radice\_repository>*\\ARMTemplates\\Deploy.ps1, per osservare come le risorse vengano generate con ID univoci. È possibile usare lo stesso approccio per creare cloni della stessa distribuzione senza doversi preoccupare dei conflitti tra i nomi di risorse.
+	>[AZURE.TIP] Esaminare *&lt;radice\_repository>*\\ARMTemplates\\Deploy.ps1, per osservare come le risorse vengano generate con ID univoci. È possibile usare lo stesso approccio per creare cloni della stessa distribuzione senza doversi preoccupare dei conflitti tra i nomi di risorse.
  
 6.	Tornare alla sessione di Git Shell ed eseguire:
 
@@ -109,9 +109,9 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 7.	Al termine dello script, tornare indietro per passare all'indirizzo del front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
  
-5.	Accedere al [portale di Azure](https://portal.azure.com) per vedere gli elementi creati.
+5.	Accedere al [portale di Azure](https://portal.azure.com/) per vedere gli elementi creati.
 
-	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come vengono configurate nel modello.
+	Dovrebbero essere visibili due app Web nello stesso gruppo di risorse, una con il suffisso `Api` nel nome. Osservando il gruppo di risorse, si noteranno anche il server e il database SQL, il piano del servizio app e gli slot di gestione temporanea per le app Web. Esplorare le diverse risorse e confrontarle con *&lt;radice\_repository>*\\ARMTemplates\\ProdAndStage.json per verificare come sono configurate nel modello.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -152,7 +152,7 @@ Ora che un'applicazione complessa è in esecuzione nell'ambiente di produzione i
 	-	L'ambiente di sviluppo è in esecuzione in Azure.
 	-	Eliminare questo ambiente di sviluppo è semplice come eliminare il gruppo di risorse. Questa operazione verrà illustrata [più avanti](#delete).
 
->[AZURE.NOTE]Quando al nuovo aggiornamento lavorano più sviluppatori, ognuno può creare facilmente un ramo e un ambiente di sviluppo dedicato effettuando le operazioni seguenti:
+>[AZURE.NOTE] Quando al nuovo aggiornamento lavorano più sviluppatori, ognuno può creare facilmente un ramo e un ambiente di sviluppo dedicato effettuando le operazioni seguenti:
 >
 >1.	Creare la propria biforcazione del repository in GitHub (vedere la pagina relativa alla [biforcazione di un repository](https://help.github.com/articles/fork-a-repo/)).
 >2.	Clonare la biforcazione nel proprio computer locale.
@@ -166,7 +166,7 @@ E dovrebbero essere presenti sei app Web (tre set di due) in tre gruppi di risor
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]Si noti che ProdandStage.json specifica l'ambiente di produzione per usare il livello di prezzo **Standard**, che garantisce la scalabilità dell'applicazione di produzione.
+>[AZURE.NOTE] Si noti che ProdandStage.json specifica l'ambiente di produzione per usare il livello di prezzo **Standard**, che garantisce la scalabilità dell'applicazione di produzione.
 
 ## Compilare e testare ogni commit ##
 
@@ -180,7 +180,7 @@ I file di modello ProdAndStage.json e Dev.json specificano già i parametri di c
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-	>[AZURE.NOTE]Se non è possibile leggere l'immagine precedente:
+	>[AZURE.NOTE] Se non è possibile leggere l'immagine precedente:
 	>
 	>- Nella riga 18 sostituire `check-list` con `list-group`.
 	>- Nella riga 19 sostituire `class="check-list-item"` con `class="list-group-item"`.
@@ -258,9 +258,8 @@ Poiché gli ambienti di sviluppo e di test sono stati volutamente concepiti come
 	git push origin :Dev
 	git branch -d NewUpdate
 	git push origin :NewUpdate
-	Switch-AzureMode AzureResourceManager
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## Riepilogo ##
 
@@ -281,4 +280,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

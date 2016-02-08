@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="01/21/2016"
    ms.author="tomfitz"/>
 
 # Blocchi di risorse - Schema del modello
@@ -46,15 +46,13 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sì | Per le risorse: <br />**{namespace}/{type}/providers/locks**<br /><br />per gruppi di risorse:<br />**Microsoft.Authorization/locks** | Il tipo di risorsa da creare. |
 | apiVersion | enum | Sì | **01/01/2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | 
-| dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | 
-| proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
+| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | | dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | | proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
 
 ### oggetto delle proprietà
 
 | Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | Sì | **CannotDelete** <br /> **ReadOnly** | Il tipo di blocco da applicare all'ambito. CanNotDelete consente la modifica, ma impedisce l'eliminazione, ReadOnly impedisce la modifica o l’eliminazione. |
+| level | enum | Sì | **CannotDelete** | Il tipo di blocco da applicare all'ambito. CanNotDelete consente la modifica, ma impedisce l'eliminazione. |
 | di HDInsight | string | No | 512 caratteri | Descrizione del blocco. |
 
 
@@ -64,13 +62,13 @@ Si aggiunge questa risorsa al modello per impedire le azioni specificate in una 
 
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Dei ruoli predefiniti, solo **Owner** e **User Access Administrator** garantiscono tali azioni. Per informazioni sul controllo di accesso basato sul ruolo, vedere [Controllo di accesso in base al ruolo di Azure](./active-directory/role-based-access-control-configure.md).
 
-Il blocco viene applicato alla risorsa specificata e a tutte le risorse figlio. Se si applica più di un blocco a una risorsa, il blocco più restrittivo ha la precedenza. Ad esempio, se si applica ReadOnly a livello padre (ad esempio, il gruppo di risorse) e CanNotDelete a una risorsa all'interno del gruppo, il blocco più restrittivo (ReadOnly) dell'elemento padre ha la precedenza.
+Il blocco viene applicato alla risorsa specificata e a tutte le risorse figlio.
 
 È possibile rimuovere un blocco con il comando PowerShell **Remove AzureRmResourceLock** o con l’[operazione di eliminazione](https://msdn.microsoft.com/library/azure/mt204562.aspx) dell'API REST.
 
 ## esempi
 
-Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
+L'esempio seguente applica un blocco di sola lettura a un'app Web.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -100,7 +98,7 @@ Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
                 "dependsOn": [ "[variables('siteName')]" ],
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
              }
@@ -108,7 +106,7 @@ Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
         "outputs": {}
     }
 
-Nell'esempio seguente viene applicato un blocco di sola lettura al gruppo di risorse.
+L'esempio successivo applica un blocco di sola lettura al gruppo di risorse.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -122,7 +120,7 @@ Nell'esempio seguente viene applicato un blocco di sola lettura al gruppo di ris
                 "name": "MyGroupLock",
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
             }
@@ -135,4 +133,4 @@ Nell'esempio seguente viene applicato un blocco di sola lettura al gruppo di ris
 - Per informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sui blocchi, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

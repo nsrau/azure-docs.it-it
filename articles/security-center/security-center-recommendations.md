@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/21/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 
 Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione, Questa non è una guida dettagliata.
+> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure. Questa è un'introduzione al servizio con un esempio di distribuzione, Questa non è una guida dettagliata.
 
 ## Informazioni sul Centro sicurezza PC di Azure
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -38,10 +38,9 @@ In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](securit
 - Attivare la raccolta dei dati
 - Scegliere le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza
 
-Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della linea di base, anti-malware, [ACL per gli endpoint](virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](virtual-networks-nsg.md) su subnet e interfacce di rete, controllo del Database SQL, Transparent Data Encryption per il Database SQL e Web Application Firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
+Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della linea di base, anti-malware, [ACL per gli endpoint](../virtual-machines/virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](../virtual-networks/virtual-networks-nsg.md) su subnet e interfacce di rete, controllo del Database SQL, Transparent Data Encryption per il Database SQL e Web Application Firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
 
 ### Monitoraggio delle raccomandazioni
-
 Dopo aver impostato un criterio di sicurezza, il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse per identificare potenziali vulnerabilità. Il riquadro **Raccomandazioni** del pannello **Centro sicurezza PC** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza di Azure.
 
 ![][2]
@@ -49,40 +48,47 @@ Dopo aver impostato un criterio di sicurezza, il Centro sicurezza di Azure anali
 Per visualizzare i dettagli di ogni raccomandazione:
 
 1. Fare clic sul riquadro **Raccomandazioni** del pannello **Centro sicurezza PC**. Viene visualizzato il pannello **Raccomandazioni**.
-2. È possibile filtrare le raccomandazioni visualizzate in base allo stato e alla gravità. Nel pannello **Raccomandazioni** fare clic su **Filtro**. Viene visualizzato il pannello Filtro in cui è possibile selezionare i valori di gravità e stato desiderati. ![][3]
-
-3. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Fare clic con il pulsante destro del mouse su un elemento e selezionare **Ignora** oppure passare il puntatore del mouse su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e selezionando **Ignorato**. ![][4]
 
 Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. Le colonne della tabella sono:
 
 - **DESCRIZIONE**: spiegazione della raccomandazione e descrizione delle azioni da compiere per metterla in pratica
 - **RISORSA**: risorse a cui fa riferimento la raccomandazione
 - **STATO**: stato attuale della raccomandazione:
-  - **Aperta**: non ancora presa in esame
-  - **In corso**: la raccomandazione è stata applicata alle risorse specificate e non è richiesta alcuna azione da parte dell'utente
-  - **Risolta**: la raccomandazione è già stata completata (quando lo stato è impostato su Risolta, la riga è di colore grigio)
+    - **Aperta**: non ancora presa in esame
+    - **In corso**: la raccomandazione è stata applicata alle risorse specificate e non è richiesta alcuna azione da parte dell'utente
+    - **Risolta**: la raccomandazione è già stata completata (quando lo stato è impostato su Risolta, la riga è di colore grigio)
 - **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
-  - **Elevata**: esiste una vulnerabilità associata a una risorsa significativa (applicazione, macchina virtuale, gruppo di sicurezza di rete), che richiede attenzione
-  - **Media**: sono necessari passaggi aggiuntivi (o non critici) per completare un processo o eliminare una vulnerabilità
-  - **Bassa**: una vulnerabilità che è opportuno risolvere ma non richiede attenzione immediata (Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente).
+    - **Elevata**: esiste una vulnerabilità associata a una risorsa significativa (applicazione, macchina virtuale, gruppo di sicurezza di rete), che richiede attenzione
+    - **Media**: sono necessari passaggi aggiuntivi (o non critici) per completare un processo o eliminare una vulnerabilità
+    - **Bassa**: una vulnerabilità che è opportuno risolvere ma non richiede attenzione immediata (Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente).
 
 Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili e gli effetti che producono se si decide di metterle in pratica:
 
-| Raccomandazione | Descrizione |
-|----- |-----|
-| Abilitare la raccolta dati per le sottoscrizioni/macchine virtuali | Si consiglia di attivare la raccolta dei dati nei criteri di sicurezza per ogni sottoscrizione o per le VM selezionate. |
-| Risolvere la mancata corrispondenza alle regole della linea di base | Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password. |
-| Applicare gli aggiornamenti di sistema | Consiglia di distribuire nelle macchine virtuali gli aggiornamenti di sistema mancanti (solo macchine virtuali Windows). |
-| Configurare gli elenchi di controllo di accesso per gli endpoint | Consiglia di configurare un elenco di controllo di accesso per limitare l'accesso in ingresso solo alle macchine virtuali (solo macchine virtuali classiche). |
-| Aggiungere un Web Application Firewall | Consiglia di distribuire un Web Application Firewall (WAF) per gli endpoint Web (solo le macchine virtuali di Gestione risorse). |
-| Finalizzare la configurazione del Web Application Firewall | Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Questa raccomandazione consente di completare le necessarie modifiche di configurazione. |
-| Abilitare il servizio antimalware | Consiglia di eseguire il provisioning del servizio antimalware nelle macchine virtuali (solo macchine virtuali Windows). |
-| Abilitare i gruppi di sicurezza di rete nelle subnet/interfacce di rete | Consiglia di abilitare i gruppi di sicurezza di rete (NSG) su subnet e interfacce di rete (solo le macchine virtuali di Gestione risorse). |
-| Limitare l'accesso tramite endpoint esterni pubblici | Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete. |
-| Abilitare il servizio di controllo SQL per i server | Consiglia di attivare il controllo per i server SQL di Azure (solo il servizio SQL di Azure, non SQL in esecuzione sulle macchine virtuali). |
-| Abilitare il servizio di controllo SQL per i database | Consiglia di attivare il controllo per i database SQL di Azure (solo il servizio SQL di Azure, non SQL in esecuzione sulle macchine virtuali). |
-| Abilitare Transparent Data Encryption sui database SQL | Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure). |
-| Distribuire l'agente di macchine virtuali | Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter eseguire il provisioning dei servizi di analisi delle patch, analisi della linea di base e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali. |
+|Raccomandazione|Descrizione|
+|-----|-----|
+|Abilitare la raccolta dati per le sottoscrizioni/macchine virtuali|Si consiglia di attivare la raccolta dei dati nei criteri di sicurezza per ogni sottoscrizione o per le VM selezionate.|
+|Risolvere la mancata corrispondenza alle regole della linea di base|Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password.|
+|Applicare gli aggiornamenti di sistema|Consiglia di distribuire nelle macchine virtuali gli aggiornamenti di sistema mancanti (solo macchine virtuali Windows).|
+|Configurare gli elenchi di controllo di accesso per gli endpoint|Consiglia di configurare un elenco di controllo di accesso per limitare l'accesso in ingresso solo alle macchine virtuali (solo macchine virtuali classiche).|
+|Aggiungere un Web Application Firewall|Consiglia di distribuire un Web Application Firewall (WAF) per gli endpoint Web (solo le macchine virtuali di Gestione risorse).|
+|Finalizzare la configurazione del Web Application Firewall|Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Questa raccomandazione consente di completare le necessarie modifiche di configurazione.|
+|Abilitare il servizio antimalware|Consiglia di eseguire il provisioning del servizio antimalware nelle macchine virtuali (solo macchine virtuali Windows).|
+|Abilitare i gruppi di sicurezza di rete nelle subnet/interfacce di rete|Consiglia di abilitare i gruppi di sicurezza di rete (NSG) su subnet e interfacce di rete (solo le macchine virtuali di Gestione risorse).|
+|Limitare l'accesso tramite endpoint esterni pubblici|Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete.|
+|Abilitare il servizio di controllo SQL per i server|Consiglia di attivare il controllo per i server SQL di Azure (solo il servizio SQL di Azure, non SQL in esecuzione sulle macchine virtuali).|
+|Abilitare il servizio di controllo SQL per i database|Consiglia di attivare il controllo per i database SQL di Azure (solo il servizio SQL di Azure, non SQL in esecuzione sulle macchine virtuali).|
+|Abilitare Transparent Data Encryption sui database SQL|Consiglia di abilitare la crittografia per i database SQL (solo il servizio di SQL Azure).|
+|Distribuire l'agente di macchine virtuali|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter eseguire il provisioning dei servizi di analisi delle patch, analisi della linea di base e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali.|
+
+È possibile filtrare ed eventualmente ignorare le raccomandazioni.
+
+1. Nel pannello **Raccomandazioni** fare clic su **Filtro**. Viene visualizzato il pannello Filtro in cui è possibile selezionare i valori di gravità e stato desiderati.
+
+    ![][3]
+
+2. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Fare clic con il pulsante destro del mouse su un elemento e selezionare **Ignora** oppure passare il puntatore del mouse su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e selezionando **Ignorato**.
+
+    ![][4]
 
 ### Applicazione delle raccomandazioni
 Dopo aver esaminato tutte le raccomandazioni, è possibile decidere quale applicare per prima. Si consiglia di usare il livello di gravità come parametro principale per scegliere le raccomandazioni da applicare per prime. Prendendo come esempio la raccomandazione sul servizio antimalware, viene illustrata di seguito la procedura da seguire per applicare le raccomandazioni:
@@ -94,7 +100,7 @@ Dopo aver esaminato tutte le raccomandazioni, è possibile decidere quale applic
 4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Crea**.
 5. Specificare le impostazioni di configurazione richieste nel pannello **Aggiungi estensione** e selezionare **OK**. ![][6]
 
-[Microsoft Antimalware](azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
+[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
 
 ### Distribuire soluzioni raccomandate di aziende partner
 
@@ -135,4 +141,4 @@ Questo documento ha affrontato il tema delle raccomandazioni relative alla sicur
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

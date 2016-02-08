@@ -25,7 +25,7 @@
 Le API di PowerShell per i **processi di database elastici**, in anteprima, consentono di definire il gruppo di database sul quale verranno eseguiti gli script. Questo articolo illustra come creare e gestire **processi di database elastici** con i cmdlet di PowerShell. Vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 ## Prerequisiti
-* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](http://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 * Pacchetto di **processi di database elastici** di PowerShell, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md).
@@ -242,11 +242,11 @@ Per eseguire un processo su tutti i database in un set di partizioni, creato con
 
 Questo esempio crea un gestore delle mappe partizioni con diverse partizioni e quindi inserisce dati nelle partizioni.
 
-1. Compilare ed eseguire l'applicazione di esempio disponibile in **Iniziare a usare gli strumenti di database elastici**. Seguire la procedura fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
+1. Compilare ed eseguire l'applicazione di esempio disponibile in **Iniziare a usare gli strumenti di database elastici**. Seguire i passaggi fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
 
 	![Aprire il prompt dei comandi.][1]
 
-2.  Nella finestra di comando digitare "1" e premere **INVIO**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **INVIO**. Ripetere l'operazione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
+2.  Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
   
 3.  Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
 
@@ -694,4 +694,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

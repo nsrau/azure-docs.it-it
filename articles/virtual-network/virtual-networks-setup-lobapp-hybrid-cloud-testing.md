@@ -46,7 +46,7 @@ La configurazione di questo ambiente di test cloud ibrido prevede tre fasi princ
 2.	Configurare il computer SQL server (SQL1).
 3.	Configurare il server LOB (LOB1).
 
-Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizione per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se non si dispone di una sottoscrizione Azure, è possibile effettuare l'iscrizione per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Se si dispone di un abbonamento MSDN, vedere [Benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Impostare l'ambiente cloud ibrido
 
@@ -56,7 +56,7 @@ Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
 
-> [AZURE.NOTE]Per la fase 1, è possibile configurare l'ambiente di test cloud ibrido simulato. Vedere [Impostare un ambiente cloud ibrido simulato per i test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) per le istruzioni.
+> [AZURE.NOTE] Per la fase 1, è possibile configurare l'ambiente di test cloud ibrido simulato. Vedere [Impostare un ambiente cloud ibrido simulato per i test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) per le istruzioni.
  
 ## Fase 2: Configurare il computer SQL server (SQL1)
 
@@ -161,10 +161,10 @@ Il comando ping dovrebbe restituire quattro risposte dall'indirizzo IP 10.0.0.1.
 Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 
 1.	Eseguire Server Manager, quindi fare clic su **Aggiungi ruoli e funzionalità**.
-2.	Nella pagina Prima di iniziare, fare clic su **Avanti**.
+2.	Nella pagina Prima di iniziare fare clic su **Avanti**.
 3.	Nella pagina Selezione tipo di installazione fare clic su **Avanti**.
 4.	Nella pagina Selezione server di destinazione fare clic su **Avanti**.
-5.	Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco **Ruoli**.
+5.	Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco dei **Ruoli**.
 6.	Quando richiesto, fare clic su **Aggiungi funzionalità**, quindi su **Avanti**.
 7.	Nella pagina Selezione funzionalità fare clic su **Avanti**.
 8.	Nella pagina Server Web (IIS) fare clic su **Avanti**.
@@ -199,4 +199,4 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 
 - Download del software Oracle GoldenGate dal sito Web dei [download Oracle](http://www.oracle.com/us/downloads/index.html). Selezione di Product Pack Oracle Fusion Middleware – Data Integration. Selezione di Oracle GoldenGate su Oracle v11.2.1 Media Pack per Microsoft Windows x64 (64 bit) per un database Oracle 11g. Download di Oracle GoldenGate V11.2.1.0.3 per Oracle 11g 64 bit su Windows 2008 (64 bit).
 
-- Creazione di due macchine virtuali (VM) in Azure usando l'immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](#z3dc8d3c097cf414e9048f7a89c026f80) e [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-load-balance.md) e nella stessa [rete virtuale](http://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.
+- Creazione di due macchine virtuali (VM) in Azure usando l'immagine di Oracle Enterprise Edition fornita dalla piattaforma in Windows Server. Per informazioni, vedere [Creazione di una macchina virtuale di Oracle Database 12c in Azure](#z3dc8d3c097cf414e9048f7a89c026f80) e [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-load-balance.md) e nella stessa [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.
 
 - Impostazione dei nomi di macchina virtuale "MachineGG1" per il sito A e "MachineGG2" per il sito B nel portale di Azure classico.
 
@@ -80,7 +80,7 @@ In questa esercitazione si apprenderà come:
 
 6. Verificare il processo di replica bidirezionale
 
->[AZURE.IMPORTANT]Questa esercitazione è stata predisposta e testata con la seguente configurazione software:
+>[AZURE.IMPORTANT] Questa esercitazione è stata predisposta e testata con la seguente configurazione software:
 >
 >| | **Database del sito A** | **Database del sito B** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -602,4 +602,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Installare l'aggiornamento 2 nel dispositivo StorSimple
@@ -81,16 +81,16 @@ Le versioni del software che possono essere aggiornate con il metodo di aggiorna
 
 Gli aggiornamenti rapidi applicati tramite questo metodo sono catalogati sotto:
 
-| Ordine | KB | Nome | Descrizione del pacchetto | Tipo di aggiornamento |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1 | KB3121901 | Aggiornamento software | HcsMdsSfotwareUpdate.exe <br></br> CisMdsAgentUpdateBundle.exe | Normale |
-| 2 | KB3121900 | Driver LSI | HcsLsiUpdate.exe | Normale |
-| 3 | KB3080728 | Correzione Storport | Storport-KB3080728-x64.msu | Normale |
-| 4 | KB3090322 | Correzione Spaceport | Spaceport-KB3090322-x64.msu | Normale |
-| 5 | KB3121899 | Firmware del disco | DiskFirmwarePackage.exe | Manutenzione |
+| Ordine | KB | Nome | Tipo di aggiornamento |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3121901 | Aggiornamento software | Normale |
+| 2 | KB3121900 | Driver LSI | Normale |
+| 3 | KB3080728 | Correzione Storport | Normale |
+| 4 | KB3090322 | Correzione Spaceport | Normale |
+| 5 | KB3121899 | Firmware del disco | Manutenzione |
 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Se il dispositivo esegue la versione finale (GA), contattare [il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per assistenza relativa all'aggiornamento.
 > - Questa procedura deve essere eseguita solo una volta per applicare l'aggiornamento 2. È possibile utilizzare il portale di Azure classico per applicare gli aggiornamenti successivi.
@@ -125,6 +125,6 @@ Se si è verificato è presente la connettività e continuare a visualizzare que
 
 ## Passaggi successivi
 
-Per sapere di più sulla [versione dell'aggiornamento 2](storsimple-update2-release-notes.md).
+Altre informazioni sulla [versione dell'aggiornamento 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

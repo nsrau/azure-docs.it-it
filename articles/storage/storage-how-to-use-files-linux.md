@@ -22,13 +22,13 @@
 
 L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. Con l’archiviazione file di Azure è possibile migrare le applicazioni aziendali basate su server di file in Azure. Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure con Linux. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
 
-È possibile creare condivisioni file di Azure tramite il [portale di Azure](portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le API del file system standard.
+È possibile creare condivisioni file di Azure tramite il [portale di Azure](https://portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le API del file system standard.
 
 Il servizio di archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e sui limiti di Archiviazione file, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
 Il servizio di archiviazione file è ora disponibile a livello generale e supporta entrambi i protocolli SMB 2.1 ed SMB 3.0. Per ulteriori informazioni sull'archiviazione file, vedere [API REST per il servizio file](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
->[AZURE.NOTE]Il client SMB Linux non supporta ancora la crittografia, quindi il montaggio di una condivisione di file da Linux richiede ancora che il client si trovi nella stessa area di Azure della condivisione di file. Tuttavia, il supporto della crittografia per Linux fa paret del programma degli sviluppatori Linux responsabili della funzionalità di SMB. In futuro, le distribuzioni di Linux che supportano la crittografia saranno in grado di montare una condivisione di file di Azure da qualsiasi luogo.
+>[AZURE.NOTE] Il client SMB Linux non supporta ancora la crittografia, quindi il montaggio di una condivisione di file da Linux richiede ancora che il client si trovi nella stessa area di Azure della condivisione di file. Tuttavia, il supporto della crittografia per Linux fa paret del programma degli sviluppatori Linux responsabili della funzionalità di SMB. In futuro, le distribuzioni di Linux che supportano la crittografia saranno in grado di montare una condivisione di file di Azure da qualsiasi luogo.
 
 ## Video: Come usare l'archiviazione file di Azure con Linux
 
@@ -93,7 +93,7 @@ Se si utilizza Open SUSE 13.2, è possibile montare il file come indicato di seg
 
 ## Gestire la condivisione file ##
 
-Il [portale di Azure](portal.azure.com) offre ora un'interfaccia utente per la gestione dell'archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
+Il [portale di Azure](https://portal.azure.com) offre ora un'interfaccia utente per la gestione dell'archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
 
 - Caricare i file nella condivisione file e scaricarli.
 - Monitorare l'uso effettivo di ogni condivisione file.
@@ -140,4 +140,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -16,7 +16,7 @@
  
 # Note sulla versione per gli adattatori di registrazione per .NET
 
-Se si usa già un framework di registrazione come log4net, NLog o System.Diagnostics.Trace, è possibile acquisire tali log e inviarli ad [Application Insights](http://azure.microsoft.com/services/application-insights/), dove è possibile correlare le tracce dei log con azioni dell'utente, eccezioni e altri eventi.
+Se si usa già un framework di registrazione come log4net, NLog o System.Diagnostics.Trace, è possibile acquisire tali log e inviarli ad [Application Insights](https://azure.microsoft.com/services/application-insights/), dove è possibile correlare le tracce dei log con azioni dell'utente, eccezioni e altri eventi.
 
 
 #### Attività iniziali
@@ -32,4 +32,4 @@ Vedere [Log, eccezioni e diagnostica personalizzata per ASP.NET in Application I
 ## Versione 1.2.5
 - Aprire prima la versione di origine: riferimenti alle API di Application Insights versione 1.2.3 o successiva.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

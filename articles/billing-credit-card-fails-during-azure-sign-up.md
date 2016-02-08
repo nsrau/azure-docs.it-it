@@ -59,9 +59,9 @@ L'offerta di valutazione gratuita di Azure è limitata a una sottoscrizione di p
 
 Suggerimenti:
 
-Se l'attivazione di una versione di valutazione gratuita non riesce perché è già stata attivata una sottoscrizione di Azure in passato, usare un altro piano di Azure disponibile elencato nei [Dettagli delle offerte per Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) invece del piano di valutazione gratuita di Azure.
+Se l'attivazione di una versione di valutazione gratuita non riesce perché è già stata attivata una sottoscrizione di Azure in passato, usare un altro piano di Azure disponibile elencato nei [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) invece del piano di valutazione gratuita di Azure.
 
 ## Contattare il supporto di Azure
 Se continua a verificarsi un problema di iscrizione dopo aver eseguito i passaggi di risoluzione dei problemi, contattare il [supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
