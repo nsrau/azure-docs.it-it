@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
@@ -29,7 +29,7 @@ Accedere a Machine Learning Studio:[https://studio.azureml.net](https://studio.a
 
 Per informazioni più generali su Machine Learning Studio, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
->[AZURE.TIP]Per scaricare e stampare un diagramma che include una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Per scaricare e stampare un diagramma che include una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 
 ## Cinque passaggi per la creazione di un esperimento
@@ -76,13 +76,13 @@ Chiudere la finestra di visualizzazione facendo clic sulla "**x**" nell'angolo s
 
 Prima di poter analizzare un set di dati è in genere necessario pre-elaborarlo. È possibile che si sia notata l'assenza di valori nelle colonne di diverse righe. Per consentire al modello di analizzare correttamente i dati, è necessario eseguire la pulizia di questi valori mancanti. In questo caso verranno rimosse le righe con i valori mancanti. Inoltre, la colonna **normalized-losses** ha molti valori mancanti, pertanto verrà esclusa completamente dal modello.
 
-> [AZURE.TIP]La pulizia dei valori mancanti dai dati di input è un prerequisito all'uso della maggior parte dei moduli.
+> [AZURE.TIP] La pulizia dei valori mancanti dai dati di input è un prerequisito all'uso della maggior parte dei moduli.
 
 Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno rimosse tutte le righe con dati mancanti.
 
 1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
-2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Properties**.
+2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Proprietà**.
 
 	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Project Columns][project-columns] esaminerà tutte le colonne, ad eccezione di quelle che verranno escluse.
 	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
@@ -94,7 +94,7 @@ Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno r
 
     ![Proprietà Project Columns][screen4]
 
-    > [AZURE.TIP]È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Project Columns][project-columns] e immettere il commento "Escludi normalized-losses".
+    > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Project Columns][project-columns] e immettere il commento "Escludi normalized-losses".
 
 3. Trascinare il modulo [Clean Missing Data][clean-missing-data] nell'area di disegno dell'esperimento e connetterlo al modulo [Project Columns][project-columns]. Nel riquadro **Properties** selezionare **Remove entire row** in **Cleaning mode** per pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
 
@@ -124,7 +124,7 @@ Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del s
 
 3. Nel selettore di colonna, selezionare **No columns** per **Begin With** e quindi selezionare **Include** e **column names** nella riga del filtro. Immettere l'elenco di nomi di colonna. In tal modo il modulo passerà solo nelle colonne specificate.
 
-	> [AZURE.TIP]Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Project Columns][project-columns] a [Clean Missing Data][clean-missing-data], il modulo [Project Columns][project-columns] riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
+	> [AZURE.TIP] Poiché l'esperimento è stato eseguito, le definizioni di colonna per i dati sono state passate dal set di dati originale attraverso il modulo [Clean Missing Data][clean-missing-data]. Quando si connette [Project Columns][project-columns] a [Clean Missing Data][clean-missing-data], il modulo [Project Columns][project-columns] riconosce le definizioni di colonna nei dati. Quando si fa clic sulla casella **column names**, viene visualizzato un elenco di colonne ed è possibile selezionare quelle da aggiungere all'elenco.
 
 4. Fare clic sul pulsante di segno di spunta (OK).
 
@@ -142,7 +142,7 @@ Volendo stimare il prezzo di un'automobile, che può essere un valore qualsiasi,
 
 1. È possibile usare i dati sia per il training sia per il test, suddividendoli in set di training e di test distinti. Selezionare e trascinare il modulo [Split Data][split] nell'area di disegno dell'esperimento e connetterlo all'output dell'ultimo modulo [Project Columns][project-columns]. Impostare **Fraction of rows in the first output dataset** su 0,75. In questo modo per il training del modello verrà usato il 75% dei dati, mentre il restante 25% verrà usato per il testing.
 
-	> [AZURE.TIP]Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
+	> [AZURE.TIP] Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
 2. Eseguire l'esperimento. In questo modo, i moduli [Project Columns][project-columns] e [Split Data][split] potranno passare le definizioni di colonna ai moduli che saranno aggiunti successivamente.
 
@@ -176,7 +176,7 @@ Dopo aver eseguito il training del modello usando il 75% dei dati, è possibile 
 
 4. Eseguire l'esperimento.
 
-Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic sulla porta di output e quindi selezionare **Visualize**. Per il modello vengono visualizzate le seguenti statistiche:
+Per visualizzare l'output del modulo [Evaluate Model][evaluate-model], fare clic sulla porta di output e selezionare **Visualize**. Per il modello vengono visualizzate le seguenti statistiche:
 
 - **Mean Absolute Error** (MAE, errore assoluto medio): media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
 - **Root Mean Squared Error** (RMSE, radice errore quadratico medio): radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
@@ -196,7 +196,7 @@ L'esperimento finale dovrebbe risultare simile al seguente:
 
 Dopo aver completato la prima esercitazione di Machine Learning e aver configurato l'esperimento, è possibile ripeterlo e provare a migliorare il modello. Ad esempio, è possibile modificare le caratteristiche usate per la stima o le proprietà dell'algoritmo di [regressione lineare][linear-regression] oppure provare un algoritmo diverso. È anche possibile aggiungere contemporaneamente più algoritmi di Machine Learning all'esperimento e confrontarne due usando il modulo [Valuta modello][evaluate-model].
 
-> [AZURE.TIP]Usare il pulsante **SAVE AS** nell'area di disegno dell'esperimento per copiare le iterazioni dell'esperimento. È possibile visualizzare tutte le iterazioni dell'esperimento facendo clic su **VIEW RUN HISTORY** sotto l'area di disegno. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio][runhistory].
+> [AZURE.TIP] Usare il pulsante **SAVE AS** nell'area di disegno dell'esperimento per copiare le iterazioni dell'esperimento. È possibile visualizzare tutte le iterazioni dell'esperimento facendo clic su **VIEW RUN HISTORY** sotto l'area di disegno. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -204,7 +204,7 @@ Una volta ottenuto il modello desiderato, è possibile distribuirlo come servizi
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, l'assegnazione dei punteggi e la distribuzione di un modello, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
+Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la distribuzione di un modello, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -234,4 +234,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

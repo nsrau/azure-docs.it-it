@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+	ms.date="02/02/2016" 
 	ms.author="juliako"/>
 
 
@@ -29,8 +29,6 @@ Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH
 Servizi multimediali offre un servizio per la distribuzione di licenze Microsoft PlayReady. Servizi multimediali fornisce anche le API che consentono di configurare i diritti e le restrizioni che il runtime di PlayReady DRM deve imporre quando l'utente riproduce contenuto protetto. Quando un utente richiede contenuto protetto tramite PlayReady, il lettore richiederà una licenza dal servizio licenze AMS. Il servizio licenze AMS rilascia una licenza al lettore, se questo è autorizzato. Una licenza PlayReady contiene la chiave di decrittografia che può essere utilizzata dal lettore client per decrittografare e trasmettere il contenuto.
 
 A partire da Media Services .NET SDK versione 3.5.2, Servizi multimediali consente anche di configurare il modello di licenza Widevine e ottenere licenze Widevine.
-
->[AZURE.NOTE]Servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure è in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
@@ -631,6 +629,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Configurare i pacchetti Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Annuncio dell'anteprima pubblica dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

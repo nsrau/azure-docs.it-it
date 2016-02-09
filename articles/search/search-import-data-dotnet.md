@@ -31,7 +31,7 @@ I prerequisiti per l'importazione di dati in un indice includono la disponibilit
 
 Supponendo la disponibilità di un indice denominato "hotels", è possibile costruire un metodo per l'importazione dei dati come segue.
 
-Il passaggio successivo in `Main` è il popolamento l'indice appena creato. Questa operazione viene eseguita nel metodo seguente:
+Il passaggio successivo in `Main` è il popolamento dell'indice appena creato. Questa operazione viene eseguita nel metodo seguente:
 
     private static void UploadDocuments(SearchIndexClient indexClient)
     {
@@ -98,7 +98,8 @@ Il passaggio successivo in `Main` è il popolamento l'indice appena creato. Ques
 
         try
         {
-            indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
+            var batch = IndexBatch.Upload(sitecoreItems);
+            indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
         {
@@ -107,7 +108,7 @@ Il passaggio successivo in `Main` è il popolamento l'indice appena creato. Ques
             // retrying. For this simple demo, we just log the failed document keys and continue.
             Console.WriteLine(
                 "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
         // Wait a while for indexing to complete.
@@ -118,10 +119,10 @@ Questo metodo è costituito da quattro parti. La prima crea una matrice di ogget
 
 La seconda parte crea un `IndexAction` per ogni `Hotel`, quindi li raggruppa insieme in un nuovo `IndexBatch`. Il batch viene quindi caricato nell'indice di Ricerca di Azure dal metodo `Documents.Index`.
 
-> [AZURE.NOTE]In questo esempio, verranno semplicemente caricati i documenti. Se si desidera unire le modifiche in un documento esistente o eliminare un documento, è possibile creare un `IndexAction` con il corrispondente `IndexActionType`. Non è necessario specificare `IndexActionType` in questo esempio perché il valore predefinito è `Upload`.
+> [AZURE.NOTE] In questo esempio, verranno semplicemente caricati i documenti. Per unire le modifiche in un documento esistente o eliminare un documento, è possibile creare il metodo `Merge`, `MergeOrUpload` o `Delete` corrispondente.
 
 La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio, oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
 
 Infine, il metodo ritarda per due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

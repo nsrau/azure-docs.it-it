@@ -38,7 +38,7 @@ L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.n
 
 ## Architettura alternativa: siti Web e processi Web
 
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [sito Web di Azure](/services/web-sites/) e si può usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](../websites-dotnet-webjobs-sdk-get-started.md). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../choose-web-site-cloud-service-vm.md).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [sito Web di Azure](/services/web-sites/) e si può usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226), attualmente disponibile in anteprima, per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## Contenuto dell'esercitazione
 
@@ -219,7 +219,7 @@ Il progetto Web e il progetto ruolo di lavoro dispongono di una stringa di conne
 
 Sarà necessario usare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) per il ruolo Web e un'impostazione dell'ambiente del servizio cloud per il ruolo di lavoro.
 
->[AZURE.NOTE]In questa sezione e nella sezione successiva le credenziali sono archiviate in file di progetto. [Non archiviare dati sensibili in archivi pubblici di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+>[AZURE.NOTE] In questa sezione e nella sezione successiva le credenziali sono archiviate in file di progetto. [Non archiviare dati sensibili in archivi pubblici di codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
 1. Nel progetto ContosoAdsWeb aprire il file di trasformazione *Web.Release.config* per il file *Web.config* dell'applicazione, eliminare il blocco di commento che include un elemento `<connectionStrings>` e sostituirlo incollando il codice seguente.
 
@@ -347,7 +347,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 
 9. È ora possibile testare l'applicazione creando, visualizzando e modificando alcune inserzioni, esattamente come durante l'esecuzione locale dell'applicazione.
 
->[AZURE.NOTE]Al termine dei test, eliminare o arrestare il servizio cloud. Anche se non lo si usa, il servizio cloud accumulerà addebiti, poiché le risorse delle macchine virtuali sono riservate per il servizio. Se lo si lascia in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel [portale di Azure classico](http://manage.windowsazure.com) passare alla scheda **Dashboard** per il servizio cloud, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. Se si vuole semplicemente impedire ad altri utenti di accedere al sito, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE] Al termine dei test, eliminare o arrestare il servizio cloud. Anche se non lo si usa, il servizio cloud accumulerà addebiti, poiché le risorse delle macchine virtuali sono riservate per il servizio. Se lo si lascia in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel [portale di Azure classico](http://manage.windowsazure.com) passare alla scheda **Dashboard** per il servizio cloud, quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. Se si vuole semplicemente impedire ad altri utenti di accedere al sito, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ## Creazione di un'applicazione completamente nuova
 
@@ -769,7 +769,7 @@ A volte il contenuto di un messaggio di coda provoca un errore di elaborazione. 
 
 Questo codice legge il database per ottenere l'URL dell'immagine. converte l'immagine in un'anteprima, salva l'anteprima in un BLOB, aggiorna il database con l'URL del BLOB dell'anteprima ed elimina il messaggio in coda.
 
->[AZURE.NOTE]Il codice nel metodo `ConvertImageToThumbnailJPG` usa le classi disponibili nello spazio dei nomi System.Drawing per maggiore semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE] Il codice nel metodo `ConvertImageToThumbnailJPG` usa le classi disponibili nello spazio dei nomi System.Drawing per maggiore semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Risoluzione dei problemi
 
@@ -815,4 +815,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

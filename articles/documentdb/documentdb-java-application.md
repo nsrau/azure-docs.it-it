@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # Creazione di un'applicazione Web Java con DocumentDB
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare un'applicazione di gestione delle atti
 
 ![Applicazione Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) completo da GitHub e creare l'applicazione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP] Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) completo da GitHub e creare l'applicazione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
 
 ##<a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
 Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è necessario disporre di quanto segue:
@@ -95,7 +95,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 4. Nella finestra **Select Dependency** eseguire le operazioni seguenti:
  - Nella casella **GroupId** immettere com.microsoft.azure.
  - Nella casella **Artifact Id** immettere azure-documentdb.
- - Nella casella **Version** immettere 1.4.0.
+ - Nella casella **Version** immettere 1.5.1.
 
 	![Installare l'SDK dell’applicazione Java di DocumentDB](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. Fare clic su **OK** e Maven installerà DocumentDB Java SDK.
@@ -786,4 +786,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

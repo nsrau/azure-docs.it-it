@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="01/21/2015"
+   ms.date="01/21/2016"
    ms.author="danlep"/>
 
 # Guida introduttiva ai cmdlet Batch di Azure PowerShell
@@ -166,4 +166,4 @@ Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $con
 * [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

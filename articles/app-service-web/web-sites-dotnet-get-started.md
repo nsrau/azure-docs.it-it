@@ -42,7 +42,7 @@ Si apprenderà come:
 * Come usare **Esplora server** di Visual Studio per aprire file remoti e avviare una sessione di debug remota. 
 * Usare il [portale di Azure](/overview/preview-portal/) per monitorare e gestire la propria app Web.
 
-> [AZURE.NOTE]Questa esercitazione illustra come usare ASP.NET con il servizio app di Azure, non spiega come sviluppare un'applicazione Web ASP.NET. Per un'introduzione ad ASP.NET MVC 5, vedere l'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) nel sito Web dedicato ad [ASP.NET](http://asp.net/). Per i collegamenti ad altri articoli che approfondiscono i concetti relativi all'uso del servizio app di Azure, vedere la sezione [Passaggi successivi](#next-steps).
+> [AZURE.NOTE] Questa esercitazione illustra come usare ASP.NET con il servizio app di Azure, non spiega come sviluppare un'applicazione Web ASP.NET. Per un'introduzione ad ASP.NET MVC 5, vedere l'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) nel sito Web dedicato ad [ASP.NET](http://asp.net/). Per i collegamenti ad altri articoli che approfondiscono i concetti relativi all'uso del servizio app di Azure, vedere la sezione [Passaggi successivi](#next-steps).
 > 
 > Per contribuire a migliorare l'ambito e l'approccio di questa organizzazione e chiedere l'aggiunta di altri argomenti a questa esercitazione introduttiva, è possibile lasciare un [commento](#comments) alla fine dell'esercitazione.
 
@@ -95,7 +95,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-get-started/GS13changeauth.png)
 
-6. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione**, quindi fare clic su **OK**.
+6. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**.
 
 	![No Authentication](./media/web-sites-dotnet-get-started/GS13noauth.png)
 
@@ -183,7 +183,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 11. Nella scheda **Anteprima** fare clic su **Pubblica**.
 
-	Per visualizzare i file che verranno copiati in Azure, è possibile fare clic su **Avvia anteprima** prima di fare clic su **Pubblica**.
+	Per visualizzare i file che verranno copiati in Azure, è possibile scegliere **Avvia anteprima** prima di fare clic su **Pubblica**.
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
@@ -199,7 +199,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 13. Mantenere aperta questa finestra del browser perché verrà usata nella sezione successiva.
 
-**Suggerimento:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione o aprire la procedura guidata **Pubblica sul Web**.
+**Suggerimento:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione oppure per aprire la procedura guidata **Pubblica sul Web**.
 
 ![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -267,11 +267,11 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come aggiungere funzionalità di database e autorizzazione
 
-	Per un'esercitazione che mostra come accedere a un database e limitare alcune funzioni dell'applicazione a utenti autorizzati, vedere [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un'app Web di Azure](/develop/net/tutorials/web-site-with-sql-database/). Questa esercitazione presuppone alcune conoscenze di base di MVC 5. Se non si ha familiarità con MVC 5, vedere l'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+	Per un'esercitazione che mostra come accedere a un database e limitare alcune funzioni dell'applicazione a utenti autorizzati, vedere [Distribuzione di un'app ASP.NET MVC sicura con appartenenza, OAuth e database SQL in un'app Web di Azure](/develop/net/tutorials/web-site-with-sql-database/). Questa esercitazione presuppone alcune conoscenze di base di MVC 5. Se non si ha familiarità con MVC 5, vedere l'articolo relativo all'[introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Altri modi per distribuire un progetto Web
 
-	Per informazioni su altre modalità di distribuzione di progetti Web in app Web usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app Web di Azure](web-sites-deploy.md).
+	Per informazioni su altre modalità di distribuzione di progetti Web in app Web tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app Web di Azure](web-sites-deploy.md).
 
 	Visual Studio consente anche di generare script di Windows PowerShell per automatizzare la distribuzione. Per ulteriori informazioni, vedere l'articolo relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -292,13 +292,13 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud di Azure e Macchine virtuali di Azure per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e VM di Azure](/manage/services/web-sites/choose-web-app-service/).
 
 * [Come scegliere o creare un piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [Come scegliere o creare un gruppo di risorse](../azure-preview-portal-using-resource-groups.md)
+* [Come scegliere o creare un gruppo di risorse](../azure-portal/resource-group-portal.md)
 
 ## Modifiche apportate
 * Per informazioni su cosa è cambiato nel passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -32,7 +32,11 @@ Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al prog
 
 ### Confronto tra connessione e comando
 
-È possibile riprovare a stabilire la connessione SQL o stabilirne una nuova, in base a quanto indicato di seguito. * **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi. * **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
+È possibile riprovare a stabilire la connessione SQL o stabilirne una nuova, in base a quanto indicato di seguito:
+
+* **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi.
+
+* **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -362,7 +366,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile. Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: - Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: - [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
@@ -403,7 +407,7 @@ Ecco i collegamenti alle informazioni relative a EntLib60:
 
 - [Download gratuito dell'eBook relativo alla Guida per gli sviluppatori di Microsoft Enterprise Library, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145)
 
-- Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
+- Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](../best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
 
 - Download NuGet di [Enterprise Library - Blocco applicazione per la gestione di errori temporanei 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +510,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

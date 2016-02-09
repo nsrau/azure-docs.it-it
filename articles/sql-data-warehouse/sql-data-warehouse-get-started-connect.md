@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connettersi a SQL Data Warehouse con Visual Studio
@@ -26,7 +26,7 @@ Questa procedura dettagliata mostra come connettersi ed eseguire query su un dat
 
 ## Prerequisiti
 
-+ Database di esempio AdventureWorksDW in SQL Data Warehouse. Per crearlo, vedere [Creare un database di SQL Data Warehouse](sql-data-warehouse-get-started-create.md). 
++ Database di esempio AdventureWorksDW in SQL Data Warehouse. Per crearlo, vedere [Creare un database di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). 
 + SQL Server Data Tools per Visual Studio. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio e/o SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## Passaggio 1: Trovare il nome completo del server SQL Azure
@@ -108,4 +108,4 @@ Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

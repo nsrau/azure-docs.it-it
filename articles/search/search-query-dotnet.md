@@ -41,8 +41,8 @@ Il frammento di codice seguente crea un metodo che passa l'input di una stringa 
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}
@@ -63,4 +63,4 @@ Nella prima chiamata, si cercano tutti i documenti che contengono i termini di q
 
 La seconda chiamata usa un'espressione OData $filter, category eq 'Luxury'. Questa chiamata vincola la ricerca alla restituzione solo dei documenti in cui il campo category corrisponde esattamente alla stringa "Luxury". Per altre informazioni sulla sintassi di OData, vedere [Sintassi delle espressioni OData per Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

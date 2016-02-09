@@ -18,7 +18,7 @@
 
 # Configurare connessioni ExpressRoute e VPN da sito a sito per la coesistenza per una rete virtuale
 
-La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExressRoute o usare VPN da sito a sito per connettersi a siti che non fanno parte della rete, ma che sono connessi tramite ExpressRoute. In questo articolo verranno illustrati i passaggi per configurare entrambi questi scenari. Questo articolo è applicabile alle connessioni create usando il modello di distribuzione classico.
+La possibilità di configurare una VPN da sito a sito ed ExpressRoute offre diversi vantaggi. È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExressRoute o usare VPN da sito a sito per connettersi a siti che non fanno parte della rete, ma che sono connessi tramite ExpressRoute. In questo articolo verranno illustrati i passaggi per configurare entrambi questi scenari. Attualmente è possibile creare solo questa configurazione usando il modello di distribuzione classico. Quando sarà disponibile la documentazione applicabile al modello di distribuzione di Gestione risorse, il relativo collegamento verrà inserito qui.
 
 >[AZURE.IMPORTANT] Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
 
@@ -211,4 +211,4 @@ Se si dispone di una rete virtuale esistente, connessa tramite una connessione E
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
