@@ -44,7 +44,7 @@ Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet,
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Creare quindi un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account\_name*> e una località in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
+Creare quindi un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account_name*> e una località in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
 
 ```
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup

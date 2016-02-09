@@ -28,7 +28,9 @@ Analisi di flusso è un servizio completamente gestito che consente l'elaborazio
 
 ## Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: * Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. * Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: 
+* Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. 
+* Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
 
 In scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard viene generata una considerevole quantità di dati di telemetria o sensore e i clienti desiderano effettuarne l'aggregazione o generare avvisi relativi alle anomalie in tempo reale.
 

@@ -153,7 +153,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		
 
-6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\\VideoFiles".
+6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
 
 ##Connettersi all'account di Servizi multimediali
 

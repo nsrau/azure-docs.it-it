@@ -88,7 +88,7 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 
 3. In **Esplora soluzioni** verificare che come progetto di avvio sia selezionato **ContosoAdsCloudService**.
 
-2. Se si usa Visual Studio 2015, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\\v11.0" in "(localdb)\\MSSQLLocalDB".
+2. Se si usa Visual Studio 2015, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\v11.0" in "(localdb)\MSSQLLocalDB".
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
 
@@ -471,10 +471,10 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 
 3. Nel progetto ContosoAdsWeb aggiungere i file seguenti dal progetto scaricato.
 	- *Global.asax.cs*.  
-	- Nella cartella *Views\\Shared*: <em>\_Layout.cshtml</em>.
-	- Nella cartella *Views\\Home*: *Index. cshtml*.
+	- Nella cartella *Views\Shared*: <em>\_Layout.cshtml</em>.
+	- Nella cartella *Views\Home*: *Index. cshtml*.
 	- Nella cartella *Controllers*: *AdController.cs*
-	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.
+	- Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.
 
 3. Nel progetto ContosoAdsWorker aggiungere il file *WorkerRole.cs* dal progetto scaricato.
 
@@ -577,11 +577,11 @@ Tramite codice analogo si ottiene un riferimento alla coda *images* e si crea un
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Il file *\_Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
+Il file *_Layout.cshtml* imposta il nome dell'app nell'intestazione e nel piè di pagina e crea una voce di menu "Ads".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Il file *Views\\Home\\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
+Il file *Views\Home\Index.cshtml* visualizza i collegamenti di categoria nella home page. I collegamenti passano il valore Integer dell'enumerazione `Category` in una variabile querystring alla pagina Ads Index.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -670,7 +670,7 @@ L’esempio successivo riporta il codice per l'eliminazione dei BLOB in caso di 
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
 
 Il file *Index.cshtml* mostra le anteprime insieme agli altri dati delle inserzioni.
 
@@ -680,7 +680,7 @@ Il file *Details.cshtml* mostra l'immagine con dimensioni normali.
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml ed Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml ed Edit.cshtml
 
 I file *Create.cshtml* e *Edit.cshtml* specificano la codifica di moduli che permettere al controller di ottenere l'oggetto `HttpPostedFileBase`.
 

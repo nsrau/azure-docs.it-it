@@ -129,7 +129,7 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio, q
 
 Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
 
-#### 1\. Registrare uno scenario
+#### 1. Registrare uno scenario
 
 Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
@@ -160,7 +160,7 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
     ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Caricare il test Web in Application Insights
+#### 2. Caricare il test Web in Application Insights
 
 1. Nel portale Application Insights, creare un nuovo test Web.
 

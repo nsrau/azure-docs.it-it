@@ -22,7 +22,7 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
     
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando un editor di testo, aprire il file create-device-identity\src\main\java\com\mycompany\app\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -110,7 +110,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando un editor di testo, aprire il file read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 

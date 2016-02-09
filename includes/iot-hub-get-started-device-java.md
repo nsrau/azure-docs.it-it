@@ -27,7 +27,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando un editor di testo, aprire il file simulated-device\src\main\java\com\mycompany\app\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 

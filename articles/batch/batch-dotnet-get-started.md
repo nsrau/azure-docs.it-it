@@ -341,7 +341,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
@@ -534,7 +534,7 @@ await DeleteContainerAsync(blobClient, inputContainerName);
 await DeleteContainerAsync(blobClient, outputContainerName);
 ```
 
-Il metodo stesso ottiene semplicemente un riferimento al contenitore e quindi chiama [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]\:
+Il metodo stesso ottiene semplicemente un riferimento al contenitore e quindi chiama [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
 
 ```
 private static async Task DeleteContainerAsync(CloudBlobClient blobClient, string containerName)
