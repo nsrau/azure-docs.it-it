@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@
 
 Questa esercitazione illustra il processo di implementazione di un'app per la distribuzione di contenuti video on demand (VoD) di base usando il portale di Azure classico.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 
 Questa esercitazione include le attività seguenti:
 
@@ -43,15 +44,15 @@ Questa esercitazione include le attività seguenti:
 
 	![Creazione rapida di Servizi multimediali](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
-2. In **NOME** immettere il nome per il nuovo account. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
+2. In **NAME** immettere il nome per il nuovo account. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
 3. In **AREA** selezionare l'area geografica che verrà utilizzata per archiviare i record dei metadati per l'account di Servizi multimediali. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
 
 4. In **ACCOUNT DI ARCHIVIAZIONE** selezionare un account di archiviazione per l'archiviazione BLOB del contenuto multimediale dell'account di Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica.
 
-5. Se è stato creato un nuovo account di archiviazione, in **NUOVO NOME ACCOUNT DI ARCHIVIAZIONE** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
+5. Se è stato creato un nuovo account di archiviazione, in **NEW STORAGE ACCOUNT NAME** specificare un nome per l'account di archiviazione. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
 
-6. Nella parte inferiore del modulo fare clic su **Creazione rapida**.
+6. Nella parte inferiore del modulo fare clic su **Quick Create**.
 
 	È possibile monitorare lo stato di elaborazione nell'area dei messaggi, nella parte inferiore della finestra.
 
@@ -91,7 +92,7 @@ Per modificare il numero di unità riservate di streaming, effettuare le seguent
 
 	L'allocazione di nuove unità richiede circa 20 minuti.
 
-	>[AZURE.NOTE]Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
+	>[AZURE.NOTE] Attualmente, se si riporta a zero qualsiasi valore positivo delle unità di streaming, è possibile che lo streaming venga disabilitato per un periodo che può durare fino a un'ora.
 	>
 	> Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo. Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -120,6 +121,7 @@ Se il valore delle dimensioni del file non viene aggiornato al termine del proce
 ## Codificare contenuti
 
 ### Panoramica
+
 Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. Servizi multimediali fornisce un codificatore multimediale che consente di specificare la modalità di codifica dei contenuti (ad esempio, i codec da usare, il formato di file, la risoluzione e la velocità in bit).
 
 Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Con lo streaming a velocità in bit adattiva, il client può passare a un flusso con velocità in bit maggiore o minore durante la visualizzazione del video, in base alla larghezza di banda attuale della rete, all'utilizzo della CPU e ad altri fattori. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
@@ -140,21 +142,12 @@ Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservat
 Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di Azure classico.
 
 1.  Selezionare il file da codificare. Se la codifica è supportata per questo tipo di file, il pulsante **ELABORA** viene abilitato nella parte inferiore della pagina CONTENUTO.
-4. Nella finestra di dialogo **Elabora** scegliere il processore ** Azure Media Encoder **.
+4. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**.
 5. Scegliere una delle **configurazioni di codifica**.
 
 	![Process2][process2]
 
-	L'argomento [Set di impostazioni di attività per il codificatore di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn619392.aspx) spiega il significato di ciascun set di impostazioni nelle categorie **Set di impostazioni per streaming adattivo (creazione dinamica dei pacchetti)**, **Set di impostazioni per il download progressivo** e **Set di impostazioni legacy per streaming adattivo**.
-
-	Le **altre** configurazioni sono descritte di seguito.
-
-	+ **Codifica con protezione dei contenuti (PlayReady)**. Questo set di impostazioni produce un asset codificato con la protezione dei contenuti PlayReady.  
-
-		Per impostazione predefinita, viene usato il servizio di licenza PlayReady di Servizi multimediali. Per specificare un altro servizio dal quale i client possono ottenere una licenza per riprodurre i contenuti crittografati con PlayReady, usare le API REST o Media Services .NET SDK. Per altre informazioni, vedere [Uso della crittografia statica per proteggere i contenuti]() e impostare la proprietà **licenseAcquisitionUrl** nel set di impostazioni di Media Encryptor. In alternativa, è possibile usare la crittografia dinamica e impostare la proprietà **PlayReadyLicenseAcquisitionUrl** come descritto in [Uso della crittografia dinamica PlayReady e del server di distribuzione di licenze PlayReady](http://go.microsoft.com/fwlink/?LinkId=507720).
-	+ **Riproduzione su PC/Mac (tramite Flash/Silverlight)**. Questo set di impostazioni genera un asset Smooth Streaming con le seguenti caratteristiche: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 96 kbps (compressione AAC) e video 720p con codifica CBR a 6 velocità in bit da 3400 kbps a 400 kbps tramite compressione H.264 Main Profile e GOP di 2 secondi.
-	+ **Riproduzione tramite HTML5 (tramite IE/Chrome/Safari)**. Questo set di impostazioni genera un singolo file MP4 con le seguenti caratteristiche: audio stereo a 16 bit e frequenza di campionamento di 44,1 kHz con codifica CBR a 128 kbps (compressione AAC) e video 720p con codifica CBR a 4500 kbps tramite compressione H.264 Main Profile.
-	+ **Riproduzione su dispositivi iOS e PC/Mac**. Questo set di impostazioni genera un asset con le stesse caratteristiche dell'asset Smooth Streaming (descritte in precedenza), ma in un formato che può essere usato per trasmettere flussi Apple HLS ai dispositivi iOS.
+	L'argomento relativo alle [stringhe di set di impostazioni di attività per Media Encoder Standard](https://msdn.microsoft.com/it-IT/library/mt269960) illustra il significato di ogni set di impostazioni.
 
 5. Quindi, immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
 6. Selezionare **OK**.
@@ -193,7 +186,7 @@ Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'U
 
 Per i localizzatori viene definita una data di scadenza. Quando si pubblicano asset attraverso il portale, vengono creati localizzatori con scadenza a 100 anni.
 
->[AZURE.NOTE]I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
+>[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
 
 Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
@@ -260,4 +253,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

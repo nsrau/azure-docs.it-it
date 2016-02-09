@@ -129,7 +129,7 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio, q
 
 Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
 
-#### 1\. Registrare uno scenario
+#### 1. Registrare uno scenario
 
 Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
@@ -160,7 +160,7 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
     ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Caricare il test Web in Application Insights
+#### 2. Caricare il test Web in Application Insights
 
 1. Nel portale Application Insights, creare un nuovo test Web.
 
@@ -207,6 +207,20 @@ I plug-in del test Web consentono di definire questa impostazione.
 
 Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
 
+## Accesso OAuth
+
+Se gli utenti accedono all'app usando la propria password OAuth, ad esempio, Microsoft, Google o Facebook, è possibile simulare l'accsso al test Web in più passaggi usando il plug-in SAML.
+
+![Test web di esempio per OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+
+Il test di esempio esegue questi passaggi:
+
+1. Chiede all'app Web sottoposta a test l'indirizzo dell'endpoint OAuth.
+2. Accede con il plug-in SAML.
+3. Esegue il resto del test nello stato di accesso eseguito.
+
+Il plug-in SAML imposta una variabile `Assert` usata nel passaggio 2.
+
 ## <a name="edit"></a> Modificare o disabilitare un test
 
 Aprire un singolo test per modificarlo o disabilitarlo.
@@ -249,4 +263,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

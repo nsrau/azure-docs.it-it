@@ -18,7 +18,7 @@
 
 # Autenticazione e autorizzazione per app per le API nel servizio app di Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/app-service-api-auth-selector.md)]
 
 ## Panoramica 
 
@@ -53,16 +53,14 @@ Il servizio app può impedire alle richieste HTTP anonime di raggiungere l'app p
 
 1. Consentire solo alle richieste autenticate di raggiungere l'app per le API.
 
-	Se viene ricevuta una richiesta anonima da un browser, il servizio app la reindirizza a una pagina di accesso.
+	Se una richiesta anonima viene ricevuta da un browser, il servizio app la reindirizzerà alla pagina di accesso per il provider di autenticazione scelto, ad esempio Azure Active Directory, Google, Twitter e così via.
 
-	Se si conosce in anticipo il provider di autenticazione (Google, Twitter e così via) da usare, è possibile configurare il servizio app per la gestione del processo di accesso. In alternativa, è possibile specificare un URL a cui il servizio app deve reindirizzare le richieste anonime. Si può quindi offrire agli utenti la possibilità di scegliere il provider di autenticazione.
-
-	Con questa opzione non è necessario scrivere codice di autenticazione nell'app e l'autorizzazione risulta semplificata perché le attestazioni più importanti sono fornite nelle intestazioni HTTP.
+	Con questa opzione non è necessario scrivere codice di autenticazione nell'app e il codice di autorizzazione risulta semplificato perché le attestazioni più importanti sono fornite nelle intestazioni HTTP.
 
 2. Consentire a tutte le richieste di raggiungere l'app per le API, ma convalidare le richieste autenticate e passare le informazioni di autenticazione nelle intestazioni HTTP.
 
-	Questa opzione offre una maggiore flessibilità nella gestione delle richieste anonime e semplifica la scrittura di codice che richiede l'accesso alle attestazioni più comuni. A differenza dell'opzione 1, per impedire agli utenti anonimi di usare l'API è necessario scrivere codice.
-
+	Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime, ma è necessario scrivere codice se si vuole impedire agli utenti anonimi di usare l'API. Poiché le attestazioni più diffuse vengono passate nelle intestazioni delle richieste HTTP, il codice di autorizzazione è relativamente semplice.
+	
 3. Consentire a tutte le richieste di raggiungere l'API e non eseguire alcuna operazione sulle informazioni di autenticazione nelle richieste.
 
 	Questa opzione lascia le attività di autenticazione e autorizzazione interamente al codice dell'applicazione.
@@ -71,7 +69,7 @@ Le opzioni sono selezionabili nel pannello **Autenticazione/Autorizzazione** del
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Per le opzioni 1 e 2, attivare l'**autenticazione del servizio app** e scegliere **Accedi** o **Consenti richiesta (nessuna azione)** nell'elenco a discesa **Azione da eseguire quando la richiesta non è autenticata**. Se si seleziona **Accedi**, è necessario scegliere un provider di autenticazione e configurarlo.
+Per le opzioni 1 e 2 attivare l'**Autenticazione servizio app** e scegliere **Accedi** o **Consenti richiesta (nessuna azione)** nell'elenco a discesa **Azione da eseguire quando la richiesta non è autenticata**. Se si seleziona **Accedi**, è necessario scegliere un provider di autenticazione e configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -118,4 +116,4 @@ Se si segue la sequenza introduttiva di esercitazioni per ASP.NET e le app per l
 
 Per altre informazioni sull'uso di Node e di Java nel servizio app di Azure, vedere il [centro per sviluppatori di Node.js](/develop/nodejs/) e il [centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

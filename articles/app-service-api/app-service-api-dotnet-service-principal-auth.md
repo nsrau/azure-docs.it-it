@@ -18,7 +18,7 @@
 
 # Autenticazione dell'entità servizio per app per le API nel servizio app di Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/app-service-api-auth-selector.md)]
 
 ## Panoramica
 
@@ -392,4 +392,4 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app di Servizio app di Azure](web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

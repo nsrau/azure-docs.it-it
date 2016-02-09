@@ -16,7 +16,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -27,7 +27,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando un editor di testo, aprire il file simulated-device\src\main\java\com\mycompany\app\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -158,4 +158,4 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

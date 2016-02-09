@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare un SQL Data Warehouse
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 - Creare un server per ospitare il database.
 - Creare un database contenente il database di esempio AdventureWorksDW.
 
-Se si sta cercando di eseguire la migrazione di un database esistente in SQL Data Warehouse, vedere i [cenni preliminari sulla migrazione](./sql-data-warehouse-get-started-overview-migrate.md) o usare l'[utilità di migrazione](./sql-data-warehouse-migrate-migration-utility.md).
+Se si sta cercando di eseguire la migrazione di un database esistente in SQL Data Warehouse, vedere i [cenni preliminari sulla migrazione](./sql-data-warehouse-overview-migrate.md) o usare l'[utilità di migrazione](./sql-data-warehouse-migrate-migration-utility.md).
 
 Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse](./sql-data-warehouse-overview-load.md).
 
@@ -54,12 +54,12 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 
 Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un server e ogni server viene assegnato a una posizione geografica. Il server è definito server SQL logico.
 
-> [AZURE.NOTE]<a name="note"></a>Un server SQL logico:
+> [AZURE.NOTE] <a name="note"></a>Un server SQL logico:
   >
-  > + Fornisce un sistema coerente per configurare più database nella stessa posizione geografica.
-  > + Non è un hardware fisico come avviene invece per i server locali. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*.
-  > + Può ospitare più database senza rallentarne le prestazioni.
-  > + Usa una *s* minuscola per il nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
+  > + Fornisce un modo coerente per configurare più database nella stessa località geografica.
+  > + Non è hardware fisico come nel caso di un server locale. Fa parte del software del servizio. Ecco perché viene chiamato *server logico*.
+  > + Può ospitare più database senza conseguenze per le prestazioni.
+  > + Usa una lettera minuscola *s* nel relativo nome. Il **s**erver SQL è un server logico di Azure, mentre SQL **S**erver è il prodotto per database locali di Microsoft.
 
 1. Fare clic su **Server** > **Crea un nuovo server**. Non è previsto alcun addebito per il server. Se si ha già un server SQL logico versione 12 che si vuole usare, scegliere il server esistente e andare al passaggio successivo. 
 
@@ -74,7 +74,7 @@ Nel database SQL e in SQL Data Warehouse ogni database viene assegnato a un serv
 	- **Crea server V12**. SÌ è la sola opzione per SQL Data Warehouse. 
 	- **Consenti ai servizi di Azure di accedere al server**. Questa opzione è sempre selezionata per SQL Data Warehouse.
 
-    >[AZURE.NOTE]Assicurarsi di registrare il nome del server, il nome dell'amministratore e la password per conservarli in un luogo sicuro. Queste informazioni saranno necessarie per accedere al server.
+    >[AZURE.NOTE] Assicurarsi di registrare il nome del server, il nome dell'amministratore e la password per conservarli in un luogo sicuro. Queste informazioni saranno necessarie per accedere al server.
 
 1. Fare clic su **OK** per salvare le impostazioni di configurazione del server SQL logico e tornare al pannello di SQL Data Warehouse.
 
@@ -90,7 +90,7 @@ Ora che il server SQL logico è stato selezionato, è possibile completare la cr
     
     - **Prestazioni**: si consiglia di iniziare con 400 DWU. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare il livello di prestazioni del database, sia ora che dopo la creazione del database. 
 
-        > [AZURE.NOTE]SQL Data Warehouse misura le prestazioni in unità Data Warehouse (DWU, Data Warehouse Unit). Con l'aumento delle unità DWU, SQL Data Warehouse aumenta le risorse di elaborazione disponibili per le operazioni con il database. Mentre si esegue il carico di lavoro, sarà possibile osservare come le unità DWU siano correlate alle prestazioni del carico di lavoro.
+        > [AZURE.NOTE] SQL Data Warehouse misura le prestazioni in unità Data Warehouse (DWU, Data Warehouse Unit). Con l'aumento delle unità DWU, SQL Data Warehouse aumenta le risorse di elaborazione disponibili per le operazioni con il database. Mentre si esegue il carico di lavoro, sarà possibile osservare come le unità DWU siano correlate alle prestazioni del carico di lavoro.
         > 
         > È possibile modificare rapidamente e facilmente il livello di prestazioni dopo la creazione del database. Ad esempio, se non si usa il database, spostare il dispositivo di scorrimento verso sinistra per ridurre i costi. Oppure, aumentare le prestazioni quando sono necessarie ulteriori risorse. Per non incorrere in alcun costo, è possibile sospendere il database. Questo è il vantaggio a livello di scalabilità offerto da SQL Data Warehouse.
 
@@ -123,7 +123,7 @@ Per connettersi al server dall'indirizzo IP corrente, aggiungere l'indirizzo IP 
 
 1. Creare una regola del firewall con un intervallo di indirizzi IP. È possibile eseguire questa operazione subito o più avanti.
 
-	>[AZURE.IMPORTANT]È possibile che l'indirizzo IP cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per assicurare un accesso coerente, è consigliabile aggiungere un intervallo di indirizzi IP. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](../sql-database/sql-database-configure-firewall-settings.md).
+	>[AZURE.IMPORTANT] È possibile che l'indirizzo IP cambi nel tempo. In questo caso, non sarà possibile accedere al server fino a quando non viene creata una nuova regola firewall. Per assicurare un accesso coerente, è consigliabile aggiungere un intervallo di indirizzi IP. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](../sql-database/sql-database-configure-firewall-settings.md).
 
     Per creare una regola, immettere un nome e l'intervallo di indirizzi IP e fare clic su **Salva**.
 
@@ -135,4 +135,4 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver creato un database di esempio per SQL Data Warehouse, fare clic su [Connetti](./sql-data-warehouse-get-started-connect.md) per connettersi al database.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

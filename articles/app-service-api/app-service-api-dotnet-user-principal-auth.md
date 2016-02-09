@@ -18,7 +18,7 @@
 
 # Autenticazione utente per le app per le API nel servizio app di Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/app-service-api-auth-selector.md)]
 
 ## Panoramica
 
@@ -88,7 +88,7 @@ Se non sono state eseguite la prima e la seconda esercitazione e si vuole seguir
 
 2. Distribuire il progetto ToDoListDataAPI nella nuova app per le API.
 
-	a. Nel progetto ToDoListDataAPI aprire il file *App\_Start/SwaggerConfig.cs* e rimuovere il commento dal codice **EnableSwaggerUi**.
+	a. Nel progetto ToDoListDataAPI aprire il file *App_Start/SwaggerConfig.cs* e rimuovere il commento dal codice **EnableSwaggerUi**.
 
 	b. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListDataAPI e quindi scegliere **Pubblica**.
 
@@ -110,7 +110,7 @@ Se non sono state eseguite la prima e la seconda esercitazione e si vuole seguir
 
 3. Distribuire il progetto ToDoListAPI in una nuova app per le API.
 
-	a. Nel progetto ToDoListAPI aprire *Controllers\\ToDoListController.cs* e modificare `http://localhost:45914` in `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	a. Nel progetto ToDoListAPI aprire *Controllers\ToDoListController.cs* e modificare `http://localhost:45914` in `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Per la distribuzione del progetto ToDoListAPI seguire la stessa procedura usata per il progetto ToDoListDataAPI. Non dimenticare di modificare il tipo in **App per le API**.
 
@@ -391,4 +391,4 @@ Se l'applicazione è stata eseguita correttamente senza autenticazione, ma non f
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

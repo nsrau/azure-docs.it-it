@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -44,9 +44,9 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
 
 3.	Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** che ospita il server logico a cui si vuole connettersi nel formato **<*nomeserver*>.database.windows.net**. Ad esempio, **adventureserver.database.windows.net**.
 
-4.	Nella sezione **Credenziali di accesso** fare clic su **Usa nome utente e password seguenti**, digitare il **Nome utente** e la **Password** configurati per il server di database SQL durante la procedura di creazione e quindi fare clic su **Avanti**.
+4.	Nella sezione **Credenziali di accesso** fare clic su **Usa nome utente e password seguenti**, digitare il **Nome utente** e la **Password** configurati per il server di database SQL quando è stato creato e quindi fare clic su **Avanti**.
 
-	> [AZURE.TIP]Entrambi i componenti aggiuntivi [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) e [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) per Excel presentano esperienze simili.
+	> [AZURE.TIP] Entrambi i componenti aggiuntivi [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) e [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) per Excel presentano esperienze simili.
 
 5. Nella finestra di dialogo **Seleziona database e tabella** selezionare il database **AdventureWorks** dal menu a discesa, selezionare **vGetAllCategories** dall'elenco di tabelle e visualizzazioni e quindi fare clic su **Avanti**.
 
@@ -77,4 +77,4 @@ Per gli sviluppatori di software come servizio (SaaS), vedere [Pool di database 
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

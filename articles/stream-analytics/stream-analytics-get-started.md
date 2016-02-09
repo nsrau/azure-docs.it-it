@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
@@ -28,7 +28,9 @@ Analisi di flusso è un servizio completamente gestito che consente l'elaborazio
 
 ## Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: * Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. * Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: 
+* Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. 
+* Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
 
 In scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard viene generata una considerevole quantità di dati di telemetria o sensore e i clienti desiderano effettuarne l'aggregazione o generare avvisi relativi alle anomalie in tempo reale.
 
@@ -50,7 +52,7 @@ Per creare un hub eventi:
 	![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Fare clic su **Save** nella parte inferiore della pagina.
-6.	Passare al **Dashboard**, fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi copiare e salvare le informazioni di connessione.
+6.	Passare al **Dashboard** e fare clic su **Informazioni di connessione** nella parte inferiore della pagina e quindi salvare le informazioni di connessione.
 
 ## Configurare e avviare l'applicazione di generazione di eventi
 
@@ -208,7 +210,7 @@ Ora che è stato definito un flusso di eventi, un input dell’hub eventi per ac
 
 Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB, se non è già disponibile:
 
-1.	Usare un account di archiviazione esistente o crearne uno nuovo facendo clic su **NUOVO > SERVIZI DATI > ARCHIVIAZIONE > CREAZIONE RAPIDA** e seguendo le istruzioni.
+1.	Usare un account di archiviazione esistente o crearne uno nuovo facendo clic su **Nuovo > Servizi dati > Archiviazione > Creazione rapida** e seguendo le istruzioni.
 2.	Selezionare l'account di archiviazione, fare clic su **CONTENITORI** nella parte superiore della pagina e quindi fare clic su **AGGIUNGI**.
 3.	Specificare un **NOME** per il contenitore e impostare il relativo **ACCESSO** al BLOB pubblico.
 
@@ -237,7 +239,7 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 Poiché l'input, la query e l'output di un processo sono stati specificati, a questo punto è possibile avviare il processo di Analisi di flusso.
 
 1.	Dal processo **DASHBOARD**, fare clic su **AVVIA** nella parte inferiore della pagina.
-2.	Nella finestra di dialogo visualizzata selezionare **ORA DI INIZIO PROCESSO**, quindi fare clic sul pulsante con il segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
+2.	Nella finestra di dialogo visualizzata selezionare **ORA DI INIZIO DEL PROCESSO**, quindi fare clic sul pulsante con il segno di spunta nella parte inferiore della finestra di dialogo. Lo stato del processo cambierà da **Avvio** e a breve passerà a **In esecuzione**.
 
 ## Visualizzare l'output di rilevamento di illeciti
 
@@ -257,4 +259,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

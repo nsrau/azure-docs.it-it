@@ -8,7 +8,7 @@ In questa sezione si creerà un'app console di Windows che simula un dispositivo
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulatedDevice** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. Nella finestra **Gestione pacchetti NuGet** verificare che l'opzione **Includi versione preliminare** sia selezionata. Cercare quindi **Microsoft Azure Devices Client**, fare clic su **Installa** e accettare le condizioni per l'utilizzo.
+3. Nella finestra **Gestisci pacchetti NuGet** cercare **Microsoft Azure Devices Client**, fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
 	Verrà scaricato e installato un riferimento al [pacchetto NuGet Azure IoT - Device SDK][lnk-device-nuget] e verrà aggiunto un riferimento a tale pacchetto.
 
@@ -63,7 +63,7 @@ In questa sezione si creerà un'app console di Windows che simula un dispositivo
   Per impostazione predefinita, il metodo **Create** crea un **DeviceClient** che usa il protocollo AMQP per comunicare con l'hub IoT. Per usare il protocollo HTTPS, usare l'override del metodo **Create** che consente di specificare il protocollo. Se si sceglie di usare il protocollo HTTPS, è necessario aggiungere anche il pacchetto NuGet **Microsoft.AspNet.WebApi.Client** al progetto per includere lo spazio dei nomi **System.Net.Http.Formatting**.
 
 
-> [AZURE.NOTE]Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [gestione degli errori temporanei][lnk-transient-faults].
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [gestione degli errori temporanei][lnk-transient-faults].
 
 <!-- Links -->
 
@@ -73,4 +73,4 @@ In questa sezione si creerà un'app console di Windows che simula un dispositivo
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

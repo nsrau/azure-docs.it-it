@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # Creazione di un'applicazione Web Java con DocumentDB
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare un'applicazione di gestione delle atti
 
 ![Applicazione Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) completo da GitHub e creare l'applicazione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP] Questa esercitazione sullo sviluppo dell’applicazione presuppone che l'utente abbia già acquisito familiarità con l'uso di Java. Se non si ha alcuna esperienza riguardo a Java o agli [strumenti richiesti come prerequisiti](#Prerequisites), è consigliabile scaricare il progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) completo da GitHub e creare l'applicazione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
 
 ##<a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
 Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è necessario disporre di quanto segue:
@@ -95,7 +95,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 4. Nella finestra **Select Dependency** eseguire le operazioni seguenti:
  - Nella casella **GroupId** immettere com.microsoft.azure.
  - Nella casella **Artifact Id** immettere azure-documentdb.
- - Nella casella **Version** immettere 1.4.0.
+ - Nella casella **Version** immettere 1.5.1.
 
 	![Installare l'SDK dell’applicazione Java di DocumentDB](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. Fare clic su **OK** e Maven installerà DocumentDB Java SDK.
@@ -770,7 +770,7 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 8. Nella schermata **Local Destination** fare clic su click **Browse** per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next**.
 9. Nella schermata **Select a wizard to use for importing projects** assicurarsi che l'opzione **Import existing projects** sia selezionata e quindi fare clic su **Next**.
 10. Nella schermata **Import Projects** deselezionare il progetto **DocumentDB** e quindi fare clic su **Finish**. Il progetto DocumentDB contiene DocumentDB Java SDK, che verrà aggiunto invece come dipendenza.
-11. In **Project Explorer**, passare a azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e sostituire i valori HOST e MASTER\_KEY con i valori URI e CHIAVE PRIMARIA dell'account DocumentDB, quindi salvare il file. Per altre informazioni, vedere il [passaggio 1. Creare un account di database di DocumentDB](#CreateDB).
+11. In **Project Explorer**, passare a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e sostituire i valori HOST e MASTER_KEY con i valori URI e CHIAVE PRIMARIA dell'account DocumentDB, quindi salvare il file. Per altre informazioni, vedere il [passaggio 1. Creare un account di database di DocumentDB](#CreateDB).
 12. In **Project Explorer**, fare clic con il pulsante destro del mouse su** azure-documentdb-java-sample**, fare clic su **Build Path** e quindi su **Configure Build Path**.
 13. Nella schermata **Java Build Path**, nel riquadro a destra, selezionare la scheda **Libraries** e quindi fare clic su **Add External JARs**. Passare al percorso del file lombok.jar e fare clic su **Open** e quindi su **OK**.
 14. Usare il passaggio 12 per aprire nuovamente la finestra **Properties** e quindi, nel riquadro a sinistra, fare clic su **Targeted Runtimes**.
@@ -786,4 +786,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -18,8 +18,6 @@
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## Panoramica
 
 Questo articolo contiene due sezioni:
@@ -68,7 +66,7 @@ Il servizio app offre un modo semplice per configurare i domini autorizzati a ch
 
 ### Configurare CORS con gli strumenti di Gestione risorse di Azure
 
-È anche possibile configurare CORS per un'app per le API con strumenti da riga di comando, ad esempio Azure PowerShell o l'interfaccia della riga di comando multipiattaforma di Azure, o con [Esplora risorse](https://resources.azure.com/).
+È anche possibile configurare CORS per un'app per le API con strumenti da riga di comando, ad esempio Azure PowerShell o l'interfaccia della riga di comando multipiattaforma di Azure, oppure con [Esplora risorse](https://resources.azure.com/).
 
 In questi strumenti impostare la proprietà `cors` sul tipo di risorsa Microsoft.Web/sites/config per la risorsa <site name>/web. Ad esempio, in **Esplora risorse**, passare a **sottoscrizioni > {sottoscrizione} > gruppi di risorse > {gruppo di risorse} > provider > Microsoft.Web > siti > {sito} > config > web** per visualizzare la proprietà cors:
 
@@ -240,4 +238,4 @@ I passaggi seguenti riepilogano il processo di abilitazione del supporto di CORS
 
 In questa esercitazione è stato illustrato come abilitare il supporto per CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

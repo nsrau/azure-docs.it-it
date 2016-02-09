@@ -32,7 +32,7 @@ Questa esercitazione illustra come:
 
 - Usare il portale di Azure per creare un hub IoT.
 - Creare un'identità del dispositivo nell'hub IoT.
-- Creare un dispositivo simulato che invia la telemetria al back-end cloud.
+- Creare un dispositivo simulato che invia dati di telemetria al back-end cloud.
 
 Al termine di questa esercitazione si avranno tre applicazioni console Java:
 
@@ -40,7 +40,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console Java:
 * **read-d2c-messages**, che consente di visualizzare i dati di telemetria inviati dal dispositivo simulato.
 * **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo.
 
-> [AZURE.NOTE] L'articolo [IoT Hub SDK][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
+> [AZURE.NOTE] L'articolo [SDK Hub IoT][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel backend della soluzione.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -141,4 +141,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

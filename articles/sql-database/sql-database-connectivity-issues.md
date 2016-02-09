@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -32,7 +32,11 @@ Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al prog
 
 ### Confronto tra connessione e comando
 
-È possibile riprovare a stabilire la connessione SQL o stabilirne una nuova, in base a quanto indicato di seguito. * **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi. * **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
+È possibile riprovare a stabilire la connessione SQL o stabilirne una nuova, in base a quanto indicato di seguito:
+
+* **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi.
+
+* **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -112,13 +116,20 @@ Per semplificare le operazioni, disconnettere il computer dalla rete prima di av
 ### Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
 
 
-Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore sarà analogo al seguente: - **SqlException.Number** = 18456 - Messaggio: "Accesso non riuscito per l'utente 'WRONG\_MyUserName'."
+Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore sarà analogo al seguente: 
+- **SqlException.Number** = 18456 
+- Messaggio: "Accesso non riuscito per l'utente 'WRONG\_MyUserName'."
 
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
 
-Per semplificare le operazioni, il programma potrebbe riconoscere un parametro di runtime che ha le conseguenze seguenti sul programma: 1. Aggiunta temporanea di 18456 al rispettivo elenco di errori da considerare temporanei. 2. Aggiunta intenzionale di 'WRONG\_' al nome utente. 3. Dopo il rilevamento dell'errore, rimozione di 18456 dall'elenco. 4. Rimozione di 'WRONG\_' dal nome utente. 5. Nuovo tentativo di connessione, con esito positivo previsto.
+Per semplificare le operazioni, il programma potrebbe riconoscere un parametro di runtime che ha le conseguenze seguenti sul programma: 
+1. Aggiunta temporanea di 18456 al rispettivo elenco di errori da considerare temporanei. 
+2. Aggiunta intenzionale di 'WRONG_' al nome utente. 
+3. Dopo il rilevamento dell'errore, rimozione di 18456 dall'elenco. 
+4. Rimozione di 'WRONG_' dal nome utente. 
+5. Nuovo tentativo di connessione, con esito positivo previsto.
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -226,7 +237,9 @@ Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [
 Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** per la connessione al database SQL di Azure, è consigliabile usare .NET Framework 4.6.1 o versione successiva.
 
 
-ADO.NET 4.6.1: - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
+ADO.NET 4.6.1:
+ - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. 
+ - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
 
 
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se non deve essere usata immediatamente. La riapertura di una connessione è meno dispendiosa della creazione di una nuova connessione.
@@ -243,7 +256,9 @@ Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiorn
 Se il programma non riesce a connettersi al database SQL di Azure, un'opzione di diagnostica consente di provare a connettersi mediante un programma di utilità. Idealmente l'utilità si connette mediante la stessa libreria usata dal programma.
 
 
-In qualsiasi computer Windows è possibile provare a usare queste utilità: - SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET. - sqlcmd.exe, che si connette tramite [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+In qualsiasi computer Windows è possibile provare a usare queste utilità: 
+- SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET. 
+- sqlcmd.exe, che si connette tramite [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Dopo la connessione, verificare il funzionamento di una breve query SQL SELECT.
@@ -257,14 +272,17 @@ Dopo la connessione, verificare il funzionamento di una breve query SQL SELECT.
 Si supponga che si sospetti che gli errori di connessione siano dovuti a problemi relativi alle porte. Nel computer è possibile eseguire un'utilità che fornisce informazioni sulle configurazioni delle porte.
 
 
-In Linux potrebbero essere utili le utilità seguenti: - `netstat -nap` - `nmap -sS -O 127.0.0.1` - Sostituire il valore dell'esempio con l'indirizzo IP in uso.
+In Linux potrebbero essere utili le utilità seguenti: 
+- `netstat -nap` 
+- `nmap -sS -O 127.0.0.1` 
+- Sostituire il valore dell'esempio con l'indirizzo IP in uso.
 
 
 In Windows è possibile usare l'utilità [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148). Ecco un'esecuzione di esempio che ha eseguito una query relativa alla situazione delle porte in un server di database SQL di Azure e che è stata eseguita in un computer portatile:
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -276,7 +294,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -341,7 +359,7 @@ ORDER BY
 ```
 
 
-#### Alcune righe restituite da sys.fn\_xe\_telemetry\_blob\_target\_read\_file
+#### Alcune righe restituite da sys.fn_xe_telemetry_blob_target_read_file
 
 
 Una riga restituita avrà un aspetto analogo al seguente. I valori Null mostrati sono spesso non Null in altre righe.
@@ -359,13 +377,16 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: - [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: 
+- [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile. Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: 
+- Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: - [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
+Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: 
+- [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE] Il codice sorgente per EntLib60 è disponibile per il [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) pubblico. Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
@@ -379,7 +400,7 @@ Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripet
 *Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 - Classe **RetryPolicy**
- - Metodo **ExecuteAction**
+- Metodo **ExecuteAction**
 
 
 - Classe **ExponentialBackoff**
@@ -389,7 +410,7 @@ Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripet
 
 
 - Classe **ReliableSqlConnection**
- - Metodo **ExecuteCommand**
+- Metodo **ExecuteCommand**
 
 
 Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
@@ -403,7 +424,7 @@ Ecco i collegamenti alle informazioni relative a EntLib60:
 
 - [Download gratuito dell'eBook relativo alla Guida per gli sviluppatori di Microsoft Enterprise Library, seconda edizione](http://www.microsoft.com/download/details.aspx?id=41145)
 
-- Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
+- Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](../best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
 
 - Download NuGet di [Enterprise Library - Blocco applicazione per la gestione di errori temporanei 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +527,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

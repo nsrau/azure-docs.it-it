@@ -40,7 +40,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console Windows:
 * **ReadDeviceToCloudMessages**, che consente di visualizzare i dati di telemetria inviati dal dispositivo simulato.
 * **SimulatedDevice**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo.
 
-> [AZURE.NOTE] L'articolo [IoT Hub SDK](lnk-hub-sdks) fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel back-end della soluzione.
+> [AZURE.NOTE] L'articolo [SDK Hub IoT](lnk-hub-sdks) fornisce informazioni sui vari SDK che consentono di compilare entrambe le applicazioni da eseguire nei dispositivi e nel backend della soluzione.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -54,7 +54,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 1. Accedere al [portale di Azure](lnk-portal).
 
-2. Nell'indice fare clic su **Nuovo**, quindi su **Internet delle cose** e infine su **Hub IoT di Azure**.
+2. Nell'indice fare clic su **Nuovo**, quindi su **Internet of Things** e infine su **Hub IoT di Azure**.
 
     ![][1]
 
@@ -117,7 +117,7 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[Elaborare i messaggi da dispositivo a cloud]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
@@ -125,4 +125,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0204_2016-->
