@@ -37,7 +37,8 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoraggio remoto | Sì | Sì | Sì | Sì | - | | Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
+| Monitoraggio remoto | Sì | Sì | Sì | Sì | - | 
+| Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
 
 ## Panoramica della soluzione preconfigurata per il monitoraggio remoto
 

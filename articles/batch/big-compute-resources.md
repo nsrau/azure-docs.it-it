@@ -62,7 +62,7 @@ HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie di Mi
 * [Potenziare Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Forum di Windows HPC](https://social.microsoft.com/Forums/it-IT/home?category=windowshpc)
+* [Forum di Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Soluzioni cluster Linux e OSS
 
@@ -81,7 +81,7 @@ Usare questi modelli di Guida introduttiva di Azure per distribuire cluster HPC 
 
 * [Informazioni di riferimento su MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum di MPI](https://social.microsoft.com/Forums/it-IT/home?forum=windowshpcmpi)
+* [Forum di MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## Istanze con utilizzo intensivo di calcolo

@@ -1,5 +1,13 @@
-<properties pageTitle="Configurare il tunneling forzato per i gateway VPN tramite Gestione risorse | Microsoft Azure" description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet al sistema locale. Questo articolo si applica al modello di distribuzione di Gestione risorse. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-resource-manager"/>
-<tags  
+<properties 
+   pageTitle=""Configurare il tunneling forzato per i gateway VPN tramite Gestione risorse | Microsoft Azure" 
+   description="Se si dispone di una rete virtuale con un gateway VPN cross-premise, è possibile reindirizzare o "forzare" tutto il traffico associato a Internet al sistema locale. Questo articolo si applica al modello di distribuzione di Gestione risorse. " 
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"

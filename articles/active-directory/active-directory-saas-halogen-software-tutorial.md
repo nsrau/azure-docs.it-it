@@ -155,7 +155,8 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
 7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br>![Cos'è Azure AD Connect][105]  
 8. Nella pagina **Ottieni password temporanea**, eseguire la procedura seguente: <br><br>![Cos'è Azure AD Connect][106]   
 
-    a. Prendere nota del valore visualizzato in **Nuova password**. b. Fare clic su **Operazione completata**.
+    a. Prendere nota del valore visualizzato in **Nuova password**. 
+    b. Fare clic su **Operazione completata**.
   
  
 ### Creazione di un utente test di Halogen Software
@@ -166,7 +167,12 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
 1. Accedere all'applicazione **Halogen Software** come amministratore.
 2. Fare clic sulla scheda **User Center** e quindi su **Create User**. <br><br>![Cos'è Azure AD Connect][300]  
-3. Nella pagina **Nuovo utente** seguire questa procedura: <br><br>![Cos'è Azure AD Connect][301] a. Nella casella di testo **Nome** digitare **Britta**. b. Nella casella di testo **Cognome** digitare **Simon**. c. Nella casella di testo **Nome utente** digitare **Nome utente di Britta Simon nel portale di Azure AD**. d. Nella casella di testo **Password** digitare una password per Britta. e. Fare clic su **Save**.
+3. Nella pagina **Nuovo utente** seguire questa procedura: <br><br>![Cos'è Azure AD Connect][301] 
+   a. Nella casella di testo **Nome** digitare **Britta**. 
+   b. Nella casella di testo **Cognome** digitare **Simon**. 
+   c. Nella casella di testo **Nome utente** digitare **Nome utente di Britta Simon nel portale di Azure AD**. 
+   d. Nella casella di testo **Password** digitare una password per Britta. 
+   e. Fare clic su **Save**.
 
 
 ### Assegnazione dell'utente test di Azure AD
