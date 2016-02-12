@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio
 
 Per sfruttare i servizi di hosting e scalabilità di Azure, è possibile eseguire la migrazione e la pubblicazione dell'applicazione Web su un servizio cloud di Azure. È possibile eseguire un'applicazione Web in Azure con modifiche minime all'applicazione esistente.
 
->[AZURE.NOTE]Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](web-sites-deploy.md).
+>[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](/app-service-web/web-sites-deploy.md).
 
 Per un elenco di modelli specifici supportati sia per Visual C# che per Visual Basic, vedere la sezione **Modelli di progetto supportati** più avanti in questo argomento.
 
@@ -27,7 +27,7 @@ Per un elenco di modelli specifici supportati sia per Visual C# che per Visual B
 
 ![Pubblicare un'applicazione Web in Microsoft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]Il comando **Converti**, **Converti in progetto Servizio cloud Microsoft Azure** è visualizzato solo per il progetto Web nella soluzione. Ad esempio, il comando non è disponibile per un progetto Silverlight nella soluzione. Quando si crea un pacchetto del servizio o si pubblica l'applicazione in Azure, possono verificarsi avvisi o errori. Questi avvisi ed errori possono aiutare a risolvere i problemi prima della distribuzione in Azure. Ad esempio, si potrebbe ricevere un avviso relativo a un assembly mancante. Per altre informazioni su come gestire eventuali avvisi come errori, vedere [Configurare un progetto di servizio cloud di Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Se si compila l'applicazione, la si esegue in locale con l'emulatore di calcolo o la si pubblica in Azure, si potrebbe visualizzare il seguente errore nella finestra **Elenco errori**: **Percorso e/o nome di file specificato troppo lungo**. Questo errore si verifica perché la lunghezza del nome completo del progetto di Azure è troppo lunga. La lunghezza del nome del progetto, incluso il percorso completo, non può essere superiore a 146 caratteri. Ad esempio, questo è il nome di progetto completo, incluso il percorso di file per un progetto Azure creato per un'applicazione Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Potrebbe essere necessario spostare la soluzione in una directory diversa con un percorso più breve, per ridurre la lunghezza del nome completo del progetto.
+>[AZURE.NOTE] Il comando **Converti**, **Converti in progetto Servizio cloud Microsoft Azure** è visualizzato solo per il progetto Web nella soluzione. Ad esempio, il comando non è disponibile per un progetto Silverlight nella soluzione. Quando si crea un pacchetto del servizio o si pubblica l'applicazione in Azure, possono verificarsi avvisi o errori. Questi avvisi ed errori possono aiutare a risolvere i problemi prima della distribuzione in Azure. Ad esempio, si potrebbe ricevere un avviso relativo a un assembly mancante. Per altre informazioni su come gestire eventuali avvisi come errori, vedere [Configurare un progetto di servizio cloud di Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Se si compila l'applicazione, la si esegue in locale con l'emulatore di calcolo o la si pubblica in Azure, si potrebbe visualizzare il seguente errore nella finestra **Elenco errori**: **Percorso e/o nome di file specificato troppo lungo**. Questo errore si verifica perché la lunghezza del nome completo del progetto di Azure è troppo lunga. La lunghezza del nome del progetto, incluso il percorso completo, non può essere superiore a 146 caratteri. Ad esempio, questo è il nome di progetto completo, incluso il percorso di file per un progetto Azure creato per un'applicazione Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Potrebbe essere necessario spostare la soluzione in una directory diversa con un percorso più breve, per ridurre la lunghezza del nome completo del progetto.
 
 Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da Visual Studio, seguire questi passaggi.
 
@@ -45,9 +45,9 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
     - La proprietà **Copia localmente** viene impostata su true per qualsiasi assembly necessario per MVC 2, MVC 3, MVC 4 e applicazioni aziendali di Silverlight. Questo aggiunge questi assembly al pacchetto del servizio utilizzato per la distribuzione.
 
-  >[AZURE.IMPORTANT]Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.
+  >[AZURE.IMPORTANT] Se si dispone di altri assembly o file necessari per l'applicazione Web, è necessario impostare manualmente le proprietà di questi file. Per informazioni su come impostare queste proprietà, vedere la sezione **Includere file nel pacchetto del servizio** più avanti in questo articolo.
 
-  >[AZURE.NOTE]Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
+  >[AZURE.NOTE] Se esiste già un ruolo Web per un progetto Web specifico in un progetto Azure nella soluzione, i comandi **Converti**, **Converti in Progetto Servizio cloud Microsoft Azure** non vengono visualizzati nel menu di scelta rapida per questo progetto Web.
 
   Se si dispone di più progetti Web nell'applicazione web e si desidera creare ruoli Web per ciascun progetto Web, è necessario eseguire i passaggi in questa procedura per ciascun progetto Web. Questo crea progetti Azure distinti per ogni ruolo Web. Ciascun progetto Web può essere pubblicato separatamente. In alternativa, è possibile aggiungere manualmente un altro ruolo Web a un progetto Azure esistente nell'applicazione Web. A tale scopo, aprire il menu di scelta rapida per la cartella **Ruoli** nel progetto Azure, scegliere **Aggiungi**, quindi **Progetto ruolo Web nella soluzione**, scegliere il progetto da aggiungere come ruolo Web e quindi scegliere il pulsante **OK**.
 
@@ -55,13 +55,13 @@ Per eseguire la migrazione e la pubblicazione di un'applicazione Web in Azure da
 
 Se si dispone di una stringa di connessione per l'applicazione Web che utilizza un database SQL Server locale, è necessario modificare questa stringa di connessione per utilizzare un'istanza del database SQL ospitata da Azure.
 
->[AZURE.IMPORTANT]La sottoscrizione deve consentire di utilizzare il database SQL. Se si accede alla sottoscrizione dal portale di gestione di Azure, è possibile determinare quali servizi sono forniti dall'abbonamento. Le istruzioni seguenti si applicano al portale di gestione rilasciato. Se si utilizza il portale di gestione di anteprima, passare alla procedura successiva.|
+>[AZURE.IMPORTANT] La sottoscrizione deve consentire di utilizzare il database SQL. Se si accede alla sottoscrizione dal portale di gestione di Azure, è possibile determinare quali servizi sono forniti dall'abbonamento. Le istruzioni seguenti si applicano al portale di gestione rilasciato. Se si utilizza il portale di gestione di anteprima, passare alla procedura successiva.|
 
 ### Per utilizzare un'istanza di database SQL nel ruolo Web della stringa di connessione
 
 1. Per creare un'istanza del database SQL nel portale di gestione di Azure, seguire i passaggi nel seguente articolo: [Creare un server di database SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
 
-    >[AZURE.NOTE]Quando si impostano le regole del firewall per l'istanza del database SQL, è necessario selezionare la casella di controllo **Consenti ad altri servizi di Azure di accedere a questo server**.
+    >[AZURE.NOTE] Quando si impostano le regole del firewall per l'istanza del database SQL, è necessario selezionare la casella di controllo **Consenti ad altri servizi di Azure di accedere a questo server**.
 
 1. Per creare un'istanza del database SQL da usare per la stringa di connessione, seguire i passaggi nella sezione successiva nell'articolo seguente: [Creare un database SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
@@ -73,7 +73,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
   1. Per visualizzare le proprietà del database, scegliere il database. Verrà visualizzata la vista **Proprietà**.
 
-      >[AZURE.NOTE]Se la vista **Proprietà** non viene visualizzata, potrebbe essere necessario aprirla usando il separatore.
+      >[AZURE.NOTE] Se la vista **Proprietà** non viene visualizzata, potrebbe essere necessario aprirla usando il separatore.
 
   1. Per visualizzare le stringhe di connessione, scegliere il pulsante con i puntini di sospensione (...) accanto a Visualizza.
 
@@ -127,7 +127,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
     Verrà aperta la finestra di dialogo **Pubblica applicazione Azure** e Visual Studio avvierà il processo di distribuzione. Per altre informazioni su come pubblicare l'applicazione, vedere la sezione **Pubblicare un'applicazione Azure da Visual Studio** in [Pubblicazione di un servizio cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-    >[AZURE.NOTE]È inoltre possibile pubblicare l'applicazione Web dal progetto Azure. Per eseguire questa operazione, aprire il menu di scelta rapida per il progetto Azure e scegliere **Pubblica**.
+    >[AZURE.NOTE] È inoltre possibile pubblicare l'applicazione Web dal progetto Azure. Per eseguire questa operazione, aprire il menu di scelta rapida per il progetto Azure e scegliere **Pubblica**.
 
 1. Per visualizzare lo stato di avanzamento della distribuzione, è possibile visualizzare la finestra **Log attività di Azure**. Questo log viene visualizzato automaticamente all’avvio del processo di distribuzione. È possibile espandere la voce della riga nel registro delle attività per visualizzare informazioni dettagliate, come illustrato nella figura seguente:
 
@@ -135,7 +135,7 @@ Se si dispone di una stringa di connessione per l'applicazione Web che utilizza 
 
 1. (Facoltativo) Per annullare il processo di distribuzione, aprire il menu di scelta rapida per la voce nel registro attività e scegliere **Annulla e rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
 
-    >[AZURE.NOTE]Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
+    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
 
 1. (Facoltativo) Una volta avviate le istanze del ruolo, Visual Studio mostrerà automaticamente l'ambiente di distribuzione nel nodo **Calcolo di Azure** in **Cloud Explorer** o **Esplora server**. Da qui è possibile visualizzare lo stato delle singole istanze del ruolo.
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!-----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

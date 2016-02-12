@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare i requisiti di sincronizzazione delle directory | Microsoft Azure"
+	pageTitle="Considerazioni di progettazione della soluzione ibrida di gestione delle identità di Azure Active Directory - Determinare i requisiti di sincronizzazione delle directory | Microsoft Azure"
 	description="Identificare i requisiti necessari per sincronizzare tutti gli utenti per le applicazioni locali e nel cloud."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti di sincronizzazione delle directory
@@ -57,12 +57,13 @@ Dopo aver definito i requisiti di sincronizzazione aziendali, è necessario ora 
  - Se non si conosce la risposta a questa domanda, consultare la sezione "Autorizzazioni per la sincronizzazione delle password" dell'articolo [Installare il servizio Azure Active Directory Sync](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e verificare se si dispone già di un account con queste autorizzazioni o se è necessario crearne uno.
 - Se è prevista la sincronizzazione con più foreste, il server di sincronizzazione è in grado di accedere a ognuna di esse?
  
->[AZURE.NOTE]Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) illustrerà le opzioni disponibili. Rispondendo a queste domande sarà più facile scegliere l'opzione migliore in base alle specifiche esigenze aziendali.
+>[AZURE.NOTE]
+Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo [Determinare i requisiti di risposta agli eventi imprevisti](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) illustrerà le opzioni disponibili. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
 
 ## Passaggi successivi
 [Determinare i requisiti dell'autenticazione a più fattori](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Vedere anche
-[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

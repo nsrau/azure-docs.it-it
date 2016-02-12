@@ -19,7 +19,7 @@
 
 La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) consente alle applicazioni ADO.NET di rilevare e correggere facilmente le eventuali incoerenze tra la mappa globale partizioni e la mappa locale partizioni in un ambiente di database partizionato.
 
-La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. A volte si verifica un'interruzione tra questi due tipi di mappe,che è possibile rilevare e ripristinare usando la classe RecoveryManager.
+La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. Si verifica a volte un'interruzione tra la mappa globale partizioni e la mappa locale partizioni. In tal caso usare la classe RecoveryManager per rilevare e correggere l'interruzione.
 
 La classe RecoveryManager fa parte della [Libreria client dei database elastici](sql-database-elastic-database-client-library.md).
 
@@ -155,4 +155,4 @@ Questo esempio esegue i passaggi seguenti: 1. Rimuove le partizioni dalla mappa 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

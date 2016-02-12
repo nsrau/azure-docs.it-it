@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Introduzione al controllo del database SQL
@@ -29,7 +29,7 @@ Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di 
 
 ##<a id="subheading-1"></a>Nozioni di base sul controllo del database SQL di Azure
 
-Nella sezione seguente è descritta la configurazione del controllo utilizzando il portale di Azure. È inoltre possibile [configurare il controllo per il database con il portale di Azure classico].
+Nella sezione seguente è descritta la configurazione del controllo utilizzando il portale di Azure. È anche possibile [configurare il controllo per il database con il portale di Azure classico].
 
 Il controllo del database SQL consente di:
 
@@ -101,7 +101,7 @@ I log di controllo vengono aggregati in una raccolta di tabelle di archiviazione
 
 ##<a id="subheading-4"></a>Configurare il controllo per il database con il portale di Azure classico
 
-1. Avviare il [portale di Azure classico](https://manage.windowsazure.com/) all’indirizzo https://manage.windowsazure.com/.
+1. Avviare il [portale di Azure classico](https://manage.windowsazure.com/) all'indirizzo https://manage.windowsazure.com/.
 
 2. Fare clic sul Database SQL/SQL Server che si desidera controllare e quindi selezionare la scheda **CONTROLLO E SICUREZZA**.
 
@@ -178,4 +178,4 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

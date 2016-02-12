@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2015"
+ ms.date="01/21/2016"
  ms.author="danlep"/>
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
@@ -32,7 +32,7 @@ Questo articolo illustra come configurare un cluster Linux RDMA in Azure con [ma
 
 Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux RDMA con o senza un'utilità di pianificazione del processo.
 
-* **HPC Pack**: creare un cluster Microsoft HPC Pack in Azure e aggiungere nodi di calcolo che eseguono distribuzioni Linux supportate. Alcuni nodi Linux possono essere configurati per l'accesso alla rete RDMA. Vedere l'articolo di [introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster.md).
+* **HPC Pack**: creare un cluster Microsoft HPC Pack in Azure e aggiungere nodi di calcolo che eseguono distribuzioni Linux supportate. Alcuni nodi Linux possono essere configurati per l'accesso alla rete RDMA. Vedere l'articolo di [introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 * **Script dell'interfaccia della riga di comando di Azure**: come illustrato nei restanti passaggi di questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) (CLI, Command Line Interface) per Mac, Linux e Windows per creare script per la distribuzione di una rete virtuale e degli altri componenti necessari per la creazione di un cluster Linux. L'interfaccia della riga di comando nella modalità di distribuzione classica (Gestione dei servizi) crea i nodi del cluster in modo seriale, pertanto la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti.
 
@@ -426,4 +426,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/it-IT/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

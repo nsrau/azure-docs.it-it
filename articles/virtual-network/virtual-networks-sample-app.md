@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # Applicazione di esempio da usare per ambienti con limiti di sicurezza
@@ -148,7 +148,7 @@ Imposta il back-end per questa semplice applicazione. Questo script consentirà 
 4.	Impostare su Anonimo le autorizzazioni per la directory e il file in modo da consentire l'accesso.
 5.	Disattivare la sicurezza avanzata di Internet Explorer per facilitare l'esplorazione da questo server. 
 
->[AZURE.IMPORTANT]**Procedura consigliata**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione. Inoltre, è generalmente preferibile non esplorare il Web da un server di questo tipo. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
+>[AZURE.IMPORTANT] **Procedura consigliata**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione. Inoltre, è generalmente preferibile non esplorare il Web da un server di questo tipo. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
 
 Lo script di PowerShell deve essere eseguito localmente mentre viene usata una sessione RDP per accedere ad AppVM01. Per essere certi che la procedura abbia esito positivo, è necessario eseguire PowerShell come amministratori.
 	
@@ -188,4 +188,4 @@ In questa applicazione di esempio non è incluso alcuno script per la configuraz
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

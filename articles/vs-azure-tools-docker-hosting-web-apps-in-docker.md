@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Hosting di applicazioni Web nel Docker
@@ -63,7 +63,7 @@ In queste procedure, verrà creato un nuovo progetto di applicazione Web ASP.NET
 
     Si noti che è inoltre possibile scegliere di usare un host Docker esistente. A tale scopo, selezionarlo nell’elenco a discesa **Macchine virtuali di Docker Azure esistenti** anziché scegliere il pulsante **Nuova**. Questo elenco non visualizza solo gli host del contenitore, elenca tutte le VM nel tenant di Azure.
 
-    In alternativa, è possibile scegliere di pubblicare un host Docker personalizzato. Vedere **Fornire un host Docker personalizzato** più avanti in questo argomento per altre informazioni.
+    In alternativa, è possibile scegliere di pubblicare un host Docker personalizzato. Vedere **Fornire un host Docker personalizzato** più avanti in questo argomento per ulteriori informazioni.
 
 1. Immettere le informazioni seguenti nella finestra di dialogo **Crea una macchina virtuale in Microsoft Azure**. Al termine, fare clic sul pulsante **OK**. Questo consente di creare una macchina virtuale Linux con un’estensione Docker configurata.
 
@@ -98,9 +98,9 @@ In queste procedure, verrà creato un nuovo progetto di applicazione Web ASP.NET
 
 1. Dopo il completamento del provisioning dell'host Docker in Azure, è possibile verificare l'account nel portale di Azure. Dovrebbe essere possibile visualizzare la nuova macchina virtuale nella categoria **Macchina virtuale** nel portale di Azure.
 
-1. Quando l'host Docker è pronto, tornare indietro e pubblicare il progetto dell’applicazione Web. Nel menu di scelta rapida per il nodo del progetto dell'applicazione Web in **Esplora soluzioni** scegliere **Pubblica**. Visual Studio crea un file di pubblicazione basato sulla VM creata.
+1. Quando l'host Docker è pronto, tornare indietro e pubblicare il progetto dell’applicazione Web. Nel menu di scelta rapida per il nodo del progetto dell'applicazione Web in **Esplora soluzioni**, scegliere **Pubblica**. Visual Studio crea un file di pubblicazione basato sulla VM creata.
 
-1. Nella scheda **Connessione** della finestra di dialogo **Pubblica sul Web** selezionare la casella **Convalida connessione** per assicurarsi che l'host Docker sia pronto. Se la connessione è buona, scegliere il pulsante **Pubblica** per pubblicare l'app Web.
+1. Nella scheda **Connessione** della finestra di dialogo **Pubblica sito Web** scegliere la casella **Convalida connessione** per assicurarsi che l'host Docker sia pronto. Se la connessione è buona, scegliere il pulsante **Pubblica** per pubblicare l'app Web.
 
     La prima volta che si pubblica un'applicazione su un host Docker sono necessari alcuni minuti per scaricare le immagini di base a cui si fa riferimento nel file Docker (ad esempio **FROM** *nomeimmagine*).
 
@@ -163,7 +163,7 @@ La procedura riportata di seguito è usata per la comunicazione con un host Dock
 
 Ora che è stato creato un host Docker, è possibile inviare comandi Docker ad esso. Per altre informazioni su Docker, vedere la [documentazione su Docker](https://docs.docker.com/) e l'[esercitazione in linea relativa a Docker](https://www.docker.com/tryit/).
 
-Per informazioni su come usare l'estensione di VM Docker per Linux su Azure, vedere la pagina relativa all'[estensione della macchina virtuale Docker per Linux su Azure](virtual-machines-docker-vm-extension.md).
+Per informazioni su come usare l'estensione di VM Docker per Linux su Azure, vedere la pagina relativa all'[estensione della macchina virtuale Docker per Linux su Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
 
 Per problemi relativi all'uso di Docker in Visual Studio, vedere [Risoluzione dei problemi client Docker in Windows con Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -177,4 +177,4 @@ Per problemi relativi all'uso di Docker in Visual Studio, vedere [Risoluzione de
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ Si desidera calcolare quanto tempo impiega in media l'automobile per attraversar
 
 Per questo è necessario unire il flusso contenente EntryTime con il flusso contenente ExitTime. I flussi vengono aggiunti nelle colonne TollId e Targa. L'operatore JOIN richiede di specificare un margine di manovra temporale che descrive la differenza di tempo accettabile tra gli eventi collegati. La funzione DATEDIFF viene usata per specificare che gli eventi non devono essere più di 15 minuti distanti l'uno dall'altro. La funzione DATEDIFF viene applicata anche ai tempi Exit ed Entry per il calcolo del tempo effettivo che l'automobile trascorre nel casello. Notare la differenza tra l'utilizzo di DATEDIFF in un'istruzione SELECT rispetto a una condizione JOIN.
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Per eseguire il test della query, aggiornare la query nella scheda Query del processo:
@@ -445,7 +445,7 @@ Se il veicolo commerciale è stato registrato nell'azienda del casello, non vien
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 Notare che l'esecuzione del test di una query con dati di riferimento richiede la definizione di un'origine di input per i dati di riferimento, come illustrato nel passaggio 5.
 
@@ -534,4 +534,4 @@ Tenere presente che le risorse possono essere identificate in base al nome. Assi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

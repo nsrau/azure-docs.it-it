@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Limitazioni correnti della versione di anteprima per la collaborazione B2B di Azure Active Directory (Azure AD)
+# Anteprima di Collaborazione B2B di Azure AD: limitazioni dell'anteprima corrente
 
 - La Multi-Factor Authentication (MFA) non è supportata per gli utenti esterni. Ad esempio, se Contoso dispone dell’autenticazione a più fattori, ma Partner Org non ne dispone, agli utenti di Partner Org non è concessa l'autenticazione a più fattori (MFA) dalla collaborazione B2B.
 - Gli inviti sono possibili solo tramite CSV; gli inviti singoli e l'accesso all'API non sono supportati.
@@ -30,11 +30,11 @@
 ## Articoli correlati
 Vedere gli altri articoli sulla collaborazione B2B di Azure:
 
-- [Informazioni sulla collaborazione B2B di Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
 - [Procedura dettagliata](active-directory-b2b-detailed-walkthrough.md)
 - [Riferimento sul formato di file CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

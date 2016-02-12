@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/25/2015"
+   ms.date="02/01/2016"
    ms.author="rickbyh"/>
 
 # Protezione del database SQL: gestire l'accesso al database e la sicurezza degli account di accesso  
@@ -27,6 +27,8 @@ Informazioni sulla gestione della sicurezza del database SQL, in particolare la 
 Nel Database SQL di Microsoft Azure, quando si effettua l'iscrizione per il servizio, il processo di provisioning crea un server di Database SQL di Azure, un database denominato **master**, e un account di accesso che rappresenta l'entità di livello server di Database SQL Azure. Tale account di accesso è simile all'entità di livello server, **sa**, per un'istanza locale di SQL Server.
 
 L'account dell’entità di livello server di Database SQL di Azure dispone sempre dell'autorizzazione per gestire la sicurezza a livello di server e a livello di database. In questo argomento viene descritto come utilizzare l'entità di livello server e altri account per gestire gli account di accesso e i database nel Database SQL.
+
+Gli utenti di Azure che accedono al database SQL tramite il Controllo degli accessi in base al ruolo di Azure e l'API REST di Gestione risorse di Azure ricevono le autorizzazioni dai relativi ruoli di Azure. Le azioni dei membri dei ruoli di Azure vengono eseguite automaticamente dal motore di database. Tali azioni non sono interessate dal modello di autorizzazioni del motore di database e non vengono illustrate in questo argomento. Per altre informazioni, vedere [RBAC: Ruoli predefiniti](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] SQL Database versione 12 consente agli utenti di autenticarsi nel database utilizzando utenti del database indipendente. Gli utenti del database indipendente non richiedono account di accesso. Questo rende i database più portabili ma riduce la capacità dell'entità di livello server di controllare l'accesso al database. L’abilitazione degli utenti del database indipendente ha effetti importanti sulla sicurezza. Per ulteriori informazioni, vedere [Utenti di database indipendente - rendere portatile un Database](https://msdn.microsoft.com/library/ff929188.aspx), [Database indipendenti](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -174,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Linee guida sulla sicurezza e limiti del Database SQL di Azure](sql-database-security-guidelines.md) [Connessione al Database SQL tramite l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

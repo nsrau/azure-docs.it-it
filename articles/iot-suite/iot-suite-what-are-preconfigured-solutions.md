@@ -37,8 +37,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| Monitoraggio remoto | Sì | Sì | Sì | Sì | - |
-| Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
+| Monitoraggio remoto | Sì | Sì | Sì | Sì | - | | Manutenzione predittiva | Sì | Sì | Sì | Sì | Sì |
 
 ## Panoramica della soluzione preconfigurata per il monitoraggio remoto
 
@@ -75,13 +74,13 @@ La soluzione preconfigurata usa tre processi di [Analisi di flusso di Azure][lnk
 - Il processo n. 2 filtra il flusso di dati di telemetria per identificare i messaggi di risposta ai comandi e i messaggi di aggiornamento di stato del dispositivo dai dispositivi e invia questi messaggi specifici a un endpoint dell'Hub eventi di Azure.
 - Il processo n. 3 filtra il flusso di dati di telemetria per i valori che generano avvisi. Quando un valore attiva un allarme, la soluzione visualizza la notifica nella tabella della cronologia di avvisi nella visualizzazione dashboard del portale della soluzione.
 
-In questa soluzione preconfigurata, i processi di Analisi di flusso di Azure fanno parte del *backend della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
+In questa soluzione preconfigurata, i processi di Analisi di flusso di Azure fanno parte del *back-end della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 ## Processore di eventi
 
 Un'istanza di [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] elabora i messaggi di risposta al comando e sullo stato del dispositivo identificati dal processo di Analisi di flusso di Azure n. 2 e quindi archivia queste informazioni in un database [Azure DocumentDB][lnk-document-db].
 
-In questa soluzione preconfigurata il processore di eventi fa parte del *backend della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
+In questa soluzione preconfigurata il processore di eventi fa parte del *back-end della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 ## Portale della soluzione
 
@@ -95,7 +94,7 @@ Il portale della soluzione è un'interfaccia utente basata sul Web che viene dis
 
 > [AZURE.NOTE] Il portale della soluzione mantiene anche il [registro delle identità dei dispositivi][lnk-identity-registry] dell'hub IoT sincronizzato con l'archivio delle informazioni più dettagliate sullo stato dei dispositivi nel database DocumentDB della soluzione.
 
-In questa soluzione preconfigurata il portale della soluzione fa parte del *back-end della soluzione IoT* ed è incluso nella *connettività commerciale e di elaborazione* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
+In questa soluzione preconfigurata il portale della soluzione fa parte del *back-end della soluzione IoT* ed è incluso nella *connettività aziendale e di elaborazione* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 ## Passaggi successivi
 
@@ -116,4 +115,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

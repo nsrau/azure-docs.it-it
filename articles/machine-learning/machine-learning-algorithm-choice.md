@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
-
+    
 <tags
 	ms.service="machine-learning"
     ms.devlang="na"
@@ -25,7 +25,7 @@ La risposta alla domanda "Quale algoritmo di Machine Learning devo utilizzare" �
 
 Il **foglio illustrativo sugli algoritmi di Microsoft Azure Machine Learning** aiuta a scegliere l'algoritmo di Machine Learning appropriato da usare per le proprie soluzioni di analisi predittiva nella libreria di algoritmi di Microsoft Azure Machine Learning. In questo articolo viene illustrato il suo utilizzo.
 
-> [AZURE.NOTE]Per scaricare il foglio informativo e proseguire con questo articolo, passare a [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
+> [AZURE.NOTE] Per scaricare il foglio informativo e proseguire con questo articolo, passare a [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
 
 Questo foglio informativo ha destinatari molto specifici: un scienziato dei dati iniziali con Machine Learning di livello universitario , che tenta di scegliere un algoritmo per iniziare con Azure Machine Learning Studio. Ciò significa che fa alcune generalizzazioni e semplificazioni eccessive, ma indicherà una direzione sicura. Significa inoltre che esistono molti algoritmi non elencati qui. Mentre Azure Machine Learning cresce per includere un set più completo dei metodi disponibili, essi verranno aggiunti.
 
@@ -37,7 +37,7 @@ Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;pa
 
 Ecco un esempio tratto dalla [raccolta di Cortana Analytics](http://gallery.azureml.net/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP]Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 ## Varianti di Machine Learning
 
@@ -118,20 +118,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Footprint della memoria ridotto|
 |[rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato|
-|**Regressione**| | | | | |
-|[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
-|[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni|
-|[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti|
-|[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti|
-|[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche|
-|**Rilevamento delle anomalie**| | | | | |
-|[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni|
-|[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato| |**Regressione**| | | | | | |[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni| |[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti| |[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti| |[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche| |**Rilevamento delle anomalie**| | | | | | |[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni| |[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
 
 
 **Proprietà algoritmo:**
@@ -156,7 +143,7 @@ Sebbene includa 'regressione' nel nome, la regressione logistica in realtà è u
 
 ![Regressione logistica a dati a due classi con una sola caratteristica][4]
 
-***Una regressione logistica in dati a due classi con una sola funzionalità*** *: il limite della classe è il punto in cui la curva logistica è alla stessa distanza da entrambe le classi*
+***Una regressione logistica in dati a due classi con una sola funzionalità****: il limite della classe è il punto in cui la curva logistica è alla stessa distanza da entrambe le classi*
 
 ### Alberi, foreste e giungle
 
@@ -209,7 +196,7 @@ Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'
 
 ![Rilevamento delle anomalie basato su PCA][8]
 
-***Rilevamento delle anomalie basato su PCA*** *: la maggior parte dei dati rientra in una distribuzione stereotipica; i punti che differiscono notevolmente da tale distribuzione sono sospetti*
+***Rilevamento delle anomalie basato su PCA****: la maggior parte dei dati rientra in una distribuzione stereotipica; i punti che differiscono notevolmente da tale distribuzione sono sospetti*
 
 ![Set di dati raggruppati utilizzando K-means][9]
 
@@ -237,4 +224,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

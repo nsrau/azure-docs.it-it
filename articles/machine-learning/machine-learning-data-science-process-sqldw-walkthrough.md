@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="hangzh,weig,bradsev"
+	authors="bradsev,hangzh,weig"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,32 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016" 
-	ms.author="bradsev"/>
+	ms.date="02/03/2016" 
+	ms.author="bradsev;hangzh;wguo123"/>
 
 
 # Cortana Analytics Process in esecuzione: con SQL Data Warehouse
 
+In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
 
-In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la classificazione multiclasse e la regressione.
-
-La procedura segue il flusso di lavoro di [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come esplorare i dati e progettare le funzionalità in SQL DW e in IPython Notebook. Viene quindi illustrato come compilare e distribuire il modello in Azure Machine Learning.
+La procedura segue il flusso di lavoro di [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/). Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come usare SQL DW o IPython Notebook per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
 
 ## <a name="dataset"></a>Set di dati NYC Taxi Trips
 
 I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le località e gli orari di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
-1. Il file CSV 'trip\_data' contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
+1. Il file **trip\_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Ecco alcuni record di esempio: medallion,hack\_license,vendor\_id,rate\_code,store\_and\_fwd\_flag,pickup\_datetime,dropoff\_datetime,passenger\_count,trip\_time\_in\_secs,trip\_distance,pickup\_longitude,pickup\_latitude,dropoff\_longitude,dropoff\_latitude 89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-
-2. Il file CSV 'trip\_fare' contiene i dettagli della tariffa pagata per ciascuna corsa, ad esempio tipo di pagamento, importo, soprattassa e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
+2. Il file **trip\_fare.csv** contiene i dettagli della tariffa pagata per ciascuna corsa, ad esempio tipo di pagamento, importo, soprattassa e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -47,11 +39,15 @@ I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (ci
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La chiave univoca per unire trip\_data e trip\_fare è costituita dai tre campi seguenti: medallion, hack\_licence e pickup\_datetime.
+La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai tre campi seguenti:
 
-## <a name="mltasks"></a>Esempi di attività di stima
+- medallion, 
+- hack\_license e 
+- pickup\_datetime.
 
-Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
+## <a name="mltasks"></a>Risolvere tre tipi di attività di stima 
+
+Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
 1. **Classificazione binaria**: consente di stabilire se sia stata pagata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
 
@@ -70,33 +66,43 @@ Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire questi passaggi.
 
-Creare l'**account di archiviazione BLOB di Azure **. I dati sui taxi di New York usati in questa procedura dettagliata sono condivisi in un contenitore di archiviazione BLOB pubblico in Azure in formato csv. In questa procedura dettagliata i dati verranno copiati nell'archivio BLOB di Azure prima che i dati vengano caricati in Azure SQL DW. L'**archivio BLOB pubblico** si trova negli ***Stati Uniti centro-meridionali***.
+**Creare l'account di archiviazione BLOB di Azure**
 
-- Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli Stati Uniti centro-meridionali. I dati verranno copiati dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4). 
-- Per creare l'account di archiviazione di Azure, seguire i passaggi illustrati in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessari più avanti nella procedura dettagliata. 
+- Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli **Stati Uniti centro-meridionali**, dove vengono archiviati i dati relativi alle corse dei taxi di New York. I dati verranno copiati tramite AzCopy dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4). 
+- Per creare l'account di archiviazione di Azure, seguire i passaggi descritti in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessarie più avanti nella procedura dettagliata. 
 
   - **Storage Account Name**
   - **Chiave dell'account di archiviazione**
   - **Nome contenitore** (in cui si vogliono salvare i dati nell'archivio BLOB di Azure)
 
-Effettuare il provisioning dell'istanza di Azure SQL DW. Seguire la documentazione in [Creare un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) per effettuare il provisioning di un'istanza di SQL Data Warehouse. Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
+**Effettuare il provisioning dell'istanza di Azure SQL DW.** Seguire la documentazione in [Creare un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) per effettuare il provisioning di un'istanza di SQL Data Warehouse. Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
  
-  - **Server Name**
-  - **Nome SQLDW (database)**
-  - **User Name**
+  - **Nome server**: <server Name>.database.windows.net
+  - **Nome SQLDW (database)** 
+  - **Nome utente**
   - **Password**
 
-Installare Visual Studio 2015 e SQL Server Data Tools. Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT (SQL Server Data Tools) per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
+**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
 
-Verificare di potersi connettere ad Azure SQL DW con Visual Studio. Per istruzioni, vedere [Connettersi ad Azure SQL Data Warehouse con Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Connettersi ad Azure SQL DW con Visual Studio**. Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](sql-data-warehouse-get-started-connect.md).
 
-Creare un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure. Per istruzioni, vedere [Creare un'area di lavoro di Azure Machine Learning](machine-learning-create-workspace.md).
+>[AZURE.NOTE] Eseguire la query SQL seguente nel database creato in SQL Data Warehouse (anziché la query specificata nel passaggio 3 dell'argomento relativo alla connessione) per **creare una chiave master**.
+
+	BEGIN TRY
+	       --Try to create the master key
+	    CREATE MASTER KEY
+	END TRY
+	BEGIN CATCH
+	       --If the master key exists, do nothing
+	END CATCH;
+
+**Creare un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure.** Per istruzioni, vedere [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Caricare i dati in SQL Data Warehouse
 
-Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in Github in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creato dallo script di PowerShell.
+Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in GitHub in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creato dallo script di PowerShell.
 
->[AZURE.NOTE] Potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente se sono richiesti privilegi di amministratore per creare o scrivere in *DestDir*.
+>[AZURE.NOTE] Potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente se sono richiesti privilegi di amministratore per creare o scrivere nella directory *DestDir*.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -112,30 +118,204 @@ In *-DestDir* eseguire lo script di PowerShell seguente in modalità amministrat
 
 	./SQLDW_Data_Import.ps1
 
-Questo file di script di PowerShell completa le attività seguenti:
+Quando lo script di PowerShell viene eseguito per la prima volta, verrà chiesto di inserire le informazioni da Azure SQL DW e dall'account di archiviazione BLOB di Azure. Quando l'esecuzione di questo script di PowerShell viene completata per la prima volta, le credenziali inserite risulteranno scritte in un file di configurazione SQLDW.conf nella directory di lavoro presente. L'esecuzione futura di questo file di script di PowerShell può leggere tutti i parametri necessari da questo file di configurazione. Se è necessario modificare alcuni parametri, è possibile scegliere di inserirli nella schermata al prompt eliminando questo file di configurazione e inserendo i valori dei parametri come richiesto oppure di cambiare i valori dei parametri modificando il file SQLDW.conf nella directory *-DestDir*.
 
-- Download e installazione di AzCopy, se AzCopy non è già installato
-- Copia dei dati dal BLOB pubblico all'account di archiviazione BLOB privato con AzCopy
-- Caricamento dei dati dall'account di archiviazione BLOB privato ad Azure SQL DW
-	- Creazione di tabelle esterne per il set di dati sui taxi di New York nell'account di archiviazione BLOB
-	- Creazione di tabelle (tabelle delle corse e delle tariffe) in SQL DW per archiviare il set di dati sui taxi di New York
-	- Importazione del set di dati sui taxi di New York dalle tabelle esterne alle tabelle di SQL DW
-	- Creazione di una tabella dati di esempio (NYCTaxi\_Sample) con inserimento di dati dalla selezione di query SQL sulle tabelle delle corse e delle tariffe. Alcuni passaggi di questa procedura dettagliata devono usare la tabella di esempio. 
+>[AZURE.NOTE] Per evitare conflitti di nome schema con quelli già esistenti in Azure SQL DW, quando si leggono i parametri direttamente dal file SQLDW.conf, un numero casuale a 3 cifre viene aggiunto al nome schema dal file SQLDW.conf come nome schema predefinito per ogni esecuzione. Lo script di PowerShell può richiedere un nome schema: il nome può essere specificato a discrezione dell'utente.
 
-Quando lo script di PowerShell viene eseguito per la prima volta, verrà chiesto di inserire le informazioni da Azure SQL DW e dall'account di archiviazione BLOB di Azure. Quando l'esecuzione di questo script di PowerShell viene completata per la prima volta, le credenziali inserite risulteranno scritte in un file di configurazione SQLDW.conf nella directory di lavoro presente. L'esecuzione futura di questo file di script di PowerShell può leggere tutti i parametri necessari da questo file di configurazione. Se è necessario modificare alcuni parametri, è possibile scegliere di inserirli nella schermata al prompt eliminando questo file di configurazione e inserendo i valori dei parametri come richiesto o di cambiare i valori dei parametri modificando il file di configurazione.
+Questo file di **script di PowerShell** completa le attività seguenti:
 
->[AZURE.NOTE] Per evitare conflitti di nome schema con quelli già esistenti in Azure SQL DW, quando si leggono i parametri direttamente dal file conf, un numero casuale a 3 cifre viene aggiunto al nome schema dal file conf come nome schema predefinito per ogni esecuzione.
+- **Esegue il download e l'installazione di AzCopy**, se non è già installato
+
+		$AzCopy_path = SearchAzCopy
+    	if ($AzCopy_path -eq $null){
+       		Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
+        	InstallAzCopy
+        	$AzCopy_path = SearchAzCopy
+    	}
+			$env_path = $env:Path
+			for ($i=0; $i -lt $AzCopy_path.count; $i++){
+				if ($AzCopy_path.count -eq 1){
+					$AzCopy_path_i = $AzCopy_path
+				} else {
+					$AzCopy_path_i = $AzCopy_path[$i]
+				}
+				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
+					Write-Host $AzCopy_path_i 'not in system path, add it...'
+					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env_path = $env:Path
+				}	
+
+- **Copia i dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
+
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		$start_time = Get-Date
+		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
+		$end_time = Get-Date
+    	$time_span = $end_time - $start_time
+    	$total_seconds = [math]::Round($time_span.TotalSeconds,2)
+    	Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
+    	Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
+
+
+- **Carica i dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
+	
+	- Creare uno schema
+
+			EXEC (''CREATE SCHEMA {schemaname};'');
+
+	- Creare una credenziale con ambito di database
+			
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
+			WITH IDENTITY = ''asbkey'' , 
+			Secret = ''{StorageAccountKey}''
+
+	- Creare un'origine dati esterna per un BLOB di archiviazione di Azure
+
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			WITH
+			(
+    			TYPE = HADOOP,
+    			LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
+    			CREDENTIAL = {KeyAlias}
+			)
+			;
+
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			WITH
+			(
+    			TYPE = HADOOP,
+    			LOCATION =''wasbs://{ContainerName}@{StorageAccountName}.blob.core.windows.net'',
+    			CREDENTIAL = {KeyAlias}
+			)
+			;
+
+	- Creare un formato di file esterno da un file con estensione csv. I dati non sono compressi e i campi sono separati dal carattere barra verticale.
+
+			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
+			WITH 
+			(   
+    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_OPTIONS  
+    			(
+        			FIELD_TERMINATOR ='','',
+        			USE_TYPE_DEFAULT = TRUE
+    			)
+			)
+			;
+		
+	- Creare tabelle esterne relative a tariffe e corse per il set di dati relativo alle corse dei taxi di New York nell'archivio BLOB di Azure.
+
+			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
+			(
+				medallion varchar(50) not null,
+				hack_license varchar(50) not null,
+				vendor_id char(3),
+				pickup_datetime datetime not null,
+				payment_type char(3),
+				fare_amount float,
+				surcharge float,
+				mta_tax float,
+				tip_amount float,
+				tolls_amount float,
+				total_amount float
+			)
+			with (
+    			LOCATION    = ''/nyctaxifare/'',
+    			DATA_SOURCE = {nyctaxi_fare_storage},
+    			FILE_FORMAT = {csv_file_format},
+				REJECT_TYPE = VALUE,
+				REJECT_VALUE = 12     
+			)  
+
+
+			CREATE EXTERNAL TABLE {external_nyctaxi_trip}
+			(
+       			medallion varchar(50) not null,
+       			hack_license varchar(50)  not null,
+       			vendor_id char(3),
+       			rate_code char(3),
+       			store_and_fwd_flag char(3),
+       			pickup_datetime datetime  not null,
+       			dropoff_datetime datetime, 
+       			passenger_count int,
+       			trip_time_in_secs bigint,
+       			trip_distance float,
+       			pickup_longitude varchar(30),
+       			pickup_latitude varchar(30),
+       			dropoff_longitude varchar(30),
+       			dropoff_latitude varchar(30)
+			)
+			with (
+    			LOCATION    = ''/nyctaxitrip/'',
+    			DATA_SOURCE = {nyctaxi_trip_storage},
+    			FILE_FORMAT = {csv_file_format},
+    			REJECT_TYPE = VALUE,
+				REJECT_VALUE = 12         
+			)
+
+	- Caricare dati dalle tabelle esterne nell'archivio BLOB di Azure in SQL Data Warehouse
+
+			CREATE TABLE {schemaname}.{nyctaxi_fare}
+			WITH 
+			(   
+    			CLUSTERED COLUMNSTORE INDEX,
+				DISTRIBUTION = HASH(medallion)
+			)
+			AS 
+			SELECT * 
+			FROM   {external_nyctaxi_fare}
+			;
+
+			CREATE TABLE {schemaname}.{nyctaxi_trip}
+			WITH 
+			(   
+    			CLUSTERED COLUMNSTORE INDEX,
+				DISTRIBUTION = HASH(medallion)
+			)
+			AS 
+			SELECT * 
+			FROM   {external_nyctaxi_trip}
+			;
+
+	- Creazione di una tabella dati di esempio (NYCTaxi\_Sample) con inserimento di dati dalla selezione di query SQL sulle tabelle delle corse e delle tariffe. Per alcuni passaggi di questa procedura dettagliata deve essere usata la tabella di esempio.
+
+			CREATE TABLE {schemaname}.{nyctaxi_sample}
+			WITH 
+			(   
+    			CLUSTERED COLUMNSTORE INDEX,
+				DISTRIBUTION = HASH(medallion)
+			)
+			AS 
+			(
+	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
+				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
+				tip_class = CASE 
+						WHEN (tip_amount = 0) THEN 0
+                        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+                        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+                        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+                        ELSE 4
+                    END
+	    		FROM {schemaname}.{nyctaxi_trip} t, {schemaname}.{nyctaxi_fare} f
+    			WHERE datepart("mi",t.pickup_datetime) = 1
+				AND t.medallion = f.medallion
+    			AND   t.hack_license = f.hack_license
+    			AND   t.pickup_datetime = f.pickup_datetime
+    			AND   pickup_longitude <> ''0''
+        		AND   dropoff_longitude <> ''0''
+			)
+			;
 
 >[AZURE.NOTE] A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche di più e il processo di caricamento dei dati dall'account di archiviazione ad Azure SQL DW può richiedere 20 minuti o più.
 
->[Nota di Azure] Se i file da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascriverli singolarmente.
+>[AZURE.NOTE] Se i file da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere singolarmente i file con estensione csv.
 
 ![Grafico n. 21][21]
 
-[Suggerimenti di Azure]
-
-- Se i dati sono nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source** nel file di script di PowerShell con una directory locale nel comando di AzCopy.	
-- Se i dati sono già nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile saltare il passaggio di AzCopy nello script di PowerShell e caricare direttamente i dati in Azure SQL DW. 
+>[AZURE.TIP] **Usare i dati locali:** se i dati si trovano nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
+	
+>[AZURE.TIP] Se i dati sono già nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile saltare il passaggio di AzCopy nello script di PowerShell e caricare direttamente i dati in Azure SQL DW. Saranno necessarie altre modifiche dello script per adattarlo al formato dei dati.
 
 
 Questo script di PowerShell collega anche le informazioni di Azure SQL DW con i file di esempio di esplorazione dati SQLDW\_Explorations.sql, SQLDW\_Explorations.ipynb e SQLDW\_Explorations\_Scripts.py in modo che questi tre file possano essere provati subito al termine dello script di PowerShell.
@@ -146,11 +326,14 @@ Al termine dell'esecuzione, verrà visualizzata una schermata simile alla seguen
 
 ## <a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in Azure SQL Data Warehouse
 
-In questa sezione, vengono effettuate l'esplorazione dei dati e la generazione di funzionalità eseguendo query SQL direttamente su Azure SQL DW usando **Strumenti dati di Visual Studio**. Tutte le query SQL usate in questa sezione sono disponibili nello script di esempio **SQLDW\_Explorations.sql**. Questo file è già stato scaricato nella directory locale dallo script di PowerShell. È anche possibile recuperarlo da [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), ma al file in Github non sono collegate le informazioni di Azure SQL DW.
+In questa sezione vengono effettuate l'esplorazione dei dati e la generazione di funzionalità eseguendo query SQL direttamente su Azure SQL DW usando **Visual Studio Data Tools**. Tutte le query SQL usate in questa sezione sono disponibili nello script di esempio *SQLDW\_Explorations.sql*. Questo file è già stato scaricato nella directory locale dallo script di PowerShell. È anche possibile recuperarlo da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), ma al file in Github non sono collegate le informazioni di Azure SQL DW.
+
+Connettersi ad Azure SQL DW usando Visual Studio con il nome di accesso e la password di SQL DW e aprire **Esplora oggetti di SQL** per confermare che le tabelle e il database sono stati importati. Recuperare il file *SQLDW\_Explorations.sql*.
+
+>[AZURE.NOTE] Per aprire un editor di query Parallel Data Warehouse (PDW), usare il comando **Nuova query** mentre è selezionato PDW in **Esplora oggetti di SQL**. L'editor di query SQL standard non è supportato da PDW.
 
 Ecco il tipo di attività di esplorazione dei dati e di generazione di funzionalità eseguite in questa sezione:
 
-- Connettersi ad Azure SQL DW usando Visual Studio con il nome e la password di accesso di SQL DW.
 - Esplorazione delle distribuzioni di dati di un numero ridotto di campi in diverse finestre temporali.
 - Indagine sulla qualità dei dati dei campi di longitudine e latitudine.
 - Generazione di etichette di classificazione binaria e multiclasse basata su **tip\_amount**.
@@ -159,7 +342,7 @@ Ecco il tipo di attività di esplorazione dei dati e di generazione di funzional
 
 ### Verifica dell'importazione dei dati
 
-Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate in precedenza tramite l'importazione in blocco in parallelo,
+Queste query consentono una verifica rapida del numero di righe e di colonne nelle tabelle popolate in precedenza tramite l'importazione in blocco in parallelo di Polybase,
 
 	-- Report number of rows in table <nyctaxi_trip> without table scan
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -167,15 +350,19 @@ Per una verifica rapida del numero di righe e di colonne nelle tabelle popolate 
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
+Si dovrebbero ottenere 173.179.759 righe e 14 colonne.
+
 ### Esplorazione: distribuzione delle corse per licenza
 
-Questo esempio identifica le licenze (numeri dei taxi) che hanno eseguito più di 100 corse in un periodo specificato. Per la query verrà utilizzata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
+Questa query di esempio identifica le licenze (numeri dei taxi) che hanno eseguito più di 100 corse in un periodo specificato. Per la query verrà utilizzata la tabella partizionata poiché è condizionata dallo schema di partizione di **pickup\_datetime**. Per la query del set di dati completo verrà inoltre utilizzata la tabella partizionata e/o l'analisi dell'indice.
 
 	SELECT medallion, COUNT(*)
 	FROM <schemaname>.<nyctaxi_fare>
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
+
+La query dovrebbe restituire 13.369 licenze.
 
 ### Esplorazione: distribuzione delle corse per licenza e hack\_license
 
@@ -209,6 +396,8 @@ Questo esempio trova il numero di corse per cui è stata lasciata una mancia ris
 	  FROM <schemaname>.<nyctaxi_fare>
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
+
+La query dovrebbe restituire le frequenze di mance seguenti: 90.447.622 corse per cui è stata lasciata una mancia e 82.264.709 corse per cui non è stata lasciata una mancia.
 
 ### Esplorazione: distribuzione della classe o dell'intervallo delle mance
 
@@ -274,7 +463,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 
 ### Progettazione di funzionalità con le funzioni SQL
 
-Le funzioni SQL a volte possono essere una valida opzione per progettare funzionalità. In questa procedura dettagliata viene definita una funzione SQL per calcolare la distanza diretta tra le località di partenza e di arrivo. È possibile eseguire gli script SQL seguenti in **Strumenti dati di Visual Studio**.
+Le funzioni SQL a volte possono essere una valida opzione per progettare funzionalità. In questa procedura dettagliata viene definita una funzione SQL per calcolare la distanza diretta tra le località di partenza e di arrivo. È possibile eseguire gli script SQL seguenti in **Visual Studio Data Tools**.
 
 Ecco lo script SQL che definisce la funzione della distanza.
 
@@ -324,7 +513,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 
 ### Preparazione dei dati per la creazione del modello
 
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Reader](https://studio.azureml.net) di [Azure Machine Learning Studio][reader] per l'inserimento diretto dei dati dall'istanza di database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query seguenti consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Reader][reader] di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza di database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -367,7 +556,7 @@ Se si è già configurata un'area di lavoro di AzureML, è possibile caricare di
 
 	![Grafico n. 24][24]
 
-4. Trascinare l'esempio di IPython Notebook nella pagina **albero** del servizio IPython Notebook di AzureML e fare clic su **Upload**. L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
+4. Trascinare l'esempio di IPython Notebook nella pagina **albero** del servizio IPython Notebook di Azure Machine Learning e fare clic su **Carica**. L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
 
 	![Grafico n. 25][25]
 
@@ -406,7 +595,7 @@ Ecco la stringa di connessione che crea la connessione al database.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### Segnalare il numero di righe e di colonne nella tabella <nyctaxi_trip>
+### Indicare il numero di righe e di colonne nella tabella <nyctaxi_trip>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -425,7 +614,7 @@ Ecco la stringa di connessione che crea la connessione al database.
 - Numero di righe totali = 173179759  
 - Numero di colonne totali = 14
 
-### Segnalare il numero di righe e di colonne nella tabella <nyctaxi_fare>
+### Indicare il numero di righe e di colonne nella tabella <nyctaxi_fare>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -649,7 +838,7 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 
 In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure ML. Ecco la procedura per compilare uno o più modelli di stima:
 
-1. Inserire i dati in Azure ML usando il modulo [Reader][reader], disponibile nella sezione **Data Input and Output**. Per ulteriori informazioni, vedere la pagina di riferimento sul modulo [Lettore][reader].
+1. Inserire i dati in Azure Machine Learning usando il modulo [Reader][reader], disponibile nella sezione **Input e output dei dati**. Per ulteriori informazioni, vedere la pagina di riferimento sul modulo [Lettore][reader].
 
 	![Lettore Azure ML][17]
 
@@ -659,9 +848,9 @@ In questo esercizio i dati sono già stati esplorati e compilati in SQL Data War
 
 4. Immissione del **Nome database** nel campo corrispondente.
 
-5. Immettere i valori richiesti in *SQL user name* in **Server user account name** e in *password* in **Server user account password**.
+5. Immettere il *nome utente SQL* in **Nome account utente server** e la *password* in **Password account utente server**.
 
-6. Selezionare l'opzione **Accept any server certificate**.
+6. Selezionare l'opzione **Accetta qualsiasi certificato server**.
 
 7. Nell'area di testo di modifica **Query database**, incollare la query che consente di estrarre i campi di database necessari (inclusi i campi calcolati come le etichette) e sottocampionare i dati nella dimensione campione desiderata.
 
@@ -744,4 +933,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

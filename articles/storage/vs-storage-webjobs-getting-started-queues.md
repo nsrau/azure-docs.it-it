@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
@@ -259,7 +259,7 @@ L'interfaccia **IBinder** può essere usata anche con gli attributi **Table** e 
 
 ## Come leggere e scrivere BLOB e tabelle durante l'elaborazione di un messaggio in coda
 
-Gli attributi **Blob** e **Table** consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per esempi di codice che illustrano come attivare processi quando i BLOB vengono creati o aggiornati, vedere [Come utilizzare l'archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) e per esempi di codice che leggono e scrivono tabelle, vedere [Come utilizzare l'archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Gli attributi **Blob** e **Table** consentono di leggere e scrivere BLOB e tabelle. Gli esempi in questa sezione si applicano ai BLOB. Per esempi di codice che illustrano come attivare processi quando i BLOB vengono creati o aggiornati, vedere [Come utilizzare l'archiviazione BLOB di Azure con WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) e per esempi di codice che leggono e scrivono tabelle, vedere [Come utilizzare l'archiviazione tabelle di Azure con WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Messaggi di coda stringa che attivano operazioni BLOB
 
@@ -431,7 +431,7 @@ L'esempio seguente illustra come configurare queste impostazioni:
 
 A volte si desidera specificare un nome di coda, un nome di BLOB o un contenitore oppure un nome di tabella nel codice anziché impostarlo come hardcoded. È ad esempio possibile specificare il nome della coda per **QueueTrigger** in una variabile di ambiente o in un file di configurazione.
 
-A tale scopo, passare un oggetto **NameResolver** al tipo **JobHostConfiguration**. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri del costruttore dell'attributo di SDK processi Web e il codice **NameResolver** specifica i valori effettivi da usare in sostituzione di questi segnaposto.
+A tale scopo, passare un oggetto **NameResolver** al tipo **JobHostConfiguration**. Includere segnaposto speciali racchiusi tra segni di percentuale (%) nei parametri del costruttore dell'attributo di SDK e il codice **NameResolver** specifica i valori effettivi da usare in sostituzione di questi segnaposto.
 
 Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'ambiente di test e una coda denominata logqueueprod nell'ambiente di produzione. Invece di un nome di coda hardcoded, è preferibile specificare il nome di una voce nella raccolta **appSettings** caratterizzata dal nome della coda effettivo. Se la chiave **appSettings** è logqueue, la funzione potrebbe essere simile all'esempio seguente.
 
@@ -440,7 +440,7 @@ Si supponga, ad esempio, di voler usare una coda denominata logqueuetest nell'am
 		    Console.WriteLine(logMessage);
 		}
 
-La classe **NameResolver** potrebbe quindi ottenere il nome della coda dalla raccolta **appSettings**, come illustrato nell'esempio seguente:
+La classe **NameResolver** potrebbe quindi ottenere il nome della coda dalla raccolta **appSetting**s, come illustrato nell'esempio seguente:
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -543,4 +543,4 @@ In una tabella di Azure i log **Console.Out** e **Console.Error** hanno un aspet
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

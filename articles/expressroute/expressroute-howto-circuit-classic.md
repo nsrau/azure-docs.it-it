@@ -43,7 +43,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 2. **Ottenere l'elenco dei provider, delle sedi e delle larghezze di banda supportate.**
 
-	Prima di creare un circuito ExpressRoute, è necessario disporre di un elenco dei provider di connettività, delle località supportate e delle opzioni di larghezza di banda. Il cmdlet *Get-AzureDedicatedCircuitServiceProvider* di PowerShell restituisce queste informazioni, che verranno usate successivamente.
+	Prima di creare un circuito ExpressRoute, è necessario disporre di un elenco dei provider di connettività, delle località supportate e delle opzioni di larghezza di banda. Il cmdlet *Get-AzureDedicatedCircuitServiceProvider* di PowerShell restituisce queste informazioni, che verranno usate successivamente. Quando si esegue il cmdlet, il risultato sarà simile all'esempio seguente.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 7. **Collegare una rete virtuale a un circuito ExpressRoute.**
 
-	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale per ExpressRoute, vedere la pagina relativa alla [creazione di una rete virtuale per ExpressRoute](expressroute-howto-createvnet-classic.md) per istruzioni specifiche.
+	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale usando il modello di distribuzione classico per ExpressRoute, per istruzioni vedere [Configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
@@ -328,4 +328,4 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 
 - [Configurare il routing](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

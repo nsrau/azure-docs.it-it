@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
@@ -34,7 +34,7 @@ Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso 
 
 #### Per connettersi al servizio
 
-1. Accedere a [http://azure.microsoft.com/](https://azure.microsoft.com/)
+1. Andare all'indirizzo [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 1. Utilizzando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure classico (in alto a destra del riquadro).
 
@@ -114,4 +114,4 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

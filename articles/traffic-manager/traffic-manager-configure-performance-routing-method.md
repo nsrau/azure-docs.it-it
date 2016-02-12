@@ -49,4 +49,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

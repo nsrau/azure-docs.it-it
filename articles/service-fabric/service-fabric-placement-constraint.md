@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # Panoramica dei vincoli di posizionamento
 
@@ -26,7 +26,7 @@ Usando i vincoli di posizionamento, è possibile:
 
 - Destinare tipi diversi di servizi a tipi diversi di nodi mediante la definizione di più NodeProperty per i nodi.
 
-- Applicare determinati vincoli alle repliche primarie, ma non a quelle secondarie.
+- Definire i vincoli in modo che possano essere applicati sia alle repliche primarie sia a quelle secondarie di un servizio oppure definirli in modo che possano essere applicati solo alle repliche primarie.
 
 
 ## Concetti chiave
@@ -38,4 +38,4 @@ NodeProperty: mapping definito dall'utente o dal sistema tra una stringa e un va
 
 Per altre informazioni, vedere l'articolo [Scenari applicativi](../service-fabric-application-scenarios).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

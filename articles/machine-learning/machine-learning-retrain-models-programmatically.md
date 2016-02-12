@@ -19,9 +19,9 @@
 
 #Ripetere il training dei modelli di Machine Learning a livello di codice  
 
-Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare un modello, quindi usarlo per creare un servizio Web per l'assegnazione di punteggi. Il servizio Web può quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
+Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare un modello, quindi usarlo per creare un servizio Web predicativo. Il servizio Web può quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
 
-È spesso necessario ripetere il training del modello creato nel primo passaggio con nuovi dati. In precedenza era possibile eseguire questa operazione solo tramite l'interfaccia utente di Azure ML, ma con l'introduzione della funzionalità API per la ripetizione del training a livello di codice, è ora possibile ripetere il training del modello e aggiornare il servizio Web per l'uso del modello appena sottoposto a training usando le API per la ripetizione del training a livello di codice.
+È spesso necessario ripetere il training del modello creato nel primo passaggio con nuovi dati. In precedenza era possibile eseguire questa operazione solo tramite l'interfaccia utente di Azure Machine Learning, ma con l'introduzione della funzionalità API per la ripetizione del training a livello di codice, è ora possibile ripetere il training del modello e aggiornare il servizio Web per l'uso del modello appena sottoposto a training usando le API per la ripetizione del training a livello di codice.
 
 Questo documento descrive il processo precedente e illustra come usare le API per la ripetizione del training.
 
@@ -34,7 +34,7 @@ Durante il processo di training di ML, viene eseguito il training di un modello 
 In questi scenari un'API a livello di codice offre un modo pratico per consentire all'utente dell'API di creare un client in grado di ripetere il training del modello una tantum o periodicamente usando i propri dati. Sarà quindi possibile valutare i risultati della ripetizione del training e aggiornare l'API del servizio Web per l'uso del modello appena sottoposto a training.
 
 ##Come ripetere il training: il processo end-to-end  
-Innanzitutto, per il processo sono necessari i componenti seguenti: un esperimento di training e un esperimento di assegnazione dei punteggi pubblicati come servizi Web. Per abilitare la ripetizione del training di un modello con training, l'esperimento di training deve essere inoltre pubblicato come servizio Web con l'output di un modello con training. In questo modo viene abilitato l'accesso dell'API al modello per la ripetizione del training. Il processo per la configurazione della ripetizione del training prevede i passaggi seguenti:
+Per il processo sono innanzitutto necessari i componenti seguenti: un esperimento di training e un esperimento predicativo pubblicato come servizio Web. Per abilitare la ripetizione del training di un modello con training, l'esperimento di training deve essere inoltre pubblicato come servizio Web con l'output di un modello con training. In questo modo viene abilitato l'accesso dell'API al modello per la ripetizione del training. Il processo per la configurazione della ripetizione del training prevede i passaggi seguenti:
 
 ![][1]
 
@@ -49,9 +49,9 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 	![][3]
 
-	Al termine dell'esecuzione dell'esperimento, fare clic su Create Scoring Experiment. In questo modo verrà creato un esperimento di assegnazione dei punteggi, verrà salvato il modello come modello con training e verranno aggiunti i moduli di input e output del servizio Web, come illustrato di seguito. A questo punto, fare clic su Run.
+	Al termine dell'esecuzione dell'esperimento, fare clic su Crea esperimento predicativo. In questo modo verrà creato un esperimento predicativo, verrà salvato il modello come modello con training e verranno aggiunti i moduli di input e output del servizio Web, come illustrato di seguito. A questo punto, fare clic su Run.
 
-	Al termine dell'esecuzione dell'esperimento, facendo clic su "Publish Web Service" l'esperimento di assegnazione dei punteggi verrà pubblicato come servizio Web e verrà creato un endpoint predefinito. Il modello con training in questo servizio Web è aggiornabile, come illustrato di seguito. I dettagli dell'endpoint verranno visualizzati sullo schermo.  
+	Al termine dell'esecuzione dell'esperimento, facendo clic su "Pubblica servizio Web" l'esperimento predicativo verrà pubblicato come servizio Web e verrà creato un endpoint predefinito. Il modello con training in questo servizio Web è aggiornabile, come illustrato di seguito. I dettagli dell'endpoint verranno visualizzati sullo schermo.  
 3. *Pubblicare l'esperimento di training come servizio Web* Per ripetere il training del modello con training, è necessario pubblicare l'esperimento di training creato nel precedente passaggio 1 come servizio Web. Per produrre nuovi modelli con training, questo servizio Web dovrà disporre di un modulo di output del servizio Web connesso al modulo [modello di training][train-model]. Fare clic sull'icona Experiments nel riquadro sinistro e quindi sull'esperimento denominato Modello di censimento per tornare all'esperimento di training.  
 
 	Aggiungere quindi un modulo di input del servizio Web e due moduli di output del servizio Web al flusso di lavoro. Tramite l'output del servizio Web per il modello di training sarà possibile ottenere il nuovo modello con training. L'output associato al modello di valutazione restituirà l'output del modello di valutazione del modulo.
@@ -60,8 +60,8 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 	![][4]
 
-	Fare clic sul pulsante Publish Web Service e quindi su Yes. L'esperimento di training verrà pubblicato come un servizio Web che produce un modello con training e risultati di valutazione del modello. Verrà visualizzato il dashboard del servizio Web con la chiave API e la pagina della guida dell'API per Esecuzione batch. Si noti che è possibile usare solo il metodo Esecuzione batch per la creazione di modelli di training.  
-4. *Aggiungere un nuovo Endpoint* Il servizio Web di assegnazione dei punteggi pubblicato nel precedente passaggio 2 è stato creato con un endpoint predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un endpoint aggiornabile, visitare il portale di Azure classico e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)).
+	Fare clic sul pulsante Distribuisci servizio Web e quindi su Sì. L'esperimento di training verrà distribuito come un servizio Web che produce un modello con training e risultati di valutazione del modello. Verrà visualizzato il dashboard del servizio Web con la chiave API e la pagina della guida dell'API per Esecuzione batch. Si noti che è possibile usare solo il metodo Esecuzione batch per la creazione di modelli di training.  
+4. *Aggiungere un nuovo endpoint* Il servizio Web predicativo pubblicato nel precedente passaggio 2 è stato creato con un endpoint predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un endpoint aggiornabile, visitare il portale di Azure classico e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)).
 
 5. *Ripetere il training del modello con nuovi dati e con il servizio Esecuzione batch* Per chiamare le API per la ripetizione del training, creare una nuova applicazione console C# in Visual Studio (Nuovo->Progetto->Windows Desktop->Applicazione console).
 
@@ -90,11 +90,11 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 		![][6]
 
-6. *Valutare i risultati di ripetizione del training* Usando la combinazione di BaseLocation, RelativeLocaiton e SasBlobToken dai risultati di output illustrati in precedenza per "output2", sarà possibile visualizzare i risultati relativi alle prestazioni del modello sottoposto nuovamente a training incollando l'URL completo nella barra degli indirizzi del browser.
+6. *Valutare i risultati di ripetizione del training* Usando la combinazione di BaseLocation, RelativeLocation e SasBlobToken dai risultati di output illustrati in precedenza per "output2", sarà possibile visualizzare i risultati relativi alle prestazioni del modello sottoposto nuovamente a training incollando l'URL completo nella barra degli indirizzi del browser.
 
 	In questo modo sarà possibile sapere se le prestazioni del modello appena sottoposto a training sono abbastanza elevate da sostituire quello esistente.
 
-7. *Aggiornare il modello con training dell'endpoint aggiunto* Per completare il processo, è necessario aggiornare il modello con training dell'endpoint di assegnazione dei punteggi creato nel precedente passaggio 4.
+7. *Aggiornare il modello con training dell'endpoint aggiunto* Per completare il processo, è necessario aggiornare il modello con training dell'endpoint predicativo creato nel precedente passaggio 4.
 
 	L'output del servizio Esecuzione batch sopra riportato mostra le informazioni relative al risultato della ripetizione del training per "output1", contenente le informazioni sul percorso del modello sottoposto nuovamente a training. A questo punto è necessario aggiornare l'endpoint di assegnazione dei punteggi creato nel precedente passaggio 4. Segue il codice di esempio:
 
@@ -156,4 +156,4 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

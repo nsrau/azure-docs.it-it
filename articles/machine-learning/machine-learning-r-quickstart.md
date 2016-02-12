@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
@@ -238,13 +238,24 @@ L'input Script Bundle consente di passare i contenuti di un file ZIP nel modulo 
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]Azure Machine Learning gestisce i file nel pacchetto con estensione zip come se fossero nella directory src/, quindi è necessario inserire questo nome della directory come prefisso nei nomi file.
+> [AZURE.NOTE] Azure Machine Learning gestisce i file nel pacchetto con estensione zip come se fossero nella directory src/, quindi è necessario inserire questo nome della directory come prefisso nei nomi file. Ad esempio, se il file con estensione zip contiene i file `yourfile.R` e `yourData.rdata` nella radice del file con estensione zip, è necessario risolvere questi come `src/yourfile.R` e `src/yourData.rdata` quando si usano `source` e `load`.
 
 Il caricamento dei set di dati è già stato discusso in [Caricamento del set di dati](#loading). Dopo aver creato e testato lo script R mostrato nella sezione precedente, procedere come segue:
 
-1. Salvare lo script R in un file .R. Chiamerò il mio file di script "simpleplot.R".  
+1. Salvare lo script R in un file .R. Chiamerò il mio file di script "simpleplot.R". Ecco il contenuto.
 
-2.  Creare un file con estensione zip e copiare al suo interno lo script creato.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Creare un file con estensione zip e copiare al suo interno lo script creato. In Windows fare clic con il pulsante destro del mouse sul file, selezionare __Invia a__ e quindi __Cartella compressa__. Verrà creato un nuovo file con estensione zip contenente il file "simpleplot.R".
 
 3.	Aggiungere il file ai **set di dati** in Machine Learning Studio, specificando il tipo **zip**. Dovrebbe essere visualizzato il file con estensione zip nei set di dati.
 
@@ -252,7 +263,7 @@ Il caricamento dei set di dati è già stato discusso in [Caricamento del set di
 
 5.	Connettere l'output dell'icona dei **dati zip** all'input **Script Bundle** del modulo [Execute R Script][execute-r-script].
 
-6.	Digitare la funzione `source()` con il nome del file ZIP nella finestra del codice per il modulo [Execute R Script][execute-r-script]. In questo caso, digitare `source("src/SimplePlot.R")`.
+6.	Digitare la funzione `source()` con il nome del file ZIP nella finestra del codice per il modulo [Execute R Script][execute-r-script]. In questo caso, digitare `source("src/simpleplot.R")`.
 
 7.	Fare clic su **Save**.
 
@@ -279,7 +290,7 @@ Eseguire l'esperimento facendo clic sul pulsante **Run**. Quando l'esecuzione te
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-Fare doppio clic sulla pagina per caricare dati aggiuntivi, che avranno un aspetto simile al seguente.
+Più in basso nella pagina sono disponibili altre informazioni sulle colonne, che avranno un aspetto simile al seguente.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ Fare doppio clic sulla pagina per caricare dati aggiuntivi, che avranno un aspet
 
 Questi risultati sono essenzialmente quelli previsti, con 228 osservazioni e 9 colonne nel frame di dati. Sono riportati i nomi delle colonne, il tipo di dati R e un esempio di ciascuna colonna.
 
-> [AZURE.NOTE]Lo stesso output stampato è disponibile anche dall'output R Device del modulo [Execute R Script][execute-r-script]. Gli output del modulo [Execute R Script][execute-r-script] verranno discussi nella sezione successiva.
+> [AZURE.NOTE] Lo stesso output stampato è disponibile anche dall'output R Device del modulo [Execute R Script][execute-r-script]. Gli output del modulo [Execute R Script][execute-r-script] verranno discussi nella sezione successiva.
 
 ####Dataset2
 
@@ -462,7 +473,7 @@ I frame di dati R supportano avanzate funzionalità di filtraggio. I set di dati
 
 Possiamo eseguire semplici operazioni di filtraggio anche sul nostro set di dati. Se si guardano le colonne nel frame di dati cadairydata, si può vedere che ci sono due colonne superflue. La prima colonna contiene solo un numero di riga, non molto utile. La seconda colonna, Year.Month, contiene le informazioni ridondanti. È possibile escludere facilmente queste colonne usando il seguente codice R.
 
-> [AZURE.NOTE]Nel resto della sezione verrà mostrato solo l'ulteriore codice aggiunto al modulo [Execute R Script][execute-r-script]. Tutte le nuove righe verranno aggiunte **prima** della funzione `str()`. Questa funzione viene usata per verificare i risultati in Azure Machine Learning Studio.
+> [AZURE.NOTE] Nel resto della sezione verrà mostrato solo l'ulteriore codice aggiunto al modulo [Execute R Script][execute-r-script]. Tutte le nuove righe verranno aggiunte **prima** della funzione `str()`. Questa funzione viene usata per verificare i risultati in Azure Machine Learning Studio.
 
 La riga seguente viene aggiunta al codice R nel modulo [Execute R Script][execute-r-script].
 
@@ -644,8 +655,7 @@ Il codice R completo per questa sezione è disponibile nel file con estensione z
 
 Come già accennato, le serie temporali sono costituite da una serie di valori di dati indicizzati per data e ora. Gli oggetti serie temporale vengono usati in R per creare e gestire l'indice temporale. Questi oggetti offrono infatti una serie di vantaggi. Gli oggetti della serie temporale consentono di liberarsi delle numerose attività di gestione dei valori di indice della serie temporale incapsulati nell'oggetto. Consentono inoltre di usare i vari metodi messi a disposizione dalle serie temporali per operazioni di tracciamento, stampa, modeling, ecc.
 
-In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. 
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+In genere viene usata la classe di serie temporale POSIXct poiché è relativamente semplice e permette di misurare il tempo a partire dal 1° gennaio 1970. In questo esempio useremo quindi oggetti serie temporale di tipo POSIXct. Altre classi dell'oggetto della serie temporale R ampiamente usate comprendono zoo e xts, la serie temporale estendibile. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Esempio di oggetto della serie temporale
 
@@ -1347,4 +1357,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+<properties
+	pageTitle="Aggiungere una VM con elementi a un Lab di sviluppo/test | Microsoft Azure"
+	description="Creare una nuova macchina virtuale con elementi nel Lab di sviluppo/test."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere una VM con elementi a un lab di sviluppo e test di Azure
@@ -76,7 +76,7 @@ Seguire questi passaggi per ogni elemento da aggiungere alla macchina virtuale:
 
 **Modifica dell'ordine di esecuzione degli elementi**
 
-Quando si aggiunge e configura elementi per la macchina virtuale, viene visualizzato un collegamento che mostra il numero corrente di elementi nella parte superiore del pannello **Aggiungi elementi**. Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ordine in cui vengono aggiunte alla macchina virtuale. Per modificare l'ordine in cui vengono eseguiti gli elementi, semplicemente trascinare e rilasciare gli elementi nell'elenco e toccare **OK** al termine.
+Poiché si aggiunge e configura elementi per la macchina virtuale, viene visualizzato un collegamento che mostra il numero corrente di elementi all'inizio del pannello **Aggiungi elementi**. Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ordine in cui vengono aggiunte alla macchina virtuale. Per modificare l'ordine in cui vengono eseguiti gli elementi, semplicemente trascinare e rilasciare gli elementi nell'elenco e toccare **OK** al termine.
 
 **Visualizzazione/Modifica degli elementi selezionati**
 
@@ -98,4 +98,4 @@ Seguire questi passaggi per visualizzare o modificare i parametri degli elementi
 
 Informazioni su come [creare elementi personalizzati per la macchina virtuale](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

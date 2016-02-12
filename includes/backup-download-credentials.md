@@ -27,6 +27,6 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 - Assicurarsi che le credenziali di insieme vengano salvate in un percorso accessibile dal computer. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 - Il file delle credenziali di insieme viene usato solo durante il flusso di lavoro di registrazione.
 - Il file delle credenziali di insieme scade dopo 48 ore e può essere scaricato dal portale.
-- Per domande sul flusso di lavoro, fare riferimento alle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
+- Per eventuali domande sul flusso di lavoro, fare riferimento alle [domande frequenti] (](../articles/backup/backup-azure-backup-faq.md) su Backup di Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight
@@ -34,7 +34,7 @@ Le firme di accesso condiviso sono una funzionalità degli account di archiviazi
 
 * Un cluster HDInsight basato su Linux OPPURE [Azure PowerShell][powershell]. Se è disponibile un cluster basato su Linux esistente, è possibile usare Ambari per aggiungere una firma di accesso condiviso al cluster. In caso contrario, è possibile usare Azure PowerShell per creare un nuovo cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
-* I file di esempio da [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas). Questo repository contiene:
+* I file di esempio da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Questo repository contiene:
 
     * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
     
@@ -60,7 +60,7 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Si noti che in seguito a tale operazione tutti i componenti dell'applicazione che utilizzano la chiave dell'account non verranno più autenticati finché non verranno aggiornati in modo da usare l'altra chiave dell'account valida oppure la chiave dell'account appena rigenerata.
 
-> [AZURE.IMPORTANT]L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
+> [AZURE.IMPORTANT] L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
 È consigliabile usare sempre i criteri di accesso archiviati, per poter revocare le firme o estendere la data di scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
 
@@ -68,7 +68,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
 ##Creare un criterio archiviato e generare una firma di accesso condiviso
 
-Attualmente i criteri archiviati devono essere creati a livello di codice. Gli esempi di creazione di criteri archiviati e firme di accesso condiviso in C# e in Python sono disponibili all'indirizzo [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas).
+Attualmente i criteri archiviati devono essere creati a livello di codice. Gli esempi di creazione di criteri archiviati e firme di accesso condiviso in C# e in Python sono disponibili all'indirizzo [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
 ###Creare un criterio archiviato e una firma di accesso condiviso con C#
 
@@ -169,7 +169,7 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
     
     Se si sta creando un cluster basato su Linux, verranno anche richiesti un nome e una password per l'account utente SSH. Queste credenziali vengono usate per l'accesso in remoto al cluster.
     
-    > [AZURE.IMPORTANT]Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
+    > [AZURE.IMPORTANT] Quando vengono richiesti un nome e una password per HTTP/S o SSH, è necessario fornire una password che soddisfi i criteri seguenti:
     >
     > - La lunghezza non può essere inferiore a 10 caratteri
     > - Deve contenere almeno una cifra
@@ -201,7 +201,7 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
     Al termine delle modifiche, fare clic su __OK__.
 
-    > [AZURE.IMPORTANT]Questo permette di salvare le modifiche alla configurazione, ma perché le modifiche siano effettive è necessario riavviare diversi servizi.
+    > [AZURE.IMPORTANT] Questo permette di salvare le modifiche alla configurazione, ma perché le modifiche siano effettive è necessario riavviare diversi servizi.
 
 6. Nell'interfaccia utente Web di Ambari selezionare __HDFS__ dall'elenco a sinistra e quindi selezionare __Restart All__ dall'elenco a discesa __Service Actions__ a destra. Quando richiesto, selezionare __Turn on maintenance mode__ e quindi selezionare "Conform Restart All".
 
@@ -290,4 +290,4 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

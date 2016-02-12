@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # Query su database elastico per il partizionamento orizzontale
 
@@ -192,7 +192,7 @@ Dopo aver definito l'origine dati esterna e le tabelle esterne, è ora possibile
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Stored procedure SP\_EXECUTE\_FANOUT 
+### 2\.2 Stored procedure SP\_ EXECUTE\_FANOUT 
 
 La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata sp\_execute\_fanout e accetta i parametri seguenti:
 
@@ -200,7 +200,7 @@ La query elastica introduce anche una stored procedure che fornisce l'accesso di
 * Nome del database della mappa partizioni (nvarchar): nome del database della mappa partizioni. 
 * Nome utente (nvarchar): nome utente per l'accesso al database della mappa partizioni. 
 * Password (nvarchar): password per l'utente. 
-* Nome della mappa partizioni (nvarchar): nome della mappa partizioni da usare per la query. 
+* Nome della mappa partizioni (nvarchar): nome della mappa partizioni da usare per la query. Il nome si trova nella tabella \_ShardManagement.ShardMapsGlobal e si tratta del nome predefinito usato durante la creazione di database con l'app di esempio disponibile in [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md). Il nome predefinito nell'app è "CustomerIDShardMap".
 *  Query: query T-SQL da eseguire in ogni partizione. 
 *  Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp\_executesql. 
 *  Elenco di valori dei parametri - Facoltativo: elenco delimitato da virgole di valori dei parametri, ad esempio sp\_executesql.  
@@ -212,7 +212,7 @@ Si noti che le stesse credenziali vengono utilizzate per connettersi al database
 Esempio:
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -241,4 +241,4 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

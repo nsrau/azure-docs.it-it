@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/01/2016"
    ms.author="hascipio" />
 
 # Testare la propria offerta di VM per Azure Marketplace nella gestione temporanea
@@ -30,11 +30,13 @@ Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sa
 3.	Nella finestra di dialogo **Chi può accedere all'offerta di gestione temporanea?** immettere l'elenco delle sottoscrizioni di Azure che verrà utilizzato per l'anteprima dell’offerta nel [portale di anteprima di Azure](https://portal.azure.com).
 4. Accedere al [portale di anteprima di Azure](https://portal.azure.com) usando una delle sottoscrizioni di Azure elencate nel passaggio precedente.
 5. Individuare la propria offerta e convalidare i punti dell'immagine della macchina virtuale:
-  1. Assicurarsi che il contenuto di marketing venga visualizzato correttamente nel Marketplace.
-
+  - Assicurarsi che il contenuto di marketing venga visualizzato correttamente nel Marketplace.
+  - Distribuzione end-to-end dell'immagine della VM.
+  
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-  2. Distribuzione end-to-end dell'immagine della VM.
+
+
 
 > [AZURE.IMPORTANT] L'offerta resterà nella fase di gestione temporanea fino a quando non si notifica a Microsoft tramite il portale di pubblicazione [**Pubblica** > **"Richiedi approvazione per push in produzione"**] che si è pronti per passare alla fase di produzione. A questo punto, è opportuno chiedere a tutti i membri del team di verificare tutti gli aspetti preliminari all'attivazione dell'offerta.
 
@@ -46,4 +48,4 @@ Ora che l'offerta è in "gestione temporanea" e ne sono stati testati le funzion
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

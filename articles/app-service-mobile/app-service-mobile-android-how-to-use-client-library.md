@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="02/03/2016" 
 	ms.author="ricksal"/>
 
 
 # Come usare la libreria client Android per le app per dispositivi mobili
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questa guida illustra come usare Android SDK lato client per le app per dispositivi mobili per implementare scenari comuni, come l'esecuzione di query sui dati (inserimento, aggiornamento ed eliminazione), l'autenticazione degli utenti, la gestione degli errori e la personalizzazione del client. Fornisce anche un'analisi approfondita del codice client comune usato nella maggior parte della app per dispositivi mobili.
 
@@ -40,7 +38,7 @@ Se si decide di non completare l'esercitazione introduttiva e si vuole connetter
 
 - [Creare un back-end dell'app per dispositivi mobili](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) da usare con l'app Android, a meno che ne sia già disponibile uno per la propria app.
 - In Android Studio [aggiornare i file di compilazione Gradle](#gradle-build).
-- [Abilitare l'autorizzazione per Internet](#enable-internet).
+- [Abilitare l'autorizzazione per Internet.](#enable-internet)
 
 Si dovrà quindi completare la procedura descritta nella sezione di approfondimento.
 
@@ -251,7 +249,7 @@ Si noti che il secondo parametro del costruttore ToDoItemAdapter è un riferimen
 
 ### <a name="api"></a>Struttura dell'API
 
-Le operazioni sulla tabella di app per dispositivi mobili e le chiamate API personalizzate sono asincrone, quindi si useranno gli oggetti[Future](http://developer.android.com/reference/java/util/concurrent/Future.html) e [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) in tutti i metodi asincroni che interessano query e inserimenti, aggiornamenti ed eliminazioni. In questo modo è più facile eseguire più operazioni in un thread in background, senza dover gestire più callback annidati.
+Le operazioni sulla tabella di app per dispositivi mobili e le chiamate API personalizzate sono asincrone, quindi si useranno gli oggetti [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) e [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) in tutti i metodi asincroni che interessano query e inserimenti, aggiornamenti ed eliminazioni. In questo modo è più facile eseguire più operazioni in un thread in background, senza dover gestire più callback annidati.
 
 Per verificare come vengono usate queste API asincrone nell'app Android e come vengono visualizzati i dati nell'interfaccia utente, esaminare il file **ToDoActivity.java** nel progetto dell'esercitazione introduttiva per Android dal [portale di Azure].
 
@@ -261,7 +259,7 @@ Per verificare come vengono usate queste API asincrone nell'app Android e come v
 È ora possibile utilizzare l'associazione dati. Il codice seguente illustra come recuperare gli elementi nella tabella di Servizi mobili, cancellare l'adattatore e quindi chiamare il metodo *add* dell'adattatore per inserirvi gli elementi restituiti.
 
 
-**TBD**: testare il codice.
+**Da definire**: testare il codice.
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -311,7 +309,7 @@ La variabile *results* restituisce il set di risultati della query sotto forma d
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
 
-L'esecuzione della query seguente restituisce tutti gli elementi della tabella *ToDoItem* tabella in cui *complete* è uguale a *false*. Questo è il codice già presente nell'esercitazione introduttiva.
+L'esecuzione della query seguente restituisce tutti gli elementi della tabella *ToDoItem* in cui *complete* è uguale a *false*. Questo è il codice già presente nell'esercitazione introduttiva.
 
 	List<ToDoItem> result = mToDoTable.where()
 								.field("complete").eq(false)
@@ -319,7 +317,7 @@ L'esecuzione della query seguente restituisce tutti gli elementi della tabella *
 
 *mToDoTable* è il riferimento alla tabella di Servizi mobili creata in precedenza.
 
-Definire un filtro con la chiamata al metodo **where** sul riferimento a tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore di o uguale a), **lt** (minore di), **le** (minore di o uguale a) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
+Definire un filtro con la chiamata al metodo **where** sul riferimento alla tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore o uguale a), **lt** (minore di), **le** (minore o uguale a) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
 ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* (due) è uguale a 2013.
 
@@ -374,7 +372,7 @@ Ecco una query che ignora i primi 5 elementi e quindi restituisce i 5 successivi
 
 ### <a name="selecting"></a>Procedura: Selezionare colonne specifiche
 
-Il codice seguente illustra come restituire tutti gli elementi di una tabella di oggetti*ToDoItems*, visualizzando però solo i campi *complete* e *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza.
+Il codice seguente illustra come restituire tutti gli elementi di una tabella di oggetti *ToDoItems*, visualizzando però solo i campi *complete* e *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza.
 
 	List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
 
@@ -571,7 +569,7 @@ Nel client viene chiamato il metodo **invokeApi**, che invia una richiesta POST 
 
 Le esercitazioni descrivono già in dettaglio come aggiungere queste funzionalità.
 
-Il servizio app supporta l'[autenticazione degli utenti di app](mobile-services-android-get-started-users.md) con diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione nel backend.
+Il servizio app supporta l'[autenticazione degli utenti di app](app-service-mobile-android-get-started-users.md) con diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione nel backend.
 
 Sono supportati due flussi di autenticazione, un flusso *server* e un flusso *client*. Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, perché si basa su SDK specifici del provider e del dispositivo e richiede la creazione di codice.
 
@@ -842,4 +840,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

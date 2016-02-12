@@ -20,6 +20,9 @@
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati in Azure DocumentDB da un altro archivio dati e spostare i dati da un altro archivio dati a DocumentDB. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
+Gli esempi seguenti mostrano come copiare dati da e in Azure DocumentDB e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+
+
 ## Esempio: Copiare i dati da DocumentDB a BLOB di Azure
 
 L'esempio seguente mostra:
@@ -344,7 +347,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | -------- | ----------- | --------- |
-| type | La proprietà type deve essere impostata su: **DocumentDB** | Sì |
+| type | La proprietà del tipo deve essere impostata su: **DocumentDb** | Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi al database di Azure DocumentDB. | Sì |
 
 ## Proprietà del tipo del set di dati di Azure DocumentDB
@@ -416,4 +419,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
      
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

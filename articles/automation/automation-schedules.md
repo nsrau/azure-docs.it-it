@@ -23,7 +23,7 @@ Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuz
 
 ## Cmdlet di Windows PowerShell
 
-I cmdlet della tabella seguente vengono usati per creare e gestire variabili con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](../powershell-install-configure.md).
+I cmdlet della tabella seguente vengono usati per creare e gestire pianificazioni con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](../powershell-install-configure.md).
 
 |Cmdlet|Descrizione|
 |:---|:---|
@@ -37,15 +37,15 @@ I cmdlet della tabella seguente vengono usati per creare e gestire variabili con
 
 ## Creazione di una nuova pianificazione
 
-### Per creare una nuova pianificazione con il portale di Azure
+### Per creare una nuova pianificazione con il portale di Azure classico
 
 
 1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
 1. Nella parte inferiore della finestra fare clic su **Aggiungi impostazione**.
 1. Fare clic su **Aggiungi pianificazione**.
-1. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova variabile.
+1. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova pianificazione.
 
-### Per creare una nuova pianificazione con il portale di anteprima di Azure
+### Per creare una nuova pianificazione con il portale di Azure
 
 1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
 1. Fare clic sulla parte **Pianificazioni** per aprire il pannello **Pianificazioni**.
@@ -68,4 +68,4 @@ Il cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Pianificazione di un runbook in Automazione di Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

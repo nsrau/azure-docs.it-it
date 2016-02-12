@@ -43,9 +43,9 @@ Attualmente, esistono alcune limitazioni nel supporto ARM per Gestione traffico 
 
 - I profili di Gestione traffico creati mediante l'API di gestione del servizio Azure esistente (non ARM), gli strumenti e il portale "classico" non sono disponibili tramite ARM e viceversa. La migrazione dei profili dalle API di gestione del servizio alle API ARM non è attualmente supportata. È solo possibile eliminare e ricreare il profilo.
 
-
 - Endpoint di Gestione traffico 'annidati' sono supportati tramite l'interfaccia della riga di comando API ARM, PowerShell ARM e in modalità ARM. Al momento, non sono supportati nel portale di Azure (che usa anche l'API ARM).
 
+- Gli endpoint di Gestione traffico di tipo 'AzureEndpoints', quando fanno riferimento a un'app Web, possono fare riferimento solo allo [slot dell'app Web](../app-service-web/web-sites-staged-publishing.md) predefinito (produzione). Gli slot personalizzati non sono ancora supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
 
 ## Configurazione di Azure PowerShell
 
@@ -285,4 +285,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

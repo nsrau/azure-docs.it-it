@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="visual-studio-online"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher" />
 
 # Gestire le risorsa di archiviazione di Azure con Storage Explorer (anteprima)
@@ -158,7 +158,7 @@ Per controllare l'accesso ai contenitori BLOB, è possibile scegliere i comandi 
 	![][20]
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure, vedere gli articoli in [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md).
+Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure, vedere gli articoli in [Introduzione ad Archiviazione di Microsoft Azure](/storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

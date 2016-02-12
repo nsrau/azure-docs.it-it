@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Risolvere i problemi di Data factory
@@ -56,7 +56,7 @@ Verificare che SQL Server sia raggiungibile dal computer in cui è installato il
 
 Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **external** non viene impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
-Per l'uso della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente **externalData*** quando si imposta external su true.
+Per l'uso della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente**externalData*** quando si imposta external su true.
 
 Per altre informazioni su questa proprietà, vedere l'argomento Tabelle in [Informazioni di riferimento sugli script JSON][json-scripting-reference].
 	
@@ -374,4 +374,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

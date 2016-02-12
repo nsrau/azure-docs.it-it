@@ -80,7 +80,7 @@ Questa tecnica offre un controllo più diretto su ciò che viene incluso o esclu
 
 Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo con l'SDK. Tutta la telemetria passa attraverso il processore ed è possibile scegliere di eliminarla dal flusso o di aggiungere le proprietà. È inclusa la telemetria dei moduli standard, ad esempio l'agente di raccolta delle richieste HTTP e l'agente di raccolta delle dipendenze, oltre alla telemetria scritta manualmente. È possibile, ad esempio, filtrare la telemetria sulle richieste dei robot o le chiamate di dipendenza riuscite.
 
-> [AZURE.WARNING]Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
+> [AZURE.WARNING] Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
 > 
 > In alternativa, valutare la possibilità di usare il [campionamento](#sampling).
 
@@ -154,7 +154,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 È possibile passare i valori della stringa dal file .config fornendo proprietà denominate come pubbliche nella classe.
 
-> [AZURE.WARNING]Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
+> [AZURE.WARNING] Prestare attenzione a fare corrispondere il nome del tipo e i nomi delle proprietà nel file. config ai nomi di classe e di proprietà nel codice. Se il file. config fa riferimento a un tipo inesistente o una proprietà, l’SDK potrebbe automaticamente non riuscire a inviare nessuna telemetria.
 
  
 **In alternativa**, è possibile inizializzare il filtro nel codice. In una classe di inizializzazione adatta, ad esempio AppStart in Global.asax.cs, inserire il processore nella catena:
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 Per diagnosticare solo le chiamate lente, filtrare quelle rapide.
 
-> [AZURE.NOTE]In questo modo le statistiche visualizzate nel portale verranno modificate. Il grafico delle dipendenze apparirà come se tutte le chiamate di dipendenza fossero non riuscite.
+> [AZURE.NOTE] In questo modo le statistiche visualizzate nel portale verranno modificate. Il grafico delle dipendenze apparirà come se tutte le chiamate di dipendenza fossero non riuscite.
 
 ``` C#
 
@@ -358,7 +358,7 @@ Inserire un inizializzatore di telemetria immediatamente dopo il codice di inizi
     </script>
 ```
 
-Per un riepilogo delle proprietà non personalizzate disponibili in telemetryItem, vedere il [modello di dati](app-insights-export-data-model.md/#lttelemetrytypegt).
+Per un riepilogo delle proprietà non personalizzate disponibili in telemetryItem, vedere il [modello di dati](app-insights-export-data-model.md#lttelemetrytypegt).
 
 È possibile aggiungere tutti gli inizializzatori desiderati.
 
@@ -404,4 +404,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

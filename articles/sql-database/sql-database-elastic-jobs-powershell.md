@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)
 
@@ -27,7 +27,7 @@ Le API di PowerShell per i **processi di database elastici**, in anteprima, cons
 ## Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 * Pacchetto di **processi di database elastici** di PowerShell, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md).
 
 ### Selezionare la sottoscrizione ad Azure
@@ -655,7 +655,7 @@ Usare [Get AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx)
 
 ## Per creare un'applicazione livello dati (DACPAC) per l'esecuzione sui database
 
-Per creare un'applicazione DACPAC, vedere [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx). Per distribuire un'applicazione DACPAC, usare il [cmdlet New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). L'applicazione DACPAC deve essere accessibile al servizio. È consigliabile caricare nell'archiviazione di Azure un'applicazione DACPAC creata e creare una [Firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) per DACPAC.
+Per creare un'applicazione DACPAC, vedere [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx). Per distribuire un'applicazione DACPAC, usare il [cmdlet New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). L'applicazione DACPAC deve essere accessibile al servizio. È consigliabile caricare nell'archiviazione di Azure un'applicazione DACPAC creata e creare una [Firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per DACPAC.
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"
@@ -694,4 +694,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="Creare elementi personalizzati per le macchine virtuali del Lab di sviluppo/test | Microsoft Azure"
+	description="Informazioni su come creare i propri elementi per l'uso nei Lab di sviluppo/test"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #Creare elementi personalizzati per le macchine virtuali di Lab di sviluppo e test
@@ -121,4 +121,4 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 Informazioni su come [Aggiungere un archivio elementi Git nel Lab di sviluppo e test](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

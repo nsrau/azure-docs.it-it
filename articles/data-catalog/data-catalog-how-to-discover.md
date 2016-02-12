@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/03/2013"
    ms.author="maroche"/>
 
 
@@ -41,15 +41,15 @@ Anche se la ricerca di testo libero predefinita è semplice e intuitiva, gli ute
 | Ricerca di base | Ricerca di base utilizzando uno o più termini di ricerca. I risultati sono gli asset che corrispondono alle proprietà di uno o più termini specificati. | dati di vendita |
 | Ambito della proprietà | Restituire solo le origini di dati dove il termine di ricerca corrisponde alla proprietà specificata | nome:finanza |
 | Operatori booleani | Ampliare o restringere una ricerca utilizzando operazioni booleane | finanza NON aziendale |
-| Raggruppamento con parentesi | Utilizzare le parentesi per raggruppare parti della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani | nome:finanza E (tag:Q1 O tag:Q2)Operatori di confronto |
-| Operatori di confronto | Utilizzare confronti invece di uguaglianze per le proprietà che hanno dati di tipo numero e data | creationTime>"11/05/2014" |
+| Raggruppamento con parentesi | Utilizzare le parentesi per raggruppare parti della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani | nanome:finanza E (tag:Q1 O tag:Q2) |
+| Operatori di confronto | Utilizzare confronti invece di uguaglianze per le proprietà che hanno dati di tipo numero e data | modifiedTime > "11/05/2014" |
 
 Per ulteriori informazioni sulla ricerca del **Catalogo dati Azure**, vedere [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
 ## Evidenziazione dei risultati
 Quando si visualizzano i risultati della ricerca, le proprietà visualizzate che corrispondono ai criteri di ricerca specificati, ad esempio nome di asset di dati, descrizione e tag, verranno evidenziate per rendere più semplice identificare il motivo per cui un asset di dati specificato è stato restituito da una ricerca specifica.
 
-> [AZURE.NOTE]Gli utenti possono disattivare l’evidenziazione dei risultati se desiderano, tramite l'opzione "Evidenziazione" nel portale del **Catalogo dati Azure**.
+> [AZURE.NOTE] Gli utenti possono disattivare l’evidenziazione dei risultati se desiderano, tramite l'opzione "Evidenziazione" nel portale del **Catalogo dati Azure**.
 
 Quando si visualizzano i risultati della ricerca, il motivo per cui un asset di dati è incluso potrebbe non essere sempre evidente, anche con l’evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. E poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni, è possibile che non tutti i metadati vengano visualizzati nell'elenco dei risultati della ricerca.
 
@@ -60,4 +60,4 @@ Nella visualizzazione affiancata predefinita, ogni riquadro mostrato nei risulta
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono individuarla mediante i filtri e la ricerca all'interno del portale **Catalogo dati Azure**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

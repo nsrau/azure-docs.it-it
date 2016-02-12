@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Esercitazione: Integrazione di Google Apps con Azure Active Directory | Microsoft Azure"
-   description="Informazioni su come usare Google Apps con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Google Apps | Microsoft Azure"
+    description="Informazioni su come usare Google Apps con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/01/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Esercitazione: Come integrare Google Apps ad Azure Active Directory
 
@@ -40,19 +40,19 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 2. Dall'elenco **Directory** selezionare la directory a cui si vuole aggiungere Google Apps.
 
-3. Fare clic su **Applicazioni** nel menu principale.
+3. Scegliere **Applicazioni** dal menu principale.
 
 	![Fare clic su applicazioni.][1]
 
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
 	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
 	![Fare clic su Aggiungi un'applicazione dalla raccolta.][3]
 
-6. Nella **casella di ricerca** digitare **Google Apps**. Selezionare quindi **Google Apps** dai risultati e fare clic su **Completa** per aggiungere l'applicazione.
+6. Nella **casella di ricerca** digitare **Google Apps**. Selezionare quindi **Google Apps** dai risultati, e fare clic su **Completa** per aggiungere l'applicazione.
 
 	![Aggiungere Google Apps.][4]
 
@@ -66,11 +66,11 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 	![Pulsante Configura accesso Single Sign-On][6]
 
-2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a Google Apps". Selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a Google Apps". Selezionare **Single Sign-On di Azure AD**, quindi fare clic su **Avanti**.
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di Google Apps, usando uno dei formati seguenti: `https://mail.google.com/a/<yourdomain>`
 
@@ -80,7 +80,7 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 	![Digitare il nome di dominio e scegliere Configura.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
 
-	> [AZURE.NOTE]Se si preferisce configurare Single Sign-On manualmente, vedere [Passaggio facoltativo: Configurare Single Sign-On manualmente](#optional-step-manually-configure-single-sign-on).
+	> [AZURE.NOTE] Se si preferisce configurare Single Sign-On manualmente, vedere [Passaggio facoltativo: Configurare Single Sign-On manualmente](#optional-step-manually-configure-single-sign-on).
 
 5. Accedere all'account amministrativo di Google Apps. Fare quindi clic su **Allow** per permettere ad Azure Active Directory di apportare modifiche alla configurazione nella sottoscrizione di Google Apps.
 
@@ -102,11 +102,11 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	![Pulsante Configura accesso Single Sign-On][6]
 
-2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a Google Apps". Selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
+2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a Google Apps". Selezionare **Single Sign-On di Azure AD**, quindi fare clic su **Avanti**.
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di Google Apps, usando uno dei formati seguenti: `https://mail.google.com/a/<yourdomain>`
 
@@ -116,11 +116,11 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	![Scegliere la configurazione manuale.](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
 
-4. Nella pagina **Configura accesso Single Sign-On in Google Apps** fare clic su **Download certificato** e quindi salvare il certificato localmente nel computer.
+4. Nella pagina **Configura accesso Single Sign-On in Google Apps** fare clic su **Download certificato** e infine salvare il certificato localmente nel computer.
 
 	![Scaricare il certificato][9]
 
-5. Aprire una nuova scheda nel browser e accedere alla [console di amministrazione di Google Apps](http://admin.google.com/) usando l'account amministrativo.
+5. Aprire una nuova scheda nel browser e accedere a [Console di amministrazione di Google Apps](http://admin.google.com/) utilizzando l'account amministratore.
 
 6. Fare clic su **Security**. Se non viene visualizzato il collegamento, può essere nascosto sotto il menu **More Controls** nella parte inferiore della schermata.
 
@@ -142,7 +142,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	- In Azure AD copiare l'**URL di Modifica password** e incollarlo nel campo **Change password URL** in Google Apps.
 
-	- In Google Apps per il **Certificato di verifica**, caricare il certificato scaricato nel passaggio 4.
+	- In Google Apps per il **Certificato di verifica**, caricare il certificato che è stato scaricato nel passaggio #4.
 
 	- Fare clic su **Save Changes**.
 
@@ -158,7 +158,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 ##Passaggio 3: Abilitare il provisioning automatizzato degli utenti
 
-> [AZURE.NOTE]Un'altra opzione valida per automatizzare il provisioning dell'utente in Google Apps consiste nell'utilizzare [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) che fornisce le identità di Active Directory locale in Google Apps. Al contrario, la soluzione in questa esercitazione esegue il provisioning per gli utenti e i gruppi abilitati alla posta elettronica in Google Apps Azure Active Directory (cloud).
+> [AZURE.NOTE] Un'altra opzione valida per automatizzare il provisioning dell’utente in Google Apps consiste nell'utilizzare [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) che fornisce le identità di Active Directory locale in Google Apps. Al contrario, la soluzione in questa esercitazione esegue il provisioning per gli utenti e i gruppi abilitati alla posta elettronica in Google Apps Azure Active Directory (cloud).
 
 1. Accedere alla [console di amministrazione di Google Apps](http://admin.google.com/) con l'account amministratore e fare clic su **Security**. Se non viene visualizzato il collegamento, può essere nascosto sotto il menu **More Controls** nella parte inferiore della schermata.
 
@@ -172,7 +172,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	![Fare clic su Informazioni di riferimento sulle API.][16]
 
-	> [AZURE.IMPORTANT]Per ogni utente per cui si intende eseguire il provisioning in Google Apps, si *deve* associare il relativo nome utente in Azure Active Directory a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non verranno accettati da Google Apps, mentre bob@contoso.com verranno accettati. È possibile modificare il dominio di un utente esistente modificandone le proprietà in Azure AD. Le istruzioni su come impostare un dominio personalizzato per Azure Active Directory e Google Apps vengono illustrate qui di seguito.
+	> [AZURE.IMPORTANT] Per ogni utente per cui si intende eseguire il provisioning in Google Apps, si *deve* associare il relativo nome utente in Azure Active Directory a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non verranno accettati da Google Apps, mentre bob@contoso.com verranno accettati. È possibile modificare il dominio di un utente esistente modificandone le proprietà in Azure AD. Le istruzioni su come impostare un dominio personalizzato per Azure Active Directory e Google Apps vengono illustrate qui di seguito.
 
 4. Se ancora non è stato aggiunto un nome di dominio personalizzato per Azure Active Directory, attenersi alla procedura seguente:
 
@@ -186,7 +186,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 		![Digitare il nome di dominio.][18]
 
-	- Fare clic su **Avanti** per passare alla pagina di verifica. Per verificare che si è proprietari di tale dominio, è necessario modificare i record DNS del dominio in base ai valori forniti in questa pagina. È possibile verificare tramite **record MX** o **record TXT** a seconda di ciò che viene selezionato per l'opzione **Tipo di record**. Per istruzioni più dettagliate su come verificare il nome di dominio con Azure AD, vedere [Aggiungere il proprio nome di dominio ad Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
+	- Fare clic su **Avanti** per passare alla pagina di verifica. Per verificare che si è proprietari di tale dominio, è necessario modificare i record DNS del dominio in base ai valori forniti in questa pagina. È possibile verificare tramite **record MX** o **record TXT** a seconda di ciò che viene selezionato per l'opzione **Tipo di record**. Per istruzioni più dettagliate su come verificare il nome di dominio con Microsoft Azure, vedere [Aggiungere il proprio nome di dominio ad Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
 
 		![Verificare il nome di dominio][19]
 
@@ -210,7 +210,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	- Ripetere i passaggi precedenti per tutti i domini aggiuntivi che si desidera aggiungere a Google Apps.
 
-	> [AZURE.WARNING]Se si modifica il dominio primario per il tenant di Google Apps e se è già stato configurato Single Sign-On con Azure AD, sarà necessario ripetere il passaggio 3 in [Passaggio 2: Abilitare il servizio Single Sign-On](#step-two-enable-single-sign-on).
+	> [AZURE.WARNING] Se si modifica il dominio primario per il tenant di Google Apps e se è già stato configurato Single Sign-On con Azure AD, sarà necessario ripetere il passaggio 3 in [Passaggio 2: Abilitare il servizio Single Sign-On](#step-two-enable-single-sign-on).
 
 6. Nella [console di amministrazione di Google Apps](http://admin.google.com/) fare clic su **Admin Roles**.
 
@@ -220,7 +220,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 	![Fare clic su Google Apps][27]
 
-	> [AZURE.NOTE]Se si sta configurando un ambiente di produzione, la procedura consigliata consiste nel creare un nuovo account di amministratore in Google Apps specificatamente per questo passaggio. Questi account devono disporre di un ruolo amministrativo associato che abbia privilegi API necessari.
+	> [AZURE.NOTE] Se si sta configurando un ambiente di produzione, la procedura consigliata consiste nel creare un nuovo account di amministratore in Google Apps specificatamente per questo passaggio. Questi account devono disporre di un ruolo amministrativo associato che abbia privilegi API necessari.
 
 8. In Azure Active Directory fare clic su **Applicazioni** nel menu in alto e fare clic su **Google Apps**.
 
@@ -292,4 +292,4 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

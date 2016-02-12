@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -74,7 +74,7 @@ Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possib
 
 ### Eseguire il provisioning di un processo di Analisi di flusso
 
-1.	Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
+1.	Nel [portale di Azure](https://manage.windowsazure.com/), fare clic su **NUOVO** > **SERVIZI DATI** > **ANALISI DI FLUSSO** > **CREAZIONE RAPIDA**.
 2.	Specificare i valori seguenti, quindi fare clic su **CREA PROCESSO DI ANALISI DEI FLUSSI**:
 
 	* **NOME PROCESSO**: immettere un nome del processo.
@@ -201,7 +201,7 @@ Se non se ne dispone, attenersi alla procedura seguente per creare un contenitor
 	* **SOTTOSCRIZIONE**: se l'archiviazione BLOB creata nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Utilizza account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* In **Nome account di archiviazione** scegliere l'account di archiviazione da utilizzare.
 	* **CONTENITORE**: selezionare il nome del contenitore
-	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da utilizzare durante la scrittura del BLOB di output
+	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da usare durante la scrittura dell'output di BLOB
 
 4.	Fare clic sul pulsante a destra.
 5.	Specificare i valori seguenti:
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

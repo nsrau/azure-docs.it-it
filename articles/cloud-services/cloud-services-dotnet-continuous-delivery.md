@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo per Servizi cloud in Azure
@@ -139,7 +139,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
 7.  Chiamare lo script direttamente da Azure PowerShell o collegarlo all'automazione delle compilazioni dell'host in uso in modo che venga eseguito dopo la compilazione del pacchetto.
 
-    >[AZURE.IMPORTANT]se vengono rilevate distribuzioni esistenti, lo script le elimina o le sostituisce per impostazione predefinita. Questo è necessario per consentire il recapito continuo da automazioni in cui non è possibile visualizzare richieste utente.
+    >[AZURE.IMPORTANT] se vengono rilevate distribuzioni esistenti, lo script le elimina o le sostituisce per impostazione predefinita. Questo è necessario per consentire il recapito continuo da automazioni in cui non è possibile visualizzare richieste utente.
 
     **Scenario di esempio 1**: distribuzione continua di un servizio nell'ambiente di gestione temporanea:
 
@@ -177,7 +177,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
     L'aggiornamento della distribuzione può essere disabilitato nello script ($enableDeploymentUpgrade = 0) oppure passando *- enableDeploymentUpgrade 0* come parametro, il che modifica il comportamento dello script in modo che questo elimini innanzitutto qualsiasi distribuzione esistente e quindi ne crei una nuova.
 
-    >[AZURE.IMPORTANT]se vengono rilevate distribuzioni esistenti, lo script le elimina o le sostituisce per impostazione predefinita. Questo è necessario per consentire il recapito continuo da automazioni in cui non è possibile visualizzare richieste utente/operatore.
+    >[AZURE.IMPORTANT] se vengono rilevate distribuzioni esistenti, lo script le elimina o le sostituisce per impostazione predefinita. Questo è necessario per consentire il recapito continuo da automazioni in cui non è possibile visualizzare richieste utente/operatore.
 
 ## Passaggio 5: Pubblicare un pacchetto usando TFS Team Build
 
@@ -573,4 +573,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

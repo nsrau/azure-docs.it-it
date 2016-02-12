@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure
@@ -23,7 +23,7 @@ In caso di problemi durante la distribuzione, è necessario scoprirne le cause. 
 
 Questo argomento è incentrato principalmente sull'uso dei comandi di distribuzione per risolvere i problemi relativi alle distribuzioni. Per informazioni sull'uso dei log di controllo per tenere traccia di tutte le operazioni eseguire sulle risorse, vedere l'articolo relativo al [controllo delle operazioni con Gestione risorse](../resource-group-audit.md).
 
-Questo argomento spiega come recuperare le informazioni per la risoluzione dei problemi mediante Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sull'uso del portale di anteprima per risolvere i problemi relativi alle distribuzioni, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+Questo argomento spiega come recuperare le informazioni per la risoluzione dei problemi mediante Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sull'uso del portale per risolvere i problemi relativi alle distribuzioni, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
 Questo argomento inoltre illustra le soluzioni relative agli errori comuni che possono verificarsi.
 
@@ -160,7 +160,7 @@ L'API REST di Gestione risorse fornisce URI che consentono di recuperare informa
 
 La distribuzione avrà esito negativo se le credenziali di Azure sono scadute o non si accede al proprio account Azure. Le credenziali possono scadere se la sessione rimane aperta troppo a lungo. Possono tuttavia essere aggiornate come segue:
 
-- Per PowerShell, usare il cmdlet **Login-AzureRmAccount** (o **Add-AzureAccount** per le versioni di PowerShell precedenti all'anteprima 1.0). Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
+- Per PowerShell, usare il cmdlet **Login-AzureRmAccount**. Le credenziali di un file di impostazioni di pubblicazione non sono sufficienti per i cmdlet del modulo AzureResourceManager.
 - Per l'interfaccia della riga di comando di Azure, usare **azure login**. Per informazioni sugli errori di autenticazione, assicurarsi di avere [configurato correttamente l'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 ## Verifica del formato dei modelli e dei parametri
@@ -169,7 +169,7 @@ La distribuzione avrà esito negativo se il file del modello o dei parametri non
 
 ### PowerShell
 
-Per PowerShell, usare **Test-AzureRmResourceGroupDeployment** (o **Test-AzureResourceGroupTemplate** per le versioni di PowerShell precedenti all'anteprima 1.0).
+Per PowerShell, usare **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@ Quando si specifica un percorso per una risorsa, è necessario usare uno dei per
 
 ### PowerShell
 
-Per le versioni di PowerShell precedenti all'anteprima 1.0, è possibile visualizzare l'elenco completo delle risorse e dei percorsi con il comando **Get-AzureLocation**.
+Per le versioni di PowerShell precedenti alla 1.0, è possibile visualizzare l'elenco completo delle risorse e dei percorsi con il comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ Per le versioni di PowerShell precedenti all'anteprima 1.0, è possibile visuali
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-Per l'anteprima di PowerShell 1.0, usare **Get-AzureRmResourceProvider** per ottenere i percorsi supportati.
+Per PowerShell 1.0, usare **Get-AzureRmResourceProvider** per ottenere i percorsi supportati.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ Tuttavia, Azure Active Directory consente all'utente o all'amministratore di con
 
 Alcuni problemi potrebbero verificarsi anche quando una distribuzione raggiunge una quota predefinita, per ogni gruppo di risorse, sottoscrizioni, account o per altri ambiti. Confermare di disporre delle risorse necessarie per una corretta distribuzione. Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-Per esaminare le quote della sottoscrizione per i core, usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure e il cmdlet **Get-AzureVMUsage** in PowerShell. Di seguito viene mostrato il comando nell'interfaccia della riga di comando di Azure, che indica che la quota di core per un account di valutazione gratuita è 4:
+Per esaminare le quote della sottoscrizione per i core, usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure e il cmdlet **Get-AzureRmVMUsage** in PowerShell. Di seguito viene mostrato il comando nell'interfaccia della riga di comando di Azure, che indica che la quota di core per un account di valutazione gratuita è 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,7 @@ Se si tenta di distribuire un modello che crea più di 4 core nell'area Stati Un
 
 In questi casi, si deve accedere al portale e rivolgersi all'assistenza per richiedere l'aumento della quota per l'area di destinazione della distribuzione.
 
-> [AZURE.NOTE]Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree.
-<!-- -->
-Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree. <!-- --> Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## Verifica della registrazione del provider di risorse
@@ -320,7 +302,7 @@ Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un 
 
 ### PowerShell
 
-Per ottenere un elenco di provider di risorse e il proprio stato di registrazione, usare **Get-AzureProvider** per le versioni di PowerShell precedenti all'anteprima 1.0.
+Per ottenere un elenco di provider di risorse e il proprio stato di registrazione, usare **Get-AzureProvider** per le versioni di PowerShell precedenti alla 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +315,7 @@ Per ottenere un elenco di provider di risorse e il proprio stato di registrazion
 
 Per registrare un provider, usare **Register-AzureProvider**.
 
-Per l'anteprima di PowerShell 1.0, usare **Get-AzureRmResourceProvider**.
+Per PowerShell 1.0, usare **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +417,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

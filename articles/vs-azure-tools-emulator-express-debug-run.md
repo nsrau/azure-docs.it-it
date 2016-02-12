@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 
 # Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale
 
-Con l'emulatore Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per usare l'emulatore Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per altre informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](../storage/storage-use-emulator.md). L'emulatore Express è stato incluso per la prima volta in Azure SDK 2.1 e a partire da Azure SDK 2.3 è l'emulatore predefinito.
+Con l'emulatore Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per usare l'emulatore Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per altre informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](/storage/storage-use-emulator.md). L'emulatore Express è stato incluso per la prima volta in Azure SDK 2.1 e a partire da Azure SDK 2.3 è l'emulatore predefinito.
 
 ## Uso dell'emulatore Express nell'IDE di Visual Studio
 
@@ -28,9 +28,9 @@ Quando si crea un nuovo progetto in Azure SDK 2.3 o versione successiva, l'emula
 
 1. Nel menu di scelta rapida per il progetto di Azure, scegliere **Proprietà**, quindi scegliere la scheda **Web**.
 
-1. In **Server di sviluppo locale** scegliere il pulsante di opzione **Usa IIS Express**. L'emulatore Express non è compatibile con il Server Web IIS.
+1. In **Server di sviluppo locale**, scegliere il pulsante **Usa l’opzione IIS Express**. L'emulatore Express non è compatibile con il Server Web IIS.
 
-1. In **Emulatore** scegliere il pulsante di opzione **Usa emulatore Express**.
+1. In **Emulatore**, scegliere il pulsante di opzione **Usa Emulator Express**.
 
     ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
 
@@ -54,4 +54,4 @@ Prima di usare l'emulatore Express, è necessario tenere presenti alcune limitaz
 
 [Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

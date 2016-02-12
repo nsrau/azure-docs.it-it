@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Come partizionare i dati in DocumentDB con .NET SDK
 
-Azure DocumentDB è un servizio di database di documenti che consente di scalare facilmente l'account attraverso il provisioning di raccolte usando gli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) e le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (detto anche **partizionamento orizzontale**). Per facilitare lo sviluppo di applicazioni partizionate e ridurre la quantità di codice boilerplate per il partizionamento delle attività, in .NET SDK è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni scalate orizzontalmente in più partizioni.
+Azure DocumentDB è un servizio di database di documenti che consente di scalare facilmente l'account attraverso il provisioning di raccolte usando gli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) e le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (detto anche **partizionamento orizzontale**). Per facilitare lo sviluppo di applicazioni partizionate e ridurre la quantità di codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js, and Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più partizioni.
 
 In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e verrà spiegato come usarle per sviluppare le applicazioni partizionate.
 
@@ -141,10 +141,6 @@ DocumentDB supporta il partizionamento lato client per due motivi:
 - È veramente difficile per gli sviluppatori prescindere dal concetto di raccolta senza compromettere l'indicizzazione/esecuzione di query coerente, la disponibilità elevata o le garanzie delle transazioni ACID. 
 - I database di documenti spesso richiedono flessibilità in termini di definizione di strategie di partizionamento, cosa che un approccio lato server non potrebbe assicurare. 
 
-**Perché il partizionamento non è supportato in altre piattaforme (Node.js, Java o Python)?**
-
-Il supporto per il partizionamento verrà gradualmente implementato in altre piattaforme in base al feedback dei clienti di .NET SDK.
-
 **Come aggiungere o rimuovere una raccolta nel proprio schema di partizionamento?**
 
 Per un esempio di come implementare il ripartizionamento, esaminare l'implementazione di DocumentClientHashPartitioningManager nel progetto degli esempi.
@@ -167,4 +163,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

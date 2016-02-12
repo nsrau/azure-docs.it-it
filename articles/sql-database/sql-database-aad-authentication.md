@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/09/2015"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connessione al database SQL con l'autenticazione di Azure Active Directory
@@ -65,7 +65,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, è nece
 
 ## Funzionalità e limitazioni di Azure AD
 
-È possibile eseguire il provisioning dei membri di Azure Active Directory seguenti in Azure SQL Server: - Membri nativi: membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md). - Membri del dominio federato: membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membri importati da altre istanze di Azure Active Directory che corrispondono a membri nativi o di dominio federato. - Gruppi di Active Directory creati come gruppi di sicurezza.
+È possibile eseguire il provisioning dei membri di Azure Active Directory seguenti in Azure SQL Server: - Membri nativi: membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/). - Membri del dominio federato: membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membri importati da altre istanze di Azure Active Directory che corrispondono a membri nativi o di dominio federato. - Gruppi di Active Directory creati come gruppi di sicurezza.
 
 Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure altri account guest, ad esempio gmail.com, yahoo.com, non sono supportati. Se è possibile accedere a [https://login.live.com](https://login.live.com) con l'account e la password, si sta usando un account Microsoft che non è supportato per l'autenticazione di Azure AD per il database SQL di Azure.
 
@@ -86,8 +86,9 @@ Creare un'istanza di Azure Active Directory e popolarla con utenti e gruppi. Ope
 
 - Creare il dominio gestito di Azure AD iniziale.
 - Attuare la federazione di un'istanza di Servizi di dominio Active Directory locale con Azure Active Directory.
+- Usando lo strumento **ADFS**, in **Servizio** nella sezione **Endpoint** abilitare **WS-Trust 1.3** per il percorso URL **/adfs/services/trust/13/windowstransport**.
 
-Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md), [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Assicurarsi che il database sia un database SQL di Azure versione 12
 
@@ -199,8 +200,7 @@ L'esempio seguente restituisce informazioni sull'amministratore di Azure AD corr
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L'esempio seguente rimuove un amministratore di Azure AD: 
-```
+L'esempio seguente rimuove un amministratore di Azure AD: ```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -314,6 +314,7 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
+
 <!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
@@ -327,4 +328,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

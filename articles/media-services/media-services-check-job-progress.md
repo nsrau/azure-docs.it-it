@@ -255,7 +255,6 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 	        }
 	 
 	
-	        // Upload a video file, and encode to Smooth Streaming format
 	        public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
 	        {
 	            // Declare a new job.
@@ -267,12 +266,12 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 	
 	            // Get a media processor reference, and pass to it the name of the 
 	            // processor to use for the specific task.
-	            IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 	
 	            // Create a task with the conversion details, using a configuration file. 
-	            ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
+	            ITask task = job.Tasks.AddNew("My encoding Task",
 	                processor,
-	                "H264 Smooth Streaming 720p",
+	                "H264 Multiple Bitrate 720p",
 	                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 	
 	            // Specify the input asset to be encoded.
@@ -437,4 +436,4 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

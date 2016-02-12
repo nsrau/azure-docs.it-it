@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori
@@ -88,7 +88,7 @@ Quando le righe vengono eliminate dalla tabella di origine, devono essere elimin
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]Sarà necessario includere la proprietà nella clausola SELECT se si usa una proiezione personalizzata.
+> [AZURE.NOTE] Sarà necessario includere la proprietà nella clausola SELECT se si usa una proiezione personalizzata.
 
 ###<a id="CreateDataSourceExample"></a>Esempio di corpo della richiesta
 
@@ -121,7 +121,7 @@ Se l'origine dati è stata creata correttamente, si riceve una risposta HTTP 201
 
 ##<a id="CreateIndex"></a>Passaggio 2: Creare un indice
 
-Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure classico](../search/search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
+Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall'[interfaccia utente del portale di Azure](../search/search-get-started.md#test-service-operations) o usando l'[API di creazione dell'](https://msdn.microsoft.com/library/azure/dn798941.aspx)indice.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

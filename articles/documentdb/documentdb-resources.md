@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2015" 
 	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
@@ -34,8 +34,7 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 
 >[AZURE.NOTE] DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modello di risorse gerarchico di DocumentDB][1] 
-**Modello di risorse gerarchico**
+![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico**
 
 Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 
@@ -61,11 +60,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 
 Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
 ---|---|---
-_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. 
-_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. 
-_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. 
-_self|Generato dal sistema|URI indirizzabile univoco della risorsa. 
-id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
+_\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. \_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. \_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. \_self|Generato dal sistema|URI indirizzabile univoco della risorsa. id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
 
 ### Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -73,18 +68,7 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ### Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
-|Valore di \_self |Descrizione 
-|-------------------|----------- 
-|/dbs |Feed di database in un account di database 
-|/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db} 
-|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database 
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll} 
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta 
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc} 
-|/dbs/{\_rid-db}/users/ |Feed di utenti in un database |/dbs/{\_rid-db}/users/{\_rid-user} 
-|Utente con un ID corrispondente al valore {_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions 
-|Feed di autorizzazioni in un utente |/dbs/{_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} 
-|Autorizzazione con un ID corrispondente al valore {_rid-permission}
+|Valore di \_self |Descrizione |-------------------|----------- |/dbs |Feed di database in un account di database |/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database |/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc} |/dbs/{\_rid-db}/users/ |Feed di utenti in un database |/dbs/{\_rid-db}/users/{\_rid-user} |Utente con un ID corrispondente al valore {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un utente |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con un ID corrispondente al valore {\_rid-permission}
   
 Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 
@@ -95,7 +79,7 @@ I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternat
 ## Account di database
 È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
 
-È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure classico all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
+È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
 
 ### Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:
@@ -107,13 +91,12 @@ Chiave primaria e Chiave secondaria|Si tratta delle chiavi primaria e secondaria
 MaxMediaStorageUsageInMB (READ)|Quantità massima di archiviazione multimediale disponibile per l'account di database.
 MediaStorageUsageInMB (READ)|Attuale utilizzo delle risorse di archiviazione multimediale per l'account di database.
 
-Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure classico, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Database
 Un database di DocumentDB è un contenitore logico di uno o più utenti e raccolte, come mostrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database DocumentDB, a condizione di rispettare i limiti di offerta.
 
-![Modello gerarchico di account di database e raccolte][2] 
-**Un database è un contenitore logico di utenti e raccolte**
+![Modello gerarchico di account di database e raccolte][2] **Un database è un contenitore logico di utenti e raccolte**
 
 Un database può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base a raccolte, che costituiscono i domini di transazione per i documenti inclusi nelle raccolte stesse.
 
@@ -144,7 +127,7 @@ Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra
 -	Possibilità di scegliere se includere o escludere percorsi o modelli specifici nei documenti dall'indice. Per ottenere questo risultato, impostare rispettivamente includedPaths e excludedPaths in indexingPolicy di una raccolta. È anche possibile configurare i compromessi relativi ad archiviazione e prestazioni per query di intervallo e hash per modelli di percorso specifici. 
 -	Possibilità di scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti) dell'indice. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco per raccolte principalmente a uso intensivo di lettura.
 
-Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure classico](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Esecuzione di query su una raccolta
 I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici e relazionali ed estendibilità attraverso funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto SQL di DocumentDB. Il linguaggio di query di DocumentDB è caratterizzato da tre aspetti principali:
@@ -395,8 +378,7 @@ Poiché la scalabilità delle applicazione deve essere adeguata all'incremento d
 
 Indipendentemente dalla strategia scelta per partizionare i dati, è possibile modellare gli utenti effettivi come utenti nel database di DocumentDB e associare autorizzazioni dettagliate a ogni utente.
 
-![Raccolte degli utenti][3] 
-**Strategie di partizionamento orizzontale e modellazione degli utenti**
+![Raccolte degli utenti][3] **Strategie di partizionamento orizzontale e modellazione degli utenti**
 
 Analogamente a tutte le altre risorse, gli utenti in DocumentDB possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa utente. È utile segnalare che se si elimina un utente, non sarà automaticamente più possibile accedere alle autorizzazioni incluse nell'utente stesso. Anche se DocumentDB recupera in background la quota di autorizzazioni come parte dell'utente eliminato, le autorizzazioni eliminate saranno disponibili immediatamente per un nuovo uso.
 
@@ -415,4 +397,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

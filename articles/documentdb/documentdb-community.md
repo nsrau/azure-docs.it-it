@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # Portale della community
@@ -64,7 +64,7 @@ Altre informazioni su [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/m
 
 <br/><br/>
 
-*Altri progetti di DocumentDB open source sono disponibili su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 <br/><br/>
 
@@ -80,6 +80,8 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 **Post della community:**
 
+* [**Scripting sul lato server per Azure DocumentDB**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *di Robert Sheldon*
+
 * [**DocumentDB come sink dati per Analisi di flusso di Azure**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *di Jan Hentschel*
 
 * [**Azure DocumentDB nell'ambiente di produzione**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *di Alexandre Walsh e Marc-Olivier Duval*
@@ -90,23 +92,23 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 * [**Punti dati: incontro tra Aurelia e DocumentDB**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *di Julie Lerman*
 
-* [**Infrastruttura come codice e distribuzione continua di una soluzione Node.js con Azure DocumentDB**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *di Thiago Almedia*
+* [**Post relativo all'infrastruttura come codice e alla distribuzione continua di una soluzione Node.js + Azure DocumentDB**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *Di Thiago Almedia*
 
 * [**Utilità commerciale di DocumentDB in determinati progetti**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *di Samuel Uresin*
 
-* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *di Atsushi Yokohama*
+* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *Di Atsushi Yokohama*
 
 * [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *di Atsushi Yokohama*
 
 * [**Gestione di errori RequestRateTooLarge in Azure DocumentDB e test delle prestazioni**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *di Azim Uddin*
 
-* [**Punti dati: panoramica di Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *di Julie Lerman*
+* [**Post relativo ai punti dati: Panoramica di Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Di Julie Lerman*
 
-* [**Uso di DocumentDB con F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *di Jamie Dixon*
+* [**Uso di DocumentDB con F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *Di Jamie Dixon*
 
 * [**Analisi dei log applicazioni con DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *di Vincent-Philippe Lauzon*
 
-* [**Azure DocumentDB: backup temporizzati**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *di Juan Carlos Sanchez*
+* [**Post relativo ad Azure DocumentDB: Backup temporizzati**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *Di Juan Carlos Sanchez*
 
 <br/><br/>
 
@@ -124,6 +126,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 3 marzo 2016 | n/d
 | SQLBits XV | Da definire | Liverpool, Regno Unito | 4-7 maggio 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askdocdb@microsoft.com) per ottenere assistenza.*
@@ -132,6 +135,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Data | Registrazione |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 gennaio 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canada | 1 dicembre 2015 | N/D |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | N/D |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27-30 ottobre 2015 | N/D |
@@ -149,7 +153,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | New York, NY | 19 maggio 2015 | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londra, Regno Unito | 19 maggio 2015 | N/D |
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | N/D |
-| [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [SELEZIONARE i video più recenti DAI video di DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Video sull'uso di DocumentDB e Azure HDInsight](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1° maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, NC | 8 aprile 2015 | n/d |
@@ -171,7 +175,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | .NET Rocks! -Podcast | Ryan Crawcour | 29 settembre 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
 | Dati esposti | Ryan Crawcour | 28 settembre 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | Podcast di Azure | Cale Teeter | 17 settembre 2015 | [Episodio 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
-| Cloud Cover | Ryan Crawcour | 4 settembre 2015 | [Episodio 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| Cloud Cover | Ryan Crawcour | 4 settembre 2015 | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
 | CodeChat 033 | Greg Doerr | 28 luglio 2015 | [Greg Doerr on Azure DocumentDB](https://channel9.msdn.com/Shows/codechat/033) |
 | NoSql Central | King Wilder | 25 maggio 2015 | [Golf Tracker: panoramica video su come compilare un'applicazione Web in AngularJS, API Web 2 e DocumentDB.](http://www.nosqlcentral.net/Story/Details/videos/kahanu/1-documentdb-golf-tracker-overview) |
 | In-Memory Technologies PASS Virtual Chapter | Stephen Baron | 25 maggio 2015 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
@@ -200,7 +204,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 ### Twitter
 
-È possibile seguire la community su Twitter [@DocumentDB](https://twitter.com/DocumentDB) e restare aggiornati sulla conversazione più recente con l'hashtag [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
+È possibile seguire la community su Twitter [@DocumentDB](https://twitter.com/DocumentDB) e rimanere aggiornati sulla conversazione più recente con l'hashtag [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
 
 <br/><br/>
 
@@ -213,21 +217,13 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 <br/><br/>
 
-### Internet Relay Chat e orari di ufficio
-
-È possibile comunicare con la community in tempo reale usando IRC su `chat.freenode.net` nel canale `#documentdb` con un [client IRC](http://www.irchelp.org/) o connettendo il proprio canale Web al canale usando [WebChat](http://webchat.freenode.net/?channels=documentdb) di Freenode.
-
-Sono disponibili orari di ufficio su IRC ogni venerdì dalle 11 alle 12 Pacifico.
-
-<br/><br/>
-
 <hr/>
 
 ## Contattare il team
 
 | | |
 | -------------------------------------------------------- | --- |
-|![Team](./media/documentdb-community/documentdb-team.png) | È necessaria l'assistenza tecnica? Altre domande? Dubbi sul fatto che NoSQL sia la scelta ottimale?<br/><br/>È possibile [pianificare una chat personale direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/).<br/><br/>È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet a [@DocumentDB](https://twitter.com/DocumentDB). |
+|![Team](./media/documentdb-community/documentdb-team.png) | È necessaria l'assistenza tecnica? Altre domande? Dubbi sul fatto che NoSQL sia la scelta ottimale?<br/><br/>È possibile [pianificare una chat personale direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/).<br/><br/>È anche possibile inviare un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB). |
 
 
 <br/><br/>
@@ -271,4 +267,4 @@ Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

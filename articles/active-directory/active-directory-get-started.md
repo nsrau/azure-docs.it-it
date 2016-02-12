@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Introduzione all'uso di Azure AD
@@ -28,7 +28,7 @@ Informazioni introduttive È consigliabile provare alcune delle interessanti opz
 > [AZURE.NOTE] Azure AD è disponibile gratuitamente per chiunque. Per avere una directory, basta iscriversi a una sottoscrizione di valutazione di Azure. La directory gratuita resta di proprietà dell'utente, che si effettuino acquisti o meno. [Provare Azure AD adesso](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Proteggere l'accesso dell'organizzazione
-Proteggere i dati di identità dell'organizzazione nel cloud usando Multi-Factor Authentication per garantire l'accesso locale e remoto protetto. [Altre informazioni su Multi-Factor Authentication](../multi-factor-authentication.md)
+Proteggere i dati di identità dell'organizzazione nel cloud usando Multi-Factor Authentication per garantire l'accesso locale e remoto protetto. [Altre informazioni su Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##Modificare e reimpostare le password
 Tagliare i costi e ridurre le chiamate al supporto tecnico per consentire agli utenti di modificare o reimpostare le password di Active Directory o Azure Active Directory o da qualsiasi dispositivo, in qualsiasi posizione. Un amministratore può gestire password e criteri di notifica e può visualizzare l'attività di controllo dettagliata di queste operazioni di reimpostazione password nel momento in cui che si verificano. [Altre informazioni su come gestire le password con Azure Active Directory](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ Azure AD fornisce numerosi report destinati agli amministratori. Con le edizioni
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

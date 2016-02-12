@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Servizi cloud Microsoft e sicurezza della rete
@@ -334,7 +334,7 @@ Sul firewall sarà necessario creare regole di inoltro. Poiché il firewall bloc
  
 ![Visualizzazione logica delle regole del firewall][10]
 
->[AZURE.NOTE] Le porte di gestione dipendono dal dispositivo virtuale di rete usato. In questo esempio si fa riferimento a Barracuda NG Firewall, che usa le porte 22, 801 e 807. Per informazioni precise sulle porte usate per la gestione del dispositivo in uso, vedere la documentazione del fornitore del dispositivo.
+>[AZURE.NOTE] Le porte di gestione dipendono dal dispositivo virtuale di rete usato. In questo esempio si fa riferimento a Barracuda NextGen Firewall, che usa le porte 22, 801 e 807. Per informazioni precise sulle porte usate per la gestione del dispositivo in uso, vedere la documentazione del fornitore del dispositivo.
 
 #### Descrizione delle regole del firewall
 Nel diagramma logico precedente la subnet di sicurezza non viene mostrata, perché il firewall è l'unica risorsa su tale subnet e questo diagramma illustra le regole del firewall e il modo in cui le regole consentono o negano logicamente i flussi di traffico, non il percorso indirizzato effettivo. Le porte esterne selezionate per il traffico RDP, inoltre, sono le porte incluse negli intervalli più elevati (8014 - 8026) e sono state selezionate per allinearsi almeno in parte con gli ultimi due ottetti dell'indirizzo IP locale per facilitarne la lettura. Ad esempio, l'indirizzo del server locale 10.0.1.4 è associato alla porta esterna 8014. È tuttavia possibile usare qualsiasi porta superiore non in conflitto.
@@ -511,4 +511,4 @@ saranno presto disponibili, con collegamenti in questa pagina.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

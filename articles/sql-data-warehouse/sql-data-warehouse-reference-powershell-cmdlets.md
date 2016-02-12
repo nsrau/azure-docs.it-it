@@ -30,15 +30,15 @@ Allo stesso modo, le API REST per il **database di Azure SQL** possono essere us
 2. Per eseguire il modulo, nella finestra di avvio digitare **Microsoft Azure PowerShell**.
 3. Se non si è ancora provveduto ad aggiungere il proprio account al computer, eseguire il cmdlet seguente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell]().
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Selezionare la sottoscrizione per il database che si desidera sospendere o riprendere. In questo modo si seleziona la sottoscrizione denominata "MySubscription".
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Per i riferimenti ai comandi, vedere [Resume AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+Per i riferimenti ai comandi, vedere [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Esempio 1: Ripresa di un database per nome in un server
 
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet di powershell.
+> [AZURE.NOTE] Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet di powershell.
 
 
 ## Passaggi successivi
@@ -133,4 +133,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

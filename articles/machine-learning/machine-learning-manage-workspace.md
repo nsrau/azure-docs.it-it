@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
 # Gestire un'area di lavoro di Azure Machine Learning
-Tramite il portale di Azure classico, è possibile gestire le aree di lavoro di Machine Learning per:
+Tramite il portale di Azure classico è possibile gestire le aree di lavoro di Machine Learning per:
 
 - Monitorare la modalità d'uso dell'area di lavoro.
 - Configurare l'area di lavoro per consentire o negare l'accesso.
@@ -29,12 +29,12 @@ Tramite il portale di Azure classico, è possibile gestire le aree di lavoro di 
 
 Nella scheda Dashboard viene inoltre fornita una panoramica dell'utilizzo dell'area di lavoro e un riepilogo rapido delle informazioni relative all'area di lavoro.
 
-> [AZURE.TIP]Nella scheda **WEB SERVICES** di Azure Machine Learning Studio è possibile aggiungere, aggiornare o eliminare un servizio Web di Machine Learning.
+> [AZURE.TIP] Nella scheda **WEB SERVICES** di Azure Machine Learning Studio è possibile aggiungere, aggiornare o eliminare un servizio Web di Machine Learning.
 
 Per gestire un'area di lavoro:
 
-1.	Accedere all'account Microsoft Azure, usando l'account associato alla sottoscrizione di Azure.
-2.	Nel [portale di Azure classico](https://manage.windowsazure.com/) nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com/) usando l'account Microsoft Azure. Usare l'account associato alla sottoscrizione di Azure.
+2.	Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 3.	Fare clic sull'area di lavoro da gestire.
 
 La pagina dell'area di lavoro contiene tre schede:
@@ -54,7 +54,7 @@ Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavo
 - **Usage overview** mostra l'archiviazione di Azure attualmente in uso nell'area di lavoro.
 - **Quick glance** visualizza un riepilogo delle informazioni dell'area di lavoro e collegamenti utili.
 
-> [AZURE.NOTE]Il link all’**Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure classico per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
+> [AZURE.NOTE] Il link all’**Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure classico per creare un'area di lavoro non è automaticamente autorizzato ad aprire quell'area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
 
 
 ## Per concedere o sospendere l'accesso agli utenti ##
@@ -81,7 +81,7 @@ Per un servizio Web possono essere definiti uno o più endpoint.
 
 - Per eliminare un endpoint, tranne l'endpoint "Default", fare clic in un punto qualsiasi, eccetto il nome, nella riga dell'endpoint quindi fare clic su **DELETE ENDPOINT** nella parte inferiore della pagina. L'endpoint verrà rimosso dal servizio Web.
 
-    > [AZURE.NOTE]Se in un'applicazione è in uso l'endpoint di servizio Web quando questo viene eliminato, al successivo tentativo di accesso al servizio da parte dell'applicazione verrà visualizzato un errore .
+    > [AZURE.NOTE] Se in un'applicazione è in uso l'endpoint di servizio Web quando questo viene eliminato, al successivo tentativo di accesso al servizio da parte dell'applicazione verrà visualizzato un errore .
 
 Fare clic sul nome dell'endpoint di servizio Web per aprirlo. Il grafico relativo all'utilizzo mostra le risorse di calcolo e di stima usate dall'endpoint di servizio Web. È possibile modificare la visualizzazione per mostrare i valori relativi o assoluti, nonché cambiare l'intervallo di tempo visualizzato nel grafico.
 
@@ -94,4 +94,4 @@ Fare clic sulla scheda **CONFIGURA** per modificare la descrizione, controllare 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

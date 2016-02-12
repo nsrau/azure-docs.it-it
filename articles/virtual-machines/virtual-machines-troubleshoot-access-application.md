@@ -86,7 +86,7 @@ Se non è possibile accedere all'applicazione, verificare quanto segue:
 - Per le macchine virtuali create mediante le API di Gestione dei servizi, che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 - Per le macchine virtuali create mediante le API di Gestione dei servizi, che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in entrata da Internet. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 - Per le macchine virtuali create in Gestione risorse, che la configurazione della regola NAT in entrata per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
-- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](virtual-networks-nsg.md).
+- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
 
@@ -125,4 +125,4 @@ Se si sono seguiti i passaggi indicati in questo articolo e si desidera ulterior
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

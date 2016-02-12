@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # Utilizzo dei dati geospaziali in Azure DocumentDB
@@ -138,7 +138,7 @@ Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone 
 Ora che abbiamo esaminato come inserire i dati geospaziali, diamo un'occhiata a come eseguire query sui dati utilizzando DocumentDB, SQL e LINQ.
 
 ### Funzioni predefinite spaziali di SQL
-DocumentDB supporta le seguenti funzioni predefinite dell’Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per ulteriori informazioni sul set completo di funzioni integrate nel linguaggio SQL, vedere [Query di DocumentDB](documentdb-sql-query.md).
+DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per ulteriori informazioni sul set completo di funzioni integrate nel linguaggio SQL, vedere [Query di DocumentDB](documentdb-sql-query.md).
 
 <table>
 <tr>
@@ -350,9 +350,9 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
 ## Passaggi successivi
 Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in DocumentDB, è possibile:
 
-- Iniziare a programmare con gli [esempi di codice .NET geospaziale su Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
+- Iniziare a programmare con gli [esempi di codice .NET geospaziale su Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
 - Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

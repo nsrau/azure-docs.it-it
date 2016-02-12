@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]Microsoft Azure Media Packager e Microsoft Azure Media Encryptor raggiungeranno la fine della vita il 1° marzo 2016. In quel momento, questi componenti non saranno più disponibili. Le funzionalità di crittografia e di conversione di formato verranno rese disponibile tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]La fine della vita per Windows Azure Media Packager e Windows Azure Media Encryptor è stata estesa al 1° marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Panoramica
 
@@ -968,7 +968,7 @@ L'esempio riportato in questa sezione codifica un file in formato intermedio (in
 
 Se si desidera proteggere i contenuti con PlayReady, è possibile scegliere di utilizzare [la crittografia dinamica](media-services-protect-with-drm.md) (opzione consigliata) o la crittografia statica (come descritto in questa sezione).
 
->[AZURE.NOTE]Per proteggere il contenuto mediante PlayReady è necessario innanzitutto convertire/codificare il contenuto in un formato Smooth Streaming.
+>[AZURE.NOTE] Per proteggere il contenuto mediante PlayReady è necessario innanzitutto convertire/codificare il contenuto in un formato Smooth Streaming.
 
 L'esempio riportato in questa sezione codifica un file in formato intermedio (in questo caso MP4) in file MP4 a velocità multipla. Poi crea dei pacchetti MP4s in Smooth Streaming e crittografa Smooth Streaming con PlayReady. Per produrre HTTP Live Streaming (HLS) crittografato con PlayReady, si deve inserire in un pacchetto HLS l'asset Smooth Streaming PlayReady. In questo argomento viene illustrato come eseguire questa procedura.
 
@@ -1447,4 +1447,4 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

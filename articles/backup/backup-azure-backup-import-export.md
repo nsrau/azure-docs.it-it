@@ -3,12 +3,20 @@
    description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="Jim-Parker"
+   manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="01/28/2016"
+   ms.author="jimpark;"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
+In Backup di Azure sono integrate molte funzionalità che consentono di ridurre in modo efficiente i costi di rete e archiviazione. Backup di Azure non solo comprime i dati, ma esegue anche il backup dell'intero contenuto una sola volta e quindi solo backup incrementali/differenziali. Di conseguenza, se viene eseguito il backup di un volume di file di 10 TB, Backup di Azure invierà 10 TB come parte della replica iniziale e solo il contenuto differenziale come parte della replica differenziale. Durante la replica iniziale è quindi necessaria la massima larghezza di banda WAN. Per ridurre la dipendenza della WAN durante la replica iniziale, Backup di Azure supporta il backup offline con il servizio di importazione/esportazione di Azure.
 
 Backup di Azure è integrato con il servizio di importazione/esportazione di Azure che consente di trasferire rapidamente i dati del backup iniziale. Se si hanno terabyte di dati del backup iniziale da trasferire tramite una rete con latenza elevata e larghezza di banda ridotta, è possibile usare il servizio di importazione/esportazione di Azure per spedire la copia di backup iniziale in uno o più dischi rigidi a un data center di Azure. Questo articolo offre una panoramica dei passaggi necessari per completare il flusso di lavoro.
 
@@ -18,7 +26,7 @@ Con Backup di Azure e il servizio di importazione/esportazione di Azure, caricar
 
 ## Prerequisiti
 
-1. È importante acquisire familiarità con il flusso di lavoro di importazione/esportazione di Azure elencato [in questa pagina](../storage-import-export-service.md).
+1. È importante acquisire familiarità con il flusso di lavoro di importazione/esportazione di Azure elencato [in questa pagina](../storage/storage-import-export-service.md).
 2. Prima di avviare il flusso di lavoro, verificare che sia stato creato un insieme di credenziali per Backup di Azure, che siano state scaricate le credenziali di insieme, che l'agente Backup di Azure sia stato installato in Windows Server, nel client Windows o nel server System Center Data Protection Manager (SCDPM) e che il computer sia registrato nell'insieme di credenziali per Backup di Azure.
 3. Scaricare il file di impostazioni di pubblicazione di Azure [da questa pagina](https://manage.windowsazure.com/publishsettings) sul computer da cui si prevede di eseguire il backup dei dati.
 4. Preparare un *percorso di gestione temporanea* che può essere una condivisione di rete o un disco aggiuntivo nel computer. Verificare che nel percorso di gestione temporanea sia disponibile spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di gestione temporanea sia almeno di 500 GB, anche se verrà usata una quantità inferiore. L'area di gestione temporanea è uno spazio di archiviazione temporaneo usato durante il flusso di lavoro.
@@ -27,7 +35,7 @@ Con Backup di Azure e il servizio di importazione/esportazione di Azure, caricar
 7. Scaricare lo strumento di importazione/esportazione di Azure da [questa pagina](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) nel computer a cui è connessa l'unità di scrittura SATA.
 
 ## Flusso di lavoro
-Le informazioni presenti in questa sezione consentono di completare il flusso di lavoro di **Backup offline** in modo che i dati possano essere inviati a un data center di Azure e caricati nell'archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione sulla [panoramica del servizio di importazione](../storage-import-export-service.md) citata in precedenza.
+Le informazioni presenti in questa sezione consentono di completare il flusso di lavoro di **Backup offline** in modo che i dati possano essere inviati a un data center di Azure e caricati nell'archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione sulla [panoramica del servizio di importazione](../storage/storage-import-export-service.md) citata in precedenza.
 
 ### Avviare Backup offline
 
@@ -45,6 +53,9 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
     - **ID sottoscrizione di Azure**: specificare l'ID sottoscrizione di Azure in cui si intende avviare il processo di importazione di Azure. Se si hanno più sottoscrizioni di Azure, usare l'ID associato al processo di importazione.
     - **Account di archiviazione di Azure**: immettere il nome dell'account di archiviazione di Azure che verrà associato a questo processo di importazione.
     - **Contenitore di archiviazione di Azure**: immettere il nome del BLOB di archiviazione di destinazione in cui verranno importati i dati del processo.
+
+Salvare queste informazioni separatamente perché dovranno essere reinserite in passaggi successivi.
+
 
 2. Completare il flusso di lavoro e selezionare **Esegui backup ora** nella console MMC di Backup di Azure per avviare la copia di backup offline. Durante questo passaggio il backup iniziale viene scritto nell'area di gestione temporanea.
 
@@ -71,15 +82,15 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 |-------------|-------------|
 | /j:<*JournalFile*>| Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Si noti che il file journal non deve trovarsi nell'unità di destinazione. Il file journal ha estensione jrn e viene creato durante l'esecuzione del comando.|
 |/id:<*SessionId*> | L'ID di sessione identifica una *sessione di copia*. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione.|
-| /sk:<*StorageAccountKey*> | Chiave account per l'account di archiviazione in cui verranno importati i dati. |
+| /sk:<*StorageAccountKey*> | Chiave account per l'account di archiviazione in cui verranno importati i dati. Deve essere lo stessa immessa durante la creazione del gruppo di criteri di backup/protezione.|
 | /BlobType | Specificare **PageBlob**. Il flusso di lavoro avrà esito positivo solo se viene specificata l'opzione PageBlob. Questa non è l'opzione predefinita e deve essere indicata nel comando. |
 |/t:<*TargetDriveLetter*> | Lettera di unità del disco rigido di destinazione per la sessione di copia corrente, senza i due punti finali.|
 |/format | Specificare questo parametro se è necessario formattare l'unità. In caso contrario, ometterlo. Prima di formattare l'unità, verrà chiesta una conferma dalla console. Per evitare questa richiesta di conferma, specificare il parametro /silentmode.|
 |/encrypt | Specificare questo parametro se l'unità non è ancora stata crittografata con BitLocker e deve essere crittografata tramite lo strumento. Se l'unità è già stata crittografata con BitLocker, omettere questo parametro e specificare il parametro /bk, fornendo la chiave BitLocker esistente. Se si specifica il parametro /format, sarà necessario specificare anche il parametro /encrypt. |
-|/srcdir:<*SourceDirectory*> | Directory di origine contenente i file da copiare nell'unità di destinazione. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
-|/dstdir:<*DestinationBlobVirtualDirectory*> | Percorso della directory virtuale di destinazione nell'account di archiviazione di Microsoft Azure. Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole.|
+|/srcdir:<*SourceDirectory*> | Directory di origine contenente i file da copiare nell'unità di destinazione. Verificare che il nome della directory specificato qui sia il percorso completo, non un percorso relativo.|
+|/dstdir:<*DestinationBlobVirtualDirectory*> | Percorso della directory virtuale di destinazione nell'account di archiviazione di Microsoft Azure. Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Questo nome di contenitore deve essere lo stesso specificato durante la creazione del gruppo di criteri di backup/protezione.|
 
-  >[AZURE.NOTE]Nella cartella WAImportExport viene creato un file journal che acquisisce tutte le informazioni relative al flusso di lavoro. Questo file sarà necessario durante la creazione di un processo di importazione nel portale di Azure.
+  > [AZURE.NOTE] Nella cartella WAImportExport viene creato un file journal che acquisisce tutte le informazioni relative al flusso di lavoro. Questo file sarà necessario durante la creazione di un processo di importazione nel portale di Azure.
 
   ![Output di PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
@@ -90,7 +101,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 2. Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile. Nel passaggio 2 della procedura guidata specificare le informazioni di contatto per la persona responsabile di questo processo di importazione.
 3. Nel passaggio 3 caricare i file journal dell'unità ottenuti nella sezione precedente.
-4. Nel passaggio 4 immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
+4. Nel passaggio 4 immettere un nome descrittivo per il processo di importazione come quello immesso durante la creazione del gruppo di criteri di backup/protezione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto verrà usato per tenere traccia dei processi mentre sono in corso e dopo essere stati completati.
 5. Selezionare quindi l'area geografica del data center dall'elenco. L'area geografica del data center indica il data center e l'indirizzo per la spedizione del pacchetto.
 
     ![DC](./media/backup-azure-backup-import-export/dc.png)
@@ -105,7 +116,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazione, l'agente Backup di Azure copia il contenuto dei dati da questo account all'account di archiviazione del backup multi-tenant. Al successivo backup pianificato, l'agente Backup di Azure esegue il backup incrementale sulla copia di backup iniziale.
 
 ## Passaggi successivi
-- Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
+- Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage/storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Informazioni su Azure Machine Learning Studio
@@ -31,7 +31,7 @@ Per sviluppare un modello di analisi predittiva, in genere si usano dati proveni
 
 **Azure Machine Learning Studio** offre un'area di lavoro visiva e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. È possibile trascinare la selezione di ***set di dati*** e ***moduli*** di analisi in un'***area di disegno*** interattiva, collegandoli tra loro per ottenere un ***esperimento*** da ***eseguire*** in Machine Learning Studio. Per eseguire l'iterazione della progettazione del modello, ***modificare*** l'esperimento, ***salvare*** una copia, se lo si desidera, e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l'***esperimento di training*** in un ***esperimento predittivo*** e quindi ***pubblicarlo*** come un ***servizio Web*** in modo che altri utenti possano accedere al modello.
 
->[AZURE.TIP]Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire un modello di analisi predittiva.
 
@@ -48,7 +48,7 @@ Nella parte superiore sono disponibili tre schede: **Home** (scheda iniziale), *
 Fare clic sulla scheda **Studio**. Verrà richiesto di effettuare l'accesso usando il proprio account Microsoft oppure l'account aziendale o dell'istituto di istruzione. Una volta effettuato l'accesso, a sinistra verranno visualizzate le schede seguenti:
 
 - **EXPERIMENTS** - esperimenti creati, eseguiti e salvati come bozze.
-- **WEB SERVICES** - servizi Web distribuiti tramite gli esperimenti.
+- **WEB SERVICES**: servizi Web distribuiti tramite gli esperimenti.
 - **NOTEBOOKS** - notebook Jupyter creati.
 - **DATASETS** - set di dati caricati in Studio.
 - **TRAINED MODELS** - modelli sottoposti a training durante gli esperimenti e salvati in Studio.
@@ -93,7 +93,7 @@ Per un elenco dei set di dati di esempio inclusi in Machine Learning Studio, ved
 Un modulo è un algoritmo che è possibile applicare ai dati. Machine Learning Studio include diversi moduli, da funzioni di inserimento dei dati a processi di training, valutazione e convalida. Ecco alcuni esempi di moduli inclusi:
 
 - [Convert to ARFF][convert-to-arff]\: converte un set di dati serializzato .NET nel formato ARFF (Attribute-Relation File Format).
-- [Elementary Statistics][elementary-statistics]\: calcola le statistiche elementari come media, deviazione standard e così via.
+- [Compute Elementary Statistics][elementary-statistics]\: calcola le statistiche elementari come media, deviazione standard e così via.
 - [Linear Regression][linear-regression]\: crea un modello di regressione lineare online basato su valori descent con sfumatura.
 - [Score Model][score-model]\: assegna un punteggio a un modello di classificazione sottoposto a training o di regressione.
 
@@ -115,4 +115,4 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

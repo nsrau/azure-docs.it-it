@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di gennaio 2016](#jan_changes_16)
 - [Versione di dicembre 2015](#dec_changes_15)
 - [Versione di novembre 2015](#nov_changes_15)
 - [Versione ottobre 2015](#oct_changes_15)
@@ -76,6 +77,13 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 ##<a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+
+##<a id="jan_changes_16"></a>Versione di gennaio 2016
+
+Unità riservate di codifica rinominate per ridurre la confusione con i nomi del codificatore.
+
+Le unità riservate di codifica Basic, Standard e Premium sono state rinominate rispettivamente unità riservate S1, S2 e S3. I clienti che usano unità riservate con codifica Basic visualizzeranno ora l'etichetta S1 nel portale di Azure e nella fattura, mentre i clienti con codifica Standard e Premium visualizzeranno rispettivamente le etichette S2 e S3.
 
 ##<a id="dec_changes_15"></a>Versione di dicembre 2015
 
@@ -634,4 +642,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

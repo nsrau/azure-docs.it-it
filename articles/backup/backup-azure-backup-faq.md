@@ -1,10 +1,10 @@
 <properties
    pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-   description="Domande frequenti sulla soluzione Azure Backup: agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sul servizio Azure Backup."
+   description="Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="soluzione di backup; servizio di backup"/>
 
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Servizio di backup di Azure - Domande frequenti
@@ -183,4 +183,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

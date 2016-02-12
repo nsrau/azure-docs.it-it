@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Novatus in Azure AD, è necessario aggiungere 
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Novatus**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Novatus** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Novatus** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Novatus in base a un utente test di nome "Britta Simon".
@@ -94,7 +94,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_04.png) <br>
 
 
-    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Novatus adottando il modello seguente: **"https://sso.novatuscontracts.com/companyname"**. Quando si fa riferimento a un nome generico, **companyname** deve essere sostituito da un nome effettivo.
+    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Novatus adottando il modello seguente: **"https://sso.novatuscontracts.com/nomesocietà"**. Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Novatus** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_05.png) <br>
@@ -213,4 +213,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

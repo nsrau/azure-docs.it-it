@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/06/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
@@ -122,7 +122,7 @@ Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tut
                     Il prezzo di Analisi di flusso viene determinato dal volume dei dati elaborati e dal numero di unità di streaming (per ogni ora di esecuzione del processo) necessarie.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Altre informazioni sui prezzi sono disponibili qui</a>.
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Altre informazioni sui prezzi sono disponibili qui.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -130,7 +130,7 @@ Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tut
                     Per Apache Storm in HDInsight, l'unità di acquisto è basata su cluster e l'addebito avviene in base al tempo di esecuzione del cluster, indipendentemente dai processi distribuiti.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Altre informazioni sui prezzi sono disponibili qui</a>.
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Altre informazioni sui prezzi sono disponibili qui.</a>
                 </p>
             </td>
         </tr>
@@ -588,4 +588,4 @@ Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tut
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

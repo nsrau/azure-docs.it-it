@@ -22,8 +22,6 @@
 L'interfaccia della riga di comando di Azure è un insieme di comandi multipiattaforma open source per l'uso della piattaforma Azure. Questo articolo spiega come connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure per usare tutti i comandi di tale interfaccia. Se l'interfaccia non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
-
 
 Per connettersi alla propria sottoscrizione dall'interfaccia della riga di comando di Azure, è possibile procedere in due modi:
 
@@ -158,4 +156,4 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
 
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Si desidera fornire l'accesso per gli utenti remoti che dispongono di tutti i tipi di dispositivi: gestiti, non gestiti; tablet, smartphone e computer portatili. Fornire un accesso protetto a una miriade di risorse può essere complesso. Negli ultimi anni, i proxy inversi sono stati una modalità comune per fornire l'accesso remoto protetto, ma dovevano essere protetti da firewall che erano difficili da proteggere e da rendere altamente disponibili.
 
@@ -59,7 +59,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Risorse aggiuntive
-* [Iscriversi ad Azure come organizzazione](../sign-up-organization.md)
-* [Identità di Azure](../fundamentals-identity.md)
+* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+* [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

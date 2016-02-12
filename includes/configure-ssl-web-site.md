@@ -393,12 +393,20 @@ L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i 
 > [AZURE.NOTE] Prima di cambiare il livello di un'app da **Gratuito** a **Standard**, è necessario rimuovere i limiti di spesa applicati per la sottoscrizione o si rischia che l'app risulti non disponibile se si raggiungono i limiti prima del termine del periodo di fatturazione. Per altre informazioni sulla modalità condivisa e il livello **Standard**, vedere [Dettagli prezzi][pricing].
 
 1.	Accedere al [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) dal browser.
+	
 2.	Fare clic sull'opzione **Sfoglia** a sinistra nella pagina.
+
 3.	Fare clic sul pannello **App Web**.
+
 4.	Fare clic sul nome dell'app.
+
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.
-6.	Fare clic su **Scala**.![Scheda Scalabilità][scale]
-7.	Nella sezione **Scala** impostare la modalità del piano di servizio app facendo clic su **Seleziona**. ![Livello di prezzo][sslreserved]
+
+6.	Fare clic su **Ridimensiona**.
+	
+	![Scheda Scalabilità][scale]
+
+7.	Nella sezione **Ridimensiona** impostare la modalità del piano del servizio app facendo clic su **Seleziona**.
 
 	> [AZURE.NOTE] Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per l'app Web '&lt;nome app&gt' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni. È possibile che venga visualizzato un errore di tipo "Server di istanze riservate disponibili non sufficienti per soddisfare la richiesta". Se viene visualizzato questo errore, contattare il [Supporto per Azure](/support/options/).
 
@@ -408,15 +416,25 @@ L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i 
 Prima di eseguire la procedura inclusa in questa sezione, è necessario avere associato un nome di dominio personalizzato all'app. Per altre informazioni, vedere [Configurazione di un nome di dominio personalizzato per un'app Web][customdomain].
 
 1.	Accedere al [portale di gestione di Azure](https://portal.azure.com) dal browser.
+
 2.	Fare clic sull'opzione **Sfoglia** a sinistra nella pagina.
+
 3.	Fare clic sul pannello **App Web**.
+
 4.	Fare clic sul nome dell'app.
+
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.
-6.	Fare clic su **Domini personalizzati ed SSL**. 
-	![Scheda di configurazione][sslconfig]
+
+6.	Fare clic su **Domini e SSL personalizzati**.
+
+	![Scheda di configurazione][configure]
+
 7.	Nella sezione **certificati** fare clic su **Carica**
-8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Fare infine clic su **Salva** per caricare il certificato. 
-	![Caricamento SSL][ssluploadcert]
+
+8.	Nella finestra di dialogo **Carica un certificato** selezionare il file del certificato con estensione pfx creato in precedenza tramite Gestione IIS oppure OpenSSL. Specificare la password, se necessaria, usata per la protezione del file con estensione pfx. Infine, fare clic su **Salva** per caricare il certificato.
+
+	![Caricamento SSL][uploadcert]
+
 9. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su [Indicazione nome server][sni] (SNI, Server Name Indication) o IP.
 
 	![Associazioni SSL][sslbindings]
@@ -547,4 +565,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Spostare dati da e verso il database SQL di Azure mediante Data factory di Azure
+# Spostare dati da e nel database SQL di Azure con Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati in SQL Azure da un altro archivio dati e spostare dati da un altro archivio dati a SQL Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
-## Esempio: Copiare i dati da SQL Azure al BLOB di Azure
+Gli esempi seguenti mostrano come copiare dati da e nel database SQL di Azure e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+
+
+## Esempio: Copiare i dati dal database SQL di Azure SQL nel BLOB di Azure
 
 L'esempio seguente mostra:
 
@@ -200,7 +203,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
-> [AZURE.NOTE]Nell'esempio precedente, la proprietà **sqlReaderQuery** è specificata per SqlSource. L'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati.
+> [AZURE.NOTE] Nell'esempio precedente, la proprietà **sqlReaderQuery** è specificata per SqlSource. L'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati.
 >  
 > In alternativa, è possibile specificare una stored procedure specificando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
 >  
@@ -210,7 +213,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 Vedere la sezione [SqlSource](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) per l'elenco delle proprietà supportate da SqlSource e BlobSink.
 
 
-## Esempio: Copiare i dati dal BLOB di Azure in SQL Azure
+## Esempio: Copiare i dati dal BLOB di Azure nel database SQL di Azure
 
 L'esempio seguente mostra:
 
@@ -393,7 +396,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 Vedere la sezione [SqlSink](#sqlsink) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) per l'elenco delle proprietà supportate da SqlSink e BlobSink.
 
 
-## Proprietà del servizio collegato SQL di Azure
+## Proprietà del servizio collegato Azure SQL
 
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
 
@@ -404,7 +407,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 **Nota:** è necessario configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in SQL Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a SQL Azure.
 
-## Proprietà del tipo del set di dati di SQL Azure
+## Proprietà del tipo del set di dati di Azure SQL
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
@@ -414,11 +417,11 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 | -------- | ----------- | -------- |
 | tableName | Nome della tabella nell'istanza di database SQL di Azure a cui fa riferimento il servizio collegato. | Sì |
 
-## Proprietà del tipo di attività di copia di SQL Azure
+## Proprietà del tipo di attività di copia di Azure SQL
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
-> [AZURE.NOTE]L'attività di copia accetta solo un input e produce solo un output.
+> [AZURE.NOTE] L'attività di copia accetta solo un input e produce solo un output.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
@@ -504,9 +507,9 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mapping dei tipi di SQL Server e SQL Azure
+### Mapping dei tipi di SQL Server e del database SQL di Azure
 
-Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatico da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -560,4 +563,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 	 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
@@ -37,7 +37,7 @@ Passaggio | Descrizione
 [Passaggio 5: Monitorare le sezioni e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio verranno monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
  
 
-## <a name="CreateDataFactory"></a>Passaggio 1: Creare un'istanza di Data factory di Azure
+## <a name="CreateDataFactory"></a> Passaggio 1: Creare un'istanza di Data factory di Azure
 In questo passaggio viene usato il portale di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.
 
 1.	Dopo l'accesso al [portale di Azure][azure-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e quindi fare clic su **Data factory** nel pannello **Analisi dei dati**. 
@@ -459,4 +459,4 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

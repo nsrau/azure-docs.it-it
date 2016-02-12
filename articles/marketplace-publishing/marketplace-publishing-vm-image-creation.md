@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/02/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
@@ -45,7 +45,7 @@ Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È 
 
 1. **Aggiungere uno SKU.** Per lo SKU è necessario un identificatore, che viene usato nell'URL. L'identificatore deve essere univoco nel profilo di pubblicazione, ma non vi è alcun rischio di conflitto tra identificatori con altri editori.
 
-> [AZURE.NOTE]L'identificatore dell'offerta e quello dello SKU vengono visualizzati nell'URL dell'offerta nel Marketplace.
+> [AZURE.NOTE] L'identificatore dell'offerta e quello dello SKU vengono visualizzati nell'URL dell'offerta nel Marketplace.
 
 2. **Aggiungere una descrizione di riepilogo per lo SKU.** Le descrizioni di riepilogo sono visibili ai clienti, è quindi consigliabile che siano facili da leggere. Non è necessario bloccare queste informazioni fino al raggiungimento della fase "Passa a gestione temporanea". Fino a quel momento, è possibile modificarle liberamente.
 3. Se si usano SKU basati su Windows, seguire i collegamenti consigliati per acquistare le versioni approvate di Windows Server.
@@ -53,7 +53,7 @@ Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È 
 ## 2\. Creare un VHD compatibile con Azure (basato su Linux)
 Questa sezione è incentrata sulle procedure consigliate per la creazione di un'immagine di macchina virtuale basata su Linux per Azure Marketplace. Per una procedura dettagliata, vedere la documentazione seguente: [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux][link-azure-vm-1].
 
-> [AZURE.TIP]Molti dei passaggi seguenti (ad esempio, installazione dell'agente e parametri di avvio del kernel) sono già stati eseguiti per le immagini Linux disponibili nella Raccolta immagini di Microsoft Azure. Partendo quindi da una di queste immagini invece di configurare un'immagine Linux non compatibile con Azure, è possibile risparmiare tempo.
+> [AZURE.TIP] Molti dei passaggi seguenti (ad esempio, installazione dell'agente e parametri di avvio del kernel) sono già stati eseguiti per le immagini Linux disponibili nella Raccolta immagini di Microsoft Azure. Partendo quindi da una di queste immagini invece di configurare un'immagine Linux non compatibile con Azure, è possibile risparmiare tempo.
 
 ### 2\.1 Scegliere la dimensione corretta per il VHD
 Gli SKU (immagini di macchina virtuale) pubblicati devono essere progettati per funzionare con tutte le dimensioni di macchina virtuale che supportano il numero di dischi per lo SKU. È possibile fornire indicazioni sulle dimensioni consigliate, che tuttavia verranno trattate come raccomandazioni, senza alcun obbligo di osservarle.
@@ -150,7 +150,7 @@ Per iniziare, creare una macchina virtuale da una delle immagini seguenti, dispo
 
 Questi collegamenti sono disponibili anche nella pagina degli SKU del portale di pubblicazione.
 
-> [AZURE.TIP]Se si usa l'attuale portale di Azure o PowerShell, sono approvate le immagini di Windows Server pubblicate a partire dall'8 settembre 2014.
+> [AZURE.TIP] Se si usa l'attuale portale di Azure o PowerShell, sono approvate le immagini di Windows Server pubblicate a partire dall'8 settembre 2014.
 
 
 ### 3\.2 Creare la macchina virtuale basata su Windows
@@ -195,7 +195,7 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 ### 3\.3 Sviluppare il VHD nel cloud
 È consigliabile sviluppare il VHD nel cloud usando Remote Desktop Protocol (RDP). Per connettersi a RDP, usare il nome utente e la password specificati durante il provisioning.
 
-> [AZURE.IMPORTANT]Se si sviluppa il VHD in locale (scelta non consigliata), vedere l'articolo relativo alla [creazione di un'immagine di macchina virtuale in locale](marketplace-publishing-vm-image-creation-on-premise.md). Il download del VHD non è necessario se lo sviluppo viene eseguito nel cloud.
+> [AZURE.IMPORTANT] Se si sviluppa il VHD in locale (scelta non consigliata), vedere l'articolo relativo alla [creazione di un'immagine di macchina virtuale in locale](marketplace-publishing-vm-image-creation-on-premise.md). Il download del VHD non è necessario se lo sviluppo viene eseguito nel cloud.
 
 
 **Connettersi con RDP usando il [portale di Microsoft Azure][link-azure-portal]**
@@ -580,14 +580,11 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
 2. Selezionare la scheda **Immagini VM**.
 3. L'identificatore visualizzato nella parte superiore della pagina è in realtà l'identificatore dell'offerta e non quello dello SKU.
 4. Impostare le proprietà nella sezione **SKU**.
-
-    ![disegno][img-pubportal-vm-skus]
-
 5. In **Famiglia di sistemi operativi** selezionare il tipo di sistema operativo associato al VHD del sistema operativo.
 6. Nella casella **Sistema operativo** descrivere il sistema operativo. Usare preferibilmente il formato famiglia di sistemi operativi, tipo, versione e aggiornamenti. Esempio: "Windows Server Datacenter 2014 R2".
-7. Selezionare tre dimensioni di macchina virtuale consigliate. Questi consigli vengono visualizzati dal cliente nel pannello Piano tariffario del portale di Azure quando sceglie di acquistare e distribuire l'immagine.
+7. Selezionare fino a sei dimensioni della macchina virtuale consigliate. Questi consigli vengono visualizzati dal cliente nel pannello Piano tariffario del portale di Azure quando sceglie di acquistare e distribuire l'immagine.
 
-  >[AZURE.NOTE]Si tratta esclusivamente di raccomandazioni. Il cliente può selezionare qualsiasi dimensione di macchina virtuale appropriata ai dischi specificati nell'immagine.
+  > [AZURE.NOTE] Si tratta esclusivamente di raccomandazioni. Il cliente può selezionare qualsiasi dimensione di macchina virtuale appropriata ai dischi specificati nell'immagine.
 
 8. Immettere la versione. Il campo della versione incapsula una versione semantica per identificare il prodotto e gli aggiornamenti.
   -	Le versioni devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi.
@@ -596,14 +593,11 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
 9. In **URL VHD sistema operativo** immettere l'URI di firma di accesso condiviso creato per il VHD del sistema operativo.
 10. Se allo SKU sono associati dischi dati, selezionare il numero di unità logica (LUN) su cui deve essere montato il disco dati in fase di distribuzione.
 11. In **URL VHD LUN X** immettere l'URI di firma di accesso condiviso creato per il primo VHD dei dati.
-12.	Fare clic su **Carica risultati dei test**.
-13.	Fare clic su **Richiedi certificazione**.
-14.	Ripetere i passaggi 11, 12 e 13 per tutti i VHD dei dischi dati aggiuntivi.
 
     ![disegno][img-pubportal-vm-skus-2]
 
 ## Passaggio successivo
-Dopo aver inviato gli SKU dell'immagine di macchina virtuale per la certificazione, è possibile passare alla [Guida ai contenuti marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
+Dopo aver specificato i dettagli dello SKU, passare alla [guida dei contenuti marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -635,7 +629,7 @@ Dopo aver inviato gli SKU dell'immagine di macchina virtuale per la certificazio
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-azure-codeplex]: http://storageexplorer.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
@@ -660,4 +654,4 @@ Dopo aver inviato gli SKU dell'immagine di macchina virtuale per la certificazio
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #Connettere Excel a Hadoop mediante Microsoft Hive ODBC Driver
@@ -25,7 +25,7 @@ La soluzione Microsoft per Big Data integra componenti di Microsoft Business Int
 
 È inoltre possibile connettere i dati associati a un cluster HDInsight e ad altre origini dati, inclusi altri cluster Hadoop (non HDInsight), da Excel mediante il componente aggiuntivo Microsoft Power Query per Excel. Per informazioni sull'installazione e l'uso di Power Query, vedere [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query].
 
-> [AZURE.NOTE]Mentre i passaggi descritti in questo articolo possono essere utilizzati con un cluster HDInsight basato su Windows o Linux, Windows è necessario per la workstation client.
+> [AZURE.NOTE] Mentre i passaggi descritti in questo articolo possono essere utilizzati con un cluster HDInsight basato su Windows o Linux, Windows è necessario per la workstation client.
 
 **Prerequisiti**:
 
@@ -55,26 +55,26 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 5. Digitare o selezionare i valori seguenti:
 
-Proprietà|Descrizione
----|---
-Data Source Name|Assegnare un nome all'origine dati
-Host|Immettere <HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net
-Porta|Utilizzare <strong>443</strong>. Questa porta è passata da 563 a 443.
-Database|Usare l'<strong>impostazione predefinita</strong>.
-Hive Server Type|Selezionare <strong>Hive Server 2</strong>
-Mechanism|Selezionare <strong>Azure HDInsight Service</strong>
-HTTP Path|Lasciare vuoto.
-User Name|Immettere il nome utente del cluster HDInsight. Si tratta del nome utente creato durante il processo di provisioning del cluster. Se è stata usata l'opzione di creazione rapida, il nome utente predefinito è <strong>admin</strong>.
-Password|Immettere la password utente del cluster HDInsight.
-</table>
+    Proprietà|Descrizione
+    ---|---
+    Data Source Name|Assegnare un nome all'origine dati
+    Host|Immettere <HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net
+    Porta|Utilizzare <strong>443</strong>. Questa porta è passata da 563 a 443.
+    Database|Usare l'<strong>impostazione predefinita</strong>.
+    Hive Server Type|Selezionare <strong>Hive Server 2</strong>
+    Mechanism|Selezionare <strong>Azure HDInsight Service</strong>
+    HTTP Path|Lasciare vuoto.
+    User Name|Immettere il nome utente del cluster HDInsight. Si tratta del nome utente creato durante il processo di provisioning del cluster. Se è stata usata l'opzione di creazione rapida, il nome utente predefinito è <strong>admin</strong>.
+    Password|Immettere la password utente del cluster HDInsight.
+    </table>
 
-Esistono alcuni importanti parametri a cui prestare attenzione quando si fa clic su **Advanced Options**:
+    Esistono alcuni importanti parametri a cui prestare attenzione quando si fa clic su **Advanced Options**:
 
-Parametro|Descrizione
----|---
-Use Native Query|Quando viene selezionato, il driver ODBC NON cercherà di convertire TSQL in HiveQL. Deve essere usato solo se si è assolutamente certi di inviare istruzioni HiveQL pure. Quando ci si connette al database SQL Server o SQL di Azure, è consigliabile lasciarlo deselezionato.
-Rows fetched per block|Quando si recupera una grande quantità di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali.
-Default string column length, Binary column length, Decimal column scale|Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e/o ai troncamenti.
+    Parametro|Descrizione
+    ---|---
+    Use Native Query|Quando viene selezionato, il driver ODBC NON cercherà di convertire TSQL in HiveQL. Deve essere usato solo se si è assolutamente certi di inviare istruzioni HiveQL pure. Quando ci si connette al database SQL Server o SQL di Azure, è consigliabile lasciarlo deselezionato.
+    Rows fetched per block|Quando si recupera una grande quantità di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali.
+    Default string column length, Binary column length, Decimal column scale|Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e/o ai troncamenti.
 
 
 	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
@@ -83,7 +83,7 @@ Default string column length, Binary column length, Decimal column scale|Le lung
 7. Fare clic su **OK** per chiudere la finestra di dialogo Test. La nuova origine dati sarà ora elencata in **Amministrazione origine dati ODBC**.
 8. Fare clic su **OK** per chiudere la procedura guidata.
 
-##Importazione di dati in Excel da un cluster HDInsight
+##Importazione di dati in Excel da HDInsight
 
 I passaggi seguenti descrivono come importare dati da una tabella hive in una cartella di lavoro di Excel usando l'origine dati ODBC creata nei passaggi precedenti.
 
@@ -131,4 +131,4 @@ In questo articolo è stato illustrato come usare Microsoft Hive ODBC Driver per
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -35,7 +35,7 @@ Come illustrato in precedenza, se si specifica una pianificazione per l'attivit�
  
 Per l'esecuzione di finestre attività in corso, è possibile accedere all'intervallo di tempo associato alla finestra attività con le variabili di sistema **WindowStart** e **WindowEnd** nel file JSON dell'attività. Queste variabili, in realtà, possono essere usate per vari scopi nel file JSON dell'attività e negli script associati all'attività, ad esempio per selezionare dati da set di dati di input o output che rappresentano dati in serie temporale.
 
-Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine della finestra attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md).
+La proprietà **scheduler** supporta le stesse proprietà secondarie della proprietà **availability** in un set di dati. Per altre informazioni sulle diverse proprietà disponibili per l'utilità di pianificazione, ad esempio la pianificazione con uno specifico offset temporale o l'impostazione della modalità per allineare l'elaborazione all'inizio o alla fine della finestra attività, vedere l'articolo sulla [disponibilità dei set di dati](data-factory-create-datasets.md#Availability).
 
 ## Set di dati in serie temporale e sezioni di dati
 
@@ -577,6 +577,8 @@ Text | Format(X) | X: variabile stringa | Formatta il testo.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
+Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://msdn.microsoft.com/library/8kb3ddd4.aspx) che descrive diverse opzioni di formattazione che è possibile usare, ad esempio: AA e aaaa.
+
 > [AZURE.NOTE] Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
   
 
@@ -678,4 +680,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

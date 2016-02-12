@@ -29,19 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-Questo articolo elenca i codici di errore SQL per l'applicazione client del database SQL, inclusi errori di connessione del database, errori temporanei, errori di governance delle risorse, problemi di copia del database e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server.
+Questo articolo elenca i codici di errore SQL per l'applicazione client del database SQL, inclusi errori di connessione del database, errori temporanei (noti anche come guasti temporanei), errori di governance delle risorse, problemi di copia del database e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server.
 
 Nell'applicazione client per ogni errore specificato è possibile inviare all'utente un messaggio personalizzato.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Errori di connessione del database ed errori temporanei
+## Errori di connessione del database, guasti e altri errori temporanei
 
 La tabella seguente illustra i codici di errore SQL per errori di perdita della connessione e altri errori temporanei che possono verificarsi quando l'applicazione tenta di accedere al database SQL.
 
 
-### Errori di connessione ed errori temporanei del database più comuni
+### Errori di connessione del database ed errori temporanei più comuni
 
 
 Gli errori temporanei solitamente si manifestano sotto forma di uno dei messaggi di errore seguenti dei programmi client:
@@ -211,9 +211,7 @@ La tabella seguente elenca tutti gli errori generali che non rientrano nelle cat
 |40651|16|Impossibile creare il server perché la sottoscrizione <subscription-id> è disabilitata.|
 |40652|16|Impossibile spostare o creare il server. La sottoscrizione <subscription-id> supera la quota del server.|
 |40671|17|Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi.|
-|40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "sicuro" nel FQDN del server - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.| 
-|45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare più tardi.| 
-|45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare più tardi.|
+|40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "sicuro" nel FQDN del server - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.| |45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare più tardi.| |45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare più tardi.|
 
 
 ## Collegamenti correlati
@@ -221,4 +219,4 @@ La tabella seguente elenca tutti gli errori generali che non rientrano nelle cat
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

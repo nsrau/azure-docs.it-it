@@ -21,6 +21,7 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 Data factory supporta attualmente solo lo spostamento di dati da un HDFS ad altri archivi dati, ma non da altri archivi dati a un HDFS locale.
 
+
 ## Abilitazione della connettività
 Il servizio Data factory supporta la connessione a un HDFS locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a HDFS anche se è ospitato in una macchina virtuale IaaS di Azure.
 
@@ -28,7 +29,9 @@ Anche se è possibile installare il gateway nello stesso computer locale o macch
 
 ## Esempio: Copiare i dati da HDFS locale al BLOB di Azure
 
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -265,7 +268,7 @@ fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di f
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No
 
 
-> [AZURE.NOTE]filename e fileFilter non possono essere usati contemporaneamente.
+> [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
 
 
 ### Uso della proprietà partionedBy
@@ -362,4 +365,4 @@ In caso di attività di copia con origine di tipo **FileSystemSource**, sono dis
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -66,7 +66,7 @@ Quando il sito è in esecuzione, accertarsi che sia disponibile e che assicuri l
 ### Backups
 
 - Impostare i [backups automatici](web-sites-backup.md) del sito Web. Ulteriori informazioni sui backup sono disponibili in [questo video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Ulteriori informazioni sulle opzioni per il [ripristino database](../sql-database-business-continuity.md) nel database SQL di Azure
+- Ulteriori informazioni sulle opzioni per il [ripristino database](../sql-database/sql-database-business-continuity.md) nel database SQL di Azure
 
 ### Risoluzione dei problemi
 
@@ -87,8 +87,8 @@ Valutare l'opportunità di applicare una [distribuzione a fasi](web-sites-staged
 
 Se si utilizza Visual Studio Team Services, è possibile configurare la distribuzione continua dal controllo codice sorgente:
 
-- [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Utilizzo di Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

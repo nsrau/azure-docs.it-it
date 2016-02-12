@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@
 4. Fare clic su **Abilita** o **Disabilita** se si vuole che le notifiche sull'attivazione vengano o non vengano inviate agli amministratori.
 5. Fare clic su **Abilita** o **Disabilita** per consentire o non consentire agli amministratori di immettere informazioni sulla creazione di ticket nella loro richiesta di attivazione.
 6. Fare clic su **Abilita** o **Disabilita** per richiedere o non richiedere la Multi-Factor Authentication per una richiesta di attivazione. Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richiedere l’MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
-7. Fare clic su **Abilita** o **Disabilita** per consentire agli amministratori globali di essere temporanei. 
+7. Fare clic su **Abilita** o **Disabilita** per consentire agli amministratori globali di essere temporanei.
 8. Fare clic su **Save**.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -34,4 +34,4 @@
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

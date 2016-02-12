@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/03/2016"
 	ms.author="jutang"/>
 
 # Come usare l'archiviazione file da Java
@@ -30,7 +30,7 @@ In questa guida verrà illustrato come eseguire operazioni di base nel servizio 
 
 ## Creare un'applicazione Java
 
-Per compilare gli esempi, saranno necessari il Java Development Kit (JDK) e l'[SDK di Archiviazione di Azure per Java][]. È inoltre necessario aver creato un account di archiviazione di Azure.
+Per compilare gli esempi, saranno necessari il Java Development Kit (JDK) e [Azure Storage SDK per Java][]. È inoltre necessario aver creato un account di archiviazione di Azure.
 
 ## Configurare l'applicazione per usare la condivisione di file
 
@@ -208,18 +208,12 @@ L'eliminazione di una condivisione viene eseguita chiamando il metodo **deleteIf
 
 Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i collegamenti seguenti.
 
-- [Azure Storage SDK per Java]
-- [Riferimento all'SDK del client di archiviazione di Azure]
-- [API REST di Archiviazione di Azure]
-- [Blog del team di Archiviazione di Azure]
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- [Azure SDK per Java](http://azure.microsoft.com/develop/java/)
+- [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
+- [Azure Storage SDK per Android](https://github.com/azure/azure-storage-android)
+- [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
-[SDK di Archiviazione di Azure per Java]: https://github.com/azure/azure-storage-java
-[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

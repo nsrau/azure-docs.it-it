@@ -25,8 +25,8 @@ Per eseguire il mappping del dominio personalizzato a un endpoint della rete CDN
 	Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine corrisponde al dominio personalizzato e al relativo sottodominio (il sottodominio è sempre obbligatorio). Il dominio di destinazione è l'endpoint della rete CDN.
 
 	Il processo di mapping del dominio personalizzato all'endpoint della rete CDN può tuttavia comportare un breve periodo di inattività del dominio durante la sua registrazione nel portale di Azure.
-     
-2. [Aggiungere un passaggio di registrazione intermedio con **cdnverify**] ((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [Aggiungere un passaggio di registrazione intermedio con **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	Se il dominio personalizzato supporta attualmente un'applicazione con un contratto di servizio in base al quale non sono previsti tempi di inattività, è possibile usare il sottodominio **cdnverify** di Azure per fornire un passaggio di registrazione intermedio, in modo che gli utenti possano accedere al dominio durante il mapping DNS.
 
@@ -83,4 +83,4 @@ Dopo aver registrato il dominio personalizzato seguendo una delle procedure desc
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

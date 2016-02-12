@@ -33,7 +33,7 @@ Per impostazione predefinita, ogni database SQL offre una protezione incorporata
 2. La frequenza di modifica dei dati è bassa (ad esempio, è espressa in termini di transazioni all'ora). Un valore RPO di 1 ora non genererà una perdita di dati significativa.
 3. L'applicazione è suscettibile alla variazione del costo e non può giustificare il costo aggiuntivo della replica geografica. 
 
-> [AZURE.NOTE]La funzionalità di ripristino geografico non esegue un'allocazione preliminare della capacità di calcolo in un'area specifica per ripristinare i database attivi dal backup durante l'interruzione del servizio. Il servizio gestirà il carico di lavoro associato alle richieste di ripristino geografico in modo da ridurre al minimo l'impatto sui database esistenti in tale area e le loro richieste di capacità saranno prioritarie. Pertanto, il tempo di ripristino del database dipenderà da quanti altri database verranno ripristinati contemporaneamente nella stessa area.
+> [AZURE.NOTE] La funzionalità di ripristino geografico non esegue un'allocazione preliminare della capacità di calcolo in un'area specifica per ripristinare i database attivi dal backup durante l'interruzione del servizio. Il servizio gestirà il carico di lavoro associato alle richieste di ripristino geografico in modo da ridurre al minimo l'impatto sui database esistenti in tale area e le loro richieste di capacità saranno prioritarie. Pertanto, il tempo di ripristino del database dipenderà da quanti altri database verranno ripristinati contemporaneamente nella stessa area.
 
 ##Quando usare la replica geografica
 
@@ -45,23 +45,23 @@ La funzionalità di replica geografica crea un database di replica (secondario) 
 2. La frequenza di modifica dei dati è alta (ad esempio, è espressa in termini di transazioni al minuto o al secondo). Un valore RPO di 1 ora associato alla protezione predefinita avrà come risultato una perdita di dati inaccettabile.
 3. Il costo legato all'uso della replica geografica è notevolmente inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
-> [AZURE.NOTE]Se l'applicazione usa database di livello Basic, la replica geografica non è supportata.
+> [AZURE.NOTE] Se l'applicazione usa database di livello Basic, la replica geografica non è supportata.
 
 ##Confronto tra replica geografica standard e replica geografica attiva
 
 I database di livello Standard non consentono di usare la replica geografica attiva. Pertanto, se l'applicazione usa database Standard e soddisfa i criteri sopra descritti, dovrebbe abilitare la replica geografica standard. Al contrario, per i database Premium è possibile scegliere una delle due opzioni. La replica geografica standard è stata progettata come soluzione di ripristino di emergenza più semplice e meno costosa, particolarmente adatta ad applicazioni che la usano solo per proteggersi da eventi imprevisti, ad esempio le interruzioni del servizio. Con la replica geografica standard, è possibile usare solo l'area abbinata per il ripristino di emergenza e si ha la possibilità di creare solo un database secondario per ciascuno di quelli primari. Un database secondario aggiuntivo potrebbe essere necessario per lo scenario di aggiornamento dell'applicazione. Pertanto, se questo scenario ha un ruolo cruciale per l'applicazione, è consigliabile abilitare la replica geografica attiva. Per altre informazioni, vedere [Aggiornare l'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
-> [AZURE.NOTE]La replica geografica attiva supporta inoltre l'accesso in sola lettura al database secondario e fornisce quindi capacità aggiuntiva per i carichi di lavoro di sola lettura.
+> [AZURE.NOTE] La replica geografica attiva supporta inoltre l'accesso in sola lettura al database secondario e fornisce quindi capacità aggiuntiva per i carichi di lavoro di sola lettura.
 
 ##Come abilitare la replica geografica
 
 È possibile abilitare la replica geografica tramite il portale di Azure classico o mediante una chiamata dell'API REST o del comando di PowerShell.
 
-###Portale di Azure classico
+###Portale di Azure
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Accedere al [portale di Azure classico](https://portal.Azure.com)
+1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA** e quindi selezionare **Database SQL**.
 3. Passare al pannello del database, selezionare la **mappa della replica geografica** e fare clic su **Configura replica geografica**.
 4. Passare al pannello della replica geografica. Selezionare l'area di destinazione. 
@@ -69,7 +69,7 @@ I database di livello Standard non consentono di usare la replica geografica att
 6. Selezionare il tipo secondario (*Leggibile* o *Non leggibile*).
 7. Fare clic su **Crea** per completare la configurazione.
 
-> [AZURE.NOTE]L'area abbinata di ripristino di emergenza nel pannello della replica geografica verrà contrassegnata come *consigliata*. Se si usa un database di livello Premium, è possibile scegliere un'area diversa. Se si usa un database Standard, non è possibile cambiare l'area. Con il database Premium, si ha la possibilità di selezionare il tipo di database secondario (*Leggibile* o *Non leggibile*). Il database Standard consente solo la selezione di un database secondario *Non leggibile*.
+> [AZURE.NOTE] L'area abbinata di ripristino di emergenza nel pannello della replica geografica verrà contrassegnata come *consigliata*. Se si usa un database di livello Premium, è possibile scegliere un'area diversa. Se si usa un database Standard, non è possibile cambiare l'area. Con il database Premium, si ha la possibilità di selezionare il tipo di database secondario (*Leggibile* o *Non leggibile*). Il database Standard consente solo la selezione di un database secondario *Non leggibile*.
 
 
 ###PowerShell
@@ -98,4 +98,4 @@ Questa API è asincrona. Dopo la restituzione, usare l’API [Get Replication Li
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

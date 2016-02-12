@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
@@ -28,7 +28,7 @@ Se si verificano problemi durante la [creazione di un tenant Azure AD B2C](activ
 
 ## Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 
-Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento, è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](./active-directory/active-directory-add-company-branding.md).
+Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento, è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md).
 
 ## Supporto per le applicazioni di produzione
 
@@ -68,7 +68,7 @@ L'anteprima di Azure AD B2C supporta OpenID Connect e OAuth 2.0. Tuttavia, non t
 
 ## Restrizioni relative ai token
 
-Molti dei token generati dall'anteprima di Azure AD B2C vengono implementati come token JWT (token Web JSON). Tuttavia, non tutte le informazioni contenute in JWT (note come "attestazioni") sono come dovrebbero essere o sono presenti, ad esempio le attestazioni "sub" e "preferred\_username". In questo ambito si potranno riscontrare diversi cambiamenti durante la fase di anteprima. Per comprendere meglio i token attualmente generati dal servizio Azure AD B2C, leggere il [riferimento ai token](active-directory-b2c-tokens.md).
+Molti dei token generati dall'anteprima di Azure AD B2C vengono implementati come token JWT (token Web JSON). Tuttavia, non tutte le informazioni contenute in JWT (note come "attestazioni") sono come dovrebbero essere o sono presenti, ad esempio le attestazioni "sub" e "preferred\_username". In questo ambito si potranno riscontrare diversi cambiamenti durante la fase di anteprima. Per comprendere meglio i token attualmente generati dal servizio Azure AD B2C, leggere il [riferimento ai token](active-directory-b2c-reference-tokens.md).
 
 ## Problemi relativi alla gestione degli utenti nel portale di Azure classico
 
@@ -96,4 +96,4 @@ Attualmente non è possibile verificare correttamente un dominio nel [portale di
 
 Quando si accede al pannello delle impostazioni B2C nel portale di Azure, in Notifiche nell'angolo in alto a destra verrà visualizzato un messaggio di avviso simile al seguente: "L'utente non dispone di sottoscrizioni nella directory <B2CTenantName>. È possibile passare alle altre directory.", dove <B2CTenantName> è il nome del tenant B2C. È possibile ignorare questo messaggio e continuare ad accedere alle funzionalità B2C. Microsoft sta lavorando con il team del portale di Azure per trovare una soluzione a questo problema.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

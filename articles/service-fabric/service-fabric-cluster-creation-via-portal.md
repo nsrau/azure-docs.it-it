@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurazione di cluster di infrastruttura di servizi dal portale di Azure | Microsoft Azure"
-   description="Configurazione di cluster di infrastruttura di servizi dal portale di Azure."
+   pageTitle="Creare un cluster di Service Fabric dal portale di Azure | Microsoft Azure"
+   description="Creare un cluster di Service Fabric dal portale di Azure."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,191 +13,185 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="01/29/2016"
    ms.author="chackdan"/>
 
-# Configurazione di cluster di infrastruttura di servizi dal portale di Azure
 
-Questa pagina illustra come configurare un cluster di infrastruttura di servizi. Si presuppone che la sottoscrizione preveda un numero di core sufficienti per distribuire le VM IaaS che costituiranno questo cluster.
+# Creare un cluster di Service Fabric dal portale di Azure
 
-
-## Creazione del cluster
-
-1. Accedere al portale di Azure all'indirizzo [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
-
-2. Fare clic su **+ Nuovo** per aggiungere un nuovo modello di risorsa. Cercare il modello nel Marketplace sotto Tutto: il nome è **Cluster di infrastruttura di servizi**. Per passare a **Tutto**, fare clic nella categoria di primo livello Marketplace > e quindi cercare "Infrastruttura" sotto "Tutto" e premere INVIO. Poiché a volte il filtro automatico non funziona, assicurarsi di **premere INVIO**. ![Ricerca del modello di cluster di infrastruttura di servizi][SearchforServiceFabricClusterTemplate]
-
-3. Selezionare "Cluster di infrastruttura di servizi" nell'elenco.
-4. Passare al pannello Cluster di infrastruttura di servizi, fare clic su **Crea** e immettere i dettagli sul cluster.
-5. Creare un **Nuovo gruppo di risorse**, assegnandogli lo stesso nome del cluster, per poterli trovare più facilmente in seguito. È utile soprattutto quando si devono apportare modifiche alla distribuzione e/o eliminare il cluster.
-
-  	Nota: anche se è possibile decidere di usare un gruppo di risorse esistente, è meglio crearne uno nuovo, così sarà possibile eliminare molto facilmente i cluster non necessari.
-
- 	 ![Creazione del gruppo di risorse][CreateRG]
+Questa pagina illustra come configurare un cluster di Azure Service Fabric. È necessario che nella sottoscrizione sia incluso un numero di core sufficienti per distribuire le VM IaaS che costituiranno il cluster.
 
 
-6. Assicurarsi di selezionare la **Sottoscrizione** in cui si vuole distribuire il cluster, soprattutto se sono presenti più sottoscrizioni.
+## Creare il cluster
 
-7. Selezionare una **Località** nell'elenco a discesa, se si vuole creare un'altra località. In caso contrario, il valore predefinito sarà Stati Uniti occidentali.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-8. Configurare il **Tipo di nodo**. Il tipo di nodo può essere paragonato ai "ruoli" nei servizi cloud, che definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo. L'unico vincolo è che almeno un tipo di nodo (quello principale o il primo definito nel portale) dovrà essere costituito da almeno 5 VM.
-	1. Selezionare le dimensioni macchina virtuale e il piano tariffario necessari. Il valore predefinito è D4 Standard. Se si prevede di usare questo cluster solo per testare l'applicazione, è opportuno selezionare D2 o una VM di dimensioni inferiori.	
-	2. Scegliere il numero di VM. È possibile aumentare o ridurre il numero di VM in un tipo di nodo in seguito, ma il tipo di nodo principale o il primo tipo di nodo deve avere almeno 5 VM.
-	3. Scegliere un nome per il tipo di nodo (da 1 a 12 caratteri di lunghezza, contenenti solo lettere e numeri).	
-	4. Scegliere il nome utente e la password per il desktop remoto VM.
-	5. **Considerazioni sul tipo di nodo quando sono presenti più tipi di nodo**. Se si prevede di distribuire un cluster con un solo tipo di nodo, andare al passaggio successivo.
+2. Fare clic su **+ Nuovo** per aggiungere un nuovo modello di risorsa. Cercare il modello in **Marketplace**, nella sezione **Tutto**. È denominato **Cluster di Service Fabric**.
 
-		- Per spiegare questo concetto, si consideri ad esempio di voler distribuire un'applicazione contenente un servizio "Front-end" e un servizio "Back-end" e di voler inserire il servizio "Front-end" in VM più piccole (ad esempio con dimensioni A2, D2 e così via) con porte aperte a Internet e il servizio "Back-end", a elevato utilizzo di calcolo, in VM più grandi (ad esempio con dimensioni D4, D6, D12 e così via) senza connessione Internet.
-		- Anche se è possibile inserire entrambi i servizi in un tipo di nodo, è consigliabile inserirli in un cluster con due tipi di nodo, perché ogni tipo di nodo può avere proprietà diverse, ad esempio la connettività Internet, le dimensioni delle VM e il numero di VM che è possibile ridimensionare in modo indipendente.
-		- Definire prima il tipo di nodo che conterrà almeno 5 VM. Gli altri tipi di nodo possono avere un minimo di 1 VM.
-					
+    a. Al primo livello fare clic su **Marketplace**.
 
-  	![Creazione del tipo di nodo][CreateNodeType]
+    b. Nella sezione **Tutto** fare clic su **Fabric** e premere Invio. Il filtro automatico talvolta non funziona; verificare quindi di aver premuto Invio. ![Schermata della ricerca del modello di cluster di Service Fabric nel portale di Azure.][SearchforServiceFabricClusterTemplate]
 
-9. **Porte delle applicazioni**: se si prevede di distribuire le applicazioni direttamente nel cluster, aggiungere le porte che si vuole aprire per le applicazioni in questo tipo di nodo (o i tipi di nodi creati). È possibile aggiungere in seguito le porte al tipo di nodo modificando il servizio di bilanciamento del carico associato a questo tipo di nodo. È necessario aggiungere un probe e quindi aggiungerlo alle regole del servizio di bilanciamento del carico. È più semplice eseguire ora questa operazione, perché l'automazione del portale aggiungerà i probe e le regole necessari al servizio di bilanciamento del carico.
-	1. È possibile trovare le porte delle applicazioni nei manifesti del servizio che fanno parte del pacchetto dell'applicazione. Passare a ogni applicazione, aprire i manifesti del servizio e prendere nota di tutti gli endpoint "input" necessari alle applicazioni per comunicare con l'esterno.
-	2. Aggiungere tutte le porte, separate da virgole, nel campo degli endpoint di input dell'applicazione. Per impostazione predefinita, l'endpoint connessione client TCP è 19000 e non è necessario specificarlo. Per aprire l'applicazione di questo esempio, è necessaria la porta "83". Questo valore è disponibile nel file servicemanifest.xml nel pacchetto dell'applicazione (potrebbero essere presenti più file servicemanifest.xml).
+3. Selezionare **Cluster di Service Fabric** nell'elenco.
 
-  Poiché la maggior parte delle applicazioni di esempio usa le porte 80 e 8081, aggiungerle se si prevede di distribuire gli esempi nel cluster.
+4. Passare al pannello **Cluster di Service Fabric**, fare clic su **Crea** e immettere i dettagli del cluster.
 
-  ![Porte][Ports]
+5. In **Crea un nuovo gruppo di risorse** assegnare al gruppo di risorse lo stesso nome del cluster. In questo modo sarà possibile trovarlo più facilmente in un secondo momento, soprattutto se si tenterà di apportare modifiche alla distribuzione o di eliminare il cluster.
 
+    >[AZURE.NOTE] Anche se è possibile decidere di usare un gruppo di risorse esistente, è meglio crearne uno nuovo, in modo da poter eliminare facilmente i cluster non più necessari.
 
+ 	![Schermata della creazione di un nuovo gruppo di risorse.][CreateRG]
 
-10. **Facoltativo: proprietà di selezione host**: non è necessario aggiungere alcuna configurazione, perché una proprietà di selezione host predefinita di "NodeTypeName" viene aggiunta dal sistema. Se necessario, è possibile aggiungerne altre. 
+6. Assicurarsi di selezionare la **sottoscrizione** in cui si vuole distribuire il cluster, soprattutto se sono presenti più sottoscrizioni.
 
-  
-## Configurazioni di sicurezza
+7. Selezionare una **località** nell'elenco a discesa. Il valore predefinito è **Stati Uniti occidentali**.
 
-A questo punto, l'infrastruttura di servizi supporta solo la protezione dei cluster con un certificato X509. Prima di iniziare questo processo, sarà necessario caricare il certificato nell'insieme di credenziali delle chiavi. Per altri dettagli, vedere [Sicurezza del cluster di infrastruttura di servizi](service-fabric-cluster-security.md).
+8. Configurare il **Tipo di nodo**. I tipi di nodi possono essere paragonati ai "ruoli" nei servizi cloud, poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario (il primo che si definisce nel portale) deve essere costituito da almeno cinque VM. Per configurare il tipo di nodo:
 
-È consigliabile proteggere il cluster, anche se facoltativo. Se si sceglie di non proteggere il cluster, è necessario non impostare alcuna modalità di sicurezza.
+	a. Selezionare le dimensioni della VM e il piano tariffario necessari. Il valore predefinito è D4 Standard. Se tuttavia si prevede di usare questo cluster solo per testare l'applicazione, è possibile selezionare una VM D2 o di dimensioni inferiori.
 
-Per considerazioni e procedure di sicurezza dettagliate, vedere [Sicurezza del cluster di infrastruttura di servizi](service-fabric-cluster-security.md).
+	b. Scegliere il numero di VM. È possibile aumentare o ridurre il numero di VM in un tipo di nodo anche in un secondo momento, ma il primo tipo di nodo deve essere sempre costituito da almeno cinque VM.
 
-![Configurazioni di sicurezza][SecurityConfigs]
+	c. Scegliere un nome per il tipo di nodo (da 1 a 12 caratteri, contenenti solo lettere e numeri).
 
+	d. Scegliere i valori di **Nome utente** e **Password** per il desktop remoto della VM.
 
+	e. Se nel cluster sono necessari più tipi di nodo, tenere presenti le seguenti problematiche (se si prevede di distribuire un cluster con un solo tipo di nodo, andare al passaggio 9).
 
-## Facoltativo: configurazione della diagnostica
+	* Si supponga di voler distribuire un'applicazione contenente un servizio front-end e un servizio back-end e di voler inserire il servizio front-end in VM più piccole (ad esempio, di dimensioni A2, D2 e così via), con porte aperte a Internet, e di voler invece inserire il servizio back-end, a elevato utilizzo di calcolo, in VM più grandi (ad esempio, di dimensioni D4, D6, D12 e così via), senza connessione a Internet.
+
+	* Sebbene sia possibile inserire entrambi i servizi in un unico tipo di nodo, è consigliabile inserirli in un cluster con due tipi di nodo, poiché ognuno di essi può avere proprietà distinte, ad esempio la connettività Internet, le dimensioni delle VM e il numero di VM, che è possibile ridimensionare in modo indipendente.
+
+	* Definire prima il tipo di nodo che conterrà almeno 5 VM. Gli altri tipi di nodo possono contenere anche una sola VM.
+
+  	![Schermata della creazione di un tipo di nodo.][CreateNodeType]
+
+9. Se si prevede di distribuire le applicazioni direttamente nel cluster, aggiungere le porte che si vuole aprire per le applicazioni nel tipo di nodo **Porte applicazione** (o in tipi di nodo creati in precedenza). È possibile aggiungere porte al tipo di nodo anche in un secondo momento modificando il servizio di bilanciamento del carico associato a questo tipo di nodo (è necessario aggiungere un probe, da aggiungere quindi alle regole del servizio di bilanciamento del carico). È più semplice eseguire ora questa operazione, perché l'automazione del portale aggiungerà al servizio di bilanciamento del carico le regole e i probe necessari.
+
+	a. È possibile trovare le porte delle applicazioni nei manifesti del servizio che fanno parte del pacchetto dell'applicazione. Passare a ogni applicazione, aprire i manifesti del servizio e prendere nota di tutti gli endpoint "input" necessari alle applicazioni per comunicare con l'esterno.
+
+	b. Aggiungere tutte le porte, separate da virgole, nel campo **Endpoint di input dell'applicazione**. Per impostazione predefinita, l'endpoint di connessione client TCP è 19000 e non è necessario specificarlo. Per l'applicazione di esempio WordCount, è necessario aprire la porta 83. Questo valore è disponibile nel file servicemanifest.xml nel pacchetto dell'applicazione (è possibile che siano presenti più file servicemanifest.xml).
+
+    c. Poiché la maggior parte delle applicazioni di esempio usa le porte 80 e 8081, aggiungerle se si prevede di distribuire gli esempi nel cluster. ![Porte][Ports]
+
+10. Non è necessario configurare le proprietà relative alla posizione, perché una proprietà relativa alla posizione predefinita "NodeTypeName" viene aggiunta automaticamente dal sistema. Se necessario, è possibile aggiungerne altre.
+
+## Configurare la sicurezza
+
+A questo punto, Service Fabric supporta la sicurezza dei cluster solo tramite un certificato X.509. Prima di iniziare questo processo, quindi, è necessario caricare il certificato nell'insieme di credenziali delle chiavi. Per altre informazioni su come eseguire questa operazione, vedere l'articolo [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
+
+È consigliabile proteggere il cluster, anche se facoltativo. Se si sceglie di non proteggere il cluster, impostare il campo **Modalità di sicurezza** su **Nessuna**.
+
+Altre istruzioni e considerazioni di sicurezza sono disponibili nell'articolo [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
+
+![Schermata delle configurazioni di sicurezza nel portale di Azure.][SecurityConfigs]
+
+## Facoltativo: configurare la diagnostica
 
 Per impostazione predefinita, la diagnostica è abilitata nel cluster come supporto per la risoluzione dei problemi. Per disabilitare la diagnostica:
 
-1. Passare al pannello delle configurazioni della diagnostica.
+1. Passare al pannello **Configurazioni di diagnostica**.
 
-2. Impostare lo stato come disattivato.
+2. Impostare il campo **Stato** su **Disattivato**.
 
-## Facoltativo: impostazioni dell'infrastruttura
+## Facoltativo: configurare le impostazioni del cluster di Service Fabric
 
-Si tratta di un'opzione avanzata, che consente di modificare le impostazioni predefinite per il cluster di infrastruttura di servizi. È consigliabile **non modificare** le impostazioni predefinite, a meno che non sia indispensabile per l'applicazione e/o il cluster.
+Si tratta di un'opzione avanzata che consente di modificare le impostazioni predefinite del cluster di Service Fabric. È consigliabile non modificare le impostazioni predefinite, a meno che non sia indispensabile per l'applicazione e/o il cluster.
 
-## Completamento della creazione di un cluster
-È possibile fare clic su **Riepilogo** per visualizzare le configurazioni fornite o scaricare il modello ARM che si userà per distribuire il cluster. Dopo avere specificato le impostazioni obbligatorie, verrà abilitato il pulsante Crea e sarà possibile avviare il processo di creazione del cluster.
- 
+## Completare la creazione del cluster
 
-È possibile visualizzare l'avanzamento in NOTIFICHE. Fare clic sull'icona a forma di campana accanto alla barra di stato a destra della schermata. Se durante la creazione del cluster si è fatto clic sull'opzione per l'aggiunta alla schermata iniziale, nella schermata iniziale verrà indicata la distribuzione del cluster di infrastruttura di servizi.
+Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni fornite oppure scaricare il modello di Gestione risorse di Azure da usare per distribuire il cluster. Dopo avere specificato le impostazioni obbligatorie, verrà abilitato il pulsante **Crea** e sarà possibile avviare il processo di creazione del cluster.
 
-![Notifiche][Notifications]
+È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster è stata selezionata l'opzione **Aggiungere a Schermata iniziale**, la voce **Distribuzione di un cluster di Service Fabric** verrà aggiunta alla schermata iniziale.
 
-## Visualizzazione dello stato del cluster
+![Schermata iniziale con la voce "Distribuzione di un cluster di Service Fabric" visualizzata.][Notifications]
 
-Una volta completata la distribuzione, è possibile esaminare il cluster nel portale.
+## Visualizzare lo stato del cluster
 
-1. Andare a **Sfoglia** e fare clic sulla risorsa **Cluster di infrastruttura di servizi**.
+Al termine del processo di distribuzione è possibile esaminare il cluster nel portale.
 
-2. Individuare e fare clic sul cluster.
+1. Selezionare **Sfoglia** e fare clic sulla risorsa **Cluster di Service Fabric**.
 
-  ![Ricerca cluster][BrowseCluster]
+2. Trovare e fare clic sul cluster. ![Schermata della ricerca del cluster nel portale.][BrowseCluster]
 
-3. Ora è possibile visualizzare i dettagli del cluster nel dashboard, incluso l'indirizzo IP pubblico del cluster. Si noti che passando il puntatore su **Indirizzo IP pubblico cluster** verranno visualizzati gli Appunti su cui è possibile fare clic per copiarli.
+3. È ora possibile visualizzare i dettagli del cluster nel dashboard, incluso l'indirizzo IP pubblico del cluster. Passando il puntatore su **Indirizzo IP pubblico del cluster** verranno visualizzati gli Appunti su cui è possibile fare clic per copiare l'indirizzo. ![Schermata dei dettagli del cluster nel dashboard.][ClusterDashboard]
 
-  ![Dashboard del cluster][ClusterDashboard]
+  La sezione relativa al monitoraggio dei nodi nel pannello del dashboard del cluster indica il numero di VM integre e non integre. È possibile trovare altri dettagli sull'integrità del cluster nell'articolo [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md).
 
-  La sezione relativa al monitoraggio dei nodi nel pannello del dashboard del cluster indica il numero di VM integre e di quelle non integre. È possibile trovare altri dettagli sullo stato di integrità nella sezione [Introduzione al modello di integrità dell'infrastruttura di servizi](service-fabric-health-introduction.md) della documentazione.
+## Connettersi al cluster e distribuire un'applicazione
 
+Completata la configurazione del cluster, è ora possibile connettersi e iniziare la distribuzione delle applicazioni. Iniziare avviando Windows PowerShell in un computer con Service Fabric SDK installato. Per connettersi al cluster, eseguire quindi uno dei seguenti set di comandi di PowerShell, a seconda che si sia creato un cluster sicuro o non sicuro.
 
-## Connessione al cluster e distribuzione di un'applicazione
+- Opzione 1: Connettersi a un cluster non sicuro.
 
-Con la configurazione del cluster, ora è possibile connettersi e iniziare la distribuzione delle applicazioni.
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+    ```
 
-1. In un computer in cui è installato Service Fabric SDK avviare Windows PowerShell.
+- Opzione 2: Connettersi a un cluster sicuro.
 
-2. Eseguire uno dei set seguenti di comandi di PowerShell a seconda che si sia creato un cluster sicuro o non sicuro.
- 
+    1. Eseguire quanto segue per configurare il certificato sul computer che si userà per eseguire il comando di PowerShell "Connect-serviceFabricCluster".
 
-- Opzione 1: **connessione a un cluster non sicuro**. 
+        ```powershell
+        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+        ```
 
-```powershell
-Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10 
-```
+    2. Eseguire il comando di PowerShell seguente per connettersi a un cluster sicuro. I dettagli del certificato sono gli stessi specificati nel portale.
 
-Eseguire i comandi seguenti per distribuire l'applicazione, sostituendo i percorsi indicati con quelli appropriati per il computer usato.
+        ```powershell
+        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+                  -KeepAliveIntervalInSec 10 `
+                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+                  -StoreLocation CurrentUser -StoreName My
+        ```
 
- - Opzione 2: **connessione a un cluster sicuro**.
+        Ad esempio, il comando di PowerShell precedente sarà simile a quello riportato di seguito.
 
-Eseguire quanto segue per configurare il certificato sul computer che si userà per eseguire il comando di PowerShell "Connect-serviceFabricCluster".
+        ```powershell
+        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+                  -KeepAliveIntervalInSec 10 `
+                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+                  -StoreLocation CurrentUser -StoreName My
+        ```
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distribuire l'applicazione, sostituendo i percorsi indicati con quelli appropriati per il computer in uso. L'esempio seguente distribuisce l'applicazione di esempio per il conteggio delle parole.
 
-Eseguire il comando di PowerShell seguente per connettersi ora a un cluster sicuro. I dettagli del certificato sono gli stessi specificati nel portale.
+1. Copiare il pacchetto nel cluster a cui ci si è connessi nel passaggio precedente.
 
-```powershell
-Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-            -KeepAliveIntervalInSec 10 `
-            -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-            -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-            -StoreLocation CurrentUser -StoreName My
-```
-Ad esempio il comando di PowerShell precedente sarà simile al seguente.
+    ```powershell
+    $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
+    ```
 
-```powershell
-Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-            -KeepAliveIntervalInSec 10 `
-            -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-            -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-            -StoreLocation CurrentUser -StoreName My
-```
+    ```powershell
+    Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
+    ```
+2. Registrare il tipo di applicazione con Service Fabric.
 
+    ```powershell
+    Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+    ```
 
-Eseguire i comandi seguenti per distribuire l'applicazione, sostituendo i percorsi indicati con quelli appropriati per il computer usato. L'esempio seguente distribuisce l'applicazione di esempio per il conteggio parole.
+3. Creare una nuova istanza nel tipo di applicazione appena registrato.
 
-Copiare il pacchetto nel cluster a cui ci si è connessi nel passaggio precedente.
+    ```powershell
+    New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+    ```
 
+4. Aprire ora il browser preferito e connettersi all'endpoint su cui è in ascolto l'applicazione. Per l'applicazione di esempio WordCount, l'URL sarà il seguente:
 
-```powershell
-$applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
-```
-
-```powershell
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
-````
-Registra il tipo di applicazione con l'infrastruttura di servizi.
-
-```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
-
-Creare una nuova istanza nel tipo di applicazione appena registrato.
-
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
-
-Aprire ora il browser preferito e connettersi all'endpoint su cui l'applicazione è in ascolto. Per il conteggio di questa applicazione di esempio, l'URL è il seguente.
-
-http://sfcluster4doc.westus.cloudapp.azure.com:31000
-
-
+    http://sfcluster4doc.westus.cloudapp.azure.com:31000
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## Passaggi successivi
-- [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Sicurezza del cluster di infrastruttura di servizi](service-fabric-cluster-security.md)
-- [Introduzione al modello di integrità dell'infrastruttura di servizi](service-fabric-health-introduction.md)
+
+- [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+- [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
+- [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -211,4 +205,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

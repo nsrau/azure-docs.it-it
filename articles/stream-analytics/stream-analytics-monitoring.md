@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
@@ -35,7 +35,8 @@ La prima volta che viene creato un processo di analisi di flusso in un'area, è 
 
   ![Portale di anteprima di Azure, configurazione della diagnostica delle query](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
-## Metriche disponibili per l'analisi di flusso  
+## Metriche disponibili per l'analisi di flusso
+
 
 | Metrica | Definizione |
 |--------|-------------|
@@ -45,7 +46,9 @@ La prima volta che viene creato un processo di analisi di flusso in un'area, è 
 | Eventi di output | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di conteggio degli eventi. |
 | Eventi non ordinati | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Errori di conversione dati | numero di errori di conversione dei dati rilevati da un processo di Analisi di flusso. |
+| Errori di runtime | Numero di errori che si sono verificati durante l'esecuzione di un processo di Analisi di flusso. |
 | Ultimi eventi di input | Numero di eventi che arrivano in ritardo dall'origine che sono stati eliminati oppure il cui timestamp è stato modificato, in base alla configurazione dei Criteri di ordinamento eventi dell'impostazione della Finestra di tolleranza elementi non in ordine. |
+
 ## Personalizzazione del monitoraggio nel portale di gestione di Azure ##
 
 In un grafico è possibile visualizzare fino a 6 metriche.
@@ -104,4 +107,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

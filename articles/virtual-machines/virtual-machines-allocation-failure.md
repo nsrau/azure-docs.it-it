@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
-Quando si crea una VM, si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
+Quando si crea una VM, si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni, anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
 
-Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. Inoltre, è possibile inviare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
+La sezione "Passaggi per la risoluzione dei problemi generali" elenca i passaggi per risolvere problemi comuni. La sezione "Procedura di risoluzione dei problemi dettagliata" offre passaggi per la risoluzione dei problemi in base al messaggio di errore specifico. Prima di iniziare, di seguito sono riportate alcune informazioni di base per comprendere il funzionamento dell'allocazione e il motivo per cui si verificano gli errori di allocazione.
 
-In questo articolo, le sezioni di "Risolvere i problemi relativi a errori comuni di allocazione" elencano i passaggi necessari per risolvere i problemi comuni. Le sezioni di "Risolvere i problemi relativi a scenari di errori di allocazione specifici" forniscono i passaggi per la risoluzione dei problemi per messaggi di errore specifici. Prima di iniziare, ecco alcune informazioni di base per comprendere il funzionamento dell'allocazione e il motivo per cui si verificano gli errori di allocazione.
+Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. È anche possibile inviare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
 ## Informazioni generali
 ### Come funziona l'allocazione
@@ -72,7 +72,7 @@ Due scenari di errore comuni sono correlati ai gruppi di affinità. In passato, 
 
 Il diagramma 5 seguente illustra la tassonomia degli scenari di allocazione (bloccata). ![Tassonomia di allocazione bloccata](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere l'[Appendice](#appendix).
+> [AZURE.NOTE] L'errore indicato in ogni scenario di allocazione è in forma breve. Per le stringhe di errore dettagliate, vedere la sezione [Ricerca della stringa di errore](#Error string lookup).
 
 #### Scenario di allocazione: ridimensionare una VM o aggiungere altre VM o istanze dei ruoli a un servizio cloud esistente
 **Errore**
@@ -119,7 +119,7 @@ Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (dea
 #### Scenario di allocazione: distribuzioni di gestione temporanea/produzione (solo Platform-as-a-Service)
 **Errore**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -132,7 +132,7 @@ Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistrib
 #### Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)
 **Errore**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -145,9 +145,9 @@ Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o 
 #### Scenario di allocazione: rete virtuale basata su gruppi di affinità
 **Errore**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
-**Causa del blocco su un cluster**
+<**Causa del blocco su un cluster**
 
 Prima dell'introduzione delle reti virtuali dell'area, era necessario associare una rete virtuale a un gruppo di affinità. Di conseguenza, le risorse di calcolo inserite in un gruppo di affinità sono soggette agli stessi vincoli descritti nella sezione "Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)" riportata sopra. Le risorse di calcolo sono legate a un cluster.
 
@@ -171,7 +171,7 @@ In generale, finché l'errore non indica che le dimensioni della VM richieste no
 #### Scenario di allocazione: ridimensionare una VM o aggiungere VM a un set di disponibilità esistente
 **Errore**
 
-Upgrade\_VMSizeNotSupported o GeneralError
+Upgrade\_VMSizeNotSupported* o GeneralError*
 
 **Causa del blocco su un cluster**
 
@@ -209,8 +209,7 @@ La deallocazione completa significa che sono state arrestate (deallocate) tutte 
 
 Selezionare una nuova dimensione di VM da allocare. Se non funziona, riprovare in seguito.
 
-## Appendice
-### Ricerca della stringa di errore
+## Ricerca della stringa di errore
 **New\_VMSizeNotSupported***
 
 "Impossibile eseguire il provisioning delle dimensioni della macchina virtuale (o della combinazione di dimensioni delle macchine virtuali) richieste da questa distribuzione, a causa di vincoli della richiesta di distribuzione. Se possibile, provare a rilasciare vincoli quali associazioni a reti virtuali, distribuzione a un servizio ospitato che non include alcun'altra distribuzione e a un gruppo di affinità diverso o senza alcun gruppo di affinità oppure provare a distribuire in un'area diversa".
@@ -227,4 +226,4 @@ Allocazione non riuscita. Impossibile soddisfare i vincoli nella richiesta. La n
 
 "Errore interno del server. Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

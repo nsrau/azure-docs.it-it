@@ -19,7 +19,7 @@
 
 In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE] Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](../event-hubs/event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Quali sono le modalità di addebito per il bus di servizio?](#how-do-you-charge-for-service-bus)
 - [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -116,4 +116,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

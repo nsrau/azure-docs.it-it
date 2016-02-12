@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/27/2016"
    ms.author="tarcher" />
 
 # Esplorazione e gestione delle risorse di archiviazione con Esplora server
@@ -50,7 +50,7 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
     ![Aggiunta di un nuovo contenitore BLOB](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE]Il nome del contenitore BLOB deve iniziare con un numero (0-9) o una lettera minuscola (a-z).
+    >[AZURE.NOTE] Il nome del contenitore BLOB deve iniziare con un numero (0-9) o una lettera minuscola (a-z).
 
 ### Per eliminare un contenitore BLOB
 
@@ -74,7 +74,7 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
     - Eliminare un BLOB
 
-      >[AZURE.NOTE]L'eliminazione di un file da un contenitore BLOB non comporta l'eliminazione del file sottostante che viene solo rimosso dal contenitore BLOB.
+      >[AZURE.NOTE] L'eliminazione di un file da un contenitore BLOB non comporta l'eliminazione del file sottostante che viene solo rimosso dal contenitore BLOB.
 
     - Aprire un BLOB
 
@@ -98,7 +98,7 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
  - Eliminare tutti i file nella cartella.
 
-    >[AZURE.NOTE]Poiché le cartelle nei contenitori BLOB sono cartelle virtuali, non è possibile creare una cartella vuota né eliminare una cartella per eliminare i file al suo interno. È necessario eliminare l'intero contenuto di una cartella per eliminare la cartella.
+    >[AZURE.NOTE] Poiché le cartelle nei contenitori BLOB sono cartelle virtuali, non è possibile creare una cartella vuota né eliminare una cartella per eliminare i file al suo interno. È necessario eliminare l'intero contenuto di una cartella per eliminare la cartella.
 
 ### Per filtrare i BLOB in un contenitore
 
@@ -109,7 +109,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 ![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE]Il campo del filtro rileva la differenza tra maiuscole e minuscole e non supporta l'applicazione di filtri con caratteri jolly. I BLOB possono essere filtrati solo in base al prefisso. Il prefisso può includere un delimitatore se ne viene usato uno per organizzare i BLOB in una gerarchia virtuale. Ad esempio, impostando come filtro il prefisso HelloFabric/ vengono restituiti tutti i BLOB che iniziano con tale stringa.
+>[AZURE.NOTE] Il campo del filtro rileva la differenza tra maiuscole e minuscole e non supporta l'applicazione di filtri con caratteri jolly. I BLOB possono essere filtrati solo in base al prefisso. Il prefisso può includere un delimitatore se ne viene usato uno per organizzare i BLOB in una gerarchia virtuale. Ad esempio, impostando come filtro il prefisso HelloFabric/ vengono restituiti tutti i BLOB che iniziano con tale stringa.
 
 ### Per scaricare i dati BLOB
 
@@ -123,7 +123,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 
 ### Per caricare i BLOB
 
-- Scegliere il pulsante **Carica BLOB** quando il contenitore viene aperto per la visualizzazione nella relativa visualizzazione BLOB.
+- Scegliere il pulsante **Carica BLOB** quando il contenitore BLOB viene aperto nella relativa visualizzazione.
 
     È possibile scegliere di caricare uno o più file ed è possibile caricare file di qualsiasi tipo. Il **Log attività di Azure** mostra lo stato di avanzamento del caricamento. Per altre informazioni su come usare i dati BLOB, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
@@ -141,7 +141,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 
     Il file viene scaricato in un percorso temporaneo e aperto nel computer locale. È necessario caricare nuovamente il BLOB dopo avere apportato le modifiche.
 
-### Usare le risorse di accodamento
+## Usare le risorse di accodamento
 
 Le code di servizi di archiviazione sono ospitate in un account di archiviazione di Azure e possono essere usate per consentire ai ruoli del servizio cloud di comunicare tra loro e con altri servizi con un meccanismo di trasferimento dei messaggi. È possibile accedere alla coda a livello di programmazione con un servizio cloud e con un servizio Web per i client esterni. È anche possibile accedere alla coda direttamente usando Esplora server in Visual Studio.
 
@@ -163,9 +163,9 @@ La figura seguente mostra una coda contenente due messaggi.
 
 Per altre informazioni sulle code dei servizi di archiviazione, vedere [Procedura: Usare il servizio di archiviazione di accodamento](http://go.microsoft.com/fwlink/?LinkID=264702). Per informazioni sul servizio Web per le code dei servizi di archiviazione, vedere [Concetti relativi al servizio di accodamento](http://go.microsoft.com/fwlink/?LinkId=264788). Per informazioni su come inviare messaggi a una coda dei servizi di archiviazione usando Visual Studio, vedere [Invio di messaggi a una coda di servizi di archiviazione](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE]Le code di servizi di archiviazione sono diverse dalle code del bus di servizio. Per altre informazioni sulle code del bus di servizio, vedere Code, argomenti e sottoscrizioni del bus di servizio.
+>[AZURE.NOTE] Le code di servizi di archiviazione sono diverse dalle code del bus di servizio. Per altre informazioni sulle code del bus di servizio, vedere Code, argomenti e sottoscrizioni del bus di servizio.
 
-### Usare le risorse di una tabella
+## Usare le risorse di una tabella
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
@@ -213,7 +213,7 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
 
     Immettere i valori con attenzione perché non è possibile cambiarli dopo aver chiuso la finestra di dialogo, a meno che l'entità non venga eliminata e quindi riaggiunta.
 
-## Per filtrare le entità
+### Per filtrare le entità
 
 Se si usa il generatore di query, è possibile personalizzare il set di entità visualizzato in una tabella.
 
@@ -235,35 +235,35 @@ Se si usa il generatore di query, è possibile personalizzare il set di entità 
 
     ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-## Aggiornare i dati di archiviazione
+### Aggiornare i dati di archiviazione
 
 Quando Esplora server si connette o riceve dati da un account di archiviazione, il completamento dell'operazione potrebbe richiedere fino a un minuto. Se non è possibile stabilire una connessione, potrebbe verificarsi il timeout dell'operazione. Durante il recupero dei dati è possibile continuare a lavorare in altre aree di Visual Studio. Per annullare l'operazione se sta richiedendo troppo tempo, scegliere il pulsante **Interrompi aggiornamento** sulla barra degli strumenti di Esplora server.
 
-### Per aggiornare i dati del contenitore BLOB
+#### Per aggiornare i dati del contenitore BLOB
 
 - Selezionare il nodo **BLOB** sotto **Archiviazione** e scegliere il pulsante **Aggiorna** sulla barra degli strumenti di Esplora server.
 
 - Per aggiornare l'elenco di BLOB visualizzato, scegliere il pulsante **Esegui**.
 
-### Per aggiornare i dati della tabella
+#### Per aggiornare i dati della tabella
 
 - Selezionare il nodo **Tabelle** sotto **Archiviazione** e scegliere il pulsante **Aggiorna**.
 
 - Per aggiornare l'elenco di entità visualizzato in **Progettazione tabelle**, scegliere il pulsante **Esegui** in **Progettazione tabelle**.
 
-### Per aggiornare i dati della coda
+#### Per aggiornare i dati della coda
 
 - Selezionare il nodo **Code** e quindi scegliere il pulsante **Aggiorna**.
 
-### Per aggiornare tutti gli elementi in un account di archiviazione
+#### Per aggiornare tutti gli elementi in un account di archiviazione
 
 - Scegliere il nome account e quindi scegliere il pulsante **Aggiorna** sulla barra degli strumenti di Esplora server.
 
-## Aggiungere account di archiviazione usando Esplora server
+### Aggiungere account di archiviazione usando Esplora server
 
 Sono disponibili due modi per aggiungere gli account di archiviazione usando Esplora server. È possibile creare un nuovo account di archiviazione nella sottoscrizione di Azure o è possibile collegare un account di archiviazione esistente.
 
-### Per creare un nuovo account di archiviazione usando Esplora server
+#### Per creare un nuovo account di archiviazione usando Esplora server
 
 1. In Esplora server aprire il menu di scelta rapida per il nodo Archiviazione, quindi scegliere Crea account di archiviazione.
 
@@ -283,7 +283,7 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
     Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** di Esplora soluzioni.
 
-### Per collegare un account di archiviazione esistente usando Esplora server
+#### Per collegare un account di archiviazione esistente usando Esplora server
 
 1. In Esplora server aprire il menu di scelta rapida per il nodo Archiviazione di Azure, quindi scegliere **Associa archiviazione esterna**.
 
@@ -307,10 +307,10 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 - In Esplora server aprire il menu di scelta rapida per il nome account e quindi scegliere **Elimina**. Se si elimina un account di archiviazione, anche le informazioni sulla chiave salvate per tale account verranno rimosse.
 
-    >[AZURE.NOTE]Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il portale di gestione di Azure.
+    >[AZURE.NOTE] Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il portale di gestione di Azure.
 
 ## Passaggi successivi
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

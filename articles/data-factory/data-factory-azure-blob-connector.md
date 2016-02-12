@@ -19,6 +19,9 @@
 # Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
 Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati nel BLOB di Azure da un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
 
+Gli esempi seguenti mostrano come copiare dati da e nell'archivio BLOB di Azure e nel database SQL di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+
 ## Esempio: Copiare i dati dal BLOB di Azure in SQL Azure
 L'esempio seguente mostra:
 
@@ -508,4 +511,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

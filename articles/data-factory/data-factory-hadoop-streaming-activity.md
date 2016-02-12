@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Attività di Hadoop Streaming
 È possibile usare l'attività HDInsightStreamingActivity per richiamare un processo di Hadoop Streaming da una pipeline di Data factory di Azure. Il frammento JSON seguente illustra la sintassi per l'uso di HDInsightStreamingActivity in un file JSON della pipeline.
 
-L'attività HDInsight Streaming Activity in una [pipeline](data-factory-create-pipelines.md) di una Data factory esegue i programmi di Hadoop Streaming nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [on demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md), che presenta una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate.
+L'attività HDInsight Streaming Activity in una [pipeline](data-factory-create-pipelines.md) di una Data factory esegue i programmi di Hadoop Streaming nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [on demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 ## Esempio JSON
 Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc.exe e cat.exe) e con i dati (davinci.txt). Per impostazione predefinita, il nome del contenitore che viene utilizzato dal cluster HDInsight è il nome del cluster stesso. Ad esempio, se il nome del cluster è myhdicluster, il nome del contenitore BLOB associato sarebbe myhdicluster.
@@ -70,7 +70,7 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 
 Tenere presente quanto segue:
 
-1. Impostare il **linkedServiceName** sul nome del servizio collegato che punta al cluster HDInsight in cui verrà eseguito il processo di streaming MapReduce.
+1. Impostare **linkedServiceName** sul nome del servizio collegato che punta al cluster HDInsight in cui verrà eseguito il processo di streaming mapreduce.
 2. Impostare il tipo di attività su **HDInsightStreaming**.
 3. Per la proprietà **mapper** specificare il nome dell'eseguibile del mapper. Nell'esempio precedente cat.exe è l'eseguibile del mapper.
 4. Per la proprietà **reducer** specificare il nome dell'eseguibile del reducer. Nell'esempio precedente wc.exe è l'eseguibile del reducer.
@@ -81,7 +81,7 @@ Tenere presente quanto segue:
 9. Per la proprietà **arguments** specificare gli argomenti per il processo di streaming.
 10. La proprietà **getDebugInfo** è un elemento facoltativo. Quando viene impostata su Failure, i log vengono scaricati solo in caso di errore. Quando viene impostata su All, i log vengono sempre scaricati indipendentemente dallo stato dell'esecuzione.
 
-> [AZURE.NOTE]Come illustrato nell'esempio, sarà necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output**. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input**.
+> [AZURE.NOTE] Come illustrato nell'esempio, sarà necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output**. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input**.
 
 	
 ## Esempio
@@ -89,7 +89,7 @@ La pipeline in questa procedura dettagliata esegue il programma di mapping e rid
 
 ### Servizi collegati
 
-#### Servizio collegato Archiviazione
+#### Servizio collegato Archiviazione di Azure
 In primo luogo, si crea un servizio collegato per collegare l'archiviazione di Azure utilizzata dal cluster HDInsight di Azure per la factory di dati di Azure. Se si copia e incolla il codice seguente, non dimenticare di sostituire il nome account e la chiave account con il nome e la chiave di archiviazione di Azure.
 
 	{
@@ -192,4 +192,4 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 	    }
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

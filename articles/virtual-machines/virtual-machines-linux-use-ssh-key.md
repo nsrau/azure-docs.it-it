@@ -23,7 +23,7 @@
 - [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-In questo argomento viene descritto come utilizzare **ssh keygen** e **openssl** in Linux e Mac per creare e utilizzare i file di formato **ssh rsa** e **.pem** per proteggere la comunicazione con le macchine virtuali di Azure basate su Linux. È consigliabile creare macchine virtuali di Azure basate su Linux utilizzando il modello di distribuzione di Gestione risorse per nuove distribuzioni e accettare un tipo di stringa o file di chiave pubblica (in base al client di distribuzione) *ssh rsa*. Il [portale di anteprima](https://portal.azure.com) attualmente accetta solo le stringhe di formato **ssh rsa** sia per la distribuzione di Gestione risorse che per quella classica.
+In questo argomento viene descritto come utilizzare **ssh keygen** e **openssl** in Linux e Mac per creare e utilizzare i file di formato **ssh rsa** e **.pem** per proteggere la comunicazione con le macchine virtuali di Azure basate su Linux. È consigliabile creare macchine virtuali di Azure basate su Linux utilizzando il modello di distribuzione di Gestione risorse per nuove distribuzioni e accettare un tipo di stringa o file di chiave pubblica (in base al client di distribuzione) *ssh rsa*. Il [portale di Azure](https://portal.azure.com) attualmente accetta solo le stringhe di formato **ssh-rsa** sia per la distribuzione di Gestione risorse che per quella classica.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Per creare questi tipi di file per l'utilizzo in un computer Windows per comunicare in modo sicuro con macchine virtuali Linux in Azure, vedere [utilizzare chiavi SSH in Windows](virtual-machines-windows-use-ssh-key.md).
 
@@ -33,7 +33,7 @@ Una configurazione di base di ssh per Azure include una coppia di chiavi pubblic
 
 Di seguito sono descritti gli scenari di distribuzione e i tipi di file da usare per ognuno:
 
-1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione eseguita tramite il [portale di anteprima](https://portal.azure.com), indipendentemente dal modello di distribuzione.
+1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione eseguita tramite il [portale di Azure](https://portal.azure.com), indipendentemente dal modello di distribuzione.
 2. I file con estensione .pem sono necessari per creare macchine virtuali utilizzando il [portale classico](https://manage.windowsazure.com). I file .pem sono supportati anche nelle distribuzioni classiche che usano l'[interfaccia della riga di comando di Azure](xplat-cli-install.md). 
 
 ## Creazione di chiavi per l'utilizzo con SSH
@@ -72,7 +72,7 @@ Se è necessario creare i file:
 
 	Se si desidera creare un file .pem da un file di chiave privato diverso, modificare l’argomento `-key`.
 
-> [AZURE.NOTE]Se si prevede di gestire i servizi distribuiti con il modello di distribuzione classica, è inoltre possibile creare un file in formato **.cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per creare tali file su Linux o Mac, digitare: <br /> openssl.exe x. 509-outform der-in mycert-out mycert. cer
+> [AZURE.NOTE] Se si prevede di gestire i servizi distribuiti con il modello di distribuzione classica, è inoltre possibile creare un file in formato **.cer** da caricare nel portale, anche se ciò non riguarda **ssh** o la connessione a macchine virtuali Linux, ovvero l'oggetto di questo articolo. Per creare tali file su Linux o Mac, digitare: <br /> openssl.exe x. 509-outform der-in mycert-out mycert. cer
 
 Per convertire il file .pem in un file di certificato codificato DER X509.
 
@@ -296,4 +296,4 @@ Se è stata creata una macchina virtuale utilizzando un file .pem creato dal `~/
  
 Ora che si è connessi alla macchina virtuale, assicurarsi di aggiornare la distribuzione scelta prima di continuare a utilizzarla.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

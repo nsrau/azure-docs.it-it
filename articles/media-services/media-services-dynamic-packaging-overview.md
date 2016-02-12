@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ Il diagramma seguente mostra il flusso di lavoro di creazione dinamica dei pacch
 
 ##Scenario comune
 
-1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati supportati dal codificatore di Servizi multimediali](media-services-azure-media-encoder-formats)).
+1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati e codec Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
 
 1. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264.
 
@@ -46,56 +46,31 @@ Il diagramma seguente mostra il flusso di lavoro di creazione dinamica dei pacch
 
 1. Creare gli URL di streaming per accedere e al contenuto e trasmetterlo in streaming.
 
->[AZURE.NOTE]Non tutti i formati di file MP4 sono supportati per la creazione dinamica dei pacchetti. Per altre informazioni, vedere [Formati non supportati per la creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparazione di asset per lo streaming dinamico
 
 Per preparare l'asset per lo streaming dinamico sono disponibili due opzioni:
 
-- Caricare un file master e produrre set di file MP4 a velocità in bit adattiva H.264 usando Codificatore multimediale di Azure.
-- Caricare set a velocità in bit adattiva esistenti e convalidarli tramite Media Packager.
+1. [Caricare un file master](media-services-dotnet-upload-files.md).
+2. [Usare il codificatore Media Encoder Standard per generare set MP4 velocità in bit adattiva H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Trasmettere i contenuti in streaming](media-services-deliver-content-overview.md).
 
-###Caricare un file master e produrre set di file MP4 a velocità in bit adattiva H.264 usando Codificatore multimediale di Azure.
+-OPPURE-
+ 
+1. Caricare i file MP4 precodificati. 
 
-Per informazioni su come caricare e codificare asset, vedere gli articoli seguenti:
-
-
-Caricare i file usando il **portale di Azure classico**, **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-Codificare con **Azure Media Encoder** tramite il **portale di Azure classico**, **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-
-###Caricare set a velocità in bit adattiva esistenti e convalidarli tramite Media Packager
-
-In genere è consigliabile eseguire questa attività se si carica un set di file MP4 a velocità in bit adattiva che non sono stati codificati con Codificatore di Servizi multimediali. L'argomento [Convalida di MP4 a velocità in bit adattiva codificati con codificatori esterni](https://msdn.microsoft.com/library/azure/dn750842.aspx) illustra come eseguire questa attività.
-
-##Streaming dei contenuti ai client
-
-Dopo aver creato i set a velocità in bit adattiva, è possibile pubblicare l'asset creando un localizzatore su richiesta e comporre gli URL di streaming per Smooth Streaming, MPEG DASH, HLS e HDS (solo per possessori di licenza Adobe PrimeTime/Access).
-
-Per informazioni su come creare i localizzatori e usare la creazione dinamica dei pacchetti per trasmettere in streaming il contenuto, vedere gli argomenti seguenti:
-
-[Panoramica della distribuzione di contenuti ai clienti](media-services-deliver-content-overview.md).
-
-Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di Azure classico** o **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+	>[AZURE.NOTE] Questa opzione non è consigliata.
+	
+2. [Convalidare i file precodificati](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
+3. [Trasmettere i contenuti in streaming](media-services-deliver-content-overview.md).
 
 
 ##<a id="unsupported_formats"></a>Formati non supportati dalla creazione dinamica dei pacchetti
 
 I formati di file di origine seguenti non sono supportati dalla creazione dinamica dei pacchetti.
 
-- File Dolby Digital Plus MP4.
-- File Dolby Digital Plus Smooth.
+- File Dolby Digital MP4.
+- File Dolby Digital Smooth.
 
 ##Percorsi di apprendimento di Media Services
 
@@ -105,4 +80,4 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

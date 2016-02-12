@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aggiornamento ad Azure Search .NET SDK versione 1.0.1 - Anteprima | Microsoft Azure | Servizio di ricerca cloud ospitato"
-   description="Aggiornamento ad Azure Search .NET SDK versione 1.0.1 - Anteprima"
+   pageTitle="Aggiornamento ad Azure Search .NET SDK versione 1.0 di anteprima | Microsoft Azure | Servizio di ricerca cloud ospitato"
+   description="Aggiornamento ad Azure Search .NET SDK versione 1.0 di anteprima"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -13,24 +13,24 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="brjohnst"/>
 
-# Aggiornamento ad Azure Search .NET SDK versione 1.0.1 - Anteprima
+# Aggiornamento ad Azure Search .NET SDK versione 1.0 di anteprima
 
-Se si usa la versione 0.13.0 di anteprima o precedente di [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), questo articolo consente di aggiornare l'applicazione per usare la versione più recente, 1.0.1 di anteprima.
+Se si usa la versione 0.13.0 di anteprima o precedente di [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), questo articolo consente di aggiornare l'applicazione per usare la versione più recente, 1.0 di anteprima.
 
 Per una procedura dettagliata più generale relativa all'SDK, inclusi gli esempi, vedere [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
-La versione 1.0.1 di anteprima di Azure Search .NET SDK contiene diverse modifiche di rilievo rispetto alla versione precedente (0.13.0 di anteprima), ma per lo più secondarie, quindi il codice potrà essere modificato facilmente. Per le istruzioni su come modificare il codice per usare la nuova versione dell'SDK, vedere [Passaggi per eseguire l'aggiornamento](#UpgradeSteps).
+La versione 1.0 di anteprima di Azure Search .NET SDK contiene diverse modifiche di rilievo rispetto alla versione precedente (0.13.0 di anteprima), ma per lo più secondarie, quindi il codice potrà essere modificato facilmente. Per le istruzioni su come modificare il codice per usare la nuova versione dell'SDK, vedere [Passaggi per eseguire l'aggiornamento](#UpgradeSteps).
 
 <a name="WhatsNew"></a>
-## Novità della versione 1.0.1 di anteprima
+## Novità della versione 1.0 di anteprima
 
-Poiché la versione 1.0.1 di anteprima è destinata alla stessa versione dell'API REST delle versioni precedenti di Azure Search .NET SDK (28/02/2015), in questa versione non sono presenti nuove funzionalità del servizio. Sono tuttavia disponibili nuove funzionalità di serializzazione sul lato client.
+Poiché la versione 1.0 di anteprima è destinata alla stessa versione dell'API REST delle versioni precedenti di Azure Search .NET SDK (28/02/2015), in questa versione non sono presenti nuove funzionalità del servizio. Sono tuttavia disponibili nuove funzionalità di serializzazione sul lato client.
 
 L'SDK usa JSON.NET per serializzare e deserializzare i documenti. La nuova versione dell'SDK supporta la serializzazione personalizzata con `JsonConverter` e `IContractResolver`. Per altri dettagli, vedere la [documentazione di JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm). Ciò può risultare utile quando si vuole adattare una classe modello esistente dell'applicazione per usarla con Ricerca di Azure e in altri scenari più avanzati. Con la serializzazione personalizzata, ad esempio, è possibile:
- 
+
  - Includere o escludere determinate proprietà della classe modello da archiviare come campi di un documento.
  - Eseguire il mapping tra i nomi di proprietà nel codice e i nomi di campo nell'indice.
  - Creare attributi personalizzati che possono essere usati sia per il mapping delle proprietà ai campi di un documento che per la creazione della definizione dell'indice corrispondente.
@@ -53,14 +53,14 @@ Una volta che NuGet ha scaricato i nuovi pacchetti e le relative dipendenze, ric
     Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
-Il passaggio successivo consiste nel correggere gli errori di compilazione uno alla volta. La maggior parte richiederà di modificare alcuni nomi di classe e di metodo rinominati nell'SDK. L'[elenco di modifiche di rilievo nella versione 1.0.1 di anteprima](#ListOfChanges) contiene un elenco delle modifiche apportate ai nomi.
+Il passaggio successivo consiste nel correggere gli errori di compilazione uno alla volta. La maggior parte richiederà di modificare alcuni nomi di classe e di metodo rinominati nell'SDK. L'[elenco di modifiche di rilievo nella versione 1.0 di anteprima](#ListOfChanges) contiene un elenco delle modifiche apportate ai nomi.
 
-Se si usano classi personalizzate per modellare i documenti e tali classi hanno proprietà di tipi primitivi non nullable (ad esempio, `int` o `bool` in C#), nella versione 1.0.1 di anteprima dell'SDK è presente una correzione di bug che è opportuno conoscere. Per altre informazioni dettagliate, vedere la sezione [Correzioni di bug nella versione 1.0.1 di anteprima](#BugFixes).
+Se si usano classi personalizzate per modellare i documenti e tali classi hanno proprietà di tipi primitivi non nullable, ad esempio, `int` o `bool` in C#, nella versione 1.0 di anteprima dell'SDK è presente una correzione di bug che è opportuno conoscere. Per altre informazioni dettagliate, vedere la sezione [Correzioni di bug nella versione 1.0 di anteprima](#BugFixes).
 
-Infine, dopo avere corretto gli errori di compilazione, è possibile apportare modifiche all'applicazione per sfruttare la nuova funzionalità, se si vuole. La funzionalità di serializzazione personalizzata nel nuovo SDK è illustrata nella sezione [Novità della versione 1.0.1 di anteprima](#WhatsNew).
+Infine, dopo avere corretto gli errori di compilazione, è possibile apportare modifiche all'applicazione per sfruttare la nuova funzionalità, se si vuole. La funzionalità di serializzazione personalizzata nel nuovo SDK è illustrata nella sezione [Novità della versione 1.0 di anteprima](#WhatsNew).
 
 <a name="ListOfChanges"></a>
-## Elenco delle modifiche di rilievo nella versione 1.0.1 di anteprima
+## Elenco delle modifiche di rilievo nella versione 1.0 di anteprima
 
 L'ordinamento dell'elenco seguente segue la probabilità che la modifica abbia effetto sul codice dell'applicazione.
 
@@ -114,7 +114,7 @@ Se il codice è simile a questo:
 <a name="OperationMethodChanges"></a>
 ### Modifiche ai metodi delle operazioni
 
-Ogni operazione in Azure Search .NET SDK è esposta come set di overload di un metodo per i chiamanti sincroni e asincroni. Le firme e il factoring di questi overload di un metodo sono stati modificati nella versione 1.0.1 di anteprima.
+Ogni operazione in Azure Search .NET SDK è esposta come set di overload di un metodo per i chiamanti sincroni e asincroni. Le firme e il factoring di questi overload del metodo sono stati modificati nella versione 1.0 di anteprima.
 
 Ad esempio, l'operazione "Get Index Statistics" nelle versioni precedenti dell'SDK espone queste firme:
 
@@ -137,7 +137,7 @@ In `IndexOperationsExtensions`:
         this IIndexOperations operations,
         string indexName);
 
-Le firme dei metodi per la stessa operazione nella versione 1.0.1 di anteprima sono simili a questa:
+Le firme dei metodi per la stessa operazione nella versione 1.0 di anteprima sono simili a questa:
 
 In `IIndexesOperations`:
 
@@ -159,12 +159,12 @@ In `IndexesOperationsExtensions`:
 
     // Simplified synchronous operation
     public static IndexGetStatisticsResult GetStatistics(
-        this IIndexesOperations operations, 
+        this IIndexesOperations operations,
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-A partire dalla versione 1.0.1 di anteprima, Azure Search .NET SDK organizza i metodi delle operazioni in modo diverso:
- 
+A partire dalla versione 1.0 di anteprima, Azure Search .NET SDK organizza i metodi delle operazioni in modo diverso:
+
  - I parametri facoltativi ora vengono modellati come parametri predefiniti invece che come overload dei metodi aggiuntivi. Questo riduce, in alcuni casi anche considerevolmente, il numero di overload dei metodi.
  - I metodi di estensione ora nascondono al chiamante numerosi dettagli estranei di HTTP. Ad esempio, le versioni precedenti dell'SDK restituiscono un oggetto risposta con un codice di stato HTTP, che spesso non è necessario controllare perché i metodi delle operazioni generano `CloudException` per tutti i codici di stato indicanti un errore. I nuovi metodi di estensione restituiscono solo oggetti modello, evitando il fastidio di doverne annullare il wrapping nel codice.
  - Al contrario, le interfacce principali ora espongono metodi che offrono un maggiore controllo a livello HTTP, se necessario. Ora è possibile passare le intestazioni HTTP personalizzate da includere nelle richieste e il nuovo `AzureOperationResponse<T>` consente l'accesso diretto a `HttpRequestMessage` e a `HttpResponseMessage` per l'operazione. `AzureOperationResponse` è definito nello spazio dei nomi `Microsoft.Rest.Azure` e sostituisce `Hyak.Common.OperationResponse`.
@@ -280,17 +280,17 @@ Nelle versioni precedenti dell'SDK, `SearchServiceClient` e `SearchIndexClient` 
 
 Infine sono stati modificati i costruttori che accettano `Uri` e `SearchCredentials`. Ad esempio, se il codice è simile a questo:
 
-    var client = 
+    var client =
         new SearchServiceClient(
-            new SearchCredentials("abc123"), 
+            new SearchCredentials("abc123"),
             new Uri("http://myservice.search.windows.net"));
 
 È possibile sostituirlo con questo per correggere gli errori di compilazione:
 
-    var client = 
+    var client =
         new SearchServiceClient(
             new Uri("http://myservice.search.windows.net"),
-            new SearchCredentials("abc123")); 
+            new SearchCredentials("abc123"));
 
 Si noti anche che il tipo del parametro delle credenziali è diventato `ServiceClientCredentials`. È improbabile che ciò abbia effetto sul codice perché `SearchCredentials` deriva da `ServiceClientCredentials`.
 
@@ -315,7 +315,7 @@ Se il codice è simile a questo:
 ### Modifiche ai nomi delle interfacce
 
 I nomi delle interfacce dei gruppi di operazioni sono stati tutti modificati in modo che fossero coerenti con i corrispondenti nomi di proprietà:
- 
+
  - Il tipo di `ISearchServiceClient.Indexes` è stato rinominato da `IIndexOperations` a `IIndexesOperations`.
  - Il tipo di `ISearchServiceClient.Indexers` è stato rinominato da `IIndexerOperations` a `IIndexersOperations`.
  - Il tipo di `ISearchServiceClient.DataSources` è stato rinominato da `IDataSourceOperations` a `IDataSourcesOperations`.
@@ -324,7 +324,7 @@ I nomi delle interfacce dei gruppi di operazioni sono stati tutti modificati in 
 Questa modifica potrebbe avere effetto sul codice solo se si creano interfacce fittizie a scopo di test.
 
 <a name="BugFixes"></a>
-## Correzioni di bug nella versione 1.0.1 di anteprima
+## Correzioni di bug nella versione 1.0 di anteprima
 
 Nelle versioni precedenti di Azure Search .NET SDK esiste un bug relativo alla serializzazione delle classi di modelli personalizzate. Il bug può verificarsi se si crea una classe di modelli personalizzata con una proprietà di un tipo di valore non nullable.
 
@@ -338,7 +338,7 @@ Anche i filtri potrebbero non funzionare normalmente perché nell'indice è stat
 
 ### Dettagli della correzione
 
-Questo problema è stato risolto nella versione 1.0.1 di anteprima dell'SDK. Se è presente una classe di modelli come questa:
+Questo problema è stato risolto nella versione 1.0 di anteprima dell'SDK. Se è presente una classe di modelli come questa:
 
     public class Model
     {
@@ -366,4 +366,4 @@ I commenti degli utenti sull'SDK saranno molto apprezzati. In caso di problemi, 
 
 Grazie per avere usato Ricerca di Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

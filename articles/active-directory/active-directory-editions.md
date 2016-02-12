@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="markvi"/>
 
 # Edizioni di Azure Active Directory
@@ -46,31 +46,29 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 >-	Il servizio Azure Multi-Factor Authentication può essere usato tramite provider per utente o provider per autenticazione. Per altre informazioni, vedere [Informazioni su Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 
+##Confronto di funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium
+
 <br>
 
 | Tipo di funzionalità| Funzionalità| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
 | --- | --- | --- | --- | --- | --- |
 | **Funzionalità comuni**| Oggetti directory [1]| Fino a 500.000 oggetti| Nessun limite di oggetti| Nessun limite di oggetti| Nessun limite di oggetti per gli account utente di Office 365|
 | | [Gestione di utenti e gruppi (aggiunta/aggiornamento/eliminazione), provisioning basato sull'utente](active-directory-administer.md), [registrazione dei dispositivi](active-directory-conditional-access-device-registration-overview.md)| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
-| | [App da SSO a SaaS, app personalizzate, app del proxy dell'applicazione](active-directory-enable-sso-scenario.md)| 10 app per utente [2]| 10 app per utente [2]| Nessun limite| 10 app per utente [2]|
+| | [Accesso Single Sign-On (SSO)](active-directory-enable-sso-scenario.md)| 10 app per utente [2] <br>(SaaS preintegrato e app integrate per gli sviluppatori)| 10 app per utente [2] <br>(livello gratuito + app del proxy di applicazione) | Nessun limite [4] <br> (livello gratuito e Basic + modelli di integrazione app self-service)| 10 app per utente [2] <br> (SaaS preintegrato e app integrate per gli sviluppatori)|
 | | [Modifica delle password self-service per gli utenti cloud](active-directory-passwords-update-your-own-password.md)| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 | | [Connect: per la sincronizzazione tra le directory locali e Azure Active Directory](active-directory-aadconnect.md)| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
-| | **Anteprima**:[ collaborazione B2B](active-directory-b2b-collaboration-overview.md)| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
-| | [Report sull'utilizzo e la sicurezza](active-directory-view-access-usage-reports.md)| Report di base| Report di base| Report avanzati| Report di base|
+| | [Report sull'utilizzo e la sicurezza](active-directory-view-access-usage-reports.md)| 3 report di base| 3 report di base| Report avanzati| 3 report di base|
 | **Funzionalità Premium e Basic**| [Gestione e provisioning degli accessi alle applicazioni basati sui gruppi](active-directory-accessmanagement-group-saasapps.md)| | ![Controllo][12]| ![Controllo][12]| |
 | | [Reimpostazione delle password self-service per gli utenti cloud](active-directory-passwords.md)| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 | | [Informazioni distintive dell'azienda (pagine di accesso/personalizzazione del panello di accesso)](active-directory-add-company-branding.md)| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 | | [Proxy dell'applicazione](active-directory-application-proxy-get-started.md)| | ![Controllo][12]| ![Controllo][12]| |
 | | [Tempo di attività previsto dal contratto di servizio con disponibilità elevata (99,9%)](https://azure.microsoft.com/support/legal/sla/)| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
-| **Funzionalità solo Premium**| Gestione self-service di gruppi, aggiunta self-service di applicazioni, appartenenza a gruppi dinamici| | | ![Controllo][12]| |
-| | [Reimpostazione, modifica, sblocco con writeback in locale delle password in modalità self-service](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Controllo][12]| |
-| | [Multi-Factor Authentication (cloud e in locale)](multi-factor-authentication.md)| | | ![Controllo][12]| Limitato al cloud solo per le app di Office 365|
+| **Funzionalità solo Premium**| [Gestione self-service di gruppi](active-directory-accessmanagement-self-service-group-management.md) / aggiunta self-service di applicazioni / [appartenenza a gruppi dinamici](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)| | | ![Controllo][12]| |
+| | [Multi-Factor Authentication (cloud e in locale)](multi-factor-authentication.md)| | | ![Controllo][12]| Limitato solo al cloud per le app di Office 365|
 | | [Licenze utente di Microsoft Identity Manager (MIM) e server MIM [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Controllo][12]| |
 | | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)| | | ![Controllo][12]| |
 | | [Collegamento di integrità di Active Directory di Azure](active-directory-aadconnect-health.md)| | | ![Controllo][12]| |
 | | Rollover automatico delle password per account di gruppo| | | ![Controllo][12]| |
-| | **Anteprima**: accesso condizionale| | | ![Controllo][12]| |
-| | **Anteprima**: Privileged Identity Management| | | ![Controllo][12]| |
 | **Funzionalità di Windows 10 relative all'aggiunta ad Azure Active Directory**| Aggiunta di un dispositivo Windows 10 ad Azure AD, Desktop SSO, Microsoft Passport per Azure AD, con ripristino Bitlocker per amministratori| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 | | Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD| | | ![Controllo][12]| |
 
@@ -84,6 +82,24 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 [3] Server di gestione delle identità Microsoft per i diritti di software che vengono concessi con licenza di Windows Server (qualsiasi edizione). Microsoft Identity Manager viene eseguito sul sistema operativo Windows Server. Di conseguenza, purché il server esegua una copia con licenza valida di Windows Server, Microsoft Identity Manager può essere installato e usato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
 
+[4] Integrazione self-service di qualsiasi applicazione che supporta SAML, SCIM o l'autenticazione basata su moduli mediante i modelli forniti nel menu della raccolta di applicazioni. Per altre informazioni, leggere questo articolo. [https://azure.microsoft.com/it-IT/documentation/articles/active-directory-saas-custom-apps
+
+
+##Funzionalità in anteprima di Azure AD
+
+Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium, Azure AD offre anche una raccolta di funzionalità in anteprima. È possibile usare le funzionalità in anteprima per scoprire le prossime novità e determinare se queste funzionalità possono essere utili per migliorare il proprio ambiente.
+
+
+**Funzionalità in anteprima disponibili:**
+
+- [Collaborazione B2B](active-directory-b2b-collaboration-overview.md)
+- Accesso condizionale
+- [Unità amministrative](active-directory-administrative-units-management.md)
+- Privileged Identity Management
+- [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
+
+
+
 
 
 ## Passaggi successivi
@@ -96,4 +112,4 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

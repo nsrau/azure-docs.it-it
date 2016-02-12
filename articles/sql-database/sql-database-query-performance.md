@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/02/2015"
+   ms.date="02/03/2015"
    ms.author="sstein"/>
 
 # Query Performance Insight del database SQL di Azure
@@ -47,16 +47,17 @@ Query Performance Insight è facile da usare:
 - Esaminare l'elenco delle query principali a livello di utilizzo delle risorse. 
 - Selezionare una singola query per visualizzarne i dettagli.
 - Fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati o per mostrare un periodo di tempo diverso.
+- Aprire [Index Advisor](sql-database-index-advisor.md) e verificare se sono disponibili indicazioni.
 
 
 
-> [AZURE.NOTE]Per consentire al database SQL di fornire approfondimenti sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
+> [AZURE.NOTE] Per consentire al database SQL di fornire approfondimenti sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
 
 
 
 ## Esaminare le query principali a livello di utilizzo di CPU
 
-Eseguire le operazioni seguenti nel [portale](https://portal.azure.com):
+Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
 
 1. Passare a un database SQL e fare clic su **Query Performance Insight**. 
 
@@ -64,17 +65,34 @@ Eseguire le operazioni seguenti nel [portale](https://portal.azure.com):
 
     Verrà aperta la visualizzazione relativa alle query principali e verrà mostrato l'elenco delle query principali a livello di utilizzo di CPU.
 
-1. Per informazioni dettagliate, fare clic sul grafico.<br>La prima riga mostra la percentuale di utilizzo di DTU complessiva per il database, mentre le barre mostrano la percentuale di CPU utilizzata dalle query selezionate. Selezionare o deselezionare singole query per includerle o escluderle dal grafico.
+1. Per informazioni dettagliate, fare clic sul grafico.<br>La prima riga mostra la percentuale di utilizzo di DTU complessiva per il database, mentre le barre mostrano la percentuale di CPU utilizzata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ciascuna barra rappresenta un giorno).
 
     ![query principali][2]
 
-1. Facoltativamente, fare clic su **Modifica grafico** per personalizzare la modalità di visualizzazione dei dati relativi all'utilizzo di CPU o per mostrare un periodo di tempo diverso.
+    La griglia inferiore rappresenta informazioni aggregate per le query visibili.
+
+    -	Utilizzo medio della CPU per query durante l'intervallo osservabile. 
+    -	Durata totale per query.
+    -	Numero totale di esecuzioni per una query specifica.
+
+
+	Selezionare o deselezionare singole query per includerle o escluderle dal grafico.
+
+
+1. Se i dati non vengono più aggiornati, fare clic sul pulsante **Aggiorna**.
+1. Facoltativamente, fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati relativi all'utilizzo di CPU o per mostrare un periodo di tempo diverso.
+
+    ![Scheda Impostazioni](./media/sql-database-query-performance/settings.png)
 
 ## Visualizzazione dei dettagli delle singole query
 
 Per visualizzare i dettagli relativi alle query:
 
-1. Fare clic su qualsiasi query nell'elenco delle query principali.<br>La visualizzazione dettagliata verrà aperta e l'utilizzo di CPU delle query verrà suddiviso nel tempo.
+1. Fare clic su qualsiasi query nell'elenco delle query principali.
+
+    ![informazioni dettagliate](./media/sql-database-query-performance/details.png)
+
+4. Verrà aperta la visualizzazione dettagliata e l'utilizzo di CPU delle query verrà suddiviso nel tempo.
 3. Per informazioni dettagliate, fare clic sul grafico.<br>La prima riga mostra la percentuale di utilizzo di DTU complessiva e le barre indicano la percentuale di CPU utilizzata dalla query selezionata.
 4. Esaminare i dati per visualizzare metriche dettagliate, ad esempio durata, numero di esecuzioni e percentuale di utilizzo delle risorse per ogni intervallo di esecuzione della query.
     
@@ -83,11 +101,57 @@ Per visualizzare i dettagli relativi alle query:
 1. Facoltativamente, fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati relativi all'utilizzo di CPU o per mostrare un periodo di tempo diverso.
 
 
+## 	Ottimizzare la configurazione dell'archivio query per Informazioni dettagliate prestazioni query
+
+Durante l'uso di Informazioni dettagliate prestazioni query, possono essere visualizzati messaggi dell'archivio query simili ai seguenti:
+
+- "L'archivio query ha raggiunto la capacità massima e non può raccogliere nuovi dati."
+- "L'archivio query è in modalità di sola lettura per questo database e non può raccogliere dati dettagliati sulle prestazioni."
+- "I parametri dell'archivio query non sono impostati in modo ottimale per Informazioni dettagliate prestazioni query."
+
+Questi messaggi in genere vengono visualizzati quando l'archivio query non è in grado di raccogliere nuovi dati. Per risolvere questo problema sono disponibili alcune opzioni:
+
+-	Modificare i criteri di conservazione e acquisizione dell'archivio query
+-	Aumentare le dimensioni dell'archivio query 
+-	Cancellare l'archivio query
+
+### Criteri di conservazione e acquisizione consigliati
+
+Esistono due tipi di criteri di conservazione:
+
+- Basati sulle dimensioni: se impostati su AUTOMATICO i dati verranno automaticamente cancellati al raggiungimento delle dimensioni massime.
+- Basati sul tempo: per impostazione predefinita verranno impostati su 30 giorni in modo tale che, se verrà esaurito lo spazio, l'archivio query eliminerà le informazioni di query antecedenti a 30 giorni. 
+
+I criteri di acquisizione possono essere impostati su:
+
+- **Tutte**: acquisisce tutte le query. Questa è l'opzione predefinita.
+- **Automatico**: le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente.
+- **Nessuna**: l'archivio query interrompe l'acquisizione di nuove query.
+	
+È consigliabile impostare tutti i criteri su AUTOMATICO e i criteri di pulizia dei dati su 30 giorni:
+
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
+    	
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
+    
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
+
+Aumentare le dimensioni dell'archivio query. È possibile eseguire questa operazione connettendosi a un database ed eseguendo la query seguente:
+
+    ALTER DATABASE [YourDB]
+    SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+
+Cancellare l'archivio query. Tenere presente che in questo modo verranno eliminate tutte le informazioni correnti nell'archivio query:
+
+    ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## Riepilogo
 
-Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi. Fare clic sul riquadro **Query Performance Insight** nel pannello del database per visualizzare le query principali a livello di utilizzo delle risorse (CPU).
+Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi. Fare clic su **Informazioni dettagliate prestazioni query** nel database per visualizzare le query principali a livello di utilizzo delle risorse (CPU).
 
 
 
@@ -96,11 +160,14 @@ Query Performance Insight semplifica la comprensione dell'impatto del carico di 
 
 I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Monitorare le query e continuare a perfezionarle per ottimizzare le prestazioni.
 
-Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL, vedere l'[advisor dell'indice](sql-database-index-advisor.md).
+Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL, vedere [Index Advisor](sql-database-index-advisor.md) nel pannello **Informazioni dettagliate prestazioni query**.
+
+![Index Advisor](./media/sql-database-query-performance/ia.png)
+
 
 <!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

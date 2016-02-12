@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@ Per configurare l'integrazione di Azure AD con Lesson.ly, sono necessari gli ele
 - Sottoscrizione di Lesson.ly abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Lesson.ly in Azure AD, è necessario aggiunger
 
 **Per aggiungere Lesson.ly dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1] <br>
+1. Nel **portale di gestione di Azure**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -64,8 +64,7 @@ Per configurare l'integrazione di Lesson.ly in Azure AD, è necessario aggiunger
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Lesson.ly**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Lesson.ly** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
-
+7. Nel riquadro dei risultati selezionare **Lesson.ly** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_02.png)<br>
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Lesson.ly con un utente test di nome "Britta Simon".
 
@@ -75,41 +74,49 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Lesson.ly, è
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Lesson.ly](#creating-a-Lesson.ly-test-user)**: per avere una controparte di Britta Simon in Lesson.ly collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Lesson.ly](#creating-a-Lessonly-test-user)**: per avere una controparte di Britta Simon in Lesson.ly collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Lesson.ly.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Lesson.ly tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-
+L'applicazione Lesson.ly prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli **attributi del token SAML**. La schermata seguente mostra un esempio di questa operazione. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png) <br>
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Lesson.ly, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Lesson.ly** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+1. Nel menu visualizzato nella parte superiore della pagina di integrazione dell’applicazione Lesson.ly del portale di Azure AD fare clic su **Attributi** per aprire la finestra di dialogo **Attributi di token SAML**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_07.png) <br>
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Lesson.ly**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+2. Per aggiungere i mapping di attributi obbligatori, seguire questa procedura: <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_08.png) <br> a. Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.<br> b. Nella casella di testo **Nome attributo** digitare il nome indicato per la riga.<br> c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.<br> d. Fare clic su **Completa**.
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
+3. Fare clic su **Applica modifiche**.
+
+4. Nel browser fare clic su **Indietro** per aprire nuovamente la finestra di dialogo Avvio rapido.
+
+5. Fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
+
+6. Nella pagina **Stabilire come si desidera che gli utenti accedano a Lesson.ly**, selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+
+7. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
 
 
-    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Lesson.ly adottando il modello seguente: **"https://<nome società>.Lesson.ly/signin"**.
+    a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Lesson.ly adottando il modello seguente: **"https://nomesocietà.Lesson.ly/signin"**. Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.
 
 
-4. Nella pagina **Configura accesso Single Sign-On in Lesson.ly** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
+8. Nella pagina **Configura accesso Single Sign-On in Lesson.ly** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
 
-5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Lesson.ly tramite dev@lesson.ly. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Lesson.ly perché possa configurare SSO.
+9. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Lesson.ly tramite dev@lesson.ly. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Lesson.ly perché possa configurare SSO.
 
 
-6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
+10. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+11. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
@@ -117,9 +124,9 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 ### Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente test in Azure AD, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -161,9 +168,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Lesson.ly. Lesson.ly supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
-Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Lesson.ly verrà creato un nuovo utente, se questo non esiste già.
+Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Lesson.ly verrà creato un nuovo utente, se questo non esiste già. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
 
-> [AZURE.NOTE]Per creare un utente manualmente, è necessario contattare il team di supporto di Lesson.ly.
+> [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di Lesson.ly.
 
 
 ### Assegnazione dell'utente test di Azure AD
@@ -213,4 +220,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

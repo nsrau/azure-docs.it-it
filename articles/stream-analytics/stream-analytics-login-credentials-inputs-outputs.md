@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #Ruotare le credenziali di accesso per input e output nei processi di analisi di flusso
@@ -58,7 +58,7 @@ Per altri input/output, andare alla Parte 2.
 
 ###Database SQL
 
->[AZURE.NOTE]Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di gestione di Azure. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
+>[AZURE.NOTE] Nota: sarà necessario connettersi al servizio Database SQL. Verrà mostrato come eseguire l’operazione utilizzando lo strumento di gestione sul portale di gestione di Azure. Tuttavia, è anche possibile scegliere uno strumento sul lato client come SQL Server Management Studio.
 
 1.  Andare all’estensione di Database SQL sul portale di gestione di Azure: ![graphic14][graphic14]
 2.  Individuare il Database SQL usato dal processo e **fare clic sul collegamento al server** sulla stessa riga: ![graphic15][graphic15]
@@ -194,4 +194,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

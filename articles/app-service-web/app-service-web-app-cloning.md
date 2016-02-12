@@ -35,7 +35,7 @@ Conoscendo il nome del gruppo di risorse che include l'app Web di origine, è po
 
 Per creare un nuovo piano di servizio app, è possibile usare il comando New-AzureRmAppServicePlan come nell'esempio seguente:
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 Con il comando New-AzureRmWebApp è possibile creare la nuova app Web nell'area North Central US e collegarla a un piano di servizio app Premium esistente. È anche possibile usare lo stesso gruppo di risorse dell'app Web di origine o definirne uno nuovo, come illustrato di seguito:
 
@@ -77,7 +77,7 @@ Di seguito è illustrata la creazione di un clone dell'app Web di origine in una
 
 ## Configurazione di Gestione traffico durante la clonazione di un'app ##
 
-Se si configura Gestione traffico durante la creazione di una nuova app Web clonandola da una esistente, è possibile connettere entrambe le app Web a un profilo di Gestione traffico nuovo o esistente. Si noti che è supportata solo la versione ARM di Gestione traffico.
+La creazione di app Web a più aree e la configurazione di Gestione traffico di Azure per indirizzare il traffico a tali app Web sono importanti per garantire la disponibilità elevata delle app dei clienti. Durante la clonazione di un'app Web esistente è possibile scegliere di connettere entrambe le app Web a un nuovo profilo di Gestione traffico oppure a uno esistente. Si noti che è supportata unicamente la versione di Gestione traffico di Gestione risorse di Azure.
 
 ### Creazione di un nuovo profilo di Gestione traffico durante la clonazione di un'app ###
 
@@ -114,4 +114,4 @@ Questa funzionalità è attualmente in anteprima e sono allo studio nuove funzio
 - [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

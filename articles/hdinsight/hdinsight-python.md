@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="01/28/2016" 
 	ms.author="larryfr"/>
 
 #Usare Python con Hive e Pig in HDInsight
 
 Hive e Pig sono soluzioni ottimali per usare i dati in HDInsight, ma in alcuni casi è necessario un linguaggio più generico. Sia Hive che Pig consentono di creare funzioni definite dall'utente usando una vasta gamma di linguaggi di programmazione. In questo articolo verrà illustrato come usare una funzione definita dall'utente Python da Hive e Pig.
 
-> [AZURE.NOTE]I passaggi descritti in questo articolo sono validi per i cluster HDInsight versioni 2.1, 3.0, 3.1 e 3.2.
+> [AZURE.NOTE] I passaggi descritti in questo articolo sono validi per i cluster HDInsight versioni 2.1, 3.0, 3.1 e 3.2.
 
 
 ##<a name="python"></a>Python in HDInsight
@@ -54,7 +54,7 @@ Python può essere usato come funzione definita dall'utente da Hive tramite l'is
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
-> [AZURE.NOTE]Nei cluster HDInsight basati su Windows, la clausola **USING** deve specificare il percorso completo di python.exe. Questo valore è sempre `D:\Python27\python.exe`.
+> [AZURE.NOTE] Nei cluster HDInsight basati su Windows, la clausola **USING** deve specificare il percorso completo di python.exe. Questo valore è sempre `D:\Python27\python.exe`.
 
 Ecco cosa fa l'esempio:
 
@@ -217,7 +217,7 @@ Dopo il caricamento dei file, usare la procedura seguente per eseguire i process
 
 ###PowerShell
 
-Nella procedura seguente viene usato Azure PowerShell. Se questo non è già installato e configurato nel computer di sviluppo, prima di iniziare vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Nella procedura seguente viene usato Azure PowerShell. Se questo non è già installato e configurato nel computer di sviluppo, prima di iniziare vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 1. Usando gli esempi di Python [streaming.py](#streamingpy) e [jython.py](#jythonpy), creare copie locali dei file nel computer di sviluppo.
 
@@ -255,7 +255,7 @@ Nella procedura seguente viene usato Azure PowerShell. Se questo non è già ins
 
 	Questo script recupera le informazioni relative al cluster HDInsight, quindi estrae l'account e la chiave dell'account di archiviazione predefinito e carica i file nella radice del contenitore.
 
-	> [AZURE.NOTE]Altri metodi per caricare gli script sono descritti nel documento [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
+	> [AZURE.NOTE] Altri metodi per caricare gli script sono descritti nel documento [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
 Dopo aver caricato i file, usare i seguenti script di PowerShell per avviare i processi. Al termine del processo, l'output dovrebbe essere scritto nella console di PowerShell.
 
@@ -424,4 +424,4 @@ Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapRedu
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

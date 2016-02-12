@@ -13,78 +13,79 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="02/02/2016"
    ms.author="yurid"/>
 
 # Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare le funzionalità del Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
+> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
-## Che cos'è il Centro sicurezza di Azure?
-Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+## Informazioni sul Centro sicurezza PC di Azure
+ Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ## Informazioni sugli avvisi di sicurezza
-Il Centro sicurezza di Azure raccoglie, analizza e integra automaticamente i dati di log dalle risorse di Azure, dalla rete e dalle soluzioni dei partner, ad esempio antimalware e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Un elenco degli avvisi con priorità viene esposto come Avvisi di sicurezza.
+ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log dalle risorse di Azure, dalla rete e dalle soluzioni dei partner, ad esempio programmi antimalware e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Un elenco degli avvisi con priorità viene esposto sotto forma di avvisi di sicurezza.
 
-È possibile esaminare gli avvisi correnti esaminando il riquadro Avvisi di sicurezza. Per visualizzare altri dettagli su ogni avviso, seguire questa procedura:
+È possibile esaminare gli avvisi correnti osservando il riquadro **Avvisi di sicurezza**. Per visualizzare altri dettagli su ogni avviso, seguire questa procedura:
 
-1. Nel dashboard del **Centro sicurezza di Azure** è visualizzato il riquadro **Avvisi di sicurezza**. 
+1. Nel dashboard del Centro sicurezza è disponibile il riquadro **Avvisi di sicurezza**.
 
-    ![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1.png)
+    ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1.png)
 
-2.  Fare clic sull'occorrenza dell'avviso di sicurezza nel grafico per visualizzare il pannello **Avvisi di sicurezza** con altri dettagli su questo avviso, come illustrato di seguito:
-    
-    ![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2.png)
+2.  Fare clic sull'icona delle occorrenze degli avvisi di sicurezza. Verrà visualizzato il pannello **Avvisi di sicurezza** contenente altri dettagli sugli avvisi, come illustrato di seguito.
 
-Nella parte inferiore del pannello sono disponibili i dettagli per ogni avviso. È possibile ordinare in base alle colonne facendo clic sulla colonna desiderata. Di seguito è riportata la definizione per ogni colonna:
+    ![Pannello Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2.png)
 
-- **Avviso**: breve spiegazione sull'avviso.
-- **Conteggio**: rappresenta il numero di tutti gli avvisi di questo tipo specifico che sono stati rilevati in un giorno specifico.
+Nella parte inferiore del pannello sono riportati i dettagli relativi ad ogni avviso. Per ordinarli, fare clic sulla colonna in base alle quale si vuole ordinare. Di seguito è riportata una definizione per ogni colonna:
+
+- **Avviso**: breve spiegazione dell'avviso.
+- **Conteggio**: elenco di tutti gli avvisi di questo tipo rilevati in un giorno specifico.
 - **Rilevato da**: servizio responsabile dell'attivazione dell'avviso.
 - **Data**: data in cui si è verificato l'evento.
-- **Stato**: mostra lo stato corrente per l'avviso. Esistono tre tipi di stato:
+- **Stato**: stato corrente dell'avviso. Esistono tre tipi di stato:
     - **Attivo**: l'avviso di sicurezza è stato rilevato.
-    - **Chiuso**: l'avviso di sicurezza è stato chiuso dall'utente. Questo stato viene in genere usato per gli avvisi che sono stati esaminati e non sono stati valutati come un attacco effettivo oppure avvisi esaminati e quindi risolti
+    - **Eliminato**: l'avviso di sicurezza è stato eliminato dall'utente. Questo stato viene usato generalmente per gli avvisi che, dopo essere stati esaminati, non sono stati valutati come un attacco effettivo oppure di cui ne sono stati attenuati gli effetti.
 
-- **Gravità**: mostra il livello di gravità, che può essere alta, media o bassa.
-  
+- **Gravità**: livello di gravità, che può essere alto, medio o basso.
 
 ### Rispondere agli avvisi di sicurezza
-Numerose attività possono indicare un potenziale attacco all'organizzazione. Ad esempio, l'attività di un amministratore di rete che esegue un'acquisizione di rete legittima può sembrare simile a quella di un utente che avvia una qualche forma di attacco. In altri casi, un sistema configurato in modo non corretto può generare numerosi falsi positivi nell'ambito di un sistema di rilevamento delle intrusioni, rendendo così più difficile l'individuazione di attacchi reali. Dopo avere esaminato gli avvisi di sicurezza nel Centro sicurezza di Azure, è possibile iniziare a intraprendere le azioni appropriate in base alla gravità dell'avviso.
+Molti tipi di attività possono indicare un potenziale attacco all'organizzazione. Ad esempio, l'attività di un amministratore di rete che esegue un'acquisizione di rete legittima può sembrare simile a quella di un utente che avvia una qualche forma di attacco. In altri casi, un sistema configurato in modo non corretto può generare numerosi falsi positivi nell'ambito di un sistema di rilevamento delle intrusioni, rendendo così più difficile l'individuazione di attacchi reali. Dopo aver esaminato gli avvisi di sicurezza mediante il Centro sicurezza, è possibile iniziare a intraprendere le azioni appropriate in base alla gravità dell'avviso.
 
 Per eseguire un'azione, selezionare l'avviso a cui si vuole rispondere. Sulla destra verrà visualizzato un nuovo pannello con altri dettagli, come illustrato di seguito:
 
-![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3.png)
+![Rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3.png)
 
-In questo caso, gli avvisi attivati fanno riferimento a un'attività RDP (Remote Desktop Protocol) sospetta. La prima colonna indica le risorse che sono state attaccate, seguita dall'ora in cui è stato rilevato l'attacco, dallo stato dell'avviso e dal livello di gravità. Dopo aver esaminato queste informazioni, fare clic sulla risorsa che è stata attaccata per visualizzare un nuovo pannello con altri suggerimenti relativi alle operazioni successive, come illustrato nell'esempio seguente:
+In questo caso, gli avvisi attivati fanno riferimento a un'attività RDP (Remote Desktop Protocol) sospetta. La prima colonna indica le risorse che sono state attaccate, la seconda l'ora in cui è stato rilevato l'attacco, la terza lo stato dell'avviso e la quarta il livello di gravità dell'attacco. Dopo aver esaminato queste informazioni, fare clic sulla risorsa attaccata. Verrà visualizzato un nuovo pannello con altri suggerimenti relativi alle operazioni successive, come illustrato nell'esempio seguente.
 
-![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4.png)
-  
-> [AZURE.NOTE]Le correzioni suggerite dal Centro sicurezza di Azure variano in base l'avviso di sicurezza e in alcuni casi, potrebbe essere necessario usare altre funzionalità di Azure per implementare la correzione consigliata. Ad esempio, la correzione per questo tipo di attacco indica di aggiungere alla blacklist l'indirizzo IP che genera questo tipo di attacco usando un [ACL di rete](virtual-networks-acl.md) o una regola del [gruppo di sicurezza di rete](virtual-networks-nsg.md).
+![Suggerimenti sulle operazioni da eseguire in presenza di avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4.png)
+
+> [AZURE.NOTE] Le correzioni suggerite dal Centro sicurezza variano in base all'avviso di sicurezza. In alcuni casi, può essere necessario usare altre funzionalità di Azure per implementare la correzione consigliata. Ad esempio, la correzione consigliata per questo tipo di attacco indica di aggiungere alla blacklist l'indirizzo IP che genera l'attacco usando un [ACL di rete](virtual-networks-acl.md) o una regola del [gruppo di sicurezza di rete](virtual-networks-nsg.md).
 
 ### Gestire gli avvisi di sicurezza
-È possibile filtrare gli avvisi in base a data, stato e gravità. Nel pannello Avvisi di sicurezza fare clic su Filtro e abilitare le opzioni desiderate come illustrato di seguito:
+È possibile filtrare gli avvisi in base a data, stato e gravità. Nel pannello **Avvisi di sicurezza** fare clic su **Filtro** e abilitare le opzioni desiderate, come illustrato di seguito:
 
-![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5.png)
+![Filtrare gli avvisi nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5.png)
 
-Il filtro degli avvisi può risultare utile per scenari in cui è necessario limitare l'ambito degli elementi da visualizzare nel dashboard, ad esempio, per controllare gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore perché si sta esaminando una potenziale violazione del sistema. Anche se la maggior parte degli avvisi di sicurezza includerà i suggerimenti da applicare, in alcuni casi potrebbe essere necessario ignorare un avviso perché per l'ambiente corrente è un falso positivo o perché si tratta di un comportamento previsto per una determinata risorsa. Indipendentemente dal caso specifico, è possibile nascondere i suggerimenti per una particolare risorsa usando l'opzione **Chiudi**.
+Il filtro degli avvisi può risultare utile per scenari in cui è necessario limitare l'ambito degli elementi da visualizzare nel dashboard, ad esempio per controllare gli avvisi di sicurezza che si sono verificati nelle ultime 24 ore mentre si sta esaminando una potenziale violazione del sistema.
 
-Per chiudere un'attività, fare clic sulla risorsa per visualizzare le informazioni aggiuntive o applicare la configurazione consigliata. Fare clic sull'attività per chiuderla. Verrà visualizzata l'opzione **Chiudi**, come illustrato nell'immagine seguente:
+Nella maggior parte dei casi, è consigliabile applicare le raccomandazioni incluse negli avvisi di sicurezza. In alcune circostanze, tuttavia, può essere necessario ignorare un avviso perché per l'ambiente corrente è un falso positivo o perché si tratta di un comportamento previsto per una determinata risorsa. Indipendentemente dal caso specifico, è possibile nascondere i suggerimenti per una particolare risorsa usando l'opzione **Chiudi**.
 
-![Abilitazione della raccolta dei dati](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6.png)
+Per eliminare un'attività, fare clic su di essa con il pulsante destro del mouse. Verrà visualizzata l'opzione **Elimina**, come illustrato nell'immagine seguente:
 
-In una raccolta di avvisi per ogni avviso saranno visualizzate una correzione e una descrizione molto specifiche. Gli avvisi visualizzati nel Centro sicurezza di Azure sono basati sullo scenario di attacco. Gli scenari di attacco seguenti sono attivati dal motore Microsoft:
+![Opzione Elimina nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6.png)
 
-- **Rilevamento attacco di forza bruta sui dati di rete**: questi rilevamenti sono basati su modelli di Machine Learning che apprendono dai dati del traffico di rete. 
-- **Rilevamento attacco di forza bruta sui dati degli endpoint**: questi rilevamenti sono basati sulle query eseguite dal Centro sicurezza di Azure sui log dei computer per consentire la differenziazione tra i tentativi riusciti e non riusciti. 
-- **Macchine virtuali che comunicano con indirizzi IP dannosi**: questi rilevamenti sono basati sull'individuazione eseguita dal Centro di sicurezza di Azure di computer compromessi con bot che comunicano con i rispettivi server di comando e di controllo (C&C) e viceversa. 
+In una raccolta di avvisi, per ogni avviso sono disponibili una descrizione e una correzione specifiche. Gli avvisi visualizzati nel Centro sicurezza sono basati su uno scenario di attacco. Gli avvisi relativi agli scenari di attacco seguenti sono attivati dal motore Microsoft:
+
+- **Rilevamento attacco di forza bruta su dati di rete**: basato su modelli di apprendimento automatico che apprendono dai dati del traffico di rete.
+- **Rilevamento attacco di forza bruta su dati di endpoint**: basato sulle query eseguite dal Centro sicurezza sui log dei computer; consente la differenziazione tra i tentativi riusciti e quelli non riusciti.
+- **Macchine virtuali che comunicano con indirizzi IP dannosi**: basato sull'individuazione eseguita dal Centro sicurezza di computer compromessi con bot che comunicano con i rispettivi server di comando e di controllo (C&C) e viceversa.
 
 ## Passaggi successivi
-In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
+In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
+- [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
+- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

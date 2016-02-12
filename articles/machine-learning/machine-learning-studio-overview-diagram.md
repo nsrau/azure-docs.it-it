@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@ Il diagramma **Panoramica delle funzionalità di Microsoft Azure Machine Learnin
 
 Questo diagramma mostra l’interazione di tutte le parti.
 
-> [AZURE.NOTE]Vedere [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) per altre informazioni sull'esplorazione e la scelta degli algoritmi disponibili in Machine Learning Studio.
+> [AZURE.NOTE] Vedere [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) per altre informazioni sull'esplorazione e la scelta degli algoritmi disponibili in Machine Learning Studio.
 
 ## Scaricare il diagramma della panoramica di Machine Learning Studio
 
@@ -47,4 +47,4 @@ Scaricare il diagramma **Panoramica sulla funzionalità di Microsoft Azure Machi
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -39,7 +39,7 @@ Questi sono i componenti di una connessione RDP:
 Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. Ad esempio:
 
 - Se l'indirizzo IP pubblico della VM o il servizio cloud contenente la VM (detto anche indirizzo IP virtuale o [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) è cambiato, l'errore RDP potrebbe essere causato dal fatto che la cache del client DNS ha ancora l'*indirizzo IP precedente* registrato per il nome DNS. Svuotare la cache del client DNS e riprovare a connettersi alla VM. Oppure, provare a connettersi direttamente con il nuovo indirizzo VIP.
-- Se si usa un'applicazione di terze parti per gestire le connessioni Desktop remoto, anziché i portali di Azure, verificare che la configurazione dell'applicazione includa la porta TCP corretta per il traffico di Desktop remoto. È possibile controllare questa porta per una macchina virtuale classica nel [portale di Azure](portal.azure.com) facendo clic sulle impostazioni della VM > Endpoint.
+- Se si usa un'applicazione di terze parti per gestire le connessioni Desktop remoto, anziché i portali di Azure, verificare che la configurazione dell'applicazione includa la porta TCP corretta per il traffico di Desktop remoto. È possibile controllare questa porta per una macchina virtuale classica nel [portale di Azure](https://portal.azure.com) facendo clic sulle impostazioni della VM > Endpoint.
 
 
 ## Operazioni preliminari
@@ -135,7 +135,7 @@ Provare nuovamente la connessione dal computer. Se non si è ancora in grado di 
 
 Per le VM create usando il modello di distribuzione classico, usare una sessione remota di Azure PowerShell per connettersi alla macchina virtuale di Azure. In primo luogo, sarà necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Passare alla pagina dello script per [configurare l'accesso remoto PowerShell protetto alle VM di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** nel computer locale.
 
-Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1**. Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -195,4 +195,4 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

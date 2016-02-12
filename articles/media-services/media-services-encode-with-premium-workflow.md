@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -28,7 +28,7 @@ Nei seguenti argomenti sono incluse informazioni dettagliate su **Flusso di lavo
 
 - [Formati supportati da Flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md): vengono illustrati formati file e codec supportati da **Flusso di lavoro Premium del codificatore multimediale**.
 
-- Nella sezione relativa al [confronto tra codificatori](media-services-encode-asset.md#compare_encoders) vengono confrontate le funzionalità di codifica di **Flusso di lavoro Premium del codificatore multimediale** e di **Azure Media Encoder**.
+- Nella sezione relativa al [confronto tra codificatori](media-services-encode-asset.md#compare_encoders) vengono confrontate le funzionalità di codifica di **Flusso di lavoro Premium del codificatore multimediale**, di **Media Encoder Standard** e di **Azure Media Encoder**.
 
 Questo argomento illustra come codificare con **Flusso di lavoro Premium del codificatore multimediale** mediante .NET.
 
@@ -277,4 +277,4 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

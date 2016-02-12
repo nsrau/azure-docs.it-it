@@ -25,7 +25,7 @@ Il modello di protezione di Hub eventi soddisfa i requisiti seguenti:
 
 ## Autenticazione del dispositivo
 
-Il modello di protezione di Hub eventi si basa su una combinazione di token [Shared Access Signature (SAS)](service-bus-shared-access-signature-authentication.md) e autori di eventi. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L'autore si può usare solo per inviare messaggi a un hub eventi. Non è possibile ricevere messaggi da un autore.
+Il modello di protezione di Hub eventi si basa su una combinazione di token [Shared Access Signature (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) e autori di eventi. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L'autore si può usare solo per inviare messaggi a un hub eventi. Non è possibile ricevere messaggi da un autore.
 
 In genere, un hub eventi usa un autore per ogni dispositivo. Tutti i messaggi inviati a uno qualsiasi degli autori di un hub eventi vengono accodati all'interno di tale hub eventi. Gli autori consentono la limitazione e il controllo dell’accesso con granularità fine.
 
@@ -154,4 +154,4 @@ Per ulteriori informazioni su Hub eventi, visitare i seguenti argomenti:
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

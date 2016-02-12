@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop in HDInsight
@@ -23,7 +23,7 @@
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
 
-> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un client Windows e un cluster HDInsight basato su Windows. Per informazioni sull'uso di Mahout da un client Linux, OS X o Unix con un cluster HDInsight basato su Windows, vedere [Generare raccomandazioni di film con Apache Mahout con Hadoop basato su Linux in HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
+> [AZURE.NOTE] I passaggi descritti in questo documento richiedono un client Windows e un cluster HDInsight basato su Windows. Per informazioni sull'uso di Mahout da un client Linux, OS X o Unix con un cluster HDInsight basato su Windows, vedere [Generare raccomandazioni di film con Apache Mahout con Hadoop basato su Linux in HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
 
 
 ##<a name="learn"></a>Contenuto dell'esercitazione
@@ -36,7 +36,7 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 
 * Come installare Mahout nei cluster HDInsight 3.0 e 2.0
 
-	> [AZURE.NOTE]Mahout viene fornito con la versione HDInsight 3.1 dei cluster. Se si usa una versione precedente di HDInsight, vedere [Installare Mahout](#install) prima di continuare.
+	> [AZURE.NOTE] Mahout viene fornito con la versione HDInsight 3.1 dei cluster. Se si usa una versione precedente di HDInsight, vedere [Installare Mahout](#install) prima di continuare.
 
 ##prerequisiti
 
@@ -46,7 +46,7 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 
 ##<a name="recommendations"></a>Generare raccomandazioni con Windows PowerShell
 
-> [AZURE.NOTE]Anche se il processo usato in questa sezione funziona con Windows PowerShell, molte delle classi fornite con Mahout al momento non funzionano con Windows PowerShell e devono essere eseguite mediante la riga di comando di Hadoop. Per l'elenco delle classi che non funzionano con Windows PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+> [AZURE.NOTE] Anche se il processo usato in questa sezione funziona con Windows PowerShell, molte delle classi fornite con Mahout al momento non funzionano con Windows PowerShell e devono essere eseguite mediante la riga di comando di Hadoop. Per l'elenco delle classi che non funzionano con Windows PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 >
 > Per un esempio di uso della riga di comando di Hadoop per eseguire i processi Mahout, vedere [Classificare i dati mediante la riga di comando di Hadoop](#classify).
 
@@ -104,7 +104,7 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
             -Container $container `
             -Context $context
     
-    Questo frammento di codice carica il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. È quindi possibile accedere ai dati usando l'URI __wasb:///example/data/u.data__ dai processi HDInsight.
+    Questo frammento di codice carica il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. È quindi possibile accedere ai dati usando l'URI \_\___wasb:///example/data/u.data__ dai processi HDInsight.
 
 ###Eseguire il processo
 
@@ -186,7 +186,7 @@ Usare lo script di Windows PowerShell seguente per eseguire un processo mediante
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-> [AZURE.NOTE]I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione del processo. Nel processo di esempio è specificato il parametro `--tempDir` per isolare i file temporanei in una directory specifica.
+> [AZURE.NOTE] I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione del processo. Nel processo di esempio è specificato il parametro `--tempDir` per isolare i file temporanei in una directory specifica.
 
 Il processo Mahout non restituisce l'output in STDOUT, ma lo archivia nella directory di output specificata come __part-r-00000__. Lo script scaricherà questo file in __output.txt__ nella directory corrente nella workstation.
 
@@ -378,7 +378,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    L'output di questa operazione viene archiviato nella directory __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dagli utenti.
+    L'output di questa operazione viene archiviato nella directory __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dagli utenti.
 
 5. Testare la foresta classificando il set di dati __KDDTest+.arff__. Usare il comando seguente:
 
@@ -410,9 +410,9 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Il processo genera inoltre un file in __wasb:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
+  Il processo genera inoltre un file in \_\___wasb:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
 
-> [AZURE.NOTE]I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
+> [AZURE.NOTE] I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
 
 ##<a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -428,9 +428,9 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Al termine della compilazione, il file JAR sarà disponibile in __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Dopo il rilascio di Mahout 1.0 dovrebbe essere possibile usare i pacchetti predefiniti con HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Caricare il file JAR in __example/jars__ nella risorsa di archiviazione predefinita del cluster. Sostituire CLUSTERNAME nello script seguente con il nome del cluster HDInsight, e sostituire FILENAME con il percorso per il file __mahout-coure-0.9-job.jar__.
 
@@ -511,9 +511,9 @@ Per eseguire i processi che usano queste classi, connettersi al cluster HDInsigh
 
 A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usare i dati in HDInsight:
 
-* [Hive con HDInsight](../hadoop-use-hive.md)
-* [Pig con HDInsight](../hadoop-use-pig.md)
-* [MapReduce con HDInsight](../hadoop-use-mapreduce.md)
+* [Hive con HDInsight](hdinsight-use-hive.md)
+* [Pig con HDInsight](hdinsight-use-pig.md)
+* [MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -530,4 +530,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

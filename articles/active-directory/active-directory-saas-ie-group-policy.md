@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo | Microsoft Azure"
-   description="Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo | Microsoft Azure"
+    description="Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 
@@ -62,7 +62,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 
 3. Nel riquadro sinistro della finestra **Gestione Criteri di gruppo** visualizzare la gerarchia della propria unità organizzativa e determinare il livello in base al quale verranno applicati i criteri di gruppo. Ad esempio, è possibile decidere di selezionare un'unità organizzativa di piccole dimensioni per eseguire la distribuzione per un numero limitato di utenti ai fini del test oppure scegliere un'unità organizzativa di primo livello per eseguire la distribuzione a livello dell'intera organizzazione.
 
-	> [AZURE.NOTE]Per creare o modificare le unità organizzative, tornare a Server Manager e passare a **Strumenti** > **Utenti e computer di Active Directory**.
+	> [AZURE.NOTE] Per creare o modificare le unità organizzative, tornare a Server Manager e passare a **Strumenti** > **Utenti e computer di Active Directory**.
 
 4. Dopo aver selezionato un'unità organizzativa, fare clic con il pulsante destro del mouse su di essa e scegliere **Crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento...**
 
@@ -90,7 +90,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 
 4. Passare alla cartella condivisa che contiene il pacchetto del programma di installazione scaricato nel [Passaggio 1: Creare il punto di distribuzione](#step-1-create-the-distribution-point), selezionare il file MSI e quindi fare clic su **Apri**.
 
-	> [AZURE.IMPORTANT]Se la condivisione si trova nello stesso server, verificare che l'accesso al file MSI avvenga tramite il percorso di rete e non tramite il percorso locale.
+	> [AZURE.IMPORTANT] Se la condivisione si trova nello stesso server, verificare che l'accesso al file MSI avvenga tramite il percorso di rete e non tramite il percorso locale.
 
 	![Selezionare il pacchetto di installazione dalla cartella condivisa.](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@ Se si desidera impedire agli utenti la visualizzazione del messaggio, attenersi 
 
 2. Individuare l'impostazione denominata **Attiva Completamento automatico per nomi utente e password nei moduli**.
 
-	> [AZURE.NOTE]Le versioni precedenti di Active Directory possono elencare questa impostazione con il nome **Non consentire al completamento automatico di salvare le password**. La configurazione dell'impostazione differisce da quella descritta in questa esercitazione.
+	> [AZURE.NOTE] Le versioni precedenti di Active Directory possono elencare questa impostazione con il nome **Non consentire al completamento automatico di salvare le password**. La configurazione dell'impostazione differisce da quella descritta in questa esercitazione.
 
 	![Ricordarsi di controllarlo nelle Impostazioni utente.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@ Se si desidera impedire agli utenti la visualizzazione del messaggio, attenersi 
 
 Gli utenti non saranno più in grado di archiviare le credenziali o di utilizzare il completamento automatico per accedere alle credenziali archiviate in precedenza. Tuttavia, questo criterio consente agli utenti di continuare a utilizzare il completamento automatico per altri tipi di campi dei moduli, ad esempio i campi di ricerca.
 
-> [AZURE.WARNING]Se questo criterio è abilitato dopo che gli utenti hanno scelto di memorizzare alcune credenziali, questo criterio *non* cancellerà le credenziali che sono già state archiviate.
+> [AZURE.WARNING] Se questo criterio è abilitato dopo che gli utenti hanno scelto di memorizzare alcune credenziali, questo criterio *non* cancellerà le credenziali che sono già state archiviate.
 
 ##Passaggio 6: Test della distribuzione
 
@@ -177,4 +177,4 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

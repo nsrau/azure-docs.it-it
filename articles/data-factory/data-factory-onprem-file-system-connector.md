@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Spostare i dati da e verso il file system locale usando Data factory di Azure
+# Spostare i dati da e nel file system locale usando Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory per spostare dati da e verso un file system locale. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -34,9 +34,11 @@ Eseguire i due passaggi seguenti per usare una condivisione di file Linux con il
 - Installare [Samba](https://www.samba.org/) sul server Linux.
 - Installare e configurare il Gateway di gestione dati su un server Windows. L'installazione di un gateway su un server Linux non è supportata. 
  
-## Esempio: Copiare i dati da un file system locale a BLOB di Azure
+## Esempio: Copiare i dati da un file system locale a un BLOB di Azure
 
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da un file system locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -247,7 +249,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
-##Esempio: Copiare i dati da SQL Azure a un file system locale 
+##Esempio: Copiare i dati da Azure SQL Azure in un file system locale 
 
 L'esempio seguente mostra:
 
@@ -566,7 +568,7 @@ Per usare il formato Avro in una tabella Hive successiva, vedere l'[esercitazion
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
-## Proprietà del tipo per l'attività di copia di una condivisione file
+## Proprietà del tipo di attività di copia di una condivisione file
 
 **FileSystemSource** supporta le proprietà seguenti:
 
@@ -606,4 +608,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

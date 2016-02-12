@@ -54,10 +54,10 @@ I modelli ASP.NET 5 forniti per le applicazioni Service Fabric sono quasi identi
 
 ## Passaggi successivi
 ### Aggiungere un front-end web all'applicazione
-L'infrastruttura di servizi fornisce l'integrazione con ASP.NET 5 per la creazione di punti di ingresso basati sul web per l'applicazione. Vedere come [aggiungere un front-end web all'applicazione][add-web-frontend] per imparare a creare un'interfaccia REST basata su API Web ASP.NET.
+L'infrastruttura di servizi fornisce l'integrazione con ASP.NET 5 per la creazione di punti di ingresso basati sul web per l'applicazione. Vedere [Compilare un front-end di servizio Web per l'applicazione][add-web-frontend] per imparare a creare un'interfaccia REST basata su API Web ASP.NET.
 
 ### Creare un cluster di Azure
-LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure][create-cluster-in-portal]
+LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Configurazione di un cluster di Service Fabric dal portale di Azure][create-cluster-in-portal].
 
 ### Provare a distribuire in Azure gratuitamente i cluster di terze parti
 
@@ -67,7 +67,7 @@ Se si vuole provare a distribuire e gestire applicazioni in Azure senza configur
 È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per informazioni, vedere [Pubblicare l'applicazione in Azure][publish-app-to-azure].
 
 ### Visualizzare il cluster con Service Fabric Explorer
-Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per sapere di più, vedere [Visualizzazione del cluster con Service Fabric Explorer][visualize-with-sfx].
+Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer][visualize-with-sfx].
 
 ### Effettuare il versioning e aggiornare i servizi
 Service Fabric consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere l'articolo relativo all'[esecuzione del versioning e dell'aggiornamento dei servizi][app-upgrade-tutorial].
@@ -78,12 +78,12 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 
 
 <!-- Links -->
-[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+[add-web-frontend]: service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

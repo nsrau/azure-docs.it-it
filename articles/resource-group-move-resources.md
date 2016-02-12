@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -113,8 +113,8 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 
 ## Passaggi successivi
 - [Utilizzo di Azure PowerShell con Gestione risorse](./powershell-azure-resource-manager.md)
-- [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](./xplat-cli-azure-resource-manager.md)
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

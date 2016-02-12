@@ -22,8 +22,6 @@
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end Node.js nelle app per dispositivi mobili del servizio app di Azure.
 
-> [AZURE.NOTE] Questo SDK è disponibile in ANTEPRIMA. Non è quindi consigliabile usare questo SDK in fase di produzione. Gli esempi di questo documento usano la versione v2.0.0-rc2 di [azure-mobile-apps].
-
 ## <a name="Introduction"></a>Introduzione
 
 App per dispositivi mobili del servizio app di Azure consente di aggiungere un'API Web di accesso ai dati ottimizzata per dispositivi mobili a un'applicazione Web. Azure App Service Mobile Apps SDK viene fornito per le applicazioni Web Node.js e ASP.NET. L'SDK consente le operazioni seguenti:
@@ -565,7 +563,7 @@ Una volta installato, è possibile abilitare il supporto di Swagger nel costrutt
 
 L'endpoint swagger sarà posizionato in http://\_yoursite\_.azurewebsites.net/swagger. È possibile accedere all'interfaccia utente di Swagger tramite l'endpoint `/swagger/ui`. Si noti che Swagger genera un errore per / endpoint se si sceglie di richiedere l'autenticazione a livello dell'intera applicazione. Per ottenere risultati ottimali, scegliere di consentire richieste non autenticate tramite le impostazioni di Autenticazione/Autorizzazione del servizio app di Azure, quindi controllare l'autenticazione con la proprietà `table.access`.
 
-È anche possibile aggiungere l'opzione Swagger al file `azureMobile.js` se si vuole solo il supporto di Swagger solo quando si sviluppa in locale.
+È anche possibile aggiungere l'opzione Swagger al file `azureMobile.js` se si vuole il supporto di Swagger solo quando si sviluppa in locale.
 
 ## <a name="CustomAPI"></a>API personalizzate
 
@@ -747,4 +745,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

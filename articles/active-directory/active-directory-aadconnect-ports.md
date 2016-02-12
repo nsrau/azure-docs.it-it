@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -46,7 +46,13 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 Per un elenco delle porte e degli indirizzi IP di Office 365, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ## Tabella 3 - Azure AD Connect e server federativi/WAP
-Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP. Presto disponibile.
+Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP.
+
+| Protocollo |Porte |Descrizione
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
+|HTTPS|443 (TCP/UDP)|Usato per la sincronizzazione con Azure AD.
+|WinRM|5985| Listener di Gestione remota Windows
 
 ## Tabella 4 - server federativi e WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
@@ -79,4 +85,4 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere [la sezione Requisiti dell'agente di Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

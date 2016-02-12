@@ -40,13 +40,13 @@ Le attività incluse nella tabella seguente vengono usate per accedere ai certif
 |:---|:---|
 |Get-AutomationCertificate|Ottiene un certificato da usare in un runbook o in una configurazione DSC.|
 
->[AZURE.NOTE] È consigliabile evitare di usare le variabili nel parametro –Name di GetAutomationCertificate, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di certificato durante la fase di progettazione.
+>[AZURE.NOTE] È consigliabile evitare di usare le variabili nel parametro –Name di Get-AutomationCertificate, perché ciò può complicare l'individuazione delle dipendenze tra runbook o configurazioni DSC e gli asset di certificato in fase di progettazione.
 
 ## Creazione di un nuovo certificato
 
 Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx in Automazione di Azure. Se si contrassegna il certificato come esportabile, sarà possibile trasferirlo all'esterno dell'archivio di certificati di Automazione di Azure. Se non è esportabile, sarà possibile usarlo solo per la firma entro il Runbook o configurazione DSC.
 
-### Per creare un nuovo certificato con il portale di Azure
+### Per creare un nuovo certificato con il portale di Azure classico
 
 1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
 1. Nella parte inferiore della finestra, fare clic su **Aggiungi impostazione**.
@@ -57,7 +57,7 @@ Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx 
 1. Fare clic sul segno di spunta per caricare il file del certificato e salvare il nuovo asset di certificato.
 
 
-### Per creare un nuovo certificato con il portale di anteprima di Azure
+### Per creare un nuovo certificato con il portale di Azure
 
 1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
 1. Fare clic sulla parte **Certificati** per aprire il pannello **Certificati**.
@@ -92,13 +92,13 @@ Il codice di esempio seguente mostra come aggiungere un certificato a un servizi
 
 ### Esempio di Runbook grafico
 
-Per aggiungere un'attività **Get-AutomationCerticiate** a un Runbook grafico, fare clic con il pulsante destro del mouse sul certificato nel riquadro della libreria dell'editor grafico e scegliere **Aggiungi a area di disegno**.
+Per aggiungere un'attività **Get-AutomationCertificate** a un runbook grafico, fare clic con il pulsante destro del mouse sul certificato nel riquadro della libreria dell'editor grafico e scegliere **Aggiungi ad area di disegno**.
 
 ![](media/automation-certificates/certificate-add-canvas.png)
 
 La figura seguente mostra un esempio dell'uso di un certificato in un Runbook grafico. Si tratta dello stesso esempio mostrato in precedenza per l'aggiunta di un certificato a un servizio cloud da un Runbook testuale.
 
-Questo esempio usa il set di parametri **UseConnectionObject** per l'attività **Send-TwilioSMS** che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), poiché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
+Questo esempio usa il set di parametri **UseConnectionObject** per l'attività **Send-TwilioSMS** che usa un oggetto di connessione per l'autenticazione al servizio. È necessario usare un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow), perché un collegamento sequenza restituirebbe una raccolta contenente un singolo oggetto, non previsto dal parametro Connection.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@ Questo esempio usa il set di parametri **UseConnectionObject** per l'attività *
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -212,7 +212,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 		http://hn0-myspar:9995
 
 	* **hn0** indica il nodo head 0.
-	* **myspar** sono le prime cinque lettere del cluster Spark.
+	* **myspar** sono le prime sei lettere del nome del cluster Spark.
 	* **9995** è la porta da cui il notebook di Zeppelin è accessibile.
 
 2. Creare un nuovo notebook. Dal riquadro intestazione fare clic su **Notebook** quindi fare clic su **Creare una nuova nota**.
@@ -330,4 +330,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

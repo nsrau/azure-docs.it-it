@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: configurazione della Reimpostazione password self-service per gli utenti
@@ -34,6 +34,7 @@ Questa funzionalità consente agli utenti (che hanno effettuato la registrazione
 
 Per eseguire il test, utilizzare la funzionalità "Run now" in ogni criterio di accesso (che include gli account locali come provider di identità). Nella pagina di accesso dell'account locale (dove si inserisce l’indirizzo di posta elettronica e la password o il nome utente e la password), fare clic su **Impossibile accedere all'account?** per verificare l'esperienza dell’utente.
 
-> [AZURE.NOTE]Le pagine di reimpostazione della password self-service sono personalizzabili tramite la [funzionalità marchio della società](active-directory-add-company-branding.md).
+> [AZURE.NOTE]
+Le pagine di reimpostazione della password self-service sono personalizzabili tramite la [funzionalità marchio della società](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

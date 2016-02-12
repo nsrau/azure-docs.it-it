@@ -39,7 +39,7 @@ Se si preferisce lavorare in una shell dei comandi, scegliere tra l'interfaccia 
 
 Per l’interfaccia della riga di comando di Azure, vedere:
 
-- [Equivalente dei comandi di gestione delle risorse e di gestione dei servizi per le operazioni di macchina virtuale con CLI di Azure per Mac, Linux e Windows][].
+- [Equivalente dei comandi di gestione delle risorse e di gestione dei servizi per le operazioni di macchina virtuale con CLI di Azure per Mac, Linux e Windows.][]
 - [Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure][]
 
 Per Azure PowerShell, vedere:
@@ -62,12 +62,12 @@ Scegliere un'immagine in base al sistema operativo che si desidera eseguire. Azu
 
 [Creare una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
 
-[Equivalente dei comandi di gestione delle risorse e di gestione dei servizi per le operazioni di macchina virtuale con CLI di Azure per Mac, Linux e Windows]: xplat-cli-azure-manage-vm-asm-arm.md
+[Equivalente dei comandi di gestione delle risorse e di gestione dei servizi per le operazioni di macchina virtuale con CLI di Azure per Mac, Linux e Windows.]: xplat-cli-azure-manage-vm-asm-arm.md
 [Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Creare una macchina virtuale di Windows PowerShell con Gestione risorse]: virtual-machines-create-windows-powershell-resource-manager.md
-[Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Esplorazione e selezione di immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@ Scegliere un'immagine in base al sistema operativo che si desidera eseguire. Azu
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

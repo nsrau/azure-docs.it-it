@@ -15,32 +15,34 @@
 
 #Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
 
-La raccolta di applicazioni di Azure Active Directory offre un elenco di applicazioni che supportano un formato di Single Sign-On con Azure Active Directory, come descritto in [questo articolo]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Dopo aver trovato l'applicazione a cui connettersi, come specialista IT o come integratore di sistemi, è possibile iniziare seguendo le istruzioni dettagliate presentate nel portale di gestione di Azure per abilitare il Single Sign-On.
+Questo articolo illustra una funzionalità che consente agli amministratori di configurare l'accesso Single Sign-On alle applicazioni non presenti nella raccolta di app di Azure Active Directory *senza scrivere codice*. Questa funzionalità è stata rilasciata dall'anteprima tecnica il 18 novembre 2015 ed è inclusa in [Azure Active Directory Premium](active-directory-editions.md). Se si cercano invece indicazioni per gli sviluppatori sull'integrazione delle app personalizzate con Azure AD tramite il codice, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
 
-I clienti con licenze [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) hanno accesso a queste funzionalità aggiuntive, richiamabili dalla categoria **Personalizzata** della raccolta di applicazioni di Azure AD:
+La raccolta di applicazioni di Azure Active Directory offre un elenco di applicazioni che supportano un formato di Single Sign-On con Azure Active Directory, come descritto in [questo articolo](active-directory-appssoaccess-whatis.md). Dopo aver trovato l'applicazione a cui connettersi, come specialista IT o come integratore di sistemi, è possibile iniziare seguendo le istruzioni dettagliate presentate nel portale di gestione di Azure per abilitare il Single Sign-On.
 
-* Connessione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0
-* Connessione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con SSO basato su password
-* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)
+I clienti con licenze [Azure Active Directory Premium](active-directory-editions.md) ottengono anche le funzionalità aggiuntive seguenti:
+
+* Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0
+* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](active-directory-scim-provisioning))
+* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
 
 Possono essere incluse le applicazioni SaaS usate ma non ancora caricate nella raccolta di applicazioni di Azure AD, nonché le applicazioni Web di terze parti che l'organizzazione ha distribuito nei server sotto il suo controllo, nel cloud o in locale.
 
-Nota: gli sviluppatori possono testare la compatibilità tra la propria applicazione e questa funzionalità usando una [versione di valutazione gratuita di Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/), ma è consigliabile acquistare una [licenza Internal Use Rights](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx).
+Queste funzionalità, note anche come *modelli di integrazione di app*, forniscono punti di connessione basati sugli standard per le app che supportano SAML, SCIM o l'autenticazione basata su moduli e includono opzioni e impostazioni flessibili per assicurare la compatibilità con numerosissime applicazioni.
 
-##Aggiunta di un'applicazione personalizzata o non pubblicata 
+##Aggiunta di un'applicazione non pubblicata
 
-Per configurare un'applicazione, accedere al portale di gestione di Azure con l'account di amministratore di Azure Active Directory e trovare la sezione **Active Directory > [Directory] > Applicazioni**, scegliere **Aggiungi** e quindi **Aggiungere un'applicazione dalla raccolta**.
+Per connettere un'applicazione usando un modello di integrazione di app, accedere al portale di gestione di Azure con l'account di amministratore di Azure Active Directory e trovare la sezione **Active Directory > [Directory] > Applicazioni**, scegliere **Aggiungi** e quindi **Aggiungere un'applicazione dalla raccolta**.
 
 ![][1]
 
-Nella raccolta di applicazioni è possibile aggiungere un'applicazione personalizzata usando la categoria **Personalizzata** a sinistra oppure selezionando il collegamento **Aggiungi un'applicazione non pubblicata** visualizzato nei risultati della ricerca, se l'applicazione cercata non è stata trovata. Dopo aver immesso un nome per l'applicazione, è possibile configurare le opzioni di comportamento e Single Sign-On.
+Nella raccolta di applicazioni è possibile aggiungere un'applicazione non pubblicata usando la categoria **Personalizzata** a sinistra oppure selezionando il collegamento **Aggiungi un'applicazione non pubblicata** visualizzato nei risultati della ricerca, se l'applicazione cercata non è stata trovata. Dopo aver immesso un nome per l'applicazione, è possibile configurare le opzioni di comportamento e Single Sign-On.
 
 **Suggerimento rapido**: come procedura consigliata, usare la funzione di ricerca per verificare se l'applicazione esiste già nella raccolta di applicazioni. Se l'applicazione viene trovata e la relativa descrizione parla di "Single Sign-On", l'applicazione è già supportata per il Single Sign-On federato.
 
 ![][2]
 
-La procedura per l'aggiunta di un'applicazione personalizzata è molto simile a quella disponibile per le applicazioni preintegrate. Per iniziare, selezionare **Configura accesso Single Sign-On**. Nella schermata successiva sono disponibili le tre opzioni seguenti per la configurazione del Single Sign-On, descritte nelle sezioni successive.
+La procedura per l'aggiunta di un'applicazione non pubblicata è molto simile a quella disponibile per le applicazioni preintegrate. Per iniziare, selezionare **Configura accesso Single Sign-On**. Nella schermata successiva sono disponibili le tre opzioni seguenti per la configurazione del Single Sign-On, descritte nelle sezioni successive.
 
 ![][3]
 
@@ -105,7 +107,7 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 
 Selezionare questa opzione per aggiungere un collegamento a un'applicazione nel riquadro di accesso di Azure AD o nel portale di Office 365 dell'organizzazione. È possibile usare questa opzione per aggiungere collegamenti ad app Web personalizzate che usano Active Directory Federation Services di Azure (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente.
 
-Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/) per tali utenti.
+Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) per tali utenti.
 
 Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante **Carica Logo** nella scheda **Configura** dell'applicazione.
 
@@ -118,4 +120,4 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
