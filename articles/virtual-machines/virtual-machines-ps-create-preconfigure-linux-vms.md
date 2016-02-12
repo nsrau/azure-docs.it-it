@@ -35,7 +35,7 @@ Per l'argomento associato per le macchine virtuali basate su Windows, vedere [Ut
 
 ## Installare Azure PowerShell
 
-Se non è già stato fatto, [Installare e configurare Azure PowerShell](../install-configure-powershell.md). Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Se non è già stato fatto, [Installare e configurare Azure PowerShell](powershell-install-configure.md). Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 ## Impostare l'account di archiviazione e la sottoscrizione
 
@@ -274,10 +274,10 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Panoramica delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
+[Come installare e configurare Azure PowerShell](powershell-install-configure.md)
 
 [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
 
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

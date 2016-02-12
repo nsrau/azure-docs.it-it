@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -59,7 +59,7 @@ Ogni tenant Azure AD B2C dispone di uno specifico pannello delle funzionalità B
 
 ### Come si personalizzano i messaggi di posta elettronica di verifica (ad esempio, i campi del contenuto e del mittente) inviati da Azure AD B2C?
 
-Usare la [funzionalità di personalizzazione della società](./active-directory/active-directory-add-company-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. Il campo mittente può essere modificato tramite il team di supporto.
+Usare la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. Il campo mittente può essere modificato tramite il team di supporto.
 
 ### Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 
@@ -81,6 +81,10 @@ No, per il momento. L'integrazione di questi sistemi verrà implementata in futu
 
 No, per il momento. AD B2C di Azure non fornisce i token SAML 1.1 che le applicazioni del portale e-commerce costruiscono sulla base delle esigenze di SP in locale. Si noti che AD B2C di Azure non è utilizzato per lo scenario di condivisione del partner esterno Sharepoint; vedere invece [AD B2B di Azure](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
 
+### È necessario usare Azure AD B2C o B2B per gestire le identità esterne?
+
+Leggere [questo articolo](../active-directory/active-directory-b2b-compare-external-identities.md) per ottenere informazioni su come applicare le funzionalità appropriate agli scenari relative a identità esterne.
+
 ### Quali funzionalità di reporting e controllo fornisce Azure AD B2C? Funziona come Azure AD Premium?
 
 No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Per Azure AD B2C verranno presto rilasciate API di reporting e controllo.
@@ -91,7 +95,7 @@ Attualmente, Azure AD B2C è ottimizzato solo per l'inglese. Si prevede di imple
 
 ### È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? Ad esempio, è possibile sostituire l'URL login.microsoftonline.com con login.contoso.com?
 
-No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti inoltre che la "verifica" del proprio dominio nella scheda **Domini** del tenant nel portale di Azure classico non eseguirà questa operazione.
+No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti anche che la "verifica" del proprio dominio nella scheda **Domini** del tenant nel portale di Azure classico non eseguirà questa operazione.
 
 ### È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite (EMS)?
 
@@ -109,4 +113,4 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 È possibile anche leggere l'[articolo sulle limitazioni, le restrizioni e i vincoli correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

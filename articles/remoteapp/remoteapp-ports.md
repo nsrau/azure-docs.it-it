@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@ Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di
 Per client si intende desktop, dispositivi e così via, usati per connettersi alle app distribuite nella raccolta RemoteApp di Azure.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com (le porte UDP facoltative riguardano questo indirizzo) 
+-  https://*.remoteapp.windowsazure.com (le porte UDP facoltative riguardano questo indirizzo) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  In uscita: TCP: 443  
 -  Facoltativo: UDP: 3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 # Test di un runbook in Automazione di Azure
@@ -55,4 +55,4 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 - [Modifica dei runbook testuali di automazione di Azure](automation-edit-textual-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

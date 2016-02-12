@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Backup automatico per SQL Server in Macchine virtuali di Azure
@@ -114,4 +114,4 @@ Una funzionalità correlata per Macchine virtuali di SQL Server in Azure è [App
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

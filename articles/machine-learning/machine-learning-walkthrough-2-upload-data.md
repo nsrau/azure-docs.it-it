@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine L
 
 I dati vengono caricati in un modulo del set di dati che è possibile usare in un esperimento.
 
-Per altre informazioni sull'importazione di vari tipi di dati in un esperimento, vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md).
+Per altre informazioni sull'importazione di vari tipi di dati in un esperimento, vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-data-science-import-data.md).
 
 **Passaggi successivi: [Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

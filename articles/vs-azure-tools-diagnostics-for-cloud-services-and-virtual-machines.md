@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
 
-Per risolvere gli errori di un servizio cloud di Azure o di una macchina virtuale di Azure, è possibile configurare Diagnostica di Azure con maggiore semplicità tramite Visual Studio. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud e trasferisce i dati all'account di archiviazione scelto. Per altre informazioni sulla registrazione di diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](web-sites-enable-diagnostic-log.md).
+Per risolvere gli errori di un servizio cloud di Azure o di una macchina virtuale di Azure, è possibile configurare Diagnostica di Azure con maggiore semplicità tramite Visual Studio. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud e trasferisce i dati all'account di archiviazione scelto. Per altre informazioni sulla registrazione di diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](/app-service-web/web-sites-enable-diagnostic-log.md).
 
 Questo argomento illustra come abilitare e configurare la Diagnostica di Azure in Visual Studio, prima e dopo la distribuzione, oltre che nelle macchine virtuali di Azure. Illustra anche come selezionare i tipi di informazioni di diagnostica da raccogliere e come visualizzare le informazioni dopo la raccolta.
 
@@ -133,7 +133,7 @@ In Visual Studio è possibile scegliere di raccogliere i dati di diagnostica per
 
     ![Installazione di un'estensione di macchina virtuale di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
 
-    >[AZURE.NOTE]Sono disponibili altre estensioni di diagnostica per le macchine virtuali. Per altre informazioni, vedere Estensioni VM e funzionalità di Azure.
+    >[AZURE.NOTE] Sono disponibili altre estensioni di diagnostica per le macchine virtuali. Per altre informazioni, vedere Estensioni VM e funzionalità di Azure.
 
 1. Scegliere il pulsante **Aggiungi** per aggiungere l'estensione e visualizzare la rispettiva finestra di dialogo **Configurazione di diagnostica**.
 
@@ -221,7 +221,7 @@ Gli eventi vengono acquisiti da origini eventi e manifesti evento specificati. P
 
   ![Log ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  Il framework ETW è supportato in ASP.NET tramite le classi nello spazio dei nomi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). Lo spazio dei nomi Microsoft.WindowsAzure.Diagnostics, che eredita da ed estende le classi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard, consente l'uso di [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) come framework di registrazione nell'ambiente Azure. Per altre informazioni, vedere [Controllare la registrazione e la traccia in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md).
+  Il framework ETW è supportato in ASP.NET tramite le classi nello spazio dei nomi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). Lo spazio dei nomi Microsoft.WindowsAzure.Diagnostics, che eredita da ed estende le classi [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) standard, consente l'uso di [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) come framework di registrazione nell'ambiente Azure. Per altre informazioni, vedere [Controllare la registrazione e la traccia in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](/cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Dump di arresto anomalo del sistema
 
@@ -357,4 +357,4 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

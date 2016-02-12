@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio | Microsoft Azure"
-   description="Debug di un servizio cloud o di una macchina virtuale in Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="tlee" />
+	pageTitle="Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio | Microsoft Azure"
+	description="Debug di un servizio cloud o di una macchina virtuale in Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="tlee" />
 <tags 
-   ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="10/28/2015"
-   ms.author="tarcher" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="02/03/2016"
+	ms.author="tarcher" />
 
 # Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio
 
@@ -48,7 +48,7 @@ Per eseguire il debug di un servizio cloud da un computer remoto, è necessario 
 
 Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzione delle prestazioni o costi aggiuntivi. È consigliabile non usare il debug remoto in un servizio di produzione, poiché i client che usano il servizio potrebbero essere compromessi.
 
->[AZURE.NOTE]Quando si pubblica un servizio cloud da Visual Studio, è possibile abilitare **IntelliTrace** per qualsiasi ruolo del servizio destinato a .NET Framework 4 o .NET Framework 4.5. Tramite **IntelliTrace** è possibile esaminare gli eventi verificatisi in un'istanza del ruolo in passato e riprodurre il contesto da quel momento. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) e [Uso di IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
+>[AZURE.NOTE] Quando si pubblica un servizio cloud da Visual Studio, è possibile abilitare **IntelliTrace** per qualsiasi ruolo del servizio destinato a .NET Framework 4 o .NET Framework 4.5. Tramite **IntelliTrace** è possibile esaminare gli eventi verificatisi in un'istanza del ruolo in passato e riprodurre il contesto da quel momento. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) e [Uso di IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
 
 ### Per abilitare il debug remoto per un servizio cloud
 
@@ -74,7 +74,7 @@ Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzi
 
     ![Collegare il debugger](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
 
-1. Dopo che il debugger si collega a un'istanza, eseguire il debug come di consueto. Il debugger si collega automaticamente al processo host appropriato per il ruolo. In base al ruolo, il debugger si collega a w3wp.exe, WaWorkerHost.exe o WaIISHost.exe. Per verificare il processo a cui è collegato il debugger, espandere il nodo dell'istanza in Esplora server. Vedere [Architettura del ruolo di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) per altre informazioni sui processi di Azure.
+1. Dopo che il debugger si collega a un'istanza, eseguire il debug come di consueto. Il debugger si collega automaticamente al processo host appropriato per il ruolo. In base al ruolo, il debugger si collega a w3wp.exe, WaWorkerHost.exe o WaIISHost.exe. Per verificare il processo a cui è collegato il debugger, espandere il nodo dell'istanza in Esplora server. Vedere [Architettura del ruolo di Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) per ulteriori informazioni sui processi di Azure.
 
     ![Finestra di dialogo Seleziona tipo di codice](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
@@ -82,7 +82,7 @@ Se si abilita il debug remoto per un servizio cloud, esso non produce una riduzi
 
     ![Debug di processi](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
->[AZURE.WARNING]Evitare interruzioni prolungate in corrispondenza dei punti di interruzione durante il debug remoto. Azure considera un processo che è stato arrestato per più di pochi minuti come processo che non risponde e interrompe l'invio di traffico a tale istanza. Se si arresta per troppo tempo, msvsmon.exe si disconnette dal processo.
+>[AZURE.WARNING] Evitare interruzioni prolungate in corrispondenza dei punti di interruzione durante il debug remoto. Azure considera un processo che è stato arrestato per più di pochi minuti come processo che non risponde e interrompe l'invio di traffico a tale istanza. Se si arresta per troppo tempo, msvsmon.exe si disconnette dal processo.
 
 Per disconnettere il debugger da tutti i processi nell'istanza o nel ruolo, aprire il menu di scelta rapida per il ruolo o l'istanza di cui si esegue il debug e quindi fare clic su Scollega debugger.
 
@@ -102,7 +102,7 @@ Da Azure SDK 2.3, il debug remoto presenta le seguenti limitazioni.
 
 È possibile eseguire il debug di programmi in esecuzione su macchine virtuali di Azure tramite Esplora server in Visual Studio. Quando si abilita il debug remoto su una macchina virtuale di Azure, Azure installa l'estensione di debug remoto nella macchina virtuale. Quindi, è possibile connettersi a processi sulla macchina virtuale ed eseguire il debug come di consueto.
 
->[AZURE.NOTE]Il debug di macchine virtuali create tramite lo stack di gestione risorse di Azure può essere eseguito in modalità remota usando Esplora cloud in Visual Studio 2015. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
+>[AZURE.NOTE] Il debug di macchine virtuali create tramite lo stack di gestione risorse di Azure può essere eseguito in modalità remota usando Esplora cloud in Visual Studio 2015. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 
 ### Per eseguire il debug di una macchina virtuale di Azure.
 
@@ -190,4 +190,4 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 - Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

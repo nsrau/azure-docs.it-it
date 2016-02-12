@@ -40,7 +40,7 @@ Copiare la chiave di strumentazione, che identifica la risorsa.
 Nei computer server Unix:
 
 1. Installare [collectd](http://collectd.org/) versione 5.4.0 o successive.
-2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Annotare il numero di versione.
+2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.1.jar). Annotare il numero di versione.
 3. Copiare il file JAR del plug-in in `/usr/share/collectd/java`.
 3. Modificare `/etc/collectd/collectd.conf`:
  * Assicurarsi che il [plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) sia abilitato.
@@ -143,4 +143,4 @@ Separare le direttive con un valore NewLine.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

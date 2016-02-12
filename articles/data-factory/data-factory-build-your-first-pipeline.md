@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
@@ -222,4 +222,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - Visual Studio
 - Modelli di Gestione risorse di Azure 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

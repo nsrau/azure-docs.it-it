@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Risolvere i problemi relativi al backup delle macchine virtuali di Azure
@@ -105,7 +105,7 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-- Seguire le istruzioni in [Aggiornamento dell'agente di VM Linux](../virtual-machines-linux-update-agent.md).
+- Seguire le istruzioni in [Aggiornamento dell'agente di VM Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Convalida dell'installazione dell'agente di VM
@@ -149,6 +149,6 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
     - Se si dispone di alcune limitazioni di rete (un gruppo di sicurezza di rete, ad esempio) distribuire un server proxy HTTP per indirizzare il traffico. I passaggi per distribuire un server proxy HTTP sono reperibili [qui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Aggiungere regole al gruppo di sicurezza di rete (se esistente) per consentire l'accesso a INTERNET dal proxy HTTP.
 
->[AZURE.NOTE]DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. È possibile ottenere altre informazioni sull'impostazione di un indirizzo IP privato interno statico [qui](virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. È possibile ottenere altre informazioni sull'impostazione di un indirizzo IP privato interno statico [qui](virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

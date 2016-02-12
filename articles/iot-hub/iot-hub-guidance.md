@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/10/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Progettare la soluzione
@@ -52,7 +52,7 @@ Un gateway sul campo differisce da un semplice dispositivo di routing del traffi
 - Trasformare i dati di telemetria per facilitare l'elaborazione nel back-end della soluzione.
 - Eseguire la conversione del protocollo per consentire ai dispositivi di comunicare con l'hub IoT anche quando non usano i protocolli di trasporto supportati dall'hub IoT.
 
-> [AZURE.NOTE]Quando si distribuisce un gateway sul campo locale ai dispositivi, in alcuni scenari è possibile distribuire un [gateway del protocollo][lnk-gateway] nel cloud.
+> [AZURE.NOTE] Quando si distribuisce un gateway sul campo locale ai dispositivi, in alcuni scenari è possibile distribuire un [gateway del protocollo][lnk-gateway] nel cloud.
 
 ### Tipi di gateway sul campo
 
@@ -63,6 +63,8 @@ Un gateway sul campo può essere *trasparente* o *opaco*:
 | Identità archiviate nel registro delle identità dell'hub IoT | Identità di tutti i dispositivi connessi | Solo l'identità del gateway sul campo |
 | L'hub IoT può offrire funzionalità di [anti-spoofing per le identità dei dispositivi][lnk-devguide-antispoofing] | Sì | No |
 | [Quote e limitazioni][lnk-throttles-quotas] | Applicare a ogni dispositivo | Applicare al gateway sul campo |
+
+> [AZURE.IMPORTANT]  Quando si usa un modello di gateway opaco, tutti i dispositivi che si connettono tramite quel gateway condividono la stessa coda da cloud-dispositivo, che può contenere al massimo 50 messaggi. Ne consegue che il modello di gateway opaco deve essere usato solo quando pochi dispositivi si connettono tramite ogni gateway sul campo e il relativo traffico da cloud a dispositivo è limitato.
 
 ### Altre considerazioni
 
@@ -83,7 +85,7 @@ Di seguito sono riportati i passaggi principali del modello del servizio token:
 3. Il servizio token restituisce un token. Il token viene creato in base alla [sezione relativa alla sicurezza della guida per gli sviluppatori dell'hub IoT][lnk-devguide-security], usando `/devices/{deviceId}` come `resourceURI`, con `deviceId` come dispositivo da autenticare. Il servizio token usa i criteri di accesso condivisi per costruire il token.
 4. Il dispositivo usa il token direttamente con l'hub IoT.
 
-> [AZURE.NOTE]È possibile usare la classe .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] o la classe Java [IotHubServiceSasToken][lnk-java-sas] per creare un token nel servizio token.
+> [AZURE.NOTE] È possibile usare la classe .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] o la classe Java [IotHubServiceSasToken][lnk-java-sas] per creare un token nel servizio token.
 
 Il servizio token può impostare la scadenza del token, in base alle esigenze. Quando il token scade, l'hub IoT interrompe la connessione del dispositivo. Quindi, il dispositivo deve richiedere un nuovo token dal servizio token. Un intervallo di scadenza breve aumenterà il carico sia per il dispositivo che per il servizio token.
 
@@ -92,6 +94,14 @@ Perché un dispositivo si connetta all'hub, è comunque necessario aggiungerlo a
 ### Confronto con un gateway personalizzato
 
 Il modello di servizio token è il metodo consigliato per implementare uno schema di autenticazione/registro di identità personalizzato con l'hub IoT. È consigliabile perché l'hub IoT continua a gestire la maggior parte del traffico della soluzione. Tuttavia, in alcuni casi lo schema di autenticazione personalizzato è talmente legato al protocollo che è necessario un servizio che elabora tutto il traffico (*gateway personalizzato*). Esempi di servizio sono le [chiavi precondivise e Transport Layer Security][lnk-tls-psk]. Per altre informazioni, vedere l'argomento relativo al [gateway del protocollo][lnk-gateway].
+
+## Heartbeat dispositivo <a id="heartbeat"></a>
+
+Il [registro delle identità dell'hub IoT][lnk-devguide-identityregistry] contiene un campo denominato **connectionState**. È consigliabile usare il campo **connectionState** solo durante lo sviluppo e il debug ed evitare che le soluzioni IoT eseguano query su quel campo in fase di esecuzione, ad esempio per verificare se un dispositivo è connesso e per stabilire se inviare un messaggio da cloud a dispositivo o un SMS. Se è necessario che la soluzione IoT conosca lo stato di connessione di un dispositivo, in fase di esecuzione o con un'accuratezza maggiore di quella fornita dalla proprietà **connectionState**, dovrà implementare il *modello di heartbeat*.
+
+Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Ciò significa che anche se in un dispositivo non sono presenti dati da inviare, invia comunque un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come un heartbeat. Sul lato del servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo, presupponendo che esista un problema con un dispositivo se non riceve un messaggio di tipo heartbeat entro l'intervallo previsto.
+
+Un'implementazione più complessa può includere le informazioni dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma non riescono. Quando si implementa il modello di heartbeat, assicurarsi di controllare [quote e limitazioni dell'hub IoT][].
 
 ## Passaggi successivi
 
@@ -104,6 +114,7 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-device-management]: iot-hub-device-management.md
+[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
@@ -118,5 +129,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[quote e limitazioni dell'hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

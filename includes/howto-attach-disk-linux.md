@@ -1,5 +1,5 @@
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines-disks-vhds.md).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Procedura: Collegare un disco vuoto
@@ -62,7 +62,7 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 		uploaded successfully
 		info:    vm disk create command OK
 
-	È inoltre possibile utilizzare il`azure vm disk upload`comando per caricare un disco rigido virtuale a un account di archiviazione specifico. Ulteriori informazioni sui comandi per la gestione dei dischi dati della macchina virtuale di Azure[qui](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	È inoltre possibile utilizzare il`azure vm disk upload`comando per caricare un disco rigido virtuale a un account di archiviazione specifico. Ulteriori informazioni sui comandi per la gestione dei dischi dati della macchina virtuale di Azure[qui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
 5.  Digitare il comando seguente per collegare il disco rigido virtuale caricato desiderato alla macchina virtuale:
 
@@ -90,6 +90,7 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
+> [AZURE.NOTE]
+Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Gestire Cache Redis di Azure con Azure PowerShell
@@ -50,7 +50,7 @@ Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio se
 
 Per usare Windows PowerShell con Gestione risorse di Azure, è necessario disporre di quanto indicato di seguito:
 
-- Windows PowerShell, versione 3.0 o 4.0. Per trovare la versione di Windows PowerShell, digitare: `$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell, versione 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare `$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet Get-Help.
 
@@ -59,6 +59,46 @@ Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire 
 Ad esempio, per informazioni sul cmdlet `New-AzureRmRedisCache` digitare:
 
 	Get-Help New-AzureRmRedisCache -Detailed
+
+## Come connettersi ad Azure Government Cloud o ad Azure China Cloud
+
+Per impostazione predefinita l'ambiente di Azure è `AzureCloud` che rappresenta l'istanza globale del cloud di Azure. Per connettersi a un'altra istanza, usare il comando `Add-AzureRmAccount` con l'opzione della riga di comando `-Environment` o -`EnvironmentName` con l'ambiente desiderato o il nome dell'ambiente.
+
+Per visualizzare l'elenco degli ambienti disponibili, eseguire il cmdlet `Get-AzureRmEnvironment`.
+
+### Per connettersi ad Azure Government Cloud
+
+Per connettersi ad Azure Government Cloud, usare uno dei comandi seguenti.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+oppure
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Per creare una cache in Azure Government Cloud, usare una delle località seguenti.
+
+-	Governo degli Stati Uniti - Virginia
+-	Governo degli Stati Uniti - Iowa
+
+Per altre informazioni su Azure Government Cloud, vedere [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/) e la [guida per gli sviluppatori di Microsoft Azure per enti pubblici](azure-government-developer-guide.md).
+
+### Per connettersi ad Azure China Cloud
+
+Per connettersi ad Azure China Cloud, usare uno dei comandi seguenti.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+oppure
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Per creare una cache in Azure China Cloud, usare una delle località seguenti.
+
+-	Cina orientale
+-	Cina settentrionale
+
+Per altre informazioni su Azure China Cloud, vedere la pagina relativa ad [Azure China Cloud per Azure gestito da 21Vianet in Cina](http://www.windowsazure.cn/).
 
 ## Proprietà usate per PowerShell nella Cache Redis di Azure
 
@@ -85,7 +125,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 
 Le nuove istanze della Cache Redis di Azure vengono create con il cmdlet [New AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
 
->[AZURE.IMPORTANT]La prima volta chr si crea una cache Redis in una sottoscrizione tramite il portale di Azure, il portale registra lo spazio dei nomi `Microsoft.Cache` per la sottoscrizione. Se si prova a creare la prima cache Redis in una sottoscrizione tramite PowerShell, è necessario prima registrare tale spazio dei nomi con il comando seguente. In caso contrario, i cmdlet come `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` non riusciranno.
+>[AZURE.IMPORTANT] La prima volta chr si crea una cache Redis in una sottoscrizione tramite il portale di Azure, il portale registra lo spazio dei nomi `Microsoft.Cache` per la sottoscrizione. Se si prova a creare la prima cache Redis in una sottoscrizione tramite PowerShell, è necessario prima registrare tale spazio dei nomi con il comando seguente. In caso contrario, i cmdlet come `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` non riusciranno.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -249,8 +289,8 @@ Il comando seguente aggiorna maxmemory-policy per la Cache Redis denominata myCa
 
 >[AZURE.NOTE]Il ridimensionamento dell'istanza di una cache con PowerShell è soggetto agli stessi limiti e alle stesse linee guida per il ridimensionamento da una cache dal portale di Azure. È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
 >
->-	Non è possibile scalare da o verso una cache **Premium**.
->-	Non è possibile effettuare il ridimensionamento da una cache **Standard** a una cache **Basic**.
+>-	Non è possibile ridimensionare le istanze di una cache **Premium**.
+>-	Non è possibile scalare da una cache **Standard** a una cache **Basic**.
 >-	È possibile passare da una cache **Basic** a una cache **Standard** ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
 >-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 >
@@ -569,4 +609,4 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

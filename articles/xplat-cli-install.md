@@ -21,7 +21,6 @@
 
 Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Usare uno dei pacchetti di installazione forniti per installare l'interfaccia della riga di comando di Azure nel sistema operativo, per installarla usando Node.js e **npm** o per installarla come contenitore in un host Docker. Per altre opzioni e informazioni, vedere l'archivio di progetto in [GitHub](https://github.com/azure/azure-xplat-cli).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
 Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
 
@@ -45,7 +44,7 @@ Se Node.js è già installato nel sistema, usare il comando seguente per install
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]Nelle distribuzioni di Linux, potrebbe essere necessario usare `sudo` per la corretta esecuzione del comando __npm__.
+> [AZURE.NOTE] Nelle distribuzioni di Linux, potrebbe essere necessario usare `sudo` per la corretta esecuzione del comando __npm__.
 
 ### Installare Node.js e npm in distribuzioni di Linux che usano la gestione dei pacchetti [dpkg](http://en.wikipedia.org/wiki/Dpkg)
 
@@ -59,14 +58,14 @@ La maggior parte delle più recenti di queste distribuzioni richiede l'installaz
 
 Alcune delle distribuzioni precedenti, ad esempio Ubuntu 12.04, richiedono l'installazione della distribuzione binaria corrente di Node.js. Il codice seguente mostra come eseguire questa operazione mediante l'installazione e l'utilizzo di **curl**.
 
->[AZURE.NOTE]I comandi vengono ricavati dalle istruzioni di installazione disponibili [qui](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Tuttavia, quando si utilizza **sudo** come destinazione pipe, è necessario controllare gli script che vengono installati per confermare che eseguano le operazioni previste prima di eseguirli attraverso **sudo**. Grandi potenzialità significano anche grande responsabilità.
+>[AZURE.NOTE] I comandi vengono ricavati dalle istruzioni di installazione disponibili [qui](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Tuttavia, quando si utilizza **sudo** come destinazione pipe, è necessario controllare gli script che vengono installati per confermare che eseguano le operazioni previste prima di eseguirli attraverso **sudo**. Grandi potenzialità significano anche grande responsabilità.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-### Installare Node.js e npm in distribuzioni di Linux che usano la gestione dei pacchetti [RPM](http://en.wikipedia.org/wiki/RPM_Package_Manager)
+### Installare Node.js e npm in distribuzioni di Linux che usano la gestione dei pacchetti [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
 
 L'installazione di Node.js in distribuzioni basate su RPM richiede l'abilitazione dell'archivio EPEL. Il seguente codice mostra solo le procedure migliori per l'installazione di CentOS 7. Tenere presente che nella prima riga che segue il trattino (carattere '-') è importante.
 
@@ -108,7 +107,7 @@ Al termine dell'installazione, verrà visualizzato un output simile al seguente:
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
->[AZURE.NOTE]Per i sistemi Linux, è inoltre possibile installare l'interfaccia della riga di comando di Azure generandola dal [codice sorgente](http://go.microsoft.com/fwlink/?linkid=253472). Per ulteriori informazioni sulla creazione da codice sorgente, vedere il file INSTALL incluso nell'archivio.
+>[AZURE.NOTE] Per i sistemi Linux, è inoltre possibile installare l'interfaccia della riga di comando di Azure generandola dal [codice sorgente](http://go.microsoft.com/fwlink/?linkid=253472). Per ulteriori informazioni sulla creazione da codice sorgente, vedere il file INSTALL incluso nell'archivio.
 
 ## Usare un contenitore Docker
 
@@ -149,7 +148,7 @@ npm upgrade -g azure-cli
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 
-* In caso di domande sull'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurescripting).
+* In caso di domande sull'uso di Azure o dell'interfaccia della riga di comando di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurescripting).
 
 
 
@@ -159,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

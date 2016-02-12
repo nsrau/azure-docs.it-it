@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
 Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure.
 
 ## Concetti
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Vedere l'[introduzione al backup di macchine virtuali IaaS di Azure](backup-azure-vms-introduction.md) nella documentazione del servizio Backup di Azure,
 
 > [AZURE.WARNING] Prima di iniziare, assicurarsi di avere gli elementi di base per i [prerequisiti](backup-azure-vms-prepare.md) necessari per usare il servizio Backup di Azure, e le [limitazioni](backup-azure-vms-prepare.md#limitations) della soluzione attuale di backup della macchina virtuale.
@@ -70,7 +73,7 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 
 ### Creare un insieme di credenziali per il backup
 
-> [AZURE.WARNING] I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere questo articolo sulla [creazione di grafici con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)sul blog TechNet
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

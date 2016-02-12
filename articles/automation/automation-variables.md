@@ -91,8 +91,8 @@ I comandi di esempio seguenti mostrano come creare una variabile di tipo comples
 	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 	
 	$vmValue = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $ vmValue.Name
-	$vmIpAddress = $ vmValue.IpAddress
+	$vmName = $vmValue.Name
+	$vmIpAddress = $vmValue.IpAddress
 
 
 
@@ -116,7 +116,7 @@ I comandi di esempio seguenti mostrano come impostare e recuperare una variabile
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value (NumberOfRunngs += 1)
+	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 
 #### Impostazione e recupero di un oggetto complesso in una variabile
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

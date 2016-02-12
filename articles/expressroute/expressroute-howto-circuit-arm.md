@@ -215,10 +215,9 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 7. **Configurare il routing e collegare una rete virtuale**
 
-	a. **Creare la configurazione di routing.** Per istruzioni dettagliate, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md).
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
-	b. **Collegare una rete virtuale a un circuito ExpressRoute**. Dopo aver verificato che il routing sia stato configurato, è necessario collegare la rete virtuale al circuito ExpressRoute. Per istruzioni dettagliate, fare riferimento a [Collegamento di reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-arm.md).
+	a. **Creare la configurazione di routing.** Per istruzioni dettagliate, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md). Le istruzioni per il routing si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
+	
+	b. **Collegare una rete virtuale a un circuito ExpressRoute.** Dopo aver verificato che il routing sia stato configurato, è necessario collegare la rete virtuale al circuito ExpressRoute. Per istruzioni dettagliate, vedere [Collegamento di reti virtuali a circuiti ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
@@ -347,7 +346,7 @@ Dopo aver stabilito le dimensioni necessarie, usare il comando seguente per ridi
 
 - Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, lo stato verrà modificato in *disabilitato*. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning e inviato una notifica.
 
-- Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su *not provisioned*) prima dell'esecuzione del cmdlet, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+- Se il provider di servizi ha eseguito il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su *not provisioned*, prima dell'esecuzione del cmdlet, verrà eseguito il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
 
 Per eliminare il circuito ExpressRoute, usare l'esempio di cmdlet PowerShell riportato di seguito.
 
@@ -360,4 +359,4 @@ Dopo aver creato il circuito, assicurarsi di eseguire le operazioni seguenti:
 1.  [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
 2.  [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

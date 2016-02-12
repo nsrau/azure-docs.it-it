@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da PostgreSQL mediante Data factory di Azure
@@ -34,7 +34,9 @@ Perché Gateway di gestione dati si connetta al database PostgreSQL, è necessar
 
 ## Esempio: Copiare i dati da PostgreSQL a BLOB di Azure
 
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da un database PostgreSQL locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -227,7 +229,7 @@ gatewayName | Nome del gateway che il servizio Data factory deve usare per conne
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati PostgreSQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
-## Proprietà del tipo del set di dati PostgreSQL
+## Proprietà del tipo di set di dati PostgreSQL
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
@@ -308,4 +310,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

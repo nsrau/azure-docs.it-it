@@ -5,7 +5,7 @@
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="neerajkh"
+    manager="paulettm"
     editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/20/2015"
+    ms.date="02/02/2016"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -40,7 +40,7 @@ Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva 
 
 L'analisi predittiva usa svariate tecniche statistiche, in questo caso l'apprendimento automatico, per analizzare i dati raccolti o correnti per individuare schemi o tendenze e prevedere così gli eventi futuri.
 
-Azure Machine Learning è uno strumento davvero potente per eseguire l'analisi predittiva: è possibile lavorare da una libreria di algoritmi pronta all'uso, creare modelli su un PC connesso a Internet senza acquistare altre apparecchiature o infrastrutture e distribuire rapidamente la soluzione predittiva. Esempi e soluzioni pronti all'uso sono disponibili anche in [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) o nella [raccolta di Cortana Analytics](http://gallery.azureml.net/).
+Azure Machine Learning è uno strumento davvero potente per eseguire l'analisi predittiva: è possibile lavorare da una libreria di algoritmi pronta all'uso, creare modelli su un PC connesso a Internet senza acquistare altre apparecchiature o infrastrutture e distribuire rapidamente la soluzione predittiva. Esempi e soluzioni pronti all'uso sono disponibili anche in [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) o nella [raccolta di Cortana Analytics](http://gallery.azureml.net/) (denominata in precedenza raccolta di Azure Machine Learning).
 
 ## Compilare soluzioni di apprendimento automatico complete nel cloud
 
@@ -53,9 +53,9 @@ Azure Machine Learning include tutto quanto è necessario per creare soluzioni d
 ![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Usare una grande libreria di [moduli e algoritmi di Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio per implementare rapidamente i modelli predittivi. Scegliere da una libreria esperimenti di esempio, pacchetti R e Python e i migliori algoritmi di aziende Microsoft, come Xbox e Bing. Estendere i moduli di Studio con gli script [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizzati.
-* Nella [raccolta di Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md) è possibile iniziare a usare Azure Machine Learning e imparare da altri utenti nella community. Provare gli esperimenti creati da altri utenti, porre domande o inviare commenti sugli esperimenti oppure pubblicare i propri esperimenti. Si possono anche condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.  
+* Nella [raccolta di Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md) è possibile provare soluzioni di analisi create da altri utenti o pubblicare i propri servizi di Azure, tra cui Machine Learning, HDInsight (Hadoop), analisi di flusso, Analisi Data Lake, nonché i servizi di gestione dati e archivi Big Data di Azure. Inviare domande o commenti sugli esperimenti nella community oppure condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.  
 
-	![Provare gli esempi di esperimenti predittivi o pubblicare il proprio esperimento nella Raccolta di Cortana Analytics](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Provare gli esperimenti predittivi o pubblicare il proprio esperimento nella raccolta di Cortana Analytics di Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
 
 ### Rendere operative le soluzioni di analisi predittiva: acquistare servizi Web o pubblicare i propri
 
@@ -118,4 +118,4 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

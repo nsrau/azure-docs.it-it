@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
@@ -180,23 +180,8 @@ Questa è la configurazione corrente.
  
 Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web in LOB1 e per i test delle funzionalità e delle prestazioni dalla subnet Corpnet.
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-[Progetti dell'architettura](http://msdn.microsoft.com/dn630664)
+- Configurare l'[ambiente di produzione](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-[Piattaforma di server Web adatti all'hosting (IIS): Panoramica dello scenario](http://technet.microsoft.com/library/hh831818)
-
-[Configurazione di un ambiente cloud ibrido per l'esecuzione di test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Ambienti di test basati su cloud ibrido di Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

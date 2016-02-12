@@ -12,14 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
-# Risoluzione dei problemi e domande - Application Insights per ASP.NET
+# Domande su Application Insights per ASP.NET
+
+## Risoluzione dei problemi
+
+*Problemi nella configurazione di:*
+
+* [App .NET](app-insights-asp-net-troubleshoot-no-data.md)
+* [Monitoraggio di un'applicazione già in esecuzione](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Diagnostica di Azure](app-insights-azure-diagnostics.md)
+* [App Web Java](app-insights-java-troubleshoot.md)
+* [Altre piattaforme](app-insights-platforms.md)
+
 
 ## Si può usare Application Insights con ...?
 
 [Vedere le piattaforme.][platforms]
+
 
 ## È gratuito?
 
@@ -36,37 +48,8 @@
 * Possibilità di pagare l'"eccedenza" per continuare a raccogliere dati se viene superata la quota mensile. Quando i dati superano la quota prevista, l'addebito dei costi avviene per MB.
 * [Esportazione continua](app-insights-export-telemetry.md).
 
-## Aggiunta dell'SDK
 
-#### <a name="q01"></a>Non è presente un'opzione per aggiungere Application Insights al progetto in Visual Studio
-
-+ Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](http://go.microsoft.com/fwlink/?LinkId=397827). È fornito con gli Strumenti Application Insights preinstallati.
-+ Nonostante gli strumenti non supportino tutti i tipi di applicazioni, è ancora probabilmente possibile aggiungere manualmente un Application Insights SDK al progetto. Usare [questa procedura][windows]. 
-
-
-#### <a name="q02"></a>Il nuovo progetto Web è stato creato ma l'aggiunta di Application Insights ha avuto esito negativo.
-
-Ciò può verificarsi se:
-
-* la comunicazione con il portale Application Insights si interrompe;
-* se si verificano problemi con l'account;
-* se si ha [accesso in sola lettura alla sottoscrizione o al gruppo in cui è stato effettuato il tentativo di creare la nuova risorsa](app-insights-resources-roles-access-control.md).
-
-Soluzione:
-
-+ Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. In alcune versioni precedenti degli strumenti, le credenziali di Microsoft Azure, visualizzate nella finestra di dialogo Nuovo progetto, possono essere diverse da quelle visualizzate nella parte superiore destra di Visual Studio.
-+ Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
-+ [Aggiungere Application Insights a un nuovo progetto][start]\: in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere "Aggiungi Application Insights".
-+ Se il problema continua a verificarsi, seguire la [procedura manuale](app-insights-start-monitoring-app-health-usage.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
-
-#### <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
-
-Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
-
-In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. Verrà visualizzata una finestra di dialogo che invita ad accedere ad Azure e a creare una risorsa di Application Insights o a riusarne una esistente.
-
-
-#### <a name="q14"></a>Quali modifiche apporta Application Insights al progetto?
+## <a name="q14"></a>Quali modifiche apporta Application Insights al progetto?
 
 Dipende dal tipo di progetto. Per un'applicazione Web:
 
@@ -99,101 +82,19 @@ Dipende dal tipo di progetto. Per un'applicazione Web:
 
 + (Solo per i nuovi progetti, se si [aggiunge Application Insights a un progetto esistente][start], l'operazione deve essere eseguita manualmente.) Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/\_Layout.cshtml
 
-####<a name="NuGetBuild"></a>Un messaggio sul server di compilazione informa che i pacchetti NuGet sono mancanti, nonostante tutto proceda correttamente sui computer di sviluppo
-
-Vedere gli articoli relativi al [ripristino dei pacchetti NuGet](http://docs.nuget.org/Consume/Package-Restore) e al [ripristino automatico dei pacchetti](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
-
-####<a name="FailUpdate"></a>Un messaggio informa che i riferimenti del progetto ai pacchetti NuGet mancano sul computer quando si prova a compilare dopo l'aggiornamento alla versione 0.17 o successiva dei pacchetti NuGet.
-
-Se viene visualizzato questo errore dopo aver eseguito l'aggiornamento alla versione 0.17 o successiva dei pacchetti NuGet, è necessario modificare il file del progetto e rimuovere le destinazioni BCL residue.
-
-A tale scopo, effettuare l'operazione seguente:
-
-1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Scarica progetto.
-2. Fare di nuovo clic con il pulsante destro del mouse sul progetto e scegliere Modifica *nomeprogetto.csproj* 
-3. Passare alla fine del file di progetto e rimuovere le destinazioni BCL simili a: ``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-	  
-	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-	  
-	    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-	    
-	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-	    
-	</Target> ```
-4. Salvare il file.
-5. Fare clic con il pulsante destro del mouse sul progetto e scegliere Ricarica *nomeprogetto.csproj*
 
 ## In che modo è possibile effettuare l'aggiornamento da versioni dell'SDK meno recenti?
 
 Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropriato per il tipo di applicazione.
 
 
-## Dati non presenti
 
-#### <a name="q03"></a>Dopo aver aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.
-
-+ Nella pagina Panoramica, fare clic sul riquadro Ricerca per aprire Ricerca diagnostica. I dati verranno visualizzati prima qui.
-+ Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
-+ Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
-+ Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-+ Se si è modificato ApplicationInsights.config, controllare attentamente la configurazione di TelemetryInitializers e TelemetryProcessors. Un tipo o un parametro denominato in modo non corretto può impedire a SDK l'invio dei dati.
-
-#### Nessun dato dopo la pubblicazione dell'applicazione al server
-
-+ Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-+ Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
-+ Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
-+ Windows Server 2008: assicurarsi che siano stati installati i seguenti aggiornamenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
-
-
-#### <a name="q04"></a>In Dati di analisi utilizzo non ci sono dati per il mio sito Web
-
-+ I dati provengono da script nelle pagine Web. Se Application Insights è stato aggiunto a un progetto Web esistente, [è necessario aggiungere manualmente gli script][start].
-+ Verificare che il sito non venga visualizzato in modalità di compatibilità in Internet Explorer.
-+ Usare la funzionalità di debug del browser (F12 in alcuni browser, quindi scegliere Rete) per verificare che i dati vengano inviati a dc.services.visualstudio.com.
-
-#### Non vengono più visualizzati i dati disponibili in precedenza
-
-* Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
-* È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
-
-
-#### Non sono presenti tutti i dati previsti
-
-* **Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. È possibile disabilitarla. [Altre informazioni sul campionamento.](app-insights-sampling.md)
-
-
-#### <a name="q08"></a>Si può usare Application Insights per monitorare un server Web Intranet?
-
-Sì, è possibile monitorare l'integrità e l'utilizzo se il server è in grado di inviare dati alla rete Internet pubblica. Nel firewall, aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
-
-Se però si vuole eseguire test Web per il servizio, è necessario che sia accessibile dalla rete Internet pubblica sulla porta 80.
-
-#### Si può monitorare un server Web intranet che non ha accesso a Internet pubblico?
-
-È necessario predisporre un proxy che possa inoltrare le chiamate POST https a dc.services.visualstudio.com
-
-## Status Monitor non funziona
-
-Vedere [Risoluzione dei problemi relativi a Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). Le porte del firewall sono il problema più comune.
-
-## Il portale
-
-#### <a name="q05"></a>Dalla schermata iniziale di Anteprima di Microsoft Azure come si fa a trovare i dati in Application Insights?
-
-È possibile procedere in due modi:
-
-* Scegliere Sfoglia, Application Insights, quindi il nome del progetto. Se non è presente alcun progetto, è necessario [aggiungere Application Insights al progetto Web in Visual Studio][start].
-
-* In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto Web e scegliere Apri portale Application Insights.
-
-
-#### <a name="update"></a>In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?
+## <a name="update"></a>In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?
 
 In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. È possibile inviare i dati a una risorsa nuova o esistente in Azure. L'aggiornamento guidato modifica la chiave di strumentazione in ApplicationInsights.config, che determina la destinazione dei dati inviati dall'SDK del server. A meno che non venga deselezionata l'opzione "Aggiorna tutto", modificherà anche la chiave in cui appare nelle pagine Web.
 
 
-#### <a name="q06"></a>La mappa nella schermata iniziale di Anteprima di Microsoft Azure mostra lo stato dell'applicazione?
+## <a name="q06"></a>La mappa nella schermata iniziale di Anteprima di Microsoft Azure mostra lo stato dell'applicazione?
 
 No. Mostra lo stato del servizio di Azure. Per vedere i risultati del test Web, scegliere Sfoglia > Application Insights > (applicazione) e quindi osservare i risultati del test Web.
 
@@ -235,7 +136,7 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
 ## Automazione
 
-È possibile [scrivere uno script di PowerShell](app-insights-powershell-script-create-resource.md) per creare una risorsa di Application Insights.
+È possibile [scrivere script di PowerShell](app-insights-powershell.md) per creare e aggiornare risorse di Application Insights.
 
 ## Altre risposte
 
@@ -252,4 +153,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

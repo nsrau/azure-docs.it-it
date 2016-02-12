@@ -25,7 +25,7 @@ Quando si crea una connessione, è necessario specificare un *tipo di connession
 
 ## Cmdlet di Windows PowerShell
 
-I cmdlet inclusi nella tabella seguente vengono usati per creare e gestire le connessioni di Automazione con Windows PowerShell. Sono inclusi nel [modulo di Azure PowerShell](../powershell-install-configure.md), disponibile per l'uso nei Runbook e nelle configurazioni DSC di Automazione.
+I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 |Cmdlet|Descrizione|
 |:---|:---|
@@ -46,7 +46,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 
 ## Creazione di una nuova connessione
 
-### Per creare una nuova connessione con il portale di Azure
+### Per creare una nuova connessione con il portale di Azure classico
 
 1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
 1. Nella parte inferiore della finestra, fare clic su **Aggiungi impostazione**.
@@ -55,7 +55,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 1. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova connessione.
 
 
-### Per creare una nuova connessione con il portale di anteprima di Azure
+### Per creare una nuova connessione con il portale di Azure
 
 1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
 1. Fare clic sulla parte **Connessioni** per aprire il pannello **Connessioni**.
@@ -95,7 +95,7 @@ I comandi di esempio seguenti illustrano come usare la connessione Twilio dell'e
 	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
 	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
 ### Esempi di Runbook grafici
 
@@ -120,4 +120,4 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

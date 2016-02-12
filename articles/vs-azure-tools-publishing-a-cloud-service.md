@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Pubblicazione di un servizio cloud con gli strumenti di Azure
@@ -21,7 +21,7 @@ Utilizzando gli Strumenti di Azure per Microsoft Visual Studio, è possibile pub
 
 Prima di poter pubblicare un'applicazione Azure, è necessario disporre di una sottoscrizione di Azure. È necessario anche impostare un servizio cloud e un account di archiviazione che possano essere utilizzati dall'applicazione. È possibile impostarli nel [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
->[AZURE.IMPORTANT]Quando si pubblica, è possibile selezionare l'ambiente di distribuzione per il servizio cloud. E’ necessario inoltre selezionare un account di archiviazione utilizzato per archiviare il pacchetto dell'applicazione durante la distribuzione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione. Per altre informazioni sulla configurazione di questi servizi, vedere [Configurazione dei servizi necessari per pubblicare un servizio cloud](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md) da Visual Studio..
+>[AZURE.IMPORTANT] Quando si pubblica, è possibile selezionare l'ambiente di distribuzione per il servizio cloud. E’ necessario inoltre selezionare un account di archiviazione utilizzato per archiviare il pacchetto dell'applicazione durante la distribuzione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione.
 
 Durante lo sviluppo e il test di un'applicazione Azure, è possibile utilizzare Distribuzione Web per pubblicare le modifiche in modo incrementale per i ruoli web. Dopo aver pubblicato l'applicazione in un ambiente di distribuzione, Distribuzione Web consente di distribuire le modifiche apportate direttamente alla macchina virtuale che esegue il ruolo web. Non è necessario assemblare e pubblicare l'intera applicazione Azure ogni volta che si desidera aggiornare il ruolo web per testare le modifiche. Con questo approccio è possibile che le modifiche di un ruolo web siano disponibili nel cloud per il test senza attendere la pubblicazione dell’applicazione in un ambiente di distribuzione.
 
@@ -61,7 +61,7 @@ Quando si pubblica l'applicazione Azure, è possibile eseguire una delle seguent
 
 1. (Facoltativo) Per annullare il processo di distribuzione, nel menu di scelta rapida per la voce nel registro attività, scegliere **Annulla e Rimuovi**. Questo arresta il processo di distribuzione ed elimina l'ambiente di distribuzione da Azure.
 
-    >[AZURE.NOTE]Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
+    >[AZURE.NOTE] Per rimuovere questo ambiente di distribuzione dopo che è stato distribuito, è necessario utilizzare il Portale di gestione di Azure.
 
 1. (Facoltativo) Una volta avviate le istanze del ruolo, Visual Studio mostrerà automaticamente l'ambiente di distribuzione nel nodo **Servizi cloud** in Esplora Server. Da qui è possibile visualizzare lo stato delle singole istanze del ruolo. Vedere [Gestione delle risorse di Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). La figura seguente mostra le istanze del ruolo mentre si trovano ancora nello stato di inizializzazione:
 
@@ -97,7 +97,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
     Il servizio cloud viene pubblicato. La macchina virtuale creata dispone di connessioni remote abilitate per IIS in modo che Distribuzione Web possa essere utilizzato per aggiornare i ruoli web senza ripubblicarli.
 
-    >[AZURE.NOTE]Se si dispone di più di un'istanza configurata per un ruolo web, viene visualizzato un messaggio di avviso che informa che ogni ruolo web sarà limitato a una sola istanza nel pacchetto creato per pubblicare l'applicazione. Fare clic su OK per continuare. Come indicato nella sezione Requisiti, è possibile disporre di più di un ruolo web ma di solo un'istanza di ogni ruolo.
+    >[AZURE.NOTE] Se si dispone di più di un'istanza configurata per un ruolo web, viene visualizzato un messaggio di avviso che informa che ogni ruolo web sarà limitato a una sola istanza nel pacchetto creato per pubblicare l'applicazione. Fare clic su OK per continuare. Come indicato nella sezione Requisiti, è possibile disporre di più di un ruolo web ma di solo un'istanza di ogni ruolo.
 
 ### Per aggiornare il ruolo Web tramite Distribuzione Web
 
@@ -129,9 +129,9 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
       Il browser richiederà di scaricare un file RDP.
 
-  1. Per aggiungere un certificato SSL, aprire il servizio di gestione in Gestione IIS. In Gestione IIS abilitare SSL aprendo il collegamento **Binding** nel riquadro **Azione**. La finestra di dialogo **Aggiungi binding del sito** verrà visualizzata. Scegliere **Aggiungi**, quindi scegliere HTTPS nell’elenco a discesa **Tipo**. Nell’elenco **Certificato SSL** scegliere il certificato SSL firmato da un'autorità di certificazione, caricato nel Portale di gestione di Azure. Per ulteriori informazioni, vedere [Configurare le impostazioni di connessione per il Servizio di gestione](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Per aggiungere un certificato SSL, aprire il servizio di gestione in Gestione IIS. In Gestione IIS abilitare SSL aprendo il collegamento **Binding** nel riquadro **Azione**. La finestra di dialogo **Aggiungi binding del sito** verrà visualizzata. Scegliere **Aggiungi**, quindi scegliere HTTPS nell’elenco a discesa **Tipo**. Nell’elenco **Certificato SSL** scegliere il certificato SSL firmato da un'autorità di certificazione, caricato nel Portale di gestione di Azure. Per altre informazioni, vedere [Configurare le impostazioni di connessione per il servizio di gestione](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-      >[AZURE.NOTE]Se si aggiunge un certificato SSL attendibile, il triangolo giallo di avviso non viene visualizzato nella **Pubblicazione guidata**.
+      >[AZURE.NOTE] Se si aggiunge un certificato SSL attendibile, il triangolo giallo di avviso non viene visualizzato nella **Pubblicazione guidata**.
 
 ## Includere file nel pacchetto del servizio
 
@@ -173,4 +173,4 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Visual Studio
@@ -237,4 +237,4 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

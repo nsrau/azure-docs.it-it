@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Visualizzazione e modifica di nomi host
@@ -55,7 +55,7 @@ Da un client REST, seguire queste istruzioni:
 
 1. Cercare l’elemento**HostName**per ogni elemento **RoleInstance**.
 
->[AZURE.WARNING]È inoltre possibile visualizzare il suffisso del dominio interno per il servizio cloud dalla risposta chiamata REST controllando l’elemento**InternalDnsSuffix**, o eseguendo ipconfig/all da un prompt dei comandi in una sessione di Desktop remoto (Windows) o eseguendo cat /etc/resolv.conf da un terminale SSH (Linux).
+>[AZURE.WARNING] È inoltre possibile visualizzare il suffisso del dominio interno per il servizio cloud dalla risposta chiamata REST controllando l’elemento**InternalDnsSuffix**, o eseguendo ipconfig/all da un prompt dei comandi in una sessione di Desktop remoto (Windows) o eseguendo cat /etc/resolv.conf da un terminale SSH (Linux).
 
 ## Modifica di un nome host
 
@@ -71,4 +71,4 @@ Si può modificare il nome host per una macchina virtuale o istanza del ruolo ca
 
 [Specificare le impostazioni DNS tramite i file di configurazione di rete](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

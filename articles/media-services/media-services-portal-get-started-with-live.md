@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ In questa esercitazione il portale di Azure classico viene usato per eseguire le
 ## Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
-- Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](azure.microsoft.com).
+- Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-create-account.md).
 - Una webcam e un codificatore in grado di inviare un flusso live a più velocità in bit.
 
@@ -88,7 +88,7 @@ Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da for
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori locali per l'invio di un flusso live a più velocità in bit a un canale](../media-services-channels-overview.md).
+Per altre informazioni sugli URL di inserimento, vedere [Uso di codificatori locali per l'invio di un flusso live a più velocità in bit a un canale](media-services-channels-overview.md).
 
 ## Configurare un codificatore live e inserire il flusso live
 
@@ -212,4 +212,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

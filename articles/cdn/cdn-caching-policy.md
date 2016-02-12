@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/01/2016" 
 	ms.author="juliako"/>
 
 #Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali
@@ -43,4 +43,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

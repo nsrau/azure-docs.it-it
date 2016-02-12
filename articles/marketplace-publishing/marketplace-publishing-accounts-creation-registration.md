@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Creare un account di Microsoft Developer
@@ -24,7 +24,7 @@ In questo articolo viene illustrata la creazione e la registrazione dell'account
 
 L'indirizzo che costituisce il nome utente deve trovarsi nel proprio dominio ed essere controllato dal team IT, ad esempio publishing@example.com). Pagamenti, informazioni fiscali e report verranno indirizzati a questo account.
 
-  >[AZURE.WARNING] Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account Microsoft. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
+  > [AZURE.WARNING] Parole come "Azure", "Microsoft" non sono supportate per la registrazione di account Microsoft. Evitare di utilizzare queste parole per completare il processo di registrazione e creazione dell’account.
 
 ### Istruzioni
 
@@ -93,7 +93,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 10. Immettere le informazioni per il pagamento dell'account. Se si ha un codice promozionale che copre il costo della registrazione, è possibile immettere qui. In caso contrario, fornire le informazioni della carta di credito o di PayPal nei mercati supportati. Al termine, fare clic su **Avanti** per passare alla **"schermata di verifica"**.
 
-11. Esaminare le informazioni dell'account e verificare che tutto sia corretto. Leggere quindi e accettare le condizioni di **Microsoft Azure Marketplace - Contratto dell'editore**. Selezionare la casella per indicare di aver letto e accettato queste condizioni.
+11. Esaminare le informazioni dell'account e verificare che tutto sia corretto. Leggere quindi e accettare le condizioni di [Microsoft Azure Marketplace - Contratto dell'editore](http://go.microsoft.com/fwlink/?LinkID=699560). Selezionare la casella per indicare di aver letto e accettato queste condizioni.
 
 12. Fare clic su **Fine** per confermare la registrazione. Verrà inviato un messaggio di conferma all'indirizzo di posta elettronica dello sviluppatore.
 
@@ -145,12 +145,12 @@ Il portale di pubblicazione di Azure consente di pubblicare e gestire le offerte
 
 3.	Accedere con l'account Microsoft di registrazione della società (ad esempio marketplace@example.com) per aggiungere coamministratori in base alle esigenze.
 
-  >[AZURE.TIP] I criteri di partecipazione sono descritti nel [sito Web di Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] I criteri di partecipazione sono descritti nel [sito Web di Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > In caso di problemi con il completamento della registrazione in Developer Center, registrare un ticket di supporto come indicato di seguito: 
+  > In caso di problemi con la registrazione in Developer Center, inoltrare un ticket di supporto come indicato di seguito: 
   1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286). 
   2. Scegliere il **Centro per sviluppatori**. 
-  3. Scegliere **Profilo**. 
+  3. Scegliere **Profilo**.
   4. Scegliere un metodo di contatto.
 
 
@@ -198,4 +198,4 @@ Ora che l'account è stato creato e registrato, fare clic sul tipo di elemento (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

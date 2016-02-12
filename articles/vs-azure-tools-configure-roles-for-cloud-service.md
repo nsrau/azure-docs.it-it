@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configurare i ruoli per un servizio cloud di Azure con Visual Studio
@@ -51,7 +51,7 @@ Quando si crea un nuovo servizio cloud in Visual Studio, vengono create per impo
 
     Per apportare modifiche a tutte le configurazioni del servizio per questo ruolo, è possibile scegliere **Tutte le configurazioni**.
 
-    >[AZURE.IMPORTANT]Se si sceglie una configurazione del servizio specifica, alcune proprietà verranno disabilitate perché possono essere impostate solo per tutte le configurazioni. Per modificare queste proprietà, è necessario scegliere Tutte le configurazioni.
+    >[AZURE.IMPORTANT] Se si sceglie una configurazione del servizio specifica, alcune proprietà verranno disabilitate perché possono essere impostate solo per tutte le configurazioni. Per modificare queste proprietà, è necessario scegliere Tutte le configurazioni.
 
     È ora possibile scegliere una scheda per aggiornare eventuali proprietà abilitate in tale visualizzazione.
 
@@ -65,19 +65,19 @@ Per migliorare le prestazioni del servizio cloud, è possibile cambiare il numer
 
 1. Nell'elenco **Configurazione servizio** scegliere la configurazione del servizio da aggiornare.
 
-    >[AZURE.NOTE]È possibile impostare il numero di istanze per una configurazione del servizio specifica o per tutte le configurazioni del servizio.
+    >[AZURE.NOTE] È possibile impostare il numero di istanze per una configurazione del servizio specifica o per tutte le configurazioni del servizio.
 
 1. Nella casella di testo **Conteggio istanze** immettere il numero di istanze da avviare per questo ruolo.
 
-    >[AZURE.NOTE]Ogni istanza viene eseguita in una macchina virtuale distinta quando si pubblica il servizio cloud in Azure.
+    >[AZURE.NOTE] Ogni istanza viene eseguita in una macchina virtuale distinta quando si pubblica il servizio cloud in Azure.
 
-1. Scegliere il pulsante **Salva** sulla barra degli strumenti per salvare le modifiche nel file di configurazione del servizio.
+1. Scegliere **Salva** sulla barra degli strumenti per salvare le modifiche nel file di configurazione del servizio.
 
 ## Gestire le stringhe di connessione per gli account di archiviazione
 
 È possibile aggiungere, rimuovere o modificare le stringhe di connessione per le configurazioni del servizio. Potrebbero essere necessarie diverse stringhe di connessione per configurazioni del servizio diverse. Ad esempio, è possibile che si voglia creare una stringa di connessione locale per una configurazione del servizio locale con valore `UseDevelopmentStorage=true`. È anche possibile che si voglia definire una configurazione del servizio cloud che usa un account di archiviazione di Azure.
 
->[AZURE.CAUTION]Quando si immettono le informazioni chiave dell'account di archiviazione di Azure per una stringa di connessione dell'account di archiviazione, tali informazioni vengono archiviate localmente nel file di configurazione del servizio. Queste informazioni, tuttavia, non vengono attualmente archiviate come testo crittografato.
+>[AZURE.CAUTION] Quando si immettono le informazioni chiave dell'account di archiviazione di Azure per una stringa di connessione dell'account di archiviazione, tali informazioni vengono archiviate localmente nel file di configurazione del servizio. Queste informazioni, tuttavia, non vengono attualmente archiviate come testo crittografato.
 
 Se si usa un valore diverso per ogni configurazione del servizio, non sarà necessario usare stringhe di connessione diverse nel servizio cloud o modificare il codice quando si pubblica il servizio cloud in Azure. È possibile usare lo stesso nome per la stringa di connessione nel codice e il valore sarà diverso in base alla configurazione del servizio selezionata quando si compila il servizio cloud o quando lo si pubblica.
 
@@ -87,7 +87,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 1. Nell'elenco **Configurazione servizio** scegliere la configurazione del servizio da aggiornare.
 
-    >[AZURE.NOTE]È possibile aggiornare le stringhe di connessione per una configurazione del servizio specifica, ma se è necessario aggiungere o eliminare una stringa di connessione si dovrà selezionare Tutte le configurazioni.
+    >[AZURE.NOTE] È possibile aggiornare le stringhe di connessione per una configurazione del servizio specifica, ma se è necessario aggiungere o eliminare una stringa di connessione si dovrà selezionare Tutte le configurazioni.
 
 1. Per aggiungere una stringa di connessione, scegliere **Aggiungi impostazione**. Una nuova voce verrà aggiunta all'elenco.
 
@@ -135,7 +135,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 ## Aggiungere impostazioni personalizzate da usare nel servizio cloud di Azure
 
-Le impostazioni personalizzate nel file di configurazione del servizio consentono di aggiungere un nome e un valore per una stringa per una configurazione del servizio specifica. È possibile scegliere di usare questa impostazione per configurare una funzionalità nel servizio cloud leggendo il valore dell'impostazione e usando questo valore per controllare la logica nel codice. È possibile cambiare questi valori della configurazione del servizio senza dovere ricompilare il pacchetto del servizio o quando il servizio cloud è in esecuzione. Il codice può cercare notifiche in caso di modifiche di un'impostazione. Vedere [Evento RoleEnvironment.Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+Le impostazioni personalizzate nel file di configurazione del servizio consentono di aggiungere un nome e un valore per una stringa per una configurazione del servizio specifica. È possibile scegliere di usare questa impostazione per configurare una funzionalità nel servizio cloud leggendo il valore dell'impostazione e usando questo valore per controllare la logica nel codice. È possibile cambiare questi valori della configurazione del servizio senza dovere ricompilare il pacchetto del servizio o quando il servizio cloud è in esecuzione. Il codice può cercare notifiche in caso di modifiche di un'impostazione. Vedere l'[Evento RoleEnvironment.Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
 È possibile aggiungere, rimuovere o modificare impostazioni personalizzate per le configurazioni del servizio. Potrebbero essere necessari diversi valori per queste stringhe per configurazioni del servizio diverse.
 
@@ -147,7 +147,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 1. Nell'elenco **Configurazione servizio** scegliere la configurazione del servizio da aggiornare.
 
-    >[AZURE.NOTE]È possibile aggiornare le stringhe per una configurazione del servizio specifica, ma se è necessario aggiungere o eliminare una stringa si dovrà selezionare **Tutte le configurazioni**.
+    >[AZURE.NOTE] È possibile aggiornare le stringhe per una configurazione del servizio specifica, ma se è necessario aggiungere o eliminare una stringa si dovrà selezionare **Tutte le configurazioni**.
 
 1. Per aggiungere una stringa, scegliere **Aggiungi impostazione**. Una nuova voce verrà aggiunta all'elenco.
 
@@ -183,7 +183,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 ## Gestire le risorse di archiviazione locali per ogni istanza del ruolo
 
-È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](cloud-services-configure-local-storage-resources.md).
+È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](/cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte le configurazioni del servizio. È possibile aggiungere, rimuovere o modificare le risorse di archiviazione locali solo per tutte le configurazioni del servizio.
 
@@ -203,7 +203,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. Per modificare una voce relativa a una risorsa di archiviazione locale, scegliere la riga da aggiornare. Modificare quindi i campi, come illustrato nel passaggio precedente.
 
-1. Per eliminare una voce relativa a una risorsa di archiviazione locale, scegliere la voce desiderata nell'elenco e quindi scegliere il pulsante **Rimuovi risorsa di archiviazione locale**.
+1. Per eliminare una voce relativa a una risorsa di archiviazione locale, scegliere la voce desiderata dall'elenco, quindi fare clic su **Rimuovi risorsa di archiviazione locale**.
 
 1. Per salvare le modifiche ai file di configurazione del servizio, scegliere l'icona **Salva** sulla barra degli strumenti.
 
@@ -253,7 +253,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 È possibile raccogliere i dati di diagnostica per il servizio cloud di Azure. Questi dati vengono aggiunti a un account di archiviazione. Potrebbero essere necessarie diverse stringhe di connessione per configurazioni del servizio diverse. Ad esempio, è possibile che si voglia creare un account di archiviazione locale per una configurazione del servizio locale con valore UseDevelopmentStorage=true. È anche possibile che si voglia definire una configurazione del servizio cloud che usa un account di archiviazione di Azure. Per altre informazioni su Diagnostica di Azure, vedere Raccogliere dati di registrazione usando Diagnostica di Azure.
 
->[AZURE.NOTE]La configurazione del servizio locale è già stata definita in modo da usare le risorse locali. Se si usa la configurazione del servizio cloud per la pubblicazione del servizio cloud di Azure, la stringa di connessione specificata durante la pubblicazione verrà usata anche per la stringa di connessione di diagnostica, a meno che non sia stata specificata una stringa di connessione diversa. Se si crea un pacchetto del servizio cloud usando Visual Studio, la stringa di connessione nella configurazione del servizio non verrà modificata.
+>[AZURE.NOTE] La configurazione del servizio locale è già stata definita in modo da usare le risorse locali. Se si usa la configurazione del servizio cloud per la pubblicazione del servizio cloud di Azure, la stringa di connessione specificata durante la pubblicazione verrà usata anche per la stringa di connessione di diagnostica, a meno che non sia stata specificata una stringa di connessione diversa. Se si crea un pacchetto del servizio cloud usando Visual Studio, la stringa di connessione nella configurazione del servizio non verrà modificata.
 
 ### Per raccogliere i dati di diagnostica del servizio cloud
 
@@ -261,7 +261,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 1. Nell'elenco **Configurazione servizio** scegliere la configurazione del servizio da aggiornare oppure scegliere **Tutte le configurazioni**.
 
-    >[AZURE.NOTE]È possibile aggiornare l'account di archiviazione per una configurazione del servizio specifica, ma se si vuole abilitare o disabilitare la diagnostica è necessario scegliere Tutte le configurazioni.
+    >[AZURE.NOTE] È possibile aggiornare l'account di archiviazione per una configurazione del servizio specifica, ma se si vuole abilitare o disabilitare la diagnostica è necessario scegliere Tutte le configurazioni.
 
 1. Per abilitare la diagnostica, selezionare la casella di controllo **Abilita diagnostica**.
 
@@ -285,7 +285,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
   1. Scegliere il pulsante **Gestisci chiavi di accesso** nella parte inferiore della schermata. Verrà visualizzata la finestra di dialogo **Gestisci chiavi di accesso**.
 
-  1. Per copiare la chiave di accesso, scegliere il pulsante **Copia negli Appunti**. È ora possibile incollare la chiave nel campo **Chiave dell'account**.
+  1. Per copiare la chiave di accesso, scegliere **Copia negli Appunti**. È ora possibile incollare la chiave nel campo **Chiave dell'account**.
 
 1. Per usare l'account di archiviazione fornito come stringa di connessione per la diagnostica (e la memorizzazione nella cache) durante la pubblicazione del servizio cloud in Azure, selezionare la casella di controllo **Aggiorna le stringhe di connessione dell'archivio di sviluppo per la diagnostica e la memorizzazione nella cache con le credenziali dell'account di archiviazione di Microsoft Azure quando si esegue la pubblicazione in Microsoft Azure**.
 
@@ -293,7 +293,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 ## Modificare le dimensioni della macchina virtuale usata per ogni ruolo
 
-È possibile configurare le dimensioni delle macchine virtuali per ogni ruolo. È possibile configurare le dimensioni solo per tutte le configurazioni del servizio. Se si selezionano le dimensioni minori per le macchine virtuali, verranno allocati meno core di CPU, meno memoria e meno risorse di archiviazione su disco locali. Anche la larghezza di banda allocata sarà ridotta. Per altre informazioni su queste dimensioni e sulle risorse allocate, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
+È possibile configurare le dimensioni delle macchine virtuali per ogni ruolo. È possibile configurare le dimensioni solo per tutte le configurazioni del servizio. Se si selezionano le dimensioni minori per le macchine virtuali, verranno allocati meno core di CPU, meno memoria e meno risorse di archiviazione su disco locali. Anche la larghezza di banda allocata sarà ridotta. Per altre informazioni su queste dimensioni e sulle risorse allocate, vedere [Dimensioni dei servizi cloud](/cloud-services/cloud-services-sizes-specs.md).
 
 Le risorse necessarie per ogni macchina virtuale in Azure influiscono sul costo di esecuzione del servizio cloud di Azure. Per altre informazioni sulla fatturazione di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
@@ -315,11 +315,11 @@ Per migliorare la sicurezza del servizio cloud di Azure, è possibile creare end
 
 È anche possibile aggiungere endpoint che possono essere usati internamente o esternamente. Gli endpoint esterni sono definiti endpoint di input. Un endpoint di input offre un altro punto di accesso agli utenti del servizio cloud. Se è disponibile un servizio WCF, è possibile che si voglia esporre un endpoint interno che possa essere usato da un ruolo Web per l'accesso al servizio.
 
->[AZURE.IMPORTANT]È possibile aggiornare gli endpoint solo per tutte le configurazioni del servizio.
+>[AZURE.IMPORTANT] È possibile aggiornare gli endpoint solo per tutte le configurazioni del servizio.
 
 Se si aggiungono endpoint HTTPS, sarà necessario usare un certificato SSL. A tale scopo, è possibile associare certificati al ruolo per tutte le configurazioni del servizio e usarli per gli endpoint.
 
->[AZURE.IMPORTANT]Questi certificati non sono inclusi nel servizio. È necessario caricare i certificati separatamente in Azure tramite il portale di gestione della piattaforma Azure.
+>[AZURE.IMPORTANT] Questi certificati non sono inclusi nel servizio. È necessario caricare i certificati separatamente in Azure tramite il portale di gestione della piattaforma Azure.
 
 Qualsiasi certificato di gestione associato alle configurazioni del servizio viene applicato solo quando il servizio cloud è in esecuzione in Azure. Quando il servizio cloud è in esecuzione nell'ambiente di sviluppo locale, verrà usato un certificato standard gestito dall'emulatore di calcolo di Azure.
 
@@ -329,7 +329,7 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 
 1. Nell'elenco **Configurazione servizio** scegliere **Tutte le configurazioni**.
 
-    >[AZURE.NOTE]Per aggiungere o rimuovere certificati, è necessario selezionare Tutte le configurazioni. È possibile aggiornare il nome e l'identificazione personale per una configurazione del servizio specifica, se necessario.
+    >[AZURE.NOTE] Per aggiungere o rimuovere certificati, è necessario selezionare Tutte le configurazioni. È possibile aggiornare il nome e l'identificazione personale per una configurazione del servizio specifica, se necessario.
 
 1. Per aggiungere un certificato per questo ruolo, scegliere **Aggiungi certificato**. Una nuova voce verrà aggiunta all'elenco.
 
@@ -341,9 +341,9 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 
 1. Per aggiungere il certificato, scegliere il pulsante con i puntini di sospensione (...). Verrà visualizzata la finestra di dialogo **Sicurezza di Windows**.
 
-1. Scegliere il certificato da usare nell'elenco e quindi fare clic su **OK**.
+1. Scegliere il certificato da usare dall'elenco, quindi fare clic su **OK**.
 
-    >[AZURE.NOTE]Quando si aggiunge un certificato dall'archivio certificati, qualsiasi certificato intermedio viene aggiunto automaticamente alle impostazioni di configurazione. Anche questi certificati intermedi devono essere caricati in Azure al fine di configurare correttamente il servizio per SSL.
+    >[AZURE.NOTE] Quando si aggiunge un certificato dall'archivio certificati, qualsiasi certificato intermedio viene aggiunto automaticamente alle impostazioni di configurazione. Anche questi certificati intermedi devono essere caricati in Azure al fine di configurare correttamente il servizio per SSL.
 
 1. Per eliminare un certificato, selezionarlo e quindi scegliere **Rimuovi certificato**.
 
@@ -369,11 +369,11 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 
 1. Se l'endpoint richiede il protocollo HTTPS, nell'elenco **Nome certificato SSL** scegliere un certificato da usare.
 
-    >[AZURE.NOTE]Questo elenco mostra i certificati aggiunti per questo ruolo nella scheda **Certificati**.
+    >[AZURE.NOTE] Questo elenco mostra i certificati aggiunti per questo ruolo nella scheda **Certificati**.
 
 1. Scegliere il pulsante **Salva** sulla barra degli strumenti per salvare le modifiche nei file di configurazione del servizio.
 
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -3,7 +3,7 @@
 
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-> [AZURE.NOTE]Una macchina virtuale in Azure usa diversi tipi di dischi, ad esempio un disco del sistema operativo, un disco temporaneo locale e un disco dati facoltativo. Per archiviare dati per una macchina virtuale sono consigliati i dischi dati. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../../virtual-machines-disks-vhds.md). Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
+> [AZURE.NOTE] Una macchina virtuale in Azure usa diversi tipi di dischi, ad esempio un disco del sistema operativo, un disco temporaneo locale e un disco dati facoltativo. Per archiviare dati per una macchina virtuale sono consigliati i dischi dati. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md). Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
 
 ## Trovare il disco
 
@@ -60,4 +60,4 @@ Dopo aver individuato il numero LUN del disco, si è pronti per scollegarlo:
 
 Il disco scollegato rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

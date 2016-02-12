@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Architettura di riferimento: elaborazione di eventi in tempo reale con Analisi di flusso di Microsoft Azure
@@ -63,4 +63,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

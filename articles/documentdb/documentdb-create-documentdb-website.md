@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="ryancraw"/>
 
 # Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure #
@@ -210,4 +210,4 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

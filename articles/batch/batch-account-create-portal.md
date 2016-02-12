@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="danlep"/>
-
-
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # Creare e gestire un account Azure Batch nel portale di Azure
 
@@ -24,13 +22,13 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare e gestire un account Batch di Azure e le impostazioni, come ad esempio le chiavi dell'account. Per autenticare tutte le richieste API Batch, sono necessari un URL dell'account Batch e una chiave di accesso associata. Tutte le risorse Batch (ad esempio, pool, processi e attività) per il carico di lavoro Batch vengono associate con un account Batch specifico.
+Questo articolo illustra come usare il [portale di Azure][azure_portal] per creare e gestire un account Batch di Azure, incluso dove trovare le impostazioni, come ad esempio l'URL dell'account e le chiavi dell'account. Per autenticare tutte le richieste API Batch, sono necessari un URL dell'account Batch e una chiave di accesso associata. Tutte le risorse Batch (ad esempio, pool, processi e attività) per il carico di lavoro di calcolo vengono associate con un account Batch specifico.
 
->[AZURE.NOTE]Il portale di anteprima attualmente supporta funzionalità per la gestione dell'account Batch e la visualizzazione di alcune risorse dell'account. Le funzionalità Batch complete sono disponibili per gli sviluppatori nelle API Batch.
+>[AZURE.NOTE] Il portale di Azure attualmente supporta funzionalità per la gestione dell'account Batch e la visualizzazione di alcune risorse dell'account. Il set completo di funzionalità Batch è disponibile per gli sviluppatori nelle API Batch.
 
 ## Creare un account Batch
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure][azure_portal].
 
 2. Fare clic su **Nuovo** > **Calcolo** > **Servizio Batch**.
 
@@ -42,7 +40,7 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
 	a. In **Nome account** immettere un nome univoco da usare nell'URL dell'account Batch.
 
-	>[AZURE.NOTE]Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri (sono ammessi solo numeri e lettere minuscole).
+	>[AZURE.NOTE] Il nome dell'account Batch deve essere univoco in Azure e contenere tra 3 e 24 caratteri (sono ammessi solo numeri e lettere minuscole).
 
 	b. Se sono presenti più sottoscrizioni, fare clic su **Sottoscrizione** per selezionare una sottoscrizione disponibile in cui verrà creato l'account.
 
@@ -65,10 +63,9 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 
 ## Altre informazioni importanti sull'account Batch
 
-* Per creare e gestire gli account Batch, è anche possibile usare i [cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md) e la [libreria di gestione .NET per Batch](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
+* Per creare e gestire gli account Batch, è anche possibile usare i [cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md) e la [libreria di gestione .NET per Batch](batch-management-dotnet.md).
 
-
-* Azure non addebita alcun costo per l'account Batch. Viene addebitato solo l'uso delle risorse di calcolo di Azure e di altri servizi quando i carichi di lavoro vengono eseguiti (vedere [Prezzi di Batch](https://azure.microsoft.com/pricing/details/batch/)).
+* Azure non addebita alcun costo per l'account Batch. Viene addebitato solo l'uso delle risorse di calcolo di Azure e di altri servizi quando i carichi di lavoro vengono eseguiti (vedere [Prezzi di Batch][batch_pricing]).
 
 * È possibile eseguire più carichi di lavoro Batch in un solo account Batch o distribuire i carichi di lavoro tra gli account Batch in aree di Azure diverse.
 
@@ -80,8 +77,11 @@ Per visualizzare e gestire le chiavi di accesso, fare clic sull'icona a forma di
 
 * Introduzione allo sviluppo della prima applicazione con la [libreria client .NET per Batch](batch-dotnet-get-started.md).
 
+[azure_portal]: https://portal.azure.com
+[batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
+
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

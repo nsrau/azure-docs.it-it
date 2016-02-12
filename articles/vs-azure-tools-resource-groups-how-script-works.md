@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Panoramica dello script di distribuzione del progetto di gruppo di risorse di Azure
@@ -35,7 +35,7 @@ Poiché non è necessario che tutte le distribuzioni di modelli includano elemen
 
 La descrizione seguente illustra il funzionamento di alcune sezioni dello script Deploy-AzureResourceGroup.ps1 di Azure PowerShell.
 
->[AZURE.NOTE]Viene descritta la versione 1.0 dello script Deploy-AzureResourceGroup.ps1.
+>[AZURE.NOTE] Viene descritta la versione 1.0 dello script Deploy-AzureResourceGroup.ps1.
 
 1.	Dichiarare i parametri necessari al progetto di distribuzione di Gestione risorse di Azure. Alcuni parametri hanno valori predefiniti impostati durante la creazione del progetto. È possibile cambiare i valori predefiniti nello script o aggiungere valori di parametro diversi prima di eseguire lo script.
 
@@ -209,7 +209,7 @@ La descrizione seguente illustra il funzionamento di alcune sezioni dello script
 
     ![][3]
 
-	>[AZURE.NOTE]Se sono necessari valori per alcuni parametri, questa finestra di dialogo viene visualizzata automaticamente durante la distribuzione.
+	>[AZURE.NOTE] Se sono necessari valori per alcuni parametri, questa finestra di dialogo viene visualizzata automaticamente durante la distribuzione.
 
     ![][4]
 
@@ -264,4 +264,4 @@ Per altre informazioni su Gestione risorse di Azure, vedere [Panoramica di Gesti
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

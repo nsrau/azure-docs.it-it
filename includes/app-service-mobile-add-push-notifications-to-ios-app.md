@@ -94,7 +94,7 @@
 3. In **AppDelegate.swift**, sostituire il corpo di `func application` come indicato di seguito:
 
         func application(application: UIApplication,
-           didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+          didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
            application.registerUserNotificationSettings(
                UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
                    categories: nil))
@@ -103,49 +103,46 @@
         }
 
 2. In **AppDelegate.swift**, aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push.
+   
+        func application(application: UIApplication,
+           didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken) { error in
+                print("Error registering for notifications: ", error?.description)
+            }
+        }
         
-
         func application(application: UIApplication,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken, completion: { (error) -> Void in
-                NSLog("Error registering for notifications: %@", error!.description)
-            })
+           didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+            print("Failed to register for remote notifications: ", error.description)
         }
-
-            
+        
         func application(application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-            NSLog("Failed to register for remote notifications: \n%@", error.description)
-        }
-
-        func application(application: UIApplication,
-        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+           didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
             
-            NSLog("%@", userInfo)
+            print(userInfo)
             
-            let apsNotification = userInfo["aps"] as! NSDictionary
-            let apsString       = apsNotification["alert"] as! String
+            let apsNotification = userInfo["aps"] as? NSDictionary
+            let apsString       = apsNotification?["alert"] as? String
             
-            
-            let alert = UIAlertController(title: "Alert", message:apsString, preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Alert", message: apsString, preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
-                NSLog("OK")
+                print("OK")
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
-                NSLog("Cancel")
+                print("Cancel")
             }
             
             alert.addAction(okAction)
             alert.addAction(cancelAction)
             
-            var currentViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController
+            var currentViewController = self.window?.rootViewController
             while currentViewController?.presentedViewController != nil {
                 currentViewController = currentViewController?.presentedViewController
             }
             
-            currentViewController?.presentViewController(alert, animated: true){}
+            currentViewController?.presentViewController(alert, animated: true) {}
             
         }
-    
+            
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

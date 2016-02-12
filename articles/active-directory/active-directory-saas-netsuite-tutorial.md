@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Esercitazione: Integrazione di NetSuite con Azure Active Directory | Microsoft Azure"
-   description="Informazioni su come usare NetSuite con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con NetSuite | Microsoft Azure"
+    description="Informazioni su come usare NetSuite con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Esercitazione: Come eseguire l'integrazione di NetSuite con Azure Active Directory
 
@@ -38,11 +38,11 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	![Fare clic su applicazioni.][1]
 
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
 	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
 	![Fare clic su Aggiungi un'applicazione dalla raccolta.][3]
 
@@ -64,7 +64,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app**, per il campo **URL di risposta** immettere l'URL del tenant di NetSuite, usando uno dei formati seguenti:
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -186,7 +186,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 ##Passaggio 3: Abilitare il provisioning automatizzato degli utenti
 
-> [AZURE.NOTE]Per impostazione predefinita, gli utenti con provisioning verranno aggiunti alla filiale di radice dell'ambiente NetSuite.
+> [AZURE.NOTE] Per impostazione predefinita, gli utenti con provisioning verranno aggiunti alla filiale di radice dell'ambiente NetSuite.
 
 1. Nella pagina di Avvio rapido per NetSuite in Azure Active Directory fare clic su **Configura provisioning utenti**.
 
@@ -210,7 +210,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	![Fare clic su Assegna utenti.][31]
 
-3. Selezionare l'utente di test, quindi fare clic su **Assegna** nella parte inferiore della schermata:
+3. Selezionare l'utente di test e quindi fare clic su **Assegna** nella parte inferiore della schermata:
 
  - Se il provisioning automatizzato degli utenti non è stato abilitato, verrà visualizzata la richiesta di conferma seguente:
 
@@ -256,4 +256,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

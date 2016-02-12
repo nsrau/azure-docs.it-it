@@ -17,12 +17,12 @@
 
 # Integrazione del controllo del codice sorgente in Automazione di Azure
 
-L'integrazione del controllo del codice sorgente consente di associare runbook nell'account di automazione a un repository di controllo del codice sorgente su GitHub. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Ad esempio, il controllo del codice sorgente consente di sincronizzare diversi rami nel controllo del codice sorgente agli account di automazione di sviluppo, test o produzione e alzare di livello il codice testato nell'ambiente di sviluppo per passarlo all'ambiente di produzione.
+L'integrazione del controllo del codice sorgente consente di associare runbook nell'account di automazione a un repository di controllo del codice sorgente su GitHub. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Ad esempio, il controllo del codice sorgente consente di sincronizzare diversi rami nel controllo del codice sorgente con gli account di automazione di sviluppo, test o produzione e alzare di livello il codice testato nell'ambiente di sviluppo per passarlo all'ambiente di produzione.
 
 Il controllo del codice sorgente consente di effettuare il push del codice da Automazione di Azure al controllo del codice sorgente oppure effettuare il pull dei runbook dal controllo del codice sorgente ad Automazione di Azure. Questo articolo descrive come configurare il controllo del codice sorgente nell'ambiente di Automazione di Azure. Si inizierà configurando l'automazione di Azure per accedere all'archivio GitHub e si eseguiranno i passaggi di diverse operazioni che possono essere eseguite utilizzando l'integrazione del controllo del codice sorgente.
 
 
->[AZURE.NOTE] Il controllo del codice sorgente supporta il pull e il push di [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks), ma non supporta ancora [Runbook grafici](automation-runbook-types.md#graphical-runbooks).<br><br>
+>[AZURE.NOTE] Il controllo del codice sorgente supporta il pull e il push di [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks). I [Runbook grafici](automation-runbook-types.md#graphical-runbooks) non sono ancora supportati.<br><br>
 
 
 Per configurare il controllo del codice sorgente per l'account di automazione sono richiesti due semplici passaggi e solo uno se si ha già un account GitHub. Sono:
@@ -75,11 +75,11 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
     | Valore | {"Branch":<*Nome del ramo*>,"RunbookFolderPath":<*Percorso della cartella runbook*>,"ProviderType":<*ha un valore 1 per GitHub*>,"Repository":<*Nome del repository*>,"Username":<*Nome utente di GitHub*>} | <br>
 
 
-    * La variabile **Microsoft.Azure.Automation.SourceControl.OauthToken** contiene il valore sicuro crittografato di OAuthToken.  
+    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene il valore sicuro crittografato di OAuthToken.  
 
     |**Parametro** |**Valore** |
     |:---|:---|
-    | Nome | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | Nome | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tipo | Unknown(Encrypted) |
     | Valore | <*OAuthToken crittografato*> |  
 
@@ -114,7 +114,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
 
     ![Archiviazione del runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE] I runbook di controllo del codice sorgente sono runbook di Automazione speciali che non è possibile visualizzare o modificare. Mentre verranno visualizzati nell'elenco di runbook, verranno visualizzati i processi di sincronizzazione nell'elenco dei processi.
+    >[AZURE.NOTE] I runbook di controllo del codice sorgente sono runbook di automazione speciali che non è possibile visualizzare o modificare. Mentre verranno visualizzati nell'elenco di runbook, verranno visualizzati i processi di sincronizzazione nell'elenco dei processi.
  
 5. Il nome del runbook modificato viene inviato come parametro di input al runbook archiviato. È possibile [visualizzare i dettagli del processo](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) espandendo il runbook nel pannello **Sincronizzazione repository**.
 
@@ -126,7 +126,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
 
 ### Sincronizzare i runbook dal controllo del codice sorgente in Automazione di Azure 
 
-Il pulsante di sincronizzazione nel pannello di sincronizzazione del repository consente di effettuare il pull di tutti i runbook nel percorso della cartella runbook del repository all'account di Automazione. Il repository stesso può essere sincronizzato con più account di automazione. Ecco la procedura per sincronizzare un runbook:
+Il pulsante di sincronizzazione nel pannello di sincronizzazione del repository consente di effettuare il pull di tutti i runbook nel percorso della cartella runbook del repository all'account di automazione. Lo stesso repository può essere sincronizzato con più account di automazione. Ecco la procedura per sincronizzare un runbook:
 
 1. Nell'account di automazione dove è stato configurato il controllo del codice sorgente aprire il pannello **Integrazione del controllo del codice sorgente/Sincronizzazione repository** e fare clic su **Sincronizza**. Verrà visualizzato un messaggio, fare clic su **Sì** per continuare.  
 
@@ -142,7 +142,7 @@ Il pulsante di sincronizzazione nel pannello di sincronizzazione del repository 
 
 ## Risoluzione dei problemi di controllo del codice sorgente
 
-In caso di errori nel processo di archiviazione, il relativo stato sarà sospeso e si potranno visualizzare altri dettagli sull'errore nel pannello dei processi. La parte **Tutti i log** mostrerà tutti i flussi di PowerShell associati a quel processo. In questo modo saranno forniti i dettagli necessari per risolvere gli eventuali problemi relativi al controllo o alla sincronizzazione. Verrà mostrata inoltre la sequenza di azioni che si è verificata durante la sincronizzazione o la verifica in un runbook.
+In caso di errori nel processo di archiviazione, il relativo stato sarà sospeso e si potranno visualizzare altri dettagli sull'errore nel pannello dei processi. La parte **Tutti i log** mostrerà tutti i flussi di PowerShell associati a quel processo. In questo modo saranno forniti i dettagli necessari per risolvere gli eventuali problemi relativi al controllo o alla sincronizzazione. Verrà anche mostrata la sequenza di azioni che si è verificata durante la sincronizzazione o l'archiviazione di un runbook.
 
 ![Immagine AllLogs](media/automation-source-control-integration/automation_13_AllLogs.png)
 
@@ -158,4 +158,4 @@ Per disconnettersi dall'account GitHub, aprire il pannello di sincronizzazione d
 
 Per altre informazioni sull'integrazione del controllo del codice sorgente, vedere le risorse seguenti: - [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Votare il sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook con Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

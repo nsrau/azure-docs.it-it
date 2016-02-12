@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000  
@@ -21,7 +21,7 @@
 
 Le note sulla versione seguenti descrivono le nuove funzionalità e identificano i problemi critici non risolti relativi all'aggiornamento 2 di StorSimple serie 8000. Le note contengono anche un elenco degli aggiornamenti del software, del driver e del firmware del disco di StorSimple inclusi in questa versione.
 
-L'aggiornamento 2 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 1.2.
+L'aggiornamento 2 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 1.2. La versione del dispositivo associata all'aggiornamento 2 è 6.3.9600.17673.
 
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
@@ -113,4 +113,8 @@ Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
 
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali.
 
-<!---HONumber=AcomDC_0121_2016-->
+## Passaggio successivo
+
+Informazioni su come [installare l'aggiornamento 2](storsimple-install-update-2.md) nel dispositivo StorSimple.
+
+<!---HONumber=AcomDC_0204_2016-->

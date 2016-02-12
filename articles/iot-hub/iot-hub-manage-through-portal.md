@@ -52,7 +52,7 @@ Per creare un hub IoT, è necessario assegnare un nome all'hub. Si noti che ques
 
 ![][4]
 
-> [AZURE.NOTE]L'hub IoT consente solo un hub gratuito per sottoscrizione.
+> [AZURE.NOTE] L'hub IoT consente solo un hub gratuito per sottoscrizione.
 
 ### Unità hub IoT
 
@@ -72,7 +72,7 @@ L'hub IoT di Azure mostra automaticamente un elenco di sottoscrizioni alle quali
 
 ### Scegliere la località
 
-L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. Per la versione di anteprima, l'hub IoT è disponibile solo in tre posizioni: Stati Uniti orientali, Europa settentrionale e Asia orientale.
+L'opzione relativa alla posizione offre un elenco delle aree in cui viene offerto l'hub IoT. L'hub IoT è disponibile per la distribuzione nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Asia orientale e Asia sud-orientale.
 
 ### Creare l'hub IoT
 
@@ -110,13 +110,13 @@ Fare clic sui criteri di **Messaggistica** per visualizzare un elenco di proprie
 
 **Partizioni**: questo valore viene impostato quando si crea l'hub IoT e può essere modificato tramite questa impostazione.
 
-**Nome ed endpoint compatibili con Hub eventi**: quando viene creato l'hub IoT, viene creato internamente un Hub eventi a cui l'utente potrebbe avere l'esigenza di accedere in determinate condizioni. Il nome e l'endpoint dell'Hub eventi non possono essere personalizzati, ma sono disponibili per l'uso tramite il pulsante **Copia**.
+**Nome ed endpoint compatibili con Hub eventi**: quando viene creato quando l'hub IoT, viene creato internamente un Hub eventi a cui l'utente potrebbe avere l'esigenza di accedere in determinate condizioni. Il nome e l'endpoint dell'Hub eventi non possono essere personalizzati, ma sono disponibili per l'uso tramite il pulsante **Copia**.
 
 **Tempo di conservazione**: per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite l'elenco a discesa. Questo valore è espresso in giorni per Da dispositivo a cloud e non in ore, come lo è l'impostazione simile per Da cloud a dispositivo.
 
 **Gruppi di consumer**: è un'impostazione simile ad altri sistemi di messaggistica che possono essere usati per eseguire il pull dei dati in modo specifico per connettere altre applicazioni o servizi all'hub IoT. Ogni hub IoT viene creato con un gruppo di consumer predefinito. Tuttavia, è possibile aggiungere o eliminare gruppi di consumer negli hub IoT.
 
-> [AZURE.NOTE]Il gruppo di consumer predefinito non può essere modificato o eliminato.
+> [AZURE.NOTE] Il gruppo di consumer predefinito non può essere modificato o eliminato.
 
 ![][11]
 
@@ -153,4 +153,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

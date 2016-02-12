@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione
@@ -41,7 +41,7 @@ Per abilitare il backup e il ripristino, i file di backup (con estensione bak) d
 1.	Accedere al server di database primario come **[domain]\\sqladmin**. 
 2.	Passare al disco F:\\. 
 3.	Fare con il pulsante destro del mouse sulla cartella **Backup**, quindi scegliere **Condividi con** e fare clic su **Utenti specifici**.
-4.	Nella finestra di dialogo **Condivisione file** digitare **[domain]\\sqlservice**, quindi fare clic su **Aggiungi**.
+4.	Nella finestra di dialogo **condivisione File** digitare **[domain]\\sqlservice**, quindi fare clic su **Aggiungi**.
 5.	Scegliere la colonna **Livello di autorizzazione** relativa al nome account **sqlservice**, quindi fare clic su **Lettura/scrittura**. 
 6.	Fare clic su **Condividi** e quindi su **Operazione completata**.
 
@@ -119,4 +119,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 - Vedere queste [linee guida](virtual-machines-infrastructure-services-implementation-guidelines.md) se si distribuisce il proprio carico di lavoro IT in Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -21,6 +21,7 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 Data factory supporta attualmente solo lo spostamento di dati da un archivio dati ODBC ad altri archivi dati, ma non da altri archivi dati a un archivio dati ODBC locale.
 
+
 ## Abilitazione della connettività
 Il servizio Data factory supporta la connessione a origini ODBC locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. È necessario usare il gateway per connettersi a un archivio dati ODBC anche se è ospitato in una macchina virtuale IaaS di Azure.
 
@@ -32,7 +33,9 @@ Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC 
 
 ## Esempio: Copiare dati da un archivio dati ODBC al BLOB di Azure
 
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da un archivio dati ODBC all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -44,7 +47,7 @@ L'esempio copia i dati dai risultati della query in un archivio dati ODBC a un B
 
 Per prima cosa, impostare il Gateway di gestione dati in base alle istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Servizio collegato ODBC**: questo esempio usa l'autenticazione di base. Per i diversi tipi di autenticazione disponibili, vedere la sezione del [servizio collegato ODBC](#odbc-linked-service-properties).
+**Servizio collegato ODBC**: questo esempio usa l'autenticazione di base. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato ODBC](#odbc-linked-service-properties).
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -250,7 +253,7 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un archivio
 	}
 
 ### Uso dell'autenticazione di base con credenziali crittografate
-È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell 0.9 o versioni precedenti.
+È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell versione 0.9 o precedente.
 
 	{
 	    "name": "odbc",
@@ -302,7 +305,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource**, incluso ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
+In caso di attività di copia con origine di tipo **RelationalSource**, che include ODBC, sono disponibili le proprietà seguenti nella sezione typeProperties:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -324,4 +327,4 @@ Quando si spostano dati da archivi dati ODBC, viene eseguito il mapping dei tipi
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

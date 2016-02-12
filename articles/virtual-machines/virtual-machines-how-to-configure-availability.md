@@ -31,7 +31,7 @@ Nel modello di distribuzione classico, è possibile inserire le macchine virtual
 - [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente][]. Quindi, aggiungere le nuove macchine virtuali al set.
 - [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità][].
 
->[AZURE.NOTE]Nel modello classico, le macchine virtuali che si desidera inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.
+>[AZURE.NOTE] Nel modello classico, le macchine virtuali che si desidera inserire nello stesso set di disponibilità devono appartenere allo stesso servizio cloud.
 
 ## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente.##
 
@@ -96,7 +96,7 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]Potrebbe essere necessario riavviare la macchina virtuale per completarne l'aggiunta al set di disponibilità.
+>[AZURE.NOTE] Potrebbe essere necessario riavviare la macchina virtuale per completarne l'aggiunta al set di disponibilità.
 
 ## Risorse aggiuntive
 
@@ -110,6 +110,6 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Gestione della disponibilità delle macchine virtuali]: virtual-machines-manage-availability.md
 [Creazione di una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
-[Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
+[Articoli sulle Macchine virtuali nella gestione dei servizi]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

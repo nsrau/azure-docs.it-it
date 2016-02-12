@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/02/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -36,14 +36,25 @@
 </table></br>
 
 ##Note sulla versione
+###<a name="1.5.5"/>1.5.5</a>
+
+- Corretto hashParitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
+
+###<a name="1.5.4"/>1.5.4</a>
+
+- Corretto il problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100), agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
+
+###<a name="1.5.3"/>1.5.3</a>
+
+- Corretto il problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81): gestire correttamente i trattini negli ID dei file multimediali.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Consente di correggere il problema [95](https://github.com/Azure/azure-documentdb-node/issues/95): avviso di perdita del listener EventEmitter
+- Corretto il problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95): avviso di perdita del listener EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Consente di correggere il problema [92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per sistemi con distinzione tra maiuscole e minuscole
+- Corretto il problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -109,6 +120,9 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
+| [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- 
+| [1\.5.4](#1.5.4) | 01 febbraio 2016 |---
+| [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- 
 | [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- 
 | [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- 
 | [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- 
@@ -123,7 +137,7 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 | [1\.0.1](#1.0.1) | 15 maggio 2015 |--- 
 | [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
 | 0.9.4-versione non definitiva | 06 aprile 2015 | 29 febbraio 2016 
-| 0.9.3-versione non definitiva | 14 gennaio, 2015 | 29 febbraio 2016 
+| 0.9.3-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 
 | 0.9.2-versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016 
 | 0.9.1-versione non definitiva | 22 agosto 2014 | 29 febbraio 2016 
 | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
@@ -136,4 +150,4 @@ Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versi
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/02/2015"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
 
 In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire l'applicazione in Azure. Viene descritto come distribuire l'applicazione usando Azure PowerShell, l’interfaccia della riga di comando di Azure, API REST o il portale di Azure.
 
-Per un'introduzione a Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+Per un'introduzione a Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](./resource-group-overview.md). Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
 Quando si distribuisce un'applicazione con un modello, è possibile fornire valori di parametri per personalizzare la modalità di creazione delle risorse. È possibile specificare i valori di questi parametri inline o in un file di parametri.
 
@@ -274,12 +274,12 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md/#parameters) Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](./virtual-machines/arm-template-deployment.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md).
 - Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2015" 
 	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
@@ -76,15 +76,15 @@ Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\
 |Valore di \_self |Descrizione 
 |-------------------|----------- 
 |/dbs |Feed di database in un account di database 
-|/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db} 
-|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database 
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll} 
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta 
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc} 
-|/dbs/{\_rid-db}/users/ |Feed di utenti in un database |/dbs/{\_rid-db}/users/{\_rid-user} 
-|Utente con un ID corrispondente al valore {_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions 
-|Feed di autorizzazioni in un utente |/dbs/{_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} 
-|Autorizzazione con un ID corrispondente al valore {_rid-permission}
+|/dbs/{_rid-db} |Database con un ID corrispondente al valore {_rid-db} 
+|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con un ID corrispondente al valore {_rid-coll} 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Feed di documenti in una raccolta 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Documento con un ID corrispondente al valore {_rid-doc} 
+|/dbs/{_rid-db}/users/ |Feed di utenti in un database 
+|/dbs/{_rid-db}/users/{_rid-user} |Utente con un ID corrispondente al valore {_rid-user} 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un utente
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con un ID corrispondente al valore {_rid-permission}
   
 Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 
@@ -95,7 +95,7 @@ I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternat
 ## Account di database
 È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
 
-È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure classico all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
+È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
 
 ### Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:
@@ -107,7 +107,7 @@ Chiave primaria e Chiave secondaria|Si tratta delle chiavi primaria e secondaria
 MaxMediaStorageUsageInMB (READ)|Quantità massima di archiviazione multimediale disponibile per l'account di database.
 MediaStorageUsageInMB (READ)|Attuale utilizzo delle risorse di archiviazione multimediale per l'account di database.
 
-Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure classico, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Database
 Un database di DocumentDB è un contenitore logico di uno o più utenti e raccolte, come mostrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database DocumentDB, a condizione di rispettare i limiti di offerta.
@@ -144,7 +144,7 @@ Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra
 -	Possibilità di scegliere se includere o escludere percorsi o modelli specifici nei documenti dall'indice. Per ottenere questo risultato, impostare rispettivamente includedPaths e excludedPaths in indexingPolicy di una raccolta. È anche possibile configurare i compromessi relativi ad archiviazione e prestazioni per query di intervallo e hash per modelli di percorso specifici. 
 -	Possibilità di scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti) dell'indice. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco per raccolte principalmente a uso intensivo di lettura.
 
-Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure classico](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Esecuzione di query su una raccolta
 I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici e relazionali ed estendibilità attraverso funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto SQL di DocumentDB. Il linguaggio di query di DocumentDB è caratterizzato da tre aspetti principali:
@@ -415,4 +415,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

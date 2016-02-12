@@ -44,7 +44,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 Esistono due tipi di configurazioni delle macchine virtuali: a istanza multipla e a istanza singola. In una configurazione a istanza multipla, le macchine virtuali simili vengono inserite in un set di disponibilità.
 
-La configurazione a istanza multipla fornisce la ridondanza ed è consigliata per garantire la disponibilità dell'applicazione. Tutte le macchine virtuali nel set di disponibilità devono essere quasi identiche e avere la stessa funzione nell'applicazione.
+La configurazione a istanza multipla offre ridondanza tra computer fisici, alimentazione e rete, ed è consigliata per garantire la disponibilità dell'applicazione. Tutte le macchine virtuali nel set di disponibilità devono avere la stessa funzione nell'applicazione.
 
 Per altre informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-manage-availability.md).
 
@@ -55,9 +55,9 @@ Per altre informazioni sul contratto di servizio, vedere la sezione "Servizi clo
 
 ## Aggiornamenti delle configurazioni a istanza multipla
 
-Durante la manutenzione pianificata, la piattaforma Azure aggiorna innanzitutto il set di macchine virtuali ospitate in una configurazione a istanza multipla. Ciò causa un riavvio di queste macchine virtuali.
+Durante la manutenzione pianificata, la piattaforma Azure aggiorna innanzitutto il set di macchine virtuali ospitate in una configurazione a istanza multipla. Questo causa un riavvio di queste macchine virtuali con circa 15 minuti di inattività.
 
-In un aggiornamento della configurazione a istanza multipla, le macchine virtuali vengono aggiornate in modo tale da preservare la disponibilità per tutto il processo, supponendo che ciascuna macchina virtuale abbia una funzione simile a quella delle altre del set.
+In un aggiornamento della configurazione a istanza multipla, le macchine virtuali vengono aggiornate in modo tale da mantenere la disponibilità per tutto il processo, supponendo che ogni macchina virtuale abbia una funzione simile a quella delle altre del set.
 
 A ciascuna macchina virtuale nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Ciascun dominio di aggiornamento è un gruppo di macchine virtuali che verranno riavviate nello stesso intervallo di tempo. Ciascun dominio di errore è un gruppo di macchine virtuali che condividono un'unità di alimentazione o un commutatore di rete comune.
 
@@ -65,7 +65,7 @@ Per altre informazioni sui domini di aggiornamento e sui domini di errore, veder
 
 Per impedire che i domini di aggiornamento passino offline contemporaneamente, la manutenzione viene eseguita arrestando tutte le macchine virtuali in un dominio di aggiornamento, applicando l'aggiornamento sulle macchine host, riavviando le macchine virtuali e passando al dominio di aggiornamento successivo. L'evento di manutenzione pianificata termina quando tutti i domini di aggiornamento sono stati aggiornati.
 
-L'ordine dei domini di aggiornamento in corso di riavvio potrebbe non procedere in modo sequenziale durante la manutenzione pianificata, ma viene riavviato un solo dominio di aggiornamento alla volta. Attualmente, Azure offre un servizio di notifica avanzata di 48 ore per la manutenzione pianificata delle macchine virtuali nella configurazione a istanza multipla.
+L'ordine dei domini di aggiornamento in corso di riavvio potrebbe non procedere in modo sequenziale durante la manutenzione pianificata, ma viene riavviato un solo dominio di aggiornamento alla volta. Al momento Azure offre un servizio di notifica avanzata di una settimana per la manutenzione pianificata delle macchine virtuali nella configurazione a istanza multipla.
 
 Di seguito viene riportato un esempio di ciò che Visualizzatore eventi di Windows potrebbe visualizzare al termine del ripristino di una macchina virtuale:
 
@@ -83,20 +83,20 @@ Una volta completati gli aggiornamenti della configurazione a istanza multipla, 
 
 Anche se si dispone di una sola istanza in esecuzione in un set di disponibilità, la piattaforma Azure considera l’aggiornamento come aggiornamento della configurazione a istanza multipla.
 
-In una configurazione a istanza singola le macchine virtuali vengono aggiornate arrestando le macchine virtuali, applicando l'aggiornamento al computer host e riavviando le macchine virtuali. Questi aggiornamenti vengono eseguiti in tutte le macchine virtuali di un'area in una singola finestra di manutenzione.
+In una configurazione a istanza singola le macchine virtuali vengono aggiornate arrestando le macchine virtuali, applicando l'aggiornamento al computer host e riavviando le macchine virtuali, con circa 15 minuti di inattività. Questi aggiornamenti vengono eseguiti in tutte le macchine virtuali di un'area in una singola finestra di manutenzione.
 
 Questo evento di manutenzione pianificata influirà sulla disponibilità dell'applicazione per questo tipo di configurazione di macchina virtuale. Azure offre un servizio di notifica avanzato di una settimana per la manutenzione pianificata delle macchine virtuali nella configurazione a istanza singola.
 
 ### Notifica tramite posta elettronica
 
-Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di 1 settimana per istanze singole e di 48 ore per istanze multiple). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell’amministratore e del co-amministratore dell’account forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
+Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di una settimana). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell’amministratore e del co-amministratore dell’account forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
 
 <!--Image reference-->
 ![][image1]
 
 ## Coppie di aree
 
-Azure consente di organizzare un set di coppie di aree. Azure non implementerà contemporaneamente un aggiornamento su coppie di aree durante una manutenzione pianificata delle macchine virtuali con configurazioni a istanza singola.
+Quando si esegue la manutenzione, Azure aggiorna solo le istanze della macchina virtuale in una singola area della relativa coppia. Ad esempio, quando si aggiornano le macchine virtuali negli Stati Uniti centro-settentrionali, Azure non aggiorna contemporaneamente le macchine virtuali negli Stati Uniti centro-meridionali. Questa operazione viene pianificata in un secondo momento, consentendo il failover o il bilanciamento del carico tra le aree. Tuttavia, altre aree, ad esempio Europa settentrionale, possono essere sottoposte a manutenzione contemporaneamente a Stati Uniti orientali.
 
 Consultare la tabella seguente per informazioni relative alle coppie di aree correnti:
 
@@ -113,8 +113,6 @@ Brasile meridionale | Stati Uniti centro-meridionali
 Australia sudorientale | Australia orientale
 Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia
 
-Ad esempio, durante una manutenzione pianificata, Azure non implementerà un aggiornamento su Stati Uniti occidentali se Stati Uniti orientali è sottoposto contemporaneamente a manutenzione. Tuttavia, altre aree, ad esempio Europa settentrionale, possono essere sottoposte a manutenzione contemporaneamente a Stati Uniti orientali.
-
 <!--Anchors-->
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
@@ -126,4 +124,4 @@ Ad esempio, durante una manutenzione pianificata, Azure non implementerà un agg
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

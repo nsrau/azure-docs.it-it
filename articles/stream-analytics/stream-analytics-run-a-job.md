@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Come eseguire un processo di streaming in Analisi di flusso di Azure
@@ -31,7 +31,7 @@ Per avviare il processo:
 
     ![Portale di anteprima di Azure, pulsante Avvia processo](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
-2.	Specificare un valore per **Avvia output** per determinare quando questo processo inizierà a produrre output. L'impostazione predefinita per i processi che non sono stati precedentemente avviati è **Ora di inizio processo**, il che significa che il processo avvia immediatamente l'elaborazione dati. È anche possibile specificare un tempo **personalizzato** passato (per l'uso di dati cronologici) o futuro (per posticipare l'elaborazione a un secondo momento). Nei casi in cui un processo è stato precedentemente avviato e arrestato, è disponibile l'opzione **Ultimo arresto** per consentire di riprendere il processo dall'ultima data di output ed evitare la perdita di dati.
+2.	Specificare un valore per **Avvia output** per determinare quando questo processo inizierà a produrre output. L'impostazione predefinita per i processi che non sono stati precedentemente avviati è **Ora di inizio processo**, il che significa che il processo avvia immediatamente l'elaborazione dati. È inoltre possibile specificare un tempo **personalizzato** passato (per l'utilizzo di dati cronologici) o futuro (per posticipare l'elaborazione a un secondo momento). Nei casi in cui un processo è stato precedentemente avviato e arrestato, l'opzione **Ultimo arresto** è disponibile per consentire di riprendere il processo dall'ultima data di output ed evitare la perdita di dati.
 
     ![Ora di avvio del processo di streaming](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

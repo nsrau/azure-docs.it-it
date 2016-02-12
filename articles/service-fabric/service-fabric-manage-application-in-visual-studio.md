@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="jesseb"/>
 
 # Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
 
-È possibile gestire le applicazioni e i servizi di Service Fabric di Azure tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-setup-your-development-environment.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
+È possibile gestire le applicazioni e i servizi di Service Fabric di Azure tramite Visual Studio. Dopo aver [configurato l'ambiente di sviluppo](service-fabric-get-started.md), è infatti possibile usare Visual Studio per creare applicazioni di Service Fabric, aggiungere servizi o creare i pacchetti, registrare e distribuire le applicazioni nel cluster di sviluppo locale.
 
 Per gestire l'applicazione, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell'applicazione.
 
@@ -97,4 +97,4 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

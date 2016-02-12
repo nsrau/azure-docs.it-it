@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Procedura guidata Pubblica l'applicazione Azure
@@ -21,7 +21,7 @@
 
 Un'applicazione Web sviluppata in Visual Studio può essere pubblicata più facilmente in un servizio cloud di Azure mediante la procedura guidata **Pubblica l'applicazione Azure**. La prima sezione illustra i passaggi da completare per poter usare la procedura guidata, mentre le sezioni successive descrivono le funzionalità di tale procedura guidata.
 
->[AZURE.NOTE]Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere l'argomento relativo alla [Come distribuire un sito Web di Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere l'argomento relativo alla [Come distribuire un sito Web di Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Prerequisiti
 
@@ -29,13 +29,13 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 1. Ottenere un account Microsoft e una sottoscrizione di Azure. Una sottoscrizione di valutazione di Azure gratuita per un mese è disponibile [qui](https://azure.microsoft.com/pricing/free-trial/)
 
-1. Creare un servizio cloud e un account di archiviazione in Azure. È possibile eseguire questa operazione in Esplora server in Visual Studio oppure usando il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Per altre informazioni sulla configurazione dell'ambiente Azure, vedere [Configurazione dei servizi necessari per pubblicare un servizio cloud da Visual Studio](vs-azure-tools-publish-azure-application-wizard).
+1. Creare un servizio cloud e un account di archiviazione in Azure. È possibile eseguire questa operazione in Esplora server in Visual Studio oppure usando il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Abilitare l'applicazione Web per Azure. Per consentire la pubblicazione dell'applicazione Web in Azure da Visual Studio, è necessario associarla a un progetto servizio cloud di Azure in Visual Studio. Per creare il progetto servizio cloud associato, aprire il menu di scelta rapida relativo al progetto per l'applicazione Web, quindi scegliere Converti, **Converti in progetto servizio cloud di Azure**.
 
 1. Dopo aver aggiunto il progetto servizio cloud alla soluzione, aprire di nuovo lo stesso menu di scelta rapida e scegliere **Pubblica**. Per altre informazioni sull'abilitazione delle applicazioni per Azure, vedere [Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
 
->[AZURE.NOTE]Assicurarsi di avviare Visual Studio con le credenziali di amministratore (Esegui come amministratore).
+>[AZURE.NOTE] Assicurarsi di avviare Visual Studio con le credenziali di amministratore (Esegui come amministratore).
 
 1. Quando si è pronti a pubblicare l'applicazione, aprire il menu di scelta rapida per il progetto servizio cloud di Azure e quindi scegliere **Pubblica**. Di seguito è illustrata la procedura guidata Pubblica l'applicazione Azure.
 
@@ -65,7 +65,7 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 1. Modificare tutte le impostazioni desiderate per questa distribuzione, quindi pubblicarla scegliendo **Pubblica**. La sezione successiva fornisce dettagli aggiuntivi sulle diverse impostazioni. Per verificare le impostazioni prima della pubblicazione, scegliere **Avanti**.
 
-    >[AZURE.NOTE]Se in questo passaggio è stato scelto il pulsante Pubblica, sarà possibile monitorare lo stato della distribuzione in Visual Studio.
+    >[AZURE.NOTE] Se in questo passaggio è stato scelto il pulsante Pubblica, sarà possibile monitorare lo stato della distribuzione in Visual Studio.
 
 È possibile modificare le impostazioni comuni e avanzate di una distribuzione tramite la procedura guidata **Pubblica l'applicazione Azure**. Ad esempio, è possibile scegliere un'impostazione per distribuire l'applicazione in un ambiente di test prima del rilascio. La figura seguente mostra la scheda **Impostazioni comuni** per una distribuzione di Azure.
 
@@ -97,7 +97,7 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 1. Nell'elenco **Account di archiviazione** scegliere l'account di archiviazione da usare per la distribuzione. Confrontare le posizioni dei data center per il servizio cloud e l'account di archiviazione. Idealmente, dovrebbero coincidere.
 
-    >[AZURE.NOTE]L'account di archiviazione di Azure archivia il pacchetto per la distribuzione dell'applicazione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione.
+    >[AZURE.NOTE] L'account di archiviazione di Azure archivia il pacchetto per la distribuzione dell'applicazione. Dopo la distribuzione dell'applicazione, il pacchetto viene rimosso dall'account di archiviazione.
 
 1. Selezionare la casella di controllo **Aggiornamento distribuzione** se si vuole distribuire solo componenti aggiornati. Questo tipo di distribuzione risulta più rapida della distribuzione completa. Scegliere il collegamento **Impostazioni** per aprire la finestra di dialogo **Impostazioni aggiornamento distribuzione**, mostrata nella figura seguente.
 
@@ -113,7 +113,7 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 2. Per profilare l'applicazione, selezionare la casella di controllo **Abilita profilatura**, quindi scegliere il collegamento **Impostazioni** per visualizzare le opzioni di profilatura.
 
 
-    >[AZURE.NOTE]È necessario usare Visual Studio Ultimate per abilitare IntelliTrace o la profilatura interazione tra livelli e non è possibile abilitare entrambi contemporaneamente.
+    >[AZURE.NOTE] È necessario usare Visual Studio Ultimate per abilitare IntelliTrace o la profilatura interazione tra livelli e non è possibile abilitare entrambi contemporaneamente.
 
     Per altre informazioni, vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) e [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx).
 
@@ -125,13 +125,11 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
     ![Schermata di riepilogo della procedura guidata di pubblicazione](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
 
-    >[AZURE.NOTE]Il profilo di pubblicazione viene visualizzato in Esplora soluzioni di Visual Studio e le impostazioni del profilo vengono scritte in un file con estensione azurePubxml. Le impostazioni vengono salvate come attributi dei tag XML.
+    >[AZURE.NOTE] Il profilo di pubblicazione viene visualizzato in Esplora soluzioni di Visual Studio e le impostazioni del profilo vengono scritte in un file con estensione azurePubxml. Le impostazioni vengono salvate come attributi dei tag XML.
 
 1. Scegliere **Pubblica** per pubblicare l'applicazione. È possibile monitorare lo stato del processo nella finestra **Output** in Visual Studio.
 
 ## Vedere anche
-
-[Configurazione dei servizi richiesti per pubblicare un servizio cloud da Visual Studio](https://msdn.microsoft.com/library/azure/ff683668.aspx)
 
 [Procedura: Eseguire la migrazione e la pubblicazione di un'applicazione Web in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
 
@@ -141,4 +139,4 @@ Prima di poter pubblicare l'applicazione Web in Azure, è necessario avere un ac
 
 [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

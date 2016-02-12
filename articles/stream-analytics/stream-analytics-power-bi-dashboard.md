@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/11/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 	
 #  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
@@ -25,7 +25,7 @@ Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un 
 
 Questo articolo descrive come creare strumenti di business intelligence personalizzati usando Power BI come output per i processi di Analisi di flusso di Azure e usando un dashboard in tempo reale.
 
-> [AZURE.NOTE]L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+> [AZURE.NOTE] L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
 
 ## Prerequisiti
 
@@ -47,7 +47,7 @@ Fare clic su **Analisi dei flussi** nel riquadro sinistro per visualizzare un el
 
 ![graphic1][graphic1]
 
-> [AZURE.TIP]Il nuovo processo verrà visualizzato nell'elenco con lo stato **Non avviato**. Si noti che il pulsante **Avvia** nella parte inferiore della pagina è disabilitato. Questo è un comportamento previsto, poiché è necessario configurare input, output, query del processo e così via, prima di avviare il processo.
+> [AZURE.TIP] Il nuovo processo verrà visualizzato nell'elenco con lo stato **Non avviato**. Si noti che il pulsante **Avvia** nella parte inferiore della pagina è disabilitato. Questo è un comportamento previsto, poiché è necessario configurare input, output, query del processo e così via, prima di avviare il processo.
 
 ## Specificare l'input del processo
 
@@ -62,7 +62,7 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
   * **Hub eventi** - Se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi dei flussi, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 *	Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **Spazio dei nomi del bus di servizio**, **Nome hub eventi**, **Nome criterio hub eventi**, **Chiave criterio hub eventi** e **Conteggio partizioni hub eventi**.
 
-> [AZURE.NOTE]Questo esempio usa il numero predefinito di partizioni, che è pari a 16.
+> [AZURE.NOTE]	Questo esempio usa il numero predefinito di partizioni, che è pari a 16.
 
 * **Nome dell’hub eventi** - selezionare il nome dell’hub eventi di Azure disponibile.
 * **Nome criterio dell’hub eventi** - selezionare il criterio dell’hub eventi per l’hub eventi utilizzato. Assicurarsi che il criterio disponga di autorizzazioni di gestione.
@@ -167,8 +167,7 @@ Per altre informazioni sulla configurazione di un output di Power BI e per usare
 
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
-Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
   
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
   
@@ -233,4 +232,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

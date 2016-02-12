@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Come scrivere query in Analisi di flusso
@@ -42,7 +42,7 @@ La scrittura di query per la logica di elaborazione del flusso in Analisi di flu
 
 È possibile verificare che la query funzioni come previsto eseguendola nel browser su uno o più file JSON locali contenenti i dati di test. Il test non avvia il processo e non ha implicazioni relative alla fatturazione.
 
-> [AZURE.NOTE]Attualmente il test delle query nel browser non è supportato nel portale di anteprima di Azure.
+> [AZURE.NOTE] Attualmente il test delle query nel browser non è supportato nel portale di anteprima di Azure.
 
 1.	Assicurarsi che non siano presenti errori nella query (in caso contrario il pulsante Test verrà disabilitato) e quindi fare clic sul pulsante Test.  
 
@@ -71,4 +71,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

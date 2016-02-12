@@ -31,7 +31,7 @@ In questa esercitazione viene illustrato come utilizzare la pagina **Catalogo di
 
 Prima di avviare un'operazione di ripristino, è necessario tenere presente quanto segue:
 
-- **È necessario portare offline il volume**: portare offline il volume sia nel dispositivo che nell'host prima di avviare l'operazione di ripristino. Anche se l'operazione di ripristino riporta automaticamente online il volume nel dispositivo, è necessario portare il dispositivo online manualmente nell'host. È possibile portare online il volume nell'host non appena il volume è online sul dispositivo (non è necessario attendere fino al completamento dell'operazione di ripristino). Per le procedure, vedere [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline)
+- **È necessario portare offline il volume**: portare offline il volume sia nel dispositivo che nell'host prima di avviare l'operazione di ripristino. Anche se l'operazione di ripristino riporta automaticamente online il volume nel dispositivo, è necessario portare il dispositivo online manualmente nell'host. È possibile portare online il volume nell'host non appena il volume è online sul dispositivo (non è necessario attendere fino al completamento dell'operazione di ripristino). Per le procedure, vedere [Portare un volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline).
 
 - **Tipo di volume dopo il ripristino**: i volumi eliminati vengono ripristinati in base al tipo nello snapshot; ovvero i volumi aggiunti in locale vengono ripristinati come volumi aggiunti in locale e i volumi a livelli vengono ripristinati come volumi a livelli.
 
@@ -45,7 +45,7 @@ Prima di avviare un'operazione di ripristino, è necessario tenere presente quan
 
 - **È possibile eseguire un backup mentre si sta ripristinando un volume locale**: per le procedure, vedere l'articolo dedicato all'[uso del servizio StorSimple Manager per gestire i criteri di backup](storsimple-manage-backup-policies.md).
 
-- **È possibile annullare un'operazione di ripristino**: se si annulla il processo di ripristino, il volume verrà riportato allo stato in cui si trovava prima di avviare l'operazione di ripristino. Per le procedure, vedere [Annullare un processo](storsimple-manage-jobs.md#cancel-a-job).
+- **È possibile annullare un'operazione di ripristino**: se si annulla il processo di ripristino, il volume verrà riportato allo stato in cui si trovava prima di avviare l'operazione di ripristino. Per le procedure, vedere [Annullare un processo](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## Come utilizzare il catalogo di backup
 
@@ -113,6 +113,6 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 
 - Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes-u2.md).
 
-- Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
+- Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

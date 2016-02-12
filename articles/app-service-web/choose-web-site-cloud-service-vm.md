@@ -50,7 +50,7 @@ Di seguito sono riportati alcuni scenari applicativi comuni con indicazioni rigu
 
 ### <a id="onprem"></a>Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
 
-Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [WebJobs][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le [funzionalità VNET](../fundamentals-introduction-to-azure.md#networking/) semplificano la connessione alle risorse in sede. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
+Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [Processi Web][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le funzionalità VNET semplificano la connessione alle risorse locali. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
 
 * Eseguire le applicazioni in modo affidabile su una piattaforma cloud con funzionalità automatiche di riparazione e di applicazione di patch.
 * Scalare automaticamente in una rete globale di data center.
@@ -176,10 +176,7 @@ Per iniziare a usare Azure App Service prima di registrare un account, andare a 
 
 ## <a id="nextsteps"></a> Passaggi successivi
 
-Per altre informazioni sulle tre opzioni di hosting Web, vedere le risorse seguenti:
-
-* [Introduzione ad Azure](../fundamentals-introduction-to-azure.md)
-* [Opzioni di hosting di calcolo fornite da Azure](../fundamentals-application-models.md)
+Per altre informazioni sulle tre opzioni di hosting Web, vedere [Introduzione ad Azure](../fundamentals-introduction-to-azure.md).
 
 Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seguenti:
 
@@ -193,6 +190,7 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [Macchine virtuali]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Processi Web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
   [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
   [azurestore]: http://www.windowsazure.com/gallery/store/
   [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
@@ -205,4 +203,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

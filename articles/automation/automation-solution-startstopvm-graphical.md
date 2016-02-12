@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Soluzione di Automazione di Azure - Avvio e arresto delle macchine virtuali
@@ -28,11 +28,11 @@ Questa soluzione di Automazione di Azure include runbook per l'avvio e l'arresto
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Questa è una versione della soluzione con runbook grafici. È disponibile anche usando i [runbook dei flussi di lavoro PowerShell](automation-solutions-startstopvm-psworkflow.md).
+Questa è una versione della soluzione con runbook grafici. È disponibile anche usando i [runbook dei flussi di lavoro PowerShell](automation-solution-startstopvm-psworkflow.md).
 
 ## Come ottenere la soluzione
 
-Questa soluzione è costituita da due runbook grafici che è possibile scaricare dai collegamenti seguenti. Per i collegamenti ai runbook dei flussi di lavoro PowerShell, vedere la [versione dei flussi di lavoro PowerShell](automation-solutions-startstopvm-psworkflow.md) di questa soluzione.
+Questa soluzione è costituita da due runbook grafici che è possibile scaricare dai collegamenti seguenti. Per i collegamenti ai runbook dei flussi di lavoro PowerShell, vedere la [versione dei flussi di lavoro PowerShell](automation-solution-startstopvm-psworkflow.md) di questa soluzione.
 
 
 | Runbook | Collegamento | Tipo | Descrizione |
@@ -153,4 +153,4 @@ Il passaggio finale del runbook consiste nell'inviare l'output a seconda che la 
 - [Runbook figlio in Automazione di Azure](automation-child-runbooks.md) 
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

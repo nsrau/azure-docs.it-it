@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
@@ -45,6 +45,7 @@ Per lo stesso dispositivo, è stato creato uno snapshot cloud per i dati di volu
 
 **Utilizzo della capacità**tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati utilizzato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 
+
 Il filegroup primario, cloud e dispositivi archiviazione capacità può essere descritta come segue:
 
 ###Utilizzo della capacità di archiviazione primaria
@@ -74,6 +75,10 @@ I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria
 ![Utilizzo della capacità primario prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![Utilizzo della capacità primario dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+Se si esegue l'aggiornamento 2 o versioni successive, è possibile suddividere l'utilizzo della capacità di archiviazione primaria per un singolo volume, tutti i volumi, tutti i volumi a livelli e tutti i volumi locali, come illustrato di seguito. La suddivisione in base a tutti i volumi locali consente di verificare rapidamente la quantità di livello locale usata.
+
+![Utilizzo della capacità primaria per tutti i volumi locali](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilizzo della capacità di archiviazione cloud
@@ -121,4 +126,4 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

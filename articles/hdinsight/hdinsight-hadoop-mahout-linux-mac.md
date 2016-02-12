@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight (anteprima)
@@ -25,7 +25,7 @@ Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http:
 
 Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare raccomandazioni di film in base ai film visti dai propri amici.
 
-> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster Hadoop basato su Linux in HDInsight (anteprima). Per informazioni sull'uso di Mahout con un cluster basato su Windows, vedere [Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Windows in HDInsight](hdinsight-mahout.md)
+> [AZURE.NOTE] I passaggi descritti in questo documento richiedono un cluster Hadoop basato su Linux in HDInsight (anteprima). Per informazioni sull'uso di Mahout con un cluster basato su Windows, vedere [Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Windows in HDInsight](hdinsight-mahout.md)
 
 ##Prerequisiti
 
@@ -35,7 +35,7 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 
 Per ulteriori informazioni sulla versione di Mahout inclusa con il cluster HDInsight, vedere [Versioni HDInsight e componenti Hadoop](hdinsight-component-versioning.md).
 
-> [AZURE.WARNING]Sebbene sia possibile caricare una versione diversa di Mahout nel cluster HDInsight, solo i componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+> [AZURE.WARNING] Sebbene sia possibile caricare una versione diversa di Mahout nel cluster HDInsight, solo i componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
 > I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
@@ -94,7 +94,7 @@ Per eseguire il processo di raccomandazione, usare il comando seguente:
 
 	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
-> [AZURE.NOTE]Il completamento del processo potrebbe richiedere alcuni minuti ed è possibile eseguire più processi MapReduce.
+> [AZURE.NOTE] Il completamento del processo potrebbe richiedere alcuni minuti ed è possibile eseguire più processi MapReduce.
 
 ##Visualizzare l'output
 
@@ -241,7 +241,7 @@ I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione 
 
 	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]Se si vuole eseguire nuovamente il comando, è inoltre necessario eliminare la directory di output. Per eliminare la directory, usare il codice seguente:
+> [AZURE.WARNING] Se si vuole eseguire nuovamente il comando, è inoltre necessario eliminare la directory di output. Per eliminare la directory, usare il codice seguente:
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
@@ -249,9 +249,9 @@ I processi Mahout non rimuovono i dati temporanei creati durante l'elaborazione 
 
 A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usare i dati in HDInsight:
 
-* [Hive con HDInsight](hadoop-use-hive.md)
-* [Pig con HDInsight](hadoop-use-pig.md)
-* [MapReduce con HDInsight](hadoop-use-mapreduce.md)
+* [Hive con HDInsight](hdinsight-use-hive.md)
+* [Pig con HDInsight](hdinsight-use-pig.md)
+* [MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

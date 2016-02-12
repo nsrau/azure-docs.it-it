@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="tomfitz"/>
 
 # Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
@@ -167,12 +167,12 @@ Se si usa .NET, è possibile recuperare il token di accesso per l'applicazione c
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-Per accedere con l'ID e il segreto dell'applicazione, usare il metodo seguente per recuperare il token.
+Per accedere con l'ID client e il segreto, usare il metodo seguente per recuperare il token.
 
     public static string GetAccessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
         var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
         if (result == null) {
@@ -189,7 +189,7 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
     public static string GetAcessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
 
         if (result == null) {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -229,4 +229,4 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

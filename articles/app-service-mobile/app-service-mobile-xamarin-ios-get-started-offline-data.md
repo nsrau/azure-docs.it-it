@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/28/2015"
     ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.iOS
@@ -125,7 +125,6 @@ In questa sezione si modificherà il progetto client per simulare uno scenario o
 
 	In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto.
 
-6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## Aggiornare l'app client per la riconnessione al back-end mobile
 
@@ -143,7 +142,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- ##Summary
 
@@ -167,6 +166,6 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [Xamarin Studio]: http://xamarin.com/download
 [Estensione Xamarin]: http://xamarin.com/visual-studio
  
-[Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0204_2016--->

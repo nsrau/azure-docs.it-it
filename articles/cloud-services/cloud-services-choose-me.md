@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Servizi cloud di Azure rappresentano l'opzione di calcolo desiderata?" 
+	pageTitle="Servizi cloud è l'opzione di calcolo di Azure adatta? | Microsoft Azure" 
 	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 ## Passaggi successivi
 [Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md)<br/> [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md)<br/> [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)<br/>
 
-[Servizio app]: app-service-choose-me.md
-[Macchine virtuali]: ../virtual-machines-about.md
+[Servizio app]: ../app-service-web/app-service-web-overview.md
+[Macchine virtuali]: ../virtual-machines/virtual-machines-about.md
 [Servizi cloud]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

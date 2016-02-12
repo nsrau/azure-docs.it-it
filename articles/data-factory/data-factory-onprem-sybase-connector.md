@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da Sybase utilizzando Data factory di Azure 
@@ -33,8 +33,9 @@ Perché Gateway di gestione dati si connetta al database Sybase, è necessario i
 > [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ## Esempio: Copiare i dati da Sybase a BLOB di Azure
-
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da un database Sybase locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -229,7 +230,7 @@ gatewayName | Nome del gateway che il servizio Data factory deve usare per conne
 
 Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati Sybase locale.
 
-## Proprietà del tipo del set di dati Sybase
+## Proprietà del tipo di set di dati Sybase
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
@@ -266,4 +267,4 @@ Sybase supporta i tipi T-SQL e T-SQL. Per una tabella di mapping dai tipi SQL al
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

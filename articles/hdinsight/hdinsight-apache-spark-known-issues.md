@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2016" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Problemi noti di Apache Spark in Azure HDInsight (Linux)
 
@@ -54,6 +54,23 @@ Il server cronologia Spark non viene avviato automaticamente dopo la creazione d
 
 Avviare manualmente il server cronologia da Ambari.
 
+##Errore durante il caricamento di un notebook di dimensioni maggiori di 2 MB
+
+**Sintomo:**
+
+Potrebbe essere visualizzato l'errore **`Error loading notebook`** quando si caricano notebook con dimensioni maggiori di 2 MB.
+
+**Soluzione:**
+
+Se viene visualizzato questo errore, non significa che i dati sono danneggiati o persi. I notebook sono ancora disponibili su disco in `/var/lib/jupyter` ed è possibile usare SSH nel cluster per accedervi. Si possono copiare i notebook dal cluster nel computer locale (tramite SCP o WinSCP) come backup per evitare la perdita di dati importanti del notebook. È quindi possibile usare SSH per il tunneling al nodo head sulla porta 8001 e accedere a Jupyter senza passare attraverso il gateway. Qui è possibile cancellare l'output del notebook e salvarlo di nuovo per ridurne le dimensioni.
+
+Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
+
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook. Con Jupyter è in genere consigliabile evitare di eseguire `.collect()` su RDD o frame di dati di grandi dimensioni. Se si vuole visualizzare il contenuto di un RDD, considerare invece la possibilità di eseguire `.take()` o `.sample()` per evitare la crescita eccessiva dell'output.
+* Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
+
+
+
 ##L'avvio iniziale del notebook richiede più tempo del previsto 
 
 **Sintomo:**
@@ -63,16 +80,6 @@ La prima istruzione nel notebook di Jupyter tramite Spark Magic potrebbe richied
 **Soluzione:**
  
 Non sono disponibili soluzioni. A volte è necessario un minuto.
-
-##Impossibile personalizzare le configurazioni principali/di memoria
-
-**Sintomo:**
- 
-Non è possibile specificare le configurazioni principali/di memoria tranne il valore predefinito dai kernel Spark/Pyspark.
-
-**Soluzione:**
- 
-La funzionalità verrà resa disponibile.
 
 ##Timeout del notebook di Jupyter durante la creazione della sessione
 
@@ -121,6 +128,16 @@ Questo problema verrà risolto in una versione futura.
 
     La prima cella non riesce a registrare il metodo sc.stop() da chiamare quando viene chiuso il notebook. In alcuni casi questo potrebbe causare una perdita di risorse Spark. Per evitare che questo si verifichi, verificare di eseguire l'importazione di atexit; atexit.register(lambda: sc.stop()) in questi notebook prima di arrestarli. Se si perdono accidentalmente le risorse, seguire le istruzioni sopra riportate per terminare le applicazioni YARN perse.
      
+##Impossibile personalizzare le configurazioni principali/di memoria
+
+**Sintomo:**
+ 
+Non è possibile specificare le configurazioni principali/di memoria tranne il valore predefinito dai kernel Spark/Pyspark.
+
+**Soluzione:**
+ 
+La funzionalità verrà resa disponibile.
+
 ## Problema di autorizzazioni nella directory log Spark 
 
 **Sintomo:**
@@ -139,4 +156,4 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 - [Panoramica: Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introduzione: eseguire il provisioning di Apache Spark in Azure HDInsight (Linux) ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

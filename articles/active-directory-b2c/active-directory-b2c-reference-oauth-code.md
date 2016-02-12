@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Anteprima AD B2C Azure: Flusso di codice di autorizzazione OAuth 2.0
@@ -26,7 +26,7 @@ La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nel
 
 Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749). Può essere usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui [app Web](active-directory-b2c-apps.md#web-apps) e [app native](active-directory-b2c-apps.md#mobile-and-native-apps). Consente alle app di acquisire in modo sicuro i **token di accesso** che possono essere usati per accedere alle risorse protette tramite un [server di autorizzazione](active-directory-b2c-reference-protocols.md#the-basics). Questa guida si concentrerà su una particolare versione del flusso di codice di autorizzazione OAuth 2.0 - **client pubblici**. Un client pubblico è qualsiasi applicazione client che non può essere considerata attendibile in modo sicuro per mantenere l'integrità di una password segreta. Questo include app per dispositivi mobili, app per desktop e pressoché qualsiasi applicazione che viene eseguito su un dispositivo e deve ottenere i token di accesso. Se si desidera aggiungere la gestione delle identità a un'app web utilizzando AD B2C Azure, è necessario utilizzare [OpenID Connect](active-directory-b2c-reference-oidc.md) piuttosto che OAuth 2.0.
 
-Azure AD B2C estende i flussi standard OAuth 2.0 per non limitarsi esclusivamente a semplici operazioni di autorizzazione e autenticazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-poliices.md), per utilizzare OAuth 2.0 per aggiungere esperienze utente all'applicazione, come ad esempio, iscrizione, accesso e gestione del profilo. Di seguito viene illustrato come utilizzare OAuth 2.0 e i criteri per implementare ciascuna di queste esperienze nelle applicazioni native e ottenere access\_token per l'accesso ad API Web.
+Azure AD B2C estende i flussi standard OAuth 2.0 per non limitarsi esclusivamente a semplici operazioni di autorizzazione e autenticazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-policies.md), per utilizzare OAuth 2.0 per aggiungere esperienze utente all'applicazione, come ad esempio, iscrizione, accesso e gestione del profilo. Di seguito viene illustrato come utilizzare OAuth 2.0 e i criteri per implementare ciascuna di queste esperienze nelle applicazioni native e ottenere access\_token per l'accesso ad API Web.
 
 Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio e i criteri. Si possono provare le richieste in totale autonomia utilizzando questi valori oppure è possibile sostituirli con valori personalizzati. Ulteriori informazioni su come [ottenere directory, applicazione e i criteri B2C](#use-your-own-b2c-directory).
 
@@ -74,14 +74,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
-| response\_type | obbligatorio | Deve includere `code` per il flusso del codice di autorizzazione. |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| response\_type | Obbligatorio | Deve includere `code` per il flusso del codice di autorizzazione. |
 | redirect\_uri | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
-| response\_mode | consigliato | Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. Può essere 'query', 'form\_post' o 'fragment'.
-| state | consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava o i criteri utilizzati. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
+| response\_mode | Consigliato | Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. Può essere 'query', 'form\_post' o 'fragment'.
+| state | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava o i criteri utilizzati. |
 | p | obbligatorio | Indica i criteri da eseguire. È il nome di un criterio creato nella directory B2C, il cui valore deve iniziare con "b2c\_1\_". Ulteriori informazioni sui criteri [qui](active-directory-b2c-reference-policies.md). |
-| prompt | facoltativo | Indica il tipo di interazione obbligatoria dell'utente. L'unico valore valido in questa fase è 'login', che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non ha effetto. |
+| prompt | Facoltativo | Indica il tipo di interazione obbligatoria dell'utente. L'unico valore valido in questa fase è 'login', che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non ha effetto. |
 
 A questo punto, viene richiesto all'utente di completare il flusso di lavoro del criterio. Potrebbe richiedere all'utente di immettere nome utente e password, accedere con un'identità di social networking, l'iscrizione alla directory o qualsiasi altro numero di passaggi a seconda di come sono definiti i criteri. Dopo che l'utente completa il criterio, Azure AD restituisce una risposta all'app all’`redirect_uri` indicato, utilizzando il metodo specificato nel parametro `response_mode`. La risposta corrisponde esattamente a ciascuno dei casi precedenti, indipendentemente dai criteri eseguiti.
 
@@ -134,10 +134,10 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
-| grant\_type | obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
-| code | obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| grant\_type | Obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
+| code | Obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
@@ -211,9 +211,9 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il token di aggiornamento originale. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
-| grant\_type | obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| grant\_type | Obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
 | refresh\_token | obbligatorio | refresh\_token acquisito durante la seconda sezione del flusso. |
 
@@ -257,11 +257,11 @@ Le risposte di errore hanno un aspetto simile al seguente:
 | error\_description | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 
@@ -273,4 +273,4 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 - [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un redirect\_uri. Si potrebbe voler includere un **native client** nell'app.
 - [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

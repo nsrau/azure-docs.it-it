@@ -39,7 +39,7 @@ Per l'argomento associato, relativo alla configurazione delle macchine virtuali 
 
 ## Passaggio 1: installare Azure PowerShell
 
-Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 ## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
 
@@ -263,6 +263,6 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Panoramica delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
+[Come installare e configurare Azure PowerShell](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

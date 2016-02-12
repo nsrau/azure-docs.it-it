@@ -1,6 +1,6 @@
 <properties
    pageTitle="Debug dell’applicazione in Visual Studio | Microsoft Azure"
-   description="Migliorare l'affidabilità e la prestazione dei servizi mediante il loro sviluppo e debug in Visual Studio e in un cluster di sviluppo locale."
+   description="Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all'interno di un cluster di sviluppo locale."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Debug dell'applicazione di Service Fabric mediante Visual Studio
@@ -28,7 +28,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 
 3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug**.
 
-    > [AZURE.NOTE]Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
+    > [AZURE.NOTE] Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
 
 4. La finestra degli **Eventi di diagnostica** si aprirà automaticamente in modo da poter visualizzare gli eventi diagnostici in tempo reale.
 
@@ -65,4 +65,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

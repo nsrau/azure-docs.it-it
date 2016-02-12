@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/01/2015"  
  	ms.author="stevenpo"/>
 
 # Condivisione di account con Azure AD
@@ -44,7 +44,7 @@ Gli utenti accedono una volta con l'account aziendale. Si tratta dello stesso ac
 
 Gli account condivisi non solo consentono di aumentare la supervisione e migliorare l'usabilità, ma anche di aumentare la sicurezza. Gli utenti con autorizzazioni per l'uso delle credenziali non visualizzano la password condivisa, ma ottengono autorizzazioni per l'uso della password come parte di un flusso di autenticazione orchestrato. Inoltre, con alcune applicazioni Single Sign-On basate su password, è possibile che Azure AD esegua periodicamente il rollover (aggiornamento) della password, usando password lunghe e complesse, per aumentare la sicurezza dell'account. L'amministratore può facilmente concedere o revocare l'accesso a un'applicazione e può inoltre sapere chi può accedere all'account e chi ha avuto accesso in precedenza.
 
-Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mobility Suite (EMS), Premium o Basic, in tutti i tipi di applicazioni con accesso Single Sign-On basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](active-directory-single-sign-on-newly-acquired-saas-apps.md).
+Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mobility Suite (EMS), Premium o Basic, in tutti i tipi di applicazioni con accesso Single Sign-On basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](active-directory-sso-integrate-saas-apps.md).
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
@@ -72,4 +72,4 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

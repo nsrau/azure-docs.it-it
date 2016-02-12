@@ -24,9 +24,11 @@ I servizi presentano tuttavia molte differenze, illustrate in dettaglio nella ta
 
 | Area | Hub IoT | Hub eventi |
 | ---- | ------- | ---------- |
-| Modelli di comunicazione | Consente l'ingresso di eventi da dispositivo a cloud e la messaggistica da cloud a dispositivo. | Consente solo l'ingresso di eventi, considerato di solito per scenari da dispositivo a cloud. |
-| Sicurezza | Garantisce l’identità per dispositivo e il controllo di accesso revocabile. Vedere la [sezione protezione della Guida per gli sviluppatori di hub IoT]. | Garantisce [criteri di accesso condivisi][Event Hub - security] a livello di Hub eventi, con supporto limitato per la revoca tramite [criteri dell'entità di pubblicazione][Event Hub publisher policies]. Nel contesto delle soluzioni IoT, è spesso necessario implementare una soluzione personalizzata per supportare le credenziali per dispositivo e le misure antispoofing. |
-| Scale | È ottimizzato per supportare milioni di dispositivi connessi simultaneamente. | Può supportare un numero più limitato di connessioni simultanee: fino a 5000 connessioni AMQP, in base a quanto descritto in [Quote del bus di servizio Azure][]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
+| Modelli di comunicazione | Abilita la messaggistica da dispositivo a cloud e da cloud a dispositivo. | Consente solo l'ingresso di eventi, considerato di solito per scenari da dispositivo a cloud. |
+| Supporto dei protocolli del dispositivo | Supporta AMQP, AMQP su WebSocket, MQTT e HTTP/1. L'hub IoT funziona anche con il [Gateway del protocollo Azure IoT][lnk-azure-protocol-gateway], un'implementazione di gateway del protocollo personalizzabile per supportare i protocolli personalizzati. | Supporta AMQP, AMQP su WebSocket e HTTP/1. |
+| Sicurezza | Garantisce l’identità per dispositivo e il controllo di accesso revocabile. Vedere la [sezione protezione della Guida per gli sviluppatori di hub IoT]. | Garantisce [criteri di accesso condivisi][Event Hub - security] a livello di Hub eventi, con supporto limitato per la revoca tramite [criteri dell'entità di pubblicazione][Event Hub publisher policies]. Per le soluzioni IoT è spesso necessario implementare una soluzione personalizzata per supportare le credenziali per dispositivo e le misure antispoofing. |
+| Monitoraggio delle operazioni | Consente alle soluzioni IoT di sottoscrivere un'ampia gamma di eventi di gestione delle identità dei dispositivi e di connettività, ad esempio errori di autenticazione di singoli dispositivi, limitazione ed eccezioni con un formato non valido. Questi eventi consentono di identificare rapidamente i problemi di connettività a livello di singolo dispositivo. | Espone solo le metriche aggregate. |
+| Scalabilità | È ottimizzato per supportare milioni di dispositivi connessi simultaneamente. | Può supportare un numero più limitato di connessioni simultanee: fino a 5000 connessioni AMQP, in base a quanto descritto in [Quote del bus di servizio Azure][]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
 | SDK del dispositivo | Fornisce l’[SDK del dispositivo][Azure IoT Hub SDKs] per un'ampia gamma di piattaforme e linguaggi. | È supportato in .NET, C e fornisce interfacce di invio AMQP e HTTP. |
 
 In breve, anche se il solo caso di utilizzo è l'ingresso dei dati di telemetria da dispositivo a cloud, l'hub IoT fornisce un servizio progettato espressamente per la connettività dei dispositivi IoT. Esso continuerà a espandere le proposte di valore per questi scenari con funzionalità specifiche per IoT. Hub eventi è progettato per l'ingresso di eventi su vasta scala, sia nel contesto di scenari all'interno e tra i data center.
@@ -48,5 +50,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
+[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

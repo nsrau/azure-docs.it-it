@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/03/2016"
    ms.author="bwren;sngun" />
 
 # Gestione dei dati di Automazione di Azure
@@ -84,4 +84,4 @@ Nella tabella seguente vengono illustrate le associazioni di aree primarie e sec
 
 Nell'eventualità improbabile che vengano persi dei dati di un’area primaria, Microsoft tenta di ripristinarli. Qualora non fosse possibile ripristinare i dati primari, viene eseguito il failover geografico e i clienti interessati saranno informati attraverso la propria sottoscrizione.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0204_2016-->

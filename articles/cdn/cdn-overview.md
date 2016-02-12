@@ -31,7 +31,7 @@ L'uso della rete CDN per memorizzare nella cache dati di Azure offre diversi van
 - Distribuzione su larga scala per gestire al meglio un carico elevato immediato, come all'inizio di un evento per il lancio di un prodotto. 
 
 
->[AZURE.IMPORTANT]Quando si crea o abilita un endpoint della rete CDN, la propagazione nel mondo può richiedere fino a 90 minuti.
+>[AZURE.IMPORTANT] Quando si crea o abilita un endpoint della rete CDN, la propagazione nel mondo può richiedere fino a 90 minuti.
  
 Quando la richiesta di un oggetto viene prima effettuata alla rete CDN, l'oggetto viene recuperato direttamente dal percorso di origine dell’origine dell’oggetto. Questa origine può essere un account di archiviazione di Azure, un’app web, un servizio cloud o qualsiasi origine personalizzata che accetta le richieste web pubbliche. Quando viene effettuata una richiesta usando la sintassi della rete CDN, la richiesta viene reindirizzata all'endpoint della rete CDN più vicino alla località da cui è stata avviata la richiesta per fornire accesso all'oggetto. Se l'oggetto non viene trovato nell'endpoint, viene recuperato dal servizio e memorizzato nella cache nell'endpoint, in cui viene configurata un'impostazione di durata (TTL) per l'oggetto memorizzato nella cache.
 
@@ -44,7 +44,7 @@ Il livello della rete CDN Standard comprende le seguenti caratteristiche:
 - [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md)
 - [Filtro di paese](cdn-restrict-access-by-country.md)
 - [Analisi del core](cdn-analyze-usage-patterns.md)
-- [Origini personalizzate del contenuto](cdn-map-content-to-custom-domain.md)
+- [Origini personalizzate del contenuto](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [Supporto di HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Bilanciamento del carico
 - Protezione DDOS
@@ -61,4 +61,4 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
 - [Statistiche in tempo reale](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

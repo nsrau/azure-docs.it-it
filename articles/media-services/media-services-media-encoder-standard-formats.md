@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Formati e codec Media Encoder Standard" 
-	description="Questo argomento fornisce una panoramica dei formati e dei codec di Azure Media Encoder." 
+	description="Questo argomento fornisce una panoramica dei formati e dei codec di Media Encoder Standard." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Formati e codec Media Encoder Standard
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

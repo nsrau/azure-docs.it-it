@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da e verso SQL Server locale o in IaaS (VM di Azure) utilizzando Data factory di Azure
@@ -27,6 +27,8 @@ I concetti e i passaggi necessari per la connessione con SQL Server ospitato in 
 Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. L'impostazione di un'istanza del gateway è un prerequisito per la connessione con SQL Server.
 
 Sebbene sia possibile installare il gateway nello stesso computer locale o istanza cloud della macchina virtuale come SQL Server per migliorare le prestazioni, si consiglia di installarli in computer o macchine virtuali cloud separate per evitare conflitti di risorse.
+
+Gli esempi seguenti mostrano come copiare dati da e verso SQL Server e l'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
 
 ## Esempio: Copiare i dati da SQL Server al BLOB di Azure
 
@@ -433,7 +435,7 @@ Se vengono specificati nome utente e password, il gateway li userà per rapprese
 
 Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati SQL Server.
 
-## Proprietà del tipo del set di dati SQL Server
+## Proprietà del tipo del set di dati di SQL Server
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Server, BLOB di Azure, tabelle di Azure e così via).
 
@@ -443,7 +445,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 | -------- | ----------- | -------- |
 | tableName | Nome della tabella nell'istanza del database di SQL Server a cui fa riferimento il servizio collegato. | Sì |
 
-## Proprietà del tipo di attività di copia SQL Server
+## Proprietà del tipo di attività di copia di SQL Server
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
@@ -484,25 +486,25 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 
 ## Risoluzione dei problemi di connessione
 
-1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare doppio clic sul **server**, quindi su **Proprietà**. Selezionare **Connessioni** dall'elenco e **Consenti connessioni remote al server**.
+1. Configurare SQL Server per accettare le connessioni remote. Avviare **SQL Server Management Studio**, fare clic con il pulsante destro del mouse su **server** e quindi su **Proprietà**. Selezionare **Connessioni** dall'elenco e **Consenti connessioni remote al server**.
 	
 	![Abilitare le connessioni remote](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
-	Vedere [Configurare l'opzione di configurazione del server remote access](https://msdn.microsoft.com/library/ms191464.aspx) per la procedura dettagliata. 
-2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza desiderata e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/TP facendo clic con il tasto destro del mouse su **TCP/IP** e facendo clic su **Abilita**.
+	Per una procedura dettagliata, vedere [Configurare l'opzione di configurazione del server di accesso remoto](https://msdn.microsoft.com/library/ms191464.aspx). 
+2. Avviare **Gestione configurazione SQL Server**. Espandere **Configurazione di rete SQL Server** per l'istanza desiderata e selezionare **Protocolli per MSSQLSERVER**. I protocolli sono visualizzati nel riquadro di destra. Abilitare TCP/TP facendo clic con il pulsante destro del mouse su **TCP/IP** e scegliendo **Abilita**.
 
 	![Abilitare TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
-	Vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx) per informazioni dettagliate e modi alternativi di abilitazione del protocollo TCP/IP. 
-3. Nella stessa finestra, fare doppio clic su **TCP/IP** per avviare la finestra **Proprietà TCP/IP**.
-4. Passare alla scheda **Indirizzi IP**. Scorrere verso il basso per vedere la sezione **IPAll**. Annotare la Porta TCP (il valore predefinito è **1433**).
-5. Creare una **regola per il Windows Firewall** sul computer per consentire il traffico in ingresso tramite questa porta.  
-6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per la connessione a SQL Server tramite nome completo. Ad esempio: <machine>.<domain>.corp.<company>.com,1433.
+	Per informazioni dettagliate e modalità alternative di abilitazione del protocollo TCP/IP, vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx). 
+3. Nella stessa finestra fare doppio clic su **TCP/IP** per avviare la finestra **Proprietà TCP/IP**.
+4. Passare alla scheda **Indirizzi IP**. Scorrere verso il basso per vedere la sezione **IPAll**. Annotare la **Porta TCP**, il valore predefinito è **1433**.
+5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso tramite questa porta.  
+6. **Verificare la connessione**: usare SQL Server Management Studio da un computer diverso per connettersi a SQL Server con un nome completo. Ad esempio: <machine>.<domain>.corp.<company>.com,1433.
 
 	> [AZURE.IMPORTANT] 
-	Vedere l'articolo relativo alle [considerazioni su porte e sicurezza](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) per informazioni dettagliate.
+	Per informazioni dettagliate, vedere [Considerazioni su porte e sicurezza](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations).
 	>   
-	> Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
+	> Per suggerimenti sulla risoluzione dei problemi relativi a connessione/gateway, vedere [Risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -513,7 +515,7 @@ Se non si specifica il parametro sqlReaderQuery o sqlReaderStoredProcedureName, 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 
-### Mapping dei tipi di SQL Server e SQL di Azure
+### Mapping dei tipi per SQL Server e Azure SQL
 
 Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
@@ -565,4 +567,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

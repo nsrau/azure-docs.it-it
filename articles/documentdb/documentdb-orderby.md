@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Ordinamento dei dati di DocumentDB tramite Order By
@@ -79,7 +79,7 @@ DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o
 
 È importante ricordare che DocumentDB supporta due tipi di indici Hash e intervallo, che possono essere impostati per proprietà/percorsi specifici, tipi di dati (stringhe o numeri) e valori di diversa precisione (precisione massima o un valore di precisione fissa). Poiché DocumentDB utilizza indicizzazione hash come impostazione predefinita, è necessario creare una nuova raccolta con un criterio di indicizzazione personalizzato con intervallo di numeri, stringhe o entrambi, per poter utilizzare Order By.
 
->[AZURE.NOTE]Gli indici dell'intervallo stringa sono stati introdotti il 7 luglio 2015 con API REST versione 2015-06-03. Per creare criteri per Order By su stringhe, è necessario utilizzare SDK versione 1.2.0 di .NET SDK o versione 1.1.0 del Python, Node. js o Java SDK.
+>[AZURE.NOTE] Gli indici dell'intervallo stringa sono stati introdotti il 7 luglio 2015 con API REST versione 2015-06-03. Per creare criteri per Order By su stringhe, è necessario utilizzare SDK versione 1.2.0 di .NET SDK o versione 1.1.0 del Python, Node. js o Java SDK.
 >
 >Prima di API REST versione 2015-06-03, il criterio di indicizzazione di raccolta predefinito era hash per le stringhe e numeri. Questo è stato modificato in hash per le stringhe e intervallo per i numeri.
 
@@ -100,7 +100,7 @@ Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]Si noti che Order By restituirà solo i risultati dei tipi di dati (stringa e numero) indicizzati con un RangeIndex. Ad esempio, se si dispone dell'impostazione predefinita per l'indicizzazione dei criteri che ha solo RangeIndex sui numeri, una clausola Order By su un percorso con i valori stringa non restituirà alcun documento.
+>[AZURE.NOTE] Si noti che Order By restituirà solo i risultati dei tipi di dati (stringa e numero) indicizzati con un RangeIndex. Ad esempio, se si dispone dell'impostazione predefinita per l'indicizzazione dei criteri che ha solo RangeIndex sui numeri, una clausola Order By su un percorso con i valori stringa non restituirà alcun documento.
 
 ### Indicizzazione per Order By per una singola proprietà
 Ecco come creare una raccolta per l’indicizzazione per Order By rispetto alla proprietà Title, con una stringa. Esistono due percorsi, uno per la proprietà Title ("/ titolo /?") con l'indicizzazione di intervallo e l'altro per tutte le altre proprietà con lo schema di indicizzazione predefinito, ovvero hash per le stringhe e intervallo di numeri.
@@ -126,13 +126,6 @@ Ecco come creare una raccolta per l’indicizzazione per Order By rispetto alla 
 
 ## Esempi
 Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) che illustra come utilizzare Order By e come creare criteri di indicizzazione e paging tramite Order By. Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
-
-## Novità successive
-
-Aggiornamenti futuri del servizio espanderanno il supporto Order By introdotto qui. Sono in corso di sviluppo le seguenti aggiunte e le priorità di rilascio saranno stabilite in base al feedback degli utenti:
-
-- Criteri di indicizzazione dinamica: possibilità di modificare il criterio di indicizzazione dopo la creazione della raccolta e nel portale di Azure classico
-- Supporto per gli indici composti per un uso più efficiente di Order By e Order By su più proprietà.
 
 ## Domande frequenti
 
@@ -177,4 +170,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

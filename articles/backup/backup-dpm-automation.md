@@ -7,13 +7,24 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/28/2016"
+	ms.author="jimpark; aashishr; anuragm"/>
 
 
 # Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
+
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server DPM, e per gestire le operazioni di backup e ripristino.
 
 ## Configurazione dell'ambiente di PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Prima di poter usare PowerShell per gestire i backup da Data Protection Manager ad Azure, sarà necessario disporre dell'ambiente appropriato in PowerShell. All'inizio della sessione di PowerShell, assicurarsi di eseguire il comando seguente per importare i moduli appropriati e fare riferimento correttamente ai cmdlet DPM:
 
 ```
@@ -32,7 +43,7 @@ Sample DPM scripts: Get-DPMSampleScript
 ## Installazione e registrazione
 Per iniziare:
 
-1. [Download la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
+1. [Scaricare la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
 2. Per iniziare, abilitare i cmdlet del servizio Backup di Azure passando alla modalità *AzureResourceManager* usando il cmdlet **Switch-AzureMode**:
 
 ```
@@ -49,7 +60,7 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 
 ### Creare un insieme di credenziali per il backup
 
-> [AZURE.WARNING]I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
@@ -88,14 +99,14 @@ Le opzioni disponibili includono:
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
 | /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Program Files\Agente di Servizi di ripristino di Microsoft Azure\Area di lavoro |
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
-| /ph | Indirizzo host proxy | - |
-| /po | Numero porta host proxy | - |
-| /pu | Nome utente host proxy | - |
+| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent | 
+| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agente\Scratch |
+| /m | Accetta Microsoft Update | - | 
+| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | 
+| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | 
+| /ph | Indirizzo host proxy | - | 
+| /po | Numero porta host proxy | - | 
+| /pu | Nome utente host proxy | - | 
 | /pw | Password proxy | - |
 
 ### Registrazione del servizio Backup di Azure
@@ -122,7 +133,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 In questo modo, il server DPM denominato "TestingServer" verrà registrato con l'insieme di credenziali di Microsoft Azure usando le credenziali specificate.
 
-> [AZURE.IMPORTANT]Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
+> [AZURE.IMPORTANT] Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
 
 ### Impostazioni di configurazione iniziali
 Una volta registrato il server DPM con l'insieme di credenziali di Backup di Azure, il server verrà avviato con le impostazioni di sottoscrizione predefinite. Tali impostazioni includono reti, crittografia e area di gestione temporanea. Per iniziare a modificare le impostazioni di sottoscrizione, è necessario innanzitutto ottenere un handle sulle impostazioni (predefinite) esistenti usando il cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
@@ -171,7 +182,7 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT]Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
+> [AZURE.IMPORTANT] Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
 
 A questo punto, sono state apportate tutte le modifiche necessarie all'oggetto ```$setting```. Ricordarsi di eseguire il commit delle modifiche:
 
@@ -322,4 +333,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 - Per altre informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

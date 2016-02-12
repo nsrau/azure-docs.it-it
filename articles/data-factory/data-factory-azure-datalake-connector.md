@@ -24,6 +24,9 @@ Questo articolo illustra come usare l'attività di copia di una data factory di 
 >  
 > Per la procedura dettagliata relativa alla creazione di una data factory, dei servizi collegati, dei set di dati e di una pipeline, vedere l'esercitazione [Creare la prima pipeline](data-factory-build-your-first-pipeline.md). Usare i frammenti JSON con l'editor di Data factory o Visual Studio o Azure PowerShell per creare le entità di Data factory.
 
+Gli esempi seguenti mostrano come copiare dati da e nell'Archivio Azure Data Lake e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+
+
 ## Esempio: Copiare dati dal BLOB di Azure in Archivio Azure Data Lake
 L'esempio seguente mostra:
 
@@ -409,7 +412,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | subscriptionId | ID sottoscrizione di Azure. | No (se non è specificato, viene usata la sottoscrizione di Data factory). |
 | resourceGroupName | Nome del gruppo di risorse di Azure | No (se non specificata, viene usato il gruppo di risorse della Data factory). |
 
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: "Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
 
 
 | Tipo di utente | Scade dopo |
@@ -418,7 +421,7 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 | L'utente AAD e l'origine basata su OAuth si trovano in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory. | 12 ore |
 | L'utente AAD e l'origine basata su OAuth si trovano sullo stesso tenant del tenant di Data factory. | 14 giorni |
 
-Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice, usando il codice riportato nella sezione seguente.
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
 ### Per generare valori sessionId e authorization a livello di codice 
 
@@ -605,4 +608,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

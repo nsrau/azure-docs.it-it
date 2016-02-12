@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# L’attributo dell’oggetto utente esterno cambia per l'anteprima di B2B Azure Active Directory (Azure AD) Collaboration
+# Anteprima di Collaborazione B2B di Azure AD: modifiche all'attributo dell'oggetto utente esterno
+
 Ciascun utente in una directory di Azure AD è rappresentato da un oggetto utente. L'oggetto utente in Azure AD subisce modifiche dell’attributo in diverse fasi del flusso di invito-riscatto della B2B Collaboration. L'oggetto utente che rappresenta l'utente partner nella directory dispone di attributi che cambiano al momento del riscatto, quando l'utente partner fa clic sul collegamento nel messaggio di posta elettronica di invito. In particolare:
 
 - Gli attributi **SignInName** e **AltSecId** vengono popolati
@@ -25,7 +26,7 @@ Ciascun utente in una directory di Azure AD è rappresentato da un oggetto utent
 Il rilevamento di questi attributi in Azure AD può aiutare a risolvere i problemi relativi a un utente partner che ha riscattato invito di B2B Collaboration.
 
 ## Articoli correlati
-Vedere gli altri articoli sulla collaborazione B2B di Azure.
+Vedere gli altri articoli sulla collaborazione B2B di Azure:
 
 - [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -34,4 +35,4 @@ Vedere gli altri articoli sulla collaborazione B2B di Azure.
 - [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

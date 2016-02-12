@@ -26,7 +26,7 @@ Questo articolo illustra come usare l'[immagine di macchina virtuale Microsoft H
 
 ![Nodo head HPC Pack][headnode]
 
->[AZURE.NOTE]L'immagine di macchina virtuale HPC Pack è attualmente basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 preinstallato. È preinstallato anche Microsoft SQL Server 2014 Express.
+>[AZURE.NOTE] L'immagine di macchina virtuale HPC Pack è attualmente basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 preinstallato. È preinstallato anche Microsoft SQL Server 2014 Express.
 
 
 Per una distribuzione di produzione di un cluster HPC Pack in Azure, si consiglia di un metodo di distribuzione automatica, ad esempio lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) o un [modello di avvio rapido](https://azure.microsoft.com/documentation/templates/) di Gestione risorse di Azure.
@@ -42,7 +42,7 @@ Per una distribuzione di produzione di un cluster HPC Pack in Azure, si consigli
 Di seguito sono indicati i principali passaggi per la creazione di una macchina virtuale di Azure per il nodo head HPC Pack. È possibile usare svariati strumenti di Azure per eseguire questi passaggi nel modello di distribuzione (gestione dei servizi) classica di Azure.
 
 
-1. Se si prevede di creare una rete virtuale per la macchina virtuale del nodo head, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Se si prevede di creare una rete virtuale per la macchina virtuale del nodo head, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Considerazioni**
 
@@ -102,4 +102,4 @@ Di seguito sono indicati i principali passaggi per la creazione di una macchina 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

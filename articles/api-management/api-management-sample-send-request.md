@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-darmi"/>
 
 
@@ -21,7 +21,7 @@
 
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
 
-In precedenza è stata analizzata l'interazione con il [servizio Hub eventi di Azure per la registrazione, il monitoraggio e l'analisi](api-management-sample-logtoeventhub.md). In questo articolo verranno descritti i criteri che consentono di interagire con qualsiasi servizio esterno basato su HTTP. Questi criteri possono essere usati per l'attivazione di eventi remoti o per il recupero di informazioni che verranno usate per gestire la richiesta e la risposta originali.
+In precedenza è stata analizzata l'interazione con il [servizio Hub eventi di Azure per la registrazione, il monitoraggio e l'analisi](api-management-log-to-eventhub-sample.md). In questo articolo verranno descritti i criteri che consentono di interagire con qualsiasi servizio esterno basato su HTTP. Questi criteri possono essere usati per l'attivazione di eventi remoti o per il recupero di informazioni che verranno usate per gestire la richiesta e la risposta originali.
 
 ## Send-One-Way-Request
 Probabilmente l'interazione esterna più semplice è lo stile fire-and-forget della richiesta, che consente a un servizio esterno di ricevere una notifica se si verifica un evento importante. È possibile usare i criteri del flusso di controllo `choose` per rilevare qualsiasi tipo di condizione di interesse e quindi, se la condizione è soddisfatta, inviare una richiesta HTTP esterna usando i criteri [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Può trattarsi di una richiesta a un sistema di messaggistica, ad esempio Hipchat o Slack, o a un'API di posta elettronica, ad esempio SendGrid o MailChimp, o per eventi che richiedono interventi di supporto critico, ad esempio PagerDuty. Tutti questi sistemi di messaggistica dispongono di API HTTP semplici che possono essere richiamate facilmente.
@@ -269,4 +269,4 @@ Per altre informazioni sui criteri [send-one-way-request](https://msdn.microsoft
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/08/2016"
+   ms.date="02/01/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -35,11 +35,11 @@ Di seguito sono indicati i requisiti software per i client di archiviazione che 
 
 | Sistemi operativi supportati | Versione richiesta | Requisiti aggiuntivi/note |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Le funzionalità ODX e di thin provisioning di Windows Server 2012 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple può creare solo i volumi con thin provisioning. Non è in grado di creare volumi con provisioning completo o parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione, eseguire il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1 | Supportato con VMware vSphere 5.1 come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere v.5.1 in dispositivi StorSimple. 
+| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Le funzionalità ODX e di thin provisioning di Windows Server 2012 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple può creare volumi con thin provisioning e con provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione, eseguire il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components).|
+| VMWare ESX | 5\.5 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Supporto per client Linux iSCSI con iniziatore Open-iSCSI versioni 5 e 6. |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE]IBM AIX attualmente non è supportato con StorSimple.
+ > [AZURE.NOTE] IBM AIX attualmente non è supportato con StorSimple.
 
 ## Requisiti software per i componenti facoltativi
 
@@ -71,7 +71,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet. Gli indirizzi IP fissi vengono usati per l'installazione degli aggiornamenti nel dispositivo. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple.
 
-> [AZURE.IMPORTANT]Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
+> [AZURE.IMPORTANT] Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
 
 ### Metrica di routing
 
@@ -261,4 +261,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Ariba in Azure AD, è necessario aggiungere Ar
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Ariba**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Ariba** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Ariba** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Ariba in base a un utente test di nome "Britta Simon".
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Ariba, è nec
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente test di Ariba](#creating-a-Ariba-test-user)**: per avere una controparte di Britta Simon in Ariba collegata alla relativa rappresentazione in Azure AD.
+4. **[Creazione di un utente test di Ariba](#creating-a-ariba-test-user)**: per avere una controparte di Britta Simon in Ariba collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -214,4 +214,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

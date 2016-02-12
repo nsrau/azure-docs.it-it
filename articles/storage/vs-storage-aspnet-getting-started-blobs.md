@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET)
 
 ## Panoramica
 
-In questo articolo viene descritto come iniziare a usare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un'app ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'articolo illustra come creare i contenitori BLOB ed eseguire altre attività comuni come caricare, elencare, scaricare ed eliminare BLOB. Negli esempi, scritti in C#, viene utilizzata la [libreria del client di archiviazione di Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+In questo articolo viene descritto come iniziare a usare l'archiviazione BLOB di Azure dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un'app ASP.NET usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'articolo illustra come creare i contenitori BLOB ed eseguire altre attività comuni come caricare, elencare, scaricare ed eliminare BLOB. Negli esempi, scritti in C#, viene usata la [libreria del client di archiviazione di Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
  - Per altre informazioni generali sull'uso dell'archiviazione BLOB di Azure, vedere [Come usare l'archivio BLOB da .NET](storage-dotnet-how-to-use-blobs.md).
  - Per altre informazioni sui progetti ASP.NET, vedere [ASP.NET](http://www.asp.net).
@@ -50,7 +50,7 @@ Per accedere ai BLOB a livello di codice nei progetti ASP.NET, è necessario agg
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]Usare tutto questo codice prima del codice nelle sezioni seguenti.
+    > [AZURE.NOTE] Usare tutto questo codice prima del codice nelle sezioni seguenti.
 
 3. Ottenere un oggetto **CloudBlobClient** per fare riferimento a un contenitore esistente nell'account di archiviazione.
 
@@ -60,7 +60,7 @@ Per accedere ai BLOB a livello di codice nei progetti ASP.NET, è necessario agg
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx).
+> [AZURE.NOTE] Alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per altre informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx).
 
 
 ## Creazione di un contenitore BLOB in codice
@@ -237,4 +237,4 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve essere prefissato 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

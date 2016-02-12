@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Fuse."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Fuse
@@ -35,7 +35,7 @@ Per configurare l'integrazione di Azure AD con Fuse, sono necessari gli elementi
 - Sottoscrizione di Fuse abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
@@ -214,4 +214,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -49,7 +49,7 @@ Il gateway di gestione dati è un agente client che fornisce accesso alle origin
 
 Se esiste già un gateway di dati che è possibile usare, saltare questo passaggio.
 
-1.	Creare un gateway di dati logico. Nel **portale di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY**.
+1.	Creare un gateway di dati logico. Nel **Portale di Azure** fare clic su **Servizi collegati** nel pannello **DATA FACTORY**.
 2.	Fare clic su **Aggiungi (+) Gateway dati** nella barra dei comandi.  
 3.	Nel pannello **Nuovo gateway dati** fare clic su **CREA**.
 4.	Nel pannello **Crea** immettere **MyGateway** come **nome** del gateway di dati.
@@ -170,4 +170,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

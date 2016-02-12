@@ -62,7 +62,7 @@ Durante la distribuzione di Azure Site Recovery verranno installati il provider 
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- Consentire anche gli indirizzi IP descritti in [Azure Datacenter IP Ranges](https://www.microsoft.com/it-IT/download/details.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+- Consentire anche gli indirizzi IP descritti in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 
 Questa immagine illustra i diversi canali e le porte di comunicazione usati da Site Recovery per la replica e l'orchestrazione
@@ -167,8 +167,8 @@ In alternativa è possibile installare il provider di Azure Site Recovery dalla 
 
 4. Eseguire questo comando per completare la registrazione:
 
-	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-    		C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    	CD C:\Program Files\Microsoft Azure Site Recovery Provider
+    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 I parametri includono:
 
@@ -292,4 +292,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,18 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Restrizioni e limiti del servizio Azure AD
 
-Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md).
+Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
 
 [AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
 ## Passaggi successivi
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
-- [Terminologia di Azure AD](active-directory-terminology.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

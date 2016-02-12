@@ -13,18 +13,30 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="02/03/2016"
  ms.author="elioda"/>
 
 # Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
 Come servizio di Azure, l'hub IoT offre velocità elevata usando le ridondanze a livello di area di Azure, senza richiedere attività aggiuntive alla soluzione. Azure offre anche numerose funzionalità che facilitano la compilazione di soluzioni con funzionalità di ripristino di emergenza o disponibilità tra aree, se necessario. Le soluzioni devono essere progettate e preparate per sfruttare i vantaggi delle funzionalità di ripristino di emergenza, per poter fornire la disponibilità elevata globale e tra aree a dispositivi o utenti. L'articolo [Informazioni tecniche sulla continuità aziendale di Azure][] descrive le funzionalità integrate in Azure per la continuità aziendale e il ripristino di emergenza. Il documento [Ripristino di emergenza e disponibilità elevata per applicazioni Azure][] fornisce informazioni sull'architettura nelle strategie per permettere alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza.
 
+## Ripristino di emergenza dell'hub IoT di Azure
+Oltre alla disponibilità elevata all'interno della stessa area, l'hub IoT implementa meccanismi di failover per il ripristino di emergenza che non richiedono alcun intervento da parte dell'utente. Il ripristino di emergenza dell'hub IoT viene avviato automaticamente e ha un obiettivo del tempo di ripristino (RTO) di 2-26 ore e obiettivi del punto di ripristino (RPO) successivi.
+
+| Funzionalità | RPO |
+| ------------- | --- |
+| Disponibilità del servizio per le operazioni del Registro di sistema e di comunicazione | Possibile perdita di CName |
+| Dati sull'identità nel registro delle identità dei dispositivi | Perdita di dati da 0 a 5 minuti |
+| Messaggi da dispositivo a cloud | Tutti i messaggi non letti vengono persi |
+| Messaggi di monitoraggio delle operazioni | Tutti i messaggi non letti vengono persi |
+| Messaggi da cloud a dispositivo | Perdita di dati da 0 a 5 minuti |
+| Coda di commenti da cloud a dispositivo | Tutti i messaggi non letti vengono persi |
+
 ## Failover di area con l'hub IoT
 
 Un approfondimento completo sulle topologie di distribuzione nelle soluzioni IoT non rientra nelle finalità di questo articolo, ma per la disponibilità elevata e il ripristino di emergenza viene considerato il modello di distribuzione di *failover regionale*.
 
-In un modello di failover regionale, il back-end della soluzione viene eseguito principalmente in una posizione del data center. Per il failover vengono tuttavia distribuiti un hub IoT e un back-end aggiuntivi in un'altra posizione del data center, nel caso in cui l'hub IoT nel data center primario dovesse subire un'interruzione dell'alimentazione o la connettività di rete dal dispositivo al data center primario dovesse essere interrotta. I dispositivi usano un endpoint di servizio secondario quando il gateway primario non è raggiungibile. Con una funzionalità di failover tra aree, la disponibilità della soluzione può essere migliorata al di là della disponibilità elevata di una singola area.
+In un modello di failover regionale il back-end della soluzione viene eseguito principalmente in una posizione del data center. Per il failover vengono tuttavia distribuiti un hub IoT e un back-end aggiuntivi in un'altra posizione del data center, nel caso in cui l'hub IoT nel data center primario dovesse subire un'interruzione dell'alimentazione o la connettività di rete dal dispositivo al data center primario dovesse essere interrotta. I dispositivi usano un endpoint di servizio secondario quando il gateway primario non è raggiungibile. Con una funzionalità di failover tra aree, la disponibilità della soluzione può essere migliorata al di là della disponibilità elevata di una singola area.
 
 In generale, per implementare un modello di failover regionale con l'hub IoT è necessario quanto segue.
 
@@ -48,4 +60,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

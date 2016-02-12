@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Come aggiungere o modificare i ruoli di amministratore di Azure | Microsoft Azure"
 	description="Descrive come aggiungere o modificare il co-amministratore di Azure, l’amministratore del servizio e l’amministratore dell’account"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # Come aggiungere o modificare i ruoli di amministratore di Azure
@@ -66,4 +66,4 @@ Solo l'amministratore dell'account può modificare l'amministratore del servizio
 
 Per trasferire la proprietà dell'account Azure a un altro account, vedere [Trasferimento di una sottoscrizione di Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

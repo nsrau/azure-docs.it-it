@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Libreria client dei database elastici con Entity Framework 
@@ -178,7 +178,7 @@ L'esempio di codice seguente illustra il possibile uso di un criterio di ripetiz
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente. Vedere l'[argomento relativo alle limitazioni per le strategie di esecuzione con ripetizione dei tentativi (Entity Framework 6 e versioni successive)](http://msdn.microsoft.com/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa la libreria client dei database elastici.
+**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente; vedere l'argomento relativo alle limitazioni per le strategie di esecuzione con ripetizione dei tentativi (vedere [Entity Framework 6 e versioni successive)](http://msdn.microsoft.com/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa la libreria client dei database elastici.
 
 La necessità di controllare la posizione a cui si viene riportati dalle eccezioni temporanee all'interno dell'ambito preclude anche l'uso dell'oggetto **SqlAzureExecutionStrategy** in dotazione con Entity Framework. **SqlAzureExecutionStrategy** riaprirebbe una connessione, ma non userebbe **OpenConnectionForKey**, di conseguenza verrebbe ignorata qualsiasi forma di convalida eseguita come parte della chiamata di **OpenConnectionForKey**. L'esempio di codice usa invece l'oggetto **DefaultExecutionStrategy**, anch'esso incluso in Entity Framework. A differenza di **SqlAzureExecutionStrategy**, funziona correttamente con i criteri di ripetizione derivanti dalla gestione degli errori temporanei. I criteri di esecuzione vengono impostati nella classe **ElasticScaleDbConfiguration**. Si noti che si è deciso di non usare **DefaultSqlExecutionStrategy** perché suggerisce l'uso di **SqlAzureExecutionStrategy** in caso di eccezioni temporanee, situazione che causerebbe un comportamento errato, come spiegato in precedenza. Per altre informazioni sui diversi criteri di ripetizione ed Entity Framework, vedere l'articolo relativo alla [resilienza delle connessioni in Entity Framework](http://msdn.microsoft.com/data/dn456835.aspx).
 
@@ -268,11 +268,11 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 
 * Le modifiche all'applicazione che implicano modifiche dello schema del database devono passare attraverso le migrazioni di Entity Framework su tutte le partizioni. Il codice di esempio per questo documento non illustra come eseguire questa operazione. Provare a usare Update-Database con un parametro ConnectionString per eseguire l'iterazione su tutte le partizioni oppure estrarre lo script T-SQL per la migrazione in sospeso usando Update-Database con l'opzione –Script e applicare lo script T-SQL alle partizioni.
 
-* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, la libreria client offre la classe **MultiShardQuery**, che implementa un'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento.
+* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, la libreria client fornisce la classe **MultiShardQuery** che implementa un'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento.
 
-## Conclusioni 
+## Conclusioni
 
-Le applicazioni Entity Framework possono trarre facilmente vantaggio dagli strumenti dei database elastici del database SQL di Azure. Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client del database elastico mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni.
+Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -281,4 +281,4 @@ Le applicazioni Entity Framework possono trarre facilmente vantaggio dagli strum
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

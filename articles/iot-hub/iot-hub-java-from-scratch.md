@@ -26,7 +26,7 @@ In questo articolo viene descritto come creare un'applicazione client che utiliz
 
 Vedere [Preparare l'ambiente di sviluppo][devbox-setup] per informazioni sui prerequisiti e sulla configurazione dell'ambiente di sviluppo in Windows o Linux.
 
-> [AZURE.NOTE]È importante completare i passaggi descritti in [Preparare l'ambiente di sviluppo][devbox-setup] prima di iniziare questa esercitazione per installare i prerequisiti e aggiungere i file JAR necessari al repository Maven locale.
+> [AZURE.NOTE] È importante completare i passaggi descritti in [Preparare l'ambiente di sviluppo][devbox-setup] prima di iniziare questa esercitazione per installare i prerequisiti e aggiungere i file JAR necessari al repository Maven locale.
 
 ## Creare il progetto
 
@@ -36,7 +36,7 @@ Vedere [Preparare l'ambiente di sviluppo][devbox-setup] per informazioni sui pre
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [AZURE.NOTE]Si tratta di un lungo comando singolo. Assicurarsi di copiare il comando completo se si desidera incollarlo nello strumento di riga di comando.
+    > [AZURE.NOTE] Si tratta di un lungo comando singolo. Assicurarsi di copiare il comando completo se si desidera incollarlo nello strumento di riga di comando.
 
     Questo comando crea una cartella di progetto denominata *iot-device* che presenta la struttura di progetto Maven standard. Per ulteriori informazioni, vedere [Maven in 5 minuti][maven-five-minutes] sul sito Web di Apache.
 
@@ -48,7 +48,7 @@ Vedere [Preparare l'ambiente di sviluppo][devbox-setup] per informazioni sui pre
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.4</version>
+      <version>1.0.0</version>
     </dependency>
     ```
 
@@ -214,7 +214,7 @@ Per modificare la granularità di registrazione, includere la riga seguente nel 
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]È possibile leggere una spiegazione dei diversi [livelli di registrazione](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
+> [AZURE.NOTE]  È possibile leggere una spiegazione dei diversi [livelli di registrazione](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Quindi, impostare la proprietà JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@ Per registrare i frame AMQP, impostare la variabile di ambiente `PN_TRACE_FRM=1`
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

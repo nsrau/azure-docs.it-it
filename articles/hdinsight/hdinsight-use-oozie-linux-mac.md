@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@ Informazioni su come usare Apache Oozie per definire un flusso di lavoro che usa
 
 Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
 
-> [AZURE.NOTE]Un'altra opzione per definire i flussi di lavoro con HDInsight è Data factory di Azure. Per altre informazioni su Data factory di Azure, vedere [Usare Pig e Hive con Data factory][azure-data-factory-pig-hive].
+> [AZURE.NOTE] Un'altra opzione per definire i flussi di lavoro con HDInsight è Data factory di Azure. Per altre informazioni su Data factory di Azure, vedere [Usare Pig e Hive con Data factory][azure-data-factory-pig-hive].
 
 ##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
+- **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 - **Un cluster di HDInsight**: vedere [Introduzione all'uso di HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -48,9 +48,9 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al seguente:
 
-		8       18:54:20        it-it   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        it-it   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        it-it   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        it-IT   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        it-IT   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        it-IT   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
@@ -58,7 +58,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 2.  Un'azione di Sqoop esporta il contenuto della nuova tabella Hive in una tabella di un database SQL di Azure. Per altre informazioni su Sqoop, vedere [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Per informazioni sulle versioni di Oozie supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Per informazioni sulle versioni di Oozie supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
 
 ##Creare la directory di lavoro
 
@@ -66,7 +66,7 @@ Oozie prevede che le risorse necessarie per un processo siano archiviate nella s
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]Il parametro `-p` causa la creazione di tutte le directory nel percorso, se non esistono già. La directory **data** verrà usata per contenere i dati usati dallo script **useooziewf.hql**.
+> [AZURE.NOTE] Il parametro `-p` causa la creazione di tutte le directory nel percorso, se non esistono già. La directory **data** verrà usata per contenere i dati usati dallo script **useooziewf.hql**.
 
 Eseguire anche il comando seguente, per assicurare che Oozie possa rappresentare l'account utente durante l'esecuzione di processi Hive e Sqoop. Sostituire **USERNAME** con il proprio nome di accesso:
 
@@ -112,7 +112,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Usare i comandi seguenti per copiare **useooziewf.hql** in**wasb:///tutorials/useoozie/useooziewf.hql**:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -185,7 +185,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 	- **RunSqoopExport**: esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Viene eseguita solo se l'azione **RunHiveScript** ha esito positivo.
 
-		> [AZURE.NOTE]Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
+		> [AZURE.NOTE] Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
 	Si noti che il flusso di lavoro include diverse voci, ad esempio `${jobTracker}`, che vengono sostituite da valori usati nella definizione del processo più avanti in questo documento.
 
@@ -201,7 +201,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 La procedura seguente crea il database SQL di Azure in cui saranno esportati i dati.
 
-> [AZURE.IMPORTANT]Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
+> [AZURE.IMPORTANT] Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
 
 1. Usare il comando seguente per creare un nuovo server di database SQL di Azure:
 
@@ -216,7 +216,7 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Si noti il nome del server restituito da questo comando (**i1qwc540ts** nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT] Si noti il nome del server restituito da questo comando (**i1qwc540ts** nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
 
 2. Usare il comando seguente per creare un database denominato **oozietest** nel server del database SQL:
 
@@ -224,13 +224,13 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
 
     Quando viene completato il comando, verrà restituito un messaggio di conferma positiva.
 
-	> [AZURE.NOTE]Se viene visualizzato un errore che indica che non si dispone dell'accesso, potrebbe essere necessario aggiungere l'indirizzo IP del sistema al firewall del database SQL tramite il comando seguente:
+	> [AZURE.NOTE] Se viene visualizzato un errore che indica che non si dispone dell'accesso, potrebbe essere necessario aggiungere l'indirizzo IP del sistema al firewall del database SQL tramite il comando seguente:
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###Creare la tabella
 
-> [AZURE.NOTE]Sono disponibili diversi modi per connettersi al database SQL per creare una tabella. Nei seguenti passaggi viene usato [FreeTDS](http://www.freetds.org/) dal cluster HDInsight.
+> [AZURE.NOTE] Sono disponibili diversi modi per connettersi al database SQL per creare una tabella. Nei seguenti passaggi viene usato [FreeTDS](http://www.freetds.org/) dal cluster HDInsight.
 
 3. Usare il comando seguente per installare FreeTDS nel cluster HDInsight:
 
@@ -373,7 +373,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 
 	La maggior parte delle informazioni in questo file viene usata per popolare i valori usati nel file workflow.xml o ooziewf.hql (ad esempio ${nameNode}).
 
-	> [AZURE.NOTE]La voce **oozie.wf.application.path** definisce la posizione del file workflow.xml, che contiene il flusso di lavoro eseguito da questo processo.
+	> [AZURE.NOTE] La voce **oozie.wf.application.path** definisce la posizione del file workflow.xml, che contiene il flusso di lavoro eseguito da questo processo.
 
 2. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
 
@@ -381,7 +381,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 
 La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lavoro di Oozie nel cluster. Il comando Oozie è un'interfaccia utente semplice per l'[API REST di Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [AZURE.IMPORTANT]Quando si usa il comando Oozie, è necessario usare l'FQDN per il nodo head di HDInsight. Questo FQDN è accessibile solo dal cluster o se il cluster si trova in una rete virtuale di Azure, da altri computer nella stessa rete.
+> [AZURE.IMPORTANT] Quando si usa il comando Oozie, è necessario usare l'FQDN per il nodo head di HDInsight. Questo FQDN è accessibile solo dal cluster o se il cluster si trova in una rete virtuale di Azure, da altri computer nella stessa rete.
 
 1. Usare quanto segue per ottenere l'URL del servizio di Oozie:
 
@@ -392,7 +392,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
+	La parte **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
 
 2. Usare quanto segue per creare una variabile di ambiente per l'URL, in modo che non sia necessario digitarlo per ogni comando:
 
@@ -404,7 +404,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
 		oozie job -config job.xml -submit
 
-	In questo modo, vengono caricate le informazioni sul processo da **job.xml** e inviate a Oozie, ma senza eseguirle.
+	Carica le informazioni sul processo da **job.xml** e le invia a Oozie, ma senza eseguirle.
 
 	Dopo il completamento, il comando dovrebbe restituire l'ID del processo, ad esempio `0000005-150622124850154-oozie-oozi-W`. Verrà usato per gestire il processo.
 
@@ -478,7 +478,6 @@ L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web de
 Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura seguente:
 
 1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni su come eseguire questa operazione, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
-
 
 2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è **https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
 
@@ -641,7 +640,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]Potrebbero essere necessari alcuni minuti prima che HDInsight riconosca che l'utente è stato aggiunto al gruppo.
+> [AZURE.NOTE] Potrebbero essere necessari alcuni minuti prima che HDInsight riconosca che l'utente è stato aggiunto al gruppo.
 
 ###ERRORE dell'utilità di avvio (Sqoop)
 
@@ -712,7 +711,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/it-it/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/it-IT/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -722,4 +721,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

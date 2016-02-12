@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -31,10 +31,12 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 - [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Uno dei client SDK disponibili: 
 	- [Azure Media Services SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services) 
-	- [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 
-	- [Servizi multimediali di Azure Media per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS. 
-- Strumenti esistenti: [portale di Azure classico](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+	- [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java), 
+	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS. 
+- Strumenti esistenti: 
+	- [Portale di Azure classico](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 ##Percorsi di apprendimento di Media Services
 
@@ -44,7 +46,6 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 - [Flusso di lavoro AMS Streaming su richiesta](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Poster
-
 
 [Qui](https://azure.microsoft.com/documentation/infographics/media-services/) è possibile visualizzare il poster di servizi multimediali di Azure che raffigura i flussi di lavoro AMS, dalla creazione del supporto tramite il consumo.
 
@@ -59,10 +60,11 @@ Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre 
 	Inoltre, sono disponibili informazioni su come connettersi a livello di programmazione [Connect](media-services-dotnet-connect_programmatically.md).
 4. (Scelta consigliata) Allocare una o più unità di scala. Si consiglia di allocare una o più unità di scala per le applicazioni nell'ambiente di produzione. Per altre informazioni, vedere [Gestione degli endpoint di streaming](media-services-manage-origins.md).
 
-##Concetti
+##Panoramica e concetti
 
-Per altre informazioni, vedere [Concetti](media-services-concepts.md).
+Per i concetti su Servizi multimediali di Azure, vedere [Concetti su Servizi multimediali di Azure](media-services-concepts.md).
 
+Per una serie di procedure che illustra tutti i componenti principali di Servizi multimediali di Azure, vedere la pagina relativa alle [esercitazioni dettagliate di Servizi multimediali di Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Questa serie offre un'ottima panoramica dei concetti e usa lo strumento AMSE per illustrare le attività AME. Si noti che AMSE è uno strumento di Windows. Questo strumento supporta la maggior parte delle attività che è possibile ottenere a livello di codice con [AMS SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java) o [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure: scenari e attività comuni
 
@@ -234,4 +236,4 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

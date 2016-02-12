@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Estendere i gruppi di disponibilità AlwaysOn locali ad Azure | Microsoft Azure"
 	description="Questa esercitazione sfrutta le risorse create con il modello di distribuzione classica e descrive come usare la procedura guidata Aggiungi replica in SQL Server Management Studio (SSMS) per aggiungere in Azure una replica del gruppo di disponibilità AlwaysOn."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
@@ -65,7 +65,7 @@ Questa sezione mostra come usare la **procedura guidata Aggiungi replica di Azur
 |**Nome utente macchina virtuale**|Specificare il nome utente che costituirà l'account amministratore della macchina virtuale.|
 |**Password amministratore macchina virtuale**|Specificare una password per il nuovo account.|
 |**Conferma password**|Confermare la password del nuovo account.|
-|**Rete virtuale**|Specificare la rete virtuale di Azure che deve essere usata dalla nuova macchina virtuale. Per altre informazioni sulle reti virtuali, vedere la pagina di [panoramica sulle reti virtuali](..\virtual-network\virtual-networks-overview.md).|
+|**Rete virtuale**|Specificare la rete virtuale di Azure che deve essere usata dalla nuova macchina virtuale. Per altre informazioni sulle reti virtuali, vedere la pagina di [panoramica sulle reti virtuali](../virtual-network/virtual-networks-overview.md).|
 |**Rete virtuale/subnet**|Specificare la subnet della rete virtuale che deve essere usata dalla nuova macchina virtuale.|
 |**Dominio**|Verificare che il valore presente nel campo relativo al dominio sia corretto.|
 |**Nome utente dominio**|Specificare un account contenuto nel gruppo Administrators locale nei nodi cluster locali.|
@@ -91,7 +91,7 @@ Questa sezione mostra come usare la **procedura guidata Aggiungi replica di Azur
 
 1. Verrà avviato il processo di provisioning. Al termine della procedura guidata, fare clic su **Chiudi** per uscire.
 
->[AZURE.NOTE] Durante la procedura guidata Aggiungi replica di Azure viene creato un file di registro in <Users><nome utente>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Questo file può essere usato per risolvere i problemi relativi alle distribuzioni delle repliche di Azure. Se una qualsiasi azione della procedura guidata ha esito negativo, verrà eseguito il rollback di tutte le operazioni precedenti, inclusa l'eliminazione della macchina virtuale di cui è stato eseguito il provisioning.
+>[AZURE.NOTE] Durante la procedura guidata Aggiungi replica di Azure viene creato un file di log in Utenti\\Nome utente\\AppData\\Local\\SQL Server\\AddReplicaWizard. Questo file può essere usato per risolvere i problemi relativi alle distribuzioni delle repliche di Azure. Se una qualsiasi azione della procedura guidata ha esito negativo, verrà eseguito il rollback di tutte le operazioni precedenti, inclusa l'eliminazione della macchina virtuale di cui è stato eseguito il provisioning.
 
 ## Creare un listener del gruppo di disponibilità
 
@@ -103,4 +103,4 @@ Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere a
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

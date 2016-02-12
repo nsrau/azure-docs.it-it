@@ -33,7 +33,7 @@ Ogni circuito prevede una larghezza di banda fissa (50 Mbps, 100 Mbps, 200 Mbps,
 
 ### Quote, limiti e limitazioni
 
-Per ogni circuito ExpressRoute si applicano quote e limiti predefiniti. Per informazioni aggiornate sulle quote, vedere la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../../includes/expressroute-limits.md).
+Per ogni circuito ExpressRoute si applicano quote e limiti predefiniti. Per informazioni aggiornate sulle quote, vedere la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
 
 ## Domini di routing ExpressRoute
 
@@ -47,7 +47,7 @@ A un circuito ExpressRoute sono associati più domini di routing, ovvero pubblic
 
 I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS), che sono distribuiti all'interno di una rete virtuale possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Ciò permetterà la connessione diretta a macchine virtuali e servizi cloud nei rispettivi indirizzi IP privati.
 
-È possibile connettere più di una rete virtuale al dominio di peering privato. Per informazioni su limiti e limitazioni, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md). Per informazioni aggiornate sui limiti, visitare la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../../includes/expressroute-limits.md). Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md).
+È possibile connettere più di una rete virtuale al dominio di peering privato. Per informazioni su limiti e limitazioni, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md). Per informazioni aggiornate sui limiti, visitare la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md). Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md).
 
 ### Peering pubblico
 
@@ -69,7 +69,7 @@ Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la c
 
 La tabella seguente confronta i tre domini di routing.
 
-||**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
+|**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
 |---|---|---|---|
 |**Numero massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|
@@ -90,4 +90,4 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 	- [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

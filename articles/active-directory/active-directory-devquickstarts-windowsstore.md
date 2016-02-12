@@ -62,7 +62,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	Nel progetto DirectorySearcher aprire `MainPage.xaml.cs`. Sostituire i valori dell'area `Config Values` in modo che corrispondano ai valori inseriti nel portale di Azure. Il codice farà riferimento a questi valori ogni volta che userà ADAL.
     -	`tenant` è il dominio del tenant di Azure AD, ad esempio, contoso.onmicrosoft.com.
     -	`clientId` è l'ID client dell'applicazione copiato dal portale.
--	Ora è necessario individuare l'URI di callback per l'app di Windows Phone. Impostare un punto di interruzione in questa riga del metodo `MainPage`:
+-	Ora è necessario individuare l'URI di callback per l'app di Windows Store. Impostare un punto di interruzione in questa riga del metodo `MainPage`:
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -146,4 +146,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

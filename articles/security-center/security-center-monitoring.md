@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Monitoraggio dello stato di sicurezza nel Centro sicurezza di Azure
@@ -41,7 +41,7 @@ I criteri di sicurezza abilitati interessano i tipi di controlli monitorati qui.
 ###Macchine virtuali
 Quando fa clic su **Macchine virtuali** nel riquadro **Integrità delle risorse**, si aprirà il pannello **Macchine virtuali** con ulteriori dettagli sulle operazioni di caricamento e prevenzione, nonché un elenco di tutte le VM monitorate dal Centro sicurezza di Azure, come illustrato di seguito:
 
-![Aggiornamento di sistema mancante per VM](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![Aggiornamento di sistema mancante per VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 Dopo aver aperto il pannello, verranno visualizzate tre sezioni:
 
@@ -60,7 +60,7 @@ Questa sezione mostra la quantità totale di VM inizializzate per la raccolta de
 ####Raccomandazioni per le macchine virtuali
 Questa sezione include una serie di raccomandazioni per ogni VM monitorata dal Centro sicurezza di Azure. La prima colonna riporta una descrizione della raccomandazione, la seconda la quantità totale di VM interessate dalla raccomandazione e la terza il livello di gravità, come illustrato di seguito:
 
-![Raccomandazioni per le VM](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![Raccomandazioni per le VM](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile eseguire facendo clic su di essa. Se, ad esempio, si fa clic su **Aggiornamenti di sistema mancanti**, si aprirà il pannello **Aggiornamenti di sistema mancanti** con l'elenco delle VM ancora senza patch e il livello di gravità per ciascuna di esse, come illustrato di seguito:
 
@@ -173,4 +173,4 @@ In questo documento è stato descritto come utilizzare le funzionalità di monit
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

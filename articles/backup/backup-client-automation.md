@@ -7,20 +7,17 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags 
-ms.service="backup"
- ms.workload="storage-backup-recovery"
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="01/22/2016" 
-  ms.author="markgal"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/22/2016" ms.author="markgal"; "aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
+
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server o un client Windows e per gestire le operazioni di backup e ripristino.
 
 ## Installare Azure PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 A ottobre 2015 è stato rilasciato Azure PowerShell 1.0. Questa versione ha fatto seguito alla versione 0.9.8 introducendo alcune modifiche significative, in particolare nel modello di denominazione dei cmdlet. I cmdlet 1.0 seguono il criterio di denominazione {verb}-AzureRm{noun}, mentre i nomi 0.9.8 non includono **Rm** (ad esempio, New-AzureRmResourceGroup anziché New-AzureResourceGroup). Quando si usa Azure PowerShell 0.9.8, è innanzitutto necessario abilitare la modalità Gestione risorse eseguendo il comando **Switch-AzureMode AzureResourceManager**. Questo comando non è necessario nella versione di 1.0 o successiva.
 
 Se si vogliono usare script scritti per l'ambiente 0.9.8 nell'ambiente 1.0 o versione successiva, occorre testare attentamente gli script in un ambiente di preproduzione prima di usarli nell'ambiente di produzione, per evitare un impatto non previsto.
@@ -72,15 +69,15 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - | 
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent | 
+| /q | Installazione non interattiva | - |
+| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent |
 | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agente\Scratch | 
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
+| /m | Accetta Microsoft Update | - | 
+| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | 
 | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | 
 | /ph | Indirizzo host proxy | - | 
 | /po | Numero porta host proxy | - | 
-| /pu | Nome utente host proxy | - | 
+| /pu | Nome utente host proxy | - |
 | /pw | Password proxy | - |
 
 
@@ -591,4 +588,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-configure-vault.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

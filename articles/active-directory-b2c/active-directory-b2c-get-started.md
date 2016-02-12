@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come creare un Tenant AD B2C Azure
@@ -24,7 +24,7 @@ Per iniziare a utilizzare Azure Active Directory (AD) B2C, seguire i 3 passaggi 
 
 ## Passaggio 1: Iscriversi per ottenere una sottoscrizione ad Azure
 
-Se si dispone già di una sottoscrizione ad Azure passare al passaggio successivo. In caso contrario, iscriversi [ad Azure](sign-up-organization.md) e accedere ad Azure AD B2C.
+Se si dispone già di una sottoscrizione ad Azure passare al passaggio successivo. In caso contrario, iscriversi [ad Azure](../active-directory/sign-up-organization.md) e accedere ad Azure AD B2C.
 
 > [AZURE.NOTE]
 L’Anteprima AD B2C di Azure è attualmente disponibile gratuitamente per l'utilizzo ma limitato (fino a 50.000 utenti per tenant). Per accedere al [portale di Azure classico](http://manage.windowsazure.com/), è necessario avere una sottoscrizione di Azure.
@@ -74,4 +74,4 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 
 Passare alla [registrazione di un'applicazione con AD B2C di Azure e creazione di un'applicazione di avvio rapido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

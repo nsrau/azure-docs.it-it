@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Differenze di Transact-SQL del Database SQL di Azure
@@ -95,6 +95,7 @@ La versione 12 di Database SQL supporta alcuni ma non tutti gli argomenti presen
 - Trigger: Con ambito Server o trigger di accesso
 - Istruzione USE
 
+
 ## Riferimento completo di Transact-SQL
 
 Per ulteriori informazioni sulla grammatica Transact-SQL, uso ed esempi, vedere[riferimento a Transact-SQL (motore di Database)](https://msdn.microsoft.com/library/bb510741.aspx)nella documentazione Online di SQL Server.
@@ -107,4 +108,4 @@ Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQ
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Passaggi successivi
 
-L’hub IoT di Azure è un servizio di Azure che riceve dati di telemetria su scala dai dispositivi e indirizza tali dati a un processore di eventi di flusso. È possibile utilizzare l’hub IoT per implementare il proprio back-end di soluzione. IoT Hub può inoltre inviare comandi dal cloud al dispositivo a dispositivi specifici. Inoltre, l’hub IoT include un registro di identità del dispositivo che è possibile utilizzare per eseguire il provisioning dei dispositivi e per gestire i dispositivi che si possono connettere all’hub. Per altre informazioni, vedere:
+Hub IoT di Azure è un servizio che consente comunicazioni bidirezionali affidabili e sicure tra il back-end dell'applicazione e milioni di dispositivi. Consente all'applicazione back-end di ricevere dati di telemetria su larga scala dai dispositivi, instradare i dati a un processore di eventi di flusso e inviare comandi da cloud a dispositivo a specifici dispositivi. È possibile usate l'hub IoT per implementare il back-end della propria soluzione. L'hub IoT include anche un registro delle identità dei dispositivi che è possibile usare per effettuare il provisioning dei dispositivi, le credenziali di sicurezza e i relativi diritti per connettersi all'hub. Per ulteriori informazioni, vedere:
 
 - [Che cos'è IoT Hub?][lnk-iot-hub]
 - [Iniziare a usare l'hub IoT][lnk-getstarted]
@@ -35,4 +35,4 @@ Si potrebbe anche essere interessati a [Azure IoT Suite][lnk-iot-suite], che è 
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

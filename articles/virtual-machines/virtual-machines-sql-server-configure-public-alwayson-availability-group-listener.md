@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Configurare un listener esterno per i gruppi di disponibilità AlwaysOn | Microsoft Azure"
 	description="Questa esercitazione illustra in modo dettagliato la procedura per la creazione di un listener del gruppo di disponibilità AlwaysOn in Azure accessibile esternamente mediante l'indirizzo IP virtuale pubblico del servizio cloud associato."
 	services="virtual-machines"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management" />
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
@@ -25,7 +25,7 @@
 Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn accessibile esternamente su Internet. Ciò è possibile tramite l'associazione dell'indirizzo **IP virtuale pubblico** del servizio cloud con il listener.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
- 
+
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-sql-server-alwayson-availability-groups-gui.md) ma che non sia stato configurato un listener.
 
@@ -60,7 +60,7 @@ Il servizio di bilanciamento del carico esterno usa l'indirizzo IP virtuale pubb
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
 		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
@@ -81,7 +81,7 @@ Il servizio di bilanciamento del carico esterno usa l'indirizzo IP virtuale pubb
 
 [AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure classico. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard**. 
+1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure classico. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard**.
 
 3. Annotare l'indirizzo visualizzato sotto **Indirizzo IP virtuale pubblico (VIP)**. Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
 
@@ -89,13 +89,13 @@ Il servizio di bilanciamento del carico esterno usa l'indirizzo IP virtuale pubb
 
 		# Define variables
 		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
@@ -130,4 +130,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

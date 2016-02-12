@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Configurare un listener ILB per gruppi di disponibilità AlwaysOn | Microsoft Azure"
 	description="Questa esercitazione utilizza le risorse create con il modello di distribuzione classica e crea un Listener del gruppo di disponibilità AlwaysOn in Azure utilizzando un servizio di bilanciamento del carico interno (ILB)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/06/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
@@ -27,7 +27,7 @@
 Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn usando il **servizio di bilanciamento del carico interno**.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
- 
+
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-sql-server-alwayson-availability-groups-gui.md) ma che non sia stato configurato un listener.
 
@@ -44,7 +44,7 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Questo articolo illustra la creazione di un listener che usa il **Servizio di bilanciamento del carico interno (ILB)**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
+Questo articolo illustra la creazione di un listener che usa il **servizio di bilanciamento del carico interno**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 ## Creare endpoint VM con bilanciamento del carico con Direct Server Return
 
@@ -72,19 +72,19 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 		$SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
 		$ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
 		$ILBName = "AGListenerLB" # customize the ILB name or use this default value
-		
+
 		# Create the ILB
 		Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes using ILB
 		ForEach ($node in $AGNodes)
 		{
-			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
+			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
 		}
 
 1. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di Azure PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato >>, digitare di nuovo ENTER per assicurarsi che l'esecuzione dello script sia stata avviata. Nota
 
->[AZURE.NOTE]Il portale di Azure classico non supporta attualmente il servizio di bilanciamento del carico interno, quindi il servizio di bilanciamento del carico interno o gli endpoint non saranno visualizzati nel portale di Azure classico. **Get-AzureEndpoint** restituisce tuttavia un indirizzo IP interno, se nel portale è in esecuzione il servizio di bilanciamento del carico. In caso contrario, restituirà Null.
+>[AZURE.NOTE] Il portale di Azure classico non supporta attualmente il servizio di bilanciamento del carico interno, quindi il servizio di bilanciamento del carico interno o gli endpoint non saranno visualizzati nel portale di Azure classico. **Get-AzureEndpoint** restituisce tuttavia un indirizzo IP interno, se nel portale è in esecuzione il servizio di bilanciamento del carico. In caso contrario, restituirà Null.
 
 ## Se necessario, verificare che KB2854082 sia installato.
 
@@ -108,13 +108,13 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
@@ -138,4 +138,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -33,13 +33,13 @@ Tutte le macchine virtuali dispongono di un disco del sistema operativo collegat
 
 Il disco temporaneo viene creato automaticamente. Nelle macchine virtuali di Windows, il disco viene etichettato come unità D. Nelle macchine virtuali di Linux, il disco è in genere /dev/sdb e viene formattato e montato in /mnt/resource dall'agente Linux di Azure.
 
->[AZURE.WARNING]Non archiviare sul disco temporaneo. Quest’ultimo fornisce l'archiviazione temporanea per applicazioni e processi e consente di archiviare solo dati come file di paging o di scambio. Per eseguire un nuovo mapping di questo disco per una macchina virtuale di Windows, vedere [Modifica della lettera di unità del disco temporaneo di Windows](virtual-machines-windows-change-drive-letter.md).
+>[AZURE.WARNING] Non archiviare sul disco temporaneo. Quest’ultimo fornisce l'archiviazione temporanea per applicazioni e processi e consente di archiviare solo dati come file di paging o di scambio. Per eseguire un nuovo mapping di questo disco per una macchina virtuale di Windows, vedere [Modifica della lettera di unità del disco temporaneo di Windows](virtual-machines-windows-change-drive-letter.md).
 
 ## Disco dati
 
 Un disco dati è un disco rigido virtuale collegato a una macchina virtuale per archiviare i dati delle applicazioni o altri dati che è necessario conservare. I dischi dati vengono registrati come unità SCSI ed etichettati con una lettera di propria scelta. Ciascun disco dati ha una capacità massima di 1023 GB. Le dimensioni della macchina virtuale determinano il numero di dischi dati è possibile collegare e il tipo di archiviazione che è possibile utilizzare per ospitare i dischi.
 
->[AZURE.NOTE]Per ulteriori dettagli sulle capacità delle macchine virtuali, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
+>[AZURE.NOTE] Per ulteriori dettagli sulle capacità delle macchine virtuali, vedere [Dimensioni per le macchine virtuali](virtual-machines-size-specs.md).
 
 Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco del sistema operativo. Se si utilizza un'immagine che include dischi dati, anche Azure crea dischi dati quando viene creata la macchina virtuale. (È possibile utilizzare un'immagine da Azure o un partner o un’immagine fornita.) In caso contrario, aggiungere dischi dati dopo aver creato la macchina virtuale.
 
@@ -47,7 +47,7 @@ Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco de
 
 ## Informazioni sui dischi rigidi virtuali
 
-I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](https://msdn.microsoft.com/library/ee691964.aspx). Per ulteriori dettagli sull’archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md).
+I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](https://msdn.microsoft.com/library/ee691964.aspx). Per ulteriori dettagli sull’archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md).
 
 Esternamente ad Azure, per i dischi rigidi virtuali può essere usato un formato VHD o VHDX. I dischi possono inoltre essere fissi, espansi dinamicamente o dischi differenze. Azure supporta dischi fissi di formato VHD. In caso di formato fisso, il disco logico viene disposto in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset del BLOB X. In un piè di pagina alla fine del BLOB vengono descritte le proprietà del disco rigido virtuale. Spesso, con il formato fisso si verifica uno spreco di spazio poiché nella maggior parte dei dischi sono presenti intervalli inutilizzati di grandi dimensioni. Tuttavia, in Azure i file con estensione vhd vengono archiviati in un formato di tipo sparse, pertanto si ottengono contemporaneamente i vantaggi sia dei dischi fissi sia di quelli dinamici. Per ulteriori dettagli, vedere [Introduzione ai dischi rigidi virtuali](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -57,7 +57,7 @@ Tutti i file con estensione .vhd in Azure che si desidera utilizzare come origin
 
 Prima di poter eliminare un file con estensione .vhd di origine, sarà necessario rimuovere il lease eliminando il disco o l'immagine. Per eliminare un file con estensione .vhd utilizzato da una macchina virtuale come disco del sistema operativo, è possibile eliminare la macchina virtuale, il disco del sistema operativo e il file con estensione .vhd di origine in una sola volta eliminando la macchina virtuale e tutti i dischi associati. Tuttavia, l'eliminazione di un file con estensione .vhd che rappresenta l’origine di un disco dati richiede diversi passaggi in un determinato ordine: lo scollegamento del disco dalla macchina virtuale, l'eliminazione del disco, quindi l’eliminazione del file con estensione .vhd.
 
->[AZURE.WARNING]Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
+>[AZURE.WARNING] Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
 
 ## Passaggi successivi
 
@@ -74,4 +74,4 @@ Macchine virtuali Windows:
 -  [Acquisire una macchina virtuale Windows](virtual-machines-capture-image-windows-server.md)
 -  [Scollegare un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

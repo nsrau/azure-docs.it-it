@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
@@ -24,9 +24,9 @@ Informazioni su come usare Apache Storm in HDInsight per elaborare i dati del se
 
 ## Prerequisiti
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Un [cluster Apache Storm in HDInsight](../hdinsight-storm-getting-started.md)
+* Un [cluster Apache Storm in HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): usato per il dashboard Web e per inviare dati del sensore all'hub eventi.
 
@@ -256,7 +256,7 @@ Nell'ambiente di sviluppo seguire questa procedura per eseguire la topologia Tem
 
 ### Pubblicare il dashboard del sito Web
 
-1. Per distribuire il dashboard in un sito Web di Azure, seguire la procedura descritta nell'articolo relativo alla [creazione e distribuzione di un sito Web Node.js in Azure](../web-sites-nodejs-develop-deploy-mac.md). Notare che l'URL del sito Web sarà simile a **mywebsite.azurewebsites.net**.
+1. Per distribuire il dashboard in un sito Web di Azure, seguire la procedura descritta nell'articolo relativo alla [creazione e distribuzione di un sito Web Node.js in Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Notare che l'URL del sito Web sarà simile a **mywebsite.azurewebsites.net**.
 
 2. Dopo aver creato il sito Web, passare al sito nel portale di Azure classico e selezionare la scheda **Configura**. Abilitare **Web Socket** e quindi fare clic su **Salva** nella parte inferiore della pagina.
 
@@ -422,4 +422,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -27,7 +27,7 @@ Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che con
 ## Come abilitare Analisi del traffico di ricerca
 
 ### 1\. Tramite il portale
-Aprire il servizio Ricerca di Azure nel [portale di Azure](https://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
+Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
 
 ![][1]
 
@@ -131,26 +131,32 @@ Metriche disponibili:
 
 I dati si trovano nel proprio account di archiviazione e si consiglia di esaminarli nel modo più adatto alle proprie esigenze.
 
-Innanzitutto, si consiglia di usare [Power BI Desktop](https://powerbi.microsoft.com/it-IT/desktop) per esplorare e visualizzare i dati. È possibile connettersi facilmente all'account di Archiviazione di Azure e avviare in modo rapido l'analisi dei dati.
+Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) per esplorare e visualizzare i dati. È possibile connettersi facilmente all'account di Archiviazione di Azure e avviare in modo rapido l'analisi dei dati.
 
-Estrarre la query di esempio seguente che consente di creare report personalizzati in Power BI Desktop.
+#### Power BI online
 
-### Istruzioni
+[Pacchetto di contenuto di Power BI](https://app.powerbi.com/getdata/services/azure-search): consente di creare un dashboard di Power BI e un set di report di Power BI che mostrino automaticamente i dati e forniscano informazioni dettagliate sul servizio di ricerca. Vedere la [pagina della Guida del pacchetto di contenuto](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-search/).
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/it-IT/desktop): consente di esplorare i dati e creare le proprie visualizzazioni dei dati. Di seguito viene fornita una query iniziale di supporto.
 
 1. Aprire un nuovo report di Power BI Desktop
 2. Selezionare Recupera dati -> Altro.
 
-	![][3]
+	![][4]
 
 3. Selezionare Archiviazione BLOB di Microsoft Azure e Connetti
 
-	![][4]
+	![][5]
 
 4. Immettere il nome e la chiave dell'account di archiviazione
 5. Selezionare "insight-log-operationlogs" e "insights-metrics-pt1m", quindi fare clic su Modifica
 6. Si aprirà l'editor di Query; assicurarsi che "insight-log-operationlogs" sia selezionato a sinistra. A questo punto aprire l'editor avanzato selezionando Visualizza -> Editor avanzato
 
-	![][5]
+	![][6]
 
 7. Mantenere le prime due righe e sostituire la parte restante con la query seguente:
 
@@ -217,8 +223,9 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

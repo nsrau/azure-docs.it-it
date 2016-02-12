@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Richiamare i programmi MapReduce da Data factory
@@ -103,7 +103,7 @@ La pipeline in questo esempio esegue il programma di mapping e riduzione del con
 ### Servizi collegati
 In primo luogo, si crea un servizio collegato per collegare l'archiviazione di Azure utilizzata dal cluster HDInsight di Azure per la factory di dati di Azure. Se si copia e incolla il codice seguente, non dimenticare di sostituire **nome account** e **chiave account** con il nome e la chiave di archiviazione di Azure.
 
-#### Servizio collegato Archiviazione
+#### Servizio collegato Archiviazione di Azure
 
 	{
 	    "name": "StorageLinkedService",
@@ -220,4 +220,4 @@ linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in 
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

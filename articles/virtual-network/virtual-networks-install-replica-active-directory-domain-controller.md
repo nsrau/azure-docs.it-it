@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@ Questo argomento descrive come installare altri controller di dominio (anche not
 
 Altri argomenti di interesse:
 
--  È possibile, se lo si desidera, installare una nuova foresta Active Directory in una rete virtuale di Azure. Per questa procedura, vedere [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](../active-directory-new-forest-virtual-machine.md).
+-  È possibile, se lo si desidera, installare una nuova foresta Active Directory in una rete virtuale di Azure. Per questa procedura, vedere [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](../active-directory/active-directory-new-forest-virtual-machine.md).
 -  Per le linee guida concettuali sull'installazione di Servizi di dominio Active Directory in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -31,7 +31,7 @@ Altri argomenti di interesse:
 
 In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite nei server aggiunti al dominio. Le macchine virtuali che eseguono i server applicazioni e i controller di dominio di replica vengono installati in una rete virtuale di Azure. La rete virtuale può essere connessa alla rete locale mediante una [connessione VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md), come mostrato nel diagramma seguente, oppure è possibile usare [ExpressRoute](../../services/expressroute/) per una connessione più veloce.
 
-I server dell’applicazione e i controller di dominio vengono distribuiti all'interno di [servizi cloud](../cloud-services-what-is.md) separati per distribuire l'elaborazione del calcolo e all'interno dei [set di disponibilità](../virtual-machines/virtual-machines-manage-availability.md) per una migliore tolleranza di errore. I controller di dominio eseguono la replica reciproca e con controller di dominio locali usando la replica di Active Directory. Non sono necessari strumenti di sincronizzazione.
+I server dell'applicazione e i controller di dominio vengono distribuiti all'interno di servizi cloud separati per distribuire l'elaborazione del calcolo e all'interno dei [set di disponibilità](../virtual-machines/virtual-machines-manage-availability.md) per una migliore tolleranza di errore. I controller di dominio eseguono la replica reciproca e con controller di dominio locali usando la replica di Active Directory. Non sono necessari strumenti di sincronizzazione.
 
 ![][1]
 
@@ -121,4 +121,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

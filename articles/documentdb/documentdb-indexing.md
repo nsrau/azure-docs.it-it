@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
-# L'indicizzazione automatica in Azure DocumentDB
+# Indicizzazione automatica in Azure DocumentDB
 
 Questo articolo è un estratto del documento ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), che verrà presentato alla [41 Conferenza Internazionale VLDB](http://www.vldb.org/2015/) tra il 31 agosto e il 4 settembre 2015 e costituisce un’introduzione al funzionamento dell’indicizzazione in Azure DocumentDB.
 
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

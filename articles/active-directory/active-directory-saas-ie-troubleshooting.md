@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Risoluzione dei problemi di Access Panel Extension per Internet Explorer | Microsoft Azure"
-   description="Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Risoluzione dei problemi di Access Panel Extension per Internet Explorer | Microsoft Azure"
+    description="Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Risoluzione dei problemi di Access Panel Extension per Internet Explorer
 
@@ -105,4 +105,4 @@ Se si verificano problemi durante la disinstallazione dell'estensione, è possib
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

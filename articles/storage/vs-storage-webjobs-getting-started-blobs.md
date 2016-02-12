@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 
 ## Panoramica
 
-In questo articolo vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x. Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, viene installato il pacchetto NuGet di archiviazione di Azure appropriato, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
+In questo articolo vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) versione 1.x. Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, viene installato il pacchetto NuGet di archiviazione di Azure appropriato, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
 
 
 
@@ -28,7 +28,7 @@ In questo articolo vengono forniti esempi di codice C# che illustrano come attiv
 
 Questa sezione illustra come usare l'attributo **BlobTrigger**.
 
- **Nota:** WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo è particolarmente lento: una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Se l'applicazione deve elaborare BLOB immediatamente, si consiglia di creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) anziché l'attributo **BlobTrigger** sulla funzione che elabora il BLOB.
+ **Nota:** WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo è particolarmente lento: una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Se l'applicazione deve elaborare BLOB immediatamente, si consiglia di creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) anziché l'attributo **BlobTrigger** sulla funzione che elabora il BLOB.
 
 ### Singolo segnaposto per il nome di BLOB con estensione  
 
@@ -229,4 +229,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

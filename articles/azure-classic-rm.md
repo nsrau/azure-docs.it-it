@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -68,4 +68,4 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
 - Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

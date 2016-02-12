@@ -4,7 +4,6 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 | -------- | ----------- | ----------- | ------- |
 | Messaggi al giorno | 400\.000 | 6\.000.000 | 8\.000 |
 | Unità massime | 200 | 200 | 1 |
-| Aggiornamenti del dispositivo (creazione, aggiornamento <br/> eliminazione) per unità al giorno | 1100 | 1100 | 1100 |
 
 > [AZURE.NOTE] Se si prevede l'utilizzo di più di 200 unità con un hub di livello S1 o S2, contattare il supporto tecnico di Microsoft.
 
@@ -29,8 +28,9 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Limitazione | Valore per ogni hub |
 | -------- | ------------- |
 | Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione), <br/> importazione/esportazione singola o in blocco | 100/min/unità, fino a 5000/min |
-| Connessioni del dispositivo | 100/sec/unità |
+| Connessioni del dispositivo | 120/sec/unità (per S2), 12/sec/unità (per S1). Almeno 100/sec. |
 | Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1) <br/> Minimo 100/sec |
-| Operazioni dal cloud al dispositivo <br/> (inoltri, ricezioni e suggerimenti) | 100/min/unità |
+| Inoltri dal cloud al dispositivo | 100/min/unità |
+| Ricezioni dal cloud al dispositivo | 1000/min/unità |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

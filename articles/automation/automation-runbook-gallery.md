@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 
@@ -108,4 +108,4 @@ I moduli di PowerShell contengono cmdlet che è possibile usare all'interno dei 
 - [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 - [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

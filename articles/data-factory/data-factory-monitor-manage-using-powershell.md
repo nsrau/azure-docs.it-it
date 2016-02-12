@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Azure PowerShell
@@ -26,7 +26,8 @@
 
 L'esercitazione [Introduzione a Data factory di Azure][adf-get-started] illustra come creare e monitorare una data factory di Azure mediante il [portale di Azure][azure-portal]. In questa esercitazione verrà creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione copia i dati da un BLOB di Azure e li inserisce in un database SQL di Azure.
 
-> [AZURE.IMPORTANT]Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
+> [AZURE.IMPORTANT] 
+Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 >   
 > Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory](https://msdn.microsoft.com/library/dn820234.aspx) per la documentazione completa sui cmdlet di Data factory.
   
@@ -56,7 +57,7 @@ Passaggio | Descrizione
 [Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio verrà creata una pipeline denominata **ADFTutorialPipeline** nella data factory **ADFTutorialDataFactoryPSH**. La pipeline avrà un'**attività di copia** che copia dati da un BLOB di Azure e li inserisce in una tabella di output del database di Azure.
 [Passaggio 5: Monitorare i set di dati e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio si monitoreranno i set di dati e la pipeline mediante Azure PowerShell.
 
-## <a name="CreateDataFactory"></a>Passaggio 1: Creare un'istanza di Data factory di Azure
+## <a name="CreateDataFactory"></a> Passaggio 1: Creare un'istanza di Data factory di Azure
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata **ADFTutorialDataFactoryPSH**.
 
 1. Aprire Azure PowerShell ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
@@ -74,7 +75,7 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 
 	È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato un errore analogo a **Il nome "ADFTutorialDataFactoryPSH" per la data factory non è disponibile**, cambiare il nome, ad esempio, nomeutenteADFTutorialDataFactoryPSH. Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md).
 
-	> [AZURE.NOTE]Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
+	> [AZURE.NOTE] Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
 ## <a name="CreateLinkedServices"></a>Passaggio 2: Creare servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere una risorsa di archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale che include dati di input o archivia dati di output per una pipeline di Data factory. Un servizio di calcolo è un servizio che elabora dati di input e produce dati di output.
@@ -442,4 +443,4 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

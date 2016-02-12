@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Attività Hive
@@ -108,7 +108,7 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
 3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato "HiveSampleIn", mentre il set di dati di output è denominato "HiveSampleOut".
 4. Copiare la query Hive come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se il servizio collegato che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo per la configurazione dell'attività. Usare **scriptPath** per specificare il percorso del file di query Hive e **scriptLinkedService** per specificare l'archivio di Azure contenente il file script.
 
-	> [AZURE.NOTE]In alternativa, è possibile specificare lo script Hive inline nella definizione di attività usando la proprietà **script**. Questa, tuttavia, non è la procedura consigliata poiché tutti i caratteri speciali usati nello script all'interno del documento JSON devono essere preceduti da un carattere di escape e questo può causare problemi di debug. Si consiglia di seguire il passaggio 4.
+	> [AZURE.NOTE] In alternativa, è possibile specificare lo script Hive inline nella definizione di attività usando la proprietà **script**. Questa, tuttavia, non è la procedura consigliata poiché tutti i caratteri speciali usati nello script all'interno del documento JSON devono essere preceduti da un carattere di escape e questo può causare problemi di debug. Si consiglia di seguire il passaggio 4.
 5.	Creare la pipeline riportata di seguito con l'attività HDInsightHive per elaborare i dati.
 
 		{
@@ -214,4 +214,4 @@ Per impostare i parametri per lo script Hive, seguire questa procedura:
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

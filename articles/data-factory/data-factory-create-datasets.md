@@ -131,7 +131,7 @@ Sezionamenti giornalieri che iniziano alle 6 AM anziché alla mezzanotte predefi
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ Se è necessario eseguire una pipeline su base mensile a una data e ora specific
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

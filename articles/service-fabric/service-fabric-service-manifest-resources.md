@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Specificare le risorse in un manifesto del servizio
@@ -92,7 +92,7 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
 
 Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare questa opzione nel servizio di Service Fabric, quando si definisce il servizio, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
 
->[AZURE.NOTE]Un protocollo del servizio non può essere modificato durante l'aggiornamento dell'applicazione, poiché il risultato sarà una modifica sostanziale.
+>[AZURE.NOTE] Un protocollo del servizio non può essere modificato durante l'aggiornamento dell'applicazione, poiché il risultato sarà una modifica sostanziale.
 
 
 Di seguito è riportato un esempio ApplicationManifest che è necessario impostare per il protocollo HTTPS. È necessario fornire l'identificazione personale per il certificato. EndpointRef è un riferimento a EndpointResource in ServiceManifest per cui si imposta il protocollo HTTPS. È possibile aggiungere più Endpointcertificate.
@@ -137,4 +137,4 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

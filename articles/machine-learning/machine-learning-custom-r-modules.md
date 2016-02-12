@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@ All'interno dell'elemento **Module** è possibile specificare un elemento **Owne
 * Il contenuto dell'elemento **Description** non deve superare i 128 caratteri.
 * Il contenuto dell'elemento **Owner** non deve superare i 32 caratteri.
 
-** Indica se i risultati di un modulo sono deterministici o non deterministici
+
+**Indica se i risultati di un modulo sono deterministici o non deterministici**
 
 Per impostazione predefinita, tutti i moduli sono considerati deterministici. Ovvero, dato un set di parametri non modificabile, il modulo deve restituire gli stessi risultati ogni volta che viene eseguito. In base a tale comportamento, Azure Machine Learning Studio non esegue nuovamente i moduli contrassegnati come deterministici a meno che non sia stato modificato un parametro o i dati di input. Vengono restituiti i risultati memorizzati nella cache con un'esecuzione più rapida dell'esperimento.
 
@@ -131,7 +132,7 @@ Le porte di input e di output per un modulo personalizzato vengono specificate n
 
 **Regole porte**:
 
-* Il numero massimo di **porte di input e di output** è 8 per ciascuna.
+* Il numero massimo di **porte di input e di output** è 8 per ciascuno.
 
 ### Elementi di input
 Le porte di input consentono agli utenti di passare i dati all'area di lavoro e alla funzione R. I **tipi di dati** supportati dalle porte di input e output sono i seguenti:
@@ -170,10 +171,8 @@ Per i moduli personalizzati R, non è necessario che l'ID di una porta Zip corri
 	</Output>
 
 Per gli output in moduli R personalizzati, il valore dell'attributo **id** non deve corrispondere ad alcun elemento nello script R, ma deve essere univoco. Per l'output di un modulo singolo, il valore restituito dalla funzione R deve essere un *data.frame*. Per poter restituire più di un oggetto di un tipo di dati supportato, è necessario specificare le porte di output appropriate nel file di definizione XML e restituire gli oggetti come elenco. Gli oggetti di output verranno assegnati alle porte di output da sinistra a destra, in base all'ordine in cui gli oggetti vengono inseriti nell'elenco restituito.
- 
-Ad esempio, se si desidera restituire un set di dati, Dataset1 e Dataset2 in un set di dati di porte di output, dataset1 e dataset2 da sinistra a destra, rispettivamente, definire le porte di output nel file 'CustomAddRows.xmll' come segue:
 
-Ad esempio, se si vuole modificare il modulo **Add Rows personalizzato** per l'output dei due seti di dati originali, *dataset1* e *dataset2*, oltre al nuovo set di dati *dataset* (in un ordine da sinistra a destra, del tipo *dataset*, *dataset1*, *dataset2*), definire le porte di output nel file CustomAddRows.xml come segue:
+Ad esempio, se si desidera modificare il modulo **Add rows personalizzato** per l'output dei due set di dati originali, *dataset1* e *dataset2*, oltre al nuovo set di dati *dataset* unito (in un ordine da sinistra a destra, del tipo *dataset*, *dataset1*, *dataset2*), definire le porte di output nel file CustomAddRows.xml come segue:
 
 	<Ports> 
 		<Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -203,7 +202,7 @@ Restituire quindi gli oggetti in un elenco con l'ordine corretto in 'CustomAddRo
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
+**Output di visualizzazione:** è inoltre possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -363,4 +362,4 @@ Le **limitazioni dell'ambiente di esecuzione** includono:
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

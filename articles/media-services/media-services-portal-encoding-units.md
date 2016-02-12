@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@
 
 ## Panoramica
 
-Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **Basic**, **Standard** o **Premium**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **Standard** rispetto a quando si usa il tipo **Basic**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](https://azure.microsoft.com/blog/author/milanga/).
+Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **S2** rispetto al tipo **S1**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](https://azure.microsoft.com/blog/author/milanga/).
 
 Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con unità riservate di codifica. Il numero delle unità riservate di codifica sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account. Se, ad esempio, il proprio account dispone di cinque unità riservate, è possibile eseguire simultaneamente cinque attività multimediali, purché siano presenti attività da elaborare. Le attività rimanenti verranno messe in coda e prelevate in sequenza per l'elaborazione non appena un'attività in esecuzione viene completata. Se per un account non sono state fornite unità riservate, le attività verranno prelevate in sequenza. In questo caso, il tempo di attesa tra il completamento di un'attività e l'avvio di quella successiva dipende dalle risorse disponibili nel sistema.
 
@@ -40,7 +40,7 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 
 2. Selezionare la pagina **CODIFICA**.
 
-	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere BASIC, STANDARD o PREMIUM.
+	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere S1, S2 o S3.
 
 	Per cambiare il numero di unità riservate per il tipo selezionato, usare il dispositivo di scorrimento **CODIFICA**.
 
@@ -70,4 +70,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

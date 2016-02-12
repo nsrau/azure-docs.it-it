@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite modelli di Gestione risorse di Azure
@@ -128,7 +128,7 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 - Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
-- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere l'articolo relativo alla [creazione di modelli](resource-group-authoring-templates.md).
 - Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere l'articolo relativo alle [funzioni del modello](resource-group-template-functions.md).
 
@@ -444,4 +444,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

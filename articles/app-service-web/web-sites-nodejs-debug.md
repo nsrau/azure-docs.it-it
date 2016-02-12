@@ -4,9 +4,9 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="TomArcher"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="tarcher"/>
+	ms.date="02/03/2016"
+	ms.author="robmcm"/>
 
 # Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
 
@@ -40,11 +40,11 @@ In tal modo la registrazione di stderr e stdout dall'applicazione Node.js verrà
 
 Dopo aver abilitato questa opzione, IISNode restituirà gli ultimi 64 KB di informazioni inviate a stderr anziché un errore descrittivo, quale "si è verificato un errore interno del server".
 
-> [AZURE.NOTE]devErrorsEnabled è utile per diagnosticare problemi che si verificano durante lo sviluppo, tuttavia se viene abilitato in un ambiente di produzione è possibile che gli eventuali errori di sviluppo vengano inviati agli utenti finali.
+> [AZURE.NOTE] devErrorsEnabled è utile per diagnosticare problemi che si verificano durante lo sviluppo, tuttavia se viene abilitato in un ambiente di produzione è possibile che gli eventuali errori di sviluppo vengano inviati agli utenti finali.
 
 Se il **IISNode.yml** non esisteva già nell'applicazione, sarà necessario riavviare il sito Web dopo aver pubblicato l'applicazione aggiornata. Se si intende solo modificare le impostazioni in un file **IISNode.yml** già pubblicato, il riavvio non è richiesto.
 
-> [AZURE.NOTE]Se il sito Web è stato creato con gli strumenti da riga di comando di Azure o i cmdlet di Azure PowerShell, verrà creato automaticamente un file **IISNode.yml** predefinito.
+> [AZURE.NOTE] Se il sito Web è stato creato con gli strumenti da riga di comando di Azure o i cmdlet di Azure PowerShell, verrà creato automaticamente un file **IISNode.yml** predefinito.
 
 Per riavviare l'app Web, selezionarla nel [portale di Azure](https://portal.azure.com) e quindi fare clic sul pulsante **RIAVVIA**:
 
@@ -54,7 +54,7 @@ Se nell'ambiente di sviluppo sono installati gli strumenti da riga di comando di
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più utilizzate di IISNode.yml per acquisire informazioni diagnostiche, è possibile utilizzare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE] Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più utilizzate di IISNode.yml per acquisire informazioni diagnostiche, è possibile utilizzare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Accesso ai log
@@ -69,7 +69,7 @@ Dopo l'installazione, è possibile accedere agli strumenti tramite il comando 'a
 
 Per accedere alle informazioni diagnostiche tramite FTP, visitare il [portale di Azure](https://portal.azure.com), selezionare l’app Web e scegliere **DASHBOARD**. Nella sezione **quick links** fare clic sui collegamenti **FTP DIAGNOSTIC LOGS** e **FTPS DIAGNOSTIC LOGS** per accedere ai log tramite il protocollo FTP.
 
-> [AZURE.NOTE]Se in precedenza non sono stati configurati nome utente e password per FTP o per la distribuzione, è possibile effettuare questa operazione nella pagina di gestione **Quick Start** selezionando **Set up deployment credentials**.
+> [AZURE.NOTE] Se in precedenza non sono stati configurati nome utente e password per FTP o per la distribuzione, è possibile effettuare questa operazione nella pagina di gestione **Quick Start** selezionando **Set up deployment credentials**.
 
 L'URL FTP restituito nel dashboard si riferisce alla directory **LogFiles**, che conterrà le seguenti sottodirectory:
 
@@ -115,7 +115,7 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [file Readme di IISNode]: https://github.com/tjanczuk/iisnode#readme
@@ -126,4 +126,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

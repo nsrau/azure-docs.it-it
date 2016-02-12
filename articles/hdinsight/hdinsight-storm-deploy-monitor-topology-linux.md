@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux
 
 In questo documento sono illustrati i concetti di gestione e monitoraggio delle topologie Storm in esecuzione su Storm basato su Linux in cluster HDInsight.
 
-> [AZURE.IMPORTANT]I passaggi descritti in questo articolo richiedono una versione di Storm basata su Linux nel cluster HDInsight. Per informazioni sulla distribuzione e sul monitoraggio di topologie in HDInsight basato su Windows, vedere [Distribuire e gestire le topologie di Apache Storm in HDInsight basato su Windows](hdinsight-storm-deploy-monitor-topology.md)
+> [AZURE.IMPORTANT] I passaggi descritti in questo articolo richiedono una versione di Storm basata su Linux nel cluster HDInsight. Per informazioni sulla distribuzione e sul monitoraggio di topologie in HDInsight basato su Windows, vedere [Distribuire e gestire le topologie di Apache Storm in HDInsight basato su Windows](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Prerequisiti
 
-- **Storm basato su Linux in cluster HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm in HDInsight](hdinsight-storm-get-started-linux.md).
+- **Storm basato su Linux in cluster HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
 - **Familiarità con SSH e SCP**: per altre informazioni sull'uso di SSH e SCP con HDInsight, vedere gli articoli seguenti:
     - **Client Linux, Unix o OS X**: vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X o Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -50,7 +50,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
     Verrà avviata la topologia di esempio WordCount nel cluster. Verranno generate in modo casuale le frasi e verranno conteggiate le occorrenze di ogni parola nelle frasi.
 
-    > [AZURE.NOTE]Durante l'invio di una topologia al cluster, è prima di tutto necessario copiare il file con estensione JAR contenente il cluster prima di usare il comando `storm`. A tale scopo, usare il comando `scp` dal client in cui è presente il file. Ad esempio: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] Durante l'invio di una topologia al cluster, è prima di tutto necessario copiare il file con estensione JAR contenente il cluster prima di usare il comando `storm`. A tale scopo, usare il comando `scp` dal client in cui è presente il file. Ad esempio: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > L'esempio WordCount e altri esempi di avvio dell'utilità storm sono già inclusi nel cluster in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -88,7 +88,7 @@ Una volta avviate, le topologie di Storm continueranno a rimanere in esecuzione 
 
 Il ribilanciamento di una topologia consente al sistema di analizzare il parallelismo della topologia. Ad esempio, se il cluster è stato ridimensionato per aggiungere altre note, il ribilanciamento consentirà una topologia in esecuzione di usare i nuovi nodi.
 
-> [AZURE.WARNING]Il ribilanciamento di una topologia disattiva innanzitutto la topologia, ridistribuisce i processi di lavoro in modo uniforme nel cluster, quindi restituisce la topologia allo stato in cui si trovava prima che venisse eseguito il ribilanciamento. Se la topologia era attiva, tornerà a essere attiva di nuovo. Se invece era disattivata, rimarrà disattivata.
+> [AZURE.WARNING] Il ribilanciamento di una topologia disattiva innanzitutto la topologia, ridistribuisce i processi di lavoro in modo uniforme nel cluster, quindi restituisce la topologia allo stato in cui si trovava prima che venisse eseguito il ribilanciamento. Se la topologia era attiva, tornerà a essere attiva di nuovo. Se invece era disattivata, rimarrà disattivata.
 
     storm rebalance TOPOLOGYNAME
 
@@ -96,7 +96,7 @@ Il ribilanciamento di una topologia consente al sistema di analizzare il paralle
 
 L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'interfaccia Web da usare con le topologie in esecuzione. Per visualizzare l'interfaccia utente di Storm, usare un Web browser per aprire \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__, dove __CLUSTERNAME__ è il nome del cluster.
 
-> [AZURE.NOTE]Se viene richiesto di fornire un nome utente e una password, immettere l'amministratore del cluster e la password usati durante la creazione del cluster.
+> [AZURE.NOTE] Se viene richiesto di fornire un nome utente e una password, immettere l'amministratore del cluster e la password usati durante la creazione del cluster.
 
 
 ### Pagina principale
@@ -126,7 +126,7 @@ L'interfaccia utente di Storm si basa sull'API REST. È pertanto possibile esegu
 
 Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
 
-> [AZURE.IMPORTANT]L'API REST di Storm non è disponibile pubblicamente su Internet ed è necessario accedervi usando un tunnel SSH al nodo head del cluster HDInsight. Per informazioni sulla creazione e sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.IMPORTANT] L'API REST di Storm non è disponibile pubblicamente su Internet ed è necessario accedervi usando un tunnel SSH al nodo head del cluster HDInsight. Per informazioni sulla creazione e sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### URI di base
 
@@ -143,7 +143,7 @@ L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibil
 
 Le richieste all'API REST devono usare l'**autenticazione di base** con il nome e la password amministratore del cluster HDInsight.
 
-> [AZURE.NOTE]Poiché l'autenticazione di base viene inviata in testo non crittografato, è necessario usare **sempre** HTTPS per proteggere le comunicazioni con il cluster.
+> [AZURE.NOTE] Poiché l'autenticazione di base viene inviata in testo non crittografato, è necessario usare **sempre** HTTPS per proteggere le comunicazioni con il cluster.
 
 ### Valori restituiti
 
@@ -155,4 +155,4 @@ A questo punto, dopo aver appreso come distribuire e monitorare le topologie usa
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

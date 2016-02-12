@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 ## Per creare un'area di lavoro
 
-1. Accedere con il proprio account di Microsoft Azure.
+1. Accedere al [portale di Microsoft Azure classico](https://manage.windowsazure.com/).
 2. Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
 
     ![Servizio Machine Learning][1]
@@ -41,7 +41,7 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 5. Specificare i valori per **NOME AREA DI LAVORO** e **PROPRIETARIO DELL'AREA DI LAVORO**. Il proprietario dell'area di lavoro deve essere un account Microsoft valido (ad esempio, name@outlook.com).
 
-    > [AZURE.NOTE]Successivamente, è possibile condividere gli esperimenti su cui si sta lavorando invitando altri utenti nella propria area di lavoro. Questa operazione può essere eseguita nella pagina **SETTINGS** di Machine Learning Studio. È sufficiente conoscere l'account Microsoft o l'account aziendale di ogni utente.
+    > [AZURE.NOTE] Successivamente, è possibile condividere gli esperimenti su cui si sta lavorando invitando altri utenti nella propria area di lavoro. Questa operazione può essere eseguita nella pagina **SETTINGS** di Machine Learning Studio. È sufficiente conoscere l'account Microsoft o l'account aziendale di ogni utente.
 
 6. Specificare un valore per **LOCALITÀ** di Azure, quindi immettere un **ACCOUNT DI ARCHIVIAZIONE** di Azure esistente o selezionare **Crea un nuovo account di archiviazione** per crearne uno nuovo.
 7. Fare clic su **CREA UN'AREA DI LAVORO ML**.
@@ -67,4 +67,4 @@ Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Esercitazione: Integrazione di Salesforce con Azure Active Directory | Microsoft Azure"
-   description="Informazioni su come usare Salesforce con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Salesforce | Microsoft Azure"
+    description="Informazioni su come usare Salesforce con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Esercitazione: Come eseguire l'integrazione di Salesforce con Azure Active Directory
 
@@ -26,7 +26,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di Salesforce ad Azu
 
 2. È necessario avere un tenant valido in [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Se si usa un account **di valutazione** di Salesforce.com, non sarà possibile configurare il provisioning automatizzato degli utenti. Gli account di valutazione non hanno l'accesso API necessario, che viene abilitato solo dopo l'acquisto.
+> [AZURE.IMPORTANT] Se si usa un account **di valutazione** di Salesforce.com, non sarà possibile configurare il provisioning automatizzato degli utenti. Gli account di valutazione non hanno l'accesso API necessario, che viene abilitato solo dopo l'acquisto.
 > 
 > Per aggirare questa limitazione, è possibile usare un [account gratuito per sviluppatori](https://developer.salesforce.com/signup) per completare l'esercitazione.
 
@@ -48,7 +48,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) fare clic su **Active Directory** nel pannello di navigazione sinistro.
 
-	![Selezionare Active Directory dal pannello di navigazione di sinistra.][0]
+	![Selezionare Active Directory dal riquadro di spostamento a sinistra.][0]
 
 2. Dall'elenco **Directory** selezionare la directory in cui si vuole aggiungere Salesforce.
 
@@ -56,11 +56,11 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Fare clic su applicazioni.][1]
 
-4. Fare clic su **Aggiungi** nella parte inferiore della pagina.
+4. Fare clic su **Add** nella parte inferiore della pagina.
 
 	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
 	![Fare clic su Aggiungi un'applicazione dalla raccolta.][3]
 
@@ -84,7 +84,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Selezionare Single Sign-On di Microsoft Azure AD.][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Nella pagina **Configurare le impostazioni applicazione** specificare l'**URL di accesso**, immettendo l'URL del dominio di Salesforce nel formato seguente:
  - Account aziendale: `https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Fare clic su Edit.][11]
 
-	> [AZURE.NOTE]Se non si è in grado di abilitare le impostazioni dell'accesso Single Sign-On per l'account Salesforce, potrebbe essere necessario contattare il supporto tecnico di Salesforce e richiedere l'abilitazione di questa funzionalità.
+	> [AZURE.NOTE] Se non si è in grado di abilitare le impostazioni dell'accesso Single Sign-On per l'account Salesforce, potrebbe essere necessario contattare il supporto tecnico di Salesforce e richiedere l'abilitazione di questa funzionalità.
 
 9. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
 
@@ -152,7 +152,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Selezionare la configurazione SSO.][17]
 
-	> [AZURE.NOTE]Se vengono selezionati più servizi di autenticazione, quando un utente tenta di avviare l'accesso Single Sign-On all'ambiente di Salesforce, verrà richiesta la selezione del servizio di autenticazione da usare per l'accesso. Se non si vuole visualizzare la richiesta, è consigliabile **lasciare deselezionati tutti gli altri servizi di autenticazione**.
+	> [AZURE.NOTE] Se vengono selezionati più servizi di autenticazione, quando un utente tenta di avviare l'accesso Single Sign-On all'ambiente di Salesforce, verrà richiesta la selezione del servizio di autenticazione da usare per l'accesso. Se non si vuole visualizzare la richiesta, è consigliabile **lasciare deselezionati tutti gli altri servizi di autenticazione**.
 
 15. In Azure AD selezionare la casella di controllo di conferma della configurazione Single Sign-On per abilitare il certificato caricato in Salesforce. Quindi fare clic su **Avanti**.
 
@@ -174,7 +174,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Immettere il nome utente o la password dell'amministratore.][21]
 
-	> [AZURE.NOTE]Se si sta configurando un ambiente di produzione, è consigliabile creare un nuovo account di amministratore in Salesforce specifico per questo passaggio. A questo account deve essere assegnato il profilo **System Administrator** in Salesforce.
+	> [AZURE.NOTE] Se si sta configurando un ambiente di produzione, è consigliabile creare un nuovo account di amministratore in Salesforce specifico per questo passaggio. A questo account deve essere assegnato il profilo **System Administrator** in Salesforce.
 
 3. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **My Settings**.
 
@@ -206,7 +206,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Fare clic su Assegna utenti.][27]
 
-3. Selezionare l'utente di test, quindi fare clic su **Assegna** nella parte inferiore della schermata:
+3. Selezionare l'utente di test e quindi fare clic su **Assegna** nella parte inferiore della schermata:
 
  - Se il provisioning automatizzato degli utenti non è stato abilitato, verrà visualizzata la richiesta di conferma seguente:
 
@@ -216,7 +216,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se si sta eseguendo il provisioning in un ambiente **svliuppatore** di Salesforce, sarà disponibile un numero ridotto di licenze per ogni profilo. Pertanto, si consiglia di eseguire il provisioning nel profilo **utenti Chatter gratuiti**, il quale dispone di 4.999 licenze.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
@@ -253,4 +253,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

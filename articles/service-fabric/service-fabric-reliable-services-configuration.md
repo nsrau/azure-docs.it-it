@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Configurazione di Reliable Services con stato
@@ -24,7 +24,7 @@
 
 Per impostazione predefinita, il runtime di Azure Service Fabric cerca i nomi di sezione predefiniti nel file settings.xml e usa i valori di configurazione durante la creazione dei componenti di runtime sottostanti.
 
->[AZURE.NOTE]**Non** eliminare i nomi di sezione delle configurazioni seguenti nel file "Settings.xml" generato nella soluzione Visual Studio, a meno che non si preveda di configurare il servizio tramite codice. La ridenominazione del pacchetto di configurazione o dei nomi di sezione richiede una modifica del codice quando si configura ReliableStateManager.
+>[AZURE.NOTE] **Non** eliminare i nomi di sezione delle configurazioni seguenti nel file "Settings.xml" generato nella soluzione Visual Studio, a meno che non si preveda di configurare il servizio tramite codice. La ridenominazione del pacchetto di configurazione o dei nomi di sezione richiede una modifica del codice quando si configura ReliableStateManager.
 
 
 ## Configurazione della sicurezza del replicatore
@@ -33,7 +33,7 @@ Le configurazioni della sicurezza del replicatore consentono di proteggere il ca
 ### Nome predefinito della sezione
 ReplicatorSecurityConfig
 
->[AZURE.NOTE]Per modificare questo nome di sezione, sostituire il parametro replicatorSecuritySectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
+>[AZURE.NOTE] Per modificare questo nome di sezione, sostituire il parametro replicatorSecuritySectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
 
 
 ## Configurazione del replicatore
@@ -42,7 +42,7 @@ Le configurazioni del replicatore consentono di configurare il replicatore respo
 ### Nome predefinito della sezione
 ReplicatorConfig
 
->[AZURE.NOTE]Per modificare questo nome di sezione, sostituire il parametro replicatorSettingsSectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
+>[AZURE.NOTE] Per modificare questo nome di sezione, sostituire il parametro replicatorSettingsSectionName del costruttore ReliableStateManagerConfiguration durante la creazione di ReliableStateManager per questo servizio.
 
 
 ### Nomi delle configurazioni
@@ -107,4 +107,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima dei record che 
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. È probabile che questo valore debba essere modificato solo in rari casi.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

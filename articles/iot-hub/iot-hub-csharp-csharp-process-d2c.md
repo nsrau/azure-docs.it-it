@@ -20,7 +20,7 @@
 
 ## Introduzione
 
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e protette tra milioni di dispositivi IoT e un back-end dell'applicazione. Altre esercitazioni, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. Altre esercitazioni, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
 
 Questa esercitazione è basata sul codice mostrato nell'esercitazione [Introduzione all'hub IoT] e illustra due modelli scalabili che è possibile usare per elaborare i messaggi da dispositivo a cloud:
 
@@ -98,6 +98,7 @@ Altre informazioni sull'hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Gestione degli errori temporanei]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
 
 [Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud]: https://azure.microsoft.com/it-IT/documentation/articles/iot-hub-devguide/#d2c
 
@@ -116,4 +117,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

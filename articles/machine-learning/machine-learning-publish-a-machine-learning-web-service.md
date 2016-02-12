@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # Distribuire un servizio Web di Azure Machine Learning
@@ -50,7 +50,7 @@ Il processo di creazione e gestione degli esperimenti di training è trattato in
 
 - [Creare un semplice esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md)
 - [Sviluppare una soluzione predittiva con Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md)
+- [Importare dati di training in Azure Machine Learning Studio](machine-learning-data-science-import-data.md)
 - [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md)
 
 ## Convertire l'esperimento di training in un esperimento predittivo
@@ -108,8 +108,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 Per aggiornare il servizio Web, aprire l'esperimento predittivo originale usato per distribuire il servizio Web e creare una copia modificabile facendo clic su **SALVA CON NOME**. Eseguire le modifiche e fare clic su **Distribuisci Servizio Web**. Poiché l'esperimento è stato distribuito in precedenza, Machine Learning Studio chiede se si desidera sovrascrivere il servizio esistente. Facendo clic su **SÌ**, il servizio Web esistente si arresta e al suo posto viene distribuito il nuovo esperimento predittivo.
 
-> [AZURE.NOTE]Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
+> [AZURE.NOTE] Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

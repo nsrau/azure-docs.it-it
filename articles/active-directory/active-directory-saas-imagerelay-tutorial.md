@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ImageRelay."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con ImageRelay
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con ImageRelay, sono necessari gli el
 - Sottoscrizione di ImageRelay abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Descrizione dello scenario
@@ -61,7 +61,7 @@ Per configurare l'integrazione di ImageRelay in Azure AD, è necessario aggiunge
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br> ![Applicazioni][2]<br>
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **ImageRelay**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
@@ -107,7 +107,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) <br>
 
-    a. Fare clic su **Download certificato** e quindi salvare il file nel computer.
+    a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
@@ -151,7 +151,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test nel portale di Azure denominato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
     e. Fare clic su **Avanti**.
 
@@ -187,7 +187,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) <br>
 
-    a. Prendere nota del valore in **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -253,4 +253,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

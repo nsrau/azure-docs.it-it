@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da MySQL mediante Data factory di Azure
@@ -32,8 +32,9 @@ Perché Gateway di gestione dati si connetta al database MySQL, è necessario in
 > [AZURE.NOTE] Per suggerimenti sulla risoluzione dei problemi di connessione/gateway, vedere l'articolo relativo alla [risoluzione dei problemi del gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting).
 
 ## Esempio: Copiare i dati da MySQL a BLOB di Azure
-
-L'esempio seguente mostra:
+Questo esempio illustra come copiare dati da un database MySQL locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+ 
+L'esempio include le entità di Data factory seguenti:
 
 1.	Un servizio collegato di tipo [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
 2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -232,7 +233,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati MySQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
-## Proprietà del tipo del set di dati MySQL
+## Proprietà del tipo di set di dati MySQL
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
@@ -312,4 +313,4 @@ Quando si spostano i dati in MySQL verranno usati i mapping seguenti dal tipo My
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

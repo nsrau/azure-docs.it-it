@@ -3,7 +3,6 @@
    description="Azure Active Directory B2B supporta le relazioni tra aziende abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
    services="active-directory"
    authors="viv-liu"
-   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -14,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Procedura dettagliata di utilizzo dell'anteprima di Azure Active Directory (Azure AD) B2B Collaboration
+# Anteprima di Collaborazione B2B di Azure AD: procedura dettagliata
+
 In questa procedura dettagliata viene descritto come utilizzare Azure AD B2B Collaboration. In qualità di amministratore IT di Contoso, si desidera condividere le applicazioni con i dipendenti da tre società partner. Per nessuna delle società partner è necessario disporre di Azure AD.
 
 - Alice dall'organizzazione Simple Partner
@@ -80,4 +80,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 
 ## Panoramica
 
-Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione tabelle di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
+Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione tabelle di Azure. Gli esempi di codice usano [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) versione 1.x.
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Come usare l'archiviazione tabelle da .NET").
 
@@ -142,7 +142,7 @@ Il seguente esempio di codice usa un oggetto **CloudTable** per aggiungere una s
 		    tableBinding.Execute(insertOperation);
 		}
 
-Per altre informazioni su come usare l'oggetto **CloudTable**, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables.md).
+Per altre informazioni su come usare l'oggetto **CloudTable**, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](./storage-dotnet-how-to-use-tables.md).
 
 ## Argomenti correlati trattati nell'articolo delle procedure sulle code
 
@@ -154,4 +154,4 @@ Per informazioni su come gestire l'elaborazione di tabelle attivata da un messag
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

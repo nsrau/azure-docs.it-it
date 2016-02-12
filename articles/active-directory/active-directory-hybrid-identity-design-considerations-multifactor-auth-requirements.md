@@ -20,7 +20,8 @@
 
 Nell'era della mobilità, in cui gli utenti accedono a dati e applicazioni nel cloud con qualsiasi dispositivo, proteggere queste informazioni è diventata un'esigenza assoluta. Ogni giorno viene data notizia di una nuova violazione della sicurezza. Sebbene non esista una soluzione in grado di fornire una protezione assoluta contro tali violazioni, l'autenticazione a più fattori fornisce un livello aggiuntivo di sicurezza nel tentativo di contrastarle. In primo luogo, quindi, è opportuno valutare i requisiti aziendali per l'autenticazione a più fattori, ovvero stabilire gli elementi che l'azienda desidera proteggere. Questa valutazione è importante per definire i requisiti tecnici a cui attenersi per configurare e abilitare gli utenti aziendali per l'autenticazione a più fattori.
 
->[AZURE.NOTE]Se non si ha familiarità con l'autenticazione a più fattori, è consigliabile leggere l'articolo [Informazioni su Azure Multi-Factor Authentication](multi-factor-authentication.md) prima di andare avanti.
+>[AZURE.NOTE]
+Se non si ha familiarità con l'autenticazione a più fattori, è consigliabile leggere l'articolo [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) prima di andare avanti.
 
 Accertarsi che venga fornita una risposta alle domande seguenti:
 
@@ -57,4 +58,4 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

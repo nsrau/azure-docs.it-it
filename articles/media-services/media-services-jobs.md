@@ -45,7 +45,7 @@ Un processo è un'entità contenente i metadati relativi a un set di attività, 
 
 ##Codifica
 
-Codificare con **Azure Media Encoder** tramite il **portale di Azure classico**, **.NET** o **API REST**.
+Codificare con **Media Encoder Standard** tramite il **portale di Azure classico**, **.NET** o l'**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@ Monitorare lo stato di avanzamento dei processi tramite il **portale di Azure cl
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

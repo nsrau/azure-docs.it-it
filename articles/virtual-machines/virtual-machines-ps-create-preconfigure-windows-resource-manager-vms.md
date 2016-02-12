@@ -271,7 +271,7 @@ Per determinare i possibili valori della stringa di dimensione della macchina vi
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]Gestione risorse consente attualmente di aggiungere una sola macchina virtuale a un set di disponibilità mentre viene creato.
+> [AZURE.NOTE] Gestione risorse consente attualmente di aggiungere una sola macchina virtuale a un set di disponibilità mentre viene creato.
 
 Per aggiungere un altro disco dati alla macchina virtuale, copiare le righe seguenti al set di comandi e specificare le impostazioni del disco.
 
@@ -391,8 +391,8 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 [Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Creare una macchina virtuale Windows con un modello di Gestione risorse e PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
+[Come installare e configurare Azure PowerShell](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

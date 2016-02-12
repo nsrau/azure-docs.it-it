@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Panoramica di Testabilità
@@ -115,4 +115,4 @@ Per creare servizi effettivamente a livello di cloud, è fondamentale assicurars
   - [Simulare gli errori durante i carichi di lavoro del servizio](service-fabric-testability-workload-tests.md)
   - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

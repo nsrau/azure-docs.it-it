@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga 
 
-Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) offrono un potente set di funzionalità per ridimensionare in modo flessibile ed efficace il livello dati di un'applicazione multi-tenant con database SQL di Azure. In questo articolo viene illustrato come utilizzare queste tecnologie insieme per compilare un'applicazione con un livello di dati altamente scalabile che supporta partizioni multi-tenant, utilizzando **ADO.NET SqlClient** e/o **Entity Framework**.
+Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) offrono un potente set di funzionalità per ridimensionare in modo flessibile ed efficace il livello dati di un'applicazione multi-tenant con database SQL di Azure. In questo articolo viene illustrato come utilizzare queste tecnologie insieme per compilare un’applicazione con un livello di dati altamente scalabile che supporta partizioni multi-tenant, utilizzando **ADO.NET SqlClient** e/o **Entity Framework**.
 
 * Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati di un'applicazione tramite procedure di partizionamento orizzontale standard del settore, utilizzando un set di librerie .NET e i modelli di servizio di Azure. La gestione delle partizioni mediante la libreria client di database elastici consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale. 
 
-* La **sicurezza a livello di riga** consente agli sviluppatori di archiviare i dati per più tenant nello stesso database utilizzando criteri di sicurezza per filtrare le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di accesso con RLS all'interno del database, anziché dell'applicazione, semplifica la manutenzione e riduce il rischio di errori nel momento in cui la base di codici di un'applicazione cresce. RLS richiede la versione più recente dell'[aggiornamento di database SQL di Azure (versione 12)](sql-database-preview-whats-new.md).
+* La **sicurezza a livello di riga** consente agli sviluppatori di archiviare i dati per più tenant nello stesso database utilizzando criteri di sicurezza per filtrare le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di accesso con RLS all'interno del database, anziché dell'applicazione, semplifica la manutenzione e riduce il rischio di errori nel momento in cui la base di codici di un'applicazione cresce. RLS richiede la versione più recente dell’[aggiornamento di database SQL di Azure (V12)](../sql-database-v12-whats-new.md).
 
 L'utilizzo combinato di queste funzionalità consente a un'applicazione di usufruire di miglioramenti in termini di efficienza e di risparmiare sui costi grazie alla possibilità di memorizzare i dati per più tenant nello stesso database di partizionamento. Allo stesso tempo, un'applicazione continua ad avere la flessibilità per offrire partizioni single-tenant per tenant "premium" che richiedono garanzie di prestazioni più severe, poiché le partizioni multi-tenant non garantiscono un'uguale distribuzione delle risorse tra i tenant.
 
@@ -215,7 +215,7 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-> [AZURE.TIP]Per i progetti più complessi in cui è necessario aggiungere il predicato in centinaia di tabelle, è possibile usare una stored procedure helper che genera automaticamente criteri di sicurezza aggiungendo un predicato in tutte le tabelle di uno schema. Vedere il [blog relativo all'applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> [AZURE.TIP] Per i progetti più complessi in cui è necessario aggiungere il predicato in centinaia di tabelle, è possibile usare una stored procedure helper che genera automaticamente criteri di sicurezza aggiungendo un predicato in tutte le tabelle di uno schema. Vedere il [blog relativo all'applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Ora se si esegue di nuovo l'applicazione di esempio, i tenant potranno visualizzare unicamente le righe appartenenti ad essi. L'applicazione non può inoltre inserire righe che appartengono a tenant diversi da quello attualmente connesso al database di partizionamento e non può aggiornare le righe visibili in modo che abbiano un TenantId diverso. Se l'applicazione tenta di effettuare una qualsiasi delle due operazioni, verrà generata un'eccezione DbUpdateException.
 
@@ -259,7 +259,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Se si utilizzano i vincoli predefiniti per un progetto Entity Framework, è consigliabile NON includere la colonna TenantId nel modello di dati EF. Il motivo è che le query Entity Framework forniscono automaticamente valori predefiniti che sostituiranno i vincoli predefiniti creati in T-SQL che usano SESSION\_CONTEXT. Per utilizzare i vincoli predefiniti nel progetto di esempio, ad esempio, è necessario rimuovere TenantId da DataClasses.cs (ed eseguire Add-Migration nella console di Gestione pacchetti) e utilizzare T-SQL per garantire che il campo esista unicamente nelle tabelle del database. In questo modo, Entity Framework non fornirà automaticamente valori predefiniti errati durante l'inserimento dei dati.
+> [AZURE.NOTE] Se si utilizzano i vincoli predefiniti per un progetto Entity Framework, è consigliabile NON includere la colonna TenantId nel modello di dati EF. Il motivo è che le query Entity Framework forniscono automaticamente valori predefiniti che sostituiranno i vincoli predefiniti creati in T-SQL che usano SESSION\_CONTEXT. Per utilizzare i vincoli predefiniti nel progetto di esempio, ad esempio, è necessario rimuovere TenantId da DataClasses.cs (ed eseguire Add-Migration nella console di Gestione pacchetti) e utilizzare T-SQL per garantire che il campo esista unicamente nelle tabelle del database. In questo modo, Entity Framework non fornirà automaticamente valori predefiniti errati durante l'inserimento dei dati.
 
 ### (Facoltativo) Abilitare un "superuser" per accedere a tutte le righe
 Alcune applicazioni potrebbero creare un "superuser" che possa accedere a tutte le righe, ad esempio, per abilitare la creazione di rapporti fra tutti i tenant in tutte le partizioni o per eseguire operazioni di suddivisione/unione in partizioni che comportano lo spostamento di righe del tenant tra database. A tale scopo, è necessario creare un nuovo utente SQL ("superuser" in questo esempio) in ogni database di partizionamento. Modificare quindi i criteri di sicurezza con una nuova funzione di predicato che consenta a questo utente di accedere a tutte le righe:
@@ -301,8 +301,7 @@ GO
 
 ## Riepilogo 
 
-Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere utilizzate per archiviare i dati in modo più efficiente (in particolare nei casi in cui un gran numero di tenant dispone solo di poche righe di dati), mentre le partizioni con tenant singolo possono essere utilizzate per supportare i tenant premium con requisiti di prestazioni e isolamento più rigidi. Per ulteriori informazioni, vedere la [mappa della documentazione degli strumenti di database elastici](sql-database-elastic-scale-documentation-map.md) o il [riferimento alla sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) su MSDN.
-
+Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere utilizzate per archiviare i dati in modo più efficiente (in particolare nei casi in cui un gran numero di tenant dispone solo di poche righe di dati), mentre le partizioni con tenant singolo possono essere utilizzate per supportare i tenant premium con requisiti di prestazioni e isolamento più rigidi. Per altre informazioni, vedere [Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -310,4 +309,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

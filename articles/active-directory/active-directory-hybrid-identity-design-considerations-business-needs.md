@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti per la soluzione ibrida di gestione delle identità
@@ -47,7 +47,8 @@ Ora che ci si è fatti un'idea sui requisiti aziendali, è necessario valutare l
 È anche necessario valutare quali sono i servizi cloud usati dall'azienda. È molto importante effettuare una valutazione per acquisire informazioni sull'integrazione corrente con modelli SaaS, IaaS o PaaS nell'ambiente in uso. Per questa valutazione, rispondere alle domande seguenti: - L'azienda fa uso di integrazioni con provider di servizi cloud? - Se sì, quali sono i servizi usati? - Questa integrazione è attualmente in produzione o si tratta di un'integrazione pilota?
 
 
->[AZURE.NOTE]Se non si dispone di una mappatura accurata di tutte le app e i servizi cloud nell'ambiente, è possibile usare lo strumento Cloud App Discovery. Questo strumento fornisce al reparto IT la visibilità necessaria su tutte le app cloud, aziendali e non, usate nell'organizzazione. In questo modo si semplifica l'individuazione di sistemi e soluzioni IT non autorizzati e l'acquisizione di schemi di utilizzo e di informazioni sugli utenti che accedono alle applicazioni cloud. Per accedere a questo strumento, passare a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]
+Se non si dispone di una mappatura accurata di tutte le app e i servizi cloud nell'ambiente, è possibile usare lo strumento Cloud App Discovery. Questo strumento fornisce al reparto IT la visibilità necessaria su tutte le app cloud, aziendali e non, usate nell'organizzazione. In questo modo si semplifica l'individuazione di sistemi e soluzioni IT non autorizzati e l'acquisizione di schemi di utilizzo e di informazioni sugli utenti che accedono alle applicazioni cloud. Per accedere a questo strumento, passare a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## Valutare i requisiti di integrazione della soluzione di gestione delle identità
 A questo punto, è necessario valutare i requisiti di integrazione della soluzione di gestione delle identità. Questa valutazione è importante per definire i requisiti tecnici relativi alla modalità di autenticazione degli utenti, all'aspetto che assumerà l'organizzazione nel cloud, alla modalità in cui l'organizzazione consentirà l'autorizzazione e alla definizione dell'esperienza utente. Rispondere alle domande seguenti:
@@ -94,6 +95,6 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 [Determinare i requisiti di sincronizzazione della directory](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Vedere anche
-[Panoramica delle considerazioni sulla progettazione]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

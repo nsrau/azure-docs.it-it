@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -19,7 +19,7 @@
 
 Un file di configurazione di rete dispone di due elementi che è possibile utilizzare per specificare le impostazioni Domain Name System (DNS):**DnsServers**e**DnsServerRef**. È possibile aggiungere un elenco dei server DNS specificando gli indirizzi IP e nomi di riferimento all’elemento **DnsServers**. È quindi possibile utilizzare un elemento**DnsServerRef**per specificare le voci del server DNS che vengono utilizzate per siti di rete diversi all'interno della rete virtuale.
 
->[AZURE.IMPORTANT]Per altre informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md). Per informazioni sulle impostazioni specifiche contenute in un file di configurazione di rete, vedere [Schema di configurazione di rete virtuale Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+>[AZURE.IMPORTANT] Per altre informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md). Per informazioni sulle impostazioni specifiche contenute in un file di configurazione di rete, vedere [Schema di configurazione di rete virtuale Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 Il file di configurazione di rete può contenere i seguenti elementi. Il titolo di ogni elemento è collegato a una pagina che fornisce informazioni aggiuntive sulle impostazioni del valore dell'elemento.
 
@@ -33,7 +33,7 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
       </DnsServers>
     </Dns>
 
->[AZURE.WARNING]Il**nome**dell’attributo nell’elemento **DnsServer**viene utilizzato solo come riferimento per l’elemento**DnsServerRef**. Non rappresenta il nome host per il server DNS. Ogni valore dell’attributo**DnsServer**deve essere univoco nell'intera sottoscrizione Microsoft Azure
+>[AZURE.WARNING] Il**nome**dell’attributo nell’elemento **DnsServer**viene utilizzato solo come riferimento per l’elemento**DnsServerRef**. Non rappresenta il nome host per il server DNS. Ogni valore dell’attributo**DnsServer**deve essere univoco nell'intera sottoscrizione Microsoft Azure
 
 [Elemento siti di rete virtuale](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -43,7 +43,7 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
 	  <DnsServerRef name="ID3" />
 	</DnsServersRef>
 
->[AZURE.NOTE]Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome*del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per*nome* DnsServer.
+>[AZURE.NOTE] Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome*del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per*nome* DnsServer.
 
 ## Passaggi successivi
 
@@ -53,4 +53,4 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
 
 [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

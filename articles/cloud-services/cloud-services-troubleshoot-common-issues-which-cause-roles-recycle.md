@@ -1,6 +1,6 @@
 <properties
    pageTitle="Cause comuni del riciclo dei ruoli del servizio cloud | Microsoft Azure"
-   description="Un ruolo del servizio cloud che viene riciclato improvvisamente può causare tempi di inattività significativi. Ecco alcuni problemi comuni che causano il riciclo dei ruoli, che possono essere utili per migliorare i tempi di inattività."
+   description="Un ruolo del servizio cloud che viene riciclato improvvisamente può causare tempi di inattività significativi. Ecco alcuni problemi comuni che causano il riciclo dei ruoli, che possono essere utili per ridurre i tempi di inattività."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
@@ -18,14 +18,13 @@
 
 # Problemi comuni che comportano il riciclo dei ruoli
 
-Vengono descritte alcune delle cause comuni dei problemi di distribuzione e suggerimenti per consentirne la relativa risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da **inizializzazione** a **occupato** e **arresto**.
+Questo articolo illustra alcune delle cause comuni dei problemi di distribuzione e fornisce suggerimenti per consentirne la risoluzione. La presenza di un problema con un'applicazione viene evidenziata se l'istanza del ruolo non si avvia o se lo stato passa ciclicamente da inizializzazione a occupato e arresto.
 
 ## Contattare il supporto tecnico di Azure
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/).
+Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](https://azure.microsoft.com/support/forums/).
 
-In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](https://azure.microsoft.com/support/faq/).
-
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del Supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del supporto per Azure, vedere le [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 ## Dipendenze di runtime mancanti
 
@@ -35,29 +34,21 @@ Prima di compilare e includere in un pacchetto l'applicazione, verificare quanto
 
 - Se si usa Visual Studio, assicurarsi che la proprietà **Copy Local** sia impostata su **True** per ogni assembly di riferimento nel progetto che non fa parte di Azure SDK o .NET Framework.
 
-- Assicurarsi che il file **web.config** non faccia riferimento ad alcun assembly inutilizzato nell'elemento di **compilazione**.
+- Verificare che il file web.config non faccia riferimento ad alcun assembly inutilizzato nell'elemento di compilazione.
 
 - La proprietà **Build Action** di ciascun file con estensione cshtml è impostata su **Content**. Ciò garantisce che i file vengano visualizzati correttamente nel pacchetto e consente la visualizzazione anche di altri file di riferimento.
-
-
 
 ## Riferimento dell'assembly alla piattaforma errata
 
 Azure è un ambiente a 64 bit, pertanto gli assembly .NET compilati per una destinazione a 32 bit non funzioneranno in Azure.
 
-
-
 ## Generazione di eccezioni non gestite da parte del ruolo durante l'inizializzazione o l'arresto
 
-Eventuali eccezioni generate dai metodi della classe [RoleEntryPoint], che include [OnStart], [OnStop] e [Run], sono eccezioni non gestite. Se si verifica un'eccezione non gestita in uno di questi metodi, il ruolo verrà riciclato. Se il ruolo viene riciclato più volte, è possibile che venga generata un'eccezione non gestita ad ogni tentativo di avvio.
-
+Eventuali eccezioni generate dai metodi della classe [RoleEntryPoint], che include i metodi [OnStart], [OnStop] e [Run], sono eccezioni non gestite. Se si verifica un'eccezione non gestita in uno di questi metodi, il ruolo verrà riciclato. Se il ruolo viene riciclato più volte, è possibile che venga generata un'eccezione non gestita a ogni tentativo di avvio.
 
 ## Restituzioni del ruolo dal metodo Run
 
 È previsto che il metodo [Run], venga eseguito in modo illimitato. Se tramite il codice viene eseguito l'override del metodo [Run], il codice deve essere sospeso per un periodo illimitato. Se tramite il metodo [Run] viene restituito un valore, il ruolo viene riciclato.
-
-
-
 
 ## Impostazione di DiagnosticsConnectionString errata
 
@@ -67,19 +58,15 @@ Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, p
 
 - L'impostazione `DiagnosticsConnectionString` punti a un account di archiviazione valido in Azure. Per impostazione predefinita, questa impostazione punta all'account di archiviazione emulato, pertanto è necessario modificarla in modo esplicito prima di distribuire il pacchetto dell'applicazione. Se non si modifica questa impostazione, viene generata un'eccezione quando l'istanza del ruolo tenta di avviare il monitoraggio di diagnostica. Ciò potrebbe comportare il riciclo illimitato dell'istanza del ruolo.
 
-- La stringa di connessione viene specificata nel [formato](../storage/storage-configure-connection-string.md) seguente (il protocollo deve essere specificato come HTTPS). Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:
+- La stringa di connessione viene specificata nel [formato](../storage/storage-configure-connection-string.md) seguente. Il protocollo deve essere specificato come HTTPS. Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Se l'applicazione viene sviluppata usando gli strumenti di Azure per Microsoft Visual Studio, è possibile usare le [pagine delle proprietà](https://msdn.microsoft.com/library/ee405486) per impostare questo valore.
-
-
+  Se l'applicazione viene sviluppata usando Strumenti di Azure per Microsoft Visual Studio, è possibile usare le [pagine delle proprietà](https://msdn.microsoft.com/library/ee405486) per impostare questo valore.
 
 ## Chiave privata non inclusa nel certificato esportato
 
-Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato di gestione esportato sia inclusa la chiave privata. Se si usa *Gestione certificati di Windows* per esportare il certificato, assicurarsi di selezionare l'opzione *Sì, esporta la chiave privata*. Il certificato deve essere esportato nel formato con estensione pfx, cioè l'unico attualmente supportato.
-
-
+Per eseguire un ruolo Web in SSL, è necessario assicurarsi che nel certificato di gestione esportato sia inclusa la chiave privata. Se si usa *Gestione certificati di Windows* per esportare il certificato, assicurarsi di selezionare **Sì** per l'opzione **Esporta la chiave privata**. Il certificato deve essere esportato nel formato con estensione PFX, l'unico attualmente supportato.
 
 ## Passaggi successivi
 
@@ -95,4 +82,4 @@ Per altri scenari di riciclo dei ruoli, vedere la [serie di blog di Kevin Willia
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

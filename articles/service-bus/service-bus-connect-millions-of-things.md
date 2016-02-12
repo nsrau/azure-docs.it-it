@@ -22,7 +22,7 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
 
 ## Esplorazione
 
-- [Hub eventi](event-hubs-overview.md)
+- [Hub eventi](../event-hubs/event-hubs-overview.md)
 - [Modello di partizionamento orizzontale](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Service Bus e AMQP 1.0](service-bus-amqp-overview.md)
 - [Introduzione al bus di servizio](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@ Negli ambienti tecnologici moderni si assiste alla proliferazione di "cose" avan
 - [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

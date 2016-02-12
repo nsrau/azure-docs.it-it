@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Recapito continuo in Azure tramite Visual Studio Team Services e Git
@@ -23,7 +23,7 @@
 È necessario che siano installati Visual Studio 2013 e Azure SDK. Se non si dispone ancora di Visual Studio 2013, scaricarlo scegliendo il collegamento **Inizia gratuitamente** all'indirizzo [www.visualstudio.com](http://www.visualstudio.com). Installare Azure SDK da [questa pagina](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account di Visual Studio Team Services:
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account di Visual Studio Team Services:
  è possibile [aprire un account di Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Per configurare un servizio cloud da compilare e distribuire automaticamente in Azure tramite Visual Studio Team Services, seguire questa procedura.
@@ -44,7 +44,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][4]
 
-2. È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Creare un nuovo progetto servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che il progetto sia per .NET Framework 4 o versione successiva. Se si crea un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro. Per creare un'app Web, scegliere il modello di progetto **Applicazione Web ASP.NET** e quindi **MVC**. Per altre informazioni, vedere [Creare un'app Web ASP.NET in Servizio app di Azure](../web-sites-dotnet-get-started.md).
+2. È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Creare un nuovo progetto servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che il progetto sia per .NET Framework 4 o versione successiva. Se si crea un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro. Per creare un'app Web, scegliere il modello di progetto **Applicazione Web ASP.NET** e quindi **MVC**. Per altre informazioni, vedere [Creare un'app Web ASP.NET in Servizio app di Azure](/app-service-web/web-sites-dotnet-get-started.md).
 
 3. Aprire il menu di scelta rapida relativo alla soluzione e scegliere **Commit**.
 
@@ -114,7 +114,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][22]
 
-	**Team Explorer **mostra che è stata attivata una compilazione per l'archiviazione.
+	**Team Explorer** mostra che è stata attivata una compilazione per l'archiviazione.
 
 	![][23]
 
@@ -225,7 +225,7 @@ Quando si usa Git, in genere si apportano modifiche in un branch di lavoro che v
 
 ## Passaggi successivi
 
-Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere [Sviluppare e condividere il codice in Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e per informazioni sull'uso del repository Get non gestito da Visual Studio Team Services da pubblicare in Azure, vedere [Distribuzione continua tramite GIT nel Servizio app di Azure](../web-sites-publish-source-control.md). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere [Sviluppare e condividere il codice in Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) e per informazioni sull'uso del repository Get non gestito da Visual Studio Team Services da pubblicare in Azure, vedere [Distribuzione continua tramite GIT nel Servizio app di Azure](/app-service-web/web-sites-publish-source-control.md). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +273,4 @@ Per altri suggerimenti su come usare Git con Visual Studio Team Services, vedere
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

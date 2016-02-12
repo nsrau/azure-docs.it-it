@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -32,7 +32,7 @@ L'articolo seguente risponderà a questa domanda. Consentirà di installare e co
 Xrdp è un server RDP open source, che consente di connettere il server Linux con Desktop remoto da un computer Windows. Funziona molto meglio di VNC (Virtual Network Computing). VNC ha fama di qualità "JPEG" e di lentezza di funzionamento, mentre RDP è veloce e nitido.
 
 
-> [AZURE.NOTE]È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-tutorial.md) per creare e impostare una macchina virtuale Linux.
+> [AZURE.NOTE] È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-tutorial.md) per creare e impostare una macchina virtuale Linux.
 
 
 ##Creare endpoint per Desktop remoto
@@ -67,7 +67,7 @@ Per Ubuntu, utilizzare:
 
 Per OpenSUSE, usare:
 
-> [AZURE.NOTE]Aggiornare la versione OpenSUSE con la versione in uso nel comando seguente. Di seguito è riportato un comando di esempio per `OpenSUSE 13.2`.
+> [AZURE.NOTE] Aggiornare la versione OpenSUSE con la versione in uso nel comando seguente. Di seguito è riportato un comando di esempio per `OpenSUSE 13.2`.
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
@@ -116,4 +116,4 @@ Accedere con `user` e `password` per la macchina Linux e sarà possibile usare s
 ##Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="02/03/2016"
 	ms.author="ricksal"/>
 
 # Registrare le app per l'uso delle credenziali di accesso di un account Azure Active Directory
@@ -31,7 +31,7 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 
 ##Registrazione dell'app
 
->[AZURE.NOTE] I passaggi descritti in questo argomento devono essere usati con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) se si vogliono usare [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con l'app. Se invece l'app richiede [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) per Azure Active Directory e un servizio mobile back-end .NET, sarà necessario eseguire prima di tutto l'esercitazione relativa all'[autenticazione dell'app tramite il Single Sign-On di Active Directory Authentication Library](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
+>[AZURE.NOTE] I passaggi descritti in questo argomento devono essere usati con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](../mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) se si vogliono usare [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con l'app. Se invece l'app richiede [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) per Azure Active Directory e un servizio mobile back-end .NET, sarà necessario eseguire prima di tutto l'esercitazione relativa all'[autenticazione dell'app tramite il Single Sign-On di Active Directory Authentication Library](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 1. Accedere al [portale di Azure classico], passare al servizio mobile, fare clic sulla scheda **Identità**, quindi scorrere verso il basso fino alla sezione del provider di identità **Azure Active Directory** e copiare l’**URL dell’app** illustrato qui.
 
@@ -70,4 +70,4 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

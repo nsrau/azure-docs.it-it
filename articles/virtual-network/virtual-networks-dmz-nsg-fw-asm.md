@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Esempio 2: Creare una rete perimetrale per proteggere le applicazioni con un firewall e gruppi di sicurezza di rete
@@ -30,12 +30,12 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 - Due servizi cloud, "FrontEnd001" e "BackEnd001"
 - Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd".
 - Un singolo gruppo di sicurezza di rete applicato a entrambe le subnet.
-- Un dispositivo virtuale di rete, in questo esempio Barracuda NG Firewall, connesso alla subnet front-end.
+- Un dispositivo virtuale di rete, in questo esempio Barracuda NextGen Firewall, connesso alla subnet FrontEnd
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
 - Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 - Un server Windows che rappresenta un server DNS ("DNS01").
 
->[AZURE.NOTE]Anche se in questo esempio si usa Barracuda NG Firewall, possono essere usati molti altri dispositivi virtuali di rete.
+>[AZURE.NOTE] Anche se in questo esempio si usa Barracuda NextGen Firewall, possono essere usati molti altri dispositivi virtuali di rete.
 
 Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento.
  
@@ -57,7 +57,7 @@ La sezione successiva descrive la maggior parte delle istruzioni dello script re
 ## Gruppi di sicurezza di rete
 Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
 
->[AZURE.TIP]In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
+>[AZURE.TIP] In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
 
 A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
@@ -79,7 +79,7 @@ Le regole per i gruppi di sicurezza di rete illustrate sopra sono molto simili a
 
 Le istruzioni per scaricare il client e connettersi all'applicazione Barracuda usata in questo esempio sono disponibili qui: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
-Sul firewall sarà necessario creare regole di inoltro. Poiché questo esempio indirizza solo il traffico Internet in ingresso verso il firewall e quindi verso il server Web, sarà necessaria solo una regola del processo NAT di inoltro. Nel Barracuda NG Firewall usato in questo esempio per passare il traffico verrà usata una regola Destination NAT ("Dst NAT").
+Sul firewall sarà necessario creare regole di inoltro. Poiché questo esempio indirizza solo il traffico Internet in ingresso verso il firewall e quindi verso il server Web, sarà necessaria solo una regola del processo NAT di inoltro. Nel dispositivo Barracuda NextGen Firewall usato in questo esempio, per passare il traffico viene usata una regola Destination NAT ("Dst NAT").
 
 Per creare la regola seguente, o verificare le regole predefinite esistenti, dal dashboard del client Barracuda NG Admin passare alla scheda di configurazione, quindi nella sezione Operational Configuration fare clic su Ruleset. Una griglia denominata "Main Rules" mostrerà le regole esistenti attive e disattivate nel firewall. Nell'angolo in alto a destra della griglia è presente un piccolo pulsante verde "+" sul quale occorre fare clic per creare una nuova regola. Notare che il firewall potrebbe essere "bloccato" per modifiche. Se è visualizzato un pulsante contrassegnato con "Lock" e non si riescono a creare o modificare regole, fare clic sul pulsante per "sbloccare" il set di regole e consentire la modifica. Se si vuole modificare una regola esistente, selezionarla, fare clic con il pulsante destro del mouse e scegliere Edit Rule.
 
@@ -108,7 +108,7 @@ Nell'angolo in alto a destra del client di gestione è disponibile un gruppo di 
 
 Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente di esempio è completata. Facoltativamente, è possibile eseguire gli script successivi alla compilazione disponibili nella sezione Riferimenti per aggiungere un'applicazione a questo ambiente e testare gli scenari di traffico seguenti.
 
->[AZURE.IMPORTANT]È importante comprendere che non si raggiungerà il server Web direttamente. Quando un browser richiede una pagina HTTP da FrontEnd001.CloudApp.Net, l'endpoint HTTP (porta 80) passa questo traffico al firewall, non al server Web. Il firewall inoltra quindi la richiesta tramite NAT al server Web, in base alla regola creata sopra.
+>[AZURE.IMPORTANT] È importante comprendere che non si raggiungerà il server Web direttamente. Quando un browser richiede una pagina HTTP da FrontEnd001.CloudApp.Net, l'endpoint HTTP (porta 80) passa questo traffico al firewall, non al server Web. Il firewall inoltra quindi la richiesta tramite NAT al server Web, in base alla regola creata sopra.
 
 ## Scenari di traffico
 
@@ -227,7 +227,7 @@ In base alle variabili definite dall'utente, lo script consente di:
 
 Questo script di PowerShell deve essere eseguito localmente in un server o un PC connesso a Internet.
 
->[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
+>[AZURE.IMPORTANT] Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
 
 
 	<# 
@@ -239,7 +239,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
 	   - A default storage account for VM disks
 	   - Two new cloud services
 	   - Two Subnets (FrontEnd and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
 	   - Three Servers on the BackEnd Subnet
 	   - Network Security Groups to allow/deny traffic patterns as declared
@@ -303,7 +303,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # NSG Details
 	    $NSGName = "MyVNetSG"
@@ -566,4 +566,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

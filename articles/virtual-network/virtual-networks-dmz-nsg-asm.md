@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Esempio 1: Creare una semplice rete perimetrale con gruppi di sicurezza di rete
@@ -51,7 +51,7 @@ Le sezioni seguenti forniranno una descrizione dettagliata dei gruppi di sicurez
 ## Gruppi di sicurezza di rete (NGS)
 Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
 
->[AZURE.TIP]In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
+>[AZURE.TIP] In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
 
 A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
@@ -248,7 +248,7 @@ In base alle variabili definite dall'utente, lo script consente di:
 
 Questo script di PowerShell deve essere eseguito localmente in un server o un PC connesso a Internet.
 
->[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
+>[AZURE.IMPORTANT] Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
 
 
 	<# 
@@ -550,4 +550,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

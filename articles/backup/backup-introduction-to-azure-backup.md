@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Informazioni su Backup di Azure
@@ -78,6 +78,8 @@ Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funz
 | Backup incrementale | ![Sì][green] | ![Sì][green] | ![Sì][green] | ![Sì][green] |
 | Deduplicazione dei dischi | | ![Parzialmente][yellow] | ![Parzialmente][yellow]| | |
 
+**Chiave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sì][green]= Supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parzialmente][yellow]= Parzialmente supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;vuoto&gt;* = Non supportata
+
 L'insieme di credenziali di Backup è la destinazione di archiviazione preferita in tutti i componenti. System Center DPM e il server di Backup di Azure consentono anche di avere anche una copia del disco locale, ma solo System Center DPM offre la possibilità di scrivere dati su un dispositivo di archiviazione su nastro.
 
 #### Backup incrementale
@@ -96,6 +98,8 @@ La deduplicazione è supportata per System Center DPM e per il server di Backup 
 | ------- | --- | --- | --- | ---- |
 | Sicurezza di rete (in Azure) | ![Sì][green] |![Sì][green] | ![Sì][green] | ![Parzialmente][yellow]|
 | Sicurezza dei dati (in Azure) | ![Sì][green] |![Sì][green] | ![Sì][green] | ![Parzialmente][yellow]|
+
+**Chiave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sì][green]= Supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parzialmente][yellow]= Parzialmente supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;vuoto&gt;* = Non supportata
 
 Tutto il traffico di backup dai server all'insieme di credenziali di Backup viene crittografato con Advanced Encryption Standard 256. I dati vengono inviati tramite un collegamento HTTPS protetto. I dati di backup vengono archiviati anche nell'insieme di credenziali di Backup in formato crittografato. Solo il cliente ha la passphrase per sbloccare i dati. Microsoft non può decrittografare i dati di backup
 
@@ -117,6 +121,8 @@ Per il backup di macchine virtuali di Azure è necessario impostare in modo espl
 | Macchina virtuale di Azure (Windows) | | | | ![Sì][green] |
 | Macchina virtuale di Azure (Linux) | | | | ![Sì][green] |
 
+**Chiave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sì][green]= Supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;vuoto&gt;* = Non supportata
+
 ### Rete
 
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di Azure (estensione VM) |
@@ -125,6 +131,8 @@ Per il backup di macchine virtuali di Azure è necessario impostare in modo espl
 | Compressione di rete (all'insieme di credenziali di Backup) | ![Sì][green] | ![Sì][green] | ![Sì][green] | |
 | Protocollo di rete (al server di Backup) | | TCP | TCP | |
 | Protocollo di rete (all'insieme di credenziali di Backup) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**Chiave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sì][green]= Supportata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;vuoto&gt;* = Non supportata
 
 Poiché l'estensione della macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, non è necessario ottimizzare il traffico. Il traffico attraversa la rete di archiviazione locale nel data center di Azure, quindi considerata la larghezza di banda non c'è una particolare esigenza di compressione.
 
@@ -145,7 +153,7 @@ Per i clienti che proteggono i dati in un server di backup, come System Center D
 ## Differenze tra Backup e Azure Site Recovery
 Molti clienti fanno confusione tra ripristino del backup e ripristino di emergenza. Entrambi acquisiscono dati e forniscono una semantica di ripristino, ma la proposta di valore alla base è diversa.
 
-Backup di Azure esegue il backup dei dati in locale o nel cloud. Azure Site Recovery coordina la replica, il failover e il failback di macchine virtuali e server fisici. Sono necessari entrambi per una soluzione di ripristino di emergenza completa. La strategia di ripristino di emergenza deve fare in modo che i dati siano protetti e ripristinabili (Backup) *e* deve mantenere i carichi di lavoro disponibili e accessibili (Site Recovery) quando si verificano interruzioni del servizio.
+Backup di Azure esegue il backup dei dati in locale o nel cloud. Azure Site Recovery coordina la replica, il failover e il failback di macchine virtuali e server fisici. Sono necessari entrambi per una soluzione di ripristino di emergenza completa. La strategia di ripristino di emergenza deve fare in modo che i dati siano protetti e ripristinabili (Backup) *e* deve mantenere i carichi di lavoro disponibili e accessibili (Site Recovery) quando si verificano interruzioni.
 
 Per prendere decisioni relative al backup e al ripristino di emergenza, è necessario considerare i concetti importanti seguenti:
 
@@ -160,11 +168,11 @@ Per prendere decisioni relative al backup e al ripristino di emergenza, è neces
 
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
 - [Servizio di backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visitare il [forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

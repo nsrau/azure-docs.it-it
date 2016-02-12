@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #Connettersi ad Archiviazione di Azure nell'app Xamarin.Forms
@@ -718,7 +718,7 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Creare un account di archiviazione]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Creare un account di archiviazione]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

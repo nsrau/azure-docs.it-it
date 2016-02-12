@@ -165,10 +165,10 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](virtual-machines-windows-reset-password.md)
 
-[Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
+[Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

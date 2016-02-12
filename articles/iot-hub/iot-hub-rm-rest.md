@@ -24,7 +24,7 @@
 
 È possibile utilizzare l’[API REST del Provider di risorse hub IoT][lnk-rest-api] per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come utilizzare l’API REST del Provider di risorse per creare un hub IoT da un programma C#.
 
-> [AZURE.NOTE]Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -40,7 +40,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. In gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare **Microsoft.Azure.Management.Resources**. Selezionare la versione **2.18.11-preview**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare le licenze.
+3. In Gestione pacchetti NuGet cercare **Microsoft.Azure.Management.Resources**. Selezionare la versione **2.18.11-preview**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare le licenze.
 
 4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**. Selezionare la versione **2.19.208020213**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare la licenza.
 
@@ -180,7 +180,7 @@ Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo
 
 4. È possibile verificare che l'applicazione abbia aggiunto il nuovo hub IoT visitando il [portale][lnk-azure-portal] e visualizzare l'elenco di risorse, oppure utilizzando il cmdlet PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE]Questa applicazione di esempio aggiunge un hub IoT Standard S1 che verrà addebitato. È possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o utilizzando il cmdlet PowerShell **Remove AzureRmResource** al termine.
+> [AZURE.NOTE] Questa applicazione di esempio aggiunge un hub IoT Standard S1 che verrà addebitato. È possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o utilizzando il cmdlet PowerShell **Remove AzureRmResource** al termine.
 
 ## Passaggi successivi
 
@@ -194,4 +194,4 @@ Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

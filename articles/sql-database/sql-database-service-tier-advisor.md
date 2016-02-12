@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/28/2015"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
 
  Vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello di servizio e di prestazione più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente.
 
-> [AZURE.NOTE]Suggerimenti sui piano tariffari sono disponibili solo per i database Web e Business e per i pool di database elastici e solo nel [portale di Azure](https://portal.azure.com/).
+> [AZURE.NOTE] Suggerimenti sui piano tariffari sono disponibili solo per i database Web e Business e per i pool di database elastici e solo nel [portale di Azure](https://portal.azure.com/).
 
 
 Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
@@ -56,7 +56,7 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 
 ## Ottenere indicazioni sui livelli di prezzo
 
-È possibile ottenere le indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic sul riquadro **Livello di prezzo**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-v12-upgrade.md).)
+È possibile ottenere indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic su **Tutte le impostazioni** e quindi su **Piano tariffario (piano DTU)**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-v12-upgrade.md).)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **ESPLORA** > **database SQL**.
@@ -64,12 +64,10 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 
     ![Selezionare il database][1]
 
-5. Nel pannello relativo ai database, selezionare il riquadro **Livello di prezzo**.
-
-    ![Pricing tier][2]
+5. Nel pannello del database selezionare **Tutte le impostazioni** e quindi **Piano tariffario (piano DTU)**.
 
 
-7. Dopo aver fatto clic sul riquadro **livello di prezzo** verrà visualizzato il pannello **livelli di prezzo consigliati**, in cui è possibile fare clic sul livello indicato e sul pulsante di **selezione** per modificare tale livello.
+7. Verrà visualizzato il pannello **Piani tariffari consigliati**, in cui è possibile fare clic sul livello indicato e sul pulsante **Seleziona** per modificare tale livello.
 
     ![Iscriversi per l'anteprima][4]
 
@@ -81,7 +79,7 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 
 ## Riepilogo
 
-Le indicazioni sul livello dei prezzi offrono un'esperienza automatizzata per la raccolta dei dati di telemetria per ogni database SQL e l'indicazione della migliore combinazione di livello di servizio/livello di prestazioni in base alle esigenze di prestazioni effettive e ai. requisiti delle funzionalità di un database. Fare clic sul riquadro relativo al **Livello prezzi** per visualizzare le indicazioni sul livello di prezzo.
+Le indicazioni sul livello dei prezzi offrono un'esperienza automatizzata per la raccolta dei dati di telemetria per ogni database SQL e l'indicazione della migliore combinazione di livello di servizio/livello di prestazioni in base alle esigenze di prestazioni effettive e ai. requisiti delle funzionalità di un database. Nel pannello Impostazioni fare clic su **Piano tariffario (piano DTU)** per visualizzare i suggerimenti relativi al piano tariffario per i database Web e Business.
 
 
 
@@ -92,12 +90,10 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

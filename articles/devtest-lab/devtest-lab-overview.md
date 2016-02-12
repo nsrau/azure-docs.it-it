@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+<properties 
+	pageTitle="Che cos'è il servizio Lab di sviluppo/test | Microsoft Azure"
+	description="Informazioni su come Lab di sviluppo/test può rendere più semplice creare, gestire e monitorare macchine virtuali di Azure"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 #Che cos'è Lab di sviluppo e test?
 
-Gli sviluppatori e i tester stanno cercando di risolvere i ritardi nella creazione e nella gestione dei propri ambienti accedendo al cloud. Azure consente di risolvere il problema dei ritardi di ambiente e consente il servizio autonomo all'interno di una nuova struttura conveniente. Tuttavia, gli sviluppatori e i tester necessitano ancora di molto tempo per la configurazione dei propri ambienti autonomi. Inoltre, i responsabili delle decisioni sono incerti su come sfruttare il cloud per ottimizzare i risparmi senza aggiungere una quantità eccessiva di overhead del processo.
+Gli sviluppatori e i tester stanno cercando di risolvere i ritardi nella creazione e nella gestione dei propri ambienti accedendo al cloud. Azure consente di risolvere il problema dei ritardi di ambiente e consente il self-service all'interno di una nuova struttura conveniente. Tuttavia, gli sviluppatori e i tester necessitano ancora di molto tempo per la configurazione dei propri ambienti autonomi. Inoltre, i decision maker sono incerti su come sfruttare il cloud per ottimizzare i risparmi senza aggiungere una quantità eccessiva di overhead del processo.
 
 Lab di sviluppo e test di Azure è un servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo. È possibile provare la versione più recente dell'applicazione eseguendo rapidamente il provisioning di ambienti Windows e Linux tramite modelli ed elementi riutilizzabili. Consente di integrare facilmente la pipeline di distribuzione in Lab di sviluppo e test per effettuare il provisioning di ambienti su richiesta. Aumentare i propri test di carico tramite il provisioning di più agenti di test e creare ambienti di pre-provisioning per training e demo.
 
@@ -40,7 +40,7 @@ E’ possibile acquisire e condividere elementi e modelli di ambienti all'intern
 
 ###Integrazione con la toolchain esistente
 
-E’ possibile sfruttare plug-in già pronti oppure la nostra API per effettuare il provisioning di ambienti di sviluppo/test direttamente dallo strumento di integrazione continua (CI), dall'ambiente di sviluppo integrato (IDE, Integrated Development Environment) o dalla pipeline di rilascio automatizzata. E’ anche possibile utilizzare il nostro strumento da riga di comando completo.
+E’ possibile sfruttare plug-in già pronti oppure l’API per effettuare il provisioning di ambienti di sviluppo/test direttamente dallo strumento di integrazione continua (CI), dall'ambiente di sviluppo integrato (IDE, Integrated Development Environment) o dalla pipeline di rilascio automatizzata. E’ anche possibile utilizzare il nostro strumento da riga di comando completo.
 
 ##Concetti di Lab di sviluppo e test
 
@@ -52,7 +52,7 @@ Gli **Elementi** vengono utilizzati per distribuire e configurare l'applicazione
 - Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
 - Applicazioni che si vuole testare.
 
-Gli elementi sono file JSON basati su Gestione risorse di Azure (ARM) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione. Ulteriori informazioni su ARM nella [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+Gli elementi sono file JSON basati su Gestione risorse di Azure (ARM) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione. Ulteriori informazioni su ARM nella [Panoramica di Gestione risorse di Azure](/resource-group-overview.md).
 
 Gli **Archivi di elementi** sono archivi git in cui vengono archiviati gli elementi. È possibile aggiungere gli stessi archivi elementi a più lab all'interno dell'organizzazione consentendone il riutilizzo e la condivisione.
 
@@ -66,4 +66,4 @@ I **Criteri** consentono di controllare i costi nel lab. Ad esempio, è possibil
 
 Per iniziare ad utilizzare Lab di sviluppo e test, seguire l’esercitazione dettagliata [Creare un Lab di sviluppo e test di Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->
