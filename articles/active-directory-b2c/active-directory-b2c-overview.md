@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
@@ -63,4 +63,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - [Domande frequenti Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

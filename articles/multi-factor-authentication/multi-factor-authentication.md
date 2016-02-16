@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Informazioni su Azure Multi-Factor Authentication | Microsoft Azure" 
-	description="Questo argomento spiega che cos'è Multi-Factor Authentication e perché usare questo servizio, fornisce inoltre informazioni sul client di Multi-Factor Authentication e sui diversi metodi e versioni disponibili. Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti." 
+<properties
+	pageTitle="Informazioni su Azure Multi-Factor Authentication | Microsoft Azure"
+	description="Questo argomento spiega che cos'è Multi-Factor Authentication e perché usare questo servizio, fornisce inoltre informazioni sul client di Multi-Factor Authentication e sui diversi metodi e versioni disponibili. Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
 	keywords="Introduzione a MFA, panoramica di mfa, che cos'è mfa"
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/25/2016" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="01/25/2016"
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -67,7 +67,7 @@ La sicurezza dell'autenticazione a più fattori si fonda sull'approccio basato s
 
 Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice. Offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata tramite una gamma di opzioni di verifica semplice:
 
-- Chiamata telefonica 
+- Chiamata telefonica
 - SMS
 - Notifica dell'app per dispositivi mobili, che consente agli utenti di scegliere il metodo preferito
 - Codice di verifica dell'app per dispositivi mobili
@@ -80,7 +80,7 @@ Per ulteriori informazioni su come funziona, vedere il video seguente.
 ## Metodi disponibili per la multi-factor authentication
 Quando un utente accede, una verifica aggiuntiva viene inviata all'utente. Di seguito è riportato un elenco di metodi che possono essere utilizzati per la seconda verifica.
 
-Metodo di verifica | Descrizione 
+Metodo di verifica | Descrizione
 ------------- | ------------- |
 Chiamata telefonica | Viene effettuata una chiamata allo smartphone dell'utente chiedendogli di verificare che sta effettuando l'accesso premendo il simbolo #. Questa operazione completerà il processo di verifica. Questa opzione è configurabile e può essere modificata con un codice specificato dall'utente.
 SMS | Verrà inviato un SMS allo smartphone dell'utente con un codice di 6 cifre. Immettere il codice per completare il processo di verifica.
@@ -91,7 +91,7 @@ Codice di verifica dell'app per dispositivi mobili | Un codice di verifica verr�
 ## Versioni disponibili di Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication è disponibile in tre diverse versioni. Nella tabella seguente ognuna di queste versioni è descritta in modo più dettagliato.
 
-Versione | Descrizione 
+Versione | Descrizione
 ------------- | ------------- |
 Multi-Factor Authentication per Office 365 | Questa versione funziona solo con le applicazioni di Office 365 e viene gestita dal portale di Office 365. Gli amministratori possono quindi proteggere le risorse di Office 365 con multi-factor authentication. Questa versione viene fornita con una sottoscrizione a Office 365.
 Multi-Factor Authentication per amministratori di Azure | Lo stesso subset di funzionalità di Multi-Factor Authentication per Office 365 sarà disponibile per tutti gli amministratori di Azure senza costi aggiuntivi. Ogni account amministrativo della sottoscrizione di Azure può ora usufruire di un ulteriore livello di protezione abilitando la funzionalità di multi-factor authentication di base. Ora, un amministratore che desidera accedere al portale di Azure per creare una macchina virtuale, un sito Web, gestire l'archiviazione, i servizi mobili o qualsiasi altro servizio di Azure può aggiungere l'autenticazione a più fattori all'account di amministratore.
@@ -101,7 +101,7 @@ Azure Multi-Factor Authentication | Azure multi-Factor Authentication offre la p
 Nella tabella seguente viene fornito un elenco delle funzionalità disponibili nelle varie versioni di Azure Multi-Factor Authentication.
 
 
-Funzionalità | Multi-Factor Authentication per Office 365 (incluso nelle SKU di Office 365)|Multi-Factor Authentication per amministratori di Azure (incluso con una sottoscrizione Azure) | Azure Multi-Factor Authentication (incluso in Azure AD Premium ed Enterprise Mobility Suite) 
+Funzionalità | Multi-Factor Authentication per Office 365 (incluso nelle SKU di Office 365)|Multi-Factor Authentication per amministratori di Azure (incluso con una sottoscrizione Azure) | Azure Multi-Factor Authentication (incluso in Azure AD Premium ed Enterprise Mobility Suite)
 ------------- | :-------------: |:-------------: |:-------------: |
 Gli amministratori possono proteggere gli account tramite Multi-Factor Authentication| * | * (disponibile solo per gli account Administrator di Azure)|*
 App per dispositivi mobili come secondo fattore|* | * | *
@@ -155,7 +155,7 @@ Per determinare la soluzione Multi-Factor Authentication corretta, innanzitutto 
 
 
 
-Cosa si intende proteggere| Multi-Factor Authentication nel cloud|Server Multi-Factor Authentication 
+Cosa si intende proteggere| Multi-Factor Authentication nel cloud|Server Multi-Factor Authentication
 ------------- | :-------------: | :-------------: |
 App prodotte direttamente da Microsoft|* |* |
 App SaaS nella Raccolta app|* |* |
@@ -172,10 +172,10 @@ Successivamente, a seconda di dove si trovano gli utenti, è possibile determina
 
 
 Ubicazione degli utenti| Soluzione
-------------- | :------------- | 
+------------- | :------------- |
 Azure Active Directory| Multi-Factor Authentication nel cloud|
-Azure AD e AD locale usando la federazione con AD FS| Sia MFA nel cloud che il server MFA sono opzioni possibili 
-Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, senza sincronizzazione di password|Sia MFA nel cloud che il server MFA sono opzioni possibili 
+Azure AD e AD locale usando la federazione con AD FS| Sia MFA nel cloud che il server MFA sono opzioni possibili
+Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, senza sincronizzazione di password|Sia MFA nel cloud che il server MFA sono opzioni possibili
 Azure AD e AD locale con DirSync, Azure AD Sync, Azure AD Connect, con sincronizzazione di password|Multi-Factor Authentication nel cloud
 Active Directory locale|Server Multi-Factor Authentication
 
@@ -185,25 +185,25 @@ Nella tabella seguente è riportato un confronto tra le funzionalità disponibil
 ------------- | :-------------: | :-------------: |
 Notifica dell'app per dispositivi mobili come secondo fattore | ● | ● |
 Codice di verifica dell'app per dispositivi mobili come secondo fattore | ● | ●
-Chiamata telefonica come secondo fattore | ● | ● 
+Chiamata telefonica come secondo fattore | ● | ●
 SMS unidirezionale come secondo fattore | ● | ●
-SMS bidirezionale come secondo fattore | | ● 
-Token hardware come secondo fattore | | ● 
+SMS bidirezionale come secondo fattore | | ●
+Token hardware come secondo fattore | | ●
 Password di app per i client che non supportano MFA | ● |  
-Controllo amministrazione sui metodi di autenticazione | | ● 
+Controllo amministrazione sui metodi di autenticazione | | ●
 Modalità PIN | | ●
 Avviso di illecito | ● | ●
-Report MFA | ● | ● 
-Bypass monouso | ● | ● 
-Messaggi di saluto personalizzati per le telefonate | ● | ● 
-ID chiamante personalizzabile per le telefonate | ● | ● 
-IP attendibili | ● | ● 
+Report MFA | ● | ●
+Bypass monouso | ● | ●
+Messaggi di saluto personalizzati per le telefonate | ● | ●
+ID chiamante personalizzabile per le telefonate | ● | ●
+IP attendibili | ● | ●
 Sospensione MFA per dispositivi memorizzati (anteprima pubblica) | ● |  
-Accesso condizionale | ● | ● 
-Cache | ● | ● 
+Accesso condizionale | ● | ●
+Cache | ● | ●
 
 Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
@@ -76,6 +76,8 @@ In questi strumenti impostare la proprietà `cors` sul tipo di risorsa Microsoft
 		    ]
 		}
 
+Per visualizzare un esempio di modello di Gestione risorse di Azure che include codice JSON per la configurazione di CORS, aprire il [file azuredeploy.json nel repository dell'applicazione di esempio](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="tutorialstart"></a> Proseguimento dell'esercitazione introduttiva su .NET
 
 Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, passare all'articolo successivo [Autenticazione e autorizzazione per app per le API del servizio app di Azure](app-service-api-authentication.md).
@@ -108,19 +110,6 @@ Nell'[applicazione di esempio ToDoList](https://github.com/Azure-Samples/app-ser
 		    };
 		}]);
 
-### Configurare il progetto ToDoListAngular per chiamare l'app per le API ToDoListAPI 
-
-Prima di distribuire il front-end in Azure, è necessario modificare l'endpoint dell'API nel progetto AngularJS, in modo che il codice chiami l'app per le API di Azure ToDoListAPI creata nell'esercitazione precedente.
-
-1. Nel progetto ToDoListAngular aprire il file *app/scripts/todoListSvc.js*.
-
-2. Impostare come commento la riga che imposta `apiEndpoint` sull'URL localhost, rimuovere il commento dalla riga che imposta `apiEndPoint` su un URL azurewebsites.net, quindi sostituire il segnaposto con il nome effettivo dell'app per le API creata in precedenza. Se l'app per le API è stata denominata ToDoListAPI0125, il codice sarà simile all'esempio seguente.
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. Salvare le modifiche.
-
 ### Creare una nuova app Web per il progetto ToDoListAngular
 
 La procedura per creare una nuova app Web e per distribuirvi un progetto è la stessa illustrata nella prima esercitazione di questa serie, eccetto il fatto che non si modifica il tipo da **App Web** ad **App per le API**.
@@ -145,9 +134,57 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è la s
 
 	Visual Studio crea l'app Web, crea un profilo di pubblicazione per l'app e visualizza il passaggio **Connessione** della procedura guidata **Pubblica sito Web**.
 
+	Prima di scegliere **Pubblica** nella procedura guidata **Pubblica sito Web**, configurare la nuova app Web per la chiamata all'app per le API di livello intermedio in esecuzione nel servizio app.
+
+### Impostare l'URL di livello intermedio nelle impostazioni dell'app Web
+
+1. Andare al [portale di Azure](https://portal.azure.com/) e passare al pannello **App Web** per l'app Web creata per ospitare il progetto TodoListAngular (front-end).
+
+2. Fare clic su **Impostazioni > Impostazioni applicazione**.
+
+3. Nella sezione **Impostazioni app** aggiungere la chiave e il valore seguenti:
+
+	|Chiave|Valore|Esempio
+	|---|---|---|
+	|toDoListAPIURL|https://{yournome dell'app per le API di livello intermedio}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. Fare clic su **Save**.
+
+	Quando il codice è in esecuzione in Azure, questo valore sostituisce l'URL localhost contenuto nel file Web.config.
+
+	Il codice che ottiene il valore dell'impostazione è in *index.cshtml*:
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	Il codice in *todoListSvc.js* usa l'impostazione:
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### Distribuire il progetto Web ToDoListAngular nella nuova app Web
 
-*  Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Pubblica**.
+*  Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** di Visual Studio fare clic su **Pubblica**.
 
 	Visual Studio distribuisce il progetto ToDoListAngular nella nuova app Web e apre un browser all'URL dell'app Web.
 
@@ -238,4 +275,4 @@ I passaggi seguenti riepilogano il processo di abilitazione del supporto di CORS
 
 In questa esercitazione è stato illustrato come abilitare il supporto per CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

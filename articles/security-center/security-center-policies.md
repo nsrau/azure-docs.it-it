@@ -10,16 +10,16 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="02/08/2016"
    ms.author="yurid"/>
 
 # Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure
 Questo documento consente di configurare i criteri di sicurezza nel Centro protezione Azure mostrando i passaggi necessari per eseguire questa attività.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
+> [AZURE.NOTE] Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
 
 ## Che cos'è il Centro sicurezza di Azure?
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -45,7 +45,7 @@ I criteri di sicurezza vengono configurati per ciascuna sottoscrizione. Per modi
 
 4. Verificare che l'opzione **Raccogli i dati dalle macchine virtuali** sia **attiva**. Questa opzione abilita la raccolta automatica dei log per le risorse nuove ed esistenti.
 
-    >[AZURE.NOTE]È consigliabile attivare la raccolta dei dati per ogni sottoscrizione al fine di garantire che il monitoraggio della protezione sia disponibile per tutte le VM nuove ed esistenti. Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si desidera abilitare subito la raccolta di dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni relative allo stato e ai suggerimenti. È inoltre possibile abilitarla per la sottoscrizione o per la VM selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
+    >[AZURE.NOTE] È consigliabile attivare la raccolta dei dati per ogni sottoscrizione al fine di garantire che il monitoraggio della protezione sia disponibile per tutte le VM nuove ed esistenti. Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si desidera abilitare subito la raccolta di dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni relative allo stato e ai suggerimenti. È anche possibile abilitare la raccolta dei dati solo per la sottoscrizione o per la VM selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
 
 5. Se l'account di archiviazione non è ancora configurato, è possibile notare un avviso simile a quello illustrato nella figura seguente quando si apre **Criteri di sicurezza**:
 
@@ -59,17 +59,17 @@ I criteri di sicurezza vengono configurati per ciascuna sottoscrizione. Per modi
 
 8. Nel pannello **Seleziona account di archiviazione** fare clic su **OK**.
 
-    > [AZURE.NOTE]Se si preferisce, è possibile aggregare dati da macchine virtuali in diverse aree in un account di archiviazione centrale. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per ulteriori informazioni.
+    > [AZURE.NOTE] Se si preferisce, è possibile aggregare dati da macchine virtuali in diverse aree in un account di archiviazione centrale. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per ulteriori informazioni.
 
 9. Nel pannello **Criteri di sicurezza** fare clic su **Attivo** per abilitare i suggerimenti per la sicurezza da utilizzare per la sottoscrizione. Utilizzare la tabella seguente come riferimento per comprendere il funzionamento di ciascuna opzione:
 
-| Criterio | Stato Attivo |
+| Criterio | Quando lo stato è Sì |
 |----- |-----|
 | System Updates | Recupera un elenco di aggiornamenti disponibili da Windows Update o WSUS, a seconda di quale servizio è configurato per tale macchina virtuale, ogni 12 ore e suggerisce gli aggiornamenti mancanti da installare nelle macchine virtuali di Windows. |
 | Regole delle baseline | Analizza tutte le macchine virtuali supportate ogni 12 ore per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle line di base consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. |
 | Antimalware | Suggerisce l'antimalware di cui eseguire il provisioning per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Elenco di controllo di accesso sugli endpoint | Suggerisce la configurazione di un [elenco di controlli di accesso](virtual-machines-set-up-endpoints.md) (ACL) per limitare l'accesso agli endpoint di una macchina virtuale classica. Di solito, viene utilizzato per garantire che solo gli utenti connessi alla rete aziendale possano accedere alle macchine virtuali. |
-| Gruppi di sicurezza di rete nelle subnet e nell'interfaccia di rete | Suggerisce la configurazione di [gruppi di sicurezza di rete](virtual-networks-nsg.md) (NSG) per controllare il traffico in ingresso e in uscita rispetto alle subnet e alle interfacce di rete per le macchine virtuali di Gestione risorse. Gli NSG configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un NSG, le regole di sicurezza in ingresso vengono valutate per identificare le regole che consentono qualsiasi tipo di traffico in ingresso. |
+| Gruppi di sicurezza di rete | Suggerisce la configurazione di [gruppi di sicurezza di rete](virtual-networks-nsg.md) (NSG) per controllare il traffico in ingresso e in uscita rispetto alle subnet e alle interfacce di rete per le macchine virtuali di Gestione risorse. Gli NSG configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questa opzione valuta le regole di sicurezza in ingresso per identificare le eventuali regole che consentono il traffico in ingresso. |
 | Web Application Firewall | Suggerisce il provisioning di un Web Application Firewall nelle macchine virtuali di Gestione risorse quando: viene utilizzato l'indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.md) (ILPIP) e vengono configurate le regole di sicurezza in ingresso degli NSG associati per consentire l'accesso alla porta 80/443. Viene utilizzato l'IP con carico bilanciato (indirizzo VIP) e vengono configurati il bilanciamento del carico e le regole NAT in entrata associati per consentire l'accesso alla porta 80/443 (per ulteriori informazioni, vedere [Supporto di Gestione risorse di Azure per il servizio di bilanciamento del carico](load-balancer-arm.md)) |
 | Controllo SQL | Suggerisce l'abilitazione del controllo dell'accesso ai database e ai server SQL di Azure per scopi di conformità e rilevamento e analisi avanzati. |
 | Transparent Data Encryption di SQL | Suggerisce l'abilitazione della crittografia dati inattivi per i database SQL di Azure, i backup associati e file di log delle transazioni, affinché i dati siano illeggibili in caso di violazione. |
@@ -85,4 +85,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

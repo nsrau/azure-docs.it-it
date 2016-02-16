@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Introduzione alla prima applicazione Ricerca di Azure in .NET
@@ -78,7 +78,7 @@ Al termine della creazione dei progetti, la soluzione dovrebbe apparire simile a
 
 4. Successivamente, installare la libreria client .NET di Ricerca di Azure. Assicurarsi di specificare correttamente la ricerca o non sarà possibile trovare facilmente il pacchetto. Fare di nuovo clic con il pulsante destro del mouse sull’opzione **Gestisci pacchetti NuGet**.
 
-5. Specificare **Online** > **nuget.org** > **Includi versione provvisoria** e quindi cercare *azure.search*. Fare clic su **Installa** per installare la libreria.
+5. Specificare **Online** > **nuget.org** > **Solo stabile** e quindi cercare *azure.search*. Fare clic su **Installa** per installare la libreria.
 
    ![][12]
 
@@ -671,4 +671,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un indice di Ricerca di Azure nel portale | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Aggiungere un indice a Ricerca di Azure, un servizio di ricerca ospitato sul cloud, compilando le definizioni dei campi nel portale di Azure classico."
+	description="Aggiungere un indice a Ricerca di Azure, un servizio di ricerca cloud ospitato, compilando le definizioni dei campi nel portale di Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,17 +14,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/08/2016"
 	ms.author="heidist"/>
 
-# Creare un indice di Ricerca di Azure nel portale di Azure classico
+# Creare un indice di Ricerca di Azure nel portale di Azure
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-È possibile rapidamente creare un prototipo di un indice di Ricerca di Azure creandone uno nel portale di Azure classico. L’utilizzo del portale è ideale per test di verifica dei concetti, ma può inoltre essere utilizzato per visualizzare le definizioni di schema e l'utilizzo delle risorse per qualsiasi indice distribuito al servizio.
+È possibile generare rapidamente un prototipo di un indice di Ricerca di Azure creandone uno nel portale di Azure. L’utilizzo del portale è ideale per test di verifica dei concetti, ma può inoltre essere utilizzato per visualizzare le definizioni di schema e l'utilizzo delle risorse per qualsiasi indice distribuito al servizio.
 
 Per completare questa attività, assicurarsi di disporre di un servizio di Ricerca di Azure pronto da utilizzare. Vedere [creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) per assistenza su come impostarlo.
 
@@ -105,4 +105,4 @@ Una volta acquisita familiarità con l'indice di base, prendere in considerazion
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

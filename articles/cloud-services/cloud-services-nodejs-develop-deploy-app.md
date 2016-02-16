@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -25,9 +25,9 @@
 
 Questa esercitazione illustra come creare una semplice applicazione Node.js in esecuzione in un servizio cloud di Azure. Servizi cloud è costituito da blocchi predefiniti di applicazioni cloud scalabili in Azure. Consentono la separazione e la gestione indipendente e la scalabilità dei componenti front-end e back-end dell'applicazione. Servizi cloud offre una potente macchina virtuale dedicata per ospitare ogni ruolo in modo affidabile.
 
-Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra siti Web, servizi cloud e macchine virtuali](../choose-web-site-cloud-service-vm.md).
+Per altre informazioni su Servizi cloud e sulle differenze rispetto ai servizi Siti Web e Macchine virtuali di Azure, vedere [Confronto tra siti Web, servizi cloud e macchine virtuali](../app-service-web/choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]Come creare un semplice sito Web Se si intende creare un semplice sito Web front-end, è possibile <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">usare un’app Web semplificata.</a> È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell’app Web e all'insorgere di nuove esigenze.
+>[AZURE.TIP] Come creare un semplice sito Web Se si intende creare un semplice sito Web front-end, è possibile <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">usare un’app Web semplificata.</a> È possibile procedere all'aggiornamento a un Servizio cloud con facilità, in base alla crescita dell’app Web e all'insorgere di nuove esigenze.
 
 
 Questa esercitazione consente di creare una semplice applicazione Web ospitata in un ruolo Web. Si utilizzerà l'emulatore di calcolo per testare in locale l'applicazione, che verrà quindi distribuita con gli strumenti della riga di comando di PowerShell.
@@ -38,9 +38,9 @@ L'applicazione è una semplice applicazione "hello world":
 
 ## Prerequisiti
 
-> [AZURE.NOTE]Questa esercitazione usa Azure PowerShell, che richiede Windows.
+> [AZURE.NOTE] Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
-- Installare e configurare [Azure PowerShell](../install-configure-powershell.md).
+- Installare e configurare [Azure PowerShell](../powershell-install-configure.md).
 - Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/it-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
@@ -76,7 +76,7 @@ Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding d
 
 	Il cmdlet **Add-AzureNodeWebRole** crea un'applicazione Node.js di base. Modifica inoltre i file con estensione **csfg** e **csdef** per aggiungere voci di configurazione per il nuovo ruolo.
 
-	> [AZURE.NOTE]Se non si specifica un nome di ruolo, viene usato un nome predefinito. È possibile specificare un nome come primo parametro di cmdlet: `Add-AzureNodeWebRole MyRole`
+	> [AZURE.NOTE] Se non si specifica un nome di ruolo, viene usato un nome predefinito. È possibile specificare un nome come primo parametro di cmdlet: `Add-AzureNodeWebRole MyRole`
 
 
 L'app Node.js è definita nel file **server.js**, contenuto nella directory per il ruolo Web (**WebRole1** per impostazione predefinita). Il codice è il seguente:
@@ -112,7 +112,7 @@ Per distribuire l'applicazione in Azure, è necessario innanzitutto scaricare le
         Import-AzurePublishSettingsFile [path to file]
 
 
-	> [AZURE.NOTE]Dopo aver importato le impostazioni di pubblicazione, è consigliabile eliminare il file con estensione publishsettings, perché contiene informazioni che potrebbero consentire l'accesso all'account.
+	> [AZURE.NOTE] Dopo aver importato le impostazioni di pubblicazione, è consigliabile eliminare il file con estensione publishsettings, perché contiene informazioni che potrebbero consentire l'accesso all'account.
 
 
 ### Pubblicare l'applicazione
@@ -132,7 +132,8 @@ Al termine della pubblicazione, verrà visualizzata una risposta simile alla seg
 
 ![Output del comando Publish-AzureService](./media/cloud-services-nodejs-develop-deploy-app/node19.png)
 
-> [AZURE.NOTE]Possono essere necessari alcuni minuti per la distribuzione dell'applicazione e prima che questa sia disponibile dopo la prima pubblicazione.
+> [AZURE.NOTE]
+Possono essere necessari alcuni minuti per la distribuzione dell'applicazione e prima che questa sia disponibile dopo la prima pubblicazione.
 
 Al termine della distribuzione, verrà visualizzata una finestra del browser che consente di passare al servizio cloud.
 
@@ -175,7 +176,7 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 
 	![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	> [AZURE.NOTE]L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per ulteriori informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
+	> [AZURE.NOTE] L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per ulteriori informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
 ## Passaggi successivi
 
@@ -197,4 +198,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/dev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

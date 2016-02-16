@@ -3,7 +3,7 @@
 È possibile riutilizzare modelli ARM predefiniti, caricarli in un archivio github gestito da Microsoft e renderli disponibili community. Questi modelli possono essere distribuiti immediatamente da github o scaricati e modificati in base alle proprie esigenze. Per distribuire un modello che crea una rete virtuale con due subnet, attenersi alla procedura seguente.
 
 1. Da un browser, passare a [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scorrere verso il basso nell'elenco dei modelli e fare clic su **101-two-subnets**. Controllare il file **README.md**, come illustrato di seguito.
+2. Scorrere verso il basso nell'elenco dei modelli e fare clic su **101-vnet-two-subnets**. Controllare il file **README.md**, come illustrato di seguito.
 
 	![File READEME.md in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -16,7 +16,7 @@
 
 	![Gruppo di risorse](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. Se necessario, modificare le impostazioni **Sottoscrizione** e **Percorso** della rete virtuale.
+5. Se necessario, modificare le impostazioni per **Sottoscrizione** e **Percorso** per la rete virtuale.
 6. Se non si desidera visualizzare la rete virtuale come un titolo nella **schermata iniziale**, disabilitare **Aggiungere a schermata iniziale**.
 5. Fare clic su **Note legali**, leggere le condizioni e fare clic su **Acquista** per accettare. 
 6. Fare clic su **Crea** per creare la rete virtuale.
@@ -27,4 +27,4 @@
 
 	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

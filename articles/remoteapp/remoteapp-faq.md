@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # Domande frequenti su Azure RemoteApp
@@ -26,8 +26,8 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 - **Quali sono le opzioni di distribuzione?** Sono disponibili due tipi di distribuzioni di RemoteApp: ibrida e nel cloud. Quale è necessario dipende da numerosi fattori, ad esempio la necessità di aggiunta a un dominio. Tutte queste decisioni sono discusse [qui](remoteapp-collections.md).
 
 ## Suggerimenti rapidi sull'uso di Azure RemoteApp ##
-- **Dopo quanto tempo si viene disconnessi? Per quanto tempo è possibile rimanere inattivi prima che venga eseguito automaticamente l'avvio?** 4 ore. Se un utente rimane inattivo per 4 ore, viene disconnesso automaticamente da Azure RemoteApp. Per verificare le altre impostazioni predefinite, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md).
-- **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [manage.windowsazure.com](http://manage.windowsazure.com) - creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
+- **Dopo quanto tempo si viene disconnessi? Per quanto tempo è possibile rimanere inattivi prima che venga eseguito automaticamente l'avvio?** 4 ore. Se un utente rimane inattivo per 4 ore, viene disconnesso automaticamente da Azure RemoteApp. Per verificare le altre impostazioni predefinite, vedere [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md).
+- **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [portal.azure.com](http://portal.azure.com) e creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
 ## Dettagli della sottoscrizione Azure RemoteApp ##
 
 - **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
@@ -114,4 +114,4 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

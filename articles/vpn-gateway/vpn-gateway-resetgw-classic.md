@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Reimpostare un gateway VPN di Azure mediante PowerShell
@@ -54,9 +54,8 @@ Se la connessione non viene ripristinata dopo il primo riavvio, emettere di nuov
 
 Dopo due riavvii, se si verificano ancora problemi di connettività tra più sedi locali, aprire un ticket di supporto dal portale di Azure classico per contattare il supporto tecnico di Microsoft Azure.
 
-
 ## Passaggi successivi
 	
 Per altre informazioni su questo cmdlet, vedere [Riferimenti PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

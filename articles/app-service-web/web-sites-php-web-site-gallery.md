@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Creare un'app WordPress nel servizio app di Azure
 
-Questa esercitazione illustra come trovare un'applicazione in Azure Marketplace e installarla in un'app Web del servizio app. L'esercitazione usa un sito blog WordPress come esempio, ma il processo è simile per molte altre applicazioni Marketplace.
+Questa esercitazione illustra come distribuire un sito blog di WordPress da Azure Marketplace.
 
 Al termine dell'esercitazione si otterrà un sito di blog WordPress attivo e in esecuzione sul cloud.
 
@@ -28,11 +28,14 @@ Si apprenderà come:
 
 * Come trovare un modello di applicazione in Azure Marketplace.
 * Come creare un'app Web basata sul modello nel servizio app di Azure.
-* Come configurare le impostazioni del servizio app di Azure per la nuova app Web e il database MySQL.
+* Come configurare le impostazioni del servizio app di Azure per la nuova app Web e il database.
 
 Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web sono basate su una vasta gamma di framework noti, ad esempio [PHP](/develop/nodejs/) in questo esempio WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) e [Python](/develop/python/), per citarne alcuni. Per creare un'app Web da Azure Marketplace, l'unico software necessario è il browser usato per il [portale di Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
+Il sito WordPress distribuito in questa esercitazione usa MySQL come database. Se invece si vuole usare il database SQL come database, vedere [progetto Nami](http://projectnami.org/). **Progetto Nami** è disponibile anche tramite il Marketplace.
+
+> [AZURE.NOTE]
+Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](/it-IT/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -44,7 +47,7 @@ Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiam
 	
     ![Creazione di un nuovo sito][5]
 	
-3. Cercare **WordPress**, quindi fare clic su **WordPress**.
+3. Cercare **WordPress**, quindi fare clic su **WordPress**. Se si vuole usare il database SQL invece di MySQL, cercare **progetto Nami**.
 
 	![WordPress nell'elenco][7]
 	
@@ -123,4 +126,4 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

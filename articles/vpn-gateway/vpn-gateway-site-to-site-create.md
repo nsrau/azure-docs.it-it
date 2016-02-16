@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Questo articolo si applica al modello di distribuzione classica. Se si sta cercando un modello di distribuzione differente per questa configurazione, usare le schede riportate sopra per selezionare l'articolo più pertinente. Se si vuole connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale](virtual-networks-configure-vnet-to-vnet-connection.md).
+In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Questo articolo si applica al modello di distribuzione **classica**. Se si vuole creare una connessione da sito a sito per il modello di distribuzione di **Gestione risorse**, vedere [Configurare una connessione da sito a sito con Gestione risorse di Azure e PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md). Se si vogliono connettere reti virtuali, ma non si sta creando una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classica](virtual-networks-configure-vnet-to-vnet-connection.md) o [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione di Gestione risorse](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -100,4 +100,4 @@ Configurare quindi il gateway di rete virtuale per creare una connessione da sit
 
 Se si vuole configurare una connessione tra la rete virtuale classica e una rete virtuale creata usando la modalità Gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

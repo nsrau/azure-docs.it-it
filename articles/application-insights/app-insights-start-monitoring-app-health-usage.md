@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/04/2015"
+	ms.date="02/04/2016"
 	ms.author="awills"/>
 
 
@@ -133,16 +133,16 @@ Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 
 #### Problemi del server di compilazione
 
-Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
+Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-> [AZURE.NOTE]Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
+> [AZURE.NOTE] Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## 5\. Aggiungere i contatori delle prestazioni IIS e del rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
 
-Se l'esecuzione avviene sul server IIS, questo passaggio consente la visualizzazione dei contatori delle prestazioni del sistema in [Esplora metriche](app-insights-metrics-explorer.md).
+Se si esegue sul server IIS, questo passaggio consentirà inoltre ai contatori delle prestazioni del sistema di essere visualizzati nell’[Esplora metriche](app-insights-metrics-explorer.md).
 
 #### Se l'app è in esecuzione nel server IIS
 
@@ -190,7 +190,7 @@ Assicurarsi che `buildinfo.config` sia generato dal processo di MSBuild. Nel fil
     </PropertyGroup> 
 ```
 
-Quando dispone delle informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà ad ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
+Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
 
 Si noti tuttavia che il numero di versione di build viene generato solo da Build MS, non dallo sviluppatore di build in Visual Studio.
 
@@ -206,7 +206,7 @@ Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario e
 
 All'inizio di questo articolo è stato affermato che sarebbe stato illustrato il metodo manuale per creare una risorsa di Application Insights e quindi installare l'SDK. È importante comprendere le due parti di tale procedura. Ma per le applicazioni ASP.NET (e molti altri) esiste un modo automatico anche più rapido.
 
-Sono necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
+Saranno necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
 
 #### Se è un nuovo progetto...
 
@@ -269,4 +269,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

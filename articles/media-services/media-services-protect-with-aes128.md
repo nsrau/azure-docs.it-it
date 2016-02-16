@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
@@ -71,9 +71,9 @@ Per informazioni dettagliate, vedere [Carica file in un account di servizi multi
 
 ##<a id="encode_asset"></a>Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva
 
-Con la crittografia dinamica, è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per ulteriori informazioni, vedere l’argomento [Panoramica della creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
+Con la crittografia dinamica, è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere l'argomento [Panoramica della creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
-Per istruzioni su come eseguire la codifica, vedere [come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+Per istruzioni su come eseguire la codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ##<a id="create_contentkey"></a>Creare una chiave simmetrica e associarla all'asset codificato
 
@@ -87,7 +87,7 @@ Servizi multimediali supporta più modalità di autenticazione degli utenti che 
 
 Per informazioni dettagliate, vedere l'argomento [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md).
 
-##<a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell’asset 
+##<a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell'asset 
 
 Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
 
@@ -98,7 +98,7 @@ Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella 
 
 Per informazioni dettagliate, vedere [Configurare il criterio di distribuzione dell’asset](media-services-rest-configure-asset-delivery-policy.md).
 
-##<a id="create_locator"></a>Creare un localizzatore di streaming OnDemand per ottenere un URL di streaming
+##<a id="create_locator"></a>Creare un localizzatore di streaming on demand per ottenere un URL di streaming
 
 È necessario fornire all'utente l'URL del flusso per Smooth, DASH o HLS.
 
@@ -621,4 +621,4 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

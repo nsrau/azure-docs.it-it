@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure
@@ -340,6 +340,8 @@ A tale scopo, impostare la proprietà `apiDefinition` sul tipo di risorsa `Micro
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+Per visualizzare un esempio di modello di Gestione risorse di Azure che include codice JSON per l'impostazione della proprietà di definizione dell'API, aprire il [file azuredeploy.json nel repository dell'applicazione di esempio](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="codegen"></a> Utilizzare da un client .NET tramite un codice client generato
 
 Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è la generazione automatica del codice. Le classi client generate semplificano la scrittura del codice che chiama un'app per le API.
@@ -388,29 +390,27 @@ Il progetto ToDoListAPI include già il codice client generato, ma sarà elimina
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. Nel progetto ToDoListAPI aprire *Controllers\\ToDoListController.cs* per visualizzare il codice che chiama l'API tramite il client generato.
+5. Nel progetto ToDoListAPI aprire *Controllers\\ToDoListController.cs* per visualizzare il codice che chiama l'API usando il client generato.
 
 	Il frammento seguente illustra come il codice crea un'istanza dell'oggetto client e chiama il metodo Get.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	Questo codice passa l'URL di IIS Express locale del progetto API al costruttore della classe client per consentire l'esecuzione dell'applicazione in locale. Se si omette il parametro del costruttore, l'endpoint predefinito sarà l'URL da cui è stato generato il codice.
+	Il parametro del costruttore ottiene l'URL dell'endpoint dall'impostazione `toDoListDataAPIURL` dell'app. Nel file Web.config questo valore è impostato sull'URL di IIS Express locale del progetto API nell'impostazione `toDoListDataAPIURL` per consentire l'esecuzione dell'applicazione in locale. Se si omette il parametro del costruttore, l'endpoint predefinito sarà l'URL da cui è stato generato il codice.
 
-6. La classe del client verrà generata con un nome diverso basato sul nome dell'app per le API. Modificare il codice in modo che il nome del tipo corrisponda a quanto generato nel progetto e rimuovere l'URL. Ad esempio, se l'app per le API è stata denominata ToDoListDataAPI0121, il codice sarà simile all'esempio seguente:
+6. La classe del client verrà generata con un nome diverso basato sul nome dell'app per le API. Modificare il codice in modo che il nome del tipo corrisponde a quello generato nel progetto. Ad esempio, se l'app per le API è stata denominata ToDoListDataAPI0121, il codice sarà simile all'esempio seguente:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	L'URL di destinazione predefinito è l'app per le API ToDoListDataAPI, perché è l'origine da cui è stato generato il codice. Se è stato usato un metodo diverso per generare il codice, potrebbe essere necessario specificare l'URL dell'app per le API di Azure nello stesso modo in cui si è specificato l'URL locale.
 
 #### Creare un'app per le API per ospitare il livello intermedio
 
@@ -434,6 +434,22 @@ Il progetto ToDoListAPI include già il codice client generato, ma sarà elimina
 
 	Visual Studio crea l'app per le API, crea un profilo di pubblicazione per l'app e visualizza il passaggio **Connessione** della procedura guidata **Pubblica sito Web**.
 
+### Impostare l'URL di livello dati nelle impostazioni dell'app di livello intermedio
+
+1. Andare al [portale di Azure](https://portal.azure.com/) e passare al pannello **App per le API** per l'app per le API creata per ospitare il progetto TodoListAPI (livello intermedio).
+
+2. Fare clic su **Impostazioni > Impostazioni applicazione**.
+
+3. Nella sezione **Impostazioni app** aggiungere la chiave e il valore seguenti:
+
+	|Chiave|Valore|Esempio
+	|---|---|---|
+	|toDoListDataAPIURL|https://{yournome dell'app per le API di livello dati}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. Fare clic su **Save**.
+
+	Quando il codice è in esecuzione in Azure, questo valore sostituisce l'URL localhost contenuto nel file Web.config.
+
 ### Distribuire il progetto ToDoListAPI nella nuova app per le API
 
 3.  Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Pubblica**.
@@ -444,7 +460,7 @@ Il progetto ToDoListAPI include già il codice client generato, ma sarà elimina
 
 11. Nella barra degli indirizzi del browser aggiungere "swagger" all'URL e quindi premere INVIO. L'URL sarà `http://{apiappname}.azurewebsites.net/swagger`.
 
-	Il browser visualizzata la stessa interfaccia utente di Swagger vista in precedenza per ToDoListDataAPI, ma `owner` non è un campo obbligatorio perché ora è l'app per le API di livello intermedio a inviare tale valore all'app per le API di livello dati.
+	Il browser visualizza la stessa interfaccia utente di Swagger vista in precedenza per ToDoListDataAPI, ma `owner` non è un campo obbligatorio perché ora è l'app per le API di livello intermedio a inviare tale valore all'app per le API di livello dati.
 
 12. Provare a usare il metodo Get e gli altri metodi per verificare che l'app per le API di livello intermedio chiami correttamente l'app per le API di livello dati.
 
@@ -454,4 +470,4 @@ Il progetto ToDoListAPI include già il codice client generato, ma sarà elimina
 
 Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
