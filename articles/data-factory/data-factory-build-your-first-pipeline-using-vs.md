@@ -290,8 +290,9 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
  
 ## Passaggio 4: Monitorare la pipeline
 
-6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
-	1. Fare clic su **Sfoglia** e selezionare **Data factory**. ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+6. Accedere al [portale di Azure](http://portal.azure.com/) e seguire questa procedura:
+	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
+	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
