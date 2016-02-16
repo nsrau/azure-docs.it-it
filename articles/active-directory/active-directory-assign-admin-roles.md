@@ -86,4 +86,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 - [Gestire le password](active-directory-manage-passwords.md)
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->
