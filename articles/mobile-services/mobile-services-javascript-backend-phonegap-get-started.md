@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="ggailey777"/>
 
 # Introduzione a Servizi mobili
@@ -109,7 +109,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella **TodoItem**. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nell'elenco.
 
-	> [AZURE.IMPORTANT]Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
+	> [AZURE.IMPORTANT] Le modifiche a questo progetto di piattaforma verranno sovrascritte se il progetto principale viene ricompilato con gli strumenti PhoneGap. Apportare invece le modifiche nella directory www radice del progetto, come illustrato di seguito.
 
 4. Tornare al [portale di Azure classico], fare clic sulla scheda **Dati** e quindi sulla tabella **TodoItem**.
 
@@ -153,7 +153,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* **[Aggiungere l'autenticazione all'app]** Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.  
+* **[Aggiungere l'autenticazione all'app]**Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.  
 
 * **[Aggiungere notifiche push all'app](https://msdn.microsoft.com/magazine/dn879353.aspx)** Informazioni sulla registrazione e l'invio di notifiche push all'app.
 
@@ -176,4 +176,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -22,20 +22,20 @@
 
 ## Panoramica
 
+Questo articolo illustra come usare l'autenticazione del servizio app per l'accesso [interno](app-service-api-authentication.md#internal) alle app per le API. In uno scenario interno un'app per le API deve essere utilizzabile solo dal codice dell'applicazione dell'utente. Il modo più semplice per implementare questo scenario nel servizio app consiste nell'usare Azure AD per proteggere l'app per le API chiamata. L'app per le API protetta viene chiamata con un token di connessione ottenuto da Azure AD fornendo le credenziali dell'identità di applicazione (entità servizio).
+
 In questo articolo si apprenderà:
 
 * Come usare Azure Active Directory (Azure AD) per proteggere un'app per le API dall'accesso non autenticato.
-* Come utilizzare un'app per le API protetta usando le credenziali dell'entità servizio (identità app).
+* Come utilizzare un'app per le API protetta da un'app per le API, un'app Web o un'app per dispositivi mobili usando le credenziali dell'entità servizio (identità di app) di Azure AD. Per informazioni sull'utilizzo da un'app per la logica, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 * Come verificare che l'app per le API protetta non possa essere chiamata dagli utenti connessi da un browser.
 * Come verificare che l'app per le API protetta possa essere chiamata solo da un'entità servizio di Azure AD specifica.
-
-Questo metodo di protezione di un'app per le API in genere viene usato per gli [scenari interni](app-service-api-authentication.md#internal), ad esempio per la chiamata da un'app per le API a un'altra.
 
 L'articolo contiene due sezioni:
 
 * La sezione [Come configurare l'autenticazione dell'entità servizio di Servizio app di Azure](#authconfig) illustra in generale come configurare l'autenticazione per le app per le API e come utilizzare un'app per le API protetta. Questa sezione si applica allo stesso modo a tutti i framework supportati dal servizio app, inclusi .NET, Node.js e Java.
 
-* Il [resto dell'articolo](#tutorialstart) descrive la configurazione di uno scenario di "accesso interno" per un'applicazione di esempio .NET eseguita nel servizio app.
+* A partire dalla sezione [Proseguimento delle esercitazioni introduttive su .NET](#tutorialstart), l'esercitazione descrive la configurazione di uno scenario di "accesso interno" per un'applicazione di esempio .NET in esecuzione nel servizio app.
 
 ## <a id="authconfig"></a> Come configurare l'autenticazione dell'entità servizio nel servizio app di Azure
 
@@ -61,11 +61,11 @@ Questa sezione fornisce istruzioni generali applicabili a tutte le app per le AP
 
 	Per istruzioni dettagliate su questo pannello, vedere [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
-7. Dopo aver completato il pannello di configurazione del provider di autenticazione, fare clic su **OK**.
+7. Dopo avere completato il pannello di configurazione del provider di autenticazione, fare clic su **OK**.
 
 7. Nel pannello **Autenticazione/Autorizzazione** fare clic su **Salva**.
 
-Al termine, il servizio app impedisce alle chiamate API non autenticate di raggiungere l'app per le API. Nell'app per le API protetta non sono necessari codici di autenticazione o di autorizzazione.
+Al termine, il servizio app consente solo le richieste dai chiamanti nel tenant di Azure AD configurato. Nell'app per le API protetta non sono necessari codici di autenticazione o di autorizzazione. Il token di connessione viene passato all'app per le API con le attestazioni di uso comune nelle intestazioni HTTP ed è possibile leggere tali informazioni nel codice per convalidare la provenienza delle richieste da un determinato chiamante, ad esempio un'entità servizio.
 
 Questa funzionalità di autenticazione è la stessa per tutti i linguaggi supportati dal servizio app, inclusi .NET, Node.js e Java.
 
@@ -83,10 +83,12 @@ Una volta acquisito il token, il chiamante lo include con le richieste HTTP nell
 
 #### Come proteggere l'app per le API dall'accesso di utenti nello stesso tenant
 
-I token di connessione per gli utenti nello stesso tenant sono considerati validi per l'app per le API protetta. Per assicurarsi che una sola entità servizio possa chiamare l'app per le API protetta, aggiungere il codice nell'app per le API protetta per controllare le attestazioni seguenti:
+I token di connessione per gli utenti nello stesso tenant sono considerati validi per l'app per le API protetta. Per assicurarsi che una sola entità servizio possa chiamare l'app per le API protetta, aggiungere il codice nell'app per le API protetta per convalidare le attestazioni seguenti dal token:
 
-* `appid` deve essere uguale all'ID client dell'applicazione Azure AD associata al chiamante.
-* `objectidentifier` deve essere l'ID entità servizio del chiamante.
+* `appid` deve essere l'ID client dell'applicazione Azure AD associata al chiamante. 
+* `oid` (`objectidentifier`) deve essere l'ID entità servizio del chiamante. 
+
+Il servizio app fornisce anche l'attestazione `objectidentifier` nell'intestazione X-MS-CLIENT-PRINCIPAL-ID.
 
 ### Come proteggere l'app per le API dall'accesso dal browser
 
@@ -96,7 +98,7 @@ Se non si convalidano le attestazioni nel codice nell'app per le API protetta e 
 
 Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, passare alla sezione [Passaggi successivi](#next-steps).
 
-Il resto di questo articolo prosegue con la serie introduttiva su .NET per le app per le API e presuppone che l'utente abbia completato l'[esercitazione sull'autenticazione utente](app-service-api-user-principal-authentication.md) e che l'applicazione di esempio sia in esecuzione in Azure con l'autenticazione utente abilitata.
+Il resto di questo articolo prosegue con la serie introduttiva su .NET per le app per le API e presuppone che l'utente abbia completato l'[esercitazione sull'autenticazione utente](app-service-api-user-principal-auth.md) e che l'applicazione di esempio sia in esecuzione in Azure con l'autenticazione utente abilitata.
 
 ## Configurare l'autenticazione in Azure
 
@@ -120,7 +122,7 @@ Nella sezione seguente si configura l'app per le API del livello intermedio in m
 
 6. Nel pannello **Impostazioni di Azure Active Directory** fare clic su **Rapide**.
 
-	Con l'opzione **Rapida** Azure può creare automaticamente un'applicazione di AAD nel [tenant](https://msdn.microsoft.com/it-IT/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) di Azure AD.
+	Con l'opzione **Rapida** Azure può creare automaticamente un'applicazione AAD nel [tenant](https://msdn.microsoft.com/it-IT/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) di Azure AD.
 
 	Non è necessario creare un tenant, perché ne esiste già uno per ogni account Azure.
 
@@ -220,7 +222,7 @@ Apportare le modifiche seguenti al progetto ToDoListAPI in Visual Studio.
 
 5. Copiare il valore **ID client** e salvarlo in una posizione da cui poterlo recuperare più tardi.
 
-8. Nel portale di Azure classico tornare all'elenco **Applicazioni di proprietà dell'azienda** e fare clic sull'applicazione di AAD creata per l'app per le API ToDoListAPI (livello intermedio).
+8. Nel portale di Azure classico tornare all'elenco **Applicazioni di proprietà dell'azienda** e fare clic sull'applicazione AAD creata per l'app per le API ToDoListAPI (livello intermedio).
 
 16. Fare clic sulla scheda **Configure**.
 
@@ -301,7 +303,7 @@ Attualmente qualsiasi chiamante possa ottenere un token per un'utente o un'entit
 
 Per aggiungere queste restrizioni, aggiungere il codice per convalidare le attestazioni `appid` e `objectidentifier` nelle chiamate in arrivo.
 
-Per questa esercitazione, inserire il codice che convalida l'ID app e l'ID entità servizio direttamente nelle azioni del controller. In alternativa, usare un attributo `Authorize` personalizzato o eseguire la convalida nelle sequenze di avvio (ad esempio, il middleware OWIN).
+Per questa esercitazione, inserire il codice che convalida l'ID app e l'ID entità servizio direttamente nelle azioni del controller. In alternativa, usare un attributo `Authorize` personalizzato o eseguire la convalida nelle sequenze di avvio (ad esempio, il middleware OWIN). Per un esempio della seconda operazione, vedere [questa applicazione di esempio](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs).
 
 Apportare le modifiche seguenti al progetto TodoListDataAPI.
 
@@ -374,7 +376,7 @@ Per informazioni su come creare un'applicazione a singola pagina AngularJS con u
 Se l'applicazione è stata eseguita correttamente senza autenticazione, ma non funziona quando si implementa l'autenticazione, il più delle volte il problema è dovuto a impostazioni di configurazione non corrette o non coerenti. Iniziare a controllare tutte le impostazioni nel servizio app di Azure e in Azure Active Directory. Ecco alcuni suggerimenti specifici:
 
 * Dopo avere configurato il codice in un progetto, verificare di avere ridistribuito quel progetto e non uno degli altri.
-* Per le impostazioni configurate nel pannello **Impostazioni applicazione** del portale di Azure, verificare sia stata selezionata l'app per le API o l'app Web corretta quando sono state immesse le impostazioni.
+* Per le impostazioni configurate nel pannello **Impostazioni applicazione** del portale di Azure, verificare che sia stata selezionata l'app per le API o l'app Web corretta quando sono state immesse le impostazioni.
 * Verificare che si stia passando a URL HTTPS nel browser e non a URL HTTP.
 * Verificare che CORS sia ancora abilitato nell'app per le API del livello intermedio, consentendo le chiamate al livello intermedio dall'URL HTTPS front-end. In caso di dubbio che il problema sia correlato a CORS, provare "*" come URL di origine consentito. **Importante:** alcuni messaggi di errore della console degli strumenti di sviluppo del browser possono evidenziare un errore di CORS quando il problema effettivo è l'autenticazione del livello dati. Per verificarlo, è possibile disabilitare temporaneamente l'autenticazione per l'app per le API ToDoListDataAPI.
 * Verificare di ottenere il maggior numero possibile di informazioni nei messaggi di errore impostando [customErrors mode su Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
@@ -388,8 +390,8 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 * [Guida per sviluppatori Azure AD](http://aka.ms/aaddev)
 * [Scenari per Azure AD](http://aka.ms/aadscenarios)
-* [Esempi di Azure AD](http://aka.ms/aadsamples)
+* [Esempi di Azure AD](http://aka.ms/aadsamples) L'esempio [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) è simile a quanto illustrato in questa esercitazione, ma non usa l'autenticazione del servizio app.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app di Servizio app di Azure](web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

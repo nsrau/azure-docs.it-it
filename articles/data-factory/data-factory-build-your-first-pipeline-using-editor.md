@@ -323,4 +323,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Soluzione predittiva per il rischio di credito con Machine Learning | Microsoft Azure"
 	description="Una procedura dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio."
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="rischio di credito, soluzione di analisi predittiva, valutazione del rischio"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@ In questa procedura dettagliata verrà descritto il processo di sviluppo di un m
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Aprire Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Per altre informazioni introduttive su Machine Learning Studio, vedere la [home page di Microsoft Azure Machine Learning Studio ](https://studio.azureml.net/).
-
->[AZURE.TIP]Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 Per creare una soluzione di valutazione del rischio di credito, seguire la procedura seguente:
 
@@ -41,6 +39,6 @@ Per creare una soluzione di valutazione del rischio di credito, seguire la proce
 5.	[Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
-Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) incluso in Machine Learning Studio.
+Questa procedura dettagliata è basata su una versione semplificata dell'esperimento di esempio [Binary Classfication: Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) nella [raccolta Cortana Analytics](http://gallery.cortanaanalytics.com/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

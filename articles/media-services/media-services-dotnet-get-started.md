@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@ Per completare l'esercitazione è necessario quanto segue.
 
 1. Nel portale di Azure classico fare clic su **Nuovo**, quindi su **Servizio multimediale** e infine su **Creazione rapida**.
 
-![Creazione rapida di Servizi multimediali](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Creazione rapida di Servizi multimediali](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. In **NAME** immettere il nome per il nuovo account. Un nome di account Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 
@@ -153,7 +153,7 @@ L'allocazione di nuove unità richiede circa 20 minuti.
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		
 
-6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
+6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\\VideoFiles".
 
 ##Connettersi all'account di Servizi multimediali
 
@@ -453,4 +453,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

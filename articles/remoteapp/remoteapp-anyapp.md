@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="11/05/2015"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
@@ -118,4 +118,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

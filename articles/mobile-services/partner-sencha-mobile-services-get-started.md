@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili e Sencha Touch
@@ -69,7 +69,7 @@ Dopo avere creato il servizio mobile, è possibile seguire una facile guida intr
 
 3. Fare clic su **Create TodoItems table** per creare una tabella in cui archiviare i dati dell'app.
 
-	> [AZURE.NOTE]NON scaricare l'app HTML dal portale di Azure classico. Verrà invece creata manualmente un'applicazione Sencha Touch nella sezione seguente.
+	> [AZURE.NOTE] NON scaricare l'app HTML dal portale di Azure classico. Verrà invece creata manualmente un'applicazione Sencha Touch nella sezione seguente.
 
 
 1. Prendere nota della **chiave dell'app** e dell'**URL dell'app** nel portale di Azure classico perché verranno utilizzati in altre sezioni di questa esercitazione.
@@ -113,7 +113,7 @@ Per aggiungere manualmente le estensioni di Azure all'applicazione, utilizzare l
 
 ###Installazione come pacchetto di Sencha
 
-> [AZURE.NOTE]È possibile usare questo metodo solo quando l'applicazione è stata generata con il comando <code>sencha generate app</code>.
+> [AZURE.NOTE] È possibile usare questo metodo solo quando l'applicazione è stata generata con il comando <code>sencha generate app</code>.
 
 Tutte le applicazioni generate da Sencha Cmd contengono una cartella "packages" nella radice. Il percorso della cartella "packages" è configurabile, tuttavia, indipendentemente dal percorso, tale cartella viene utilizzata per archiviare tutti i pacchetti utilizzati dall'applicazione o delle applicazioni se è stato creata un'area di lavoro di Sencha.
 
@@ -671,7 +671,7 @@ La fase finale di questa esercitazione prevede l'hosting e l'esecuzione della nu
 
     * *sencha app refresh*: indica a Sencha Cmd di individuare tutte le dipendenze dell'app e scaricare gli eventuali pacchetti necessari (ad esempio [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
-    * *sencha web start*: verrà avviato un server Web locale per testare l'applicazione.
+    * *sencha web start* : verrà avviato un server Web locale per testare l'applicazione.
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -724,4 +724,4 @@ Per ulteriori informazioni introduttive su Sencha Touch, vedere l'insieme comple
 
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

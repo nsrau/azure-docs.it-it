@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Controllo degli accessi in base al ruolo di Azure
@@ -198,4 +198,4 @@ La proprietà **AssignableScopes** dei ruoli personalizzati indica gli utenti au
 
 **Chi può visualizzare i ruoli personalizzati disponibili per l'assegnazione in un ambito**: gli utenti che possono eseguire l'operazione `Microsoft.Authorization/roleDefinition/read` a livello di ambito possono visualizzare i ruoli Controllo degli accessi in base al ruolo disponibili per l'assegnazione in tale ambito. Tutti i ruoli predefiniti nel Controllo degli accessi in base al ruolo di Azure consentono la visualizzazione dei ruoli disponibili per l'assegnazione.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

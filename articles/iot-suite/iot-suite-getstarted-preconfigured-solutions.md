@@ -57,7 +57,7 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
     ![][img-devicelist]
 
-2.  È possibile vedere che sono presenti quattro dispositivi simulati creati dal processo di provisioning.
+2.  L'elenco di dispositivi mostra che sono presenti quattro dispositivi simulati creati dal processo di provisioning.
 
 3.  Fare clic su un dispositivo nell'elenco dei dispositivi per visualizzarne i dettagli.
 
@@ -130,6 +130,8 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 9.  Tornare alla tabella **Cronologia avvisi** in **Dashboard soluzione** e osservare la modifica nel comportamento come conseguenza della regola aggiornata.
 
     ![][img-newhistory]
+    
+Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite], che consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando è stata creata la soluzione preconfigurata.
 
 ## Passaggi successivi
 
@@ -160,4 +162,4 @@ Dopo avere compilato una soluzione preconfigurata funzionante, è possibile pass
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

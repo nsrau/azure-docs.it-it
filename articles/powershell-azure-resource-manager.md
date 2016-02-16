@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@ Il cmdlet richiede le credenziali di accesso per l'account di Azure. Dopo l'acce
 
 Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo **Login-AzureRmAccount**.
 
->[AZURE.NOTE]I moduli di Gestione risorse richiedono Login-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
+>[AZURE.NOTE] I moduli di Gestione risorse richiedono Login-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
 
 ## Recuperare la posizione dei tipi di risorsa
 
@@ -461,4 +461,4 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

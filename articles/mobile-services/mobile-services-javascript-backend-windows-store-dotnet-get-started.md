@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
@@ -75,7 +75,7 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 * [Aggiungere notifiche push all'app][Get started with push notifications] Informazioni sull'invio di una notifica push di base all'app.
 
-* [Come utilizzare la libreria client .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, usare i dati e accedere alle API personalizzate.
+* [Come utilizzare la libreria client .NET](mobile-services-dotnet-how-to-use-client-library.md) Informazioni su come eseguire una query nel servizio mobile, usare i dati e accedere alle API personalizzate.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -98,4 +98,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [portale di Azure classico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

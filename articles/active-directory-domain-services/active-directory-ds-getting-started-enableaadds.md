@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
@@ -46,11 +46,11 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
    - Nell'elenco sono contenuti tutti i domini che sono stati configurati per la directory di Azure AD, inclusi i domini verificati e non verificati configurati nella scheda 'Domini'.
    - Inoltre, è anche possibile aggiungere, digitandolo, un nome di dominio personalizzato all'elenco.
 
-     >[AZURE.WARNING] Assicurarsi che il prefisso del dominio del nome di dominio specificato (es. 'contoso' nel nome di dominio 'contoso.local') sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
+     > [AZURE.WARNING] Assicurarsi che il prefisso del dominio del nome di dominio specificato (es. 'contoso' nel nome di dominio 'contoso.local') sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
 
 8. Il passaggio successivo consiste nel selezionare una rete virtuale in cui si desidera rendere disponibile Servizi di dominio Azure AD. Selezionare la rete virtuale appena creata nell'elenco a discesa **Connetti Servizi di dominio a questa rete virtuale**.
    - Assicurarsi che la rete virtuale specificata appartenga a un'area di Azure supportata da servizi di dominio di Azure AD.
-   - Per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
+   - Per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure AD, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 
 9. Dopo aver selezionato le opzioni precedenti, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina per abilitare Servizi di dominio Azure AD.
 10. Nella pagina verrà visualizzato lo stato 'In sospeso...' durante l'abilitazione di Servizi di dominio Azure AD per la directory.
@@ -73,4 +73,4 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
 ---
 [**Passaggio successivo - Aggiornare le impostazioni DNS per la rete virtuale di Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

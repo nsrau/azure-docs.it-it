@@ -1,11 +1,11 @@
-## Come creare una rete virtuale nel portale di anteprima di Azure
+## Come creare una rete virtuale nel portale di Azure
 
 Per creare una rete virtuale in base allo scenario precedente tramite il portale di anteprima di Azure, seguire questa procedura.
 
 1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Fare clic su **NUOVO** > **Rete** > **Rete virtuale**, quindi fare clic su **Gestione risorse** dall'elenco **Selezionare un modello di distribuzione** e scegliere **Crea**, come illustrato nella figura riportata di seguito.
 
-	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+	![Creare reti virtuali nel portale di Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
 3. Nel pannello **Crea rete virtuale** configurare le impostazioni della rete virtuale, come illustrato nella figura riportata di seguito.
 
@@ -15,9 +15,9 @@ Per creare una rete virtuale in base allo scenario precedente tramite il portale
 
 	![Gruppo di risorse](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. Se necessario, modificare le impostazioni **Sottoscrizione** e **Percorso** della rete virtuale.
+5. Se necessario, modificare le impostazioni per **Sottoscrizione** e **Percorso** per la rete virtuale.
 
-6. Se non si desidera visualizzare la rete virtuale come un titolo nella **schermata iniziale**, disabilitare **Aggiungere a schermata iniziale**.
+6. Se non si desidera visualizzare la rete virtuale come un riquadro nella **schermata iniziale**, disabilitare **Aggiungere a Schermata iniziale**.
 
 7. Fare clic su **Crea** e osservare il riquadro **Creazione rete virtuale** come illustrato nella figura riportata di seguito.
 
@@ -25,7 +25,7 @@ Per creare una rete virtuale in base allo scenario precedente tramite il portale
 
 8. Attendere che la rete virtuale venga creata, quindi nel pannello **Rete virtuale** fare clic su **Tutte le impostazioni** > **Subnet** > **Aggiungi** come indicato di seguito.
 
-	![Aggiunta della subnet nel portale di anteprima](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+	![Aggiunta della subnet nel portale di Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
 9. Specificare le impostazioni della subnet per la subnet *BackEnd*, come illustrato di seguito, quindi fare clic su **OK**.
 
@@ -35,4 +35,4 @@ Per creare una rete virtuale in base allo scenario precedente tramite il portale
 
 	![Elenco delle subnet nella rete virtuale](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

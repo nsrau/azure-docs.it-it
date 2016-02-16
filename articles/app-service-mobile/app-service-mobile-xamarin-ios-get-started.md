@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="normesta"/>
 
 
 #Creare un'app per Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -38,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * [Visual Studio Community 2013] o versione successiva. Se si installa Visual Studio Community 2013, installare [Xamarin] separatamente. È possibile installare gli strumenti Xamarin quando si installa Visual Studio 2015.
 
 * Un computer Mac in cui siano stati installati [Xcode] v7.0 o versione successiva e [Xamarin Studio].
- 
+
 * Se si prevede di compilare l'app in un computer basato su Windows con Visual Studio, è comunque necessario accedere a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS per compilare e distribuire effettivamente l'app. Per altre informazioni, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)
 
 >[AZURE.NOTE] Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -121,4 +119,4 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0211_2016-->

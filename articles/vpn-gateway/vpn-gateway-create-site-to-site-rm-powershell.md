@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito mediante PowerShell
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale mediante il modello di distribuzione di Gestione risorse di Azure. Se si sta cercando un modello di distribuzione differente per questa configurazione, usare le schede riportate sopra per selezionare l'articolo più pertinente. Se si vuole connettere più reti virtuali senza creare una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale](vpn-gateway-vnet-vnet-rm-ps.md).
+Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il modello di distribuzione di **Gestione risorse di Azure**. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Se si vuole creare una connessione da sito a sito per il modello di distribuzione **classica**, vedere [Configurare una connessione da sito a sito con il modello di distribuzione classica](vpn-gateway-site-to-site-create.md). Se si vogliono connettere reti virtuali, ma non si sta creando una connessione a un percorso locale, vedere [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classica](virtual-networks-configure-vnet-to-vnet-connection.md) o [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione di Gestione risorse](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -246,4 +246,4 @@ Se è stata creata la connessione VPN e si desidera aggiungere o rimuovere i pre
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

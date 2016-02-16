@@ -3,7 +3,7 @@
 Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
-2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
+2. Eseguire il comando **`azure config mode`** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
 
@@ -11,7 +11,7 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 
 		info:    New mode is arm
 
-3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+3. Se necessario, eseguire **`azure group create`** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
@@ -32,7 +32,7 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 	- **-n (o --name)**. Nome del nuovo gruppo di risorse. Per questo scenario, *TestRG*.
 	- **-l (o --location)**. L'area di Azure in cui verrà creato il nuovo gruppo di risorse. Per questo scenario, *centralus*.
 
-4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale utilizzando il modello e il parametro file scaricato e modificato in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **`azure group deployment create`** per distribuire la nuova rete virtuale usando il modello e i file dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -65,7 +65,7 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 	- **-f (o --template-file)**. Percorso del file di modello ARM.
 	- **-e (o --parameters-file)**. Percorso del file di parametri ARM.
 
-5. Eseguire il comando **azure network vnet show** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
+5. Eseguire il comando **`azure network vnet show`** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -89,4 +89,4 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

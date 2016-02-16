@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren"/>
 
 
@@ -124,4 +124,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 - [Il primo runbook grafico](automation-first-runbook-graphical.md)
 - [Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

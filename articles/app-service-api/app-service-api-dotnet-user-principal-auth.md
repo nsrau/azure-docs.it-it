@@ -78,63 +78,9 @@ Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API
 
 Se si sta seguendo la serie introduttiva su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione](#azureauth).
 
-Se non sono state eseguite la prima e la seconda esercitazione e si vuole seguire questa, assicurarsi prima di tutto di avere tutti i [Prerequisiti](app-service-api-dotnet-get-started.md#prerequisites) della serie. Seguire quindi questa procedura per scaricare e distribuire l'applicazione di esempio. La procedura è un duplicato di quella prevista nelle prime due esercitazioni, ma qui le istruzioni sono abbreviate.
+Per seguire questa esercitazione anche se la prima e la seconda non sono state eseguite, usare il pulsante **Deploy to Azure** nel [file leggimi del repository di esempio To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web.
 
-1. Scaricare l'applicazione di esempio.
-
-	a. Scaricarla dal repository [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list).
-
-	a. Aprire la soluzione ToDoList in Visual Studio 2015 e compilarla per ripristinare i pacchetti NuGet.
-
-2. Distribuire il progetto ToDoListDataAPI nella nuova app per le API.
-
-	a. Nel progetto ToDoListDataAPI aprire il file *App_Start/SwaggerConfig.cs* e rimuovere il commento dal codice **EnableSwaggerUi**.
-
-	b. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListDataAPI e quindi scegliere **Pubblica**.
-
-	c. Nel passaggio **Profilo** della procedura guidata **Pubblica sito Web** fare clic su **Servizio app di Microsoft Azure**.
-
-	d. Nella finestra di dialogo del **servizio app**, scegliere la **sottoscrizione** di Azure da usare e quindi fare clic su **Nuovo**.
-
-	e. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** fare clic su **Tipo di modifica** e quindi su **App per le API**.
-
-	f. In **Immettere il nome dell'app per le API** specificare un nome, quale ToDoListDataAPI più un numero in modo che sia univoco nel dominio *azurewebsites.net*, ad esempio ToDoListDataAPI1230.
-
-	g. Nell'elenco a discesa **Gruppo di risorse** immettere un nome, ad esempio TodoListGroup, per creare un nuovo gruppo di risorse.
-
-	h. Nell'elenco a discesa **Piano di servizio app** fare clic su **Nuovo** e immettere le informazioni necessarie nella finestra di dialogo **Configura piano di servizio app**.
-
-	i. Fare clic su **Create**.
-
-	j. Fare clic su **Pubblica**.
-
-3. Distribuire il progetto ToDoListAPI in una nuova app per le API.
-
-	a. Nel progetto ToDoListAPI aprire *Controllers\ToDoListController.cs* e modificare `http://localhost:45914` in `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
-
-	b. Per la distribuzione del progetto ToDoListAPI seguire la stessa procedura usata per il progetto ToDoListDataAPI. Non dimenticare di modificare il tipo in **App per le API**.
-
-4. Distribuire il progetto ToDoListAngular in una nuova app Web.
-
-	a. Nel progetto ToDoListAngular aprire il file *app/scripts/todoListSvc.js*.
-
-	b. Impostare come commento la riga che imposta `apiEndpoint` sull'URL localhost, rimuovere il commento dalla riga che imposta `apiEndPoint` sull'URL azurewebsites.net e sostituire il segnaposto con il nome effettivo dell'app per le API creata per ToDoListAPI.
-
-	c. Per la distribuzione del progetto ToDoListAPI seguire la stessa procedura usata per il progetto ToDoListDataAPI, **eccetto la modifica del tipo da app Web in app per le API**.
-
-5. Configurare CORS per l'app per le API in Azure.
-
-	a. Accedere al [portale di Azure](https://portal.azure.com/) e passare all'app per le API creata per il progetto ToDoListAPI.
-
-	b. Nel pannello **App per le API** fare clic su **Impostazioni**.
-
-	c. Trovare la sezione **API** e quindi fare clic su **CORS**.
-
-	d. Nella casella di testo immettere l'URL da cui si vogliono consentire le chiamate. Per questa esercitazione è l'URL dell'app Web creata per il progetto ToDoListAngular. Ad esempio, immettere "https://todolistangular.azurewebsites.net".
-
-	e. Fare clic su **Save**.
-
-6. Aprire l'URL HTTPS dell'app Web in un browser e verificare che sia possibile visualizzare, aggiungere, modificare ed eliminare attività.
+Al termine della distribuzione, viene visualizzato un collegamento HTTP all'app Web. Per eseguire l'applicazione e verificare che sia operativa, modificare tale URL in HTTPS.
 
 ## <a id="azureauth"></a> Configurare l'autenticazione in Azure
 
@@ -146,9 +92,9 @@ A questo punto l'applicazione è in esecuzione nel servizio app di Azure senza r
 
 ### Configurare l'autenticazione nel servizio app
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) e passare al pannello **App per le API** relativo all'app per le API creata per il progetto ToDoListAPI.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e passare al pannello **App per le API** dell'app per le API creata per il progetto ToDoListAPI.
 
-2. Fare clic su **Settings**
+2. Fare clic su **Impostazioni**.
 
 2. Nel pannello **Impostazioni** trovare la sezione **Funzionalità** e quindi fare clic su **Autenticazione/Autorizzazione**.
 
@@ -236,7 +182,7 @@ Quando è stata configurata l'autenticazione di Azure AD, il servizio app ha cre
 
 	Ad esempio: https://todolistsangular.azurewebsites.net
 
-16. Fare clic su **Salva**.
+16. Fare clic su **Save**.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
 
@@ -391,4 +337,4 @@ Se l'applicazione è stata eseguita correttamente senza autenticazione, ma non f
 
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->
