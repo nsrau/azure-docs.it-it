@@ -400,7 +400,7 @@ Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripet
 *Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 - Classe **RetryPolicy**
-- Metodo **ExecuteAction**
+ - Metodo **ExecuteAction**
 
 
 - Classe **ExponentialBackoff**
@@ -410,7 +410,7 @@ Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripet
 
 
 - Classe **ReliableSqlConnection**
-- Metodo **ExecuteCommand**
+ - Metodo **ExecuteCommand**
 
 
 Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
@@ -527,4 +527,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

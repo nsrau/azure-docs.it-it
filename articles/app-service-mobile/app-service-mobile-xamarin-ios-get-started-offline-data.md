@@ -67,7 +67,10 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
     Nel codice fornito viene eseguita una query su tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando un ID di query e una query a `PushAsync`. Per altre informazioni, vedere la sezione *Sincronizzazione incrementale* in [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// QSTodoService.cs
+	-->
+
+
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
