@@ -248,4 +248,4 @@ L'operazione è terminata. A questo punto, ogni volta che il servizio viene eseg
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!----CI Staging HONumber=AcomDC_0204_2016-->
+<!----CI Staging Not Merged Final HONumber=AcomDC_0204_2016-->
