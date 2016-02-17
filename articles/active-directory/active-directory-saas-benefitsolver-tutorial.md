@@ -83,7 +83,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurare le impostazioni dell'app")
 
     1.  Nella casella di testo **URL di accesso** digitare ****http://azure.benefitsolver.com**.
-2.  Nella casella di testo **URL di risposta** digitare ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+	2.  Nella casella di testo **URL di risposta** digitare ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+
 
     3.  Fare clic su **Avanti**.
 
@@ -145,4 +146,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

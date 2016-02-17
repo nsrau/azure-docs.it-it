@@ -287,4 +287,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->

@@ -104,7 +104,13 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 
 | Nomi di dominio | Porte | Descrizione |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | | *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) |
+| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
+
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
 
@@ -692,4 +698,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 5.	Il gateway decrittografa le credenziali tramite lo stesso certificato e quindi si connette all'archivio dati locale con il tipo di autenticazione appropriato.
 6.	Il gateway copia i dati dall'archivio dati locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Nota: per questo passaggio il gateway comunica direttamente con un servizio di archiviazione basato sul cloud, ad esempio BLOB di Azure, database SQL di Azure e così via, su un canale protetto (HTTPS).
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

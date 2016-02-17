@@ -205,7 +205,8 @@ Una volta completata l'operazione, usare il portale o Gestione risorse per indic
 Nota: per un cluster sicuro, sarà sempre necessario che sia distribuito almeno un certificato, primario o secondario, valido (non revocato o scaduto). In caso contrario, non sarà possibile accedere al cluster.
 
 
-## Informazioni dettagliate sui tipi di certificato usati da Service Fabric.
+## 
+Informazioni dettagliate sui tipi di certificato usati da Service Fabric.
 
 ## Certificati X.509
 
@@ -245,4 +246,4 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

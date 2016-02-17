@@ -77,7 +77,7 @@ Creare un piano di ripristino come segue:
 	- Se si esegue la replica da un server VMM in un altro server VMM tramite SAN, selezionare **Tipo di origine** > **VMM**, nonché i server VMM di origine e destinazione. Fare clic su **SAN** per visualizzare solo i cloud configurati per la replica SAN.
 	- Se si esegue la replica da VMM in Azure selezionare **Tipo di origine** > **VMM**. Selezionare il server VMM di origine e **Azure** come destinazione.
 	- Se si esegue la replica da un sito di Hyper-V, selezionare **Tipo di origine** > **Sito Hyper-V**. Selezionare il sito come origine e * * Azure * * come destinazione.
-- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
+	- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
 
 2. In **Seleziona macchine virtuali** selezionare le macchine virtuali (o il gruppo di replica) che si vuole aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
 
@@ -127,4 +127,4 @@ Creare lo script come segue:
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
