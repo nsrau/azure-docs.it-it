@@ -104,7 +104,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 	- **-n (o --name)**. Nome per la nuova regola. Per questo scenario, *rdp-rule*.
 	- **-c (o --action)**. Livello di accesso per la regola (Deny o Allow).
 	- **-p (o --protocol)**. Protocollo (Tcp, Udp o *) per la regola.
-- **-r (o --type)**. Direzione di connessione (Inbound o Outbound).
+	- **-r (o --type)**. Direzione di connessione (Inbound o Outbound).
 	- **-y (o --priority)**. Priorità per la regola.
 	- **-f (o --source-address-prefix)**. Prefisso dell'indirizzo di origine in CIDR o con tag predefiniti.
 	- **-o (o --source-port-range)**. Porta o intervallo di porte di origine.

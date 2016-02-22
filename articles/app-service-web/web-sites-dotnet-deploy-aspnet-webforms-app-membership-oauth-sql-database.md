@@ -52,14 +52,15 @@ Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare
 2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013. in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.  
 
 3. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
-4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
+4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione.
+	![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
       Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.
 
 5. Se **Visual Studio Update 2** non è installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versione successiva.
 
-	>[AZURE.NOTE]  
-	È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
+>[AZURE.NOTE]  
+È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
 
@@ -71,15 +72,19 @@ In questa esercitazione il sito Web di Azure verrà eseguito in un ambiente di h
 
 Database SQL di Azure è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Gli strumenti e le applicazioni utilizzabili con SQL Server sono utilizzabili anche con database SQL.
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. ![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
-2. Fare clic su **Web Site**, quindi su **Custom Create**. ![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **New Web App - Custom Create**.  
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. 
+![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+2. Fare clic su **Web Site**, quindi su **Custom Create**.  
+	![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **New Web App - Custom Create**.  
 
-3. Nel passaggio **Create Web Site** della procedura guidata immettere nella casella **URL** una stringa da utilizzare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. L'illustrazione mostra un URL che è probabilmente già occupato, quindi **sarà necessario scegliere un URL diverso**. ![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
+3. Nel passaggio **Create Web Site** della procedura guidata immettere nella casella **URL** una stringa da utilizzare come URL univoco per l'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e dal suffisso visualizzato accanto alla casella di testo. L'illustrazione mostra un URL che è probabilmente già occupato, quindi **sarà necessario scegliere un URL diverso**.  
+	![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
 4. Nell'elenco a discesa Piano di hosting Web scegliere l'area geografica più vicina alla propria località. Questa impostazione consente di specificare il data center in cui verrà eseguita la macchina virtuale.
 5. Nell'elenco a discesa **Database** scegliere **Create a free 20 MB SQL database**.
 6. Nella casella **DB Connection String Name** non modificare il valore predefinito *DefaultConnection*.
 7. Fare clic sulla freccia nella parte inferiore della finestra di dialogo. Verrà visualizzato il passaggio **Specify database settings** della procedura guidata.
-8. Nel **nome** immettere *`ContactDB`*. ![Impostazioni database](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-05.png)  
+8. Nel **nome** immettere *`ContactDB`*.  
+	![Impostazioni database](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-05.png)  
 9. Nella casella **Server** selezionare **New SQL Database server**. In alternativa, se è stato creato in precedenza un database SQL Server, è possibile selezionare tale database SQL Server dall'elenco a discesa.
 10. Impostare l'opzione **Region** sulla stessa area specificata per la creazione del sito Web.
 11. Immettere un **Login Name** e una **Password** per l'amministratore. Se è stata selezionata l'opzione **New SQL Database server**, in questo passaggio non sarà necessario immettere un nome e una password esistenti, ma un nuovo nome e una nuova password, definiti ora e da utilizzare in seguito per l'accesso al database. Se è stato selezionato un database SQL Server creato in precedenza, verrà richiesta la password del nome account SQL Server creato in precedenza. Per questa esercitazione non verrà selezionata la casella **Avanzate**.
@@ -89,14 +94,17 @@ Il **portale di Azure classico** torna alla pagina **app Web** e nella colonna *
 ##Creare un'applicazione Web Form ASP.NET 
 È stato creato un'applicazione web, ma non è ancora alcun contenuto al suo interno. Il passaggio successivo consiste nel creare l'app Web di Visual Studio che verrà pubblicata in Azure.
 ###Creare il progetto 
-1. Scegliere **Nuovo progetto** dal menu **File** di Visual Studio. ![Dal Menu file - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms01.png)  
+1. Scegliere **Nuovo progetto** dal menu **File** di Visual Studio.  
+	![Dal Menu file - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms01.png)  
 2. Selezionare il gruppo di modelli a sinistra in **Modelli** -> **Visual C#** -> **Web**. 
 3. Scegliere il modello **Applicazione Web ASP.NET** nella colonna centrale.
-4. Assegnare all'applicazione il nome *ContactManager* e fare clic su **OK**. ![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms02.png)  
+4. Assegnare all'applicazione il nome *ContactManager* e fare clic su **OK**.  
+	![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms02.png)  
 
       Il nome del progetto in questa serie di esercitazioni è **ContactManager**. È consigliabile usare questo nome di progetto esatto in modo che il codice fornito nel corso di tutta la serie di esercitazioni funzioni come previsto.
 
-5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **Web Form**. Deselezionare la casella di controllo **Ospita nel cloud** se è selezionata e fare clic su **OK**. ![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png) Verrà creata l'applicazione Web Form.
+5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **Web Form**. Deselezionare la casella di controllo **Ospita nel cloud** se è selezionata e fare clic su **OK**.  
+	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png) Verrà creata l'applicazione Web Form.
 
 ###Aggiornare la pagina master
 In Web Form ASP.NET le pagine master consentono di creare un layout uniforme per le pagine dell'applicazione. Una singola pagina master definisce l'aspetto e il comportamento standard da applicare a tutte le pagine (o a un gruppo di pagine) dell'applicazione. È quindi possibile creare singole pagine di contenuto per il contenuto da visualizzare. Quando gli utenti richiedono le pagine di contenuto, ASP.NET le unisce alla pagina master per generare l'output che combina il layout della pagina master con il contenuto della pagina di contenuto. Il nuovo sito necessita del nome dell'applicazione e di un collegamento aggiornato. Il collegamento indirizza a una pagina che visualizza i dettagli del contatto. Per apportare queste modifiche, sarà necessario modificare il codice HTML nella pagina master.
@@ -197,20 +205,26 @@ In Web Form ASP.NET le pagine master consentono di creare un layout uniforme per
 ###Eseguire l'applicazione in locale 
  
 1. Fare clic con il pulsante destro del mouse sulla pagina **Default.aspx** in *Esplora soluzioni*, quindi scegliere **Imposta come pagina iniziale**. 
-2. Premere quindi **CTRL+F5** per eseguire l'applicazione. La pagina predefinita dell'applicazione verrà visualizzata nella finestra del browser predefinito. ![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms04.png)  
+2. Premere quindi **CTRL+F5** per eseguire l'applicazione. La pagina predefinita dell'applicazione verrà visualizzata nella finestra del browser predefinito.  
+	![Contatti - Crea nuovo sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms04.png)  
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. Successivamente, verranno aggiunte la funzionalità di database e le pagine necessarie per visualizzare e modificare i dati di contatto.
 ###Distribuire l'applicazione in Azure
 Dopo avere creato ed eseguito l'applicazione in locale, è possibile distribuirla in Azure.
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida. ![Select publish](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms05.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata.  
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica** dal menu di scelta rapida.  
+	![Select publish](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms05.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata.  
 
 2. Nella scheda **Profilo** della finestra di dialogo **Pubblica sito Web** fare clic su **App Web di Azure**.
 	  
-3. Se non è stato effettuato l'accesso, fare clic sul pulsante **Accedi** nella finestra di dialogo **Selezione sito Web esistente**. Una volta effettuato l'accesso, selezionare il sito Web creato nella prima parte di questa esercitazione. Fare clic su **OK** per continuare. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio scaricherà le impostazioni di pubblicazione.
-4. Nella finestra di dialogo **Pubblica sito Web** fare clic su **Pubblica**. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png) Si vedrà lo stato di pubblicazione generale nella finestra **Attività di pubblicazione sito Web** di Visual Studio: ![Attività di pubblicazione sul Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
+3. Se non è stato effettuato l'accesso, fare clic sul pulsante **Accedi** nella finestra di dialogo **Selezione sito Web esistente**. Una volta effettuato l'accesso, selezionare il sito Web creato nella prima parte di questa esercitazione. Fare clic su **OK** per continuare.  
+	![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio scaricherà le impostazioni di pubblicazione.
+4. Nella finestra di dialogo **Pubblica sito Web** fare clic su **Pubblica**.  
+	![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png) Si vedrà lo stato di pubblicazione generale nella finestra **Attività di pubblicazione sito Web** di Visual Studio:  
+	![Attività di pubblicazione sul Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
 
-L'applicazione creata verrà ora eseguita nel cloud. Alla successiva distribuzione dell'applicazione da Visual Studio, verranno distribuiti solo i file modificati o nuovi.![App nel browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms10.png)
+L'applicazione creata verrà ora eseguita nel cloud. Alla successiva distribuzione dell'applicazione da Visual Studio, verranno distribuiti solo i file modificati o nuovi.  
+	![App nel browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms10.png)
 
 >[AZURE.NOTE] 
 Se si verifica un errore durante la pubblicazione in un sito Web già esistente, è possibile cancellare il percorso prima di aggiungere i nuovi file. Pubblicare di nuovo l'applicazione, ricordando di selezionare la scheda **Impostazioni** nella finestra di dialogo **Pubblica App Web**. Impostare quindi la configurazione su **Debug** e selezionare l'opzione **Rimuovi i file aggiuntivi nella destinazione**. Selezionare **Pubblica** per distribuire di nuovo l'applicazione. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms11.png)
@@ -220,9 +234,11 @@ Si passerà quindi all'aggiornamento dell'applicazione Web Form, in modo da aggi
 ###Aggiungere una classe modello di dati 
 Creare innanzitutto un semplice modello di dati usando il codice. Questo modello di dati sarà contenuto in una classe denominata `Contacts`. Il nome della classe `Contacts` è stato scelto per evitare un conflitto di nomi di classi con la classe `Contact` contenuta nel file Contact.aspx.cs creata dal modello Web Form.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Modelli* e quindi scegliere **Aggiungi** -> **Classe**. ![Seleziona classe](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png) La finestra di dialogo **Aggiungi nuovo elemento** viene visualizzata.  
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Modelli* e quindi scegliere **Aggiungi** -> **Classe**.  
+	![Seleziona classe](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png) La finestra di dialogo **Aggiungi nuovo elemento** viene visualizzata.  
 
-2. Assegnare alla nuova classe il nome *Contacts.cs* e fare clic su **Aggiungi**. ![Finestra di dialogo Aggiungi nuovo elemento](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
+2. Assegnare alla nuova classe il nome *Contacts.cs* e fare clic su **Aggiungi**.  
+	![Finestra di dialogo Aggiungi nuovo elemento](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. Sostituire il codice predefinito con il codice seguente:  
 
 		using System.ComponentModel.DataAnnotations;
@@ -255,19 +271,23 @@ La procedura seguente consente di usare l'utilità di scaffolding per Web Form.
 1. Sulla barra dei menu di Visual Studio selezionare **Strumenti** -> **Estensioni e aggiornamenti**. La finestra di dialogo **Estensioni e aggiornamenti** viene visualizzata.
 2. Nel riquadro sinistro della finestra di dialogo selezionare **Online** -> **Visual Studio Gallery** -> **Strumenti** -> **Scaffolding**.
 3. Se la voce "Web Forms Scaffolding" non è presente nell'elenco, digitare "Web Forms Scaffolding" nella casella di ricerca nella parte destra della finestra di dialogo.  
-4. Se l'utilità di scaffolding per Web Form non è già installata, selezionare **Download** per scaricare e installare l'estensione 'Web Forms Scaffolding'. Se necessario, riavviare Visual Studio. Assicurarsi di salvare le modifiche al progetto, quando richiesto. ![Finestra di dialogo estensioni e aggiornamenti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
+4. Se l'utilità di scaffolding per Web Form non è già installata, selezionare **Download** per scaricare e installare l'estensione 'Web Forms Scaffolding'. Se necessario, riavviare Visual Studio. Assicurarsi di salvare le modifiche al progetto, quando richiesto.  
+	![Finestra di dialogo estensioni e aggiornamenti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
 5. Creare il progetto **(CTRL+MAIUSC+B)**. Per usare il meccanismo scaffolding, è innanzitutto necessario creare il progetto.  
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nome del *progetto* e quindi scegliere **Aggiungi** -> **New Scaffolded Item**. La finestra di dialogo **Add Scaffold** viene visualizzata.
-7. Selezionare **Web Form** nel riquadro sinistro e quindi **Pagine Web Form che usano Entity Framework** dal riquadro centrale. Fare quindi clic su **Aggiungi**. ![Finestra di dialogo Add Scaffold dell'API Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png) La finestra di dialogo **Aggiungi pagine Web Form** viene visualizzata.  
+7. Selezionare **Web Form** nel riquadro sinistro e quindi **Pagine Web Form che usano Entity Framework** dal riquadro centrale. Fare quindi clic su **Aggiungi**.  
+	![Finestra di dialogo Add Scaffold dell'API Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png) La finestra di dialogo **Aggiungi pagine Web Form** viene visualizzata.  
 
-8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su `Contacts (ContactManager.Models)` Impostare **Classe contesto di dati** su `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
+8. Nella finestra di dialogo **Aggiungi pagine Web Form** impostare **Classe modello** su `Contacts (ContactManager.Models)` Impostare **Classe contesto di dati** su `ApplicationDbContext (ContactManager.Models)`. Fare quindi clic su **Aggiungi**.  
+	![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
 
 L'utilità di scaffolding per Web Form aggiunge una nuova cartella contenente le pagine *Default.aspx*, *Delete.aspx*, *Edit.aspx* e *Insert.aspx*. L'utilità di scaffolding per Web Form crea inoltre una cartella *DynamicData* che contiene le cartelle *EntityTemplates* e *FieldTemplates*. La classe`ApplicationDbContext` verrà usata per il database di appartenenza e per i dati relativi ai contatti.
 
 ###Configurare l'applicazione per l'uso del modello di dati 
 L'attività successiva consiste nell'abilitare la funzionalità Migrazioni Code First, in modo da creare il database basato sul modello di dati creato. Verranno anche aggiunti dati di esempio e un inizializzatore di dati.
 
-1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di gestione pacchetti**. ![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
+1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti**, quindi fare clic su **Console di gestione pacchetti**.  
+	![Pagine Web Form, finestra di dialogo Aggiungi](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. Nella finestra Console di gestione pacchetti immettere il comando seguente:  
 
 		enable-migrations
@@ -347,29 +367,35 @@ L'attività successiva consiste nell'abilitare la funzionalità Migrazioni Code 
 
 		update-database
 
-Il comando `update-database` esegue la prima migrazione in modo da creare il database. Per impostazione predefinita, il database viene creato come database LocalDB SQL Server Express.![Console di gestione pacchetti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
+Il comando `update-database` esegue la prima migrazione in modo da creare il database. Per impostazione predefinita, il database viene creato come database LocalDB SQL Server Express.  
+	![Console di gestione pacchetti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
 
 ###Eseguire l'applicazione in locale e visualizzare i dati 
 Eseguire l'applicazione adesso per verificare se i contatti vengono visualizzati.
 
 1. Innanzitutto, compilare il progetto (**CTRL+MAIUSC+B**).  
 2. Premere **Ctrl+F5** per eseguire l'applicazione. Si aprirà il browser e verrà visualizzata la pagina *Default.aspx*.
-3. Selezionare il collegamento **Contact Demo** nella parte superiore della pagina per visualizzare la pagina *Contact List*. ![Pagina elenco contatti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms17.png)  
+3. Selezionare il collegamento **Contact Demo** nella parte superiore della pagina per visualizzare la pagina *Contact List*.  
+	![Pagina elenco contatti](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms17.png)  
 
 ##Abilitazione di SSL per il progetto 
 Secure Sockets Layer (SSL) è un protocollo definito per consentire ai server Web e ai client Web di comunicare in modo più sicuro tramite l'uso della crittografia. Quando non si usa SSL, i dati inviati tra il client e il server possono essere soggetti allo sniffing dei pacchetti da qualsiasi soggetto con accesso fisico alla rete. Inoltre, numerosi schemi di autenticazione comuni non sono sicuri sul protocollo HTTP normale. In particolare, l'autenticazione di base e l'autenticazione basata su form inviano credenziali non crittografate. Per essere sicuri, questi schemi di autenticazione devono usare il protocollo SSL.
 
 1. In **Esplora soluzioni** fare clic sul progetto **ContactManager**, quindi premere **F4** per visualizzare la finestra di dialogo **Proprietà**. 
 2. Modificare il valore di **SSL abilitato** in `true`. 
-3. Copiare il valore di **URL SSL**L per poterlo riutilizzare successivamente. L'URL SSL sarà `https://localhost:44300/` a meno che non siano state create app Web SSL in precedenza.![Proprietà del progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms18.png)  
+3. Copiare il valore di **URL SSL**L per poterlo riutilizzare successivamente. L'URL SSL sarà `https://localhost:44300/` a meno che non siano state create app Web SSL in precedenza.  
+	![Proprietà del progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms18.png)  
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **Contact Manager**, quindi scegliere **Proprietà**.
 5. Nella scheda a sinistra fare clic su **Web**.
-6. Modificare **URL progetto** affinché venga usato l**'URL SSL** salvato in precedenza ![Proprietà del progetto Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms19.png)  
+6. Modificare **URL progetto** affinché venga usato l**'URL SSL** salvato in precedenza  
+	![Proprietà del progetto Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms19.png)  
 7. Per salvare la pagina, premere **CTRL+S**.
 8. Premere **Ctrl+F5** per eseguire l'applicazione. In Visual Studio verrà visualizzata un'opzione che consente di evitare eventuali avvisi SSL.  
-9. Fare clic su **Sì** per considerare attendibile il certificato SSL di IIS Express e continuare. ![Dettagli del certificato SSL di IIS Express](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms20.png) Verrà visualizzato un avviso di sicurezza.  
+9. Fare clic su **Sì** per considerare attendibile il certificato SSL di IIS Express e continuare.  
+	![Dettagli del certificato SSL di IIS Express](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms20.png) Verrà visualizzato un avviso di sicurezza.  
 
-10. Fare clic su **Sì** per installare il certificato per l'host locale. ![Finestra di dialogo Avviso di sicurezza](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21.png) Verrà visualizzata la finestra del browser.
+10. Fare clic su **Sì** per installare il certificato per l'host locale.  
+	![Finestra di dialogo Avviso di sicurezza](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21.png) Verrà visualizzata la finestra del browser.
 
 È possibile testare l'applicazione Web in locale tramite SSL.
 
@@ -391,11 +417,14 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 		    ClientSecret = ""
 		});
 
-3. Passare a [Google Developers Console](https://console.developers.google.com/). Sarà necessario eseguire l'accesso con l'account di posta elettronica per sviluppatori di Google (gmail.com). Se non si dispone di un account Google, selezionare il collegamento **Crea un account**. Verrà quindi visualizzata la pagina **Google Developers Console**. ![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)
+3. Passare a [Google Developers Console](https://console.developers.google.com/). Sarà necessario eseguire l'accesso con l'account di posta elettronica per sviluppatori di Google (gmail.com). Se non si dispone di un account Google, selezionare il collegamento **Crea un account**. Verrà quindi visualizzata la pagina **Google Developers Console**.  
+	![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)
 
-4. Fare clic su **Select a project** > **Create Project** e immettere un nome e un ID per il progetto (è possibile usare i valori predefiniti). Fare quindi clic sulla casella di controllo **agreement** e quindi sul pulsante **Create** ![Google - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) Entro pochi secondi verrà creato il nuovo progetto e la pagina del nuovo progetto verrà visualizzata nel browser.
+4. Fare clic su **Select a project** > **Create Project** e immettere un nome e un ID per il progetto (è possibile usare i valori predefiniti). Fare quindi clic sulla casella di controllo **agreement** e quindi sul pulsante **Create**  
+	![Google - nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) Entro pochi secondi verrà creato il nuovo progetto e la pagina del nuovo progetto verrà visualizzata nel browser.
 5. Nel menu a discesa **Google Developers Console**, fare clic su **API Manager**, quindi fare clic su **Credentials**.
-6. Fare clic su **Create New Client ID** in **OAuth**. Verrà visualizzata la finestra di dialogo **Create Client ID**. ![Google - creare ID Client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
+6. Fare clic su **Create New Client ID** in **OAuth**. Verrà visualizzata la finestra di dialogo **Create Client ID**.  
+	![Google - creare ID Client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Nella finestra di dialogo **Create Client ID** per il tipo di applicazione mantenere l'impostazione predefinita **Web application**.  
 8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione ****https://localhost:44300/** a meno che non siano stati creati altri progetti SSL). Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL da tenere in considerazione per localhost e produzione.
 
@@ -470,10 +499,14 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 		}
 
 12. Premere **CTRL+F5** per compilare ed eseguire l'applicazione. Fare clic sul collegamento **Accedi**.
-13. In **Use another service to log in**, fare clic su **Google**. ![// Log in](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
-14. Se occorre immettere le credenziali, l'utente verrà reindirizzato al sito Google per l'immissione delle credenziali.![Google - accesso](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21e.png)  
-15. Dopo avere immesso le credenziali, verrà richiesto di concedere le autorizzazioni all'applicazione Web appena creata:![Account del servizio di progetto predefinito](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21f.png)  
-16. Fare clic **Accept**. L'utente verrà reindirizzato alla pagina **Register** dell'applicazione **ContactManager** in cui è possibile registrare l'account Google. ![Registrare con l'Account Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21g.png)  
+13. In **Use another service to log in**, fare clic su **Google**.  
+	![// Log in](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
+14. Se occorre immettere le credenziali, l'utente verrà reindirizzato al sito Google per l'immissione delle credenziali.  
+	![Google - accesso](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21e.png)  
+15. Dopo avere immesso le credenziali, verrà richiesto di concedere le autorizzazioni all'applicazione Web appena creata:  
+	![Account del servizio di progetto predefinito](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21f.png)  
+16. Fare clic **Accept**. L'utente verrà reindirizzato alla pagina **Register** dell'applicazione **ContactManager** in cui è possibile registrare l'account Google.  
+	![Registrare con l'Account Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21g.png)  
 17. Sarà possibile modificare il nome di registrazione dell'indirizzo di posta elettronica locale usato per l'account Gmail, anche se in generale è preferibile mantenere l'alias di posta elettronica predefinito, ovvero quello usato per l'autenticazione. Fare clic su **Log in**.
 
 ##Usare l'API di appartenenza per limitare l'accesso 
@@ -641,11 +674,16 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 
 ###Pubblicare l'applicazione 
 1. In Visual Studio compilare il progetto (**CTRL+MAIUSC+B**).
-2. Fare clic con il pulsante destro del mouse in **Esplora soluzioni**, quindi scegliere **Pubblica**. ![Opzione di menu per la pubblicazione](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. Nella scheda **Profilo** selezionare **Servizio app di Azure** come destinazione di pubblicazione, se questa non è già selezionata. ![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
+2. Fare clic con il pulsante destro del mouse in **Esplora soluzioni**, quindi scegliere **Pubblica**.  
+	![Opzione di menu per la pubblicazione](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png) La finestra di dialogo **Pubblica sito Web** viene visualizzata.  
+	![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
+3. Nella scheda **Profilo** selezionare **Servizio app di Azure** come destinazione di pubblicazione, se questa non è già selezionata.  
+	![Finestra di dialogo Pubblica sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. Se l'accesso non è ancora stato eseguito, fare clic su **Accedi**.
-5. Selezionare il sito Web esistente creato in precedenza in questa esercitazione nella casella di riepilogo a discesa **Siti Web esistenti** e fare clic sul pulsante **OK**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms25.png) Se viene richiesto di salvare le modifiche apportate al profilo, scegliere **Sì**.
-6. Fare clic sulla scheda **Impostazioni**. ![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
+5. Selezionare il sito Web esistente creato in precedenza in questa esercitazione nella casella di riepilogo a discesa **Siti Web esistenti** e fare clic sul pulsante **OK**.  
+	![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms25.png) Se viene richiesto di salvare le modifiche apportate al profilo, scegliere **Sì**.
+6. Fare clic sulla scheda **Impostazioni**.  
+	![Selezionare la finestra di dialogo sito Web esistente](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
 7. Impostare la casella di riepilogo a discesa **Configurazione** su **Debug**.
 8. Fare clic sull'icona con la **freccia verso il basso** accanto alla voce **ApplicationDbContext** e impostarla su **ContactDB**.
 9. Selezionare la casella di controllo **Esegui migrazioni Code First**. In questo esempio selezionare questa casella di controllo solo se l'applicazione viene pubblicata per la prima volta. In questo modo, il metodo *Seed* nel file *Configuration.cs* verrà chiamato una volta sola.  
@@ -656,12 +694,17 @@ Ora che l'applicazione Web è stata completata, è possibile pubblicarla in Azur
 Se Visual Studio è stato chiuso e riaperto dopo la creazione del profilo di pubblicazione, è possibile che la stringa di connessione non sia visualizzata nell'elenco a discesa. In tale caso, invece di modificare il profilo di pubblicazione creato in precedenza, crearne uno in base alla stessa procedura eseguita in precedenza, quindi attenersi alle istruzioni visualizzate nella scheda **Settings**.
 
 ###Verificare l'applicazione in Azure 
-1. Nel browser fare clic sul collegamento **Contact Demo**. Viene visualizzato l'elenco di contatti. ![Contatti elencati nel Browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms27.png)  
+1. Nel browser fare clic sul collegamento **Contact Demo**. Viene visualizzato l'elenco di contatti.  
+	![Contatti elencati nel Browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms27.png)  
 
-2. Selezionare **Create new** nella pagina **Contacts List** ![Contatti elencati nel Browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms29.png) Si viene reindirizzati alla pagina **Login**perché l'account con cui si è connessi non può modificare i contatti.
-3. Dopo avere immesso l'indirizzo di posta elettronica e la password indicati di seguito, fare clic sul pulsante **Log in**. **Email**: `canEditUser@wideworldimporters.com` **Password**: `Pa$$word1` ![Pagina di accesso](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms28.png)  
+2. Selezionare **Create new** nella pagina **Contacts List**  
+	![Contatti elencati nel Browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms29.png) Si viene reindirizzati alla pagina **Login**perché l'account con cui si è connessi non può modificare i contatti.
+3. Dopo avere immesso l'indirizzo di posta elettronica e la password indicati di seguito, fare clic sul pulsante **Log in**. **Email**: `canEditUser@wideworldimporters.com` **Password**: `Pa$$word1`  
+	![Pagina di accesso](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms28.png)  
 
-4. Immettere nuovi dati per ogni campo e quindi premere il pulsante **Insert**. ![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms30.png)Viene visualizzata la pagina *EditContactList.aspx* con il nuovo record. ![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms31.png)
+4. Immettere nuovi dati per ogni campo e quindi premere il pulsante **Insert**.  
+	![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms30.png)Viene visualizzata la pagina *EditContactList.aspx* con il nuovo record.  
+	![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms31.png)
 
 5. Selezionare il collegamento **Log off**.
 
@@ -670,28 +713,35 @@ Per evitare che altre persone registrino e usino questa applicazione di esempio,
 
 1. Nel menu **Visualizza** di Visual Studio scegliere **Esplora server**. 
 2. In **Esplora server**, accedere ad **App Web**.
-3. Fare clic con il pulsante destro del mouse su ogni istanza del sito Web, quindi selezionare **Arresta sito Web**. ![Arrestare la voce di menu sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
+3. Fare clic con il pulsante destro del mouse su ogni istanza del sito Web, quindi selezionare **Arresta sito Web**.  
+	![Arrestare la voce di menu sito Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	In alternativa, dal portale di Azure classico è possibile selezionare l’app Web, quindi fare clic sull'icona **Interrompi** nella parte inferiore della pagina.![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
+	In alternativa, dal portale di Azure classico è possibile selezionare l’app Web, quindi fare clic sull'icona **Interrompi** nella parte inferiore della pagina.  
+	![Pagina Add New Contact](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
 
 ##Verificare il database 
 È importante conoscere le procedure per visualizzare e modificare il database direttamente, in quanto in questo modo è possibile confermare i dati nel database e acquisire informazioni sul modo in cui i dati vengono archiviati in ogni tabella.
 
 ###Esaminare il database SQL di Azure 
 1. In Visual Studio aprire **Esplora server** e passare a **ContactDB**.
-2. Fare clic con il pulsante destro del mouse su **ContactDB**, quindi scegliere **Apri in Esplora oggetti di SQL Server**. ![Apri nella voce di menu di Esplora oggetti di SQL Server](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
+2. Fare clic con il pulsante destro del mouse su **ContactDB**, quindi scegliere **Apri in Esplora oggetti di SQL Server**.  
+	![Apri nella voce di menu di Esplora oggetti di SQL Server](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
 3. Nella finestra di dialogo **Aggiungi regola firewall** selezionare **Aggiungi regola firewall**. Se non è possibile espandere **Database SQL** e non è possibile visualizzare **ContactDB** da Visual Studio, è possibile seguire le istruzioni per aprire una porta del firewall o un intervallo di porte. A questo scopo, seguire le istruzioni fornite in **Configurazione delle regole del firewall per Azure** verso la fine dell'[esercitazione per MVC](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). In alternativa, per verificare i dati del database locale è anche possibile compilare, eseguire e aggiungere i dati all'applicazione in locale (**CTRL+F5** da Visual Studio).  
 
 4. Se viene visualizzata la finestra di dialogo **Connetti al server**, immettere la **password** creata all'inizio di questa esercitazione e fare clic sul pulsante **Connetti**. Se non si ricorda la password, aprire il file del progetto locale per recuperarla. In **Esplocar soluzioni** espandere la cartella *Properties* e quindi la cartella *PublishProfiles*. Aprire il file *contactmanager.pubxml* (il nome del file dell'utente potrebbe essere diverso). Eseguire una ricerca all'interno del file per trovare la password di pubblicazione.
 
 5. Espandere il database **contactDB**, quindi espandere **Tabelle**.
-6. Fare clic con il pulsante destro del mouse sulla tabella **dbo.AspNetUsers** quindi scegliere **Visualizza dati**. ![Voce di menu Visualizza dati](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms34.png) È possibile visualizzare i dati associati il canEditUser@contoso.com utente. ![Finestra ContactManager](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms35.png)  
+6. Fare clic con il pulsante destro del mouse sulla tabella **dbo.AspNetUsers** quindi scegliere **Visualizza dati**.  
+	![Voce di menu Visualizza dati](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms34.png) È possibile visualizzare i dati associati il canEditUser@contoso.com utente.  
+	![Finestra ContactManager](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms35.png)  
 
 ###Aggiungere un utente al ruolo Admin modificando il database 
 Nei passaggi precedenti dell'esercitazione, per aggiungere utenti al ruolo canEdit è stato utilizzato codice. Un metodo alternativo consiste nel modificare i dati direttamente nelle tabelle di appartenenza. Nella procedura seguente viene illustrato come utilizzare questo metodo alternativo per aggiungere un utente a un ruolo.
 
-1. In **Esplora oggetti di SQL Server** fare clic con il pulsante destro del mouse su **dbo.AspNetUserRoles** e scegliere **Visualizza dati**. ![Dati AspNetUserRoles](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms36.png)  
-2. Copiare il valore di *RoleId* e incollarlo nella riga vuota (nuova). ![Dati AspNetUserRoles](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms37.png)  
+1. In **Esplora oggetti di SQL Server** fare clic con il pulsante destro del mouse su **dbo.AspNetUserRoles** e scegliere **Visualizza dati**.  
+	![Dati AspNetUserRoles](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms36.png)  
+2. Copiare il valore di *RoleId* e incollarlo nella riga vuota (nuova).  
+	![Dati AspNetUserRoles](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms37.png)  
 3. Nella tabella **dbo.AspNetUsers** individuare l'utente da inserire nel ruolo, copiare l'*Id* dell'utente,
 4. quindi incollarlo nel campo **UserId** della nuova riga nella tabella **AspNetUserRoles**.  
 

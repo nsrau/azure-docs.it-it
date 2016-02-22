@@ -397,12 +397,12 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 -	La rete ha un terzo livello nascosto, _Hid3_, che è completamente connesso al secondo livello nascosto, _Conv2_.
 -	Il livello di output, _Digit_, è connesso solo al terzo livello nascosto, _Hid3_. La parola chiave **all** indica che il livello di output è completamente connesso a _Hid3_.
 -	Il grado della convoluzione è uguale a tre, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape**, **Stride** e **Sharing**. 
--	Il numero di pesi per kernel è _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300_.
+-	Il numero di pesi per kernel è _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300_.
 -	È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
+-	Il numero totale di nodi può essere calcolato usando la dimensionalità dichiarata del livello, [50, 5, 5], come indicato di seguito: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
 -	Poiché **Sharing**[d] è False solo per _d == 0_, il numero di kernel è _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 

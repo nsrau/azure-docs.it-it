@@ -87,7 +87,10 @@ Creazione di una richiesta "crea modello":
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelName |	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | NESSUNO |
+|	modelName	|	Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 20 caratteri |
+|	apiVersion		| 1.0 |
+|||
+| Corpo della richiesta | NESSUNO |
 
 
 **Risposta**:
@@ -138,7 +141,10 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Nome elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Nome elemento</td></tr><tr><td>Categoria elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Categoria a cui appartiene questo elemento (ad esempio libri di cucina, dramma...)</td></tr><tr><td>Descrizione</td><td>No</td><td>Alfanumerico, lunghezza massima 4000</td><td>Descrizione di questo articolo</td></tr></table><br>La dimensione massima del file è di 200 MB.<br><br>Esempio:<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, Libro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), Libro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, Libro<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, Libro</pre> |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
+|	apiVersion	| 1.0 |
+|||
+| Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Nome elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Nome elemento</td></tr><tr><td>Categoria elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Categoria a cui appartiene questo elemento (ad esempio libri di cucina, dramma...)</td></tr><tr><td>Descrizione</td><td>No</td><td>Alfanumerico, lunghezza massima 4000</td><td>Descrizione di questo articolo</td></tr></table><br>La dimensione massima del file è di 200 MB.<br><br>Esempio:<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, Libro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), Libro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, Libro<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, Libro</pre> |
 
 
 **Risposta**:
@@ -184,7 +190,10 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
-| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri | | apiVersion | 1.0 | ||| | Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td> Id utente</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Ora</td><td>No</td><td>Data in formato: AAAA/MM/GGTHH:MM:SS (ad esempio 20/06/2013/T10:00:00)</td><td>Tempo dei dati</td></tr><tr><td>Evento</td><td>No, se indicato è necessario indicare anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima del file è 200 MB.<br><br>Esempio:<br><pre>149452, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>6360, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>50321, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>71285, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>224450, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>236645, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>107951, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347</pre> |
+| filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
+|	apiVersion		| 1.0 |
+|||
+| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td> Id utente</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Ora</td><td>No</td><td>Data in formato: AAAA/MM/GGTHH:MM:SS (ad esempio 20/06/2013/T10:00:00)</td><td>Tempo dei dati</td></tr><tr><td>Evento</td><td>No, se indicato è necessario indicare anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima del file è 200 MB.<br><br>Esempio:<br><pre>149452, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>6360, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>50321, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>71285, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>224450, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>236645, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>107951, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -230,7 +239,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|
+|||
 |Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
 
 
@@ -286,7 +295,23 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
   		</EventData>
 		</Event>
 
-- Esempio di evento "Purchase": <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Esempio di evento "Purchase":
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name>
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+		</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - Esempio di invio di due eventi, "Click" e "AddShopCart":
 
@@ -321,7 +346,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 | modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo della richiesta | Nessuno |
 
 **Risposta**:
@@ -419,9 +444,19 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
 - `feed/entry/content/properties/ProgressStep`: dettagli relativi alla fase corrente di una compilazione in corso.
 
-Stati di compilazione validi: - Created: la voce della richiesta di compilazione è stata creata. - Queued: la richiesta di compilazione è stata creata ed è in coda. - Building: il processo di compilazione è in corso. - Success: la compilazione è stata completata. - Error: la compilazione è terminata con un errore. - Cancelled: la compilazione è stata annullata. - Cancelling: è in corso l'annullamento della compilazione.
+Stati di compilazione validi:
+ - Created: la voce della richiesta di compilazione è stata creata.
+ - Queued: la richiesta di compilazione è stata creata ed è in coda.
+ - Building: il processo di compilazione è in corso.
+ - Success: la compilazione è stata completata.
+ - Error: la compilazione è terminata con un errore.
+ - Cancelled: la compilazione è stata annullata.
+ - Cancelling: è in corso l'annullamento della compilazione.
 
-Valori validi per il tipo di compilazione: - Rank: compilazione della classifica. Per informazioni dettagliate sulla compilazione della classifica, fare riferimento al documento "Documentazione relativa all'API Recommendations di Machine Learning". - Recommendation: compilazione di raccomandazioni. - Fbt: compilazione Frequently Bought Together (spesso acquistati insieme).
+Valori validi per il tipo di compilazione:
+ - Rank: compilazione della classifica. Per informazioni dettagliate sulla compilazione della classifica, fare riferimento al documento "Documentazione relativa all'API Recommendations di Machine Learning".
+ - Recommendation: compilazione di raccomandazioni.
+ - Fbt: compilazione Frequently Bought Together (spesso acquistati insieme).
 
 XML OData
 
@@ -640,7 +675,8 @@ La risposta di esempio seguente include 10 elementi consigliati:
 	</feed>
 
 ###Aggiornare il modello
-È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. *ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
+È possibile aggiornare la descrizione del modello o l'ID compilazione attivo. 
+*ID compilazione attiva*: ogni compilazione per ogni modello ha un ID compilazione. Con il termine ID compilazione attiva si identifica la prima compilazione riuscita di ogni nuovo modello. Se dopo avere ottenuto un ID compilazione attiva si eseguono altre compilazioni per lo stesso modello, è necessario impostarlo in modo esplicito come ID compilazione predefinito. Quando si usano raccomandazioni, se non si specifica l'ID compilazione da usare, verrà usato automaticamente quello predefinito.
 
 Dopo avere implementato un modello di raccomandazione nell'ambiente di produzione, questo meccanismo consente di compilare nuovi modelli e testarli prima di alzarli di livello e passarli in produzione.
 
@@ -653,7 +689,7 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 |:--------			|:--------								|
 | id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | apiVersion | 1\.0 |
-|
+|||
 | Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere l'intero tag. |
 
 **Risposta**:
@@ -672,7 +708,10 @@ XML OData
 	</feed>
 
 ##Note legali
-Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
+Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso.
+Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.
+Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft.
+È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
 <!---HONumber=AcomDC_0211_2016-->

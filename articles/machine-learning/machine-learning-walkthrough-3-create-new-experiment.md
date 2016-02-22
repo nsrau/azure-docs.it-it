@@ -64,7 +64,8 @@ Per usare [Editor metadati][metadata-editor] è necessario innanzitutto specific
 
 4.	Selezionare [Editor metadati][metadata-editor] quindi, nel riquadro **Properties** a destra dell'area di disegno, fare clic su **Launch column selector**.
 5.	Nella finestra di dialogo **Select columns** impostare il campo **Begin With** su "All columns".
-6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Editor metadati][metadata-editor]. Poiché si desidera modificare *tutte* le colonne, eliminare questa riga facendo clic sul segno meno ("-") alla sua destra. La finestra di dialogo dovrebbe essere simile alla seguente: ![Selettore di colonna con tutte le colonne selezionate][4]
+6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Editor metadati][metadata-editor]. Poiché si desidera modificare *tutte* le colonne, eliminare questa riga facendo clic sul segno meno ("-") alla sua destra. La finestra di dialogo dovrebbe essere simile alla seguente: 
+    ![Selettore di colonna con tutte le colonne selezionate][4]
 7.	Fare clic sul segno di spunta **OK**.
 8.	Nel riquadro **Properties** cercare il parametro **New column names**. In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità, è possibile copiare e incollare l'elenco seguente:  
 

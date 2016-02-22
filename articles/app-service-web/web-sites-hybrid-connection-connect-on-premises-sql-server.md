@@ -54,7 +54,7 @@ Porta|Motivo
 80|**Obbligatorio** per la porta HTTP per la convalida del certificato e, facoltativamente, per la connettività dati.
 443|**Facoltativo** per la connettività dei dati. Se la connettività in uscita alla porta 443 non è disponibile, viene usata la porta TCP 80.
 5671 e 9352|**Consigliato** ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.
-- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale.
+- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale.
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
