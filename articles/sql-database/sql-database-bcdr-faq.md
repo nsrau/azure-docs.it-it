@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Domande frequenti sulla continuità aziendale
@@ -60,4 +60,4 @@ Per la replica geografica attiva, tutti i database secondari (fino a un massimo 
 
 Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

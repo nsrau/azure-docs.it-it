@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Usare il servizio StorSimple Manager per gestire l'account di archiviazione (anteprima)
@@ -72,7 +72,7 @@ Di seguito è riportata la procedura per aggiungere un account di archiviazione.
 
 3. Nella finestra di dialogo **Aggiungi/modifica account di archiviazione**:
 
-  1. Nell'elenco a discesa di **Account di archiviazione**, scegliere un account esistente da modificare. È possibile scegliere anche gli account di archiviazione generati automaticamente in fase di creazione del servizio.
+  1. Nell'elenco a discesa di **Account di archiviazione**, scegliere un account esistente da modificare.
   2. Se necessario, è possibile modificare la selezione **Abilita modalità SSL**.
   3. È possibile rigenerare le chiavi di accesso dell'account di archiviazione. Per altre informazioni, vedere l'articolo relativo alla [rigenerazione delle chiavi dell'account di archiviazione](storage-create-storage-account.md#manage-your-storage-access-keys). Indicare la nuova chiave dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria. 
   4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-storage-accounts/checkicon.png) per salvare le impostazioni. Le impostazioni verranno aggiornate nella pagina **Configura**. 
@@ -99,6 +99,6 @@ Di seguito è riportata la procedura per aggiungere un account di archiviazione.
 
 ## Passaggi successivi
 
-- Altre informazioni sull'[uso del servizio StorSimple Manager per amministrare l'array virtuale StorSimple](storsimple-ova-manager-service-administration.md).
+- Informazioni sulla [gestione dell'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

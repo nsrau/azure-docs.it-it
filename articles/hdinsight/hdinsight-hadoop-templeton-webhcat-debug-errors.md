@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/05/2016"
  ms.author="larryfr"/>
 
 #Comprendere e risolvere gli errori ricevuti da WebHCat (Templeton,) in HDInsight
@@ -27,7 +27,7 @@ Quando si usa WebHCat (precedentemente noto come Templeton,) con HDInsight, poss
 
 ##Modifica della configurazione
 
-> [AZURE.IMPORTANT]Alcuni degli errori elencati in questo documento si verificano perché è stato superato un valore massimo configurato. La procedura di risoluzione indica che è possibile modificare un valore, per eseguire la modifica è necessario usare uno dei seguenti passaggi:
+> [AZURE.IMPORTANT] Alcuni degli errori elencati in questo documento si verificano perché è stato superato un valore massimo configurato. La procedura di risoluzione indica che è possibile modificare un valore, per eseguire la modifica è necessario usare uno dei seguenti passaggi:
 
 * Per cluster **Windows**: usare un'azione di script per configurare il valore durante la creazione del cluster. Per altre informazioni, vedere [Sviluppare azioni di script](hdinsight-hadoop-script-actions.md).
 
@@ -86,4 +86,4 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

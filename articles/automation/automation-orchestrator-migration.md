@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 
@@ -160,4 +160,4 @@ I runbook di Orchestrator avviano altri runbook con l'attività **Richiama Runbo
 - [Attività Standard di Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

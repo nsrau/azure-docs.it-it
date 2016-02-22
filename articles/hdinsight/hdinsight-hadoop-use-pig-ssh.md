@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
@@ -25,7 +25,7 @@ Questo documento illustra in dettaglio il processo di connessione a un cluster H
 
 Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -47,7 +47,7 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 **Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
 
-Per altre informazioni sull'uso di SSH con HDInsight, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+Per altre informazioni sull'uso di SSH con HDInsight, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ###PuTTY (client basati su Windows)
 
@@ -101,7 +101,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 		STORE RESULT into 'wasb:///example/data/pigout';
 
-	> [AZURE.NOTE]I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
+	> [AZURE.NOTE] I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
 
 7. Per uscire dal prompt grunt, immettere la seguente istruzione.
 
@@ -154,4 +154,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

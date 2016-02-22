@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="02/08/2016"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -169,7 +169,7 @@ Il seguente esempio mostra come definire i parametri:
        }
     }
 
-Per informazioni sull'immissione di valori di parametro durante la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md/#parameter-file).
+Per informazioni sull'immissione di valori di parametro durante la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy/#parameter-file).
 
 ## Variabili
 
@@ -472,4 +472,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Uso di Hive con Hadoop in HDInsight con Desktop remoto
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come connettersi a un cluster HDInsight tramite Desktop remoto e quindi eseguire query Hive usando l'interfaccia della riga di comando di Hive.
 
-> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -63,7 +63,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
-		> [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+		> [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     	>
     	> L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -85,7 +85,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
-		> [AZURE.NOTE]A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
+		> [AZURE.NOTE] A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
@@ -95,7 +95,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
         SELECT * from errorLogs;
 
-    Dovrebbero essere restituite tre righe di dati, tutte contenenti **[ERROR]** nella colonna t4.
+    Dovrebbero essere restituite tre righe di dati, tutte contenenti **ERROR** nella colonna t4.
 
 ##<a id="summary"></a>Riepilogo
 
@@ -144,4 +144,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

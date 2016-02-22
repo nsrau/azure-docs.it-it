@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,13 +24,14 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE]Per poter creare un account di Servizi multimediali di Azure, è necessario un account di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per poter creare un account di Servizi multimediali di Azure, è necessario un account di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##Panoramica 
 
 Questi articoli illustrano come usare i cmdlet di PowerShell per gestire gli account di Servizi multimediali di Azure.
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE]
+Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##Installare i cmdlet di PowerShell di Microsoft Azure
 
@@ -121,4 +122,4 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

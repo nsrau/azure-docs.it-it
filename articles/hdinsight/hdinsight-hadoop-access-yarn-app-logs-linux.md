@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Accedere ai log delle applicazioni YARN in HDInsight basato su Linux
 
 In questo documento viene illustrato come accedere ai log delle applicazioni YARN (Yet Another Resource Negotiator) che sono finite in un cluster Hadoop in Azure HDInsight.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs.md)
+> [AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs.md)
 
 ## Prerequisiti
 
@@ -96,4 +96,4 @@ Dopo aver creato un tunnel SSH, utilizzare la procedura seguente per visualizzar
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

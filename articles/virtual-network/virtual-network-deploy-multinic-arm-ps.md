@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Distribuire macchine virtuali con più schede di rete tramite PowerShell
@@ -37,7 +37,7 @@ Prima di distribuire i server back-end, è necessario distribuire il gruppo di r
 2. Nella pagina del modello, a destra del **gruppo di risorse padre**, fare clic su **Deploy to Azure**.
 3. Se necessario, modificare i valori dei parametri, quindi seguire i passaggi nel portale di anteprima di Azure per distribuire il gruppo di risorse.
 
-> [AZURE.IMPORTANT]Assicurarsi che i nomi degli account di archiviazione siano univoci. In Azure non sono infatti ammessi nomi di account di archiviazione duplicati.
+> [AZURE.IMPORTANT] Assicurarsi che i nomi degli account di archiviazione siano univoci. In Azure non sono infatti ammessi nomi di account di archiviazione duplicati.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -51,7 +51,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 
 ### Passaggio 1 - Avviare lo script
 
-È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
+È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -308,4 +308,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

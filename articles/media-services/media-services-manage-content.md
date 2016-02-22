@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 ![Process2][process2]
 
 
-L'argomento [Set di impostazioni di attività per MES (Media Encoder Standard)](https://msdn.microsoft.com/it-IT/library/mt269960) illustra il significato di ogni set di impostazioni.
+L'argomento relativo alle [stringhe di set di impostazioni di attività per Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) illustra il significato di ogni set di impostazioni.
 
 5. Quindi, immettere il nome del contenuto di output descrittivo desiderato oppure accettare il valore predefinito. Fare quindi clic sul pulsante con il segno di spunta per avviare l'operazione di codifica. Nella parte inferiore del portale sarà possibile monitorare l'avanzamento dell'operazione.
 6. Premere OK.
@@ -220,4 +220,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

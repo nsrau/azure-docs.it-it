@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="02/09/2016" 
 	ms.author="awills"/>
  
 # Diagnosticare i problemi delle dipendenze in Application Insights
 
 
-Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. In Application Insights di Visual Studio, è possibile vedere facilmente per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce.
+Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. Nello script della pagina Web, può essere una chiamata AJAX al server. In Application Insights di Visual Studio, è possibile vedere facilmente per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce.
 
 ## Dove è possibile usarlo
 
@@ -26,6 +26,7 @@ Il monitoraggio predefinito delle dipendenze è attualmente disponibile per:
 
 * App Web e servizi di ASP.NET in esecuzione su un server IIS oppure su Azure
 * [Applicazioni web Java](app-insights-java-agent.md)
+* [Pagina Web](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 Per altri tipi, ad esempio applicazioni per dispositivi, è possibile scrivere il proprio codice di monitoraggio usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -39,7 +40,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
 * Java
  * Chiamate a un database tramite un driver[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
 * Pagina Web
- * Chiamate AJAX
+ * [Chiamate AJAX](app-insights-javascript.md)
 
 Anche in questo caso, è possibile scrivere le proprie chiamate SDK per monitorare altre dipendenze.
 
@@ -52,10 +53,11 @@ Piattaforma | Installa
 Server IIS | [Monitoraggio stato](app-insights-monitor-performance-live-website-now.md)
 App Web di Azure | [Informazioni sull'estensione dell'applicazione](../azure-portal/insights-perf-analytics.md)
 Server web Java | [Applicazioni web Java](app-insights-java-agent.md)
+Pagina Web | [Monitoraggio JavaScript](app-insights-javascript.md) (nessuna impostazione aggiuntiva oltre al monitoraggio della pagina Web)
 
 Il monitoraggio dello stato per i server IIS non necessita che si ricompili il progetto di origine con il SDK di Application Insights.
 
-## <a name="diagnosis"></a>Diagnosi dei problemi relativi alle prestazioni delle dipendenze
+## <a name="diagnosis"></a> Diagnosi dei problemi relativi alle prestazioni delle dipendenze nel server Web
 
 Per valutare le prestazioni delle richieste al server:
 
@@ -74,7 +76,7 @@ Fare clic su tale riga per visualizzare gli eventi di richiesta singola:
 
 Fare clic su qualsiasi istanza con esecuzione prolungata per esaminarla ulteriormente.
 
-> [AZURE.NOTE]Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
+> [AZURE.NOTE] Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
 
 Scorrere in basso fino alle chiamate alle dipendenze remote correlate a questa richiesta:
 
@@ -129,6 +131,12 @@ Ad esempio, se si compila il codice con un assembly non scritto personalmente, s
 
 Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-<!--Link references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+## Ajax
+
+Vedere [Pagina Web](app-insights-javascript.md)
+
+
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

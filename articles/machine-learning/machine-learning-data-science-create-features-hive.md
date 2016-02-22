@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="hangzh;bradsev" />
 
 #Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive
-
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come progettare le funzionalità per i dati in diversi ambienti. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ## Introduzione
 Vengono presentati esempi di query Hive che generano le funzionalità nei dati archiviati in un cluster HDInsight Hadoop di Azure. Tali query Hive usano le funzioni definite dall'utente di Hive incorporate, gli script per i quali sono fornite.
@@ -28,6 +24,10 @@ Vengono presentati esempi di query Hive che generano le funzionalità nei dati a
 Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -145,7 +145,7 @@ Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono r
 
 ![Creare un'area di lavoro][1]
 
-Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite dall'utente e incorporate di Hive.
+Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite e incorporate di Hive.
 
 ## <a name="tuning"></a> Argomento avanzato: Ottimizzare i parametri Hive per migliorare la velocità delle query
 
@@ -190,4 +190,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

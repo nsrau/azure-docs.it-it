@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD
 
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Può essere necessario inviare uno script di installazione a più server Windows o ai server Windows che non hanno l'interfaccia utente abilitata. In questo argomento viene illustrato come creare uno script di Windows PowerShell che consente l'installazione automatica e installa e registra il connettore del proxy di applicazione di Azure AD.
 
@@ -141,7 +141,8 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Risorse aggiuntive
-* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-* [Identità di Azure](fundamentals-identity.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

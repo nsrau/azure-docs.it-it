@@ -64,7 +64,7 @@ Esistono tre origini dati:
 Le categorie principali sono:
 
 * [Dati di telemetria del server Web](app-insights-asp-net.md): richieste HTTP, URI, tempo impiegato per elaborare la richiesta, codice di risposta, indirizzo IP del client, ID sessione.
-* [Pagine Web](articles/app-insights-javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni.
+* [Pagine Web](app-insights-javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni, chiamate AJAX.
 * Contatori delle prestazioni: memoria, CPU, IO, occupazione della rete.
 * Contesto client e server: sistema operativo, impostazioni locali, tipo di dispositivo, browser, risoluzione dello schermo.
 * [Eccezioni](app-insights-asp-net-exceptions.md) e arresti anomali: **dump dello stack**, ID compilazione, tipo di CPU. 
@@ -191,7 +191,7 @@ Azione | Classi di dati raccolte (vedere la tabella seguente)
 [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
 [Installare Monitoraggio dello stato su IIS][redfield]<br/>[Aggiungere l'estensione AI a una VM di Azure o a un'app Web][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Aggiungere Application Insights SDK a un'app Web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
-[Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
+[Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Aggiungere SDK a un'app di Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Definire le proprietà predefinite][apiproperties]|**Properties** in tutti gli eventi standard e personalizzati
 [Chiamare TrackMetric][api]|Valori numerici<br/>**Properties**
@@ -218,7 +218,8 @@ Metrics | Nome e valore della metrica.
 Events | Nome e valore dell'evento.
 PageViews | URL e nome della pagina o della schermata.
 Client perf | URL/nome pagina, tempo di caricamento del browser.
-Requests |URL, durata, codice di risposta.
+Ajax | Chiamate HTTP dalla pagina Web al server
+Richieste |URL, durata, codice di risposta.
 Dependencies|Tipo (SQL, HTTP, ...), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL (con Monitoraggio stato)
 **Eccezioni** | Tipo, **messaggio**, stack di chiamate, file di origine e numero di riga, ID thread.
 Crashes | ID processo, ID processo padre, ID thread di arresto anomalo, patch applicazione, ID, compilazione, tipo di eccezione, indirizzo, motivo, simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU.
@@ -264,4 +265,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

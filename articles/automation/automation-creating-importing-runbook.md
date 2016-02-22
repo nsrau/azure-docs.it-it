@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren" />
 
 # Creazione o importazione di un runbook in Automazione di Azure
@@ -131,4 +131,4 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 - [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 - [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

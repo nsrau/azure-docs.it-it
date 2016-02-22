@@ -109,15 +109,17 @@ Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al fi
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*
@@ -149,4 +151,4 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

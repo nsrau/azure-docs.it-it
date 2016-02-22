@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/05/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Creare funzionalità per i dati di archiviazione BLOB di Azure tramite Panda
 
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come progettare le funzionalità per i dati in diversi ambienti. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ##Introduzione
 
 In questo documento viene descritto come creare funzionalità per i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/). Una volta mostrato come caricare in un frame di dati Panda, viene illustrato come generare funzionalità relative alle categorie con i valori dell'indicatore e funzionalità per la creazione di contenitori, in entrambi i casi mediante gli script di Python.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -140,4 +140,4 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

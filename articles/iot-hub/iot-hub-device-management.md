@@ -18,7 +18,7 @@
 
 # Gestione dei dispositivi IoT tramite Azure IoT Suite e l'hub IoT di Azure
 
-Azure IoT Suite e l'hub IoT di Azure forniscono le funzionalità fondamentali per consentire la gestione dei dispositivi per soluzioni IoT, su vasta scala, e per un set di dispositivi e topologie di dispositivi di vario tipo. I riferimenti alla gestione dei dispositivi in questo articolo sono correlati in modo specifico alla gestione dei dispositivi IoT.
+[Azure IoT Suite][lnk-iot-suite] e l'hub IoT di Azure forniscono le funzionalità fondamentali per consentire la gestione dei dispositivi per soluzioni IoT, su vasta scala, e per un set di dispositivi e topologie di dispositivi di vario tipo. I riferimenti alla gestione dei dispositivi in questo articolo sono correlati in modo specifico alla gestione dei dispositivi IoT.
 
 ## Introduzione
 
@@ -72,7 +72,7 @@ Una distribuzione IoT di produzione che opera con vincoli di alimentazione/elabo
 
 ### Soluzione preconfigurata per il monitoraggio remoto e modello di dispositivo corrispondente
 
-La soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite implementa un modello di dispositivo autodefinito. L'uso di questo modello consente un'iterazione rapida durante la definizione e l'evoluzione delle capacità del dispositivo.
+La [soluzione preconfigurata per il monitoraggio remoto][lnk-remote-monitoring] di Azure IoT Suite implementa un modello di dispositivo autodefinito. L'uso di questo modello consente un'iterazione rapida durante la definizione e l'evoluzione delle capacità del dispositivo.
 
 Il codice sorgente per questa soluzione preconfigurata è disponibile nel repository di GitHub [azure-iot-solution][lnk-azure-iot-solution].
 
@@ -157,5 +157,7 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Connetti il tuo dispositivo]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

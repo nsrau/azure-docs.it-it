@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -305,6 +305,14 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad ese
 - **OUTPUT**: "Australia/Brisbane"
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articoli correlati
 
-<!---HONumber=AcomDC_0107_2016-->
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md)
+- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
+- [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
+- [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
+- [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

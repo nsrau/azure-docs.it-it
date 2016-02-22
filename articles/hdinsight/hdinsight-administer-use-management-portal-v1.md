@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico
@@ -198,4 +198,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

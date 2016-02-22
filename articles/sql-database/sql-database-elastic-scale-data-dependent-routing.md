@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Routing dipendente dei dati | Microsoft Azure" 
-	description="Informazioni su come usare ShardMapManager per il routing basato sui dati, una funzionalità dei database elastici database per il Database SQL di Azure" 
+	description="Come usare la classe ShardMapManager nelle app .NET per il routing basato sui dati, una funzionalità dei database elastici per il Database SQL di Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -13,57 +13,66 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 #Routing dipendente dei dati
 
-La classe **ShardMapManager** consente alle applicazioni ADO.NET di indirizzare facilmente query e comandi al database fisico corretto in un ambiente condiviso. Questo comportamento viene definito **routing dipendente dai dati** e costituisce un criterio fondamentale quando si usano database condivisi. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati viene limitata all'accesso a un singolo database per richiesta.
+Il **routing dipendente dai dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Questo costituisce un criterio fondamentale quando si usano database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, il routing viene effettuato con la **[classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** nelle applicazioni ADO.NET.
 
-Se si usa il routing dipendente dai dati, non è necessario che l'applicazione rilevi le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. Piuttosto, il [Gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md) si occupa di fornire connessioni aperte al database corretto, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Questa chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
+Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) che apre connessioni ai database corretti, quando necessario, in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. La chiave è in genere *customer\_id*, *tenant\_id*, *date\_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta di database.
+
+Per altre informazioni, vedere la pagina relativa [all'aumento del numero di istanze di SQL Server con il routing dipendente dai dati](https://technet.microsoft.com/library/cc966448.aspx).
 
 ## Scaricare la libreria client
 
-Per installare la libreria, passare a [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+Per ottenere la classe, installare la [libreria client dei database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Uso di ShardMapManager in un'applicazione di routing dipendente dai dati 
 
-Per le applicazioni che usano il routing dipendente dai dati, è necessario creare un'istanza di **ShardMapManager** una volta per ogni dominio di app durante l'inizializzazione usando la chiamata alla factory **GetSQLShardMapManager**.
+Le applicazioni devono creare un'istanza di **ShardMapManager** durante l'inizializzazione, tramite la chiamata alla factory **[GetSQLShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. In questo esempio viene eseguita l'inizializzazione sia della classe **ShardMapManager** sia di un oggetto **ShardMap** specifico in essa contenuto. Questo esempio illustra i metodi GetSqlShardMapManager e [GetRangeShardMap](https://msdn.microsoft.com/library/azure/dn824173.aspx).
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
     RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
-In questo esempio viene eseguita l'inizializzazione sia della classe **ShardMapManager** sia di un oggetto **ShardMap** specifico in essa contenuto.
+### Usare credenziali con i privilegi più bassi possibile per ottenere la mappa partizioni
 
-Per un'applicazione che non gestisce direttamente la mappa partizioni, le credenziali usate nel metodo factory per ottenere **ShardMapManager** (nell'esempio precedente, *smmConnectionString*) dovrebbero avere semplicemente autorizzazioni di sola lettura nel database **Mappa globale partizioni** a cui fa riferimento la stringa di connessione. Queste credenziali sono in genere diverse da quelle usate per aprire connessioni al gestore delle mappe partizioni. Vedere anche [Utilizzo delle credenziali nelle librerie client dei database elastici](sql-database-elastic-scale-manage-credentials.md).
+Se un'applicazione non gestisce direttamente la mappa partizioni, le credenziali usate nel metodo factory devono disporre solo di autorizzazioni di sola lettura per il database della **mappa globale partizioni**. Queste credenziali sono in genere diverse da quelle usate per aprire connessioni al gestore delle mappe partizioni. Vedere anche [Credenziali usate per accedere alla libreria client dei database elastici](sql-database-elastic-scale-manage-credentials.md).
 
-## Chiamata del routing dipendente dai dati 
+## Chiamare il metodo OpenConnectionForKey
 
-Il metodo **ShardMap.OpenConnectionForKey(key, connectionString, connectionOptions)** restituisce una connessione ADO.Net pronta per l'invio di comandi al database appropriato in base al valore del parametro **key**. Le informazioni sulla partizione vengono memorizzate nella cache dell'applicazione tramite **ShardMapManager**, in modo che in genere tali richieste non comportino una ricerca di database sul database della **mappa globale partizioni**.
+Il **[metodo ShardMap.OpenConnectionForKey ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)** restituisce una connessione ADO.Net pronta per l'invio di comandi al database appropriato in base al valore del parametro **key**. Le informazioni sulla partizione vengono memorizzate nella cache dell'applicazione tramite **ShardMapManager**, in modo che in genere tali richieste non comportino una ricerca di database sul database della **mappa globale partizioni**.
+
+	// Syntax: 
+	public SqlConnection OpenConnectionForKey<TKey>(
+		TKey key,
+		string connectionString,
+		ConnectionOptions options
+	)
+
 
 * Il parametro **key** viene usato come chiave di ricerca nella mappa partizioni per determinare il database appropriato per la richiesta. 
 
 * Il parametro **connectionString** viene usato per passare solo le credenziali utente per la connessione specifica. Nel parametro *connectionString* non viene incluso il nome del database o del server, perché il metodo determina il database e il server usando **ShardMap**.
 
-* L'enumerazione **connectionOptions** viene usata per indicare se la convalida viene o meno eseguita quando viene fornita la connessione aperta. **ConnectionOptions.Validate** è l'opzione consigliata. In un ambiente in cui le mappe partizioni possono essere modificate e le righe possono essere spostate in altri database come risultato di operazioni di divisione o unione, la convalida garantisce che la ricerca memorizzata nella cache del database in base al valore di una chiave sia corretta. La convalida prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
+* Il parametro **[connectionOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)** deve essere impostato su **ConnectionOptions.Validate** per un ambiente in cui le mappe partizioni possono cambiare e le righe possono passare ad altri database a seguito di operazioni di divisione o unione. Ciò prevede una breve query sulla mappa locale partizioni nel database di destinazione (non sulla mappa globale partizioni) prima che la connessione venga fornita all'applicazione.
 
 Se la convalida della mappa locale partizioni non riesce (indicando che la cache non è corretta), tramite Gestore mappe partizioni viene eseguita una query sulla mappa globale partizioni per ottenere il nuovo valore corretto per la ricerca, aggiornare la cache e ottenere e restituire la connessione al database appropriato.
 
-L’unico caso in cui **ConnectionOptions.None** (non viene eseguita la convalida) è accettabile si verifica quando le modifiche al mapping di partizioni non sono previste mentre l'applicazione è online. In tal caso, i valori memorizzati nella cache possono essere considerati sempre corretti e la chiamata di convalida round trip aggiuntiva al database di destinazione può essere tranquillamente ignorata. Che può ridurre le latenze della transazione e il traffico del database. L'enumerazione **connectionOptions** può anche essere impostata tramite un valore in un file di configurazione per indicare se le modifiche di partizionamento sono o meno previste durante un intervallo di tempo.
+Usare **ConnectionOptions.None** solo se non sono previste modifiche al mapping delle partizioni mentre l'applicazione è online. In tal caso, i valori memorizzati nella cache possono essere considerati sempre corretti e la chiamata di convalida round trip aggiuntiva al database di destinazione può essere tranquillamente ignorata. Ciò riduce il traffico del database. L'enumerazione **connectionOptions** può anche essere impostata tramite un valore in un file di configurazione per indicare se le modifiche di partizionamento sono o meno previste durante un intervallo di tempo.
 
-Di seguito è riportato un esempio di codice che usa il gestore mappe partizioni per eseguire il routing dipendente dai dati in base al valore di una chiave numero intero **CustomerID**, usando un oggetto **ShardMap** denominato **customerShardMap**.
-
-## Esempio: routing dipendente dai dati 
+Questo esempio usa il valore di una chiave Integer **CustomerID**, tramite un oggetto **ShardMap** denominato **customerShardMap**.
 
     int customerId = 12345; 
     int newPersonId = 4321; 
 
-    // Connection to the shard for that customer ID
+    // Connect to the shard for that customer ID. No need to call a SqlConnection 
+	// constructor followed by the Open method.
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
     { 
-        // Execute a simple command 
+        // Execute a simple command. 
         SqlCommand cmd = conn.CreateCommand(); 
         cmd.CommandText = @"UPDATE Sales.Customer 
                             SET PersonID = @newPersonID 
@@ -74,13 +83,13 @@ Di seguito è riportato un esempio di codice che usa il gestore mappe partizioni
         cmd.ExecuteNonQuery(); 
     }  
 
-Si noti che invece di usare un costruttore per **SqlConnection**, seguito da una chiamata **Open()** all'oggetto connessione, viene usato il metodo **OpenConnectionForKey** e viene fornita una nuova connessione già aperta al database corretto. Le connessioni usate in questo modo usufruiscono comunque del pool di connessioni ADO.Net. Fino a quando le transazioni e le richieste possono essere soddisfatti da una partizione alla volta, questa dovrebbe essere l'unica modifica necessaria in un'applicazione che già usa ADO.Net.
+Il metodo **OpenConnectionForKey** restituisce una nuova connessione già aperta al database corretto. Le connessioni usate in questo modo usufruiscono comunque del pool di connessioni ADO.Net. Fino a quando le transazioni e le richieste possono essere soddisfatti da una partizione alla volta, questa dovrebbe essere l'unica modifica necessaria in un'applicazione che già usa ADO.Net.
 
-Il metodo **OpenConnectionForKeyAsync** è disponibile anche se l'applicazione consente di usare la programmazione asincrona con ADO.Net. Il comportamento di tale metodo è l'equivalente del routing dipendente dai dati del metodo **ADO.Net Connection.OpenAsync**.
+È disponibile anche il metodo **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** se l'applicazione usa la programmazione asincrona con ADO.Net. Il comportamento di tale metodo è l'equivalente del routing dipendente dai dati del metodo ADO.Net ****[Connection.OpenAsync]https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
 
 ## Integrazione con la gestione degli errori temporanei 
 
-Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel cloud consiste nel garantire che gli errori temporanei durante la connessione o l'esecuzione di query al database vengano rilevati dall'app e che le operazioni vengono ripetute più volte prima di generare un errore. La gestione degli errori temporanei per le applicazioni cloud è illustrata nella pagina relativa alla [gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
+Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel cloud consiste nel garantire che gli errori temporanei vengano rilevati dall'app e che le operazioni vengano ripetute più volte prima di generare un errore. La gestione degli errori temporanei per le applicazioni cloud è illustrata nella pagina relativa alla [gestione degli errori temporanei]https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
  
 La gestione degli errori temporanei può coesistere naturalmente con il modello di routing dipendente dai dati. Il requisito principale consiste nel ripetere l'intera richiesta di accesso ai dati, incluso il blocco **using** che ha ottenuto la connessione di routing dipendente dai dati. L'esempio precedente potrebbe essere riscritto come riportato di seguito (notare la modifica evidenziata).
 
@@ -91,7 +100,7 @@ int newPersonId = 4321;
 
 <span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() => </span> 
 <span style="background-color:  #FFFF00">    { </span>
-        // Connessione alla partizione per l’ID cliente 
+        // Connettersi alla partizione per un ID cliente. 
         usando (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
         { 
@@ -118,7 +127,10 @@ I pacchetti necessari per implementare la gestione degli errori temporanei vengo
 
 Le proprietà transazionali sono garantite per tutte le operazioni locali rispetto a una partizione. Ad esempio, le transazioni inviate tramite il routing dipendente dai dati vengono eseguite nell'ambito della partizione di destinazione per la connessione. Al momento, non sono disponibili funzionalità per l'inserimento di più connessioni in una transazione e pertanto non esistono garanzie transazionale per le operazioni eseguite tra partizioni.
 
+## Passaggi successivi
+Per disconnettere o riconnettere una partizione, vedere [Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni](sql-database-elastic-database-recovery-manager.md).
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

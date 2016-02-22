@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # Sviluppo di azioni di script con HDInsight
 
 Le azioni di script consentono di personalizzare i cluster Azure HDInsight specificando le impostazioni di configurazione del cluster durante l'installazione oppure installando servizi, strumenti o altri componenti software nel cluster.
 
-> [AZURE.NOTE]Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'uso di azioni script con cluster basati su Windows, vedere [Sviluppo di azioni script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'uso di azioni script con cluster basati su Windows, vedere [Sviluppo di azioni script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
 ## Definizione di azioni script
 
@@ -43,7 +43,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 - [Scrivere informazioni in STDOUT e STDERR](#bPS7)
 - [Salvare i file in formato ASCII con terminazioni di riga LF](#bps8)
 
-> [AZURE.IMPORTANT]Le azioni di script devono essere completate entro 60 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
+> [AZURE.IMPORTANT] Le azioni di script devono essere completate entro 60 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 
 ### <a name="bPS1"></a>Usare la versione di Hadoop
 
@@ -55,7 +55,7 @@ Gli utenti devono assicurarsi che tutti gli script e tutte le risorse usati dall
 
 È consigliabile scaricare e archiviare tutti gli elementi in un account di archiviazione di Azure nella propria sottoscrizione.
 
-> [AZURE.IMPORTANT]L'account di archiviazione usato deve essere quello predefinito per il cluster o un contenitore pubblico di sola lettura per qualsiasi altro account di archiviazione.
+> [AZURE.IMPORTANT] L'account di archiviazione usato deve essere quello predefinito per il cluster o un contenitore pubblico di sola lettura per qualsiasi altro account di archiviazione.
 
 Gli esempi forniti da Microsoft, ad esempio, vengono archiviati nell'account di archiviazione [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), un contenitore pubblico di sola lettura gestito dal team di HDInsight.
 
@@ -73,7 +73,7 @@ Se, ad esempio, al momento della prima esecuzione uno script personalizzato inst
 
 I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti installati prevedono un solo nodo head, è necessario progettare uno script che installi il componente solo in uno dei due nodi del cluster.
 
-> [AZURE.IMPORTANT]I servizi predefiniti installati come parte di HDInsight sono progettati per il failover tra i due nodi head, se necessario. Questa funzionalità non è tuttavia estesa ai componenti personalizzati installati tramite le azioni script. Se i componenti installati tramite un'azione script richiedono la disponibilità elevata, è necessario implementare un meccanismo di failover personalizzato per l'uso dei due nodi head disponibili.
+> [AZURE.IMPORTANT] I servizi predefiniti installati come parte di HDInsight sono progettati per il failover tra i due nodi head, se necessario. Questa funzionalità non è tuttavia estesa ai componenti personalizzati installati tramite le azioni script. Se i componenti installati tramite un'azione script richiedono la disponibilità elevata, è necessario implementare un meccanismo di failover personalizzato per l'uso dei due nodi head disponibili.
 
 ### <a name="bPS6"></a>Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
 
@@ -177,13 +177,13 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 Microsoft fornisce script di esempio per installare i componenti in un cluster HDInsight. Gli script di esempio e le istruzioni su come usarli sono disponibili nei collegamenti seguenti:
 
-- [Installare e usare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md).
+- [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
 - [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-spark-install-linux.md)
 - [Installare e usare R nei cluster Hadoop HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]I documenti indicati nei collegamenti precedenti sono specifici per i cluster HDInsight basati su Linux. Per gli script che funzionano con HDInsight basato su Windows, vedere [Sviluppo di azioni di script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) oppure usare i collegamenti disponibili all'inizio di ogni articolo.
+> [AZURE.NOTE] I documenti indicati nei collegamenti precedenti sono specifici per i cluster HDInsight basati su Linux. Per gli script che funzionano con HDInsight basato su Windows, vedere [Sviluppo di azioni di script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) oppure usare i collegamenti disponibili all'inizio di ogni articolo.
 
 ##Risoluzione dei problemi
 
@@ -197,7 +197,7 @@ Questo problema si verifica più spesso quando lo script viene creato in un ambi
 
 _Risoluzione_: se nell'editor di testo è disponibile come opzione, selezionare il formato Unix o LF come terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
 
-> [AZURE.NOTE]I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.
+> [AZURE.NOTE] I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.
 
 | Comando | Note |
 | ------- | ----- |
@@ -220,4 +220,4 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
@@ -59,7 +59,7 @@ L'anteprima nel Catalogo dati di Azure è uno snapshot di 20 record al massimo c
 
 Un profilo dati nel Catalogo dati di Azure è uno snapshot di metadati a livello di tabella e a livello di colonna su un asset di dati registrati che può essere estratto dall'origine dati durante la registrazione e archiviato nel catalogo con i metadati dell’asset di dati. Il profilo dati può aiutare gli utenti a individuare un asset di dati per comprenderne meglio lo scopo e la funzione. Analogamente alle anteprime, i profili dati devono essere selezionati esplicitamente dall'utente durante la registrazione.
 
-> [AZURE.NOTE]L’estrazione di un profilo dati può essere un'operazione costosa per tabelle e viste di grandi dimensioni e potrebbe aumentare significativamente il tempo necessario per registrare un'origine dati.
+> [AZURE.NOTE] L’estrazione di un profilo dati può essere un'operazione costosa per tabelle e viste di grandi dimensioni e potrebbe aumentare significativamente il tempo necessario per registrare un'origine dati.
 
 ## Prospettiva dell'utente
 
@@ -74,7 +74,7 @@ Un esperto è un utente che è stato identificato come avente una prospettiva in
 ## Proprietario
 
 Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari.
-> [AZURE.NOTE]La gestione e la proprietà sono disponibili solo nell'edizione Standard del Catalogo dati di Azure.
+> [AZURE.NOTE] La gestione e la proprietà sono disponibili solo nell'edizione Standard del Catalogo dati di Azure.
 
 ## Registrazione
 
@@ -84,6 +84,6 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Che cos'è il catalogo dei dati di Azure?](data-catalog-what-is-data-catalog.md). In questo articolo viene fornita una panoramica del servizio Catalogo dati di Azure, il valore restituito e gli scenari supportati.
 
-- [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end che illustra come usare il Catalogo dati di Azure per l'individuazione dell'origine dati.
+- [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

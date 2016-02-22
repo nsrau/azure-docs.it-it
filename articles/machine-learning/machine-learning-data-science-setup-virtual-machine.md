@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurare una macchina virtuale di Azure come server IPython Notebook per l'analisi avanzata
@@ -93,7 +93,7 @@ Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata
 
 ## <a name="upload"></a>Passaggio 5: Caricare un IPython Notebook esistente da un computer locale nel server IPython Notebook
 
-Con IPython Notebook si consente agli utenti di caricare con facilità un IPython Notebook locale sul server di IPython Notebook nelle macchine virtuali. Dopo aver eseguito l'accesso a IPython Notebook in un Web browser, fare clic sulla **directory** in cui verrà caricato IPython Notebook. Selezionare quindi un file con estensione ipynb di IPython Notebook da caricare dal computer locale in **Esplora file** e trascinarlo nella directory di IPython Notebook nel Web browser. Fare clic sul pulsante **Carica** per caricare il file con estensione ipynb nel server IPython Notebook. Gli altri utenti potranno quindi iniziare a usarlo dai Web browser di cui dispongono.
+Con IPython Notebook si consente agli utenti di caricare con facilità un IPython Notebook locale sul server di IPython Notebook nelle macchine virtuali. Dopo aver eseguito l'accesso a IPython Notebook in un Web browser, fare clic sulla **directory** in cui verrà caricato IPython Notebook. Selezionare quindi un file con estensione ipynb di IPython Notebook da caricare dal computer locale in **Esplora file** e trascinarlo nella directory di IPython Notebook nel Web browser. Fare clic sul pulsante **Carica** per caricare il file IPYNB nel server IPython Notebook. Gli altri utenti potranno quindi iniziare a usarlo dai Web browser di cui dispongono.
 
 ![Creare un'area di lavoro][22]
 
@@ -104,7 +104,7 @@ Con IPython Notebook si consente agli utenti di caricare con facilità un IPytho
 
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non ricevere addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)**.
 
-> [AZURE.NOTE]Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di Azure classico](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "PostShutdownAction" corrispondente a "StoppedDeallocated".
+> [AZURE.NOTE] Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di Azure classico](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "PostShutdownAction" corrispondente a "StoppedDeallocated".
 
 Per arrestare e deallocare la macchina virtuale:
 
@@ -143,4 +143,4 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

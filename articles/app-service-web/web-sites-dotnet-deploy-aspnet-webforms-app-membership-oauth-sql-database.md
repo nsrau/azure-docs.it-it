@@ -3,7 +3,7 @@
 	description="Questa esercitazione illustra come compilare un'app Web Web Form ASP.NET 4.5 che incorpora un database SQL e distribuirla in Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="Erikre" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="12/10/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # Creare e distribuire un'app Web Form ASP.NET sicura con appartenenza, OAuth e database SQL in Azure App Service
@@ -52,15 +52,15 @@ Per iniziare, installare Visual Studio 2013 e Azure SDK per .NET per configurare
 2. Installare [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Per questa esercitazione è necessario installare Visual Studio 2013 prima di installare Azure SDK per Visual Studio 2013. in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.  
 
 3. Quando viene richiesto di eseguire o installare il file eseguibile di installazione, fare clic su **Esegui**.
-4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione. 
+4. Nell'**Installazione guidata piattaforma** Web fare clic su **Installa** e procedere con l'installazione.
 	![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
       Se l'SDK è già installato, gli elementi da installare saranno pari a 0. Il numero di elementi da installare è indicato nella parte inferiore sinistra della finestra dell'**Installazione guidata piattaforma Web**.
 
 5. Se **Visual Studio Update 2** non è installato, scaricare e installare **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** o versione successiva.
 
-	>[AZURE.NOTE]  
-	È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
+>[AZURE.NOTE]  
+È necessario installare Visual Studio 2013 Update 2 o versione successiva per usare Goggle OAuth 2.0 ed SSL localmente senza avvisi. L'Update 2 è necessario anche per usare l'estensione Web Forms Scaffolding.
 
 Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo.
 
@@ -72,8 +72,8 @@ In questa esercitazione il sito Web di Azure verrà eseguito in un ambiente di h
 
 Database SQL di Azure è un servizio di database relazionale basato sul cloud che si avvale delle tecnologie SQL Server. Gli strumenti e le applicazioni utilizzabili con SQL Server sono utilizzabili anche con database SQL.
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**.  
-	![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
+1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Web Apps** nella scheda di sinistra, quindi su **New**. 
+![Installazione guidata piattaforma Web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
 2. Fare clic su **Web Site**, quindi su **Custom Create**.  
 	![Custom Create](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) Verrà aperta la procedura guidata **New Web App - Custom Create**.  
 
@@ -757,4 +757,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

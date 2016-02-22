@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -52,7 +52,10 @@ Per connettere le macchine virtuali in una rete virtuale:
 Per connettere le macchine virtuali in un servizio cloud autonomo:
 
 1.	Creare il servizio cloud nel [portale di Azure classico](http://manage.windowsazure.com). Fare clic su **Nuovo > Calcolo > Servizio cloud > Creazione personalizzata**. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
-2.	Quando si creano le macchine virtuali, specificare il nome del servizio cloud creato nel passaggio precedente.![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+2.	Quando si creano le macchine virtuali, specificare il nome del servizio cloud creato nel passaggio precedente.
+
+	![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Risorse
 [Bilanciamento del carico delle macchine virtuali](load-balance-virtual-machines.md)
@@ -65,4 +68,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

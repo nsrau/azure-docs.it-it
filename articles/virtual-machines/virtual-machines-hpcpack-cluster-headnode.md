@@ -1,80 +1,68 @@
 <properties
  pageTitle="Creare un nodo head HPC Pack in una macchina virtuale di Azure | Microsoft Azure"
- description="Informazioni su come usare il portale di Azure classico e il modello di distribuzione classica per creare un nodo head Microsoft HPC Pack in una macchina virtuale di Azure."
+ description="Informazioni su come usare il portale di Azure e il modello di distribuzione di Gestione risorse per creare un nodo head Microsoft HPC Pack in una macchina virtuale di Azure."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-resource-manager,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
+ ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # Creare il nodo head di un cluster HPC Pack in una macchina virtuale di Azure con un'immagine del Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
 
-Questo articolo illustra come usare l'[immagine di macchina virtuale Microsoft HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace per creare il nodo head di un cluster Windows HPC in Azure nel modello di distribuzione (gestione dei servizi) classica. Il nodo head deve essere aggiunto a un dominio di Active Directory in una rete virtuale di Azure. È possibile usare questo nodo head per una distribuzione con modello di verifica di HPC Pack in Azure e aggiungere risorse di calcolo al cluster per eseguire carichi di lavoro HPC.
+Questo articolo descrive come usare [l'immagine di macchina virtuale Microsoft HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace per creare il nodo head di un cluster HPC usando il portale di Azure. L'immagine di macchina virtuale HPC Pack è basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 preinstallato. Usare questo nodo head per una distribuzione di prova di HPC Pack in Azure. Sarà quindi possibile aggiungere risorse di calcolo al cluster per eseguire carichi di lavoro HPC.
 
 
 ![Nodo head HPC Pack][headnode]
 
->[AZURE.NOTE] L'immagine di macchina virtuale HPC Pack è attualmente basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 preinstallato. È preinstallato anche Microsoft SQL Server 2014 Express.
-
-
-Per una distribuzione di produzione di un cluster HPC Pack in Azure, si consiglia di un metodo di distribuzione automatica, ad esempio lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) o un [modello di avvio rapido](https://azure.microsoft.com/documentation/templates/) di Gestione risorse di Azure.
+>[AZURE.TIP]Per una distribuzione di produzione di un cluster HPC Pack completo in Azure, si consiglia di usare un metodo di distribuzione automatica, ad esempio lo [script di distribuzione IaaS di HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md), oppure un modello di Gestione risorse come il modello [cluster HPC Pack per carichi di lavoro di Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Per altri modelli, vedere [Opzioni per creare e gestire un cluster HPC in Azure](virtual-machines-hpcpack-cluster-options.md).
 
 ## Considerazioni sulla pianificazione
 
-* **Dominio di Active Directory** - Il nodo head di HPC Pack deve essere aggiunto a un dominio di Active Directory in Azure prima dell'avvio dei servizi HPC. Una delle opzioni supportate prevede la distribuzione di un controller di dominio e una foresta separati in Azure a cui è possibile aggiungere la macchina virtuale. Per una distribuzione con modello di verifica, è possibile alzare di livello la macchina virtuale creata per il nodo head a controller di dominio prima di avviare i servizi HPC.
+* **Dominio di Active Directory** - Il nodo head di HPC Pack deve essere aggiunto a un dominio di Active Directory in Azure prima dell'avvio dei servizi HPC nella macchina virtuale. Come illustrato nel presente articolo, per una distribuzione di prova, è possibile alzare di livello la macchina virtuale creata per il nodo head a controller di dominio prima di avviare i servizi HPC. In alternativa è possibile distribuire un controller di dominio e una foresta separati in Azure a cui aggiungere la macchina virtuale.
 
-* **Rete virtuale di Azure** - Se si prevede di aggiungere le macchine virtuali dei nodi di calcolo del cluster al cluster HPC o si crea un controller di dominio separato per il cluster, è necessario distribuire il nodo head in una rete virtuale di Azure. Senza una rete virtuale è comunque possibile aggiungere nodi "burst" di Azure al cluster.
+* **Rete virtuale di Azure** - Come descritto in questo articolo, quando si distribuisce il nodo head HPC Pack usando il modello di distribuzione di Gestione risorse nel portale di Azure, si specifica o crea una rete virtuale di Azure (VNet). La rete virtuale verrà usata in seguito per aggiungere macchine virtuali del nodo di calcolo del cluster al cluster HPC o nel caso in cui si aggiunga il nodo head a un dominio di Active Directory esistente.
 
+    
 ## Passaggi per la creazione del nodo head
 
-Di seguito sono indicati i principali passaggi per la creazione di una macchina virtuale di Azure per il nodo head HPC Pack. È possibile usare svariati strumenti di Azure per eseguire questi passaggi nel modello di distribuzione (gestione dei servizi) classica di Azure.
+Di seguito sono indicati i principali passaggi per la creazione di una macchina virtuale di Azure per il nodo head HPC usando il modello di distribuzione di Gestione risorse nel portale di Azure.
 
 
-1. Se si prevede di creare una rete virtuale per la macchina virtuale del nodo head, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
+1. Se si desidera creare una nuova foresta di Active Directory in Azure con macchine virtuali di controller di dominio separate, è possibile usare un [modello di Gestione risorse](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/). Per una semplice distribuzione di prova, è possibile saltare questo passaggio e configurare la macchina virtuale del nodo head come controller di dominio come descritto più avanti.
+    
+2. Nel [portale di Azure](https://portal.azure.com) selezionare l'immagine di HPC Pack 2012 R2 da Azure Marketplace. A tale scopo, fare clic su **Nuovo** e cercare il Marketplace per **HPC Pack**. Selezionare **HPC Pack 2012 R2 on Windows Server 2012 R2**.
 
-    **Considerazioni**
+3. Nella pagina **HPC Pack 2012 R2 on Windows Server 2012 R2** selezionare il modello di distribuzione di **Gestione risorse** e fare clic su **Crea**.
 
-    * È possibile accettare la configurazione predefinita dello spazio degli indirizzi e delle subnet della rete virtuale.
+    ![Immagine di HPC Pack][marketplace]
 
-    * Se si prevede di usare dimensioni di istanze a elevato utilizzo di calcolo (A8 - A11) per il nodo head HPC Pack o in caso di aggiunta successiva di risorse di calcolo al cluster, scegliere un'area in cui le istanze sono disponibili. Quando si usano le istanze A8 o A9 per carichi di lavoro MPI, assicurarsi inoltre che lo spazio degli indirizzi della rete virtuale non si sovrapponga allo spazio degli indirizzi riservato dalla rete RDMA in Azure (172.16.0.0/12). Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md).
+4. Usare il portale per configurare le impostazioni e creare la macchina virtuale. Per informazioni dettagliate, seguire l'esercitazione [Creare una macchina virtuale di Windows nel portale di Azure](virtual-machines-windows-tutorial.md). Per una distribuzione iniziale è in genere possibile accettare molte impostazioni predefinite o consigliate.
 
-2. Se è necessario creare una nuova foresta Active Directory in una macchina virtuale separata, vedere [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](../active-directory/active-directory-new-forest-virtual-machine.md).
+    **Considerazioni su VNet**
 
-    **Considerazioni**
+   * Se si crea una nuova VNet in **Impostazioni**, specificare un intervallo di indirizzi di rete privata, ad esempio 10.0.0.0/16, e un intervallo di indirizzi di subnet, ad esempio 10.0.0.0/24.
+    
+4. Dopo aver creato e avviato la macchina virtuale, [connettersi alla macchina virtuale](virtual-machines-log-on-windows-server-preview.md). 
 
-    * Per molte distribuzioni di test è possibile creare un singolo controller di dominio in Azure. Per garantire disponibilità elevata per il dominio di Active Directory, è possibile distribuire un controller di dominio di backup aggiuntivo.
+5. Aggiungere la macchina virtuale a una foresta di domini esistente o creare una nuova foresta di domini nella macchina virtuale.
 
-    * Per una distribuzione con modello di verifica semplice, è possibile saltare questo passaggio e in seguito alzare di livello la macchina virtuale del nodo head a controller di dominio.
+    **Considerazioni sui domini di Active Directory**
 
-3. Nel portale di Azure classico o nel portale di Azure creare una macchina virtuale classica selezionando l'immagine HPC Pack 2012 R2 da Azure Marketplace. (Vedere i passaggi per il portale di Azure classico [qui](virtual-machines-windows-tutorial-classic-portal.md).)
+    * Se la macchina virtuale è stata creata in una rete virtuale di Azure con una foresta di domini esistente, usare gli strumenti standard di Server Manager o Windows PowerShell per aggiungerla alla foresta di domini. Eseguire quindi il riavvio.
 
-    **Considerazioni**
-
-    * Selezionare almeno la dimensione di macchina virtuale A4.
-
-    * Se si desidera distribuire il nodo head in una rete virtuale, assicurarsi di specificare la rete virtuale nella configurazione della macchina virtuale.
-
-    * È consigliabile creare un nuovo servizio cloud per la macchina virtuale.
-
-4. Dopo aver creato la macchina virtuale e quando la macchina virtuale è in esecuzione, aggiungere la macchina virtuale a una foresta di dominio esistente o creare una nuova foresta di domini nella macchina virtuale.
-
-    **Considerazioni**
-
-    * Se si crea la macchina virtuale in una rete virtuale di Azure con una foresta di domini esistente, connettersi alla macchina virtuale. Usare quindi gli strumenti standard Server Manager o Windows PowerShell per aggiungerla alla foresta. Eseguire quindi il riavvio.
-
-    * Se la macchina virtuale non è stata creata in una rete virtuale di Azure o è stata creata in una rete virtuale senza una foresta di domini esistente, alzarla di livello a controller di dominio. A tale scopo, connettersi alla macchina virtuale e quindi usare gli strumenti standard Server Manager o Windows PowerShell. Per informazioni dettagliate, vedere [Installare una nuova foresta di Active Directory di Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
+    * Se la macchina virtuale è stata creata in una rete virtuale di Azure senza una foresta di domini esistente, configurare la macchina virtuale come controller di dominio. A tale scopo, usare gli strumenti standard di Server Manager o Windows PowerShell per installare e configurare il ruolo Servizi di dominio di Active Directory. Per informazioni dettagliate, vedere [Installare una nuova foresta di Active Directory di Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
 
 5. Quando la macchina virtuale è in esecuzione e fa parte di una foresta Active Directory, avviare i servizi di HPC Pack nel nodo head. A tale scopo, effettuare l'operazione seguente:
 
@@ -93,13 +81,13 @@ Di seguito sono indicati i principali passaggi per la creazione di una macchina 
 
 ## Passaggi successivi
 
-* È ora possibile interagire con il nodo head del cluster Windows HPC. Ad esempio, è possibile avviare Gestione cluster HPC o iniziare a usare i cmdlet di PowerShell per HPC.
-
-* [Aggiungere macchine virtuali dei nodi di calcolo](virtual-machines-hpcpack-cluster-node-manage.md) al cluster o aggiungere [nodi burst di Azure](virtual-machines-hpcpack-cluster-node-burst.md) in un servizio cloud.
+* È ora possibile interagire con il nodo head del cluster HPC Pack. Ad esempio, avviare Gestione cluster HPC e completare l'[elenco delle attività di distribuzione](https://technet.microsoft.com/library/jj884141.aspx).
+* Aggiungere [nodi "burst" di Azure](virtual-machines-hpcpack-cluster-node-burst.md) in un servizio cloud per aumentare la capacità di calcolo del cluster su richiesta. 
 
 * Provare a eseguire un carico di lavoro di test nel cluster. Per un esempio vedere la [guida introduttiva](https://technet.microsoft.com/library/jj884144) a HPC Pack.
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
+[marketplace]: ./media/virtual-machines-hpcpack-cluster-headnode/marketplace.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
 # Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning
 
-Questo è il primo passaggio della procedura dettagliata, [Sviluppare una soluzione predittiva con Machine Learning di Azure](machine-learning-walkthrough-develop-predictive-solution.md).
+Questo è il primo passaggio della procedura dettagliata per [sviluppare una soluzione di analisi predittiva con Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 
 1.	**Creare un'area di lavoro di Machine Learning**
@@ -35,19 +35,15 @@ Per usare Machine Learning Studio, è necessario disporre di un'area di lavoro d
 
 ##Per creare un'area di lavoro  
 
-1.	Effettuare l'accesso con l'account Microsoft Azure.
-2.	Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**. ![Creare un'area di lavoro][1]
+1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+2.	Nel riquadro dei servizi di Azure fare clic su **MACHINE LEARNING**. ![Creare un'area di lavoro][1]
 
 3.	Fare clic su **CREA UN'AREA DI LAVORO ML**.
 4.	Nella pagina **CREAZIONE RAPIDA** immettere le informazioni sull'area di lavoro e fare clic su **CREA UN'AREA DI LAVORO ML**.
 
-	> [AZURE.NOTE]Il **PROPRIETARIO DELL'AREA DI LAVORO** corrisponde all'account Microsoft dell'utente (ad esempio, name@outlook.com) o all'account dell'organizzazione.
+Dopo avere creato l'area di lavoro di Machine Learning, questa sarà visualizzata nella pagina **machine learning** del portale di Azure classico. Per altre informazioni dettagliate sulla creazione dell'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](machine-learning-create-workspace.md).
 
-Dopo avere creato l'area di lavoro di Machine Learning, questa sarà visualizzata nella pagina **Machine Learning**.
-
-> [AZURE.TIP]È possibile condividere gli esperimenti su cui si sta lavorando invitando altri utenti nella propria area di lavoro. Questa operazione può essere eseguita nella pagina **SETTINGS** di Machine Learning Studio. È sufficiente conoscere l'account Microsoft o l'account aziendale di ogni utente.
-
-Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
+> [AZURE.TIP] È possibile condividere gli esperimenti su cui si sta lavorando invitando altri utenti nella propria area di lavoro. Questa operazione può essere eseguita nella pagina **SETTINGS** di Machine Learning Studio. È sufficiente conoscere l'account Microsoft o l'account aziendale di ogni utente.
 
 ----------
 
@@ -55,4 +51,4 @@ Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learn
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

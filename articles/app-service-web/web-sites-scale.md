@@ -26,9 +26,9 @@ Scalare le app Web di Azure implica due azioni correlate: modifica della modalit
 
 Le modifiche di scalabilità diventano effettive in pochi secondi e interessano tutte le app Web nel piano servizio app. Non richiedono alcuna modifica del codice o la ridistribuzione delle applicazioni.
 
-Per informazioni su Azure App Service Per informazioni sui piani di servizio app, vedere [Informazioni sui piani di servizio app](../web-sites-web-hosting-plan-overview.md) e [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app, vedere [Dettagli prezzi del servizio app](/pricing/details/web-sites/).
+Per informazioni su Azure App Service Per informazioni sui piani di servizio app, vedere [Informazioni sui piani di servizio app](../app-service/web-sites-web-hosting-plan-overview.md) e [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app, vedere [Dettagli prezzi del servizio app](/pricing/details/web-sites/).
 
-> [AZURE.NOTE]Prima di passare un'app Web dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione per Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Prima di passare un'app Web dalla modalità **Gratuita** a **Base**, **Standard** o **Premium**, è necessario innanzitutto rimuovere i limiti di spesa applicati alla sottoscrizione per Azure App Service. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
@@ -56,7 +56,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 ## Passaggio alla modalità Standard o Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE]Prima di passare alla modalità del piano App Service **Standard** o **Premium**, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per Microsoft Azure App Service. In caso contrario, qualora si raggiungano i limiti di spesa prima della fine del periodo di fatturazione, l'app Web potrebbe non essere più disponibile. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Prima di passare alla modalità del piano App Service **Standard** o **Premium**, è necessario rimuovere i limiti di spesa applicati alla sottoscrizione per Microsoft Azure App Service. In caso contrario, qualora si raggiungano i limiti di spesa prima della fine del periodo di fatturazione, l'app Web potrebbe non essere più disponibile. Per visualizzare o modificare le opzioni per la sottoscrizione del servizio app di Microsoft Azure, vedere [Sottoscrizioni di Microsoft Azure][azuresubscriptions].
 
 1. Per scalare alla modalità **Standard** o **Premium**, attenersi agli stessi passaggi iniziali del passaggio a **Condivisa** o **Base**, quindi scegliere la modalità **Standard** or **Premium** in **Scegliere il livello di prezzo** e fare clic su **Seleziona**. 
 	
@@ -91,7 +91,7 @@ Per informazioni su Azure App Service Per informazioni sui piani di servizio app
 	
 	![Impostare la prima regola di scalabilità automatica][SetFirstRule]
 	
-	>[AZURE.NOTE]L'impostazione **Disattiva regole** dopo specifica l'intervallo di attesa applicato alla regola dopo l'azione di scalabilità precedente, prima di eseguire una nuova azione di scalabilità.
+	>[AZURE.NOTE] L'impostazione **Disattiva regole** dopo specifica l'intervallo di attesa applicato alla regola dopo l'azione di scalabilità precedente, prima di eseguire una nuova azione di scalabilità.
 	
 6. Fare clic su **Aggiungi regola aumento**, quindi configurare la seconda regola impostando **Condizione** su **Maggiore di**, **Soglia** su **90** (%), **Durante gli ultimi** su **1** (minuti), **Aumenta di** su **3** (istanza) e **Disattiva regole** dopo su **1** (minuti).
 	
@@ -144,7 +144,7 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 
 - Per informazioni dettagliate su tutte le altre funzionalità disponibili nei piani di servizio app, inclusi i prezzi e le funzionalità di interesse per tutti gli utenti (compresi gli sviluppatori), vedere [Dettagli prezzi del servizio app](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <a name="Next Steps"></a>
 ## Passaggi successivi
@@ -200,4 +200,4 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

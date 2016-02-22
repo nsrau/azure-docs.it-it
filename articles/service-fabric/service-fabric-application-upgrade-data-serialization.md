@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@ Il contratto dati è la soluzione consigliata per garantire la compatibilità de
 
 ## Passaggi successivi
 
-[Aggiornamento di un'applicazione di Service Fabric mediante Visual Studio](service-fabric-application-upgrade.md)
+[Aggiornamento dell'applicazione mediante Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione tramite Visual Studio.
 
-[Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-automate-powershell.md)
+[Aggiornare l'applicazione tramite Powershell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un’applicazione tramite PowerShell.
 
-[Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
+Controllare l'aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 
-[Aggiornamento manuale e aggiornamento con un pacchetto Diff](service-fabric-application-upgrade-advanced.md)
+Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

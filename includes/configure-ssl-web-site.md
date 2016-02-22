@@ -392,21 +392,19 @@ L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i 
 
 > [AZURE.NOTE] Prima di cambiare il livello di un'app da **Gratuito** a **Standard**, è necessario rimuovere i limiti di spesa applicati per la sottoscrizione o si rischia che l'app risulti non disponibile se si raggiungono i limiti prima del termine del periodo di fatturazione. Per altre informazioni sulla modalità condivisa e il livello **Standard**, vedere [Dettagli prezzi][pricing].
 
-1.	Accedere al [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) dal browser.
+1.	Accedere al [portale di Azure](https://portal.azure.com) dal browser.
 	
-2.	Fare clic sull'opzione **Sfoglia** a sinistra nella pagina.
-
-3.	Fare clic sul pannello **App Web**.
+2.	Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
 
 4.	Fare clic sul nome dell'app.
 
 5.	Nella pagina **Informazioni di base**, fare clic su **Impostazioni**.
 
-6.	Fare clic su **Ridimensiona**.
+6.	Fare clic su **Aumenta**.
 	
 	![Scheda Scalabilità][scale]
 
-7.	Nella sezione **Ridimensiona** impostare la modalità del piano del servizio app facendo clic su **Seleziona**.
+7.	Nella sezione **Aumenta** impostare la modalità del piano del servizio app facendo clic su **Seleziona**.
 
 	> [AZURE.NOTE] Se viene visualizzato un messaggio di errore di tipo "Configurazione della scalabilità per l'app Web '&lt;nome app&gt' non riuscita", è possibile usare il pulsante Dettagli per ottenere altre informazioni. È possibile che venga visualizzato un errore di tipo "Server di istanze riservate disponibili non sufficienti per soddisfare la richiesta". Se viene visualizzato questo errore, contattare il [Supporto per Azure](/support/options/).
 
@@ -415,11 +413,9 @@ L'abilitazione di HTTPS per un dominio personalizzato è disponibile solo per i 
 
 Prima di eseguire la procedura inclusa in questa sezione, è necessario avere associato un nome di dominio personalizzato all'app. Per altre informazioni, vedere [Configurazione di un nome di dominio personalizzato per un'app Web][customdomain].
 
-1.	Accedere al [portale di gestione di Azure](https://portal.azure.com) dal browser.
+1.	Accedere al [portale di Azure](https://portal.azure.com) dal browser.
 
-2.	Fare clic sull'opzione **Sfoglia** a sinistra nella pagina.
-
-3.	Fare clic sul pannello **App Web**.
+2.	Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
 
 4.	Fare clic sul nome dell'app.
 
@@ -565,4 +561,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

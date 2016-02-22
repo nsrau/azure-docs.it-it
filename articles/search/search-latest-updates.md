@@ -13,34 +13,24 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/23/2016" 
+	ms.date="02/10/2016" 
 	ms.author="heidist"/>
 
 #Novità dell’ultimo aggiornamento di Ricerca di Azure#
 
-Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Ricerca di Azure è disponibile a livello generale e offre un contratto di servizio con disponibilità del 99,9% per le configurazioni supportate della [versione del 28/02/2015 dell'API REST del servizio di ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx).
-
-##Controllo delle versioni e distribuzione delle funzionalità
-
-Le funzionalità vengono rilasciate separatamente o congiuntamente tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) o il dashboard del servizio nel [portale di Azure](https://portal.azure.com). La libreria .NET e le API REST hanno di più versioni. Le API precedenti restano operative mentre vengono distribuite nuove funzionalità. Per ulteriori informazioni sui criteri di controllo delle versioni, visitare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
-
-Le funzionalità di anteprima e disponibili a livello generale sono associate a una versione dell'API della stessa categoria.
-
-- Le funzionalità di anteprima sono sperimentali e possono subire modifiche o persino essere abbandonate prima di diventare disponibili a livello generale. Le funzionalità di anteprima sono sempre disponibili nella [versione di anteprima dell'API REST](search-api-2015-02-28-preview.md) e in alcuni casi in [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). La documentazione relativa alle funzionalità illustra come accedere alla funzionalità in questione.
-- Le funzionalità disponibili a livello generale sono stabili e non è probabile che subiscano modifiche. Qualsiasi modifica apportata a una funzionalità disponibile a livello generale viene annunciata come una modifica di rilievo.
-
-Le funzionalità che si basano esclusivamente su strumenti o sul portale in genere cambiano nel tempo e non sono classificate come di anteprima o disponibili a livello generale.
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. È disponibile a livello generale e offre un contratto di servizio con disponibilità del 99,9% per le configurazioni della [versione del 28/02/2015 dell'API REST del servizio di ricerca](https://msdn.microsoft.com/library/azure/dn798935.aspx) o di [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
 ##Novità del 2016
 
 Funzionalità|Rilasciata|Stato|Dettagli
 -------|--------|------|-------
+[.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Febbraio 2016|GA|Si tratta della prima versione disponibile a livello generale della libreria client .NET, `Microsoft.Azure.Search.dll`. Questa versione introduce modifiche di rilievo. Per informazioni aggiuntive sulla migrazione, vedere [Aggiornamento ad Azure Search .NET SDK versione 1.1](search-dotnet-sdk-migration.md).
+[Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Febbraio 2016|[GA](search-api-2015-02-28.md)|La sintassi di query Lucene è ora disponibile a livello genere nell'API REST e in .NET SDK. Impostare il parametro `queryType` su `full` nell'API REST e la proprietà `SearchParameters.QueryType` su `QueryType.Full` in .NET SDK per abilitare la sintassi Lucene.
 [Analizzatori personalizzati](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|Gennaio 2016|[Anteprima](search-api-2015-02-28-preview.md)|Configurazioni di tokenizer e filtri di token definiti dall'utente. Vedere la pagina relativa all'[analisi in Ricerca di Azure](https://msdn.microsoft.com/library/azure/mt605304.aspx) su MSDN.
 [Indicizzatore di archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)|Gennaio 2016|[Anteprima](search-api-2015-02-28-preview.md)|È possibile unire o inserire documenti di Office, file PDF, XML, HTML o persino file audio e video in un indice di Ricerca di Azure.
 [Esplora ricerche](search-explorer.md)|Gennaio 2016|[Portale](https://portal.azure.com)|Strumento di query incorporato per le query ad hoc in un indice.
 [Pacchetto di contenuti di Power BI per Ricerca di Azure](http://blogs.msdn.com/b/powerbi/archive/2016/01/19/visualizing-azure-search-data-with-power-bi.aspx)|Gennaio 2016|Strumento|Visualizzazione e analisi dei dati del servizio tramite un nuovo pacchetto di contenuti di Power BI per Ricerca di Azure. Disponibile tramite l'analisi di ricerca.
 [Analisi di ricerca](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/)|Gennaio 2016|Portale|Abilitare la raccolta di dati per informazioni dettagliate sulle attività di ricerca dell'utente.
-[.NET SDK 1.0.1 di anteprima](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Gennaio 2016|Preview|Questa è la seconda iterazione della libreria client .NET Microsoft.Azure.Search.dll. Questa versione introduce modifiche di rilievo. Per informazioni aggiuntive sulla migrazione, vedere [Aggiornamento ad Azure Search .NET SDK versione 1.0.1 - Anteprima](search-dotnet-sdk-migration.md).
 
 ##Novità del 2015
 
@@ -48,7 +38,7 @@ Funzionalità|Rilasciata|Stato|Dettagli
 -------|--------|------|-------
 Analizzatori di linguaggi Lucene|Ottobre 2015|GA|Questa funzionalità è ora disponibile a livello generale nell'API REST del servizio e in .NET SDK.
 [Processori del linguaggio naturale Microsoft](search-api-2015-02-28-Preview.md)|Ottobre 2015|GA|Questa funzionalità è ora disponibile a livello generale nell'API REST del servizio e in .NET SDK. 
-[Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Aggiunge l'analizzatore di linguaggi Lucene. Per usare la nuova sintassi, è necessario specificare `queryType` in un'operazione di ricerca dei documenti.
+[Supporto per la sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Aggiunge l'analizzatore di query Lucene. Per usare la nuova sintassi, è necessario specificare `queryType` in un'operazione di ricerca dei documenti.
 [Processori del linguaggio naturale](search-language-support.md)|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Sono stati aggiunti i processori del linguaggio Microsoft, aumentando il numero di linguaggi complessivi e offrendo un'implementazione alternativa per altri linguaggi.
 POST nella ricerca, nei suggerimenti e nelle query di ricerca|Settembre 2015|[Anteprima](search-api-2015-02-28-preview.md)|Si applica all'API REST del servizio
 [API REST di gestione ](https://msdn.microsoft.com/library/azure/dn832684.aspx)|Settembre 2015|GA|Seconda versione dell'API REST di gestione. Include checkNameAvailability che verifica se un determinato nome di servizio è già in uso, l'intervallo di replica in precedenza era 1-6 e ora è 1-12, la proprietà SKU è stata spostata dal contenitore delle proprietà al livello superiore del payload del servizio, il corpo della risposta dell'operazione di creazione del servizio di ricerca è stato aggiornato per supportare la rilocazione dell'impostazione SKU.
@@ -70,6 +60,17 @@ Il supporto per il portale è stato introdotto per la creazione di indici|Novemb
 Versione api di gestione 31/07/2014-Anteprima|Ottobre 2014|Preview|Prima versione di anteprima pubblica dell'API REST di gestione. La documentazione per questa versione dell'API è disponibile su richiesta.
 API REST per il servizio di ricerca|Agosto 2014|Preview|Prima versione di anteprima pubblica del servizio API REST (versione API 31/07/2014 di anteprima). Questa è l'API REST per le operazioni relative a indici e documenti, per i profili di assegnazione dei punteggi per l'ottimizzazione dei risultati di ricerca e per il supporto geospaziale. Questa versione supporta il provisioning del servizio nel portale di Azure. La documentazione per questa versione dell'API è disponibile su richiesta. Il controllo delle versioni avviene indipendentemente dall'API REST di servizio.
 
+##Controllo delle versioni e distribuzione delle funzionalità
+
+Le funzionalità vengono rilasciate separatamente o congiuntamente tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) o il dashboard del servizio nel [portale di Azure](https://portal.azure.com). La libreria .NET e le API REST hanno di più versioni. Le API precedenti restano operative mentre vengono distribuite nuove funzionalità. Per ulteriori informazioni sui criteri di controllo delle versioni, visitare [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+
+Le funzionalità di anteprima e disponibili a livello generale sono associate a una versione dell'API della stessa categoria.
+
+- Le funzionalità di anteprima sono sperimentali e possono subire modifiche o persino essere abbandonate prima di diventare disponibili a livello generale. Le funzionalità di anteprima sono sempre disponibili nella [versione di anteprima dell'API REST](search-api-2015-02-28-preview.md) e in alcuni casi in [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). La documentazione relativa alle funzionalità illustra come accedere alla funzionalità in questione.
+- Le funzionalità disponibili a livello generale sono stabili e non è probabile che subiscano modifiche. Qualsiasi modifica apportata a una funzionalità disponibile a livello generale viene annunciata come una modifica di rilievo.
+
+Le funzionalità che si basano esclusivamente su strumenti o sul portale in genere cambiano nel tempo e non sono classificate come di anteprima o disponibili a livello generale.
+
 
 
 
@@ -85,4 +86,4 @@ API REST per il servizio di ricerca|Agosto 2014|Preview|Prima versione di antepr
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

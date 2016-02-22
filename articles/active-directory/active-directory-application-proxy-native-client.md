@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Come abilitare le app client native per l'interazione con le applicazioni proxy
 
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Il proxy di applicazione di Azure Active Directory è ampiamente usato per pubblicare applicazioni browser come SharePoint, Outlook Web Access e applicazioni line-of-business personalizzate. Può inoltre essere usato per pubblicare le applicazioni back-end HTTP utilizzate tramite client nativi. A tale scopo, è necessario il supporto di token di Azure AD inviati in intestazioni HTTP Authorize standard.
 
@@ -95,7 +95,8 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Risorse aggiuntive
-* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-* [Identità di Azure](fundamentals-identity.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

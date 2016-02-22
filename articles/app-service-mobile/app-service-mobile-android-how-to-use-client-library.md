@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # Come usare la libreria client Android per le app per dispositivi mobili
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Questa guida illustra come usare Android SDK lato client per le app per dispositivi mobili per implementare scenari comuni, come l'esecuzione di query sui dati (inserimento, aggiornamento ed eliminazione), l'autenticazione degli utenti, la gestione degli errori e la personalizzazione del client. Fornisce anche un'analisi approfondita del codice client comune usato nella maggior parte della app per dispositivi mobili.
 
@@ -42,17 +42,17 @@ Se si decide di non completare l'esercitazione introduttiva e si vuole connetter
 
 Si dovrà quindi completare la procedura descritta nella sezione di approfondimento.
 
-###<a name="gradle-build"></a>Aggiornare il file di compilazione Gradle 
+###<a name="gradle-build"></a>Aggiornare il file di compilazione Gradle
 
 Modificare entrambi i file **build.gradle**:
 
 1. Aggiungere il codice seguente al livello *Project* del file **build.gradle** all'interno del tag *buildscript*:
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. Aggiungere il codice seguente al livello *Module app* del file **build.gradle** all'interno del tag *dependencies*:
 
@@ -65,7 +65,7 @@ Per accedere ad Azure, è necessario abilitare l'autorizzazione INTERNET per l'a
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## Approfondimento delle nozioni di base  
+## Approfondimento delle nozioni di base
 
 Questa sezione illustra parte del codice nell'app dell'esercitazione introduttiva. Se non si è completata questa esercitazione, sarà necessario aggiungere il codice all'app.
 
@@ -102,7 +102,7 @@ Se ad esempio include una colonna Priority di tipo Integer, è consigliabile agg
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -303,7 +303,7 @@ Questa sezione descrive come eseguire query sul back-end di app per dispositivi 
 
 La query seguente restituisce tutti gli elementi nella tabella *ToDoItem*.
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 La variabile *results* restituisce il set di risultati della query sotto forma di elenco.
 
@@ -441,7 +441,7 @@ Il codice seguente illustra come eliminare dati da una tabella specificando l'og
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>Procedura: Cercare un elemento specifico
 
@@ -478,7 +478,7 @@ Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il p
 
 Il passaggio successivo consiste nell'inserire l'oggetto.
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 Se è necessario ottenere l'ID dell'oggetto inserito, usare questa chiamata al metodo:
@@ -546,23 +546,23 @@ Un'API personalizzata consente di definire endpoint personalizzati che espongono
 Per chiamare l'endpoint dell'API personalizzata da un client Android, chiamare il metodo **invokeApi**. L'esempio seguente illustra come chiamare un endpoint API denominato *completeAll*, che restituisce una classe della raccolta denominata MarkAllResult.
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 Nel client viene chiamato il metodo **invokeApi**, che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori. Altre versioni di **invokeApi** consentono di inviare facoltativamente un oggetto nel corpo della richiesta, specificare il metodo HTTP e inviare parametri di query con la richiesta. Vengono fornite anche versioni non tipizzate di **invokeApi**.
 
 ##<a name="authentication"></a>Procedura: Aggiungere l'autenticazione all'app
@@ -840,4 +840,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

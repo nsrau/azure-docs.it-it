@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure  
@@ -209,4 +209,4 @@ ID della chiave del contenuto|Deve essere incluso come parte del valore del recl
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Kristjan Jõgi di Axinom, Mingfei Yan, e Amit Rajput.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 #Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
@@ -34,7 +34,7 @@ Questo articolo fornisce istruzioni generiche sull'uso di un nome di dominio per
 <a name="bkmk_configurecname"></a>
 ## Aggiungere un record DNS per il dominio personalizzato
 
-> [AZURE.NOTE]Se si è acquistato un dominio tramite App Web del servizio app di Azure, ignorare i passaggi seguenti e fare riferimento all'ultimo passaggio dell'articolo [Acquistare un dominio per app Web](custom-dns-web-site-buydomains-web-app.md).
+> [AZURE.NOTE] Se si è acquistato un dominio tramite App Web del servizio app di Azure, ignorare i passaggi seguenti e fare riferimento all'ultimo passaggio dell'articolo [Acquistare un dominio per app Web](custom-dns-web-site-buydomains-web-app.md).
 
 Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti dal registrar da cui è stato acquistato il nome di dominio. Per individuare e usare gli strumenti DNS, attenersi alla procedura seguente.
 
@@ -58,7 +58,5 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

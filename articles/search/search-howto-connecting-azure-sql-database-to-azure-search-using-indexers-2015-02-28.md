@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/08/2016" 
 	ms.author="eugenesh"/>
 
 #Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
@@ -24,7 +24,7 @@ Attualmente, gli indicizzatori funzionano solo con il database SQL di Azure, SQL
 
 In questo articolo verranno illustrati i meccanismi di utilizzo degli indicizzatori, ma verranno anche approfonditi funzionalità e comportamenti che sono disponibili solo con i database SQL (ad esempio, il rilevamento delle modifiche integrato).
 
-## Indicizzatori e origini dati ##
+## Indicizzatori e origini dati
 
 Per impostare e configurare un indicizzatore SQL di Azure, è possibile chiamare l’[API REST di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) per creare e gestire **indicizzatori** e **origini dati**.
 
@@ -38,7 +38,7 @@ Un **indicizzatore** è una risorsa che connette le origini dati agli indici di 
 - Aggiornare un indice con le modifiche nell'origine dati in base a una pianificazione.
 - Eseguire aggiornamenti su richiesta in un indice in base alle esigenze. 
 
-## Quando usare l’indicizzatore SQL di Azure ##
+## Quando usare l’indicizzatore SQL di Azure
 
 In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL di Azure potrebbe non essere appropriato. Se i dati soddisfano i seguenti requisiti, è possibile utilizzare l’indicizzatore SQL di Azure:
 
@@ -50,7 +50,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 - Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, lo schema consente di identificare in modo efficiente le righe modificate (ed eliminate, se applicabili). Per ulteriori informazioni, vedere "Acquisizione delle righe modificate ed eliminate", di seguito. 
 - La dimensione dei campi indicizzati in una riga non supera la dimensione massima di una richiesta di indicizzazione di Ricerca di Azure, vale a dire 16 MB. 
 
-## Creare e utilizzare un indicizzatore SQL di Azure ##
+## Creare e utilizzare un indicizzatore SQL di Azure
 
 Creare, innanzitutto, l'origine dati:
 
@@ -70,7 +70,7 @@ Creare, innanzitutto, l'origine dati:
 
 Quindi, creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile eseguire questa operazione dall’[interfaccia utente del portale](https://portal.azure.com) o usando l’[API di creazione dell’indice](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Vedere la tabella seguente per il mapping tra tipi di dati di ricerca di SQL e Azure.
 
-**Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure**
+****Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
 
 |Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti |Note 
 |------|-----|----|
@@ -145,7 +145,7 @@ La risposta sarà simile alla seguente:
 
 La cronologia di esecuzione contiene fino a 50 esecuzioni completate più recenti, in ordine cronologico inverso (in modo che l'esecuzione più recente venga visualizzata per prima nella risposta). Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo stato dell'indicizzatore](http://go.microsoft.com/fwlink/p/?LinkId=528198)
 
-## Esecuzione degli indicizzatori in base a una pianificazione ##
+## Eseguire gli indicizzatori in base a una pianificazione
 
 È inoltre possibile fare in modo che l'indicizzatore si esegua periodicamente in base a una pianificazione. A tale scopo, è sufficiente aggiungere la proprietà **schedule** al momento della creazione o dell’aggiornamento dell’indicizzatore. Nell'esempio seguente viene illustrata una richiesta PUT di aggiornamento dell'indicizzatore:
 
@@ -179,11 +179,11 @@ Di seguito è illustrato ciò che accade:
 
 È possibile aggiungere, modificare o eliminare una pianificazione per un indicizzatore esistente utilizzando una richiesta di **indicizzatore PUT**.
 
-## Acquisizione di righe nuove, modificate ed eliminate ##
+## Acquisizione di righe nuove, modificate ed eliminate
 
 Se si utilizza una pianificazione e la tabella contiene un numero considerevole di righe, è necessario utilizzare un criterio di rilevamento delle modifiche di dati che consenta all'indicizzatore di recuperare in modo efficiente solo le righe nuove o modificate senza dover ripetere l'indicizzazione dell'intera tabella.
 
-### Criteri di rilevamento delle modifiche integrati di SQL ###
+### Criteri di rilevamento delle modifiche integrati di SQL
 
 Se il database SQL supporta il [rilevamento delle modifiche](https://msdn.microsoft.com/library/bb933875.aspx), è consigliabile usare i **criteri di rilevamento delle modifiche integrati di SQL**. Questi criteri favoriscono la massima efficienza del rilevamento delle modifiche e consentono a Ricerca di Azure di identificare le righe eliminate senza dover includere nello schema una colonna di "eliminazione temporanea" esplicita.
 
@@ -208,7 +208,7 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
 	  }
 	}
 
-### Criteri di rilevamento delle modifiche con limite massimo ###
+### Criteri di rilevamento delle modifiche con limite massimo
 
 Sebbene i criteri di rilevamento delle modifiche siano consigliati, non sarà possibile utilizzarli se i dati sono in una vista o se si utilizza una versione precedente del database SQL di Azure. In questo caso, è consigliabile utilizzare i criteri di limite massimo. Questi criteri possono essere utilizzati se la tabella contiene una colonna che soddisfa i criteri seguenti:
 
@@ -230,7 +230,7 @@ Ad esempio, una colonna **rowversion** indicizzata è un candidato ideale per la
 	  }
 	}
 
-### Criteri di rilevamento eliminazione colonna di eliminazione temporanea ###
+### Criteri di rilevamento eliminazione colonna di eliminazione temporanea
 
 Quando le righe vengono eliminate dalla tabella di origine, è probabile che si desideri eliminarle anche dall’indice di ricerca. Se si utilizzano i criteri di rilevamento delle modifiche integrati di SQL, questa operazione è automatica. Tuttavia, i criteri di rilevamento delle modifiche limite massimo non sono di supporto all’utente con le righe eliminate. Cosa fare?
 
@@ -249,11 +249,11 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 
 Si noti che **softDeleteMarkerValue** deve essere una stringa. Utilizzare la rappresentazione stringa del valore effettivo. Ad esempio, se si dispone di una colonna di tipo integer in cui le righe eliminate sono contrassegnate con il valore 1, utilizzare `"1"`; se si dispone di una colonna BIT, nella quale le righe eliminate vengono contrassegnate con valore booleano true, utilizzare `"True"`.
 
-## Personalizzare l'indicizzatore SQL di Azure ##
+## Personalizzare l'indicizzatore SQL di Azure
  
 È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore (ad esempio, dimensioni del batch, numero di documenti che è possibile ignorare prima che un'esecuzione indicizzatore abbia esito negativo, e così via.). Per ulteriori informazioni, vedere [Personalizzazione dell'indicizzatore di ricerca di Azure](search-indexers-customization.md).
 
-## Domande frequenti ##
+## Domande frequenti
 
 **D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?
 
@@ -275,8 +275,4 @@ A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un no
 
 A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
 
-
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -47,8 +47,8 @@ Siti Web di Microsoft Azure è una buona soluzione per l'hosting di tali applica
 
 Un approccio alternativo consiste nello sfruttare l'investimento operato in locale. Nello scenario di esempio, un sistema relativo alle spese dei dipendenti, può essere opportuno gestire l'archivio dati nell'ambito dell'infrastruttura interna. Lo scopo potrebbe essere l'integrazione con i sistemi interni (creazione di report, retribuzioni, fatturazione ecc.) oppure la soddisfazione di un requisito di governance IT. App Web fornisce svariati metodi per consentire la connessione all'infrastruttura locale:
 
-- [Ambienti del servizio app](../app-service-app-service-environment-intro.md): gli Ambienti del servizio app (ASE) sono una nuova funzionalità Premium aggiunta recentemente all'offerta del Servizio app di Microsoft Azure. Gli Ambienti del servizio app forniscono un ambiente completamente isolato e dedicato per eseguire in modo sicuro le applicazioni del Servizio app di Azure su larga scala, offrendo inoltre isolamento e accesso alla rete protetto   
-- [Connessioni ibride](../integration-hybrid-connection-overview.md): la funzionalità Connessioni ibride di Servizi BizTalk di Microsoft Azure consente a Siti Web di Azure di connettersi alle risorse locali in modo sicuro, ad esempio SQL Server, MySQL, API Web e servizi Web personalizzati. 
+- [Ambienti del servizio app](app-service-app-service-environment-intro.md): gli Ambienti del servizio app (ASE) sono una nuova funzionalità Premium aggiunta recentemente all'offerta del Servizio app di Microsoft Azure. Gli Ambienti del servizio app forniscono un ambiente completamente isolato e dedicato per eseguire in modo sicuro le applicazioni del Servizio app di Azure su larga scala, offrendo inoltre isolamento e accesso alla rete protetto   
+- [Connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md): la funzionalità Connessioni ibride di Servizi BizTalk di Microsoft Azure consente a Siti Web di Azure di connettersi alle risorse locali in modo sicuro, ad esempio SQL Server, MySQL, API Web e servizi Web personalizzati. 
 - [Integrazione con la rete virtuale](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): l'integrazione della rete virtuale di Siti Web di Azure consente di connettere il proprio sito Web a una rete virtuale di Azure, che a sua volta può essere connessa all'infrastruttura in locale attraverso una connessione VPN da sito a sito. 
 
 Nel diagramma seguente è illustrato un esempio di soluzione di alto livello con opzioni di connettività per le risorse locali. Il primo esempio mostra come ottenerla tramite le funzionalità standard di Servizio App di Azure e il secondo mostra come ottenerla tramite l’offerta Premium, gli Ambienti del servizio App.
@@ -87,7 +87,7 @@ Gli ambienti del servizio app di Azure [http://aka.ms/aseintro] sono una nuova o
 
 Le app Web del servizio app sono anche in grado di sfruttare completamente gli investimenti locali, offrendo la possibilità di riconnettersi alle risorse interne, ad esempio il data warehouse o un ambiente SharePoint. Come discusso in [Soluzione di alto livello], è possibile usare le connessioni ibride e la connettività di rete virtuale per stabilire connessioni a infrastrutture e servizi locali.
 
-### Scalabilità globale ###
+### Scalabilità globale ### ###
 
 Siti Web di Azure è una piattaforma scalabile e globale, che consente alle applicazioni Web di crescere e adattarsi rapidamente alle esigenze delle aziende in espansione, con pianificazione e costi a lungo termine ridotti al minimo. Nei tipici scenari di infrastruttura locale, l'espansione e l'aumento della domanda a livello locale e geografico richiederebbe di dedicare più tempo alla gestione e alla pianificazione e un maggior dispendio per eseguire il provisioning e la gestione di un'infrastruttura aggiuntiva. Siti Web di Azure offre la possibilità di scalare le applicazioni Web di pari passo con gli alti e bassi dei propri requisiti. Ad esempio, usando l'applicazione per le spese come modello, per gran parte del mese gli utenti faranno un uso modico dell'applicazione, ma con l'avvicinarsi della scadenza mensile per l'invio del resoconto delle spese e l'aumento dell'uso dell'applicazione, Siti Web di Azure può eseguire il provisioning automatico di altre infrastrutture per l'applicazione. Quando poi l'uso si sarà nuovamente ridotto, potrà annullare la scalabilità in modo da tornare all'infrastruttura di base definita dall'utente.
 
@@ -159,4 +159,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

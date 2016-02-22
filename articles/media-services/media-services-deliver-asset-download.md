@@ -12,8 +12,8 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.topic="article"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #Procedura: Distribuire un asset mediante download
@@ -87,4 +87,4 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

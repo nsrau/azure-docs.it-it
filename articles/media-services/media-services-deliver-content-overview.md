@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -190,4 +190,4 @@ Un **endpoint di streaming** rappresenta un servizio di streaming in grado di di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -62,7 +62,7 @@ L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protez
 
 ## Sicurezza del livello dati
 
-Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](sql-database-threat-detection-get-started). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](sql-database-security.md) per altre informazioni su come proteggere i dati.
+Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](sql-database-threat-detection-get-started). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security.md) per altre informazioni su come proteggere i dati.
 
 Se si usa un provider di database di terze parti, ad esempio ClearDB, è consigliabile consultare direttamente la documentazione del fornitore per le procedure di sicurezza consigliate.
 
@@ -123,4 +123,4 @@ Per informazioni sulla registrazione di informazioni nelle app del servizio app,
 
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

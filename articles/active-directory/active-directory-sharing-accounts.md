@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Condivisione di account con Azure AD
@@ -69,7 +69,8 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 
 ## Articoli correlati
 
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

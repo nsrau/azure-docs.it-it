@@ -1,11 +1,11 @@
-## Come creare una rete virtuale classica nel portale di anteprima di Azure
+## Come creare una rete virtuale classica nel portale di Azure
 
 Per creare una rete virtuale classica in base allo scenario precedente, seguire questa procedura.
 
 1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Fare clic su **NUOVO** > **Rete** > **Rete virtuale**, notare che nell’elenco **Selezionare un modello di distribuzione** è già visualizzata la voce **Classica**, quindi fare clic su **Crea** come illustrato nella figura riportata di seguito.
 
-	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+	![Creare reti virtuali nel portale di Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. Nel riquadro **Rete virtuale** digitare il **Nome** della rete virtuale e quindi fare clic su **Spazio di indirizzi**. Configurare le impostazioni dello spazio di indirizzi per la rete virtuale e la prima subnet, quindi fare clic su **OK**. La figura seguente illustra le impostazioni del blocco CIDR per questo scenario.
 
@@ -19,7 +19,7 @@ Per creare una rete virtuale classica in base allo scenario precedente, seguire 
 
 6. Se non si desidera visualizzare la rete virtuale come un riquadro nella **schermata iniziale**, disabilitare **Aggiungere a Schermata iniziale**.
 
-7. Fare clic su **Crea** e osservare il riquadro denominato **Creazione rete virtuale** come illustrato nella figura riportata di seguito.
+7. Fare clic su **Crea** e osservare il riquadro **Creazione rete virtuale** come illustrato nella figura riportata di seguito.
 
 	![Creare reti virtuali nel portale](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
 
@@ -33,6 +33,6 @@ Per creare una rete virtuale classica in base allo scenario precedente, seguire 
 
 10. Fare clic su **Subnet** > **Aggiungi**, quindi digitare un **Nome** e specificare un **Intervallo di indirizzi (blocco CIDR)** per la subnet e quindi fare clic su **OK**. La figura seguente illustra le impostazioni per lo scenario attuale.
 
-	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+	![Creare reti virtuali nel portale di Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

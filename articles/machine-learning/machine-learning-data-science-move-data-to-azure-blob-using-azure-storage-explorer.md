@@ -13,28 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
+
+## Introduzione 
+
+Esplora archivi Azure è uno strumento basato su Windows gratuito per analizzare e modificare i dati in un account di archiviazione di Azure. Questo argomento descrive come usarlo per caricare e scaricare i dati dall'archivio BLOB di Azure. Lo strumento può essere scaricato da [Esplora archivi di Azure](http://azurestorageexplorer.codeplex.com/).
 
 Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
 
 [AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## Introduzione
 
-Esplora archivi Azure è uno strumento basato su Windows gratuito per analizzare e modificare i dati in un account di archiviazione di Azure. Può essere scaricato da [Esplora archivi Azure](http://azurestorageexplorer.codeplex.com/).
+> [AZURE.NOTE] Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora Esplora archivi di Azure è già installato nella macchina virtuale.
 
-> [AZURE.NOTE]Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora Esplora archivi di Azure è già installato nella macchina virtuale.
-
-> [AZURE.NOTE]Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Prerequisiti
 
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e delle chiavi di archiviazione corrispondenti per quell’account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
-- Per configurare una sottoscrizione di Azure vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Per configurare una sottoscrizione di Azure, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 - Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md).
 
 
@@ -55,4 +56,4 @@ I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esp
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

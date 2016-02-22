@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@ Il codice esegue le seguenti attività:
  	
 - 	Carica i file in Servizi multimediali usando il metodo **UploadAsync**.
  	
->[AZURE.NOTE]Usare il metodo UploadAsync in modo che non si verifichino blocchi delle chiamate e i file vengano caricati in parallelo.
+>[AZURE.NOTE] Usare il metodo UploadAsync in modo che non si verifichino blocchi delle chiamate e i file vengano caricati in parallelo.
  	
  	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -315,4 +315,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

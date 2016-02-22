@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
 
 Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View.
 
-> [AZURE.NOTE]I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows.
+> [AZURE.NOTE] I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows.
 
 In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai sistemi HVAC (Heating, Ventilating and Air Conditioning, ossia riscaldamento, ventilazione e condizionamento dell'aria) per identificare sistemi che non sono in grado di mantenere in modo affidabile una temperatura impostata. Si apprenderà come:
 
@@ -38,7 +38,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-IT&rs=it-IT&ad=US).
+	> [AZURE.NOTE] Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-IT&rs=it-IT&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

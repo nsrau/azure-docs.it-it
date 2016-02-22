@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/>
 
 # Dati di partizione e di scalabilità in DocumentDB
@@ -28,7 +28,7 @@ Dopo la lettura di questo articolo sui dati di scalabilità, si potrà risponder
  - Quando è perché è consigliabile usare ogni tecnica di partizionamento?
  - Come procedere alla compilazione di un'applicazione partizionata in Azure DocumentDB?
 
-In questo articolo vengono illustrati alcuni concetti sul partizionamento orizzontale. Se si è pronti a scrivere codice che suddivide i dati in partizioni usando .NET DocumentDB SDK, fare riferimento a [Partizionamento dei dati con DocumentDB .NET SDK](documentdb-sharding.md).
+In questo articolo vengono illustrati alcuni concetti sul partizionamento orizzontale. Se si è pronti a scrivere codice che suddivide i dati in partizioni usando gli SDK di DocumentDB, fare riferimento a [Partizionamento dei dati con DocumentDB SDK](documentdb-sharding.md).
 
 ## Raccolte = partizioni
 
@@ -46,17 +46,17 @@ Di seguito vengono esaminate queste tecniche in maggiore dettaglio.
 
 Nel partizionamento per intervalli le partizioni vengono assegnate in base alla presenza della chiave di partizione in un determinato intervallo. Questo approccio viene in genere usato per il partizionamento con proprietà di tipo *time stamp*, (ad esempio, eventTime tra 1 febbraio 2015 e 2 febbraio 2015).
 
-> [AZURE.TIP]È consigliabile usare il partizionamento per intervalli se le query sono limitate a valori di un intervallo specifico in relazione alla chiave di partizione.
+> [AZURE.TIP] È consigliabile usare il partizionamento per intervalli se le query sono limitate a valori di un intervallo specifico in relazione alla chiave di partizione.
 
 Un caso speciale di partizionamento per intervalli è quando l'intervallo è un valore singolo. Questo approccio viene in genere usato per il partizionamento tramite valori discreti come l'area (ad esempio, la partizione per la Scandinavia contiene Norvegia, Danimarca e Svezia).
 
-> [AZURE.TIP]Il partizionamento per intervalli offre il massimo livello di controllo nella gestione di un'applicazione multi-tenant. È possibile assegnare più tenant a una singola raccolta, un singolo tenant a una singola raccolta o anche un singolo tenant a più raccolte.
+> [AZURE.TIP] Il partizionamento per intervalli offre il massimo livello di controllo nella gestione di un'applicazione multi-tenant. È possibile assegnare più tenant a una singola raccolta, un singolo tenant a una singola raccolta o anche un singolo tenant a più raccolte.
 
 ## Partizionamento hash
 
 Nel partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria del dispositivo IoT ("Internet of Things").
 
-> [AZURE.TIP]È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
+> [AZURE.TIP] È consigliabile usare il partizionamento hash ogni volta che sono presenti troppe entità per l'enumerazione (ad esempio, utenti o dispositivi) e la frequenza delle richieste è abbastanza uniforme tra le entità.
 
 ## Scelta della tecnica di partizionamento corretta
 
@@ -112,4 +112,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

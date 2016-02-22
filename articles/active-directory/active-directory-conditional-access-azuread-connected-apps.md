@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Anteprima dell'accesso condizionale di Azure per app SaaS
@@ -86,4 +86,8 @@ L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-M
 
 Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la distribuzione locale di Azure Multi-Factor Authentication.
 
-<!---HONumber=Nov15_HO2-->
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

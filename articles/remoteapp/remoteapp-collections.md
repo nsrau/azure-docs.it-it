@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Se si desidera usare gli account Azure AD, è necessario assicurarsi che il tena
 
 L'uso di Azure AD insieme ad Active Directory in locale è un prerequisito per una raccolta ibrida. È necessario usare AD Connect per integrare le due directory. Esistono però alcune possibilità di scelta per quanto riguarda la configurazione di AD Connect.
 
-Esistono due scenari per AD Connect, ovvero l'uso della sincronizzazione delle password o l'uso della federazione di Active Directory. Vedere le [informazioni su AD Connect](active-directory-aadconnect.md) per individuare lo scenario ottimale per le specifiche esigenze.
+Esistono due scenari per AD Connect, ovvero l'uso della sincronizzazione delle password o l'uso della federazione di Active Directory. Vedere le [informazioni su AD Connect](../active-directory/active-directory-aadconnect.md) per individuare lo scenario ottimale per le specifiche esigenze.
 
 È inoltre possibile usare Azure AD e Active Directory con una raccolta nel cloud. Assicurarsi di seguire gli stessi passaggi di configurazione.
 
@@ -91,4 +91,4 @@ con la creazione della prima raccolta di Azure RemoteApp.
 
 [Creare una raccolta nel cloud](remoteapp-create-cloud-deployment.md) o [creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

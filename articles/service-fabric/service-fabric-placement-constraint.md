@@ -36,6 +36,6 @@ NodeProperty: mapping definito dall'utente o dal sistema tra una stringa e un va
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-Per altre informazioni, vedere l'articolo [Scenari applicativi](../service-fabric-application-scenarios).
+Per altre informazioni, vedere l'articolo [Scenari applicativi](service-fabric-application-scenarios.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

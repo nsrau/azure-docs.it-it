@@ -61,7 +61,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 
 	> [AZURE.NOTE] Le istruzioni fornite nel file [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) mostrano come configurare l'applicazione con Azure Active Directory, ma in questa esercitazione si eseguirà la configurazione senza ADFS, pertanto i passaggi da eseguire sono quelli riportati in questo articolo.
 
-3.	Aprire la soluzione e quindi aprire Controllers\AccountController.cs in **Esplora soluzioni**.
+3.	Aprire la soluzione e quindi aprire Controllers\\AccountController.cs in **Esplora soluzioni**.
 
 	Si noterà che il codice genera semplicemente una richiesta di autenticazione per l'utente mediante WS-Federation. Tutte le autenticazioni sono configurate in App\_Start\\Startup.Auth.cs.
 
@@ -81,14 +81,14 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 
 5.	In App\_Start\\Startup.Auth.cs, modificare le definizioni delle stringhe statiche come evidenziato di seguito:
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+    </pre>
 
 6.	Sarà ora necessario apportare le modifiche corrispondenti in Web.config. Aprire Web.config e modificare la sezione appSettings come indicato di seguito:
 	<pre class="prettyprint">
@@ -198,8 +198,8 @@ Se si desidera collegare l'app Web pubblicata di Azure al debugger (ad esempio s
 10.	Selezionare **Send Claims Using a Custom Rule** e fare clic su **Next**.
 11.	Incollare il seguente linguaggio di regola nella casella **Custom rule**, assegnare il nome **Per Session Identifier** alla regola e fare clic su **Finish**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
 	=> add(
 		store = "_OpaqueIdStore",
 		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
@@ -210,6 +210,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = "",
 		param = c2.Value);
 	</pre>
+
 	Il ruolo personalizzato dovrebbe essere simile al seguente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
@@ -263,22 +264,23 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
 1. Aprire Controllers\\HomeController.cs.
 2. Assegnare i metodi di azione `About` e `Contact` in modo simile a quanto illustrato di seguito, usando le appartenenze ai gruppi di sicurezza di cui dispone l'utente autenticato.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Test Group")]</mark>
-public ActionResult About()
-{
-    ViewBag.Message = "Your application description page.";
+    <mark>[Authorize(Roles="Test Group")]</mark>
+    public ActionResult About()
+    {
+       ViewBag.Message = "Your application description page.";
 
     return View();
-}
+    }
 
-<mark>[Authorize(Roles="Domain Admins")]</mark>
-public ActionResult Contact()
-{
-    ViewBag.Message = "Your contact page.";
+    <mark>[Authorize(Roles="Domain Admins")]</mark>
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
 
-    return View();
-}
+       return View();
+    }
 	</pre>
+
 	Poiché nell'ambiente lab ADFS è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in `About`. Per `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
 
 3. Avviare il debugger premendo `F5` e accedere, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina `~/About/Index`, se l'utente autenticato è autorizzato per tale azione.
@@ -335,7 +337,7 @@ public ActionResult Contact()
 
 Un motivo per cui si potrebbe voler implementare la propria applicazione line-of-business in ADFS anziché in Azure Active Directory potrebbe essere correlato a questioni di conformità nella conservazione dei dati dell'organizzazione all'esterno dell'organizzazione stessa. Questo può anche significare che il sito Web di Azure deve accedere a database locali, poiché non si è autorizzati a usare il [database SQL](/services/sql-database/) come livello dati per le app Web.
 
-App Web del servizio app di Azure supporta l'accesso ai database locali mediante due approcci: [connessioni ibride](../integration-hybrid-connection-overview.md) e [reti virtuali](web-sites-integrate-with-vnet.md). Per altre informazioni, vedere il post relativo all'[uso dell'integrazione con una rete virtuale e delle connessioni ibride con App Web del servizio app di Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+App Web del servizio app di Azure supporta l'accesso ai database locali mediante due approcci: [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali](web-sites-integrate-with-vnet.md). Per altre informazioni, vedere il post relativo all'[uso dell'integrazione con una rete virtuale e delle connessioni ibride con App Web del servizio app di Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Altre risorse
@@ -353,4 +355,4 @@ App Web del servizio app di Azure supporta l'accesso ai database locali mediante
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

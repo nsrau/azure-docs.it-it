@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # Backup di Azure per carichi di lavoro di SQL server tramite DPM
@@ -55,7 +62,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti ](../backup-azure-dpm-
 
     ![Obiettivi a breve termine](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]Alle 8.00 PM (secondo la schermata di input) viene creato un punto di backup ogni giorno con il trasferimento dei dati modificati rispetto al punto di backup delle 8.00 PM del giorno precedente. Questo processo è detto **Backup completo rapido**. Mentre i log delle transazioni vengono sincronizzati ogni 15 minuti, se è necessario ripristinare il database alle 9.00 PM, il punto viene creato riproducendo i log dall'ultimo backup completo rapido (in questo caso le 8.00 PM).
+    >[AZURE.NOTE] Alle 8.00 PM (secondo la schermata di input) viene creato un punto di backup ogni giorno con il trasferimento dei dati modificati rispetto al punto di backup delle 8.00 PM del giorno precedente. Questo processo è detto **Backup completo rapido**. Mentre i log delle transazioni vengono sincronizzati ogni 15 minuti, se è necessario ripristinare il database alle 9.00 PM, il punto viene creato riproducendo i log dall'ultimo backup completo rapido (in questo caso le 8.00 PM).
 
 8. Fare clic su **Avanti**
 
@@ -65,7 +72,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti ](../backup-azure-dpm-
 
     DPM crea un volume per ogni origine dati (database SQL Server) per la creazione della copia di backup iniziale. Con questo approccio, il Gestore dischi logici limita DPM alla protezione solo di un massimo di 300 origini dati (database SQL Server). Per evitare questo limite, DPM ha implementato un altro approccio che usa un singolo volume per più origini dati. Ciò è reso possibile dall'uso della funzionalità **Condividi percorso dati nel pool di archiviazione DPM**. Grazie a questo approccio, DPM può proteggere fino a 2000 database SQL.
 
-    Se l’opzione **Aumenta automaticamente i volumi** è selezionata, DPM può adeguare l'aumento del volume di backup all'aumento dei dati di produzione. Deselezionando l’opzione **Aumenta automaticamente i volumi**, verrà limitato lo spazio di archiviazione del backup usato per eseguire il backup delle origini dati nel gruppo di protezione.
+    Se l’opzione **Aumenta automaticamente i volumi** è selezionata, DPM può adeguare l'aumento del volume di backup all'aumento dei dati di produzione. Deselezionando **Aumenta automaticamente i volumi**, verrà limitato lo spazio di archiviazione del backup usato per eseguire il backup delle origini dati nel gruppo di protezione.
 
 9. Gli amministratori possono scegliere di trasferire manualmente il backup iniziale (fuori rete) per evitare la congestione della larghezza di banda oppure di trasferirlo in rete. Possono anche configurare la data e l'ora di inizio del trasferimento. Fare clic su **Avanti**.
 
@@ -91,7 +98,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti ](../backup-azure-dpm-
 
     In questo esempio i backup vengono eseguiti una volta al giorno alle 12.00 PM e alle 8.00 PM (parte in basso della schermata)
 
-    >[AZURE.NOTE]È consigliabile avere sul disco alcuni punti di ripristino a breve termine per un ripristino rapido. Questa operazione è detta "ripristino operativo". Azure è una posizione esterna ottimale con contratti di servizio più elevati e disponibilità garantita.
+    >[AZURE.NOTE] È consigliabile avere sul disco alcuni punti di ripristino a breve termine per un ripristino rapido. Questa operazione è detta "ripristino operativo". Azure è una posizione esterna ottimale con contratti di servizio più elevati e disponibilità garantita.
 
     **Procedura consigliata**: verificare che i backup di Azure siano pianificati dopo il completamento dei backup su disco locali con DPM. Ciò consente di copiare in Azure il backup su disco più recente.
 
@@ -155,7 +162,7 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Avanti**.
 
-5. Nella schermata **Riepilogo**, verranno visualizzate le configurazioni di ripristino impostate finora. Fare clic su **Ripristina**.
+5. Nella schermata **Riepilogo** verranno visualizzate le configurazioni di ripristino impostate finora. Fare clic su **Ripristina**.
 
     In Stato ripristino è visualizzato il database in corso di ripristino. È possibile fare clic **Chiudi** per chiudere la procedura guidata e visualizzare lo stato di avanzamento nell'area di lavoro **Monitoraggio**.
 
@@ -167,4 +174,4 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 • [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

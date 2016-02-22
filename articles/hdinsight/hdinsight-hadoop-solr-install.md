@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
@@ -31,7 +31,7 @@ Lo script di esempio usato in questo argomento crea un cluster Solr basato su Wi
 
 - [Installare e usare Solr nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
-- [Personalizzare cluster HDInsight mediante Script azione][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight tramite Script azione.
+- [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
 - [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions.md).
 
 
@@ -67,7 +67,7 @@ Lo script di esempio usato in questo argomento crea un cluster Solr basato su Wi
 
 È prima di tutto necessario indicizzare Solr con alcuni file di dati. Sarà quindi possibile usare Solr per eseguire query di ricerca sui dati indicizzati. Eseguire la procedura seguente per usare Solr in un cluster HDInsight:
 
-1. **Usare RDP (Remote Desktop Protocol) per accedere in remoto al cluster HDInsight con Solr installato**. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Solr installato, quindi accedere in remoto al cluster. Per istruzioni, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
+1. **Usare RDP (Remote Desktop Protocol) per accedere in remoto al cluster HDInsight con Solr installato**. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Solr installato, quindi accedere in remoto al cluster. Per istruzioni, vedere [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
 2. **Indicizzare Solr mediante il caricamento di file di dati**. Quando si indicizza Solr, si inseriscono documenti su cui potrebbe essere necessario eseguire ricerche. Per indicizzare Solr, usare RDP per accedere in remoto al cluster, passare al desktop, aprire la riga di comando di Hadoop e quindi passare a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Eseguire il comando seguente:
 
@@ -185,9 +185,9 @@ Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoo
 
 - [Installare e usare Solr nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md): informazioni generali sulla creazione di cluster HDInsight.
-- [Personalizzare cluster HDInsight mediante Script azione][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight tramite Script azione.
-- [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions.md).
-- [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]\: esempio di Script azione sull'installazione di Spark.
+- [Personalizzare cluster HDInsight mediante Azione di script][hdinsight-cluster-customize]\: informazioni generali sulla personalizzazione di cluster HDInsight mediante Azione di script.
+- [Sviluppare script di Azione di script per HDInsight](hdinsight-hadoop-script-actions.md).
+- [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]\: esempio di Azione di script sull'installazione di Spark.
 - [Installare R nei cluster HDInsight][hdinsight-install-r]\: esempio di Script azione sull'installazione di R.
 - [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): esempio di Script azione sull'installazione di Giraph
 
@@ -198,4 +198,4 @@ Vedere [Personalizzare cluster HDInsight mediante Script azione](hdinsight-hadoo
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

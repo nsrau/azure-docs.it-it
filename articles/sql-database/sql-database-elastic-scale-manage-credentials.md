@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Credenziali usate per accedere alla libreria client dei database elastici
 
-La [libreria client dei Database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tre diversi tipi di credenziali. Le credenziali vengono usate per accedere al [Gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md). A seconda delle esigenze, usare le credenziali con il minimo livello possibile di accesso.
+La [libreria client dei database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tre diversi tipi di credenziali per accedere al [gestore delle mappe delle partizioni](sql-database-elastic-scale-shard-map-management.md). A seconda delle esigenze, usare le credenziali con il minimo livello possibile di accesso.
 
 * **Credenziali di gestione**: per la creazione o la modifica di un gestore di mappa di partizionamento. (Vedere il [glossario](sql-database-elastic-scale-glossary.md).) 
 * **Credenziali di accesso**: per accedere a un gestore di mappa di partizione esistente per ottenere informazioni sulle partizioni.
@@ -26,9 +26,9 @@ La [libreria client dei Database elastici](http://www.nuget.org/packages/Microso
 
 Vedere anche [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md).
  
-## Credenziali di gestione  
+## Informazioni sulle credenziali di gestione
 
-Le credenziali di gestione vengono usate per creare di un oggetto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) per applicazioni che modificano le mappe partizioni. (Ad esempio, vedere [Aggiunta di una partizione utilizzando gli strumenti di database elastici](sql-database-elastic-scale-add-a-shard.md).) L'utente della libreria client dei database elastici crea gli utenti SQL e gli account di accesso SQL e garantisce che a ciascuno di lo vengano concesse autorizzazioni di lettura/scrittura per il database della mappa globale partizioni, nonché per tutti i database delle partizioni. Queste credenziali vengono usate per la gestione della mappa globale partizioni e delle mappe locali partizioni quando si apportano modifiche alla mappa partizioni. Ad esempio, usare le credenziali di gestione per creare l'oggetto di gestione mappa partizioni (usando [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
+Le credenziali di gestione vengono usate per creare di un oggetto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) per applicazioni che modificano le mappe partizioni. Ad esempio, vedere [Aggiunta di una partizione utilizzando gli strumenti di database elastici](sql-database-elastic-scale-add-a-shard.md) e [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md). L'utente della libreria client dei database elastici crea gli utenti e gli account di accesso SQL e garantisce che ad ognuno vengano concesse autorizzazioni di lettura/scrittura per il database della mappa globale partizioni, nonché per tutti i database delle partizioni. Queste credenziali vengono usate per la gestione della mappa globale partizioni e delle mappe locali partizioni quando si apportano modifiche alla mappa partizioni. Ad esempio, usare le credenziali di gestione per creare l'oggetto di gestione mappa partizioni (usando [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@ Come con le credenziali di amministratore, nessun valore sotto forma di "usernam
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

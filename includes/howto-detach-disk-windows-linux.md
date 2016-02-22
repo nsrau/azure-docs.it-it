@@ -4,7 +4,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-> [AZURE.NOTE]Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
+> [AZURE.NOTE] Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
 
 
 ## Trovare il disco
@@ -12,7 +12,7 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla
 Se non si conosce il nome del disco o si vuole verificarlo prima di averlo scollegato, attenersi alla procedura seguente.
 
 
-1. Accedere al [portale di Azure](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
 2. Fare clic su **Macchine virtuali**, fare clic sul nome della macchina virtuale e quindi fare clic su **Dashboard**.
 
@@ -33,4 +33,4 @@ Se non si conosce il nome del disco o si vuole verificarlo prima di averlo scoll
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="ginathan;bradsev" />
 
 # Il Cortana Analytics Process in azione - Uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
@@ -663,4 +663,4 @@ Si noti che per i due esempi di test chiesti (nel framework JSON dello script Py
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

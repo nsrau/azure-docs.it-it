@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # Come modificare un modello di dati in un servizio mobile back-end .NET
@@ -181,4 +181,4 @@ Questo codice chiama il metodo [AddOrUpdate] con estensione helper per aggiunger
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

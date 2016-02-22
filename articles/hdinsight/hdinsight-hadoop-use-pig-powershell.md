@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig mediante PowerShell
@@ -53,15 +53,13 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 1. Usando un editor, salvare il seguente codice come **pigjob.ps1**. È necessario sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
 
-		#Login to your Azure subscription
-		Login-AzureRmAccount
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get credentials for the admin/HTTPs account
         $creds=Get-Credential
 
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-		#Where the output will be saved
-		$statusFolder = "/tutorial/pig/status"
+        #Specify the cluster name
+        $clusterName = "CLUSTERNAME"
         
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -73,42 +71,60 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
 
-		#Store the Pig Latin into $QueryString
-		$QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-		"LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-		"FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-		"GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-		"FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-		"RESULT = order FREQUENCIES by COUNT desc;" +
-		"DUMP RESULT;"
+        #Store the Pig Latin into $QueryString
+        $QueryString =  @"
+        LOGS = LOAD 'wasb:///example/data/sample.log';
+        LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+        RESULT = order FREQUENCIES by COUNT desc;
+        DUMP RESULT;
+        "@
 
-		#Create a new HDInsight Pig Job definition
-		$pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
+        #Create a new HDInsight Pig Job definition
+        $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
             -Query $QueryString `
+            -Arguments "-w"
 
-		# Start the Pig job on the HDInsight cluster
-		Write-Host "Start the Pig job ..." -ForegroundColor Green
-		$pigJob = Start-AzureRmHDInsightJob `
+        # Start the Pig job on the HDInsight cluster
+        Write-Host "Start the Pig job ..." -ForegroundColor Green
+        $pigJob = Start-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $pigJobDefinition `
-            -ClusterCredential $creds
+            -HttpCredential $creds
 
-		# Wait for the Pig job to complete
-		Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob `
+        # Wait for the Pig job to complete
+        Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+        $jobStatus = Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds
-
-		# Display the output of the Pig job.
-		Write-Host "Display the standard output ..." -ForegroundColor Green
-		Get-AzureRmHDInsightJobOutput `
-            -ClusterName $clusterName `
-            -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            
+        if($jobStatus.State -eq "SUCCEEDED") {
+            # Success!
+            # Display the output of the Pig job.
+            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Get-AzureRmHDInsightJobOutput `
+                -ClusterName $clusterName `
+                -JobId $pigJob.JobId `
+                -DefaultContainer $container `
+                -DefaultStorageAccountName $storageAccountName `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -HttpCredential $creds
+        } else {
+            # Something went wrong, display error output
+            # Print the output of the Pig job.
+            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Get-AzureRmHDInsightJobOutput `
+                -Clustername $clusterName `
+                -JobId $pigJob.JobId `
+                -DefaultContainer $container `
+                -DefaultStorageAccountName $storageAccountName `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -HttpCredential $creds `
+                -DisplayOutputType StandardError
+        }
 
 2. Quindi, aprire un nuovo prompt dei comandi di Azure PowerShell. Passare al percorso del file **pigjob.ps1**, quindi usare il seguente comando per eseguire lo script:
 
@@ -118,20 +134,8 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 7. Quando viene completato, il processo dovrebbe restituire informazioni simili alle seguenti:
 
-		Start the Pig job ...
-		Wait for the Pig job to complete ...
-
-		Cluster         : CLUSTERNAME.
-        HttpEndpoint    : CLUSTERNAME.azurehdinsight.net
-        State           : SUCCEEDED
-        JobId           : job_1444852971289_0018
-        ParentId        :
-        PercentComplete : 100% complete
-        ExitValue       : 0
-        User            : admin
-        Callback        :
-        Completed       : done
-        
+        Start the Pig job ...
+        Wait for the Pig job to complete ...
         Display the standard output ...
         (TRACE,816)
         (DEBUG,434)
@@ -152,7 +156,7 @@ Se al termine del processo non vengono restituite informazioni, potrebbe essersi
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            -HttpCredential $creds `
             -DisplayOutputType StandardError
 
 Vengono restituite le informazioni scritte in STDERR nel server durante l'esecuzione del processo. Tali informazioni possono essere utili per determinare la causa del problema.
@@ -173,4 +177,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

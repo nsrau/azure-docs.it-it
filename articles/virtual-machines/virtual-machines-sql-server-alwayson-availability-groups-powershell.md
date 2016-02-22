@@ -19,8 +19,9 @@
 # Configurare gruppi di disponibilità AlwaysOn nelle VM di Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -61,7 +62,7 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 	Il comando **Get AzurePublishgSettingsFile** genera automaticamente un certificato di gestione con Azure e lo scarica nel computer. Verrà aperto un browser e verrà richiesto di immettere le credenziali dell'account Microsoft per la sottoscrizione di Azure. Il file **publishsettings** scaricato contiene tutte le informazioni necessarie per gestire la sottoscrizione di Azure. Dopo aver salvato il file in una directory locale, importarlo usando il comando **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE]Nel file publishsettings sono incluse le credenziali (non codificate) usate per amministrare i servizi e le sottoscrizioni di Azure. La procedura consigliata di sicurezza per questo file consiste nell'archiviarlo temporaneamente all'esterno delle directory di origine, ad esempio nella cartella Raccolte\\Documenti, e quindi di eliminarlo al termine dell'importazione. Un utente malintenzionato che accede al file publishsettings può modificare, creare ed eliminare i servizi di Azure.
+	>[AZURE.NOTE] Nel file publishsettings sono incluse le credenziali (non codificate) usate per amministrare i servizi e le sottoscrizioni di Azure. La procedura consigliata di sicurezza per questo file consiste nell'archiviarlo temporaneamente all'esterno delle directory di origine, ad esempio nella cartella Raccolte\\Documenti, e quindi di eliminarlo al termine dell'importazione. Un utente malintenzionato che accede al file publishsettings può modificare, creare ed eliminare i servizi di Azure.
 
 1. Definire una serie di variabili con cui si creerà l'infrastruttura IT cloud.
 
@@ -627,8 +628,8 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
 		    -Database $db
 
 ## Passaggi successivi
-SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere l'articolo relativo alla [configurazione di un listener di ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere l'articolo [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

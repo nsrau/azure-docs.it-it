@@ -3,7 +3,7 @@
    description="Riepilogo delle funzionalità di anteprima pubblica e degli obiettivi di disponibilità generale di SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Aspettative di anteprima di SQL Data Warehouse
 
@@ -72,4 +72,4 @@ SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
 
 #Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
 
 ##Informazioni generali
 
@@ -440,4 +439,4 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

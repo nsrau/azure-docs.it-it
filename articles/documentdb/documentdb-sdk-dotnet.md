@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -99,7 +99,7 @@ Tra l'anteprima e la disponibilità generale è stata apportata una modifica al 
 - [Obsoleto] Anteprima di SDK
 
 ## Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK in modo da agevolare la transizione a una versione più recente o supportata.
+Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
@@ -133,4 +133,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory
@@ -111,6 +111,12 @@ Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applic
 
 Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante **Carica Logo** nella scheda **Configura** dell'applicazione.
 
+## Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md)
+- [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
 [2]: ./media/active-directory-saas-custom-apps/customapp2.png
@@ -120,4 +126,4 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

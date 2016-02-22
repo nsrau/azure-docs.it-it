@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -161,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -271,7 +271,7 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
 
 La dimensione del file di parametro non può essere superiore a 64 KB.
 
-Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md/#parameters) Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
+Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](../resource-group-authoring-templates/#parameters) Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 
 ## Passaggi successivi
 - Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +282,4 @@ Per informazioni su come definire i parametri nel modello, vedere [Creazione di 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

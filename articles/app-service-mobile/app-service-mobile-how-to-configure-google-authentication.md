@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'autenticazione Google per un'applicazione dei servizi app."
     services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Questo argomento descrive come configurare il servizio app di Azure per usare Google come provider di autenticazione.
 
 Per completare la procedura descritta in questo argomento, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-> [AZURE.NOTE]Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
+> [AZURE.NOTE]
+Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
 
 
 ## <a name="register"> </a>Registrare l'applicazione con Google
 
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Google.
- 
+
 2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), accedere con le credenziali dell'account Google, fare clic su **Create Project**, specificare un valore in **Project name**, quindi fare clic su **Create**.
 
 3. Nella barra di spostamento a sinistra, fare clic su **API & Auth**, quindi in **API Social** fare clic su **API Google+** > **Enable API**.
@@ -44,18 +43,21 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 6. Incollare l'**URL** del servizio app per dispositivi mobili copiato in precedenza in **Authorized JavaScript Origins** e quindi incollare l’**URI di reindirizzamento** copiato in precedenza in **Authorized Redirect URI**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/google/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
 
 
-	> [AZURE.NOTE]Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-google_.
+	> [AZURE.NOTE]
+	Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-google_.
 
 
 7. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
 
-    > [AZURE.IMPORTANT]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
+    > [AZURE.IMPORTANT]
+	Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
 
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Google all'applicazione
 
-> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Google**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
+> [AZURE.NOTE]
+Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Google**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
 
 
 8. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
@@ -91,6 +93,5 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [portale di Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

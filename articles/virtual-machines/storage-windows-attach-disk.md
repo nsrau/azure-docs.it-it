@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 # Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
-Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che devono risiedere in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
+Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
 
 È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non utilizzare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, il disco temporaneo fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
@@ -35,7 +35,7 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 ## <a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
 
-1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
+1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
 
 2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
 
@@ -43,7 +43,7 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 3. Espandere il menu e selezionare **Dischi**.
 
-4. La sezione **dischi** contiene un elenco dei dischi. Nella maggior parte dei casi, avrà disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo (che non deve essere usato per l'archiviazione dei dati) e il disco 2 è il disco dati che è stato appena connesso alla macchina virtuale. Il nuovo disco dati elencherà la partizione come **sconosciuta**. Fare clic con il pulsante destro del mouse sul disco e scegliere **Inizializza**.
+4. La sezione **dischi** contiene un elenco dei dischi. Nella maggior parte dei casi, avrà disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo e il disco 2 è il disco dati che è stato appena connesso alla VM. Il nuovo disco dati elencherà la partizione come **sconosciuta**. Fare clic con il pulsante destro del mouse sul disco e scegliere **Inizializza**.
 
 5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Una volta completata l’operazione, la partizione verrà elencata come **GPT**. Fare di nuovo clic con il pulsante destro del mouse sul disco e scegliere **Nuovo volume**.
 
@@ -51,7 +51,7 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 	![Inizializzazione del volume completata](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]Le dimensioni della macchina virtuale determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
+> [AZURE.NOTE] Le dimensioni della VM determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-size-specs.md).
 
 ## Risorse aggiuntive
 
@@ -61,4 +61,4 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

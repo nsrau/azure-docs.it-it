@@ -550,15 +550,15 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 7. Aggiornare la finestra del browser per l'app Web di Azure. Si noterà ora che tutti gli script e i fogli di stile vengono caricati correttamente.
 
 ## Altre informazioni 
-- [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](../cdn-overview.md)
-- [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrare un servizio cloud con la rete CDN di Azure](../cdn-cloud-service-with-cdn.md)
+- [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](../cdn/cdn-overview.md)
+- [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso della rete CDN per Azure](../cdn-how-to-use-cdn.md)
+- [Uso della rete CDN per Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ App personali per iOS è supportata su qualsiasi iPhone o iPad che esegua iOS ve
 
 
 
-> [AZURE.NOTE]È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser su qualsiasi dispositivo, senza richiedere un plug-in o un'app per dispositivi mobili. Anche la parte restante del pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) non richiede l'uso di App personali da un dispositivo mobile.
+> [AZURE.NOTE] È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser su qualsiasi dispositivo, senza richiedere un plug-in o un'app per dispositivi mobili. Anche la parte restante del pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) non richiede l'uso di App personali da un dispositivo mobile.
  
 
 
@@ -172,8 +172,12 @@ La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente 
 
 Quando si configura Single Sign-On per un'applicazione, il portale di gestione di Azure fornisce una terza opzione di "Single Sign-On esistente". Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati. Ad esempio, se è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può utilizzare l'opzione "Single Sign-On esistente" per creare un collegamento al pannello di accesso. Quando gli utenti accedono al collegamento, vengono autenticati utilizzando Active Directory Federation Services 2.0 o qualunque soluzione Single Sign-On esistente fornita dall'applicazione.
 
+##Articoli correlati
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
+- [Introduzione a Single Sign-On e alla gestione dell'accesso alle App con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ Quando si configura Single Sign-On per un'applicazione, il portale di gestione d
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

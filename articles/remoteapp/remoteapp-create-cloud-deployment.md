@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta cloud di Azure RemoteApp
@@ -80,9 +80,9 @@ Se si vuole usare Active Directory, Azure RemoteApp richiede la sincronizzazione
 
 ## Passaggio 3: Pubblicare le app ##
 
-Un'app di Azure RemoteApp è l'app o il programma da fornire ai propri utenti. Si trova nell'immagine modello caricata per la raccolta. Quando un utente accede a un'app, sembra che l'app venga eseguita nell'ambiente locale, mentre in realtà viene eseguita in Azure.
+Un'app di Azure RemoteApp è l'app o il programma da fornire ai propri utenti. Si trova nell'immagine modello caricata per la raccolta. Quando un utente accede a un'app, sembra che l'app venga eseguita nell'ambiente locale, mentre in realtà viene eseguita in una macchina virtuale in Azure.
 
-Prima che gli utenti possano accedere alle app di RemoteApp, è necessario pubblicarle nel feed degli utenti finali, ovvero un elenco di app disponibili cui gli utenti accedono tramite il client di Desktop remoto.
+Prima che gli utenti possano accedere alle app, è necessario pubblicarle. La pubblicazione delle app consente agli utenti di accedere tramite il client di Desktop remoto.
  
 È possibile pubblicare più app nella raccolta di Azure RemoteApp. Nella pagina di pubblicazione fare clic su **Pubblica** per aggiungere un programma. È possibile eseguire la pubblicazione dal menu **Start** dell'immagine modello oppure specificando il percorso nell'immagine modello dell'app. Se si sceglie l'aggiunta dal menu **Start**, scegliere l'app da pubblicare. Se si sceglie di fornire il percorso all'app, specificare il nome dell'app e il percorso in cui è installata nell'immagine modello.
 
@@ -109,4 +109,4 @@ La procedura è stata completata e la raccolta di Azure RemoteApp nel cloud è s
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -191,4 +191,8 @@ Se l'applicazione invia una grande quantità di dati e si sta usando Application
 
 Le dimensioni relative alla città, all'area, al paese e alla regione vengono derivate dagli indirizzi IP e non sono sempre accurate.
 
-<!---HONumber=AcomDC_0204_2016-->
+## Non funzionante...
+
+* [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

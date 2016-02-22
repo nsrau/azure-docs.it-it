@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
@@ -37,7 +37,7 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE]Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare [Migrazioni Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE] Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario usare [Migrazioni Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. In Visual Studio, espandere la cartella Controllers, aprire**TodoItemController.cs**e aggiungere la seguente istruzione per l’utilizzo:
 
@@ -84,4 +84,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

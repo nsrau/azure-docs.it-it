@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -64,9 +64,9 @@ Per accedere ai log dei processi sul nodo head secondario nel caso in cui sia di
 
 
 ## Configurare le dimensioni del nodo head
-I nodi head vengono allocati per impostazione predefinita come macchine virtuali di grandi dimensioni. Queste dimensioni sono adeguate per la gestione di gran parte dei processi Hadoop eseguiti sul cluster. Tuttavia, esistono scenari in cui potrebbero essere necessarie macchine virtuali con dimensioni molto grandi. Un esempio si ha quando il cluster deve gestire un elevato numero di piccoli processi Oozie.
+I nodi head vengono allocati per impostazione predefinita come macchine virtuali (VM) di grandi dimensioni. Queste dimensioni sono adeguate per la gestione di gran parte dei processi Hadoop eseguiti sul cluster. Tuttavia, esistono scenari in cui potrebbero essere necessarie VM di dimensioni molto grandi. Un esempio si ha quando il cluster deve gestire un elevato numero di piccoli processi Oozie.
 
-È possibile configurare macchine virtuali di dimensioni molto grandi usando i cmdlet di Azure PowerShell oppure l'SDK di HDInsight.
+È possibile configurare VM di dimensioni molto grandi usando i cmdlet di Azure PowerShell oppure HDInsight SDK.
 
 La creazione e il provisioning di un cluster con Azure PowerShell sono documentati in [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureRmHDInsightcluster` usato in questo codice.
 
@@ -82,7 +82,7 @@ La creazione e il provisioning di un cluster con Azure PowerShell sono documenta
 				-DefaultStorageContainerName $containerName  `
 				-ClusterSizeInNodes $clusterNodes
 
-Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster con l'SDK sono documentati in [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
+Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster con l'SDK sono documentati in [Uso di HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk). La configurazione di un nodo head molto grande richiede l'aggiunta del parametro `HeadNodeSize = NodeVMSize.ExtraLarge` al metodo `ClusterCreateParameters()` usato in questo codice.
 
     # Create a new HDInsight cluster with the HDInsight SDK
 	# Configured with an ExtraLarge head-node VM
@@ -100,10 +100,10 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
     };
 
 
-**Riferimenti**
+## Passaggi successivi
 
-- [ZooKeeper](http://zookeeper.apache.org/)
+- [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
-- [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk)
+- [Uso di HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

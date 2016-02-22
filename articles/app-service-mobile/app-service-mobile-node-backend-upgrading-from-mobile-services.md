@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # Eseguire l'aggiornamento del servizio mobile di Azure Node.js esistente al servizio app
@@ -28,7 +28,7 @@ Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizi
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza costi aggiuntivi.
+>[AZURE.TIP] Prima di procedere a un aggiornamento, è consigliabile [eseguire una migrazione](app-service-mobile-migrating-from-mobile-services.md). In questo modo, è possibile inserire entrambe le versioni dell'applicazione nello stesso piano del servizio app, senza costi aggiuntivi.
 
 ### Miglioramenti apportati all'SDK del server Node.js di App per dispositivi mobili
 
@@ -48,7 +48,7 @@ L'aggiornamento alla nuova versione di [Mobile Apps SDK](https://www.npmjs.com/p
 
 A differenza di quanto avviene con .NET Mobile Apps SDK, l'aggiornamento di un back-end di Node da Servizi mobili ad App per dispositivi mobili non è semplice come la sostituzione dei pacchetti. L'utente, non Azure, è ora proprietario dell'intero gruppo di applicazioni, pertanto è necessario creare un'app Express di base che ospiti il back-end per dispositivi mobili. Per i controller dell'API e della tabella, i concetti sono simili, ma è ora necessario esportare gli oggetti tabella e le API della funzione sono state in qualche modo modificate. Questo articolo illustra in dettaglio le strategie di base dell'aggiornamento, ma prima di eseguire la migrazione, è opportuno leggere l'articolo relativo all'[uso del back-end di Node](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
->[AZURE.TIP]Leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
+>[AZURE.TIP] Leggere e comprendere integralmente il resto di questo argomento prima di avviare un aggiornamento. Prendere nota delle funzionalità usate che sono indicate di seguito.
 
 Gli SDK del client di Servizi mobili **non** sono compatibili con il nuovo SDK del server di App per dispositivi mobili. Per garantire la continuità del servizio per l'app, non devono essere pubblicate modifiche in un sito che usa client pubblicati. È invece necessario creare una nuova app per dispositivi mobili che agisce da duplicato. È possibile inserire questa applicazione nello stesso piano di servizio app per evitare di sostenere costi finanziari aggiuntivi.
 
@@ -127,11 +127,11 @@ App per dispositivi mobili fornisce una nuova versione dell'[SDK del server dell
 
 ### Configurazione di base
 
-Il server ha numerose impostazioni di configurazione, ma un'ampia gamma di valori predefiniti in grado di semplificare le operazioni iniziali. Molte delle impostazioni vengono configurate automaticamente nel [portale di Azure], tramite i menu delle impostazioni di **dati**, **autenticazione/autorizzazione** e **push**. Per lo sviluppo locale, se si desidera usare le impostazioni di dati, autenticazione e push, può essere necessario configurare l'ambiente di sviluppo locale.
+Il server ha numerose impostazioni di configurazione, ma un'ampia gamma di valori predefiniti in grado di semplificare le operazioni iniziali. Molte delle impostazioni vengono configurate automaticamente, nel [portale di Azure], tramite i menu delle impostazioni di **dati**, **autenticazione/autorizzazione** e **push**. Per lo sviluppo locale, se si desidera usare le impostazioni di dati, autenticazione e push, può essere necessario configurare l'ambiente di sviluppo locale.
 
 È possibile definire la configurazione del server tramite le variabili di ambiente che possono essere specificate mediante le impostazioni dell'app nel back-end dell'app per dispositivi mobili.
 
-È inoltre possibile personalizzare l'SDK delle app per dispositivi mobili passando un [oggetto di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) all'inizializzatore o [creando un file denominato azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) nella radice del progetto.
+È inoltre possibile personalizzare l'SDK delle app per dispositivi mobili passando un [oggetto di configurazione](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) all'inizializzatore o [creando un file denominato azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev) nella radice del progetto.
 
 ### Uso di dati e tabelle
 
@@ -187,7 +187,7 @@ Le principali aree problematiche per l'uso di CORS sono rappresentate dal fatto 
 
 ### Notifiche push
 
-Ad Azure Notification Hubs SDK sono stati apportati alcuni aggiornamenti significativi a partire da Servizi mobili, è quindi possibile che alcune firme di funzione di hub di notifica siano diverse. In caso contrario, la funzionalità è simile a quella di Servizi mobili. Azure Mobile SDK esegue il provisioning di un'istanza di Hub di notifica, se è presente l'impostazione dell'app per gli hub di notifica, e la espone su `context.push`. In [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js) è disponibile un esempio con la relativa sezione illustrata di seguito:
+Ad Azure Notification Hubs SDK sono stati apportati alcuni aggiornamenti significativi a partire da Servizi mobili, è quindi possibile che alcune firme di funzione di hub di notifica siano diverse. In caso contrario, la funzionalità è simile a quella di Servizi mobili. Azure Mobile SDK esegue il provisioning di un'istanza di hub di notifica se è presente l'impostazione dell'app per gli hub di notifica e la espone su `context.push`. In [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js) è disponibile un esempio con la relativa sezione illustrata di seguito:
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -288,4 +288,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

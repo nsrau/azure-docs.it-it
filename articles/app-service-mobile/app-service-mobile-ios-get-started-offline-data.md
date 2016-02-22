@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili per iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -30,7 +28,7 @@ Se questa è la prima esperienza con le app per dispositivi mobili di Azure, è 
 
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
-## <a name="review-sync"></a>Verificare il codice di sincronizzazione del client 
+## <a name="review-sync"></a>Verificare il codice di sincronizzazione del client
 
 Il progetto client scaricato per l'esercitazione [Creare un'app iOS] contiene già il codice che supporta la sincronizzazione offline mediante un database basato sui dati principali locali. Questa sezione è un riepilogo degli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
@@ -107,7 +105,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
       * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
       * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **createdAt**, **updatedAt**, e **version** sono proprietà di sistema facoltative.
 
->[AZURE.NOTE]L'SDK delle app per dispositivi mobili di Azure riserva nomi di colonna che iniziano con "**``**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
+>[AZURE.NOTE] L'SDK delle app per dispositivi mobili di Azure riserva nomi di colonna che iniziano con "**``**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
 
 - Quando si usa la funzionalità di sincronizzazione offline, è necessario definire le tabelle di sistema come illustrato di seguito.
 
@@ -247,6 +245,5 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Come creare NSG (classici) in PowerShell
@@ -27,10 +27,10 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-I comandi di esempio PowerShell riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi illustrati in questo documento, creare prima di tutto l'ambiente di testing [creando una rete virtuale](virtual-networks-create-vnet-classic-netcfg-ps).
+I comandi di esempio PowerShell riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi illustrati in questo documento, creare prima di tutto l'ambiente di testing [creando una rete virtuale](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## Come creare il gruppo di sicurezza di rete per la subnet front-end
-Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire la procedura riportata di seguito:
+Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base allo scenario precedente, seguire la procedura riportata di seguito:
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
@@ -210,4 +210,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

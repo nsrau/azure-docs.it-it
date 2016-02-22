@@ -19,7 +19,7 @@
 
 In questo articolo viene illustrato come creare automaticamente una risorsa [Application Insights](app-insights-overview.md) in Azure. Questo procedimento potrebbe, ad esempio, essere utilizzato come parte di un processo di compilazione. Insieme alla risorsa di base Application Insights, è possibile creare [test web di disponibilità](app-insights-monitor-web-app-availability.md), [impostare avvisi](app-insights-alerts.md), e creare altre risorse di Azure.
 
-La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](powershell-azure-resource-manager.md). In breve, la procedura consiste in: scaricare le definizioni JSON delle risorse esistenti; impostare i parametri per determinati valori, come ad esempio nomi; ed eseguire il modello ogni volta che si desidera creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
+La chiave per la creazione di queste risorse è rappresentata dai modelli JSON per [Gestione risorse di Azure](../powershell-azure-resource-manager.md). In breve, la procedura consiste in: scaricare le definizioni JSON delle risorse esistenti; impostare i parametri per determinati valori, come ad esempio nomi; ed eseguire il modello ogni volta che si desidera creare una nuova risorsa. È possibile raggruppare diverse risorse per crearle tutte in un’unica volta - ad esempio, un monitoraggio app con test di disponibilità, avvisi e risorsa di archiviazione per l'esportazione continua. Esistono alcune sottigliezze di alcuni parametri, che verranno illustrate di seguito.
 
 ## Installazione singola
 
@@ -100,7 +100,7 @@ Installare il modulo Azure Powershell nel computer in cui si desidera eseguire g
 
 ## Impostazione dei parametri per il modello
 
-È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](resource-group-authoring-templates.md), si scrivono espressioni mediante un [set di funzioni di supporto](resource-group-template-functions.md).
+È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../resource-group-authoring-templates.md), si scrivono espressioni mediante un [set di funzioni di supporto](../resource-group-template-functions.md).
 
 È Impossibile impostare i parametri per una sola parte di una stringa, quindi utilizzare `concat()` per compilare stringhe.
 
@@ -311,4 +311,13 @@ Quello che segue è il componente completo con test web e modello di avviso del 
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+## Vedere anche
+
+Altri articoli di automazione:
+
+* [Creare una risorsa di Application Insights](app-insights-powershell-script-create-resource.md): metodo rapido che esclude l'uso di un modello.
+* [Configurare avvisi](app-insights-powershell-alerts.md)
+* [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Creare annotazioni di rilascio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

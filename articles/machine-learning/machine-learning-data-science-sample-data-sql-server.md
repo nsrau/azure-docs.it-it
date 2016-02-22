@@ -13,22 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio in SQL Server in Azure
 
-Questo **menu** collega ad argomenti che descrivono come campionare dei dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduzione
 
-In questo documento viene illustrato come campionare dei dati archiviati nel server SQL in Azure utilizzando sia SQL sia il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricarli in un BLOB di Azure e quindi leggerli in di Azure ML.
+Questo documento illustra come campionare dati archiviati in SQL Server in Azure usando SQL o il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricandoli in un BLOB di Azure e quindi leggendoli in Azure Machine Learning Studio.
 
 Il campionamento di Python utilizza la libreria ODBC [pyodbc](https://code.google.com/p/pyodbc/) per connettersi al server SQL in Azure e la libreria [Pandas](http://pandas.pydata.org/) per eseguire il campionamento.
 
->[AZURE.NOTE]Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all’argomento [Spostamento dei dati in SQL Server in Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in un Server SQL su Azure.
+>[AZURE.NOTE] Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all'argomento sullo [spostamento dei dati in SQL Server in Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in SQL Server su Azure.
+
+**Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
+
+Il **menu** seguente collega ad argomenti che descrivono come campionare dati da vari ambienti di archiviazione.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+Questa attività di campionatura è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Utilizzo di SQL
 
@@ -52,7 +57,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
->[AZURE.NOTE]È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
+>[AZURE.NOTE] È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
 
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
@@ -121,4 +126,4 @@ Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Proc
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

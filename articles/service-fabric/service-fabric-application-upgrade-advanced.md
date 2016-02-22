@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Aggiornamento di un'applicazione di infrastruttura di servizi: argomenti avanzati
 
 ## Modalità di aggiornamento manuale
 
-> [AZURE.NOTE]La modalità di aggiornamento UnmonitoredManual deve essere presa in considerazione solo per un aggiornamento non riuscito o sospeso. La modalità di aggiornamento consigliata per le applicazioni di Service Fabric è la modalità monitorata.
+> [AZURE.NOTE]  La modalità di aggiornamento UnmonitoredManual deve essere presa in considerazione solo per un aggiornamento non riuscito o sospeso. La modalità di aggiornamento consigliata per le applicazioni di Service Fabric è la modalità monitorata.
 
 Azure Service Fabric offre diverse modalità di aggiornamento per supportare i cluster di sviluppo e di produzione. Ognuna delle opzione di sviluppo è ideale per ambienti diversi.
 
@@ -49,12 +49,15 @@ L'uso di un pacchetto Diff è consigliato nei casi seguenti:
 
 ## Passaggi successivi
 
-[Esercitazione sull'aggiornamento](service-fabric-application-upgrade-tutorial.md)
+[Aggiornamento dell'applicazione mediante Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione tramite Visual Studio.
 
-[Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
+[Aggiornare l'applicazione tramite Powershell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un’applicazione tramite PowerShell.
 
-[Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
+Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 
-[Risoluzione dei problemi di aggiornamento delle applicazioni](service-fabric-application-upgrade-troubleshooting.md)
+Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

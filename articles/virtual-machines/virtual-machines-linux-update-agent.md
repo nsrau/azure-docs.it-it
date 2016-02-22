@@ -18,17 +18,17 @@
 	ms.author="mingzhan"/>
 
 
-# Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da Github
+# Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub
 
-Per aggiornare il [agente Linux di Azure](https://github.com/Azure/WALinuxAgent), su una macchina virtuale di Linux in Azure è necessario avere già:
+Per aggiornare l'[agente Linux di Azure](https://github.com/Azure/WALinuxAgent), su una VM Linux in Azure è necessario avere già:
 
-1. una macchina virtuale Linux in esecuzione in Azure
-2. Si è connessi a VM Linux tramite SSH
+1. Una VM Linux in esecuzione in Azure.
+2. Una connessione a tale VM Linux mediante SSH.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-> [AZURE.NOTE]Se questa attività verrà effettuata da un computer Windows, è possibile utilizzare Putty per SSH al computer Linux. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-linux-how-to-log-on.md).
+> [AZURE.NOTE] Se questa attività verrà eseguita da un computer Windows, è possibile usare PuTTY per SSH nel computer Linux. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-linux-how-to-log-on.md).
 
 Distribuzioni Linux da Azure inserite nei loro repository il pacchetto agente Linux di Azure, pertanto verificare e installare la versione più recente da quel repository Distro innanzitutto se possibile.
 
@@ -36,11 +36,11 @@ Per Ubuntu, digitare:
 
     #sudo apt-get install walinuxagent
 
-e su CentOS, digitare:
+E in CentOS digitare:
 
     #sudo yum install waagent
 
-Per Oracle Linux, verificare che l'archivio `Addons` sia abilitato. Modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e modificare la riga `enabled=0` in `enabled=1` sotto **[ol6\_addons]** o **[ol7\_addons]** in questo file.
+Per Oracle Linux, verificare che il repository `Addons` sia abilitato. Scegliere di modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e la riga `enabled=0` in `enabled=1` in **[ol6\_addons]** o **[ol7\_addons]** in questo file.
 
 Installare quindi la versione più recente dell'agente Linux di Azure e digitare:
 
@@ -60,7 +60,7 @@ Installare wget (esistono alcune distribuzioni non installare il file per impost
 
 Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/Azure/WALinuxAgent/releases) in una pagina Web e trovare il numero di versione più recente. (È possibile individuare la versione corrente digitando `#waagent --version`.)
 
-###Per la versione 2.0. x, digitare:
+### Per la versione 2.0.x, digitare:
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
@@ -68,7 +68,7 @@ Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/A
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-###Per la versione 2.1.x o successiva, digitare:
+### Per la versione 2.1.x o successiva, digitare:
 
     #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
@@ -80,31 +80,31 @@ Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/A
     #unzip WALinuxAgent-2.1.0.zip  
     #cd WALinuxAgent-2.1.0
 
-##Installare l’agente Linux
+## Installare l'agente Linux di Azure
 
-###Per la versione 2.0.x, usare:
+### Per la versione 2.0.x, usare:
 
- Rendere eseguibile waagent
+ Rendere waagent eseguibile:
 
     #chmod +x waagent
 
- Copiare il nuovo eseguibile in /usr /sbin/Service
+ Copiare il nuovo eseguibile in /usr/sbin/.
 
   Per la maggior parte delle distribuzioni Linux, usare:
 
     #sudo cp waagent /usr/sbin
 
-  Per CoreOS, utilizzare:
+  Per CoreOS, usare:
 
     #sudo cp waagent /usr/share/oem/bin/
 
   Se questa è la nuova installazione dell'agente Linux di Azure, eseguire:
- 
+
     #sudo /usr/sbin/waagent -install -verbose
 
-###Per la versione 2.1.x, usare:
+### Per la versione 2.1.x, usare:
 
-Può essere necessario installare prima il pacchetto `setuptools`. Vedere prima [qui](https://pypi.python.org/pypi/setuptools). Quindi eseguire le operazioni indicate di seguito:
+Può essere necessario installare prima il pacchetto `setuptools`. Vedere prima [qui](https://pypi.python.org/pypi/setuptools). Quindi eseguire:
 
     #sudo python setup.py install
 
@@ -126,10 +126,10 @@ Per CoreOS, utilizzare:
 
     #waagent -version
 
-Per CoreOS, di sopra di comando potrebbe non funzionare.
+Per CoreOS, il comando sopra riportato potrebbe non funzionare.
 
-Verrà visualizzata che la versione dell'agente Linux è stata aggiornata alla nuova versione.
+Si noterà che l'agente Linux di Azure è stato aggiornato alla nuova versione.
 
-Per ulteriori informazioni relative all'agente Linux di Azure, visitare [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
+Per altre informazioni relative all'agente Linux di Azure, vedere [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

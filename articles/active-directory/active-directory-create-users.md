@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/08/2016"
 	ms.author="curtand;viviali"/>
 
 # Creare o modificare utenti in Azure AD
@@ -25,12 +25,12 @@
 1. Fare clic su **Active Directory**, quindi selezionare il nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic su **Aggiungi utente**.
 3. Nella pagina **Informazioni sull'utente** per **Tipo di utente** selezionare:
-	
+
 	- **Nuovo utente nell'organizzazione**: consente di creare un nuovo account utente nella directory.
 	- **Utente con account Microsoft esistente**: consente di aggiungere un account utente Microsoft esistente alla directory. ad esempio un account Outlook.
 	- **Utente in un'altra directory di Microsoft Azure AD**: consente di aggiungere alla directory un account utente originato da un'altra directory di Azure AD. Nota: per selezionare un utente nell'altra directory, è necessario essere un membro di tale directory.
-	- **Utenti nelle società partner**: consente di invitare e autorizzare gli utenti delle società partner alla propria directory. Vedere [Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md).
-	
+	- **Utenti nelle società partner**: consente di invitare e autorizzare gli utenti delle società partner alla propria directory. Vedere [Azure Active Directory B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
+
 
 4. In base all'opzione selezionata, immettere un nome utente, un indirizzo di posta elettronica o caricare un file CSV per utenti partner.
 5. Nella pagina **Profilo** dell'utente specificare il nome e il cognome dell'utente, un nome descrittivo e un ruolo dal menu a discesa Ruoli. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles.md). Specificare eventualmente **Abilita Multi-Factor Authentication**.
@@ -87,7 +87,7 @@ Ecco le limitazioni note degli utenti esterni di Azure AD:
 - Gli utenti esterni che sono amministratori non possono aggiungere utenti da società partner a directory (B2B) esterne alla rispettiva home directory.
 - Gli utenti esterni non possono autorizzare applicazioni multi-tenant in directory esterne alla propria home directory.
 - Visual Studio Online non supporta attualmente l'accesso da parte di utenti esterni.
-- PowerBI non supporta attualmente l'accesso da parte di utenti esterni. 
+- PowerBI non supporta attualmente l'accesso da parte di utenti esterni.
 - Il portale Office non supporta la concessione di licenze a utenti esterni.
 
 ## Utenti guest
@@ -99,7 +99,7 @@ Nella directory gli utenti guest hanno un set di diritti limitato. Questi diritt
 - Visualizzare altri utenti e gruppi associati a una sottoscrizione di Azure a cui sono stati assegnati.
 - Visualizzare i membri dei gruppi a cui appartengono.
 - Cercare altri utenti nella directory, purché conoscano l'indirizzo di posta elettronica completo dell'utente.
-- Visualizzare solo un set limitato di attributi degli utenti cercati, ad esempio solo il nome visualizzato, l'indirizzo di posta elettronica, il nome dell'entità utente e la foto di anteprima. 
+- Visualizzare solo un set limitato di attributi degli utenti cercati, ad esempio solo il nome visualizzato, l'indirizzo di posta elettronica, il nome dell'entità utente e la foto di anteprima.
 - Ottenere un elenco di domini verificati nel tenant.
 - Autorizzare applicazioni, concedendo alle applicazioni lo stesso accesso disponibile nella propria directory.
 
@@ -124,4 +124,4 @@ In seguito è possibile modificare le opzioni di controllo degli accessi per gli
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

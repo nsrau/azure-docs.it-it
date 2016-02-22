@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Informazioni su Backup di Azure
@@ -61,7 +61,7 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | 
+| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 | Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## Funzionalità
@@ -150,6 +150,12 @@ Per i clienti che proteggono i dati in un server di backup, come System Center D
 | Punti di ripristino nel disco locale | Non applicabile | Non applicabile | Non applicabile |
 | Punti di ripristino su nastro | Non applicabile | Non applicabile | Non applicabile |
 
+## Informazioni sul file delle credenziali di insieme
+
+Il file delle credenziali di insieme è un certificato generato dal portale per ogni insieme di credenziali per il backup. Il portale carica quindi la chiave pubblica nel Servizio di controllo di accesso (o ACS). La chiave privata del certificato viene resa disponibile per l'utente come parte del flusso di lavoro indicato come input nel flusso di lavoro di registrazione del computer. In questo modo viene eseguita l'autenticazione del computer per l'invio dei dati di backup a un insieme di credenziali identificato nel servizio Backup di Azure.
+
+Il file delle credenziali di insieme viene usato solo durante il flusso di lavoro di registrazione. È responsabilità dell'utente garantire che il file delle credenziali di insieme non venga danneggiato. Nelle mani di un utente non autorizzato il file delle credenziali di insieme può essere usato per registrare altri computer nello stesso insieme di credenziali. Poiché i dati di backup sono crittografati tramite una passphrase appartenente al cliente, i dati di backup esistenti non possono tuttavia essere compromessi. Per attenuare questo problema, le credenziali dell'insieme di credenziali sono impostate per scadere in 48hrs. È possibile scaricare le credenziali di insieme di un insieme di credenziali per il backup un numero illimitato di volte, ma durante la registrazione del flusso di lavoro è applicabile solo il file delle credenziali di insieme più recente.
+
 ## Differenze tra Backup e Azure Site Recovery
 Molti clienti fanno confusione tra ripristino del backup e ripristino di emergenza. Entrambi acquisiscono dati e forniscono una semantica di ripristino, ma la proposta di valore alla base è diversa.
 
@@ -175,4 +181,4 @@ Per prendere decisioni relative al backup e al ripristino di emergenza, è neces
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

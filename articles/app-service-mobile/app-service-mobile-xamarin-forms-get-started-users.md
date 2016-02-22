@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili nell’app Xamarin.Forms" 
-	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin Forms tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili nell’app Xamarin.Forms"
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin Forms tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Aggiungere l'autenticazione all'app Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -38,7 +36,7 @@ Prima è necessario aver completato l'[esercitazione della guida introduttiva pe
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##Aggiungere l'autenticazione alla libreria di classi portabile 
+##Aggiungere l'autenticazione alla libreria di classi portabile
 
 Le app per dispositivi mobili usano un metodo `MobileServiceClient.LoginAsync` specifico della piattaforma per visualizzare i dati di interfaccia e di memorizzazione nella cache di accesso. Per eseguire l'autenticazione con un progetto Xamarin Forms si definirà un’interfaccia `IAuthenticate` nella libreria di classi portabile. Ogni piattaforma che si vuole supportare implementa questa interfaccia nel progetto specifico della piattaforma.
 
@@ -59,14 +57,14 @@ Si procederà all'aggiornamento l'interfaccia utente definito nella libreria di 
 
 		public class App : Application
 		{
-	
+
 	        public static IAuthenticate Authenticator { get; private set; }
-	
+
 	        public static void Init(IAuthenticate authenticator)
 	        {
 	            Authenticator = authenticator;
 	        }
-	
+
 			...
 
 
@@ -147,12 +145,12 @@ In questa sezione si aggiungerà l'autenticazione per il progetto droid. Se non 
 
 
 5. Aggiornare la classe `MainActivity` aggiungendo un campo `MobileServiceUser` e il metodo `Authenticate` illustrato di seguito per supportare l'interfaccia `IAuthenticate`.
- 
-	Se si vuole usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
+
+	Se si desidera usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -214,12 +212,12 @@ In questa sezione si aggiungerà l'autenticazione per il progetto iOS. Se non si
 
 
 5. Aggiornare la classe `AppDelegate` aggiungendo un campo `MobileServiceUser` e il metodo `Authenticate` illustrato di seguito per supportare l'interfaccia `IAuthenticate`.
- 
-	Se si vuole usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
+
+	Se si desidera usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -280,7 +278,7 @@ In questa sezione si aggiungerà l'autenticazione per il progetto WinApp. Se non
 
 
 5. Aggiornare la classe `MainPage` aggiungendo un campo `MobileServiceUser` e il metodo `Authenticate` illustrato di seguito per supportare l'interfaccia `IAuthenticate`.
- 
+
 	Se si vuole usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
 
         // Define a authenticated user.
@@ -320,7 +318,7 @@ In questa sezione si aggiungerà l'autenticazione per il progetto WinApp. Se non
             this.InitializeComponent();
 
             <Your portable class library namespace>.App.Init(this);
-            
+
             LoadApplication(new <Your portable class library namespace>.App());
         }
 
@@ -350,7 +348,7 @@ In questa sezione si aggiungerà l'autenticazione per il progetto WinPhone81. Se
 
 
 5. Aggiornare la classe `MainPage` aggiungendo un campo `MobileServiceUser` e il metodo `Authenticate` illustrato di seguito per supportare l'interfaccia `IAuthenticate`.
- 
+
 	Se si vuole usare un `MobileServiceAuthenticationProvider` diverso al posto di Facebook, apportare anche questa modifica.
 
         // Define a authenticated user.
@@ -405,7 +403,7 @@ In questa sezione si aggiungerà l'autenticazione per il progetto WinPhone81. Se
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
-		
+
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
@@ -426,7 +424,4 @@ In questa sezione si aggiungerà l'autenticazione per il progetto WinPhone81. Se
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

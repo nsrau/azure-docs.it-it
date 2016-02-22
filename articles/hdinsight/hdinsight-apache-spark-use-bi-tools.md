@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -38,7 +38,7 @@ Informazioni su come usare Apache Spark in Azure HDInsight per eseguire le opera
 
 ##<a name="hivetable"></a>Salvare i dati non elaborati come una tabella Hive
 
-In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) associato a un cluster Apache Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella Hive. I dati di esempio sono un file CSV (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
+In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) associato a un cluster Apache Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella Hive. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
 
 Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà effettuata la connessione alla tabella Hive mediante strumenti di Business Intelligence come Power BI e Tableau.
 
@@ -135,16 +135,16 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Riquadro Spark nel dashboard di Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Riquadro Spark nel dashboard di Power BI")
 
-6. Si noti che l’elenco **campi** negli elenchi di destra la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
+6. Si noti che l'elenco **campi** a destra elenca la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
 
 	  ![Elencare le tabelle Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Elencare le tabelle Hive")
 
-7. Creare una visualizzazione per mostrare la variazione tra temperatura di destinazione e temperatura effettiva per ogni compilazione. Selezionare **Grafico ad aree** (in rosso) per visualizzare i dati. Per definire l'asse, trascinare e rilasciare il campo **BuildingID** nei campi **Asse** e **ActualTemp**/**TargetTemp** in **Valore**.
+7. Creare una visualizzazione per mostrare la variazione tra temperatura di destinazione e temperatura effettiva per ogni edificio. Selezionare **Grafico ad aree** (in rosso) per visualizzare i dati. Per definire l'asse, trascinare e rilasciare il campo **BuildingID** nei campi **Asse** e **ActualTemp**/**TargetTemp** in **Valore**.
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Creare visualizzazioni")
 
 
-8. Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Per entrambi i campi, dall'elenco a discesa selezionare **Media** per ottenere una media della temperature effettiva e di destinazione per entrambe le compilazioni.
+8. Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Per entrambi i campi, dall'elenco a discesa selezionare **Media** per ottenere una media della temperature effettiva e di destinazione per entrambi gli edifici.
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
     
@@ -178,7 +178,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Aggiunta di tabelle a Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Aggiunta di tabelle a Tableau")
 
-6. Fare clic sulla scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e destinazione media per tutti gli edifici e per ogni data. Trascinare **Date** e **Building ID** su **Columns** e **Actual Temp**/**Target Temp** su **Rows**. In **Marks** selezionare **Area** per usare una visualizzazione del grafico ad aree.
+6. Fare clic sulla scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e di destinazione media per tutti gli edifici e per ogni data. Trascinare **Date** e **Building ID** su **Columns** e **Actual Temp**/**Target Temp** su **Rows**. In **Marks** selezionare **Area** per usare una visualizzazione del grafico ad aree.
 
 	 ![Aggiungere campi per la visualizzazione](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Aggiungere campi per la visualizzazione")
 
@@ -202,7 +202,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 ### Scenari
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -216,7 +216,9 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Estensioni
+### Strumenti ed estensioni
+
+* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -237,4 +239,4 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

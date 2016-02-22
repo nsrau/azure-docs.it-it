@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Eseguire processi Pig da una connessione Desktop remoto
@@ -85,7 +85,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE]I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
+	> [AZURE.NOTE] I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
 
 7. Per uscire dal prompt grunt, immettere la seguente istruzione.
 
@@ -136,4 +136,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

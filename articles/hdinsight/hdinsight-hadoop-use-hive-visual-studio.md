@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come inviare query Hive a un cluster HDInsight usando HDInsight Tools per Visual Studio.
 
-> [AZURE.NOTE]Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
-        > [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+        > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
         >
         > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -74,7 +74,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
-        > [AZURE.NOTE]A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
+        > [AZURE.NOTE] A differenza delle tabelle **EXTERNAL**, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
@@ -135,4 +135,4 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

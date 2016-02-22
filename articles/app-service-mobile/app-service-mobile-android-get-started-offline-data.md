@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -36,7 +34,7 @@ Con la sincronizzazione offline si legge e si scrive da una *tabella di sincroni
 Per eseguire il push e il pull delle modifiche tra il dispositivo e Servizi mobili di Azure, si usa un *contesto di sincronizzazione* (*MobileServiceClient.SyncContext*), inizializzato con il database locale usato per archiviare localmente i dati.
 
 1. In `TodoActivity.java`, impostare come commento la definizione esistente di `mToDoTable` e rimuovere il commento della versione della tabella di sincronizzazione:
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. Nel metodo `onCreate`, impostare come commento l'inizializzazione esistente di `mToDoTable` e rimuovere il commento di questa definizione:
@@ -118,4 +116,4 @@ Quando si preme il pulsante, viene avviata una nuova attività in background e v
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

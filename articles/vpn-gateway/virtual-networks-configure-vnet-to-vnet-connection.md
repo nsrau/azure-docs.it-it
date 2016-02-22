@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Questo articolo illustrerà la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come Service Management). Se si sta cercando un modello di distribuzione differente per questa configurazione, usare le schede riportate sopra per selezionare l'articolo più pertinente.
+Questo articolo illustrerà la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come Service Management). Se si vogliono connettere reti virtuali create mediante il modello di distribuzione di Gestione risorse, vedere [Configurare una connessione da VNet a VNet per reti virtuali nella stessa sottoscrizione usando Gestione risorse di Azure e PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **Informazioni sui modelli di distribuzione di Azure**
 
@@ -223,4 +223,4 @@ Dopo aver completato la connessione, è possibile aggiungere macchine virtuali a
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

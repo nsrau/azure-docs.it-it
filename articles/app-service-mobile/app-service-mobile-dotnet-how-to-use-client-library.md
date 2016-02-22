@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-libbra](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##Panoramica 
+##Panoramica
 
 Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con App per dispositivi mobili, si consiglia di completare prima l'esercitazione [Introduzione a App per dispositivi mobili](app-service-mobile-windows-store-dotnet-get-started.md). In questa Guida, l'attenzione è posta sull’SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere [Usare l'SDK del server back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Come usare Node.js SDK back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -188,8 +185,8 @@ Nella situazione illustrata il passaggio di valori di paging hardcoded ai metodi
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -260,9 +257,9 @@ Nel codice seguente viene illustrato come aggiornare con nuove informazioni un'i
 
 	await todoTable.UpdateAsync(todoItem);
 
-Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue: 
-JObject jo = new JObject(); 
-jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); 
+Per inserire dati non tipizzati è possibile sfruttare Json.NET come segue:
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
@@ -328,7 +325,7 @@ I modelli sono di tipo JObject e possono contenere più modelli nel formato JSON
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -482,7 +479,7 @@ Infine, si supponga che la tabella sia costituita da molti campi, ma si desideri
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione relativa alla [configurazione del servizio app per usare l'account di accesso di Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 
 2. In Visual Studio o Xamarin Studio aprire il progetto e aggiungere un riferimento al pacchetto NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Includere le versioni preliminari nella ricerca.
 
@@ -680,7 +677,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -808,7 +805,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -867,4 +864,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

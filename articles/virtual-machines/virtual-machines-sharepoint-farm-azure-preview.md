@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
 # Creare farm di SharePoint Server
@@ -23,7 +23,7 @@
 
 Con il marketplace del portale di Microsoft Azure, è possibile creare rapidamente delle farm pre-configurate di SharePoint Server 2013. Ciò consente di risparmiare una notevole quantità di tempo in caso si necessiti di una farm di SharePoint di base o a disponibilità elevata per un ambiente di sviluppo e test o in caso si stia valutando l'opportunità di usare SharePoint Server 2013 come soluzione per la collaborazione all'interno dell'organizzazione.
 
-> [AZURE.NOTE] L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso.
+> [AZURE.NOTE] L'elemento **SharePoint Farm** nella sezione Marketplace del portale di Azure è stato rimosso. È stato sostituito dagli elementi **SharePoint 2013 non-HA Farm** e **SharePoint 2013 HA Farm**.
 
 La farm di SharePoint di base è costituita da tre macchine virtuali in questa configurazione.
 
@@ -51,8 +51,6 @@ Per creare la farm di SharePoint a disponibilità elevata (nove server):
 3. Nel riquadro **SharePoint 2013 HA Farm**, fare clic su **Crea**.
 4. Specificare le impostazioni per i 7 passaggi del riquadro **Creare una SharePoint 2013 HA Farm**, quindi fare clic su **Crea**.
 
-> [AZURE.NOTE] Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Gestire le farm di SharePoint
 
 È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per ulteriori informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
@@ -63,6 +61,6 @@ Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti 
 
 ## Passaggio successivo
 
-- Scoprire ulteriori configurazioni [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
+- Scoprire altre configurazioni [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

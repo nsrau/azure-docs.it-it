@@ -3,7 +3,7 @@
 	description="La libreria client di archiviazione di Azure per .NET offre supporto per la crittografia lato client e l'integrazione con l'insieme di credenziali chiave di Azure per la massima sicurezza delle applicazioni di archiviazioni Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/08/2016"
 	ms.author="lakasa"/>
 
 
@@ -244,6 +244,9 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 
 ## Passaggi successivi
 
-Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net) da GitHub Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali chiave di Azure Visitare la pagina [Documentazione dell'insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
+Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 
+Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net) da GitHub 
+Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell'insieme di credenziali chiave di Azure
+Visitare la pagina [Documentazione dell'insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

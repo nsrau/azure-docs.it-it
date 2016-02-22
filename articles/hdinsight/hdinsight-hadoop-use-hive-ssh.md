@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Uso di Hive con Hadoop in HDInsight tramite SSH
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi a un cluster Hadoop in Azure HDInsight e quindi inviare in modo interattivo query Hive mediante l'interfaccia della riga di comando di Hive.
 
-> [AZURE.IMPORTANT]Anche se il comando Hive è disponibile nei cluster HDInsight basati su Linux, è consigliabile utilizzare Beeline. Beeline è un client più recente per l'utilizzo di Hive ed è incluso con il cluster HDInsight. Per ulteriori informazioni sull'utilizzo di questo, vedere [Utilizzo di Hive con Hadoop in HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
+> [AZURE.IMPORTANT] Anche se il comando Hive è disponibile nei cluster HDInsight basati su Linux, è consigliabile utilizzare Beeline. Beeline è un client più recente per l'utilizzo di Hive ed è incluso con il cluster HDInsight. Per ulteriori informazioni sull'utilizzo di questo, vedere [Utilizzo di Hive con Hadoop in HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il c
 
 **Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
 
-Per altre informazioni sull'uso di SSH con HDInsight, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+Per altre informazioni sull'uso di SSH con HDInsight, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ###PuTTY (client basati su Windows)
 
@@ -76,7 +76,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
     * **INPUT\_\_FILE\_\_NAME come '%.log'** -indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con. log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
 
-    > [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+    > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     >
     > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -89,7 +89,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
-    * **INSERT OVERWRITE ... SELECT**: - seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, poi inserisce i dati nella tabella **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
 
     Per verificare che solo le righe contenenti **[ERROR]** nella colonna t4 siano state archiviate nella tabella **errorLogs**, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
 
@@ -97,7 +97,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
     Dovrebbero essere restituite tre righe di dati, tutte contenenti **[ERROR]** nella colonna t4.
 
-    > [AZURE.NOTE]A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
+    > [AZURE.NOTE] A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
 
 ##<a id="summary"></a>Riepilogo
 
@@ -144,4 +144,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

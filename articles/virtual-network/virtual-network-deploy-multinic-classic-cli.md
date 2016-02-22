@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Distribuire le macchine virtuali con funzionalità Multi-NIC (classiche) tramite l’interfaccia della riga di comando di Azure di Azure
@@ -39,13 +39,13 @@ Prima di distribuire i server back-end, è necessario distribuire il servizio cl
 
 Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate di seguito.
 
-- **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzeranno la tecnologia unità SSD, che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
+- **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare che la posizione di Azure distribuita supporti l'archiviazione premium.
 - **Schede di rete**. Ogni macchina virtuale ha due schede di rete, una per l'accesso al database e una per la gestione.
-- **Set di disponibilità**. Tutti i server di database verranno aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
 
 ### Passaggio 1 - avviare lo script
 
-È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
+È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
 1. Modificare i valori delle variabili indicate di seguito in base al gruppo di risorse esistente distribuito in precedenza in [Prerequisiti](#Prerequisites).
 
@@ -174,4 +174,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

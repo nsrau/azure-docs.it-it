@@ -8,7 +8,7 @@ Il dashboard nella soluzione di monitoraggio remoto consente di visualizzare la 
 
     ![][18]
 
-3. Nel dashboard, selezionare il dispositivo nell’elenco a discesa **Dispositivo da visualizzare** per visualizzare i relativi dati di telemetria. La telemetria dall'applicazione di esempio è di 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 unità per l’umidità. Si noti che per impostazione predefinita il dashboard mostra solo i valori di temperatura e umidità.
+3. Fare clic su **Dashboard** per tornare al dashboard, selezionare il dispositivo nell'elenco a discesa **Dispositivo da visualizzare** per visualizzare i relativi dati di telemetria. La telemetria dall'applicazione di esempio è di 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 unità per l’umidità. Si noti che per impostazione predefinita il dashboard mostra solo i valori di temperatura e umidità.
 
     ![][img-telemetry]
 
@@ -28,7 +28,7 @@ Il dashboard nella soluzione di monitoraggio remoto consente di richiedere l’h
 
     ![][14]
 
-    > [AZURE.NOTE]La cronologia dei comandi mostra inizialmente lo stato del comando come **In sospeso**. Quando il dispositivo riconosce il comando, lo stato passa a **Esito positivo**.
+    > [AZURE.NOTE] La cronologia dei comandi mostra inizialmente lo stato del comando come **In sospeso**. Quando il dispositivo riconosce il comando, lo stato passa a **Esito positivo**.
 
 5. Nel dashboard, verificare che il dispositivo stia ora inviando 75 come nuovo valore di temperatura.
 
@@ -43,4 +43,4 @@ L'articolo [Personalizzazione delle soluzioni preconfigurate][lnk-customize] des
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

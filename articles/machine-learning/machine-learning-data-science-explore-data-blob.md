@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
 
-Questo **menu** collega ad argomenti che descrivono come utilizzare gli strumenti per esplorare i dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
-
 ## Introduzione
 
 In questo documento viene descritto come esplorare i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/).
+
+Il **menu** seguente collega ad argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -116,4 +117,4 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

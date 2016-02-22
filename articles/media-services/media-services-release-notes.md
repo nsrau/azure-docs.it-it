@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
+	ms.date="02/09/2016"
 	ms.author="juliako"/>
 
 
@@ -66,6 +66,7 @@ Nell'API REST non sono fornite alcune intestazioni HTTP comuni.|Se si sviluppano
 La codifica di un asset con un nome di file contenente caratteri di escape, (ad esempio %20), genera un errore simile al seguente "MediaProcessor: File non trovato.”|I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.
 Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
 Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. | È necessario usare **Skip** and **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Problemi relativi all'SDK di Servizi multimediali per .NET
@@ -642,4 +643,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

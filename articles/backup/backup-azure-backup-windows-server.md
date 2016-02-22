@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # Eseguire il backup di file e cartelle Windows Server o Client Windows in Azure
@@ -51,5 +51,6 @@
 - [Gestione di Windows Server o Windows Client](backup-azure-manage-windows-server.md)
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
+- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

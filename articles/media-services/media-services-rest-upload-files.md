@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -39,7 +39,7 @@ AMS consente anche di caricare gli asset in blocco. Per altre informazioni, vede
 
 ###Creare un asset
 
->[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
@@ -293,7 +293,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi.
 
->[AZURE.NOTE]È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+>[AZURE.NOTE] È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
@@ -521,4 +521,4 @@ Un'entità IngestManifestFile rappresenta un oggetto BLOB audio o video che verr
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

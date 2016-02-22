@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Riepilogo
 
@@ -70,4 +68,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 <!-- URLs. -->
 [creazione di un'app per dispositivi mobili]: app-service-mobile-android-get-started.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

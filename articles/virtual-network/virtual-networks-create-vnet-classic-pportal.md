@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare una rete virtuale usando il portale di anteprima di Azure | Microsoft Azure"
-   description="Informazioni su come creare una rete virtuale tramite il portale di anteprima di Azure."
+   pageTitle="Creare una rete virtuale usando il portale di Azure | Microsoft Azure"
+   description="Informazioni su come creare una rete virtuale tramite il portale di Azure."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # Creare una rete virtuale (classica) usando il portale di anteprima di Azure
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

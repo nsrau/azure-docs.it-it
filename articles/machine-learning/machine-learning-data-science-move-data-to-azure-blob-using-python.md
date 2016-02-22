@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
 
-Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
-
-[AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
 ## Introduzione
+Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API Python.
 
 Con l'API Python fornita in Azure SDK, è possibile
 
@@ -32,17 +29,22 @@ Con l'API Python fornita in Azure SDK, è possibile
 - Elencare i BLOB in un contenitore
 - Eliminare un BLOB
 
-Questa sezione viene illustrato come elencare, caricare e scaricare BLOB. Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come utilizzare il servizio di archiviazione BLOB da Python](../storage-python-how-to-use-blob-storage.md).
+Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come utilizzare il servizio di archiviazione BLOB da Python](../storage-python-how-to-use-blob-storage.md).
 
-> [AZURE.NOTE]Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora AzCopy è già installata nella macchina virtuale.
+Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
 
-> [AZURE.NOTE]Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+[AZURE.INCLUDE [selettore dello strumento di archiviazione BLOB](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
+
+> [AZURE.NOTE] Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora AzCopy è già installata nella macchina virtuale.
+
+> [AZURE.NOTE] Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Prerequisiti
 
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e delle chiavi di archiviazione corrispondenti per quell’account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
-- Per configurare una sottoscrizione di Azure vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Per configurare una sottoscrizione di Azure, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 - Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md).
 
 ## Caricamento di dati BLOB
@@ -123,4 +125,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

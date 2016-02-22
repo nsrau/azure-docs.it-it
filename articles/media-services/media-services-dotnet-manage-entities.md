@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Questo argomento illustra come eseguire le seguenti attività di gestione di Ser
 - Elencare tutti gli asset 
 - Elencare i processi e gli asset 
 - Elencare tutti i criteri di accesso 
-- Elencare tutti i localizzatori 
+- Elencare tutti i localizzatori
+- Enumerazione di grandi raccolte di entità
 - Eliminare un asset 
 - Eliminare un processo 
 - Eliminare un criterio di accesso 
@@ -245,6 +246,47 @@ Si noti che il percorso localizzatore per un asset è solo un URL di base per l'
 	    }
 	}
 
+## Enumerazione di grandi raccolte di entità
+
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. Quando si esegue l'enumerazione di grandi raccolte di entità, è necessario usare la proprietà Skip and Take.
+	
+La funzione seguente consente di scorrere tutti i processi nell'account di Servizi multimediali specificato. Servizi multimediali restituisce 1000 processi nella raccolta di processi. La funzione usa la proprietà Skip and Take per assicurarsi che tutti i processi vengano enumerati (se si dispone di più di 1000 processi nell'account).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Eliminare un asset
 
@@ -339,4 +381,4 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

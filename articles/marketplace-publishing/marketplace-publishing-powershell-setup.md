@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="02/04/2016"
    ms.author="hascipio"/>
 
 # Configurare Azure PowerShell per la creazione di un'offerta per Azure Marketplace
@@ -30,4 +30,4 @@ Il primo comando associa un account di archiviazione predefinito alla sottoscriz
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

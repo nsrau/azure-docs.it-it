@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -114,17 +114,13 @@ In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà 
 * Aprire Impostazioni/Quota e Prezzi per vedere il grafico Volume dati.
 * Altrimenti, in Esplora metriche, aggiungere un nuovo grafico e selezionare **Volume punti dati** come metrica. Attivare il raggruppamento in base a **Tipo di dati**.
 
-*Come è possibile ridurre la quantità di dati inviati dall'app personale?*
-
-* Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca. Il campionamento adattivo è abilitato per impostazione predefinita dalla versione 2.0.0-beta3 di Application Insights SDK per ASP.NET.
-* [Disattivare gli agenti di raccolta dei dati di telemetria](app-insights-configuration-with-applicationinsights-config.md) che non sono necessari.
-
 
 ### Suggerimenti per ridurre la velocità dei dati
 
 Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 
 * Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca.
+* [Limitare il numero di chiamate Ajax che possono essere segnalate](app-insights-javascript.md#detailed-configuration) in ogni visualizzazione della pagina o disattivare la creazione di report Ajax.
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 * Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
@@ -166,4 +162,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Prerequisiti##
+## Prerequisiti ##
 
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux CentOS (o un sistema derivato simile) in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -82,7 +82,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		# sudo chkconfig network on
 
 
-8. **Solo CentOS 6.3**: installare i driver per Linux Integration Services (LIS)
+8. **Solo CentOS 6.3**: installare i driver per Linux Integration Services (LIS).
 
 	**Importante: questo passaggio è valido solo per CentOS 6.3 e versioni precedenti.** In CentOS 6.4+ Linux Integration Services è *già disponibile nel kernel standard*.
 
@@ -355,7 +355,6 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 17. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## Passaggi successivi
-È ora possibile usare il file .vhd CentOS Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
- 
+È ora possibile usare il disco rigido virtuale CentOS Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file con estensione vhd in Azure, vedere i passaggi 2 e 3 in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

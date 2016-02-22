@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 # Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
@@ -41,7 +41,7 @@ La prima parte del documento esamina le diverse tecniche di invio in batch per l
 ## Strategie di invio in batch
 
 ### Nota sui risultati della tempistica in questo argomento
->[AZURE.NOTE]I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+>[AZURE.NOTE] I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 
 ### Transazioni
 Può apparire inconsueto che si inizi un'analisi dell'invio in batch parlando di transazioni. Tuttavia, l'uso delle transazioni sul lato client ha un sottile effetto sull'invio in batch sul lato server che migliora le prestazioni. Inoltre, le transazioni possono essere aggiunte con poche righe di codice, quindi sono un modo rapido per migliorare le prestazioni delle operazioni sequenziali.
@@ -108,7 +108,7 @@ La tabella seguente illustra alcuni risultati di test ad hoc. I test eseguono le
 | 100 | 2145 | 341 |
 | 1000 | 21479 | 2756 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 In base ai risultati di test precedenti, il wrapping di una singola operazione in una transazione riduce in effetti le prestazioni. Tuttavia, maggiore è il numero di operazioni in una singola transazione, più evidente risulta il miglioramento delle prestazioni. La differenza nelle prestazioni è anche più significativa se tutte le operazioni vengono eseguite nello stesso data center di Microsoft Azure. La maggiore latenza dovuta all'uso del database SQL dall'esterno del data center di Microsoft Azure vanifica il vantaggio in termini di prestazioni derivante dall'uso delle transazioni.
 
@@ -187,7 +187,7 @@ La tabella seguente illustra i risultati, in millisecondi, dei test ad hoc per l
 | 1000 | 2615 | 382 |
 | 10000 | 23830 | 3586 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 Il miglioramento delle prestazioni che deriva dall'invio in batch è evidente. Nel test sequenziale precedente 1000 operazioni hanno richiesto 129 secondi all'esterno del data center e 21 secondi all'interno del data center. Con i parametri con valori di tabella 1000 operazioni richiedono invece solo 2,6 secondi all'esterno del data center e 0,4 secondi all'interno.
 
@@ -221,7 +221,7 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, d
 | 1000 | 2535 | 341 |
 | 10000 | 21605 | 2737 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 Nei batch di dimensioni inferiori l'uso dei parametri con valori di tabella ha prodotto prestazioni migliori rispetto alla classe **SqlBulkCopy**. Tuttavia, l'esecuzione della classe **SqlBulkCopy** risulta del 12-31% più rapida rispetto ai parametri con valori di tabella per i test di 1.000 e 10.000 righe. Come i parametri con valori di tabella, la classe **SqlBulkCopy** è un'opzione valida per le operazioni di inserimento in batch, in particolare rispetto alle prestazioni di operazioni non in batch.
 
@@ -259,7 +259,7 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di i
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 Questo approccio può essere leggermente più veloce per i batch minori di 100 righe. Sebbene l'entità del miglioramento sia lieve, questa tecnica rappresenta un'altra opzione che potrebbe rivelarsi utile in scenari di applicazione specifici.
 
@@ -298,7 +298,7 @@ I test non hanno in genere evidenziato vantaggi correlati alla suddivisione di b
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 È possibile notare che le prestazioni migliori per 1000 righe si ottengono inviandole tutte insieme. In altri test, non riportati qui, si è notato un lieve miglioramento delle prestazioni suddividendo un batch di 10000 righe in due batch da 5000. Lo schema della tabella in questi test è tuttavia relativamente semplice, quindi è consigliabile condurre test su dati e dimensioni di batch specifici per verificare questi risultati.
 
@@ -316,7 +316,7 @@ Che cosa accadrebbe se si adottasse l'approccio di ridurre le dimensioni del bat
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE]I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
 
 Esistono diverse potenziali cause della riduzione delle prestazioni derivante dal parallelismo:
 
@@ -604,4 +604,4 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 
 Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi di migliorare le prestazioni e la scalabilità, vedere [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) e [Considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

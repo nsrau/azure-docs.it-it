@@ -63,4 +63,4 @@ Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessi
 
 In caso di problemi quando si tenta di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

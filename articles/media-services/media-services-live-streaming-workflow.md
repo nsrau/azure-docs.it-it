@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -41,7 +41,7 @@ Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmet
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
-Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
+Un **Canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
 
 
 - Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
@@ -93,4 +93,4 @@ Per altre informazioni, vedere [Uso di canali che ricevono il flusso live a più
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

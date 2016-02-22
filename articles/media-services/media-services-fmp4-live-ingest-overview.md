@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
@@ -39,13 +39,13 @@ Il diagramma seguente illustra l'architettura di alto livello del servizio di li
 
 ##3\. Formato del flusso di bit: MP4 frammentato ISO 14496-12
 
-Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Vedere [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di un live streaming.
+Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di un live streaming.
 
 ###Definizioni del formato di inserimento live 
 
 Di seguito sono elencate alcune speciali definizioni di formato applicabili all'inserimento live in Servizi multimediali di Microsoft Azure.
 
-1. "ftyp", LiveServerManifestBox e la casella "moov" devono (MUST) essere inviati con ogni richiesta (HTTP POST). DEVONO (MUST) essere inviati all'inizio del flusso e ogni qualvolta il codificatore deve riconnettersi per riprendere il processo di inserimento del flusso. Per altri dettagli, vedere la sezione 6 di [1].
+1. "ftyp", LiveServerManifestBox e la casella "moov" devono (MUST) essere inviati con ogni richiesta (HTTP POST). DEVONO (MUST) essere inviati all'inizio del flusso e ogni qualvolta il codificatore deve riconnettersi per riprendere il processo di inserimento del flusso. Per altri dettagli, fare riferimento alla sezione 6 di [1].
 2. La sezione 3.3.2 di [1] definisce una finestra facoltativa denominata StreamManifestBox per l'inserimento live. A causa della logica di routing del bilanciamento del carico di Microsoft Azure, questa finestra è stata deprecata e non dovrebbe (SHOULD NOT) quindi essere presente durante l'inserimento in Servizi multimediali di Microsoft Azure. Se questa finestra è presente, Servizi multimediali di Azure automaticamente la ignora.
 3. L'elemento TrackFragmentExtendedHeaderBox definito nella sezione 3.2.3.2 di [1] deve (MUST) essere presente per ogni segmento.
 4. La versione 2 dell'elemento TrackFragmentExtendedHeaderBox dovrebbe (SHOULD) essere usata per generare segmenti multimediali con URL identici in più data center. Il campo di indice del frammento è obbligatorio (REQUIRED) per il failover tra data center di formati di streaming basati su indice, quali Apple HTTP Live Streaming (HLS) e MPEG-DASH basato su indice. Per abilitare il failover tra data center, l'indice del frammento deve (MUST) essere sincronizzato tra più codificatori e aumentare di un'unità per ogni frammento multimediale successivo, anche in caso di riavvii o errori del codificatore.
@@ -56,7 +56,7 @@ Di seguito sono elencate alcune speciali definizioni di formato applicabili all'
 
 ##4\. Formato del protocollo: HTTP
 
-L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali di Microsoft Azure usa una richiesta HTTP POST standard con esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni HTTP POST invia un flusso in bit MP4 frammentato completo ("flusso") iniziando con le caselle di intestazione ("ftyp", "Live Server Manifest Box" e casella "moov") e continuando con una sequenza di frammenti (caselle "moof" e "mdat"). Vedere la sezione 9.2 di [1] per la sintassi dell'URL relativo alla richiesta HTTP POST. Un esempio di URL POST è:
+L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali di Microsoft Azure usa una richiesta HTTP POST standard con esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni HTTP POST invia un flusso in bit MP4 frammentato completo ("flusso") iniziando con le caselle di intestazione ("ftyp", "Live Server Manifest Box" e casella "moov") e continuando con una sequenza di frammenti (caselle "moof" e "mdat"). Fare riferimento alla sezione 9.2 di [1] per la sintassi dell'URL relativo alla richiesta HTTP POST. Un esempio di URL POST è:
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
@@ -74,7 +74,7 @@ Di seguito sono elencati i requisiti dettagliati:
 
 ##5\. Scala cronologica 
 
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descrive l'uso della scala cronologica per SmoothStreamingMedia (sezione 2.2.2.1), StreamElement (sezione 2.2.2.3), StreamFragmentElement (2.2.2.6) e LiveSMIL (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, il valore predefinito usato è 10.000.000 (10 MHz). Sebbene le specifiche del formato Smooth Streaming non impediscano l'uso di altri valori di scala cronologica, la maggior parte delle implementazioni di codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. In presenza della funzione di [creazione dinamica dei pacchetti di Azure Media](media-services-dynamic-packaging-overview.md), è consigliabile usare un valore di scala cronologica di 90 kHz per i flussi video e di 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
+[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descrive l'uso della scala cronologica per SmoothStreamingMedia (sezione 2.2.2.1), StreamElement (sezione 2.2.2.3), StreamFragmentElement (2.2.2.6) e LiveSMIL (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, il valore predefinito usato è 10.000.000 (10 MHz). Sebbene le specifiche del formato Smooth Streaming non impediscano l'uso di altri valori di scala cronologica, la maggior parte delle implementazioni di codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. In presenza della funzione di [creazione dinamica dei pacchetti di Azure Media](media-services-dynamic-packaging-overview.md), è consigliabile usare un valore di scala cronologica di 90 kHz per i flussi video e di 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Fare riferimento a [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ##6\. Definizione di "flusso"  
 
@@ -173,7 +173,7 @@ Quando si trasmette in live streaming una presentazione con un forte coinvolgime
 Di seguito è illustrata la procedura consigliata per l'inserimento di una traccia di tipo sparse:
 
 1. Creare un flusso in bit MP4 frammentato contenente solo le tracce di tipo sparse, senza tracce audio e video.
-2. Nella finestra "Live Server Manifest Box", come definita nella sezione 6 di [1], usare il parametro "parentTrackName" per specificare il nome della traccia padre. Per altri dettagli, vedere la sezione 4.2.1.2.1.2 di [1].
+2. Nella finestra "Live Server Manifest Box", come definita nella sezione 6 di [1], usare il parametro "parentTrackName" per specificare il nome della traccia padre. Per altri dettagli, fare riferimento alla sezione 4.2.1.2.1.2 di [1].
 3. Nella finestra "Live Server Manifest Box", l'opzione manifestOutput deve essere impostata su "true".
 4. Data la natura sparse dell'evento di segnalazione, è consigliabile quanto segue:
 	1. All'inizio dell'evento live, il codificatore invia le caselle di intestazione iniziali al servizio, in modo che questo possa registrare la traccia di tipo sparse nel manifesto del client.
@@ -221,4 +221,4 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

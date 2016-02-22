@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Usare Hive con Hadoop in HDInsight con Beeline
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi a un cluster HDInsight basato su Linux e quindi inviare in modo interattivo query Hive tramite lo strumento da riga di comando [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
 
-> [AZURE.NOTE]Beeline usa JDBC per connettersi a Hive. Per altre informazioni sull'uso di JDBC con Hive, vedere [Connettersi a Hive in Azure HDInsight con il driver Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] Beeline usa JDBC per connettersi a Hive. Per altre informazioni sull'uso di JDBC con Hive, vedere [Connettersi a Hive in Azure HDInsight con il driver Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un cluster Hadoop basato su Linux in HDInsight.
 
-* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Gli utenti di Windows devono scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##<a id="ssh"></a>Connettersi con SSH
 
@@ -123,7 +123,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con .log. In genere, quando si eseguono query con hive, si dovrebbero avere solo dati con lo stesso schema all'interno della stessa cartella, tuttavia, questo file di log di esempio viene archiviato con altri formati di dati.
 
-    > [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+    > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     >
     > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
     
@@ -172,7 +172,7 @@ Beeline può anche essere usato per eseguire un file che contiene istruzioni Hiv
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
     * **INSERT OVERWRITE ... SELECT**: - seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, poi inserisce i dati nella tabella **errorLogs**.
     
-    > [AZURE.NOTE]A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
+    > [AZURE.NOTE] A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
     
 3. Per salvare il file usare __CTRL__+___\_X__, quindi immettere __Y__ e infine premere __INVIO__.
 
@@ -237,4 +237,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

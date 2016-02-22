@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -81,13 +81,13 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 2. Dal prompt di `username@#######:~$` usare il comando seguente per ottenere l'elenco degli esempi:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     Verrà generato l'elenco degli esempi presenti nella sezione precedente di questo documento.
 
 3. Usare il comando seguente per ottenere informazioni della guida su un esempio specifico. In questo caso, l'esempio **wordcount**:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
     Dovrebbe essere visualizzato il messaggio seguente:
 
@@ -97,7 +97,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 4. Usare il comando seguente per contare tutte le parole nei Codici di Leonardo da Vinci, forniti come dati di esempio con il cluster:
 
-    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     L'input per questo processo viene letto da ****wasb:///example/data/gutenberg/davinci.txt**.
 
@@ -107,7 +107,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
 5. Dopo il completamento del processo, usare il comando seguente per visualizzare l'output:
 
-        hadoop fs -cat /example/data/davinciwordcount/*
+        hdfs dfs -cat /example/data/davinciwordcount/*
 
     Tutti i file di output prodotti dal processo saranno concatenati e visualizzati. Per questo esempio di base viene usato un solo file, tuttavia se fossero specificati più file, il comando li scorrerebbe tutti.
 
@@ -148,7 +148,7 @@ Esiste un modo certo per costruire un puzzle Sudoku: non è possibile ripetere u
 
 Per eseguire questo esempio di Sudoku, usare il comando seguente:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 
 Il risultato dovrebbe essere simile al seguente:
 
@@ -172,7 +172,7 @@ Il reducer accumula i punti contati dai mapper e quindi calcola il valore del pi
 
 Usare il comando seguente per eseguire l'esempio. Usa 16 mappe con 10.000.000 di esempi, ognuno per il calcolo del pi greco:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
 Il valore restituito dovrebbe essere simile a **3,14159155000000000000**. A scopo di riferimento, le prime 10 cifre decimali del pi greco sono 3,1415926535.
 
@@ -198,19 +198,19 @@ Usare i passaggi seguenti per generare dati, ordinarli e quindi convalidare l'ou
 
 1. Generare 10 GB di dati che verranno archiviati nell'archiviazione predefinita del cluster HDInsight in ****wasb:///example/data/10GB-sort-input**:
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
 	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in ****wasb:///example/data/10GB-sort-input**.
 
 2. Eseguire il comando seguente per ordinare i dati:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
 	`-Dmapred.reduce.tasks` indica ad Hadoop quante attività di riduzione usare per questo processo. I due parametri finali sono solo i percorsi di input e output per i dati.
 
 3. Per convalidare i dati generati dall'ordinamento, usare il comando seguente:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
 ##Passaggi successivi ##
 
@@ -236,4 +236,4 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

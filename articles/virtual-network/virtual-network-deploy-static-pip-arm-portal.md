@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Distribuire una VM con un IP pubblico statico tramite il portale di anteprima in Gestione risorse | Microsoft Azure"
-   description="Scoprire come distribuire le VM con un IP pubblico statico tramite il portale di anteprima in Gestione risorse"
+   pageTitle="Distribuire una VM con un IP pubblico statico tramite il portale di Azure in Gestione risorse | Microsoft Azure"
+   description="Scoprire come distribuire le VM con un IP pubblico statico tramite il portale di Azure in Gestione risorse"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Distribuire una VM con un IP pubblico statico tramite il portale di Azure
@@ -59,4 +59,4 @@ Per creare una VM con un IP pubblico statico nel portale di Azure, seguire i pas
 
 	![Portale di Azure: Creare l'indirizzo IP pubblico](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

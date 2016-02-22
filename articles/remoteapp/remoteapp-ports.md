@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/29/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 
 
 # Elenco di porte e URL per consentire l'accesso a RemoteApp di Azure distribuito sulla rete virtuale cliente 
 
-Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di distribuzione su una rete virtuale (VNET). Per ulteriori informazioni sulle reti virtuali, vedere la pagina di [panoramica sulle reti virtuali](virtual-networks-overview.md). Se è stato creato un gruppo di sicurezza di rete (NSG) che limita il traffico alle risorse di rete virtuale scelte per RemoteApp di Azure, verificare che le operazioni seguenti siano accessibili e consentite tramite i criteri di sicurezza della rete virtuale. Per ulteriori informazioni sui gruppi di sicurezza di rete, leggere [Che cos'è un gruppo di sicurezza di rete? (NSG)](virtual-networks-nsg.md).
+Questo si applica a una raccolta cloud o ibrida di RemoteApp di Azure in caso di distribuzione su una rete virtuale (VNET). Per altre informazioni sulle reti virtuali, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md). Se è stato creato un gruppo di sicurezza di rete (NSG) che limita il traffico alle risorse di rete virtuale scelte per RemoteApp di Azure, verificare che le operazioni seguenti siano accessibili e consentite tramite i criteri di sicurezza della rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, leggere [Che cos'è un gruppo di sicurezza di rete? (NSG)](../virtual-network/virtual-networks-nsg.md).
 
 ##  La subnet di RemoteApp di Azure necessita dell'accesso ai seguenti endpoint e URL: 
 *	**.servicebus.windows.net
@@ -45,4 +45,4 @@ Per client si intende desktop, dispositivi e così via, usati per connettersi al
 -  In uscita: TCP: 443  
 -  Facoltativo: UDP: 3391 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

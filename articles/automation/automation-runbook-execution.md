@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Esecuzione di runbook in Automazione di Azure
@@ -101,7 +101,7 @@ Se il runbook viene riavviato dallo stesso checkpoint o dall'inizio per tre volt
 
 *L'esecuzione non potrà proseguire perché il processo è stato rimosso ripetutamente dallo stesso checkpoint. Verificare che il runbook non esegua operazioni di lunga durata senza rendere persistente il proprio stato.*
 
-Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Potrebbe essere necessario aggiungere checkpoint al runbook per essere certi che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo verrà scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
+Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Può essere necessario aggiungere checkpoint al runbook per garantire che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo verrà scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
 
 
 
@@ -109,4 +109,4 @@ Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario 
 
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

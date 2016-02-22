@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2015"
 	ms.author="jgao"/>
 
 
@@ -32,7 +32,7 @@ La rappresentazione serializzata di un oggetto nel sistema Avro è costituita da
 ##Scenario Hadoop
 Il formato di serializzazione Apache Avro è ampiamente usato in Azure HDInsight e in altri ambienti Apache Hadoop. Avro rappresenta un modo pratico per rappresentare le strutture di dati complesse con un processo MapReduce di Hadoop. Il formato dei file Avro (file contenitore di oggetti Avro) è stato progettato per supportare il modello di programmazione MapReduce distribuito. La funzione chiave che abilita la distribuzione è la possibilità di suddividere i file, rendendo possibile iniziare la lettura da un particolare blocco in qualsiasi punto di un file.
 
-##Serializzazione nella libreria Microsoft Avro
+##Serializzazione nella libreria Avro
 La libreria .NET per Avro supporta due modalità di serializzazione degli oggetti:
 
 - **Reflection**: lo schema JSON per i tipi viene automaticamente creato dagli attributi del contratto dati dei tipi .NET da serializzare.
@@ -41,14 +41,16 @@ La libreria .NET per Avro supporta due modalità di serializzazione degli oggett
 Quando lo schema di dati è noto sia al writer che al lettore del flusso, sarà possibile inviare i dati senza il relativo schema. Se si usa un file contenitore di oggetti Avro, lo schema viene archiviato all'interno del file. È anche possibile specificare altri parametri, come il codec usato per la compressione dei dati. Questi scenari vengono delineati più dettagliatamente e illustrati negli esempi di codice riportati di seguito.
 
 
-## Prerequisiti della libreria Microsoft Avro
+## Installare la libreria Avro
+
+Per installare la libreria sono necessari gli elementi seguenti:
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (versione 6.0.4 o successive)
 
 La dipendenza Newtonsoft.Json.dll viene scaricata automaticamente insieme all'installazione della libreria Microsoft Avro. La procedura a questo scopo è disponibile nella sezione seguente.
 
-## Installazione della libreria Microsoft Avro
+
 La libreria Microsoft Avro viene distribuita come pacchetto NuGet che può essere installato da Visual Studio con la procedura seguente:
 
 1. Selezionare la scheda **Progetto** -> **Gestisci pacchetti NuGet...**
@@ -59,11 +61,10 @@ Anche la dipendenza Newtonsoft.Json.dll (>= .6.0.4) viene scaricata automaticame
 
 Per leggere le note sulla versione corrente, è possibile visitare la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page della libreria Microsoft Avro</a>.
 
-##Codice sorgente della libreria Microsoft Avro
 
 Il codice sorgente della libreria Microsoft Avro è disponibile nella <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page della libreria Microsoft Avro</a>.
 
-##Compilazione dello schema con la libreria Microsoft Avro
+##Compilare schemi tramite la libreria Avro
 
 La libreria Microsoft Avro contiene un'utilità di generazione del codice con cui è possibile creare tipi C# in modo automatico, in base allo schema JSON definito in precedenza. Questa utilità non viene distribuita come eseguibile binario, ma può essere facilmente compilata usando la procedura seguente:
 
@@ -90,7 +91,7 @@ Notare che gli spazi dei nomi vengono estratti dallo schema JSON usando la logic
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-##<a name="samples"></a>Guida agli esempi per la libreria Microsoft Avro
+## Esempi
 I sei esempi forniti in questo argomento illustrano ciascuno diversi scenari supportati dalla libreria Microsoft Avro. La libreria Microsoft Avro è progettata per funzionare con qualsiasi flusso. Per semplicità e coerenza, in questi esempi i dati vengono modificati usando flussi di memoria anziché flussi di file o database. L'approccio adottato in un ambiente di produzione dipenderà dagli esatti requisiti dello scenario, dall'origine dati e dal volume, dai vincoli di prestazioni e da altri fattori.
 
 I primi due esempi mostrano come serializzare e deserializzare dati nei buffer del flusso di memoria mediante reflection e record generici. In questi due casi si presuppone che lo schema sia condiviso tra lettori e writer fuori programma.
@@ -240,7 +241,7 @@ Si suppone che lo schema in questo esempio venga condiviso tra lettore e writer,
 
 ###Esempio 2: Serializzazione con un record generico
 
-È possibile specificare in modo esplicito uno schema JSON in un record generico quando non è possibile usare la reflection perché i dati non possono essere rappresentati attraverso classi .NET con un contratto dati. Questo metodo risulta in genere più lento rispetto all'uso della reflection. In questi casi, lo schema per i dati può anche essere dinamico, ovvero non noto in fase di compilazione. I dati rappresentati come file con valori delimitati da virgole (CSV) il cui schema è sconosciuto fino alla sua trasformazione in formato Avro in fase di esecuzione costituiscono un esempio di questo tipo di scenario dinamico.
+È possibile specificare in modo esplicito uno schema JSON in un record generico quando non è possibile usare la reflection perché i dati non possono essere rappresentati attraverso classi .NET con un contratto dati. Questo metodo risulta in genere più lento rispetto all'uso della reflection. In questi casi, lo schema per i dati può anche essere dinamico, ovvero non noto in fase di compilazione. I dati rappresentati come file con valori delimitati da virgole (con estensione csv) il cui schema è sconosciuto fino alla sua trasformazione in formato Avro in fase di esecuzione costituiscono un esempio di questo tipo di scenario dinamico.
 
 Questo esempio mostra come creare e usare un oggetto [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) per specificare in modo esplicito uno schema JSON, come inserirvi i dati e quindi come serializzarlo e deserializzarlo. Il risultato viene quindi confrontato con l'istanza iniziale per confermare che il record recuperato sia identico all'originale.
 
@@ -872,7 +873,7 @@ I dati vengono quindi letti dal file e deserializzati in una raccolta di oggetti
 
 Il quinto esempio mostra come usare un codec di compressione personalizzato per i file contenitore di oggetti Avro. È possibile scaricare questo esempio di codice dal sito degli [esempi di codice di Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
 
-Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'utilizzo di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato un codec completamente nuovo come Snappy (indicato come codec facoltativo supportato nelle [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#snappy)). L'esempio mostra invece come usare l'implementazione del codec [**Deflate**][deflate-110] di .NET Framework 4.5, che offre un migliore algoritmo di compressione basato sulla libreria di compressione [zlib](http://zlib.net/) rispetto alla versione predefinita di .NET Framework 4.
+Le [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) consentono l'uso di un codec di compressione facoltativo (in aggiunta ai codec predefiniti **Null** e **Deflate**). In questo esempio non viene implementato un codec completamente nuovo come Snappy (indicato come codec facoltativo supportato nelle [specifiche di Avro](http://avro.apache.org/docs/current/spec.html#snappy)). L'esempio mostra invece come usare l'implementazione del codec [**Deflate**][deflate-110] di .NET Framework 4.5, che offre un migliore algoritmo di compressione basato sulla libreria di compressione [zlib](http://zlib.net/) rispetto alla versione predefinita di .NET Framework 4.
 
 
     //
@@ -1373,7 +1374,7 @@ Il sesto esempio mostra alcune tecniche di programmazione correlate all'interazi
 L'esempio esegue le operazioni seguenti:
 
 * Connessione a un cluster esistente del servizio HDInsight.
-* Serializzazione di diversi file CSV e caricamento dei risultati nell'archiviazione BLOB di Azure. I file CSV vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](http://www.infochimps.com/) per il periodo 1970-2010. L'esempio legge i dati del file CSV, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
+* Serializzazione di diversi file con estensione csv e caricamento dei risultati nell'archivio BLOB di Azure. I file con estensione csv vengono distribuiti insieme all'esempio e rappresentano un estratto dei dati cronologici relativi ai titoli AMEX distribuiti da [Infochimps](http://www.infochimps.com/) per il periodo 1970-2010. L'esempio legge i dati del file con estensione csv, converte i record in istanze della classe **Stock** e quindi li serializza mediante reflection. Viene creata la definizione di tipo Stock da uno schema JSON tramite l'utilità di generazione del codice della libreria Microsoft Avro.
 * Viene creata una nuova tabella esterna chiamata **Stocks** in Hive, che viene quindi collegata ai dati caricati nel passaggio precedente.
 * Usando Hive, viene eseguita una query sulla tabella **Stocks**.
 
@@ -1402,4 +1403,4 @@ Per pulire il cluster, eseguire il comando seguente:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

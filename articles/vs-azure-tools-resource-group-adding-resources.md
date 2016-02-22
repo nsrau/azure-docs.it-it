@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz" />
 
 # Modifica dei modelli di Gestione risorse con Visual Studio
@@ -61,7 +61,7 @@ Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli
 
 ## Vedere anche
 
-[Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Cmdlet di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -69,4 +69,4 @@ Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli
 
 [Video di Channel9: Gestione risorse di Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare il routing per un circuito ExpressRoute mediante la Gestione risorse di Azure e PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione di Gestione risorse di Azure. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute.
+Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando i cmdlet di PowerShell e il modello di distribuzione di Gestione risorse di Azure. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute. Se si vuole creare e modificare il routing di un circuito ExpressRoute usando il modello di distribuzione **classica**, vedere [Creare e modificare il routing per un circuito ExpressRoute usando PowerShell](expressroute-howto-routing-classic.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -30,9 +30,9 @@ Questo articolo descrive le procedure per creare e gestire la configurazione di 
 
 - Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell, la versione 1.0 o quelle successive. 
 - Prima di procedere con la configurazione, leggere la pagina [prerequisiti](expressroute-prerequisites.md), la pagina [requisiti di routing](expressroute-routing.md) e la pagina [flussi di lavoro](expressroute-workflows.md).
-- È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
+- È necessario disporre di un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
->[AZURE.IMPORTANT]Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
+>[AZURE.IMPORTANT] Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (di solito un IPVPN, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente. In questo caso, non sarà possibile creare o gestire i peering.
 
 Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i peering (peering privato di Azure, peering pubblico di Azure e peering Microsoft). È possibile configurare i peering nell'ordine desiderato. assicurandosi, tuttavia, di completare la configurazione di un peering per volta.
 
@@ -125,7 +125,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
+	>[AZURE.IMPORTANT] Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
 ### Per ottenere i dettagli relativi al peering privato di Azure
 
@@ -149,7 +149,7 @@ Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente. N
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
->[AZURE.WARNING]Assicurarsi che tutte le reti virtuali siano scollegate dal circuito ExpressRoute prima di eseguire questo cmdlet.
+>[AZURE.WARNING] Assicurarsi che tutte le reti virtuali siano scollegate dal circuito ExpressRoute prima di eseguire questo cmdlet.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -245,7 +245,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-	>[AZURE.IMPORTANT]Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
+	>[AZURE.IMPORTANT] Assicurarsi di specificare il numero AS come ASN di peering e non come ASN cliente.
 
 ### Per ottenere i dettagli relativi al peering pubblico di Azure
 
@@ -353,7 +353,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 	
 	Per configurare il peering Microsoft per il circuito, è possibile eseguire il cmdlet seguente
 
-		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -371,7 +371,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente.
 
 Per aggiornare qualsiasi parte della configurazione, usare il cmdlet seguente.
 
-		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
+		Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
@@ -386,8 +386,7 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
 ## Passaggi successivi
 
-Nel passaggio successivo, collegare una rete virtuale a un circuito ExpressRoute. È possibile utilizzare [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) quando si utilizza la modalità di distribuzione di gestione risorse di Azure. Si sta attualmente lavorando ai passaggi di PowerShell.
-
+Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 -  Per ulteriori informazioni sui flussi di lavoro ExpressRoute, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 
@@ -395,4 +394,4 @@ Nel passaggio successivo, collegare una rete virtuale a un circuito ExpressRoute
 
 -  Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

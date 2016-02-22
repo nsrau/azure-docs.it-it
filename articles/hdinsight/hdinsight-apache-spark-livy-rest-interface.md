@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/16/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,17 +33,17 @@ Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per
 
 ## Inviare un processo batch al cluster
 
-Prima di inviare un processo batch, è necessario caricare il file JAR dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](storage/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
+Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](storage/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
 	curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
 
 **Esempi**:
 
-* Se il file JAR si trova nell'archivio del cluster (WASB)
+* Se il file con estensione jar si trova nell'archivio del cluster (WASB)
 
 		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-* Se si vuole trasferire il nome del file JAR e il nome della classe come parte di un file di input (in questo esempio, input.txt)
+* Se si vuole trasferire il nome del file con estensione jar e il nome della classe come parte di un file di input (in questo esempio, input.txt)
 		
 		curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
@@ -74,7 +74,7 @@ Prima di inviare un processo batch, è necessario caricare il file JAR dell'appl
 
 Questa sezione esamina alcuni esempi di come usare Livy per inviare un'applicazione Spark, monitorare il progresso dell'applicazione e quindi eliminare il processo. L'applicazione usata in questo esempio è quella sviluppata nell'articolo [Creare un'applicazione Scala autonoma da eseguire nel cluster HDInsight Spark](hdinsight-apache-spark-create-standalone-application.md). I passaggi seguenti presuppongono quanto segue:
 
-* Il file JAR dell'applicazione è già stato copiato nell'account di archiviazione associato al cluster.
+* Il file con estensione jar dell'applicazione è già stato copiato nell'account di archiviazione associato al cluster.
 * CuRL è installato nel computer in cui si sta provando a eseguire questi passaggi.
 
 Eseguire i passaggi seguenti.
@@ -97,7 +97,7 @@ Eseguire i passaggi seguenti.
 
 	Si noti che l'ultima riga nell'output corrisponde a **total:0**, che indica che non sono presenti batch in esecuzione.
 
-2. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file JAR e il nome della classe come parametri. Questo è l'approccio consigliato se si eseguono questi passaggi da un computer Windows.
+2. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file con estensione jar e il nome della classe come parametri. Questo è l'approccio consigliato se si eseguono questi passaggi da un computer Windows.
 
 		curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
@@ -165,7 +165,7 @@ Eseguire i passaggi seguenti.
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -177,7 +177,9 @@ Eseguire i passaggi seguenti.
 
 * [Creare un'applicazione autonoma con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-### Estensioni
+### Strumenti ed estensioni
+
+* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -187,4 +189,4 @@ Eseguire i passaggi seguenti.
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

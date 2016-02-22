@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Application Insights per ASP.NET 5
@@ -21,8 +21,9 @@ Application Insights consente di monitorare la disponibilità, le prestazioni e 
 
 ![Esempio](./media/app-insights-asp-net-five/sample.png)
 
-È necessaria una sottoscrizione con [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft.
+È necessaria una sottoscrizione con [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
+[Demo di esempio](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals/application-insights/sample)
 
 ## Introduzione
 
@@ -78,4 +79,4 @@ Le visualizzazioni nel portale rientrano in due categorie principali:
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

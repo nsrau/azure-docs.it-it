@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Determinare i temi di tendenza Twitter con Apache Storm in HDInsight
@@ -23,7 +23,7 @@ Informazioni su come usare Trident per creare una topologia Storm in grado di de
 
 Trident è un'astrazione generale che fornisce strumenti quali join, aggregazioni, raggruppamento, funzioni e filtri. Trident fornisce inoltre primitive per l'elaborazione incrementale e con informazioni sullo stato. Questo esempio illustra come creare una topologia usando uno spout e una funzione personalizzati, oltre a diverse funzioni predefinite fornite da Trident.
 
-> [AZURE.NOTE]L'articolo si basa in larga misura sull'esempio [Trident Storm](https://github.com/jalonsoramos/trident-storm) di Juan Alonso.
+> [AZURE.NOTE] L'articolo si basa in larga misura sull'esempio [Trident Storm](https://github.com/jalonsoramos/trident-storm) di Juan Alonso.
 
 ##Requisiti
 
@@ -47,7 +47,7 @@ Di seguito è illustrata la topologia di questo esempio:
 
 ![topologia](./media/hdinsight-storm-twitter-trending/trident.png)
 
-> [AZURE.NOTE]Si tratta di una visualizzazione semplificata della topologia. Tra i nodi del cluster verranno infatti distribuite più istanze dei componenti.
+> [AZURE.NOTE] Si tratta di una visualizzazione semplificata della topologia. Tra i nodi del cluster verranno infatti distribuite più istanze dei componenti.
 
 Il codice Trident che implementa la topologia è il seguente:
 
@@ -69,7 +69,7 @@ Il codice esegue le attività seguenti:
 
 4. Ai fini di questo esempio, per un determinato batch di tweet vengono presi in considerazione solo gli hashtag più frequenti. Per restituire solo i primi 10 valori più frequenti in base al campo Count, viene applicato l'assembly **FirstN**.
 
-> [AZURE.NOTE]A differenza dello spout e di HashtagExtractor, in questa sede viene usata una funzionalità di Trident predefinita.
+> [AZURE.NOTE] A differenza dello spout e di HashtagExtractor, in questa sede viene usata una funzionalità di Trident predefinita.
 >
 > Per informazioni sulle operazioni predefinite, vedere l'articolo relativo a <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">storm.trident.operation.builtin</a>.
 >
@@ -140,4 +140,4 @@ Per altri esempi su Storm per HDinsight:
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015"
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Panoramica
 
@@ -38,7 +38,7 @@ Per informazioni più concettuali sui canali abilitati per la codifica live, ved
 
 I seguenti passaggi descrivono le attività relative alla creazione di applicazioni comuni di streaming live.
 
->[AZURE.NOTE] Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
+>[AZURE.NOTE] Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -99,7 +99,7 @@ Per completare l'esercitazione è necessario quanto segue.
 
 ##Considerazioni
 
-- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
+- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 - Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 ##Scaricare un esempio
@@ -115,12 +115,12 @@ Per completare l'esercitazione è necessario quanto segue.
 ##Connettersi a Servizi multimediali
 Come procedura consigliata, usare un file app.config per archiviare il nome e la chiave dell'account di Servizi multimediali.
 
->[AZURE.NOTE]Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
+>[AZURE.NOTE] Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
 
 Aggiungere una sezione appSettings al file app.config e impostare i valori per il nome e la chiave dell'account di Servizi multimediali.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
@@ -530,4 +530,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
 Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

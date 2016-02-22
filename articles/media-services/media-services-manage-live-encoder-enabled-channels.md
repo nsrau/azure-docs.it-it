@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
@@ -301,7 +301,7 @@ Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad es
 
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
-Si noti che se sono necessari set predefiniti personalizzati, si deve contattare amslived in Microsoft.com.
+Si noti che se sono necessari set di impostazioni personalizzati, si deve contattare amslived in Microsoft.com.
 
 Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
@@ -434,7 +434,7 @@ Arrestato|Arrestato|No
 - Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 - Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 - Il costo viene addebitato solo quando il canale è nello stato **In esecuzione**. Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
-- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
+- Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 - Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 - Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 - Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione. 
@@ -476,4 +476,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

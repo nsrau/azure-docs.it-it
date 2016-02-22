@@ -1,28 +1,36 @@
-<properties 
-	pageTitle="Aggiungere input di dati ai processi di analisi di flusso | Microsoft Azure" 
-	description="Aggiunta di input ai processi di Analisi di flusso | segmento del percorso di apprendimento."
+<properties
+	pageTitle="Aggiungere un input di dati ai processi di analisi di flusso | Microsoft Azure"
+	description="Informazioni su come associare un'origine dati al processo di analisi di flusso come input di dati di streaming proveniente dall'hub eventi o dati di riferimento provenienti dall'archiviazione BLOB."
 	keywords="input di dati, flusso di dati"
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"
 />
 
 
-# Aggiungere input dei flussi di dati ai processi di analisi di flusso
+# Aggiungere un input di dati di streaming o dati di riferimento a un processo di analisi di flusso
 
-I processi di Analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definisce una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e l’[archivio BLOB di Azure](./storage/storage-dotnet-how-to-use-blobs.md)all'interno e all'esterno della sottoscrizione processo. Esistono due tipi di input distinti in Analisi di flusso: dati di riferimento e flussi di dati.
+Informazioni su come associare un'origine dati al processo di analisi di flusso come input di dati di streaming proveniente dall'hub eventi o dati di riferimento provenienti dall'archiviazione BLOB.
+
+I processi di analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definiscono una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e l’[archivio BLOB di Azure](./storage/storage-dotnet-how-to-use-blobs.md)all'interno e all'esterno della sottoscrizione processo.
+
+Questo articolo è un passaggio nel [percorso di apprendimento di analisi di flusso](/documentation/learning-paths/stream-analytics/).
+
+## Input di dati: dati di streaming e dati di riferimento
+
+Esistono due tipi di input distinti in Analisi di flusso: dati di riferimento e flussi di dati.
 
 - **Flussi di dati**: I processi di analisi di flusso devono includere almeno un input del flusso dei dati che deve essere utilizzato e trasformato dal processo stesso. L'archivio BLOB di Azure e Hub eventi di Azure sono supportati come origini di input del flusso dei dati. Gli Hub eventi di Azure vengono usati per raccogliere flussi di eventi da più dispositivi, servizi e applicazioni connessi. Si può usare l'archivio BLOB di Azure come origine di input per l'inserimento di dati in blocco come flusso.  
 - **Dati di riferimento**: l’analisi di flusso supporta un secondo tipo di input ausiliario denominato dati di riferimento. Al contrario dei dati in continua evoluzione, questi dati sono statici o cambiano molto lentamente. In genere vengono utilizzati per l'esecuzione di ricerche e correlazioni con flussi di dati per creare un set di dati più ampio. L'archivio BLOB di Azure attualmente è l'unica origine di input supportata per i dati di riferimento.  
@@ -31,11 +39,11 @@ Per aggiungere un input al processo di analisi di flusso:
 
 1. Nel portale di Azure fare clic su **Input** e poi scegliere **Aggiungi un input** nel processo di analisi di flusso.
 
-    ![Aggiungere input di dati dei flussi di dati](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
+    ![Portale di Azure classico - aggiungere un input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    Nel portale di anteprima di Azure fare clic sul riquadro **Input** nel processo di analisi di flusso.
+    Nel portale di Azure fare clic sul riquadro **Input** nel processo di analisi di flusso.
 
-    ![Aggiungere input di dati dei flussi di dati](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Portale di Azure - aggiungere un input di dati.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Specificare il tipo di input: **Flusso di dati** o **Dati di riferimento**.
 
@@ -69,7 +77,7 @@ Per aggiungere un input al processo di analisi di flusso:
 
     ![Verificare la connessione dell'input dei flussi di dati](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
-## Ottenere aiuto
+## Ottenere aiuto per gli input dei dati di streaming
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
@@ -80,4 +88,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

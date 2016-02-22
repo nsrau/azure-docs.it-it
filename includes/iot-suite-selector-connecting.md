@@ -14,21 +14,33 @@ In questo scenario, si creerà un dispositivo che invia la seguente telemetria p
 
 Per semplicità, il codice nel dispositivo genera valori di esempio, ma si consiglia di estendere l'esempio connettendo i sensori reali al dispositivo e inviando i dati di telemetria reali.
 
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
+
 ## Prima di iniziare
 
 Prima di scrivere un codice per il dispositivo, occorre eseguire il provisioning della soluzione preconfigurata di monitoraggio remoto e poi effettuare il provisioning di un dispositivo all'interno di quella soluzione.
 
 ### Eseguire il provisioning della soluzione preconfigurata per il monitoraggio remoto
 
-Il dispositivo creato invierà dati a un'istanza della soluzione preconfigurata del [monitoraggio remoto][lnk-remote-monitoring]. Visitare [Introduzione ad Azure IoT Suite][lnk-getstarted] per creare un account di Azure ed eseguire il provisioning di IoT Suite. Selezionare **Monitoraggio remoto** quando si crea la nuova soluzione.
+Il dispositivo creato invierà dati a un'istanza della soluzione preconfigurata del [monitoraggio remoto][lnk-remote-monitoring]. Visitare [Introduzione ad Azure IoT Suite][lnk-getstarted] per effettuare il provisioning della soluzione preconfigurata di monitoraggio remoto nel proprio account Azure:
 
-Quando è stato eseguito il provisioning della soluzione di monitoraggio remoto, fare clic su **Avviare** per aprire il dashboard della soluzione.
+1. Nella pagina https://www.azureiotsuite.com/ fare clic su **+** per creare una nuova soluzione.
+
+2. Fare clic su **Seleziona** nel pannello **Monitoraggio remoto** per creare la nuova soluzione.
+
+3. Nella pagina di **creazione della soluzione di monitoraggio remoto**, immettere un **nome per la soluzione**, selezionare l'**area** in cui eseguire la distribuzione e scegliere la sottoscrizione di Azure che si desidera usare. Fare clic su **Crea soluzione**.
+
+4. Attendere finché non viene completato il processo di provisioning.
+
+> [AZURE.WARNING] Le soluzioni preconfigurate usano servizi di Azure fatturabili. Al termine, assicurarsi di rimuovere la soluzione preconfigurata dalla sottoscrizione per evitare eventuali addebiti non necessari. È possibile rimuovere completamente una soluzione proconfigurata dalla sottoscrizione visitando la pagina https://www.azureiotsuite.com/.
+
+Dopo aver eseguito il provisioning della soluzione di monitoraggio remoto, fare clic su **Avviare** per aprire il dashboard della soluzione nel browser.
 
 ![][img-dashboard]
 
 ### Effettuare il provisioning del dispositivo nella soluzione di monitoraggio remoto
 
-> [AZURE.NOTE]Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. È necessario conoscere le credenziali del dispositivo quando si crea l'applicazione client.
+> [AZURE.NOTE] Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. È necessario conoscere le credenziali del dispositivo quando si crea l'applicazione client.
 
 Per connettere un dispositivo alla soluzione preconfigurata, è necessario che esso sia in grado di identificare se stesso mediante delle credenziali valide. È possibile ottenere le credenziali del dispositivo dal dashboard della soluzione e poi includerle nell'applicazione client.
 
@@ -61,8 +73,9 @@ Per aggiungere un nuovo dispositivo alla soluzione di monitoraggio remoto, compl
 [4]: ./media/iot-suite-selector-connecting/suite3.png
 [5]: ./media/iot-suite-selector-connecting/suite5.png
 
-[lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
+[lnk-getstarted]: https://www.azureiotsuite.com/
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

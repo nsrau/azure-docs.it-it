@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 Per configurare un gruppo come gruppo "Manager"
 --------------------------------------------------------------------------------
 1. Nel portale dell'amministratore fare clic sulla scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
-2. Digitare la regola con la sintassi seguente: Direct Reports for *Direct Reports for {IDutente\_di\_manager}*. Ecco un esempio di regola valida per dipendenti diretti: 
+2. Digitare la regola con la sintassi seguente: Direct Reports for *Direct Reports for {IDutente\_di\_manager}*. Ecco un esempio di regola valida per dipendenti diretti:
 
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
@@ -183,8 +183,10 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

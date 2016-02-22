@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # Cosa fare in Application Insights?
@@ -36,7 +36,7 @@ Se si desidera impostare un avviso per le **eccezioni del server**, è necessari
 ### Inviare un messaggio di posta elettronica in caso di eccezioni
 
 1. [Configurare il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md)
-2. [Impostare un avviso](app-insights-alert.md) sulla metrica relativa al conteggio del numero di eccezioni
+2. [Impostare un avviso](app-insights-alerts.md) sulla metrica relativa al conteggio del numero di eccezioni
 
 
 ### Inviare un messaggio di posta elettronica per un evento generato dall'app
@@ -57,7 +57,7 @@ Poiché gli avvisi possono avere due stati, è necessario inviare un valore bass
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Creare un grafico in [Esplora metriche](app-insights-metric-explorer.md) per visualizzare l'allarme:
+Creare un grafico in [Esplora metriche](app-insights-metrics-explorer.md) per visualizzare l'allarme:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@ Se si desidera un elenco di utenti con i dati quali, ad esempio, le pagine visua
 
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) disabilitare tutti i moduli non necessari, come gli agenti di raccolta del contatore delle prestazioni.
 * Usare [Campionamento e filtri](app-insights-api-filtering-sampling.md) nell’SDK.
+* Nelle pagine Web limitare il numero di chiamate Ajax segnalato per ogni visualizzazione della pagina. Nel frammento di script dopo `instrumentationKey:...`, inserire: `,maxAjaxCallsPerView:3` (o un numero adatto).
 * Se si usa [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcolare l'aggregazione di batch di valori delle metriche prima di inviare il risultato. Un overload di TrackMetric() esegue questa operazione.
 
 
@@ -208,7 +209,7 @@ Altre informazioni su [prezzi e quote](app-insights-pricing.md).
 
 ## Disabilitare telemetria
 
-Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione della telemetria dal server:
+Per **avviare e arrestare in modo dinamico** la raccolta e la trasmissione di dati di telemetria dal server:
 
 ```
 
@@ -231,7 +232,7 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 
 ### Se non vengono visualizzati dati dei contatori delle prestazioni
 
-* **Server IIS** sul proprio computer o in una VM. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Server IIS** sul proprio computer o in una macchina virtuale. [Installare Status Monitor](app-insights-monitor-performance-live-website-now.md). 
 * **Sito Web di Azure** - i contatori delle prestazioni non sono ancora supportati. Esistono diverse metriche che è possibile ottenere come una parte standard del Pannello di controllo del sito Web di Azure.
 * **Server Unix** - [Installare collectd](app-insights-java-collectd.md)
 
@@ -240,4 +241,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

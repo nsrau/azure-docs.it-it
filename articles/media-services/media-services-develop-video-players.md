@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,6 @@
 ##Panoramica
 
 Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box. Questo argomento fornisce anche collegamenti a SDK e Player Framework, che è possibile usare per sviluppare le applicazioni client in modo che usino i flussi multimediali da Servizi multimediali di Azure.
-
 
 ##Azure Media Player
 
@@ -82,4 +81,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

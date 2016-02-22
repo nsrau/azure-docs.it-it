@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS" 
-	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS"
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="na"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Aggiungere l'autenticazione all'app per Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva Xamarin.iOS tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app per dispositivi mobili, viene visualizzato il valore dell'ID utente e si sarà in grado di accedere ai dati della tabella con restrizioni.
 
@@ -51,7 +49,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 	```
 
 		// Logged in user
-		private MobileServiceUser user; 
+		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
 2. Aggiungere un nuovo metodo denominato **Autentica** a **QSTodoService** con la definizione seguente:
@@ -69,7 +67,7 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
             }
         }
 
-	>[AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+	>[AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo di **ViewDidLoad** rimuovendo la chiamata a **RefreshAsync()** verso la fine:
 
@@ -100,16 +98,15 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 			}
 		}
 		// rest of RefreshAsync method
-	
+
 5. In Visual Studio o Xamarin Studio connesso all'host di compilazione Xamarin sul Mac eseguire il progetto client destinato a un dispositivo o un emulatore. Verificare che nell'app non siano visualizzati dati.
 
 	Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
- 
+
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Creare un'app per Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

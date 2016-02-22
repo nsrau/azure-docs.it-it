@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="stefsch"/>
 
 # Connessione sicura alle risorse back-end da un ambiente del servizio app #
@@ -28,6 +28,8 @@ Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster
 Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere connessi ad Azure tramite connessioni [da sito a sito][SiteToSite] o connessioni [Azure ExpressRoute][ExpressRoute]. In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
 
 Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse. Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale. Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
+
+Si noti che un'eccezione è rappresentata dal traffico in uscita da un ambiente del servizio app agli endpoint all'interno di una rete virtuale. Gli ambienti del servizio app non riescono a raggiungere gli endpoint delle macchine virtuali all'interno della **stessa** subnet dell'ambiente del servizio app. Questo normalmente non costituisce un problema, purché gli ambienti del servizio app vengano distribuiti in una subnet riservata a uso esclusivo dell'ambiente del servizio app.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -114,4 +116,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # Progettazione di funzionalità in Cortana Analytics Process 
 
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio di Cortana Analytics Process (CAP).
+La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##Introduzione
 
@@ -95,4 +96,4 @@ Le funzioni progettate e selezionate migliorano l'efficienza del processo di tra
 Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

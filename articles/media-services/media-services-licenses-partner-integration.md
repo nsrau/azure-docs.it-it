@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure
@@ -47,4 +47,4 @@ A partire da Servizi Multimediali .NET SDK versione 3.5.2, Servizi multimediali 
 
 [Blog di Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

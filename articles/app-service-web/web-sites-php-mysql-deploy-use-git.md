@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
@@ -220,7 +220,8 @@ A questo punto è possibile passare a **http://localhost:8000/** per testare l'a
 
 Dopo aver testato l'app in locale, è possibile pubblicarla su App Web tramite Git. Inizializzare l'archivio Git locale e pubblicare l'applicazione.
 
-> [AZURE.NOTE]Questi passaggi sono uguali a quelli illustrati nel portale di Azure alla fine della precedente sezione Creare un'app Web e configurare la pubblicazione Git.
+> [AZURE.NOTE]
+Questi passaggi sono uguali a quelli illustrati nel portale di Azure alla fine della precedente sezione Creare un'app Web e configurare la pubblicazione Git.
 
 1. (Facoltativo) Se l'URL del repository remoto Git è stato dimenticato o smarrito, passare alle proprietà dell'app Web nel portale di Azure.
 
@@ -261,7 +262,7 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 
 	![Sito Web PHP di Azure][running-app]
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi
 
@@ -302,4 +303,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

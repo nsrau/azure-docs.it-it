@@ -50,7 +50,7 @@ In [app Web del servizio app](/services/app-service/web/) vengono presentate div
 
 ####	Tenere traccia dell'integrità del servizio
 
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell'integrità del servizio](insights-service-health.md).
+Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell'integrità del servizio](../azure-portal/insights-service-health.md).
 
 ####	Monitorare l'app Web
 
@@ -69,7 +69,7 @@ Le metriche più comunemente monitorate per le app Web sono
 Per altre informazioni, vedere:
 
 -	[Eseguire il monitoraggio delle app Web nel servizio app di Azure](web-sites-monitor.md)
--	[Ricevere notifiche di avviso](insights-receive-alert-notifications.md)
+-	[Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\. Raccogliere i dati
@@ -136,6 +136,6 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md).
+È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

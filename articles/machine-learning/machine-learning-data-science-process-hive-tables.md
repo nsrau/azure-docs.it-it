@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight in Advanced Analytics Process and Technology 
@@ -167,7 +167,7 @@ Di seguito sono riportati alcuni script Hive di esempio che possono essere usati
 
 In questa sezione viene descritto come creare funzionalità tramite le query Hive.
 
-> [AZURE.NOTE]Le query Hive di esempio riportate presuppongono che i dati siano stati caricati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
+> [AZURE.NOTE] Le query Hive di esempio riportate presuppongono che i dati siano stati caricati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 
 Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che quindi può essere unita alla tabella originale.
 
@@ -314,4 +314,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

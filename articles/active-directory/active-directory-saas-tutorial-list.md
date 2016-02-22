@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="markvi"/>
 
 #Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory
@@ -196,8 +196,8 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 
 
 
+##Articoli correlati
 
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

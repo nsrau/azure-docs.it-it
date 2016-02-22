@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # Introduzione all'autenticazione personalizzata
@@ -26,11 +26,11 @@
 ## Panoramica
 Questo argomento descrive come autenticare gli utenti nel back-end .NET di Servizi mobili di Azure rilasciando il proprio token di autenticazione di Servizi mobili. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite usando un nome utente e una password personalizzati per l'app.
 
->[AZURE.NOTE]Questa esercitazione illustra un metodo avanzato di autenticazione di Servizi mobili con credenziali personalizzate. Per molte app sarà invece più appropriato l'uso dei provider di identità sociale predefiniti, che consentono agli utenti di eseguire l'accesso con Facebook, Twitter, Google, Microsoft Account e Azure Active Directory. Se si tratta della prima esperienza di autenticazione con Servizi mobili, vedere l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
+>[AZURE.NOTE] Questa esercitazione illustra un metodo avanzato di autenticazione di Servizi mobili con credenziali personalizzate. Per molte app sarà invece più appropriato l'uso dei provider di identità sociale predefiniti, che consentono agli utenti di eseguire l'accesso con Facebook, Twitter, Google, Microsoft Account e Azure Active Directory. Se si tratta della prima esperienza di autenticazione con Servizi mobili, vedere l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili].
 
->[AZURE.IMPORTANT]Lo scopo di questa esercitazione è mostrare come rilasciare un token di autenticazione per Servizi mobili. Non considerare il contenuto di questo articolo come linee guida per la sicurezza. Nello sviluppo dell'app è necessario essere al corrente delle implicazioni in termini di sicurezza riguardo l'archiviazione delle password, oltre che prevedere una strategia per la gestione degli attacchi di forza bruta.
+>[AZURE.IMPORTANT] Lo scopo di questa esercitazione è mostrare come rilasciare un token di autenticazione per Servizi mobili. Non considerare il contenuto di questo articolo come linee guida per la sicurezza. Nello sviluppo dell'app è necessario essere al corrente delle implicazioni in termini di sicurezza riguardo l'archiviazione delle password, oltre che prevedere una strategia per la gestione degli attacchi di forza bruta.
 
 ## Configurare la tabella degli account
 
@@ -336,7 +336,7 @@ A questo punto sarà possibile creare un endpoint al quale gli utenti potranno a
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]Il `CustomLoginController` per l'uso in produzione dovrebbe contenere anche una strategia di rilevamento di forza bruta. In caso contrario, la soluzione di accesso potrebbe essere vulnerabile agli attacchi.
+>[AZURE.IMPORTANT] Il `CustomLoginController` per l'uso in produzione dovrebbe contenere anche una strategia di rilevamento di forza bruta. In caso contrario, la soluzione di accesso potrebbe essere vulnerabile agli attacchi.
 
 ## Configurare il servizio mobile in modo che richieda l'autenticazione
 
@@ -381,13 +381,13 @@ Nell'applicazione client sarà necessario sviluppare una schermata di accesso pe
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]Se si sceglie di pubblicare anche questo progetto del servizio mobile in Azure a scopo di test, ricordare che i provider di accesso e autenticazione saranno vulnerabili agli attacchi. Assicurarsi che siano finalizzati in modo corretto o che la protezione dei dati di test non sia importante per l'utente. Prestare grande attenzione prima di usare uno schema di autenticazione personalizzato per proteggere un servizio di produzione.
+>[AZURE.IMPORTANT] Se si sceglie di pubblicare anche questo progetto del servizio mobile in Azure a scopo di test, ricordare che i provider di accesso e autenticazione saranno vulnerabili agli attacchi. Assicurarsi che siano finalizzati in modo corretto o che la protezione dei dati di test non sia importante per l'utente. Prestare grande attenzione prima di usare uno schema di autenticazione personalizzato per proteggere un servizio di produzione.
 
 ## Accedere usando l'autenticazione personalizzata dal client
 
 Questa sezione descrive i passaggi necessari per accedere agli endpoint di autenticazione personalizzati dal client in modo da ottenere il token di autenticazione necessario per l'accesso al servizio mobile. Poiché il codice client necessario dipende dal client, le indicazioni fornite di seguito sono indipendenti dalla piattaforma.
 
->[AZURE.NOTE]Le librerie client di Servizi mobili comunicano con il servizio tramite HTTPS. Poiché questa soluzione richiede l'invio di password come testo non crittografato, è necessario assicurarsi di usare HTTPS quando si chiamano questi endpoint tramite richieste REST dirette.
+>[AZURE.NOTE] Le librerie client di Servizi mobili comunicano con il servizio tramite HTTPS. Poiché questa soluzione richiede l'invio di password come testo non crittografato, è necessario assicurarsi di usare HTTPS quando si chiamano questi endpoint tramite richieste REST dirette.
 
 1. Creare gli elementi dell'interfaccia utente necessari nell'app client per consentire agli utenti di immettere un nome utente e una password.
 
@@ -395,7 +395,7 @@ Questa sezione descrive i passaggi necessari per accedere agli endpoint di auten
 
 	È necessario chiamare l'endpoint **CustomRegistration** solo una volta per creare un account per un determinato utente, purché si mantengano le informazioni di accesso utente nella tabella degli account. Per esempi relativi alla chiamata di un'API personalizzata nelle varie piattaforme client supportate, vedere l'articolo relativo all'uso di un'[API personalizzata negli SDK dei client per Servizi mobili di Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-	> [AZURE.IMPORTANT]Poiché questo passaggio di provisioning utente viene eseguito solo una volta, è consigliabile creare l'account utente in modalità fuori banda. Per un endpoint di registrazione pubblico è consigliabile anche implementare un processo di verifica basato su SMS o e-mail o un'altra misura di protezione per impedire la generazione di account fraudolenti. È possibile usare Twilio per inviare messaggi SMS da Servizi mobili. È anche possibile usare SendGrid per inviare e-mail da Servizi mobili. Per altre informazioni sull’utilizzo di SendGrid, vedere l'articolo relativo all'[invio di e-mail da Servizi mobili con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT] Poiché questo passaggio di provisioning utente viene eseguito solo una volta, è consigliabile creare l'account utente in modalità fuori banda. Per un endpoint di registrazione pubblico è consigliabile anche implementare un processo di verifica basato su SMS o e-mail o un'altra misura di protezione per impedire la generazione di account fraudolenti. È possibile usare Twilio per inviare messaggi SMS da Servizi mobili. È anche possibile usare SendGrid per inviare e-mail da Servizi mobili. Per altre informazioni sull’utilizzo di SendGrid, vedere l'articolo relativo all'[invio di e-mail da Servizi mobili con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 
 3. Usare nuovamente il metodo appropriato **invokeApi**, questa volta per chiamare l'endpoint **CustomLogin**, passando il nome utente e la password forniti dal runtime nel corpo del messaggio.
 
@@ -424,4 +424,4 @@ L'esercitazione è terminata.
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

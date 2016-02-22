@@ -125,14 +125,13 @@ Ecco gli svantaggi della distribuzione con un IDE:
 ###<a name="webmatrix"></a>Come distribuire direttamente da WebMatrix
 
 * [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Creazione e distribuzione di un'app Web PHP-MySQL tramite WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git integrato e distribuzione in Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Come utilizzare WebMatrix per eseguire la distribuzione da un repository Git di controllo del codice sorgente.
 
 ## <a name="onprem"></a>Distribuire da un sistema di controllo del codice sorgente locale
 
 Se si lavora in un team di sviluppo di qualsiasi dimensione e si usa un sistema di gestione del codice sorgente locale, ad esempio [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS), [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) o [Mercurial](http://mercurial.selenic.com/), è possibile configurare il servizio app per l'integrazione con il repository ed eseguire la distribuzione direttamente nel servizio app nel flusso di lavoro di controllo del codice sorgente. Se si usa TFS, è possibile configurarne la distribuzione continua nel servizio app.
 
-TFS usa Distribuzione Web per distribuire il servizio app, mentre la distribuzione dal repository Git o Mercurial usa Kudu. Vedere [Panoramica dei processi di distribuzione](#overview).
+TFS usa Distribuzione Web per distribuire il servizio app, mentre la distribuzione dai repository Git o Mercurial usa Kudu. Vedere [Panoramica dei processi di distribuzione](#overview).
 
 Ecco i vantaggi della distribuzione da un sistema di controllo del codice sorgente locale:
 
@@ -157,7 +156,7 @@ Ecco altri vantaggi della distribuzione con TFS:
 
 ###<a name="tfs"></a>Come distribuire continuamente con TFS
 
-* [Recapito continuo per Servizi cloud in Azure](../cloud-services-dotnet-continuous-delivery.md). Questo documento è relativo a un servizio cloud di Azure, ma alcuni dei contenuti si riferiscono ad App Web.
+* [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). Questo documento è relativo a un servizio cloud di Azure, ma alcuni dei contenuti si riferiscono ad App Web.
 
 ###<a name="gitmercurial"></a>Come distribuire da un repository Git o Mercurial locale
 
@@ -195,8 +194,8 @@ Ecco altri vantaggi della distribuzione tramite Visual Studio Team Services:
 
 ###<a name="vsts"></a>Come eseguire la distribuzione continua con Visual Studio Team Services
 
-- [Recapito continuo in Azure tramite Visual Studio Team Services e TFVC](../cloud-services-continuous-delivery-use-vso.md). Esercitazione guidata che illustra la procedura di configurazione del recapito continui da Visual Studio Team Services a un'app Web tramite TFVC. 
-- [Recapito continuo in Azure tramite Visual Studio Team Services e Git](../cloud-services-continuous-delivery-use-vso-git.md). Simile all'esercitazione precedente, ma usa Git anziché TFVC.
+- [Recapito continuo in Azure tramite Visual Studio Team Services e TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Esercitazione guidata che illustra la procedura di configurazione del recapito continui da Visual Studio Team Services a un'app Web tramite TFVC. 
+- [Recapito continuo in Azure tramite Visual Studio Team Services e Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Simile all'esercitazione precedente, ma usa Git anziché TFVC.
 
 ###<a name="cloudgitmercurial"></a>Come distribuire da un repository Git o Mercurial basato sul cloud
 
@@ -246,7 +245,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
 È possibile scrivere il codice C# per eseguire funzioni MSBuild o FTP per la distribuzione. In tal caso, sarà possibile accedere all'API REST per la gestione per eseguire funzioni di gestione del sito.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * Post del blog di Scott Hanselman sull'[automazione completa con le librerie di gestione di Azure e .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Contiene una presentazione dell'API di gestione .NET e collegamenti a ulteriore documentazione.
 
@@ -262,7 +261,7 @@ Per altre informazioni, vedere la risorsa seguente:
 
 [Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) è il software Microsoft per la distribuzione in IIS che non solo offre funzioni intelligenti di sincronizzazione dei file, ma può anche eseguire o coordinare molte altre attività relative alla distribuzione che non è possibile automatizzare quando si utilizza il trasferimento FTP. Ad esempio, con Distribuzione Web è possibile distribuire un nuovo database oppure gli aggiornamenti al database assieme all'app Web. Distribuzione Web consente inoltre di ridurre al minimo i tempi richiesti per l'aggiornamento di un sito esistente dal momento che è in grado di copiare in maniera intelligente solo i file modificati. Il supporto per Distribuzione Web è incorporato in Microsoft WebMatrix, Visual Studio, Visual Studio Team Services e Team Foundation Server, ma è inoltre possibile utilizzare Distribuzione Web direttamente dalla riga di comando per automatizzare la distribuzione. I comandi di Distribuzione Web sono molti potenti, ma la curva di apprendimento può rivelarsi ripida.
 
-Per altre informazioni, vedere la risorsa seguente:
+Per ulteriori informazioni, vedere la risorsa seguente:
 
 * [Simple Web Apps: Deployment](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog di David Ebbo riguardante uno strumento che ha creato per facilitare l'uso di Distribuzione Web.
 * Documentazione ufficiale sullo [strumento di distribuzione Web](http://technet.microsoft.com/library/dd568996) sul sito Microsoft TechNet. Articolo datato, ma è ancora un buon punto di partenza.
@@ -284,4 +283,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

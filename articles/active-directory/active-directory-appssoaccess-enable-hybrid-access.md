@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Abilitazione dell'accesso ibrido con il proxy di app
@@ -39,7 +39,8 @@ L'abilitazione dell'accesso a un'applicazione Web presenta un solo requisito: l'
 7. La risposta viene inviata all'utente tramite il proxy di applicazione.
 
 ## Articoli correlati
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Abilitazione del proxy di applicazione di Azure AD](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Pubblicazione di applicazioni mediante il proxy di app di Azure AD](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

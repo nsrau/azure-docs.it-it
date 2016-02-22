@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Installare e usare Spark in cluster Hadoop di HDInsight tramite Azione di script
 
-> [AZURE.IMPORTANT]Questo articolo è ora deprecato. HDInsight offre ora Spark come tipo di cluster di prima classe per cluster basati su Windows, quindi è possibile creare direttamente un cluster Spark senza modificare un cluster Hadoop tramite Azione di script. Usando il tipo di cluster Spark, si ottiene un cluster HDInsight versione 3.2 con Spark versione 1.3.1. Per installare versioni diverse di Spark, è possibile usare Azione di script. HDInsight offre uno script di Azione di script di esempio.
+> [AZURE.IMPORTANT] Questo articolo è ora deprecato. HDInsight offre ora Spark come tipo di cluster di prima classe per cluster basati su Windows, quindi è possibile creare direttamente un cluster Spark senza modificare un cluster Hadoop tramite Azione di script. Usando il tipo di cluster Spark, si ottiene un cluster HDInsight versione 3.2 con Spark versione 1.3.1. Per installare versioni diverse di Spark, è possibile usare Azione di script. HDInsight offre uno script di Azione di script di esempio.
 
 Informazioni su come installare Spark nei cluster HDInsight basati su Windows con Azione di script e su come eseguire query Spark nei cluster HDInsight.
 
@@ -50,7 +50,7 @@ Uno script di esempio per l'installazione di Spark in un cluster HDInsight è di
 
 È possibile modificare questo script o crearne uno personalizzato per installare altre versioni di Spark.
 
-> [AZURE.NOTE]Lo script di esempio funziona solo con cluster 3.1 e 3.2 HDInsight. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](hdinsight-component-versioning.md).
+> [AZURE.NOTE] Lo script di esempio funziona solo con cluster 3.1 e 3.2 HDInsight. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](hdinsight-component-versioning.md).
 
 1. Avviare la creazione di un cluster tramite l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md#portal). Selezionare la versione del cluster a seconda di quanto segue:
 
@@ -118,7 +118,7 @@ Per eseguire query di Spark da una shell interattiva di Spark, eseguire i passag
 
 Spark SQL consente di usare Spark per eseguire query relazionali espresse in SQL (Structured Query Language), HiveQL o Scala. Questa sezione spiega come usare Spark per eseguire una query Hive su una tabella Hive di esempio. La tabella Hive usata in questa sezione (chiamata **hivesampletable**) è disponibile per impostazione predefinita quando si crea un cluster.
 
->[AZURE.NOTE]L'esempio seguente è stato creato in **Spark 1.2.0**, che viene installato se si esegue lo script di Azione di script durante la creazione del cluster HDInsight 3.2.
+>[AZURE.NOTE] L'esempio seguente è stato creato in **Spark 1.2.0**, che viene installato se si esegue lo script di Azione di script durante la creazione del cluster HDInsight 3.2.
 
 1. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Spark installato, quindi accedere in remoto al cluster. Per istruzioni, vedere [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
@@ -201,7 +201,7 @@ In questa sezione si usa <a href="http://www.scala-sbt.org/0.13/docs/index.html"
 
 
 
-	>[AZURE.NOTE]Assicurarsi di mantenere le righe vuote del file.
+	>[AZURE.NOTE] Assicurarsi di mantenere le righe vuote del file.
 
 
 3. Nella cartella **SimpleScalaApp** creare una struttura di directory **\\src\\main\\scala** e incollare il programma Scala (**SimpleApp.scala**) creato in precedenza nella cartella \\src\\main\\scala.
@@ -317,4 +317,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

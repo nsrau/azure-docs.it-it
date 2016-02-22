@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Note sulla versione del Catalogo dati di Azure
@@ -37,14 +37,6 @@ Per la connessione alle origini dati di Teradata, gli utenti devono installare i
 
 A questa data di rilascio di ADC, il più recente [driver Teradata ODBC per windows (versione 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) è compatibile con Office 2013, ma non con Office 2016.
 
-## Note per la versione del 6 novembre 2015 del Catalogo dati di Azure
-
-### Gli utenti possono incorrere in errori quando si avvia lo strumento di registrazione di origine dei dati
-
-Quando si avvia il **Catalogo dati di Azure** lo strumento per la registrazione dell’origine dei dati dal portale **Catalogo dati di Azure**, gli utenti che hanno già installato una versione precedente dello strumento potrebbero visualizzare questo messaggio: "Impossibile avviare l'applicazione. Contattare il fornitore dell'applicazione".
-
-Gli utenti che riceveranno questo messaggio devono utilizzare il pannello di controllo di Windows per rimuovere l'applicazione "Catalogo dati di Azure" esistente e quindi avviare nuovamente lo strumento dal portale **Catalogo dati di Azure**.
-
 ## Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
 
 ### Registrazione e connessione al database Oracle
@@ -64,7 +56,7 @@ Il supporto per le origini dati di SQL Server Reporting Services (SSRS) nella ve
 
 Quando si aprono asset di dati in Microsoft Excel dal portale del **Catalogo dati di Azure**, potrebbe essere visualizzata per gli utenti una finestra di dialogo **Informazioni sulla sicurezza per Microsoft Excel**. È un comportamento standard e previsto e gli utenti possono selezionare **Abilita** per continuare.
 
-Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/it-IT/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Colonne di BLOB e UTD mancanti nelle anteprime
 
@@ -80,7 +72,7 @@ Le possibili cause di questo comportamento problematico sono due:
 
 In alcune situazioni, questo errore si verifica solo quando l'utente è nella rete aziendale o si connette dall'esterno della rete aziendale. I criteri di autenticazione globali consentono di abilitare i metodi di autenticazione separatamente per le connessioni Extranet e Intranet. Se l'autenticazione basata su form non è abilitata per la rete da cui l'utente si connette, è possibile che si verifichino errori di accesso.
 
-Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/it-IT/library/dn486781.aspx).
+Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/library/dn486781.aspx).
 
 **Causa 2: la configurazione del proxy di rete** Se la rete aziendale usa un server proxy, lo strumento di registrazione potrebbe non essere in grado di connettersi ad Azure Active Directory tramite il proxy. Gli utenti possono abilitare lo strumento di registrazione modificando il file di configurazione dello strumento e aggiungendo questa sezione al file:
 
@@ -96,4 +88,4 @@ Per altre informazioni, vedere [Configurare i criteri di autenticazione](https:/
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

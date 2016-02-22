@@ -66,4 +66,4 @@ Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
 
 - Le [estensioni dell'insieme di credenziali delle chiavi di Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornisce funzionalità estese per l'insieme di credenziali delle chiavi di Azure.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

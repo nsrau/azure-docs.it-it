@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
@@ -55,7 +55,7 @@ Si tratta di un approccio rivolto al futuro è il modo migliore per trattare la 
 
 ![][2]
 
-*Figura 4: Archetipo multi modello unificato*
+*Figura 4: archetipo multi modello unificato*
 
 L'interazione tra modelli è fondamentale per lo sviluppo di un approccio olistico alla fidelizzazione del cliente. Ogni modello subisce inevitabilmente un degrado con il passare degli anni, pertanto, l'architettura è un ciclo implicito (simile all'archetipo impostato dallo standard di data mining CRISP-DM [***3***]).
 
@@ -65,7 +65,7 @@ Un'aggiunta interessante in questo ambito è l'analisi dei Big Data. Negli attua
 
  
 ##Implementazione del sistema di modellazione in Machine Learning Studio
-Dato il problema appena descritto, come è possibile implementare un modello integrato e un sistema di classificazione? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.
+Dato il problema appena descritto, qual è il modo migliore per implementare un modello integrato e un sistema di classificazione? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.
 
@@ -99,7 +99,9 @@ Nei diagrammi che seguono sono illustrati i dati usati.
 
 *Figure 7: Funzionalità estratte dall'origine dati*
 > Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile usando dati disponibili pubblicamente, vedere questo esperimento di esempio nella [raccolta di Cortana Analytics](http://gallery.azureml.net/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
->
+> 
+> Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Analytics Suite, si consiglia inoltre [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok.
+> 
 
 ###Algoritmi usati nel prototipo
 
@@ -127,7 +129,7 @@ Inoltre, il set di dati di valutazione è stato inviato a un modello analogo com
 In questa sezione vengono presentati i risultati relativi all'accuratezza dei modelli in base al set di dati di punteggio.
 
 ###Accuratezza e precisione dei valori
-In genere, in Machine Learning, l'accuratezza dell'implementazione si trova sotto il livello SAS di circa il 10-15% (Area sotto la curva o AUC).
+In genere, in Machine Learning di Azure, l'accuratezza dell'implementazione si trova sotto il livello di firma di accesso condiviso di circa il 10-15% (Area sottesa dalla curva o AUC).
 
 La metrica più importante in ambito di varianza è tuttavia il tasso di errata classificazione, ovvero, tra i primi X candidati alla varianza, secondo le previsioni del classificatore, quali di essi **non** sono variati, ricevendo tuttavia il trattamento speciale? Nel diagramma seguente vengono confrontati tali tassi di errata classificazione per tutti i modelli:
 
@@ -188,7 +190,7 @@ Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per 
 	-	**Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).
 -	Usare l'importanza per alimentare la selezione delle funzionalità. Ciò implica che il modello di albero decisionale incrementato è sempre un approccio promettente.  
 
-L'uso delle quattro categorie precedenti crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, dovrebbe essere sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
+L'uso di queste quattro categorie crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, dovrebbe essere sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
 
 Questa importante osservazione è spesso sottovalutata dalle aziende, dove in genere si preferisce un approccio di tipo business intelligence, principalmente perché è una soluzione più semplice e ammette un'automazione semplificata.
 
@@ -213,13 +215,13 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 ##Riferimenti
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.
 
-[2] [Accuratezza e precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision) su Wikipedia
+[2] Articolo di Wikipedia relativo all'[accuratezza e alla precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Guida dettagliata sul data mining](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] Big Data Marketing
+[4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [Modello di varianza Telco] (https://caqs.azure.net/#gallery/telcocustomerchurn) nella raccolta di Cortana Analytics
 ##Appendice
 
 ![][10]
@@ -238,4 +240,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

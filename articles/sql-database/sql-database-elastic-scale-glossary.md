@@ -25,7 +25,7 @@ Questi termini vengono usati in [Aggiungere una partizione mediante gli strument
 
 **Database**: un database SQL di Azure.
 
-**Routing dipendente dei dati**: la funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento orizzontale. Confrontare con **Query su più partizioni**.
+**Routing dipendente dei dati**: la funzionalità che consente a un'applicazione di connettersi a una partizione in base a una specifica chiave di partizionamento orizzontale. Vedere [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md). Confrontare con **[Query su più partizioni](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Mappa globale partizioni**: il set di mapping tra le chiavi di partizionamento orizzontale e le rispettivi partizioni all'interno di un **set di partizioni**. La mappa partizioni globale viene archiviata nel **gestore mappe partizioni**. Confrontare con la **mappa partizioni locale **.
 
@@ -82,4 +82,4 @@ Questi termini vengono usati in [Aggiungere una partizione mediante gli strument
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

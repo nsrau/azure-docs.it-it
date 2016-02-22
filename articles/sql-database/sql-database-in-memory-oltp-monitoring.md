@@ -18,9 +18,9 @@
 	ms.author="jodebrui"/>
 
 
-# Monitorare l'archiviazione in memoria XTP
+# Monitorare l'archiviazione OLTP in memoria
 
-Quando si usano le tecnologie [in memoria](sql-database-in-memory.md), i dati nelle tabelle con ottimizzazione per la memoria e le variabili tabella si trovano in file XTP nelle risorse di archiviazione in memoria. Ogni livello di servizio Premium ha dimensioni di archiviazione in memoria massime documentate nell'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41805. Sarà quindi necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
+Quando si usano le tecnologie [in memoria](sql-database-in-memory.md), i dati nelle tabelle con ottimizzazione per la memoria e le variabili tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium ha dimensioni di archiviazione in memoria massime documentate nell'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41805. Sarà quindi necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
 
 ## Determinare se i dati rientreranno nel limite di archiviazione in memoria
 
@@ -35,7 +35,7 @@ Si noti che la tabella e le righe di variabili tabella, oltre agli indici, vengo
 È possibile monitorare l'uso dell'archiviazione in memoria come percentuale del [limite di archiviazione per il livello di prestazioni](sql-database-service-tiers.md#service-tiers-for-single-databases) nel [portale](https://portal.azure.com/) di Azure:
 
 - Nel pannello Database individuare la casella Utilizzo risorse e fare clic su Modifica.
-- Selezionare quindi la metrica relativa alla percentuale di archiviazione in memoria XTP.
+- Selezionare quindi la metrica relativa alla percentuale di archiviazione in memoria OLTP.
 - Per aggiungere un avviso, selezionare la casella Utilizzo risorse per aprire il pannello Metrica, quindi fare clic su Aggiungi avviso.
 
 In alternativa, usare la query seguente per visualizzare l'utilizzo delle risorse di archiviazione in memoria:
@@ -58,4 +58,4 @@ Per risolvere l'errore:
 ## Passaggi successivi
 Altre informazioni sul [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

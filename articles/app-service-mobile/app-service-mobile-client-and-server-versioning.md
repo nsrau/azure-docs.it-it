@@ -3,7 +3,7 @@
   description="Elenco degli SDK del client e compatibilità con versioni SDK del server per Servizi mobili e App per dispositivi mobili di Azure"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 Gli SDK del client e del server di App per dispositivi mobili in origine si basano su quelle in Servizi mobili, ma *non* sono compatibili tra loro. Ovvero, è necessario utilizzare un SDK del client di *App per dispositivi mobili* con un SDK del server di *App per dispositivi mobili* e lo stesso vale per *Servizi mobili*. Questo contratto viene applicato tramite un valore di intestazione speciale utilizzato dagli SDK del client e del server, `ZUMO-API-VERSION`.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 È possibile rifiutare il controllo della versione impostando un valore **true** per l'impostazione dell’app **MS\_SkipVersionCheck**. Specificarlo nel file web.config o nella sezione Impostazioni dell'applicazione del portale di Azure.
 
-> [AZURE.NOTE]Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. Si consiglia di rifiutare il controllo della versione solo dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
+> [AZURE.NOTE] Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. Si consiglia di rifiutare il controllo della versione solo dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
 
 ## Riepilogo della compatibilità per tutte le versioni
 
@@ -80,7 +77,7 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 
 ### SDK del server di *Servizi* mobili
 
-| Piattaforma server | Versione                                                                                                        | Intestazione della versione accettata |
+| Piattaforma server | Versione | Intestazione della versione accettata |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET             | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
 | Node.js          | (presto disponibile)                        | **Nessuna intestazione di versione** |
@@ -93,7 +90,7 @@ Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione
 | ---------------- | ---------------------------- | -------- |
 | Non specificato | Qualsiasi | 200 - OK |
 | Qualsiasi valore | True | 200 - OK |
-| Qualsiasi valore | False/Non specificato | 400 - Richiesta non valida | 
+| Qualsiasi valore | False/Non specificato | 400 - Richiesta non valida |
 
 ## <a name="2.0.0"></a>Client e server di App per dispositivi mobili di Azure
 
@@ -141,4 +138,4 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

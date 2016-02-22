@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
@@ -47,19 +47,19 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 
 ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Channel Settings, selezionare **Standard** per l'opzione di codifica live con Input Protocol impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
+2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Channel Settings, selezionare **Standard** per l'opzione Live Encoding con Input Protocol impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
 
 
-Assicurarsi che l'opzione **Start the new channel now** sia selezionata.
+Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
 
 3. Fare clic su **Create Channel**. ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
->[AZURE.NOTE]Per l'avvio del canale possono essere richiesti fino a 20 minuti.
+>[AZURE.NOTE] Per l'avvio del canale possono essere richiesti fino a 20 minuti.
 
 
 Durante l'avvio di canale è possibile [configurare il codificatore](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
->[AZURE.IMPORTANT]Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_tricaster_rtmp></a>Configurare il codificatore NewTek TriCaster
 
@@ -119,7 +119,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT]Prima di fare clic su **flusso**, ci si **deve** assicurare che il canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un feed per l’input/contributo per più di 15 minuti.
+>[AZURE.IMPORTANT] Prima di fare clic su **flusso**, ci si **deve** assicurare che il canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un feed per l’input/contributo per più di 15 minuti.
 
 ##Testare la riproduzione
   
@@ -162,4 +162,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

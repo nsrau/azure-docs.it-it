@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -54,18 +54,20 @@ Il diagramma di flusso seguente aiuta a capire il processo di aggiornamento di u
 
 ## Passaggi successivi
 
-[Esercitazione sull'aggiornamento](service-fabric-application-upgrade-tutorial.md)
+[Aggiornamento dell'applicazione mediante Visual Studio](service-fabric-application-upgrade-tutorial.md) illustra l'aggiornamento di un'applicazione tramite Visual Studio.
 
-[Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md)
+[Aggiornare l'applicazione tramite Powershell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un’applicazione tramite PowerShell.
 
-[Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
+Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 
-[Aggiornamento manuale e aggiornamento con pacchetti Diff](service-fabric-application-upgrade-advanced.md)
+Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-[Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
+Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
+Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

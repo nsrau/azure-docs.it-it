@@ -22,7 +22,7 @@
 ## Esempio basato su questa esercitazione
 Questa esercitazione è stata scritta in base a un esempio, relativo all'**invio di fatture EDIFACT mediante Servizi BizTalk**, disponibile per il download in [MSDN Code Gallery](http://go.microsoft.com/fwlink/?LinkId=401005). È possibile usare l'esempio e scorrere questa esercitazione per comprendere come è stato creato oppure usare l'esercitazione per creare la propria soluzione. Questa esercitazione è mirata al secondo approccio, in modo che si possa comprendere come è stata creata questa soluzione. Inoltre, per quanto possibile, l'esercitazione è coerente con l'esempio e usa gli stessi nomi per gli elementi (ad esempio schemi e trasformazioni).
 
->[AZURE.NOTE]Poiché questa soluzione prevede l'invio di un messaggio da un bridge EAI a un bridge EDI, riusa l'[esempio di concatenamento di bridge di Servizi BizTalk](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
+>[AZURE.NOTE] Poiché questa soluzione prevede l'invio di un messaggio da un bridge EAI a un bridge EDI, riusa l'[esempio di concatenamento di bridge di Servizi BizTalk](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
 
 ## Scopo della soluzione
 
@@ -40,7 +40,7 @@ Per ottenere questo scenario aziendale, Contoso usa le funzionalità fornite con
 
 *   Dopo aver ricevuto la fattura, Northwind restituisce un messaggio CONTRL al bridge di ricezione EDI distribuito come parte dell'accordo.
 
-> [AZURE.NOTE]Facoltativamente, questa soluzione illustra anche come usare l'invio in batch per trasmettere le fatture in batch anziché singolarmente.
+> [AZURE.NOTE] Facoltativamente, questa soluzione illustra anche come usare l'invio in batch per trasmettere le fatture in batch anziché singolarmente.
 
 Per completare lo scenario, vengono usate code di bus di servizio per inviare la fattura da Contoso a Northwind o ricevere un acknowledgement da Northwind. Queste code possono essere create usando un'applicazione client, disponibile come download e inclusa nel pacchetto di esempio fornito come parte dell'esercitazione.
 
@@ -78,7 +78,7 @@ Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i pa
 
 5.  Lasciare in esecuzione il client dell'esercitazione. Aprire , fare clic su **Bus di servizio** > **_spazio dei nomi del bus di servizio_** > **Code** e verificare che le tre code siano state create.
 
-## Passaggio 2: creare e distribuire un accordo tra partner commerciali
+## Passaggio 2: creare e distribuire un contratto tra partner commerciali
 Creare un accordo tra partner commerciali tra Contoso e Northwind. Questo tipo di accordo definisce un contratto per gli scambi tra i due partner commerciali, ad esempio quale schema dei messaggi usare, quale protocollo di messaggistica applicare e così via. Un accordo tra partner commerciali include due bridge EDI, uno per inviare messaggi ai partner commerciali (denominato **bridge di trasmissione EDI**) e uno per ricevere messaggi dai partner commerciali (denominato **bridge di ricezione EDI**).
 
 Nel contesto di questa soluzione il bridge di trasmissione EDI corrisponde al lato invio dell'accordo e viene usato per inviare la fattura EDIFACT da Contoso a Northwind. Analogamente, il bridge di ricezione EDI corrisponde al lato ricezione dell'accordo e viene usato per ricevere gli acknowledgement da Northwind.
@@ -93,7 +93,7 @@ Per iniziare, creare i partner commerciali per Contoso e Northwind.
 
 3.  Ripetere il passaggio per creare il secondo partner, **Northwind**.
 
-### Creare l'accordo
+### Creare il contratto
 Gli accordi tra partner commerciali vengono creati tra i profili di business dei partner coinvolti. Questa soluzione usa i profili di partner predefiniti creati automaticamente quando sono stati creati i partner.
 
 1.  Nel portale di Servizi BizTalk fare clic su **Contratti** > **Aggiungi**.
@@ -135,7 +135,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
 
     5.  Sempre nella scheda **Route**, specificare dove devono essere instradati gli acknowledgement sospesi, ossia gli acknowledgement che presentano problemi durante l'elaborazione. Impostare il tipo di trasporto su Bus di servizio di Azure, il tipo di destinazione route su **Coda**, il tipo di autenticazione su **Firma di accesso condiviso** (SAS), specificare la relativa stringa di connessione per lo spazio dei nomi di bus di servizio quindi immettere **suspended** come nome della coda.
 
-5.  Fare infine clic su **Distribuisci** per distribuire l'accordo. Notare gli endpoint in cui vengono distribuiti gli accordi di invio e ricezione.
+5.  Fare infine clic su **Distribuisci** per distribuire il contratto. Notare gli endpoint in cui vengono distribuiti gli accordi di invio e ricezione.
 
     *   Nella scheda **Send Settings**, in **Inbound URL**, notare l'endpoint. Per inviare un messaggio da Contoso a Northwind usando il bridge di trasmissione EDI è necessario inviare un messaggio a questo endpoint.
 
@@ -173,7 +173,7 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 
 7.  In Esplora soluzioni espandere **MessageFlowItinerary.bcs** e fare doppio clic sul file **EDIBridge.config** file. Sostituire il contenuto di **EDIBridge.config** con quanto segue.
 
-    > [AZURE.NOTE]Perché è necessario modificare il file con estensione config? L'endpoint del servizio esterno aggiunto al canvas di progettazione del bridge rappresenta i bridge EDI distribuiti in precedenza. I bridge EDI sono bidirezionali, con un lato invio e un lato ricezione. Il bridge EAI aggiunto al canvas di progettazione è però un bridge unidirezionale. Pertanto, per gestire i diversi modelli di scambio dei messaggi dei due bridge, viene usato un comportamento di bridge personalizzato includendo la relativa configurazione nel file config. Il comportamento personalizzato inoltre gestisce anche l'autenticazione presso l'endpoint del bridge di trasmissione EDI. Questo comportamento personalizzato è disponibile come esempio separato nella pagina Web relativa all'[esempio di concatenamento di bridge di Servizi BizTalk - da EAI a EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Questa soluzione riusa l'esempio.
+    > [AZURE.NOTE] Perché è necessario modificare il file con estensione config? L'endpoint del servizio esterno aggiunto al canvas di progettazione del bridge rappresenta i bridge EDI distribuiti in precedenza. I bridge EDI sono bidirezionali, con un lato invio e un lato ricezione. Il bridge EAI aggiunto al canvas di progettazione è però un bridge unidirezionale. Pertanto, per gestire i diversi modelli di scambio dei messaggi dei due bridge, viene usato un comportamento di bridge personalizzato includendo la relativa configurazione nel file config. Il comportamento personalizzato inoltre gestisce anche l'autenticazione presso l'endpoint del bridge di trasmissione EDI. Questo comportamento personalizzato è disponibile come esempio separato nella pagina Web relativa all'[esempio di concatenamento di bridge di Servizi BizTalk - da EAI a EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Questa soluzione riusa l'esempio.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -239,7 +239,7 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 
 2.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto **InvoiceProcessingBridge** e scegliere **Distribuisci**.
 
-3.  Specificare i valori mostrati nell'immagine, quindi fare clic su **Distribuisci**. È possibile ottenere le credenziali ACS per Servizi BizTalk facendo clic su **Informazioni di connessione** dal dashboard di Servizi BizTalk in .
+3.  Specificare i valori mostrati nell'immagine, quindi fare clic su **Distribuisci**. È possibile ottenere le credenziali ACS per Servizi BizTalk facendo clic su **Informazioni di connessione** dal dashboard di Servizi BizTalk.
 
     ![][11]
 
@@ -275,7 +275,7 @@ In questo argomento viene illustrato come testare la soluzione utilizzando l'app
 ## Passaggio 5 (facoltativo): inviare le fatture EDIFACT in batch 
 I bridge EDI di Servizi BizTalk supportano anche l'invio in batch dei messaggi in uscita. Questa funzionalità è utile per i partner destinatari che preferiscono ricevere un batch di messaggi (che soddisfano un determinato criterio) anziché messaggi singoli.
 
-Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo rilascio del batch o, in altre parole, i criteri di rilascio. I criteri di rilascio possono essere basati sulla modalità con cui il partner destinatario desidera ricevere i messaggi. Se l'invio in batch è abilitato, il bridge EDI non invia il messaggio in uscita al partner destinatario finché i criteri di rilascio non sono soddisfatti. Ad esempio, se si impostano criteri di invio in batch basati sul numero di messaggi, viene inviato un batch solo quando vengono raggruppati 'n' messaggi. I criteri di batch possono anche essere basati sul tempo e in questo caso un batch può ad esempio essere inviato ogni giorno a una determinata ora. In questa soluzione si tenta di usare criteri basati sul numero di messaggi.
+Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo rilascio del batch o, in altre parole, i criteri di rilascio. I criteri di rilascio possono essere basati sulla modalità con cui il partner destinatario desidera ricevere i messaggi. Se l'invio in batch è abilitato, il bridge EDI non invia il messaggio in uscita al partner destinatario finché i criteri di rilascio non sono soddisfatti. Ad esempio, se si impostano criteri di invio in batch basati sul numero di messaggi, viene inviato un batch solo quando vengono raggruppati 'n' messaggi. I criteri di batch possono anche essere basati sul tempo e in questo caso un batch può ad esempio essere inviato ogni giorno a una determinata ora. In questa soluzione si tenta di usare criteri basati sulla dimensione del messaggio.
 
 1.  Nel portale di Servizi BizTalk fare clic sull'accordo creato in precedenza. Fare clic su Send Settings > Batch > Add Batch.
 
@@ -287,7 +287,7 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 4.  Specificare criteri di rilascio del batch. Dalla casella di riepilogo a discesa selezionare **MessageCountBased** e per **Conteggio** specificare **3**. Questo significa che a Northwind verrà inviato un batch di tre messaggi. Fare clic su **Avanti**.
 
     ![][18]  
-5.  Controllare il riepilogo, quindi fare clic su **Salva**. Fare clic su **Distribuisci** per ridistribuire l'accordo.
+5.  Controllare il riepilogo, quindi fare clic su **Salva**. Fare clic su **Distribuisci** per ridistribuire il contratto.
 
 6.  Tornare all'applicazione **client dell'esercitazione**, fare clic su **Send In-house Invoice** e seguire i messaggi di richiesta per inviare la fattura. Si noterà che Northwind non riceve alcuna fattura perché i criteri relativi al numero di messaggi per il batch non sono soddisfatti. Ripetere questo passaggio altre due volte, in modo da avere tre messaggi di fatture da inviare a Northwind. In questo caso, i criteri di rilascio, che prevedono un batch di 3 messaggi, vengono soddisfatti, pertanto ora dovrebbe risultare una fattura presso Northwind.
 
@@ -312,4 +312,4 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

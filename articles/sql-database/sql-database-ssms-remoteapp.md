@@ -1,10 +1,16 @@
-<properties pageTitle="Connettersi al database SQL tramite SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" description="Usare questa esercitazione per imparare a usare SQL Server Management Studio in Azure RemoteApp ai fini della sicurezza e delle prestazioni durante la connessione al database SQL" services="sql-database" documentationCenter="" authors="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="Connettersi al database SQL usando SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" 
+	description="Questa esercitazione spiega come imparare a usare SQL Server Management Studio in Azure RemoteApp per la sicurezza e le prestazioni durante la connessione al database SQL"
+	services="sql-database" 
+	documentationCenter=""
+	authors="adhurwit" 
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -18,7 +24,7 @@ Questa esercitazione illustra come usare SQL Server Management Studio (SSMS) in 
 
 ## SSMS in Azure RemoteApp
 
-Azure RemoteApp è un servizio di Servizi desktop remoto di Azure che fornisce applicazioni. Per altre informazioni, vedere[Informazioni su Azure RemoteApp](../remoteapp-whatis.md).
+Azure RemoteApp è un servizio di Servizi desktop remoto di Azure che fornisce applicazioni. Per altre informazioni, vedere [Che cos'è RemoteApp?](../remoteapp-whatis.md).
 
 SSMS eseguito in Azure RemoteApp offre la stessa esperienza dell'esecuzione in locale.
 
@@ -55,7 +61,7 @@ Nella nuova VM passare alla pagina di download: [Microsoft® SQL Server® 2014 E
 
 È disponibile un'opzione per scaricare solo SSMS. Dopo il download, passare alla directory di installazione ed eseguire il programma di installazione di SSMS.
 
-È necessario installare anche SQL Server 2014 Service Pack 1. È possibile scaricarlo qui: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/it-IT/download/details.aspx?id=46694)
+È necessario installare anche SQL Server 2014 Service Pack 1. Scaricarlo qui: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/it-IT/download/details.aspx?id=46694)
 
 SQL Server 2014 Service Pack 1 include le funzionalità essenziali per l'utilizzo del database SQL di Azure.
 
@@ -66,14 +72,14 @@ Sul desktop della VM è disponibile uno script di PowerShell denominato Validate
 
 Al termine dell'esecuzione di sysprep, la VM viene chiusa.
 
-Per altre informazioni sulla creazione di un'immagine di Azure RemoteApp, vedere il blog relativo alla [Creazione di un'immagine modello di RemoteApp in Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
+Per altre informazioni sulla creazione di un'immagine di Azure RemoteApp, vedere l'articolo relativo alla [creazione di un'immagine modello di RemoteApp in Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
 
 ### 4\. Acquisire l'immagine
 
 Una volta interrotta l'esecuzione della VM, trovarla nel portale corrente e acquisirla.
 
-Per informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico](../virtual-machines-capture-image-windows-server.md).
+Per altre informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico](../virtual-machines-capture-image-windows-server.md)
 
 
 ### 5\. Aggiungere immagini modello di Azure RemoteApp
@@ -104,7 +110,7 @@ Nella scheda Accesso utente è possibile selezionare gli utenti che avranno acce
 
 ### 9\. Installare l'applicazione client Azure RemoteApp
 
-È possibile scaricare e installare un client di Azure RemoteApp qui: [Download | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
+Scaricare e installare un client di Azure RemoteApp qui: [Scaricare | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
 
 
 
@@ -152,4 +158,4 @@ Per altre informazioni su come stabilire la connessione al database SQL, vedere 
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

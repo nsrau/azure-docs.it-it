@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # Come cercare dati di StackExchange con Ricerca di Azure
@@ -41,7 +41,7 @@ In questo esempio è sufficiente passare la parola "azure" come parametro di ric
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: il nuovo supporto (in anteprima) per le [espressioni di query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) consente anche di eseguire alcune query personalizzate, ad esempio corrispondenze fuzzy dei risultati e limitazione della ricerca a campi specifici. In questo esempio si esegue la ricerca della parola "visualizza" nel campo titolo, ma ~ indica una corrispondenza fuzzy e ciò significa che saranno restituiti anche risultati come visualizzare e visualizzazione.
+-	`Fuzzy Search`: il nuovo supporto per le [espressioni di query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) consente anche di eseguire alcune query personalizzate, ad esempio corrispondenze fuzzy dei risultati e limitazione della ricerca a campi specifici. In questo esempio si esegue la ricerca della parola "visualizza" nel campo titolo, ma ~ indica una corrispondenza fuzzy e ciò significa che saranno restituiti anche risultati come visualizzare e visualizzazione.
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@ Al termine, è possibile usare il [portale Azure classico](https://portal.azure.
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

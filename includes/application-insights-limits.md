@@ -19,6 +19,6 @@ Lunghezza nome di metrica | 100 | 100
 
 <sup>2</sup> È possibile acquistare capacità aggiuntiva per oltre 50 milioni.
  
-[Informazioni su prezzi e quote in Application Insights](app-insights-pricing.md)
+[Informazioni su prezzi e quote in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

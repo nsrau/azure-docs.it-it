@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/09/2016" 
 	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations di Machine Learning
@@ -140,11 +140,11 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole)  |
+|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion	| 1.0 |
 |||
-| Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima 255 caratteri</td><td>Categoria a cui appartiene l'elemento (ad esempio, Cucina, Teatro…)</td></tr><tr><td>Description</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| Corpo della richiesta | Dati catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Nome elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Nome elemento</td></tr><tr><td>Categoria elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima consentita di 255</td><td>Categoria a cui appartiene questo elemento (ad esempio libri di cucina, dramma...)</td></tr><tr><td>Descrizione</td><td>No</td><td>Alfanumerico, lunghezza massima 4000</td><td>Descrizione di questo articolo</td></tr></table><br>La dimensione massima del file è di 200 MB.<br><br>Esempio:<br><pre>2406e770-c 769-4189-89de-1c9283f93a96, Clara Callan, Libro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), Libro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, Libro<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, Libro</pre> |
 
 
 **Risposta**:
@@ -189,11 +189,11 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId	|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | filename | Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (\_).<br>Lunghezza massima: 50 caratteri |
 |	apiVersion		| 1.0 |
 |||
-| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Formato data: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Event</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima file è di 200 MB<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corpo della richiesta | Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obbligatorio</th><th>Tipo</th><th>Descrizione</th></tr><tr><td> Id utente</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Id elemento</td><td>Sì</td><td>Alfanumerico, lunghezza massima 50</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Ora</td><td>No</td><td>Data in formato: AAAA/MM/GGTHH:MM:SS (ad esempio 20/06/2013/T10:00:00)</td><td>Tempo dei dati</td></tr><tr><td>Evento</td><td>No, se indicato è necessario indicare anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>La dimensione massima del file è 200 MB.<br><br>Esempio:<br><pre>149452, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>6360, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>50321, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>71285, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>224450, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>236645, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347<br>107951, 1b3d95e2-84e4-c 414c-bb38-be9cf461c347</pre> |
 
 **Risposta**:
 
@@ -238,7 +238,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
+|	apiVersion | 1\.0 |
 |||
 |Corpo della richiesta| Immissione di dati evento per ogni evento da inviare. Per lo stesso utente o la stessa sessione del browser si dovrà inviare lo stesso ID nel campo SessionId. Vedere l'esempio di corpo dell'evento di seguito.|
 
@@ -343,11 +343,11 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).|
+| modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion | 1\.0 |
 |||
-| Corpo della richiesta | NESSUNO |
+| Corpo della richiesta | Nessuno |
 
 **Risposta**:
 
@@ -419,9 +419,9 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-|	modelId			|	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
-|	onlyLastBuild	|	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente.	|
-|	apiVersion		|	1\.0									|
+|	modelId |	Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
+|	onlyLastBuild |	Indica se restituire l'intera cronologia di compilazioni del modello o solo lo stato della compilazione più recente. |
+|	apiVersion |	1\.0 |
 
 
 **Risposta**:
@@ -504,7 +504,7 @@ XML OData
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
+| modelId | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | itemIds | Elenco con valori delimitati da virgole degli elementi per i quali aggiungere raccomandazioni.<br>Lunghezza massima: 1024 caratteri |
 | numberOfResults | Numero di risultati richiesti. |
 | includeMetatadata | Uso futuro, sempre false. |
@@ -518,7 +518,7 @@ La risposta include una voce per ogni elemento raccomandato. Ogni voce include i
 
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto indica maggiore confidenza.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 XML OData
@@ -687,10 +687,10 @@ Dopo avere implementato un modello di raccomandazione nell'ambiente di produzion
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole) |
+| id | Identificatore univoco del modello (con distinzione tra maiuscole e minuscole).| |
 | apiVersion | 1\.0 |
 |||
-| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere tutto il tag. |
+| Corpo della richiesta | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Si noti che i tag XML Description e ActiveBuildId sono facoltativi. Se non si vuole impostare Description o ActiveBuildId, rimuovere l'intero tag. |
 
 **Risposta**:
 
@@ -714,4 +714,4 @@ Il presente documento non fornisce all'utente alcun diritto legale rispetto a qu
 È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

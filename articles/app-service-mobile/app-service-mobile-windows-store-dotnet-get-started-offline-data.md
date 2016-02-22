@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -48,11 +46,11 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
     * **Windows 8.1 Runtime:** installare [SQLite per Windows 8.1].
     * **Windows Phone 8.1:** installare [SQLite per Windows Phone 8.1].
 
-    >[AZURE.NOTE]Queste istruzioni funzionano anche per i progetti Windows 10 UAP, ma in quel caso è necessario installare [SQLite per Windows 10].
+    >[AZURE.NOTE] Queste istruzioni funzionano anche per i progetti Windows 10 UAP, ma in quel caso è necessario installare [SQLite per Windows 10].
 
 2. In Visual Studio aprire il progetto completato nell'esercitazione [Creare un'app Windows]. Installare il pacchetto NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** per i progetti relativi a Windows 8.1 Runtime e Windows Phone 8.1. Aggiungere il riferimento a NuGet nei progetti Windows Store 8.1 e Windows Phone 8.1.
 
-    >[AZURE.NOTE]Se l'installazione crea un riferimento aggiuntivo a una versione diversa di SQLite rispetto a quella installata, verrà generato un errore di compilazione. Risolvere l'errore rimuovendo il duplicato nel nodo **Riferimenti** dei progetti.
+    >[AZURE.NOTE] Se l'installazione crea un riferimento aggiuntivo a una versione diversa di SQLite rispetto a quella installata, verrà generato un errore di compilazione. Risolvere l'errore rimuovendo il duplicato nel nodo **Riferimenti** dei progetti.
 
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nodo **Riferimenti** per i progetti relativi alle piattaforme Windows 8.1 Runtime e Windows Phone 8.1 e verificare che sia presente un riferimento a SQLite, che si trova nella sezione **Estensioni**.
 
@@ -180,14 +178,14 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
 1. Modificare il file App.xaml.cs nel progetto condiviso. Impostare come commento l'inizializzazione di **MobileServiceClient** e aggiungere le righe seguenti, che usano un URL dell'app per dispositivi mobili non valido:
 
-         public static MobileServiceClient MobileService = 
+         public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
 	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È inoltre possibile illustrare il funzionamento offline disabilitando sul dispositivo le reti Wi-Fi e cellulare o impostando la modalità aereo.
 
 2. Premere **F5** per compilare ed eseguire l'app. Si noti l'errore di sincronizzazione al momento dell'aggiornamento quando l'app viene avviata.
-3. Immettere nuovi elementi todo e fare clic su **Salva** per ciascuno di essi. L'operazione push ha esito negativo per ogni elemento con un oggetto `PushResult.Status=CancelledByNetworkError`. I nuovi elementi todo sono presenti solo nell'archivio locale fino a quando non è possibile effettuarne il push al back-end di App per dispositivi mobili. 
- 
+3. Immettere nuovi elementi todo e fare clic su **Salva** per ciascuno di essi. L'operazione push ha esito negativo per ogni elemento con un oggetto `PushResult.Status=CancelledByNetworkError`. I nuovi elementi todo sono presenti solo nell'archivio locale fino a quando non è possibile effettuarne il push al back-end di App per dispositivi mobili.
+
 	Sarebbe possibile eliminare la finestra di dialogo dell'eccezione per `PushResult.Status=CancelledByNetworkError` e l'app client si comporterebbe come se fosse connessa al back-end dell'app per dispositivi mobili, supportando senza problemi tutte le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete).
 
 4. Chiudere l'app e riavviarla per verificare che i nuovi elementi creati siano salvati in modo permanente nell'archivio locale.
@@ -202,13 +200,13 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 1. Aprire il file App.xaml.cs nel progetto condiviso. Rimuovere il commento dalla precedente inizializzazione di `MobileServiceClient` per usare L'URL dell'app per dispositivi mobili e l'URL del gateway corretti.
 
-2. Premere **F5** per ricompilare ed eseguire l'app. L'app sincronizza le modifiche locali con il back-end dell'app per dispositivi mobili di Azure usando operazioni push e pull non appena viene eseguito il gestore eventi `OnNavigatedTo`.
+2. Premere **F5** per ricompilare ed eseguire l'app. L'app sincronizza le modifiche locali con il back-end dell'app per dispositivi mobili di Azure usando operazioni push e pull non appena il gestore eventi `OnNavigatedTo` viene eseguito.
 
 3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler. Si noti che i dati sono stati sincronizzati tra il database back-end dell'app per dispositivi mobili di Azure e l'archivio locale.
 
 4. Nell'app fare clic sulla casella di controllo accanto ad alcuni elementi da completare nell'archivio locale.
 
-  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento completo con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. È importante osservare, tuttavia, come **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, poiché viene effettuata automaticamente ogni volta che si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. Si noti tuttavia che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, poiché viene effettuata automaticamente ogni volta che si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 
 ##Riepilogo
@@ -244,7 +242,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
@@ -270,8 +268,8 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [SQLite per Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
- 
-[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+
+[Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

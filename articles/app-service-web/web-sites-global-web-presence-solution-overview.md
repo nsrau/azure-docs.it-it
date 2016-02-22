@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creare una presenza Web globale in App Web del servizio app di Azure" 
-	description="Questa guida fornisce informazioni tecniche generali su come ospitare il sito dell'organizzazione (.COM) in App Web del servizio app di Azure. Sono inclusi la distribuzione, i domini personalizzati, SSL e il monitoraggio." 
+	description="Questa guida fornisce informazioni tecniche generali su come ospitare il sito dell'organizzazione (.COM) nelle app Web di Servizio app di Azure. Sono inclusi la distribuzione, i domini personalizzati, SSL e il monitoraggio." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
@@ -19,15 +19,16 @@
 
 # Creare una presenza Web globale in App Web del servizio app di Azure
 
-App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dispone di tutte le funzionalità necessarie per stabilire una presenza Web globale per il proprio sito .COM. Ogni organizzazione, indipendentemente dalle dimensioni, necessita di una piattaforma solida, sicura e scalabile per migliorare le prestazioni aziendali, la consapevolezza del marchio e le comunicazioni con i clienti. Con App Web del servizio app di Azure è possibile gestire l'identità e il marchio aziendale con la continuità garantita da Microsoft.
+App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) dispone di tutte le funzionalità necessarie per stabilire una presenza Web globale per il proprio sito .COM. Ogni organizzazione, indipendentemente dalle dimensioni, necessita di una piattaforma solida, sicura e scalabile per migliorare le prestazioni aziendali, la consapevolezza del marchio e le comunicazioni con i clienti. Le app Web di Servizio app di Azure consentono di gestire l'identità e il marchio aziendale con la continuità garantita da Microsoft.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-Di seguito è riportato un esempio di un sito Web .COM in esecuzione su App Web del servizio app di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente combinando App Web con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni**.
+Di seguito è riportato un esempio di un sito Web .COM in esecuzione nelle app Web di Servizio app di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo le app Web con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni**.
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Questa guida illustra alcune delle aree e delle attività più comuni relative all'esecuzione di un sito .COM pubblico in App Web del servizio app di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare in App Web del servizio app di Azure. Per informazioni dettagliate su queste soluzioni, vedere le guide relative alle [campagne di marketing digitali](web-sites-digital-marketing-application-solution-overview.md) e alle [applicazioni business](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Questa guida illustra alcune delle aree e delle attività più comuni relative all'esecuzione di un sito .COM pubblico nelle app Web di Servizio app di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare nelle app Web di Servizio app di Azure. Per informazioni dettagliate su queste soluzioni, vedere le guide relative alle [campagne di marketing digitali](web-sites-digital-marketing-application-solution-overview.md) e alle [applicazioni business](web-sites-business-application-solution-overview.md).
 
 ## Creare da zero o recuperare asset esistenti
 
@@ -39,7 +40,7 @@ In App Web del servizio app di Azure è supportata l'esecuzione di asset Web esi
 
 ## Pubblicare in modo affidabile
 
-App Web consente di pubblicare un sito Web in modo affidabile, mediante la pubblicazione continua direttamente dal sistema di controllo del codice sorgente esistente e la verifica in diretta del contenuto.
+Le app Web consentono di pubblicare un sito Web in modo affidabile, mediante la pubblicazione continua direttamente dal sistema di controllo del codice sorgente esistente e la verifica in diretta del contenuto.
 
 Durante la pianificazione, la creazione di prototipi e le fasi iniziali dello sviluppo di un sito, è possibile visualizzare versioni funzionanti del sito Web prima che venga attivato tramite la [distribuzione in uno slot di gestione temporanea] del sito in App Web del servizio app di Azure. Grazie all'integrazione del controllo del codice sorgente con App Web, è possibile effettuare la [pubblicazione continua] in uno slot di gestione temporanea e, quando lo si desidera, passare all'ambiente di produzione senza tempi di inattività. Se si verifica un errore nel sito di produzione, è anche possibile tornare immediatamente a una versione precedente del sito.
 
@@ -47,7 +48,7 @@ Inoltre, durante la pianificazione di modifiche da apportare a un sito Web attiv
 
 ## Personalizzare e proteggere
 
-È possibile usare gratuitamente un dominio di App Web del servizio app di Azure o eseguire il mapping al nome di dominio registrato e proteggere il proprio marchio con il certificato SSL firmato da un'Autorità di certificazione.
+È possibile usare gratuitamente un dominio delle app Web di Servizio app di Azure o eseguire il mapping al nome di dominio registrato e proteggere il proprio marchio con il certificato SSL firmato da un'Autorità di certificazione.
 
 Quando si esegue il proprio sito Web su App Web, il dominio ***.azurewebsites.net** è gratuito. In alternativa, è possibile eseguire il mapping del sito Web a un [dominio personalizzato], ad esempio contoso.com, ottenuto da qualsiasi registro DNS come GoDaddy.
 
@@ -89,7 +90,7 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 ## Altre risorse
 
 - [Documentazione relativa alle app Web del servizio app](/services/app-service/web/)
-- [Mappa di formazione per le app Web del servizio app di Azure](websites-learning-map.md)
+- [Mappa di formazione per le app Web del servizio app di Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog Web di Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -137,4 +138,4 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

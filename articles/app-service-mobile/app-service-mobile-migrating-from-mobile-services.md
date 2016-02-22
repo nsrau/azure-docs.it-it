@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
@@ -65,7 +65,7 @@ Tutti i siti di Servizi mobili che condividono lo stesso piano di hosting vengon
 
   1.  Accedere al [portale di Azure classico].
   2.  Selezionare il servizio mobile
-  3.  Selezionare la scheda **PIANO**.
+  3.  Selezionare la scheda **AUMENTA**.
   4.  In **Livello servizio mobile** scegliere il livello **STANDARD**. Fare clic sull'icona **SALVA** nella parte inferiore della pagina.
 
 Ricordarsi di impostare il piano tariffario appropriato dopo la migrazione.
@@ -117,7 +117,7 @@ Come punto di partenza, si consiglia quanto segue:
 
 Si noti che c'è una notevole flessibilità nella scelta del piano tariffario per l'applicazione. Per informazioni dettagliate sui prezzi del nuovo servizio app, vedere [Prezzi di Servizio app].
 
-> [AZURE.TIP]Il livello Standard del servizio app include l'accesso a molte funzionalità utili, come ad esempio [slot di staging], backup automatico e ridimensionamento automatico. Sono anche disponibili nuove funzionalità interessanti.
+> [AZURE.TIP] Il livello Standard del servizio app include l'accesso a molte funzionalità utili, come ad esempio [slot di staging], backup automatico e ridimensionamento automatico. Sono anche disponibili nuove funzionalità interessanti.
 
 ### <a name="review-migration-scheduler-jobs"></a>Esaminare i processi dell'utilità di pianificazione di cui è stata eseguita la migrazione
 
@@ -143,7 +143,7 @@ Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili com
 
 Questa attività è facoltativa, ma consente di migliorare l'esperienza di gestione successiva.
 
-> [AZURE.TIP]Uno dei vantaggi dell'uso di un servizio app di Azure è che è possibile eseguire il sito Web e il servizio mobile nello stesso sito. Per altre informazioni, vedere la sezione [Passaggi successivi](#next-steps).
+> [AZURE.TIP]  Uno dei vantaggi dell'uso di un servizio app di Azure è che è possibile eseguire il sito Web e il servizio mobile nello stesso sito. Per altre informazioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 ### <a name="download-publish-profile"></a>Scaricare un nuovo profilo di pubblicazione
 
@@ -192,7 +192,7 @@ La maggior parte delle impostazioni di un servizio mobile di cui è stata esegui
 
 È possibile aggiornare le impostazioni di più app contemporaneamente.
 
-> [AZURE.TIP]Si noterà che sono disponibili due impostazioni dell'applicazione con lo stesso valore. Ad esempio, _ApplicationKey_ e _MS\_ApplicationKey_. È sufficiente modificare l'impostazione dell'app preceduta dal prefisso **MS\_**. È tuttavia consigliabile aggiornare entrambe le impostazioni app nello stesso momento.
+> [AZURE.TIP]  Si noterà che sono disponibili due impostazioni dell'applicazione con lo stesso valore. Ad esempio, _ApplicationKey_ e _MS\_ApplicationKey_. È sufficiente modificare l'impostazione dell'app preceduta dal prefisso **MS\_**. È tuttavia consigliabile aggiornare entrambe le impostazioni app nello stesso momento.
 
 ### <a name="authentication"></a>Autenticazione
 
@@ -208,7 +208,7 @@ Tutte le impostazioni di autenticazione sono disponibili come impostazioni app n
 
 Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato da virgole dei domini del tenant, corrispondente al campo "Tenant consentiti" del portale di Servizi mobili.
 
-> [AZURE.WARNING]**Non usare i meccanismi di autenticazione nel menu Impostazioni**
+> [AZURE.WARNING] **Non usare i meccanismi di autenticazione nel menu Impostazioni**
 >
 > Il servizio app di Azure fornisce un sistema di autenticazione e autorizzazione senza codice a parte nel menu Impostazioni di _Autenticazione/Autorizzazione_ e l'opzione _Autenticazione per dispositivi mobili_ (deprecata) nel menu Impostazioni. Queste opzioni non sono compatibili con un servizio mobile di Azure di cui è stata eseguita la migrazione. È possibile aggiornare il sito per sfruttare i vantaggi dell'autenticazione del servizio app di Azure.
 
@@ -277,11 +277,11 @@ L'hub di notifica viene gestito attraverso il [portale di Azure]. Prendere nota 
   2. Selezionare **Sfoglia>** e quindi **Hub di notifica**.
   3. Fare clic sul nome dell'hub di notifica associato al servizio mobile.
 
-> [AZURE.NOTE]L'hub di notifica non sarà visibile se è di tipo "Misto". Gli hub di notifica di tipo "Misto" utilizzano sia Hub di notifica che le funzionalità legacy del bus di servizio. È necessario [convertire gli spazi dei nomi di tipo Misto]. Al termine della conversione, l'hub di notifica verrà visualizzato nel [portale di Azure].
+> [AZURE.NOTE] L'hub di notifica non sarà visibile se è di tipo "Misto". Gli hub di notifica di tipo "Misto" utilizzano sia Hub di notifica che le funzionalità legacy del bus di servizio. È necessario [convertire gli spazi dei nomi di tipo Misto]. Al termine della conversione, l'hub di notifica verrà visualizzato nel [portale di Azure].
 
 Per altre informazioni, vedere la documentazione relativa a [Hub di notifica].
 
-> [AZURE.TIP]Le funzionalità di gestione di Hub di notifica nel [portale di Azure] sono ancora in anteprima. Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
+> [AZURE.TIP] Le funzionalità di gestione di Hub di notifica nel [portale di Azure] sono ancora in anteprima. Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
 
 ### <a name="app-settings"></a>Altre impostazioni app
 
@@ -393,4 +393,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

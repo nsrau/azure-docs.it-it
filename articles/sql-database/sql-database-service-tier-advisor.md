@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/28/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

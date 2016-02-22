@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/05/2016"
 	ms.author="antonba"/>
 
 # Come configurare connessioni VPN in Gestione API di Azure
 
-Il supporto VPN di Gestione API consente di connettere il gateway di Gestione API a una rete virtuale di Azure. Questo consente ai clienti di Gestione API di connettersi in modo sicuro ai servizi Web back-end locali o altrimenti non accessibili per la rete Internet pubblica.
+Il supporto VPN di Gestione API consente di connettere il gateway di Gestione API a una rete virtuale di Azure (classica). Questo consente ai clienti di Gestione API di connettersi in modo sicuro ai servizi Web back-end locali o altrimenti non accessibili per la rete Internet pubblica.
+
+>[AZURE.NOTE] Gestione API di Azure funziona con reti virtuali classiche. Per informazioni sulla creazione di una rete virtuale classica, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Per informazioni sulla connessione di reti virtuali classiche a reti virtuali di ARM, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## <a name="enable-vpn"> </a>Abilitare connessioni VPN
 
@@ -66,4 +68,4 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

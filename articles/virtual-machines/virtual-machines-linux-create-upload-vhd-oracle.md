@@ -25,12 +25,12 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Prerequisiti##
+## Prerequisiti ##
 
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Oracle Linux in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-**Note sull'installazione di Oracle Linux**
+**Note generali sull'installazione di Oracle Linux**
 
 - Il kernel compatibile con Red Hat di Oracle e i relativi UEK3 (Unbreakable Enterprise Kernel) sono supportati sia su Hyper-V sia su Azure. Per ottenere i migliori risultati, assicurarsi di eseguire l'aggiornamento al kernel più recente durante la preparazione del VHD Oracle Linux.
 
@@ -230,6 +230,6 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 
 ## Passaggi successivi
-È ora possibile usare il file .vhd Oracle Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+È ora possibile usare il file con estensione vhd Oracle Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file con estensione vhd in Azure, vedere i passaggi 2 e 3 in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

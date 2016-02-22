@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #Gestione di certificati per Single Sign-On federato in Azure Active Directory
@@ -76,6 +76,10 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 
 	![Scaricare e quindi caricare il certificato](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articoli correlati
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

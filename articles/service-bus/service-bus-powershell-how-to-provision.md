@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Gestire il bus di servizio con PowerShell
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere utilizzat
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di prova gratuita].
+- Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][], [Offerte per i membri][] oppure [Versione di prova gratuita][].
 
-- Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell].
+- Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][].
 
 - Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
@@ -171,7 +171,7 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
 [Offerte per i membri]: http://azure.microsoft.com/pricing/member-offers/
 [Versione di prova gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Come installare e configurare Azure PowerShell]: ../install-configure-powershell.md
+[Come installare e configurare Azure PowerShell]: ../powershell-install-configure.md
 [pacchetto NuGet del bus di servizio]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->
