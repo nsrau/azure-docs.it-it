@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2015"
+  ms.date="01/29/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -267,4 +267,4 @@ Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -18,7 +18,7 @@
 
 # Impostare Application Insights: diagnosticare le eccezioni
 
-Ci scusiamo per l'inconveniente. [Questa pagina è stata spostata](app-insights-asp-net-exception.md).
+Ci scusiamo per l'inconveniente. [Questa pagina è stata spostata](app-insights-asp-net-exceptions.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

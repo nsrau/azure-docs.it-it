@@ -123,18 +123,18 @@ In tal modo, i log dell'app Web denominata "nomeappWeb" verranno salvati in un f
 
 > [AZURE.NOTE] Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-## Procedura: Visualizzare i log in Application Insights
+## Procedura: visualizza i registri in Application Insights
 
-Visual Studio Application Insights fornisce strumenti per il filtro e la ricerca di log e per correlare i log con richieste e altri eventi.
+Visual Studio Application Insights fornisce strumenti per il filtro e ricerca dei registri e per correlare i registri con le richieste e altri eventi.
 
 1. Aggiungere Application Insights al progetto in Visual Studio
  * Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggiungi Application Insights. Informazioni dettagliate dei passaggi che includono la creazione di una risorsa di Application Insights. [Altre informazioni](../application-insights/app-insights-start-monitoring-app-health-usage.md)
 2. Aggiungere il pacchetto di Listener di traccia al progetto.
  * In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. Selezionare `Microsoft.ApplicationInsights.TraceListener` [ulteriori](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Caricare il progetto ed eseguire la generazione di dati del log.
-4. Nel [portale di Azure](https://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Per la visualizzazione di alcuni dati di telemetria potrebbero essere necessari alcuni minuti: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
+4. Nel [portale di Azure](https://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Alcuni dati di telemetria potrebbe richiedere alcuni minuti per arrivare: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
 
-[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../insights-perf-analytics.md)
+[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 
@@ -270,4 +270,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

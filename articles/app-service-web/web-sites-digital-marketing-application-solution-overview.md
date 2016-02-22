@@ -19,13 +19,14 @@
 # Creare una campagna di marketing digitale in App Web di Azure App Service
 App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) offre una soluzione ottimale per le campagne di marketing digitali. Le campagne di questo tipo in genere sono di breve durata e hanno la funzione di realizzare obiettivi di marketing a breve termine. È necessario prendere in considerazione due scenari principali. Nel primo scenario una società di marketing di terze parti crea e gestisce la campagna per conto del cliente, per l'intera durata della promozione. Nel secondo scenario la società di marketing crea la campagna marketing digitale, quindi trasferisce al cliente la proprietà delle risorse corrispondenti. La campagna di marketing digitale verrà quindi eseguita e gestita autonomamente dal cliente. Siti Web di Azure è la soluzione perfetta in entrambi gli scenari.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-Di seguito è riportato un esempio di una campagna di marketing digitale multicanale globale con App Web di App Service. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente unendo App Web di App Service con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni**.
+Di seguito è riportato un esempio di una campagna di marketing digitale multicanale globale con App Web di App Service. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente unendo App Web di App Service con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Questa guida presenta alcune delle aree e delle attività più comuni relative all'esecuzione di una campagna di marketing digitale in App Web del servizio app di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare in App Web del servizio app di Azure. Per informazioni dettagliate su queste soluzioni, vedere le guide relative alla [presenza Web globale](web-sites-global-web-presence-solution-overview.md) e alle [applicazioni business](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Questa guida presenta alcune delle aree e delle attività più comuni relative all'esecuzione di una campagna di marketing digitale in App Web del servizio app di Azure. Esistono tuttavia altre soluzioni comuni che è possibile implementare in App Web del servizio app di Azure. Per informazioni dettagliate su queste soluzioni, vedere le guide relative alla [presenza Web globale](web-sites-global-web-presence-solution-overview.md) e alle [applicazioni business](web-sites-business-application-solution-overview.md).
 
 ## Creare da zero o recuperare asset esistenti
 
@@ -88,7 +89,7 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 ## Altre risorse
 
 - [Documentazione relativa alle app Web del servizio app](/services/app-service/web/)
-- [Mappa di formazione per le app Web del servizio app di Azure](websites-learning-map.md)
+- [Mappa di formazione per le app Web del servizio app di Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog Web di Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

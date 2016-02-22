@@ -3,7 +3,7 @@
 	description="Ulteriori informazioni sull’uso della libreria IoTHubClient in SDK per dispositivi Azure IoT per C"
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK per C: altre informazioni su IoTHubClient
 
@@ -278,4 +278,4 @@ L'opzione di invio in batch è importante. Per impostazione predefinita, la libr
 
 Questo articolo descrive in dettaglio il comportamento della libreria **IoTHubClient** inclusa in **Azure IoT device SDK per C**. Grazie a queste informazioni si dovrebbe avere acquisito una buona conoscenza delle funzionalità della libreria **IoTHubClient**. L'[articolo successivo](iot-hub-device-sdk-c-serializer.md) fornisce dettagli simili sulla libreria **serializer**.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

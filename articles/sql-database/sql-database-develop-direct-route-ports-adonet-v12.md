@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="02/05/2016" 
 	ms.author="genemi"/>
 
 
@@ -105,7 +105,7 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 - ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
-- ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+- ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. [Qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx) è disponibile un annuncio di blog del team .NET.
  - È disponibile un post di blog su ADO.NET 4.5.1 [qui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 
@@ -120,4 +120,4 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

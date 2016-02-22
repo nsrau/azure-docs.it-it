@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Aggiungere notifiche push all'app Xamarin.iOS tramite il servizio app di Azure" 
-	description="Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app Xamarin.iOS." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Aggiungere notifiche push all'app Xamarin.iOS tramite il servizio app di Azure"
+	description="Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app Xamarin.iOS."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -72,7 +70,7 @@ Il servizio è ora configurato per l'uso con le notifiche push in iOS.
 ##Aggiungere notifiche push all'app
 
 1. In **QSTodoService**, aggiungere la proprietà seguente in modo che l'oggetto **AppDelegate** possa acquisire il client per dispositivi mobili:
-        
+
             public MobileServiceClient GetClient {
             get
             {
@@ -95,19 +93,19 @@ Il servizio è ora configurato per l'uso con le notifiche push in iOS.
         {
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert 
-                | UIUserNotificationType.Badge 
-                | UIUserNotificationType.Sound, 
+                UIUserNotificationType.Alert
+                | UIUserNotificationType.Badge
+                | UIUserNotificationType.Sound,
                 new NSSet());
 
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings); 
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
             return true;
         }
 
 3. Nello stesso file, eseguire l'override dell'evento **RegisteredForRemoteNotifications**. In questo codice ci si sta registrando per una semplice notifica del modello che verrà inviata a tutte le piattaforme supportate dal server.
- 
+
 	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates.md).
 
 
@@ -152,7 +150,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 ## <a name="test"></a>Testare le notifiche push nell'app
 
 1. Scegliere **Run** per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
-	
+
 	> [AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
 2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
@@ -171,7 +169,4 @@ L'esercitazione è stata completata.
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

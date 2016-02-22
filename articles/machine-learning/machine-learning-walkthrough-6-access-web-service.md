@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
 # Passaggio 6 della procedura dettagliata: Accedere al servizio Web di Azure Machine Learning
 
-Questo è l'ultimo passaggio della procedura dettagliata [Sviluppare una soluzione predittiva con Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+Questo è l'ultimo passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 
 1.	[Creare un'area di lavoro di Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,15 +31,17 @@ Questo è l'ultimo passaggio della procedura dettagliata [Sviluppare una soluzio
 
 ----------
 
-Perché un servizio Web sia utile, gli utenti devono essere in grado di inviare dati e ricevere risultati. Questo è un servizio Web di Azure che può ricevere e restituire dati in due modi:
+Nel passaggio precedente di questa procedura dettagliata è stato distribuito un servizio Web che utilizza il modello di previsione del rischio di credito. Ora gli utenti devono essere in grado di inviare dati e ricevere risultati.
 
--	**Richiesta/risposta**: l'utente invia uno o più set di dati di credito al servizio usando un protocollo HTTP e il servizio risponde con un set di risultati.
--	**Esecuzione batch**: l'utente invia al servizio l'URL di un BLOB di Azure che contiene una o più righe di dati di credito. Il servizio archivia i risultati in un altro BLOB e restituisce l'URL di quel contenitore.  
+Questo è un servizio Web di Azure che può ricevere e restituire dati tramite le API REST in due modi:
 
-Nella scheda **DASHBOARD** del servizio Web sono presenti due collegamenti a informazioni utili agli sviluppatori per scrivere codice per l'accesso al servizio. Fare clic sul collegamento alla **pagina della guida per l'API** nella riga **RICHIESTA/RISPOSTA**. Verrà visualizzata una pagina contenente codice di esempio per l'uso del protocollo di richiesta/risposta del servizio. Analogamente, il collegamento nella riga **ESECUZIONE BATCH** offre accesso a codice di esempio per l'esecuzione di una richiesta batch al servizi.
+-	**Richiesta/risposta**: l'utente invia uno o più set di dati di credito al servizio usando un protocollo HTTP e il servizio risponde con uno o più set di risultati.
+-	**Esecuzione batch**: l'utente archivia una o più righe di dati di credito in un BLOB di Azure e invia il percorso del BLOB al servizio. Il servizio assegna un punteggio a tutte le righe di dati del BLOB di input, archivia i risultati in un altro BLOB e restituisce l'URL di quel contenitore.  
 
-La pagina della guida dell'API contiene esempi per i linguaggi di programmazione R, C# e Python.
+Il modo più rapido e semplice per accedere al servizio Web consiste nell'usare i modelli di app Web disponibili nel [Marketplace delle app Web di Azure](https://azure.microsoft.com/marketplace/web-applications/all/). I modelli di app Web consentono di compilare un'app Web personalizzata che riconosce i dati di input del servizio Web e i dati da restituire. È sufficiente concedere l'accesso al proprio servizio Web e ai dati e il modello farà il resto.
 
-Per ulteriori informazioni su come accedere e utilizzare il servizio web, vedere[Come utilizzare un servizio web di Azure Machine Learning che è stato pubblicato da un esperimento di apprendimento automatico](machine-learning-consume-web-services.md).
+Per altre informazioni sull'utilizzo di modelli di app web, vedere [Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
 
-<!---HONumber=Oct15_HO3-->
+È possibile sviluppare anche un'applicazione personalizzata per accedere al servizio Web utilizzando il codice di avvio fornito automaticamente nei linguaggi di programmazione R, C# e Python. Per informazioni più dettagliate, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
+
+<!---HONumber=AcomDC_0211_2016-->

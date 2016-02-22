@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Come usare AMQP 1.0 con l'API .NET del bus di servizio
@@ -22,7 +22,7 @@ AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica w
 
 Grazie al supporto per AMQP 1.0 nel bus di servizio, è ora possibile usare le funzionalità di accodamento e di messaggistica negoziata di pubblicazione/sottoscrizione da numerose piattaforme, tramite un efficiente protocollo binario. Inoltre, è possibile creare applicazioni costituite da componenti creati con un insieme di linguaggi, framework e sistemi operativi.
 
-In questo articolo viene illustrato come usare le funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite l'API .NET del bus di servizio. È disponibile un articolo complementare in cui viene illustrato come eseguire le stesse procedure usando l'API Java Message Service (JMS) standard. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
+In questo articolo viene illustrato come usare le funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite l'API .NET del bus di servizio. È disponibile un [articolo complementare](service-bus-java-how-to-use-jms-api-amqp.md) che illustra come eseguire le stesse procedure usando l'API Java Message Service (JMS) standard. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
 
 ## Introduzione al bus di servizio
 
@@ -324,4 +324,4 @@ Ora che è stata letta una panoramica del bus di servizio e di AMQP con .NET, ve
  
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

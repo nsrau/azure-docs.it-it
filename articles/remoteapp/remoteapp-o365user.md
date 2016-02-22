@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@ Se si distribuisce Azure RemoteApp, è molto probabile che venga utilizzata una 
 Per informazioni su come distribuire le applicazioni client di Office 365, vedere [Come utilizzare la sottoscrizione a Office 365 con Azure RemoteApp](remoteapp-officesubscription.md).
  
 ## Fase 1: Registrare la sottoscrizione gratuita di Office 365 Azure Active Directory
-Seguire le istruzioni in [Modificare il tenant di Azure Active Directory in Azure RemoteApp](remoteapp-changetenant.md) per ottenere l’accesso amministrativo ad Azure AD tramite il portale di gestione di Azure. Come risultato di questo processo dovrebbe essere possibile accedere al portale di Azure e visualizzare la directory lì: a questo punto non verrà visualizzato molto di più perché la sottoscrizione di Azure completa in uso con Azure RemoteApp è in una directory diversa.
+Se si usa il portale di Azure classico, usare i passaggi in [Registrazione della sottoscrizione ad Azure Active Directory gratuita](https://technet.microsoft.com/library/dn832618.aspx) per ottenere accesso amministrativo ad Azure AD tramite il portale di gestione di Azure. Come risultato di questo processo dovrebbe essere possibile accedere al portale di Azure e visualizzare la directory lì: a questo punto non verrà visualizzato molto di più perché la sottoscrizione di Azure completa in uso con Azure RemoteApp è in una directory diversa.
 
 Ricordare il nome e la password dell'account amministratore creati in questo passaggio, perché saranno necessari nella fase 2.
+
+Se si usa il portale di Azure, consultare il post di blog relativo alla [registrazione e attivazione gratuite di Azure Active Directory tramite il portale di Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
 ## Fase 2: Modificare l’Azure AD associato alla sottoscrizione di Azure.
 La sottoscrizione di Azure verrà modificata dalla directory corrente alla directory di Office 365 utilizzata nella fase 1.
@@ -43,4 +45,4 @@ Seguire le istruzioni descritte in [Modificare il tenant di Azure Active Directo
 
 A questo punto la sottoscrizione di Azure RemoteApp è associata a Office 365 Azure AD; è possibile utilizzare gli account utente di Office 365 esistenti con Azure RemoteApp!
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

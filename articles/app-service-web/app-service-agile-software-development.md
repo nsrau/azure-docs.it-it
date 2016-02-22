@@ -21,7 +21,7 @@
 
 In questa esercitazione, si imparerà a creare applicazioni complesse con scalabilità elevata con il [servizio app di Azure](/services/app-service/) in modo da supportare [Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). L'esercitazione presuppone che si sappia già come [distribuire applicazioni complesse in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
 
-Le limitazioni nei processi tecnici spesso possono rappresentare un ostacolo alla corretta implementazione di metodologie Agile. Il servizio app di Azure, grazie a funzionalità come la [pubblicazione continua](web-sites-publish-source-control.md), gli [ambienti di gestione temporanea](web-sites-staged-publishing.md) (slot) e il [monitoraggio](web-sites-monitor.md), se attentamente associato all'orchestrazione e alla gestione della distribuzione in [Gestione risorse di Azure](resource-group-overview.md), può essere parte di un'ottima soluzione per gli sviluppatori che adottano Agile Software Development.
+Le limitazioni nei processi tecnici spesso possono rappresentare un ostacolo alla corretta implementazione di metodologie Agile. Il servizio app di Azure, grazie a funzionalità come la [pubblicazione continua](web-sites-publish-source-control.md), gli [ambienti di gestione temporanea](web-sites-staged-publishing.md) (slot) e il [monitoraggio](web-sites-monitor.md), se attentamente associato all'orchestrazione e alla gestione della distribuzione in [Gestione risorse di Azure](../resource-group-overview.md), può essere parte di un'ottima soluzione per gli sviluppatori che adottano Agile Software Development.
 
 La seguente tabella contiene un breve elenco di requisiti associati allo sviluppo Agile, ciascuno dei quali viene abilitato dai servizi di Azure.
 
@@ -43,7 +43,7 @@ Viene illustrato in dettaglio un tipico flusso di lavoro sviluppo-test-gestione 
 
 Spiegazione dell'immagine:
 
--	L'architettura di distribuzione è divisa in tre ambienti separati (o [gruppi di risorse](resource-group-overview.md) in Azure), ciascuno con il proprio [piano di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md), impostazioni di [scalabilità](web-sites-scale.md) e database SQL. 
+-	L'architettura di distribuzione è divisa in tre ambienti separati (o [gruppi di risorse](../resource-group-overview.md) in Azure), ciascuno con il proprio [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), impostazioni di [scalabilità](web-sites-scale.md) e database SQL. 
 -	Ogni ambiente può essere gestito separatamente. Possono anche essere presenti in sottoscrizioni diverse.
 -	La gestione temporanea e la produzione vengono implementate come due slot della stessa app del servizio app. Il ramo master è configurato per l'integrazione continuata con lo slot di gestione temporanea.
 -	Quando un commit al ramo master viene verificato nello slot di gestione temporanea (con i dati di produzione), l'app di gestione temporanea verificata viene scambiata nello slot di produzione [senza tempi di inattività](web-sites-staged-publishing.md).
@@ -63,7 +63,7 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 -	Git Shell (installato con [GitHub per Windows](https://windows.github.com/)): consente di eseguire comandi sia Git che PowerShell nella stessa sessione 
 -	Ultimi bit di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Conoscenza di base degli argomenti seguenti:
-	-	Distribuzione di modelli di [Gestione risorse di Azure](resource-group-overview.md) (vedere anche [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md))
+	-	Distribuzione di modelli di [Gestione risorse di Azure](../resource-group-overview.md) (vedere anche [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
 -	[Sviluppo Agile in pratica: suggerimenti e consigli per un ciclo di sviluppo rinnovato](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Strategie di distribuzione avanzate per le app Web di Azure che usano modelli di Gestione risorse](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
+-	[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 -	[JSONLint - Il validator JSON](http://jsonlint.com/)
 -	[ARMClient - Configurare la pubblicazione GitHub nel sito](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog di David Ebbo](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Strumenti della riga di comando multipiattaforma di Azure](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Strumenti della riga di comando multipiattaforma di Azure](../xplat-cli-install.md)
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

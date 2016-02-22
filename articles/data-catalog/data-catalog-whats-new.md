@@ -13,18 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/29/2016"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Novità di Catalogo dati di Azure
 
 Gli aggiornamenti su **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
 
+## Novità della versione della settimana del 5 febbraio 2016
+
+Nella settimana del 5 febbraio 2016 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per la modifica della sottoscrizione di Azure usata dal **Catalogo dati di Azure**. Gli amministratori del **Catalogo dati di Azure** possono usare la pagina Impostazioni del portale del **Catalogo dati di Azure** per selezionare un'altra sottoscrizione di Azure ai fini della fatturazione.
+
 ## Novità della versione della settimana del 29 gennaio 2016
 
-Nella settimana del 29 gennaio 2016 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana del 29 gennaio 2016 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
-- Supporto per la registrazione manuale di tipi di origini dati aggiuntive. Gli utenti possono usare "Crea voce manuale" nel portale del **Catalogo dati di Azure** oppure usare l'API REST del **Catalogo dati di Azure** per registrare le origini dati seguenti:
+- Supporto per la registrazione manuale di tipi di origini dati aggiuntive. Gli utenti possono usare "Crea voce manuale" nel portale **Catalogo dati di Azure** oppure usare l'API REST del **Catalogo dati di Azure** per registrare le origini dati seguenti:
    + OData: funzione, set di entità e contenitore di entità
    + HTTP: file, endpoint, report e sito
    + File system: file
@@ -39,29 +45,29 @@ Nella settimana del 29 gennaio 2016 sono state aggiunte a **Catalogo dati di Azu
 
 ## Novità della versione della settimana del 22 gennaio 2016
 
-Nella settimana del 22 gennaio 2016 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana del 22 gennaio 2016 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Supporto per la registrazione e l'individuazione di viste e pacchetti SAP HANA. Gli utenti possono registrare le origini dati SAP HANA con lo strumento di registrazione delle origini dati del **Catalogo dati di Azure** e possono annotare e individuare le origini di dati SAP HANA registrate usando il portale del **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana dell'8 gennaio 2016
 
-Nella settimana del'8 gennaio 2016 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana dell'8 gennaio 2016 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Possibilità di aggiungere e rimuovere gli asset di dati nel portale del **Catalogo dati di Azure**. Gli utenti possono scegliere di bloccare gli asset di dati per semplificarne la riscoperta e il riuso.
 - Nuova home page riprogettata nel portale del **Catalogo dati di Azure**. La nuova home page include approfondimenti sulle attività del momento degli utenti, tra cui gli asset pubblicati di recente, gli asset bloccati e le ricerche salvate, oltre ad approfondimenti sulle attività nel catalogo in generale.
 - Supporto per le impostazioni utente persistenti nel portale del **Catalogo dati di Azure**. Le impostazioni di esperienza utente, tra cui la visualizzazione griglia o riquadro, il numero di risultati per pagina, l'attivazione o la disattivazione di evidenziazione dei risultati, sono persistenti tra le sessioni utente.
-- **Catalogo dati di Azure** è ora disponibile in due nuove aree di Azure. I clienti possono eseguire il provisioning del **Catalogo dati di Azure** nelle aree Europa settentrionale e Asia sud-orientale, oltre a Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale. Per altre informazioni, vedere la pagina [Aree di Azure](https://azure.microsoft.com/regions/).
+- Il **Catalogo dati di Azure** è ora disponibile in due nuove aree di Azure. I clienti possono eseguire il provisioning del **Catalogo dati di Azure** nelle aree Europa settentrionale e Asia sud-orientale, oltre a Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale. Per altre informazioni, vedere la pagina [Aree di Azure](https://azure.microsoft.com/regions/).
 
 ## Novità della versione della settimana del 18 dicembre 2015
 
-Nella settimana del 18 dicembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana del 18 dicembre 2015 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Supporto per profili dati per le origini dati di SQL Data Warehouse di Azure. Durante la registrazione di tabelle e viste di SQL Data Warehouse di Azure, gli utenti possono scegliere di includere metriche dei profili dati con i metadati estratti dall'origine dati.
 - Supporto per la registrazione e l'individuazione degli oggetti e dei database MySQL. Gli utenti possono registrare le origini dati di MySQL tramite lo strumento di registrazione delle origini dati **Catalogo dati di Azure** e possono annotare e individuare le origini di dati di MySQL registrate usando il portale **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana del 4 dicembre 2015
 
-Nella settimana del 4 dicembre 2015 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+Nella settimana del 4 dicembre 2015 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
 - Supporto per l'autenticazione SPNEGO e Windows per le origini dati di Teradata. Durante la registrazione di tabelle e viste Teradata, gli utenti possono scegliere di connettersi a Teradata mediante autenticazione SPNEGO e Windows, nonché LDAP e TD2.
 - Supporto per le origini dati di Archivio Azure Data Lake. Gli utenti possono ora registrarsi e individuare le origini dati di Archivio Azure Data Lake tramite Catalogo dati di Azure.
@@ -195,4 +201,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

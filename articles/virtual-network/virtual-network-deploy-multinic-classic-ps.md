@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Distribuire macchine virtuali con funzionalità Multi-NIC (classiche) tramite PowerShell
@@ -31,7 +31,7 @@ Poiché in questo momento non è possibile disporre di macchine virtuali con una
 
 ## Prerequisiti
 
-Prima di distribuire i server back-end, è necessario distribuire il servizio cloud principale con tutte le risorse necessarie per questo scenario. Come minimo, è necessario creare una rete virtuale con una subnet per il back-end. Visitare [Creare una rete virtuale mediante PowerShell](virtual-networks-create-vnet-classic-ps.md) per informazioni su come distribuire una rete virtuale.
+Prima di distribuire i server back-end, è necessario distribuire il servizio cloud principale con tutte le risorse necessarie per questo scenario. Come minimo, è necessario creare una rete virtuale con una subnet per il back-end. Visitare [Creare una rete virtuale mediante PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) per informazioni su come distribuire una rete virtuale.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -40,12 +40,12 @@ Prima di distribuire i server back-end, è necessario distribuire il servizio cl
 Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate di seguito.
 
 - **Subnet Back-end**. I server del database formeranno parte di una subnet distinta, per separare il traffico. Lo script seguente prevede che questa subnet sia presente in una rete virtuale denominata *WTestVnet*.
-- **Account di archiviazione per dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzeranno la tecnologia unità SSD, che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
-- **Set di disponibilità**. Tutti i server di database verranno aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
+- **Account di archiviazione per dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
 
-### Passaggio 1 - avviare lo script
+### Passaggio 1 - Avviare lo script
 
-È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
+È possibile scaricare lo script di PowerShell completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
 1. Modificare i valori delle variabili indicate di seguito in base al gruppo di risorse esistente distribuito in precedenza in [Prerequisiti](#Prerequisites).
 
@@ -171,4 +171,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="02/09/2016"
    ms.author="mfussell"/>
 
 # Informazioni tecniche su Infrastruttura di servizi
@@ -53,4 +53,4 @@ Per ulteriori informazioni su Infrastruttura di servizi, vedere:
 - [Modello di applicazione](service-fabric-application-model.md)
 - [Scenari applicativi](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

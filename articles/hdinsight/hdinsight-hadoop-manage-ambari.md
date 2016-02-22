@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari
@@ -25,7 +25,7 @@ Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop graz
 
 In questo documento si apprenderà come usare l'interfaccia utente Web Ambari con un cluster HDInsight.
 
-> [AZURE.NOTE]Le informazioni contenute in questo articolo sono specifiche solo per i cluster HDInsight basati su Linux. Per i cluster HDInsight basati su Windows, il monitoraggio è disponibile solo tramite l'API REST Ambari. Vedere [Monitorare Hadoop basato su Windows in HDInsight con l'API Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] Le informazioni contenute in questo articolo sono specifiche solo per i cluster HDInsight basati su Linux. Per i cluster HDInsight basati su Windows, il monitoraggio è disponibile solo tramite l'API REST Ambari. Vedere [Monitorare Hadoop basato su Windows in HDInsight con l'API Ambari](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a>Cos'è Ambari?
 
@@ -37,11 +37,11 @@ L’interfaccia utente Web Ambari viene fornita per impostazione predefinita con
 
 L'interfaccia utente Web Ambari è disponibile nel cluster HDInsight in HTTPS://CLUSTERNAME.azurehdidnsight.net, dove __CLUSTERNAME__ è il nome del cluster.
 
-> [AZURE.IMPORTANT]La connessione ad Ambari su HDInsight richiede HTTPS. È necessario anche eseguire l'autenticazione ad Ambari utilizzando il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
+> [AZURE.IMPORTANT] La connessione ad Ambari su HDInsight richiede HTTPS. È necessario anche eseguire l'autenticazione ad Ambari utilizzando il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
 
 ##Proxy SSH
 
-> [AZURE.NOTE]Mentre Ambari per il cluster è accessibile direttamente tramite Internet, alcuni collegamenti dall'interfaccia utente Web di Ambari (ad esempio JobTracker) non sono esposte in Internet. Di conseguenza, quando si tenta di accedere a queste funzionalità, verranno visualizzati errori di "server non trovato", a meno di usare un tunnel Secure Shell (SSH) per il proxy del traffico Web al nodo head del cluster.
+> [AZURE.NOTE] Mentre Ambari per il cluster è accessibile direttamente tramite Internet, alcuni collegamenti dall'interfaccia utente Web di Ambari (ad esempio JobTracker) non sono esposte in Internet. Di conseguenza, quando si tenta di accedere a queste funzionalità, verranno visualizzati errori di "server non trovato", a meno di usare un tunnel Secure Shell (SSH) per il proxy del traffico Web al nodo head del cluster.
 
 Per informazioni sulla creazione di un tunnel SSH per lavorare con Ambari, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -137,7 +137,7 @@ Alcuni servizi visualizzano un collegamento **Quick Links** nella parte superior
 
 Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel browser che visualizzerà la pagina selezionata.
 
-> [AZURE.NOTE]Se si seleziona un collegamento **Quick Links** per un servizio, verrà visualizzato un errore di "server non trovato" a meno che non si usi un tunnel SSL (Secure Sockets Layer) per inoltrare il traffico Web al cluster. Questo comportamento è dovuto al fatto che le applicazioni Web usate per visualizzare queste informazioni non sono esposte in Internet.
+> [AZURE.NOTE] Se si seleziona un collegamento **Quick Links** per un servizio, verrà visualizzato un errore di "server non trovato" a meno che non si usi un tunnel SSL (Secure Sockets Layer) per inoltrare il traffico Web al cluster. Questo comportamento è dovuto al fatto che le applicazioni Web usate per visualizzare queste informazioni non sono esposte in Internet.
 >
 > Per informazioni sull'uso di un tunnel SSL con HDInsight, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -153,7 +153,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 ![pagina Hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [AZURE.NOTE]Non eseguire l'aggiunta, la rimozione o il ripristino di un host con i cluster HDInsight.
+> [AZURE.NOTE] Non eseguire l'aggiunta, la rimozione o il ripristino di un host con i cluster HDInsight.
 
 1. Selezionare uno o più host che si desidera gestire.
 
@@ -177,11 +177,11 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 	* **Decommission**: rimuove un host dal cluster.
 
-		> [AZURE.NOTE]Non usare questa azione nei cluster HDInsight.
+		> [AZURE.NOTE] Non usare questa azione nei cluster HDInsight.
 
 	* **Recommission**: aggiunge al cluster un host precedentemente rimosso.
 
-		> [AZURE.NOTE]Non usare questa azione nei cluster HDInsight.
+		> [AZURE.NOTE] Non usare questa azione nei cluster HDInsight.
 
 ###<a id="service"></a>Services
 
@@ -189,7 +189,7 @@ Nella pagina **Dashboard** o **Services** usare il pulsante **Actions** nella pa
 
 ![azioni dei servizi](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Sebbene __Add Service__ sia elencato in questo menu, non deve essere utilizzato per aggiungere servizi al cluster HDInsight. È necessario aggiungere nuovi servizi.utilizzando un'azione di Script durante il provisioning del cluster. Per altre informazioni su come utilizzare le azioni di script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING] Sebbene __Aggiungi servizio__ sia elencato in questo menu, non deve essere utilizzato per aggiungere servizi al cluster HDInsight. È necessario aggiungere nuovi servizi.utilizzando un'azione di Script durante il provisioning del cluster. Per altre informazioni su come utilizzare le azioni di script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desidera avviare, arrestare o riavviare un servizio specifico. Seguire questa procedura per effettuare azioni per un singolo servizio:
@@ -200,11 +200,11 @@ Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desi
 
 	![azione del servizio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-	> [AZURE.NOTE]Se si riavviano alcuni servizi mentre il cluster è in esecuzione, è possibile che vengano generati avvisi. Per evitare questo problema, è possibile abilitare la modalità di manutenzione facendo clic sul pulsante **Service Actions** e selezionando **Turn On Maintenance Mode** per il servizio prima di eseguire il riavvio.
+	> [AZURE.NOTE] Se si riavviano alcuni servizi mentre il cluster è in esecuzione, è possibile che vengano generati avvisi. Per evitare questo problema, è possibile abilitare la modalità di manutenzione facendo clic sul pulsante **Service Actions** e selezionando **Turn On Maintenance Mode** per il servizio prima di eseguire il riavvio.
 
 3. Dopo aver selezionato un'azione, il valore nel campo **# op** nella parte superiore della pagina aumenterà per indicare che è in corso un'operazione in background. Se configurato, viene visualizzato l'elenco delle operazioni in background.
 
-	> [AZURE.NOTE]Se è stata abilitata la modalità di manutenzione selezionando **Turn On Maintenance Mode** per il servizio, ricordarsi di disabilitarla usando il pulsante **Service Actions** al termine dell'operazione.
+	> [AZURE.NOTE] Se è stata abilitata la modalità di manutenzione selezionando **Turn On Maintenance Mode** per il servizio, ricordarsi di disabilitarla usando il pulsante **Service Actions** al termine dell'operazione.
 
 Per configurare un servizio, seguire questa procedura:
 
@@ -224,4 +224,4 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 * Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all'[uso delle viste Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Vista di Tez: la vista di Tez consente di comprendere e ottimizzare i processi visualizzando le informazioni sull'esecuzione dei processi di Tez e quali risorse sono usate dal processo.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

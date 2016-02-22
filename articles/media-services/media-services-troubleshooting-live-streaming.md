@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"    
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Guida alla risoluzione dei problemi relativi allo streaming live
@@ -65,7 +65,7 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 	**Passaggi per la risoluzione dei problemi**: passare alla scheda "Endpoint streaming" nello strumento AMSE e verificare che vi sia un endpoint di streaming in esecuzione con una unità di streaming.
 	
->[AZURE.NOTE]Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure classico.
+>[AZURE.NOTE] Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure classico.
 
 ##Percorsi di apprendimento di Media Services
 
@@ -75,4 +75,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

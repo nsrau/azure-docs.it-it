@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="02/05/2016"
     ms.author="sstein"/>
 
 # Importare un file BACPAC per creare un nuovo database di SQL Azure tramite PowerShell
@@ -32,16 +32,16 @@ Un BACPAC è un file con estensione bacpac che contiene lo schema del database e
 
 Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-export-powershell.md).
 
-> [AZURE.NOTE]Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 
 Per importare un database SQL è necessario quanto segue:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-- Un file con estensione bacpac (BACPAC) del database che si desidera ripristinare. Il file BACPAC deve essere inserito in un contenitore BLOB di un[account di archiviazione di Azure (classico)](storage-create-storage-account.md).
+- Un file con estensione bacpac (BACPAC) del database che si vuole importare. Il file BACPAC deve essere inserito in un contenitore BLOB di un[account di archiviazione di Azure (classico)](storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT]Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
+> [AZURE.IMPORTANT] Questo articolo contiene comandi per le versioni di Azure PowerShell fino alle versione 1.0 *esclusa* e versioni successive. È possibile controllare la versione di Azure PowerShell con il comando **Get-Module azure | format-table version**.
 
 
 
@@ -115,7 +115,7 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
  
 
 
-## Creare uno script di ripristino di PowerShell per database SQL
+## Script di importazione di PowerShell per il database SQL
 
 
     Add-AzureAccount
@@ -153,4 +153,4 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 #Esplorare i dati nel Cortana Analytics Process
-
-Questo **menu** collega ad argomenti che descrivono come utilizzare gli strumenti per esplorare i dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 In questo documento viene illustrato come esplorare i dati in quattro ambienti diversi, in genere utilizzati nel Cortana Analytics Process:
 
@@ -29,4 +25,8 @@ In questo documento viene illustrato come esplorare i dati in quattro ambienti d
 - **Tabella hive** i dati vengono esplorati mediante le query Hive.
 - I dati **Azure Machine Learning (AML) Studio** vengono esplorati mediante i moduli AML.
 
-<!---HONumber=AcomDC_1203_2015-->
+Questo **menu** collega agli argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione.
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+<!---HONumber=AcomDC_0211_2016-->

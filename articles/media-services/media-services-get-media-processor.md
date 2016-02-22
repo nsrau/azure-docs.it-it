@@ -41,7 +41,7 @@ Storage Decryption| Consente di decrittografare asset di file multimediali critt
 Microsoft Azure Media Packager|Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
 Microsoft Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
-##Ottenere un'istanza di MediaProcessor
+##Ottenere un processore di contenuti multimediali
 
 Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice].
 
@@ -72,4 +72,4 @@ Dopo avere ottenuto un'istanza del processore multimediale, passare all'argoment
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

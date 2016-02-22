@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,15 +23,13 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-In questo articolo verrà illustrata la procedura usando il modello di distribuzione di Gestione risorse. Se si sta cercando un modello di distribuzione differente per questa configurazione, usare le schede riportate sopra per selezionare l'articolo più pertinente.
-
-A questo punto, non c’è una soluzione per le connessioni VENT-VNET per reti virtuali create tramite il metodo di distribuzione di Gestione risorse che risiedono in diverse sottoscrizioni. Il team sta attualmente lavorando a una soluzione e si prevede di anticipare la procedura entro la fine dell'anno o all’inizio del prossimo anno. Quando sarà disponibile, questo articolo illustrerà quella procedura. La procedura seguente è valida per le reti virtuali che sono nella stessa sottoscrizione.
+Questo articolo illustra i passaggi per creare una connessione tra reti virtuali usando il modello di distribuzione di **Gestione risorse** e PowerShell. Attualmente non è disponibile documentazione relativa alle connessioni tra reti virtuali per reti virtuali create tramite il metodo di distribuzione di Gestione risorse che risiedono in diverse sottoscrizioni. Il team sta attualmente cercando una soluzione. Quando sarà disponibile, questo articolo illustrerà quella procedura. La procedura seguente è valida per le reti virtuali che sono nella stessa sottoscrizione.
 
 **Informazioni sui modelli di distribuzione di Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 	
-- Se le reti virtuali sono state create usando il modello di distribuzione classica, vedere [Creare una connessione da rete virtuale a rete virtuale](virtual-networks-configure-vnet-to-vnet-connection.md). Il modello di distribuzione classica supporta la connessione di reti virtuali che risiedono in diverse sottoscrizioni.
+- Se le reti virtuali sono state create usando il modello di distribuzione classica, vedere l'argomento relativo alla [creazione di una connessione tra reti virtuali](virtual-networks-configure-vnet-to-vnet-connection.md). Il modello di distribuzione classica supporta la connessione di reti virtuali che risiedono in diverse sottoscrizioni.
 	
 - Se si desidera connettere una rete virtuale creata con il modello di distribuzione classica a una rete virtuale creata tramite il modello di Gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -262,4 +260,4 @@ Dopo aver verificato che le subnet del gateway sono configurate correttamente, c
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

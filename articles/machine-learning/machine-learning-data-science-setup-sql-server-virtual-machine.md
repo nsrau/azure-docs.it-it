@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
@@ -25,7 +25,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
 - SQL Server 2012 SP2 Enterprise per dati di piccole e medie dimensioni
 - SQL Server 2012 SP2 Enterprise ottimizzato per carichi di lavoro di data warehouse per dati di dimensioni molto elevate
 
- >[AZURE.NOTE] L'immagine di SQL Server 2012 SP2 Enterprise **non include un disco dati**. Sarà necessario aggiungere e/o collegare uno o più dischi rigidi virtuali per archiviare i dati. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
+ > [AZURE.NOTE] L'immagine di SQL Server 2012 SP2 Enterprise **non include un disco dati**. Sarà necessario aggiungere e/o collegare uno o più dischi rigidi virtuali per archiviare i dati. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
 
 ##<a name="Provision"></a>Connettersi al portale di Azure classico ed effettuare il provisioning di una macchina virtuale di SQL Server
@@ -46,7 +46,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
     -   Nella casella **CONFIRM PASSWORD** ridigitare la password.
     -   Selezionare un valore appropriato per **SIZE** nell'elenco a discesa.
 
-     >[AZURE.NOTE] Le dimensioni della macchina virtuale vengono specificate durante il provisioning: A2 corrisponde alle dimensioni minime consigliate per i carichi di lavoro di produzione. Le dimensioni minime consigliate per una macchina virtuale corrispondono ad A3 quando si usa SQL Server Enterprise Edition. Selezionare A3 o un valore superiore per l'uso di SQL Server Enterprise Edition. Selezionare A4 per l'uso di immagini di SQL Server 2012 o 2014 Enterprise ottimizzato per carichi di lavoro transazionali. Selezionare A7 per l'uso di immagini di SQL Server 2012 o 2014 Enterprise ottimizzato per carichi di lavoro di data warehouse. Le dimensioni selezionate limitano il numero di dischi dati che è possibile configurare. Per informazioni aggiornate sulle dimensioni di macchine virtuali disponibili e sul numero di dischi dati che è possibile collegare a una macchina virtuale, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per informazioni sui prezzi, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > [AZURE.NOTE] Le dimensioni della macchina virtuale vengono specificate durante il provisioning: A2 corrisponde alle dimensioni minime consigliate per i carichi di lavoro di produzione. Le dimensioni minime consigliate per una macchina virtuale corrispondono ad A3 quando si usa SQL Server Enterprise Edition. Selezionare A3 o un valore superiore per l'uso di SQL Server Enterprise Edition. Selezionare A4 per l'uso di immagini di SQL Server 2012 o 2014 Enterprise ottimizzato per carichi di lavoro transazionali. Selezionare A7 per l'uso di immagini di SQL Server 2012 o 2014 Enterprise ottimizzato per carichi di lavoro di data warehouse. Le dimensioni selezionate limitano il numero di dischi dati che è possibile configurare. Per informazioni aggiornate sulle dimensioni di macchine virtuali disponibili e sul numero di dischi dati che è possibile collegare a una macchina virtuale, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per informazioni sui prezzi, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Fare clic sulla freccia Avanti nella parte inferiore destra per continuare.
 
@@ -119,7 +119,7 @@ Per configurare la nuova macchina virtuale di SQL Server in modo che funzioni da
 
 Se l'immagine di macchina virtuale non contiene dischi dati, vale a dire dischi diversi dall'unità C (disco del SO) e dall'unità D (disco temporaneo), è necessario aggiungere uno o più dischi dati per archiviare i dati. L'immagine di macchina virtuale per SQL Server 2012 SP2 Enterprise ottimizzato per carichi di lavoro di data warehouse viene preconfigurata con dischi aggiuntivi per file di dati e log di SQL Server.
 
- >[AZURE.NOTE] Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
+ > [AZURE.NOTE] Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
 Per collegare ulteriori dischi dati, attenersi alla procedura illustrata in [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md), in cui vengono fornite indicazione per effettuare le seguenti operazioni:
 
@@ -143,7 +143,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
 	<br>
 
-	 >[AZURE.TIP] È possibile cambiare la modalità di autenticazione di SQL Server tramite una modifica della chiave di registro di Windows oppure tramite SQL Server Management Studio. Per cambiare la modalità di autenticazione tramite una modifica della chiave di registro, avviare una **Nuova query** ed eseguire lo script seguente:
+	 > [AZURE.TIP] È possibile cambiare la modalità di autenticazione di SQL Server tramite una modifica della chiave di registro di Windows oppure tramite SQL Server Management Studio. Per cambiare la modalità di autenticazione tramite una modifica della chiave di registro, avviare una **Nuova query** ed eseguire lo script seguente:
 
 		USE master
     	go
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

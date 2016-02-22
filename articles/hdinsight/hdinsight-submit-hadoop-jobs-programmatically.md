@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Inviare processi Hadoop in HDInsight
 
 Informazioni su come usare Azure PowerShell per inviare processi MapReduce e Hive e su come usare HDInsight .NET SDK per inviare flussi MapReduce e Hadoop e processi Hive.
 
-> [AZURE.NOTE]I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix per operare con MapReduce, Hive o Pig in HDInsight, vedere gli articoli seguenti e selezionare i collegamenti **SSH** o **Curl** in ciascuno di essi:
+> [AZURE.NOTE] I passaggi descritti in questo articolo devono essere eseguiti da un client Windows. Per informazioni sull'uso di un client Linux, OS X o Unix per operare con MapReduce, Hive o Pig in HDInsight, vedere gli articoli seguenti e selezionare i collegamenti **SSH** o **Curl** in ciascuno di essi:
 >
 > - [Usare Hive con HDInsight](hdinsight-use-hive.md)
 > - [Usare Pig con HDInsight](hdinsight-use-pig.md)
 > - [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-##Prerequisiti
+###Prerequisiti
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
@@ -266,4 +266,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #Configurare i criteri di distribuzione degli asset con .NET SDK
@@ -187,7 +187,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
     }
 
 
-##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
@@ -348,4 +348,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
@@ -291,7 +291,7 @@ Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegament
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine.
 
 ##Processo di distribuzione in un'area singola
-**Passaggio 1: creare la rete virtuale** Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet.md).
+**Passaggio 1: creare la rete virtuale** Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
@@ -692,4 +692,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

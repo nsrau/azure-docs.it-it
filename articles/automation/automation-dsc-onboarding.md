@@ -20,7 +20,7 @@
 
 ## Perché gestire computer con Automation DSC per Azure
 
-Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.com/library/dn249912.aspx), Automation DSC (Desired State Configuration) per Azure è un servizio semplice ma potente per la gestione della configurazione dei nodi DSC (macchine virtuali e computer fisici) in qualsiasi data center nel cloud o locale. Consente la scalabilità tra migliaia di computer in modo rapido e facile da una posizione centrale e sicura. È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato. Il livello di gestione di Automation DSC per Azure è per DSC ciò che il livello di gestione di Automazione di Azure rappresenta per gli script di PowerShell. In altre parole, così come Automazione di Azure facilita la gestione degli script di PowerShell, facilita anche la gestione delle configurazioni DSC. Per altre informazioni sui vantaggi che derivano dall'uso di Automation DSC per Azure, vedere [Panoramica di Automation DSC per Azure](automation-dsc-overview/).
+Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.com/library/dn249912.aspx), Automation DSC (Desired State Configuration) per Azure è un servizio semplice ma potente per la gestione della configurazione dei nodi DSC (macchine virtuali e computer fisici) in qualsiasi data center nel cloud o locale. Consente la scalabilità tra migliaia di computer in modo rapido e facile da una posizione centrale e sicura. È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato. Il livello di gestione di Automation DSC per Azure è per DSC ciò che il livello di gestione di Automazione di Azure rappresenta per gli script di PowerShell. In altre parole, Automazione di Azure consente di gestire gli script di PowerShell e le configurazioni DSC. Per altre informazioni sui vantaggi dell'uso di Automation DSC per Azure, vedere [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview/).
 
 È possibile usare Automation DSC per Azure in molti tipi di computer.
 
@@ -40,7 +40,7 @@ Con Automation DSC per Azure è possibile caricare facilmente macchine virtuali 
 
 ### Portale di Azure
 
-Nel [portale di anteprima di Azure](http://portal.azure.com/) fare clic su **Esplora** -> **Macchine virtuali (classica)**. Selezionare la macchina virtuale Windows da caricare. Nel pannello del dashboard della macchina virtuale fare clic su **Tutte le impostazioni** -> **Estensioni** -> **Aggiungi** -> **Automation DSC per Azure** -> **Crea**. Immettere i [valori di Gestione configurazione locale per PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso, la chiave e l'URL di registrazione dell'account di automazione e facoltativamente una configurazione del nodo da assegnare alla VM.
+Nel [portale di Azure](http://portal.azure.com/) fare clic su **Esplora** -> **Macchine virtuali (classica)**. Selezionare la macchina virtuale Windows da caricare. Nel pannello del dashboard della macchina virtuale fare clic su **Tutte le impostazioni** -> **Estensioni** -> **Aggiungi** -> **Automation DSC per Azure** -> **Crea**. Immettere i [valori di Gestione configurazione locale per PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso, la chiave e l'URL di registrazione dell'account di automazione e facoltativamente una configurazione del nodo da assegnare alla VM.
 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -54,7 +54,7 @@ Per trovare l'URL e la chiave di registrazione dell'account di automazione in cu
     Add-AzureAccount
     Add-AzureRmAccount
     
-    # fill in correct values for your VM / Automation Account here
+    # fill in correct values for your VM/Automation account here
     $VMName = ""
     $ServiceName = ""
     $AutomationAccountName = ""
@@ -75,7 +75,7 @@ Per trovare l'URL e la chiave di registrazione dell'account di automazione in cu
       ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip"
       ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
 
-    # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
+    # update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
      Properties = @{
         RegistrationKey = @{
@@ -117,7 +117,7 @@ Automation DSC per Azure consente di caricare facilmente macchine virtuali di Az
 
 ### Portale di Azure
 
-Nel [portale di anteprima di Azure](https://portal.azure.com/) passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nel dashboard dell'account di automazione fare clic su **Nodi DSC** -> **Aggiungi macchina virtuale di Azure**.
+Nel [portale di Azure](https://portal.azure.com/) passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nel dashboard dell'account di automazione fare clic su **Nodi DSC** -> **Aggiungi macchina virtuale di Azure**.
 
 In **Seleziona macchine virtuali da caricare** selezionare una o più macchine virtuali di Azure da caricare.
 
@@ -135,7 +135,7 @@ Le macchine virtuali di Azure possono essere distribuite e caricate in Automatio
 
 ### PowerShell
 
-Il cmdlet [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di anteprima di Azure tramite PowerShell.
+Il cmdlet [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di Azure tramite PowerShell.
 
 ## Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure
 
@@ -169,13 +169,13 @@ I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux
 3.	Seguire le istruzioni riportate nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) di seguito per generare una cartella contenente le metaconfigurazioni DSC necessarie.
 4.  Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare:
     	
-    	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
-        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
-        $Opt = New-CimSessionOption -UseSs1:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
+    	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
+        $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
         # need a CimSession for each Linux machine to onboard
         
-        $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
+        $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
@@ -204,7 +204,7 @@ Per caricare in modo generico qualsiasi computer in Automation DSC per Azure, pu
             param 
             ( 
                 [Parameter(Mandatory=$True)] 
-                $RegistrationUrl,
+                [String]$RegistrationUrl,
          
                 [Parameter(Mandatory=$True)] 
                 [String]$RegistrationKey,
@@ -339,7 +339,7 @@ Automation DSC di Azure consente di caricare macchine virtuali Windows di Azure 
 
 >[AZURE.NOTE] Qualsiasi metodo di caricamento di una VM Windows di Azure in Automation DSC per Azure che usa l'estensione DSC (Desired State Configuration) per le VM di Azure può richiedere fino a un'ora prima che il modo appaia come registrato in Automazione di Azure. Questo comportamento è causato dall'installazione di Windows Management Framework 5.0 nella macchina virtuale da parte dell'estensione DSC per le VM di Azure, necessario per caricare la VM in Automation DSC per Azure.
 
-Per risolvere i problemi o visualizzare lo stato dell'estensione DSC per le VM di Azure, nel portale di anteprima di Azure passare alla VM da caricare, quindi fare clic -> **Tutte le impostazioni** -> **Estensioni** -> **DSC**. Per altri dettagli, è possibile fare clic su **Visualizza stato dettagliato**.
+Per risolvere i problemi o visualizzare lo stato dell'estensione DSC per le VM di Azure, nel portale di Azure passare alla VM da caricare, quindi fare clic su -> **Tutte le impostazioni** -> **Estensioni** -> **DSC**. Per altri dettagli, è possibile fare clic su **Visualizza stato dettagliato**.
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
@@ -359,4 +359,4 @@ La ripetizione della registrazione può essere eseguita così' come è stato reg
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

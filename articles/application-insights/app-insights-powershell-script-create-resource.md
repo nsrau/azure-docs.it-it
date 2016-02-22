@@ -95,8 +95,8 @@ Per identificare le singole risorse, viene usata una chiave di strumentazione (i
 
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Impostare il monitoraggio di diagnostica Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Impostare avvisi tramite PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Impostare avvisi tramite PowerShell](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

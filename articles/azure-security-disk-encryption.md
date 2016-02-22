@@ -57,7 +57,7 @@ La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti
 - VM IaaS create con il metodo classico di creazione delle VM.
 
 - Possibilità di disabilitare la crittografia nelle VM IaaS abilitate tramite la crittografia del disco di Azure.
- 
+
 - Integrazione con il servizio di gestione delle chiavi locale.
 
 - Windows Server Technical Preview 3.
@@ -94,7 +94,7 @@ La soluzione di gestione di Azure Disk Encryption consente di soddisfare le esig
 -   Le VM IaaS vengono avviate con chiavi e criteri controllati dal cliente e il relativo utilizzo può essere controllato nell'insieme di credenziali delle chiavi.
 
 
-### Flusso di lavoro della crittografia 
+### Flusso di lavoro della crittografia
 Ecco la procedura generale richiesta per abilitare la crittografia del disco per le VM Windows e Linux:
 
 1. Il cliente sceglie lo scenario di crittografia fra i tre precedenti.
@@ -145,21 +145,21 @@ Di seguito sono elencati i prerequisiti per abilitare Azure Disk Encryption nell
 
 	- Esempio di URL del segreto valido:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Esempio di URL KEK valido:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure Disk Encryption non supporta l'indicazione dei numeri di porta come parte degli URL KEK e del segreto dell'insieme di credenziali delle chiavi. Ecco alcuni esempi di URL dell'insieme di credenziali delle chiavi supportati:
 
  	- URL dell'insieme di credenziali delle chiavi non accettato:
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL dell'insieme di credenziali delle chiavi accettato:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Per abilitare la funzionalità Azure Disk Encryption, le VM IaaS devono soddisfare i requisiti di configurazione degli endpoint di rete seguenti:
 
@@ -195,7 +195,7 @@ Azure Disk Encryption protegge i segreti e le chiavi di crittografia del disco n
 #### Creare un nuovo insieme di credenziali delle chiavi
 Per creare un nuovo insieme di credenziali delle chiavi, usare una delle opzioni elencate di seguito:
 
-- Usare il modello ARM "101-Create-KeyVault" disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json) 
+- Usare il modello ARM "101-Create-KeyVault" disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
 - Usare i cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell descritti [qui](key-vault-get-started.md)
 
 **Nota:** se per la sottoscrizione è già configurato un insieme di credenziali delle chiavi, passare alla sezione successiva.
@@ -217,7 +217,7 @@ La piattaforma Azure deve avere accesso ai segreti o alle chiavi di crittografia
 #### Installare l'applicazione Azure AD in Azure Active Directory
 
 Quando è necessario abilitare la crittografia in una VM in esecuzione in Azure, Azure Disk Encryption genera e scrive le chiavi di crittografia nell'insieme di credenziali delle chiavi. La gestione delle chiavi di crittografia nell'insieme di credenziali delle chiavi richiede l'autenticazione di Azure AD.
- 
+
 Per questo motivo, è necessario creare un'applicazione Azure AD. La procedura dettagliata per la registrazione di un'applicazione è disponibile nella sezione che descrive "come ottenere un'identità per l'applicazione" in questo [post di blog](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Questo post include anche diversi esempi utili sul provisioning e sulla configurazione dell'insieme di credenziali delle chiavi. Ai fini dell'autenticazione, è possibile usare l'autenticazione basata su segreto client o l'autenticazione di Azure AD basata su certificato client.
 
 ##### Autenticazione basata su segreto client per Azure AD
@@ -252,7 +252,7 @@ Usare il cmdlet di PowerShell seguente per creare una nuova app Azure AD:
 ![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
 
 4\.Fare clic sul segno di spunta nell'angolo in basso a sinistra per completare l'operazione. Verrà visualizzata la pagina di configurazione dell'app. Notare che l'ID client di Azure AD si trova in basso nella pagina, come illustrato nella figura seguente.
- 
+
 ![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
 
 5\.Per salvare il segreto client di Azure AD usare il pulsante Salva. Fare clic sul pulsante Salva e prendere nota del segreto indicato nella casella di testo delle chiavi. Questo è il segreto client di Azure AD. Il segreto client di Azure AD dovrà essere correttamente protetto.
@@ -268,7 +268,7 @@ Per eseguire i comandi seguenti, è necessario il modulo Azure AD PowerShell, ch
 
 **Nota:** i comandi seguenti devono essere eseguiti da una nuova finestra di PowerShell. NON usare Azure PowerShell o la finestra di Gestione risorse di Azure per eseguire questi comandi. Il motivo di questa indicazione è dovuto al fatto che questi cmdlet si trovano nel modulo MSOnline in Azure AD PowerShell.
 
-    $clientSecret = ‘<yourAadClientSecret>’ 
+    $clientSecret = ‘<yourAadClientSecret>’
     $aadClientID = '<Client ID of your AAD app>'
     connect-msolservice
     New-MsolServicePrincipalCredential -AppPrincipalId $aadClientID -Type password -Value $clientSecret
@@ -293,7 +293,7 @@ Dopo avere completato questo passaggio, caricare un file PFX nell'insieme di cre
 ##### Usare un'app Azure AD esistente
 Se si configura l'autenticazione basata su certificato per un'app esistente, usare i cmdlet di PowerShell seguenti. Assicurarsi di eseguirli in una nuova finestra di PowerShell.
 
-    $certLocalPath = 'C:\certs\myaadapp.cer' 
+    $certLocalPath = 'C:\certs\myaadapp.cer'
     $aadClientID = '<Client ID of your AAD app>'
     connect-msolservice
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate
@@ -309,7 +309,7 @@ Per una spiegazione dettagliata del funzionamento di questo processo, è possibi
 
 **Nota:** sostituire la stringa “yourpassword” indicata di seguito con la password sicura e proteggere la password.
 
-    $certLocalPath = 'C:\certs\myaadapp.pfx' 
+    $certLocalPath = 'C:\certs\myaadapp.pfx'
     $certPassword = "yourpassword"
     $resourceGroupName = ‘yourResourceGroup’
     $keyVaultName = ‘yourKeyVaultName’
@@ -331,7 +331,7 @@ Per una spiegazione dettagliata del funzionamento di questo processo, è possibi
 
     Switch-AzureMode -Name AzureResourceManager
     $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
+    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret
     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName –EnabledForDeployment
 
 ##### Distribuire un certificato nell'insieme di credenziali delle chiavi in una VM esistente
@@ -398,7 +398,7 @@ La tabella seguente include la descrizione dettagliata dei parametri del modello
 | keyVaultResourceID,ResourceID | Identifica la risorsa insieme di credenziali delle chiavi in ARM. È possibile ottenerla con il cmdlet di PowerShell: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).ResourceId |
 | keyVaultURL | URL dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo con il cmdlet: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).VaultURI |
 | keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave BitLocker generata. Facoltativo. |
-| vmName | Nome della VM in cui deve essere eseguita l'operazione di crittografia. 
+| vmName | Nome della VM in cui deve essere eseguita l'operazione di crittografia.
 
 
 **Nota:** KeyEncryptionKeyURL è un parametro opzionale. È possibile specificare la chiave di crittografia della chiave (KEK) personalizzata per l'ulteriore protezione della chiave DEK (segreto passphrase) nell'insieme di credenziali delle chiavi.
@@ -440,7 +440,7 @@ Usare la procedura seguente per abilitare la crittografia del disco per questo s
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
 	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
+3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create":
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -483,7 +483,7 @@ Seguire questa procedura per abilitare la crittografia nella VM IaaS Windows esi
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
 	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
+3. Ottenere lo stato della crittografia: *"azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create":
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -507,7 +507,7 @@ La tabella seguente include la descrizione dettagliata dei parametri del modello
 | sequenceVersion | Versione della sequenza dell'operazione BitLocker. Incrementare questo numero di versione ogni volta che viene eseguita un'operazione di crittografia del disco nella stessa VM. |
 | ​vmName | ​Nome della VM in cui deve essere eseguita l'operazione di crittografia.
 | passPhrase | Digitare una passphrase complessa come chiave DEK. |                                                                                                                                                                                                                                                      
-                                                                                                                                                            
+
 **Nota:** KeyEncryptionKeyURL è un parametro opzionale. È possibile specificare la chiave di crittografia della chiave (KEK) personalizzata per l'ulteriore protezione della chiave DEK (segreto passphrase) nell'insieme di credenziali delle chiavi.
 
 #### Comandi dell'interfaccia della riga di comando
@@ -518,7 +518,7 @@ La crittografia del disco può essere abilitata in un VHD crittografato del clie
 	- Impostare il flag "EnabledForDiskEncryption": "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
 	- Impostare le autorizzazioni dell'app Azure AD per la scrittura dei segreti nell'insieme di credenziali: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
 2. Per abilitare la crittografia in una VM esistente o in esecuzione, digitare: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Ottenere lo stato della crittografia: "azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json" 
+3. Ottenere lo stato della crittografia: "azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json"
 4. Per abilitare la crittografia in una nuova VM dal VHD crittografato del cliente, usare i parametri seguenti con il comando "azure vm create".
 	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
 	- *disk-encryption-key-url <disk-encryption-key-url>*
@@ -557,11 +557,11 @@ Il valore delle impostazioni OSVolumeEncrypted e DataVolumesEncrypted è "True" 
 #### Ottenere lo stato della crittografia della VM IaaS usando il comando dell'interfaccia della riga di comando per la crittografia del disco
 
 È possibile ottenere lo stato della crittografia della VM IaaS dal comando dell'interfaccia della riga di comando per la crittografia del disco *azure vm show-disk-encryption-status*. Per ottenere le impostazioni delle crittografia per la VM, nella sessione dell'interfaccia della riga di comando digitare:
- 
+
     azure vm show-disk-encryption-status --resource-group <yourResourceGroupName> --name <yourVMName> --json  
 
 
-## Appendice 
+## Appendice
 
 ### Eseguire la connessione alla sottoscrizione
 
@@ -582,9 +582,9 @@ Prima di procedere, verificare la sessione relativa ai requisiti di questo docum
 4\.Per verificare che la sottoscrizione configurata sia corretta, digitare:
 
     Get-AzureRmSubscription
- 
+
 5\.Per verificare che i cmdlet di Azure Disk Encryption siano installati, digitare:
- 
+
     Get-command *diskencryption*
 
 6\.Verrà visualizzato l'output seguente che conferma installazione di PowerShell per Azure Disk Encryption:
@@ -600,12 +600,12 @@ Le sezioni seguenti sono necessarie per preparare un VHD Windows pre-crittografa
 
 #### Aggiornare i criteri di gruppo per consentire la protezione non TPM del sistema operativo
 È necessario configurare l'impostazione di Criteri di gruppo BitLocker denominata Crittografia unità BitLocker, che si trova in Criteri del computer locale \\Configurazione computer\\Modelli amministrativi\\Componenti di Windows. Modificare questa impostazione in: *Unità del sistema operativo - Richiedi autenticazione aggiuntiva all'avvio - Consenti BitLocker senza un TPM compatibile* come illustrato nella figura seguente:
- 
+
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.JPG)
 
 #### Installare i componenti della funzionalità BitLocker
 Per Windows Server 2012 e versioni successive usare il comando seguente:
- 
+
     dism /online /Enable-Feature /all /FeatureName:Bitlocker /quiet /norestart
 
 Per Windows Server 2008 R2 usare il comando seguente:
@@ -750,7 +750,7 @@ Usare il comando [manage-bde](https://technet.microsoft.com/library/ff829849.asp
 ###Caricare il VHD crittografato in un account di archiviazione di Azure
 Dopo aver abilitato la crittografia BitLocker o la crittografia DM-Crypt, il VHD crittografato locale dovrà essere caricato nell'account di archiviazione.
 
-    Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>] 
+    Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 
 ### Caricare il segreto di crittografia del disco per la VM pre-crittografata nell'insieme di credenziali delle chiavi
 Il segreto di crittografia del disco ottenuto in precedenza deve essere caricato come segreto nell'insieme di credenziali delle chiavi.
@@ -769,7 +769,7 @@ Usare [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx
       [String]$BekFilePath = "C:\vm\nbox\2640EE52-41B3-426C-87B9-484232452CE4.BEK",
       [String]$VaultName = "DiskEncryptionTestAus",
       [String]$SecretName = "BitLockerKey"
-      ) 
+      )
 
     #"EAN//ojeIQk="
     $bekFileName = split-path $BekFilePath -leaf
@@ -780,7 +780,7 @@ Usare [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx
     echo "Secret = $secret"
 
     $secureSecret = ConvertTo-SecureString $secret -AsPlainText -Force
-    $tags = @{"DiskEncryptionKeyFileName" = "$bekFileName"} 
+    $tags = @{"DiskEncryptionKeyFileName" = "$bekFileName"}
 
     echo "Tags = $tags"
     echo "Vault = $VaultName"
@@ -804,4 +804,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

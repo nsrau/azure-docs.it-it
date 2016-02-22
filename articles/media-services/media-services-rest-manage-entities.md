@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 #Gestione di entità di Servizi multimediali con l'API REST
@@ -27,10 +27,11 @@ Servizi multimediali di Microsoft Azure è un servizio REST basato su OData vers
 
 - Aggiunta di entità 
 - Query di entità 
+- Enumerazione di grandi raccolte di entità
 - Aggiornamento di entità 
 - Eliminazione di entità 
 
->[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
@@ -100,7 +101,9 @@ Il seguente esempio restituisce solo la proprietà State di tutti i processi.
 	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
-	The following example returns all JobTemplates with the name "SampleTemplate."
+
+L'esempio seguente restituisce tutti gli oggetti JobTemplates con nome "SampleTemplate".
+
 	GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
 	Content-Type: application/json;odata=verbose
 	Accept: application/json;odata=verbose
@@ -112,6 +115,20 @@ Il seguente esempio restituisce solo la proprietà State di tutti i processi.
 
 >[AZURE.NOTE]L'operazione $expand non è supportata in Servizi multimediali così come i metodi LINQ non supportati descritti in Considerazioni su LINQ (WCF Data Services).
 
+##Enumerazione di grandi raccolte di entità
+
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. Usare **skip** e **top** per enumerare la raccolta di entità di grandi dimensioni.
+
+L'esempio seguente illustra come usare **skip** e **top** per ignorare i primi 2000 processi e ottenere i 1000 processi successivi.
+
+	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+	Host: media.windows.net
 
 ##Aggiornamento di entità
 
@@ -158,4 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

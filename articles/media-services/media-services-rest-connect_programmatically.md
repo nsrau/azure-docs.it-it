@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 1. Recupero di un token di accesso 
 2. Connessione all'URI di Servizi multimediali 
 
-	>[AZURE.NOTE]Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
+	>[AZURE.NOTE] Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
 
 3. Inviare le successive chiamate API al nuovo URL.
 
@@ -95,7 +95,8 @@ Il seguente esempio illustra la risposta HTTP contenente il token di accesso nel
 	}
 	
 
->[AZURE.NOTE]È consigliabile memorizzare nella cache i valori "access\_token" e "expires\_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
+>[AZURE.NOTE]
+È consigliabile memorizzare nella cache i valori "access\_token" e "expires\_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
 
 Assicurarsi di monitorare il valore "expires\_in" del token di accesso e di aggiornare le chiamate all'API REST con i nuovi token a seconda delle esigenze.
 
@@ -161,7 +162,7 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 	 
 
 
->[AZURE.NOTE]Il nuovo URI ottenuto è quello da usare per comunicare con Servizi multimediali.
+>[AZURE.NOTE] Il nuovo URI ottenuto è quello da usare per comunicare con Servizi multimediali.
 
 
 ##Percorsi di apprendimento di Media Services
@@ -172,4 +173,4 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

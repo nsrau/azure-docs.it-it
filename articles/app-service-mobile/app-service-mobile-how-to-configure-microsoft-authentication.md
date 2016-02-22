@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app"
 	description="Informazioni su come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app."
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	services="app-service\mobile"
 	documentationCenter=""
 	manager="dwrede"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Questo argomento descrive come configurare il servizio app di Azure per usare l'account Microsoft come provider di autenticazione.
 
 
-> [AZURE.NOTE]Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
+> [AZURE.NOTE]
+Questo argomento illustra le modalità di utilizzo della funzione di autenticazione/autorizzazione del servizio app che, nella maggior parte delle applicazioni, sostituisce il gateway del servizio app. Le differenze di cui tener conto quando si usa il gateway sono indicate nelle note nell’argomento.
 
 
 ## <a name="register"> </a>Registrare l'applicazione con l'account Microsoft
@@ -41,18 +40,20 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 	![][0]
 
 
-	> [AZURE.NOTE]Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-microsoft_.
+	> [AZURE.NOTE]
+	Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-microsoft_.
 
 
 6. Fare clic su **App Settings** e annotare i valori di **Client ID** e **Client secret**.
 
 
-    > [AZURE.NOTE]Il segreto client è un'importante credenziale di sicurezza. Non condividere segreto client con altri e non distribuirlo all'interno di un'applicazione client.
-	
+    > [AZURE.NOTE] Il segreto client è un'importante credenziale di sicurezza. Non condividere segreto client con altri e non distribuirlo all'interno di un'applicazione client.
+
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'applicazione
 
-> [AZURE.NOTE]Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Microsoft Account**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
+> [AZURE.NOTE]
+Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gateway nel portale. Selezionare **Settings**, **Identity**, e quindi **Microsoft Account**. Incollare i valori ottenuti nel passaggio precedente e fare clic su **Save**.
 
 
 7. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** e quindi su **Autenticazione/Autorizzazione**.
@@ -62,7 +63,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 9. Fare clic su **Account Microsoft**. Incollare i valori ID App e Segreto app ottenuti in precedenza e facoltativamente abilitare tutti gli ambiti richiesti dall'applicazione. Fare quindi clic su **OK**.
 
     ![][1]
-	
+
 	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 
 17. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati dall’account Microsoft, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Account Microsoft**. Per poter utilizzare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate all’account Microsoft per l'autenticazione.
@@ -90,4 +91,4 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

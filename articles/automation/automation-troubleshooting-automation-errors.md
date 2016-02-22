@@ -18,16 +18,17 @@
 
 # Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure
 
-Quando si verifica un problema mentre si utilizzano risorse di automazione, ad esempio runbook, moduli e asset di automazione, è necessario individuare la causa dell'errore. Questo articolo illustra alcuni degli errori più comuni che possono verificarsi quando si lavora con Automazione di Azure e suggerisce procedure di correzione possibili.
+Questo articolo illustra alcuni degli errori più comuni che possono verificarsi quando si lavora con Automazione di Azure e suggerisce procedure di correzione possibili.
 
 ## Risolvere gli errori di autenticazione durante l'utilizzo runbook di Automazione di Azure  
 
+### Scenario: Accesso all'account Azure non riuscito
 
-**Scenario: Accesso all'account Azure non riuscito**
+**Errore:** viene visualizzato l'errore "Unknown\_user\_type: tipo di utente sconosciuto" quando si usa il cmdlet Add-AzureAccount o Login-AzureRmAccount.
 
-**Errore:** viene visualizzato l'errore "Unknown\_user\_type: tipo di utente sconosciuto" quando si utilizza il cmdlet Add-AzureAccount o Login-AzureRmAccount.
+**Motivo dell'errore:** questo errore si verifica se il nome dell'asset delle credenziali non è valido o se il nome utente e la password usati per impostare l'asset delle credenziali di automazione non sono validi.
 
-**Suggerimenti sulla risoluzione dei problemi:** per determinare la causa del problema, seguire questa procedura.
+**Suggerimenti sulla risoluzione dei problemi:** per determinare la causa del problema, seguire questa procedura:
 
 1. Assicurarsi che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.  
 
@@ -37,16 +38,18 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred
+        Login-AzureRmAccount –Credential $Cred
 
-3. Se l'autenticazione non riesce in locale, significa che le credenziali di Azure Active Directory non sono state configurate correttamente. Per ottenere la configurazione corretta dell'account Active Directory, vedere il post di blog relativo all'[autenticazione in Azure con Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+3. Se l'autenticazione non riesce in locale, significa che le credenziali di Azure Active Directory non sono state configurate correttamente. Per ottenere la configurazione corretta dell'account Azure Active Directory, vedere il post di blog relativo all'[autenticazione in Azure con Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
 
-
-**Scenario: Non è possibile trovare la sottoscrizione di Azure**
+  <br/>
+### Scenario: Non è possibile trovare la sottoscrizione di Azure
 
 **Errore:** viene visualizzato l'errore relativo alla "impossibilità di trovare la sottoscrizione denominata ``<subscription name>``" quando si utilizzano i cmdlet Select-AzureSubscription o Select-AzureRmSubscription.
- 
-**Suggerimenti sulla risoluzione dei problemi:** per determinare se l'autenticazione in Azure è stata eseguita correttamente e se si ha accesso alla sottoscrizione che si sta provando a selezionare, seguire questa procedura.
+
+**Motivo dell'errore:** questo errore si verifica se il nome della sottoscrizione non è valido o se l'utente di Azure Active Directory che sta tentando di ottenere i dettagli della sottoscrizione non è configurato come amministratore della sottoscrizione.
+
+**Suggerimenti sulla risoluzione dei problemi:** per determinare se l'autenticazione in Azure è stata eseguita correttamente e se si ha accesso alla sottoscrizione che si sta provando a selezionare, seguire questa procedura:
 
 1. Assicurarsi di eseguire il cmdlet **Add-AzureAccount** prima di eseguire **Select-AzureSubscription**.  
 
@@ -54,23 +57,20 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
     * Se nell'output non vengono visualizzati i dettagli della sottoscrizione, significa che non è ancora stata inizializzata.  
     * Se nell'output vengono visualizzati i dettagli della sottoscrizione, assicurarsi di usare il nome o l'ID della sottoscrizione corretto con il cmdlet **Select-AzureSubscription**.   
 
-
-
-**Scenario: L'autenticazione in Azure non è riuscita perché è abilitata l'autenticazione a più fattori**
+  <br/>
+### Scenario: L'autenticazione in Azure non è riuscita perché è abilitata l'autenticazione a più fattori
 
 **Errore:** viene visualizzato l'errore "Add-AzureAccount: AADSTS50079: è richiesta la registrazione di autenticazione avanzata (pagina di registrazione)" durante l'autenticazione in Azure con il nome utente e la password di Azure.
 
-**Motivo dell'errore:** se nell'account Azure è abilitata l'autenticazione a più fattori, non è possibile usare un utente di Active Directory per l'autenticazione in Azure. È invece necessario usare un certificato o un'entità servizio per l'autenticazione in Azure.
+**Motivo dell'errore:** se nell'account Azure è abilitata l'autenticazione a più fattori, non è possibile usare un utente di Azure Active Directory per l'autenticazione in Azure. È invece necessario usare un certificato o un'entità servizio per l'autenticazione in Azure.
 
 **Suggerimenti sulla risoluzione dei problemi:** per usare un certificato con i cmdlet di gestione del servizio Azure, vedere il blog relativo alla [creazione e aggiunta di un certificato per gestire i servizi di Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Gestione risorse di Azure, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale di Azure](./resource-group-create-service-principal-portal.md) e [Autenticazione di un'entità servizio con Gestione risorse di Azure.](./resource-group-authenticate-service-principal.md)
 
+  <br/>
+## Risolvere gli errori comuni durante l'utilizzo di runbook  
+### Scenario: Runbook con esito negativo a causa di un oggetto deserializzato
 
-
-## Risolvere gli errori comuni durante l'utilizzo di runbook 
-
-**Scenario: Non è possibile associare parametri durante l'esecuzione di un runbook**
-
-**Errore:** il runbook non riesce con l'errore "Non è possibile associare il parametro ``<ParameterName>``. Non è possibile convertire il valore ``<ParameterType>`` del tipo ``<ParameterType>`` deserializzato nel tipo``<ParameterType>``".
+**Errore:** il runbook non viene eseguito e viene visualizzato l'errore "Non è possibile associare il parametro ``<ParameterName>``. Non è possibile convertire il valore ``<ParameterType>`` del tipo ``<ParameterType>`` deserializzato nel tipo``<ParameterType>``".
 
 **Motivo dell'errore:** se il runbook è un flusso di lavoro di PowerShell, archivia gli oggetti complessi in un formato deserializzato per rendere persistente lo stato del runbook se il flusso di lavoro viene sospeso.
 
@@ -81,8 +81,8 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
 
 3. Usare un runbook di PowerShell invece di un runbook del flusso di lavoro PowerShell.
 
-
-**Scenario: Processo del Runbook non riuscito per il superamento della quota allocata**
+  <br/>
+### Scenario: Processo del Runbook non riuscito per il superamento della quota allocata
 
 **Errore:** il processo del runbook non riesce con l'errore "È stata raggiunta la quota per il tempo di esecuzione totale mensile dei processi per la sottoscrizione".
 
@@ -95,8 +95,8 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
 3. Fare clic su **Impostazioni** > **Piano tariffario e utilizzo** > **Piano tariffario**.  
 4. Nel pannello **Scegliere il piano tariffario** selezionare **Basic**.    
 
-
-**Scenario: Cmdlet non riconosciuto durante l'esecuzione di un runbook**
+  <br/>
+### Scenario: Cmdlet non riconosciuto durante l'esecuzione di un runbook
 
 **Errore:** il processo del runbook non riesce con l'errore "``<cmdlet name>``: il termine ``<cmdlet name>`` non viene riconosciuto come nome di cmdlet, funzione, file di script o programma eseguibile".
 
@@ -110,10 +110,12 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
 
 - Nel caso di un conflitto di nomi e se il cmdlet è disponibile in due moduli diversi, è possibile risolvere questo problema usando il nome completo per il cmdlet. Ad esempio, è possibile usare **NomeModulo\\NomeCmdlet**.
 
+- Se si eseguono i runbook in locale in un gruppo di lavoro ibrido, verificare che il modulo/cmdlet sia installato nel computer che ospita il processo di lavoro ibrido.
 
+  <br/>
 ## Risolvere gli errori comuni durante l'importazione di moduli 
 
-**Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione**
+### Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione
 
 **Errore:** l'importazione di un modulo non riesce oppure riesce ma non vengono estratti cmdlet.
 
@@ -135,7 +137,7 @@ Quando si verifica un problema mentre si utilizzano risorse di automazione, ad e
 
 - Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
 
-
+  <br/>
 
 ## Passaggi successivi
 
@@ -149,4 +151,4 @@ Se sono state seguite le procedure precedenti per la risoluzione dei problemi e 
 
 - Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum di [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

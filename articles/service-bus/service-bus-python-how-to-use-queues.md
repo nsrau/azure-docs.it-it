@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE]Per installare Python o il [Pacchetto Python di Azure][], vedere la [Guida all’installazione di Python](../python-how-to-install.md).
+> [AZURE.NOTE] Per installare Python o il [Pacchetto Python di Azure][], vedere la [Guida all’installazione di Python](../python-how-to-install.md).
 
 ## Creare una coda
 
@@ -115,4 +115,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

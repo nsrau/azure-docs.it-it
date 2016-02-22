@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -40,10 +40,20 @@ Per attivare le notifiche di provisioning dell'account, selezionare la casella d
 Se sono state abilitate le notifiche di provisioning dell'account si riceveranno e-mail riguardo problemi di importanza critica correlati al provisioning utente. Tuttavia, per evitare un sovraccarico di posta elettronica, si riceverà un solo messaggio di notifica al giorno per ogni applicazione SaaS per cui sono abilitate le notifiche.
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md)
+- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
+- [Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
+- [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
+
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

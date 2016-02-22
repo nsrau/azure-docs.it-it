@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/05/2016" 
 	ms.author="sdanie"/>
 
 # Gestire Cache Redis di Azure con Azure PowerShell
@@ -188,7 +188,7 @@ Per visualizzare un elenco di parametri disponibili e le relative descrizioni pe
 	
 	    -VirtualNetwork <String>
 	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format:
-	        /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+	        /subscriptions/{subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 	
 	    -Subnet <String>
 	        Required when deploying a redis cache inside an existing Azure Virtual Network.
@@ -609,4 +609,4 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

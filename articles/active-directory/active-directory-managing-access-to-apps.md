@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/08/2015"
+  ms.date="02/09/2016"
   ms.author="stevenpo"/>
 
 
@@ -50,7 +50,7 @@ Con Azure AD, applicazioni come Salesforce possono essere preconfigurate per l'a
 
 In questo caso, per tutti gli utenti assegnati viene eseguito il provisioning automatico in Salesforce e, mentre vengono aggiunti a gruppi diversi, in Salesforce viene aggiornata la relativa assegnazione al ruolo. Gli utenti potranno individuare e accedere a Salesforce tramite il pannello di accesso dell'applicazione Microsoft, i client Web di Office, o anche passando alla pagina di accesso aziendale di Salesforce. Gli amministratori potranno visualizzare facilmente lo stato di assegnazione e utilizzo mediante la funzionalità di creazione di report di Azure AD.
 
- Gli amministratori possono usare l'[accesso condizionale di Azure AD](active-directory-conditional-access.md) per impostare criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
+ Gli amministratori possono utilizzare l'[accesso condizionale di Azure AD](active-directory-conditional-access.md) per impostare criteri di accesso per ruoli specifici. Tali criteri possono includere la possibilità di accedere all'esterno dell'ambiente aziendale e anche i requisiti di dispositivo o autenticazione a più fattori per ottenere l'accesso in più situazioni.
 
 ## Operazioni iniziali
 
@@ -68,7 +68,8 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 
 ## Altre informazioni
 
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dati di esempio nell'archivio BLOB di Azure| Microsoft Azure" 
+	pageTitle="Campionare i dati nell'archivio BLOB di Azure| Microsoft Azure" 
 	description="Dati di esempio nell'archivio BLOB di Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
-Questo **menu** collega ad argomenti che descrivono come campionare dei dati da vari ambienti di archiviazione. Questa attività è un passaggio nel Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
-
 ## Introduzione
 
 In questo documento vengono descritti i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento usando un codice Python di esempio. Di seguito, è riportata la procedura per eseguire questa operazione:
+
+**Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
+
+Il **menu** seguente collega ad argomenti che descrivono come campionare dati da vari ambienti di archiviazione.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+Questa attività di campionatura è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Download e sotto-campionamento dei dati
 1. Scaricare i dati dall'archivio BLOB di Azure usando il servizio BLOB del seguente codice Python di esempio: 
@@ -103,4 +108,4 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

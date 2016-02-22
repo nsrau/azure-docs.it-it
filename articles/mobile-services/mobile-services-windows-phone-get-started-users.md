@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -46,7 +46,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3. In Visual Studio 2012 Express per Windows Phone aprire il progetto creato dopo avere completato l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-windows-phone-get-started-data.md).
+&nbsp;&nbsp;3. In Visual Studio aprire il progetto creato dopo avere completato l'esercitazione [Aggiungere Servizi mobili a un'app esistente](mobile-services-windows-phone-get-started-data.md).
 
 &nbsp;&nbsp;4. Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato). L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
@@ -82,4 +82,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

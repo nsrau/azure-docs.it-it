@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: configurare come file server (anteprima)
@@ -95,6 +95,10 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
+	> [AZURE.NOTE]
+	> 
+	> Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
+
 1.  Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
@@ -127,7 +131,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1.  Immettere la **chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
 
-    2.  Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2.  Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3.  Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -150,15 +154,15 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 #### Per completare l'installazione minima del dispositivo
 
-1.  Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia in base al nome del dispositivo, quindi fare clic su **Avvio rapido**.
+1.  Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia accanto al nome del dispositivo, quindi fare clic su **Avvio rapido**.
 
 2.  Fare clic su **installazione dispositivo completata** per avviare la configurazione guidata del dispositivo.
 
-3.  Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base**, eseguire le seguenti operazioni:
+3.  Nella pagina **Impostazioni di base** della configurazione guidata del dispositivo, eseguire le seguenti operazioni:
 
-	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
+	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi elementi** per scegliere un account da una sottoscrizione diversa.
 
-	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia di archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
+	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
 
 	3.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
@@ -231,4 +235,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

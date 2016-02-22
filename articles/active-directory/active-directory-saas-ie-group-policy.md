@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
@@ -175,6 +175,10 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 
 	![Verificare che l'estensione Pannello di accesso sia installata e abilitata.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Articoli correlati
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+<!---HONumber=AcomDC_0211_2016-->

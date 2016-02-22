@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni
@@ -127,7 +127,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
 2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
-3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM" e quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
+3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
 ![][2]
 
@@ -438,7 +438,7 @@ Nel caso dell'esempio precedente di una query per un utente con un determinato v
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2:** Se la risposta a una query inviata al servizio per la ricerca di un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory non restituisce alcun utente, Azure Active Directory richiederà che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory. Ecco un esempio di questa richiesta:
+**2:** Se la risposta a una query per il servizio per la ricerca di un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory non restituisce alcun utente, Azure Active Directory richiederà che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory. Ecco un esempio di questa richiesta:
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -684,6 +684,17 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 
 ![][5] *Figura: Sequenza di provisioning e deprovisioning gruppi*
 
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md)
+- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
+- [Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
+- [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

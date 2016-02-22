@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
@@ -33,9 +33,9 @@ Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](medi
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
-- **Codificatore multimediale standard**
-- **Azure Media Encoder**
-- **Flusso di lavoro Premium del codificatore multimediale**
+- [Codificatore multimediale standard](media-services-encode-asset.md#media-encoder-standard)
+- [Azure Media Encoder](media-services-encode-asset.md#azure-media-encoder)
+- [Flusso di lavoro Premium del codificatore multimediale](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 In questo articolo è fornita una breve panoramica dei codificatori multimediali su richiesta e sono presenti collegamenti ad articoli che contengono informazioni più dettagliate. L'argomento fornisce inoltre il confronto dei codificatori.
 
@@ -139,6 +139,11 @@ I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft
 Il flusso di lavoro Premium del codificatore multimediale viene configurato usando flussi di lavoro complessi. Per creare e aggiornare i file di un flusso di lavoro, è possibile usare lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
 
 [Come usare la codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###Problemi noti
+
+Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
+
 
 ##<a id="compare_encoders"></a>Confronto tra i codificatori
 
@@ -290,4 +295,4 @@ Per ottenere aiuto dal team **Servizi multimediali**, aprire un [ticket di suppo
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

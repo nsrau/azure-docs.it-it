@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.date="02/05/2016" 
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # Cortana Analytics Process in esecuzione: con SQL Data Warehouse
@@ -28,7 +28,14 @@ La procedura segue il flusso di lavoro di [Cortana Analytics Process (CAP)](http
 
 I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le località e gli orari di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
-1. Il file **trip\_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Ecco alcuni record di esempio: medallion,hack\_license,vendor\_id,rate\_code,store\_and\_fwd\_flag,pickup\_datetime,dropoff\_datetime,passenger\_count,trip\_time\_in\_secs,trip\_distance,pickup\_longitude,pickup\_latitude,dropoff\_longitude,dropoff\_latitude 89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+1. Il file **trip\_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
+
+		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
 2. Il file **trip\_fare.csv** contiene i dettagli della tariffa pagata per ciascuna corsa, ad esempio tipo di pagamento, importo, soprattassa e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
 
@@ -51,7 +58,7 @@ Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* pe
 
 1. **Classificazione binaria**: consente di stabilire se sia stata pagata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
 
-2. **Classificazione multiclasse**: per prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque contenitori o classi:
+2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque contenitori o classi:
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -59,7 +66,7 @@ Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* pe
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. **Attività di regressione**: per prevedere l'importo della mancia lasciata per una corsa.
+3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
 
 ## <a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
@@ -84,7 +91,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 **Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
 
-**Connettersi ad Azure SQL DW con Visual Studio**. Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Eseguire la query SQL seguente nel database creato in SQL Data Warehouse (anziché la query specificata nel passaggio 3 dell'argomento relativo alla connessione) per **creare una chiave master**.
 
@@ -102,7 +109,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in GitHub in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creato dallo script di PowerShell.
 
->[AZURE.NOTE] Potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente se sono richiesti privilegi di amministratore per creare o scrivere nella directory *DestDir*.
+>[AZURE.NOTE] Se sono richiesti privilegi di amministratore per creare o scrivere nella directory *DestDir*, potrebbe essere necessario fare clic su **Esegui come amministratore** quando si esegue lo script di PowerShell seguente.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -124,7 +131,7 @@ Quando lo script di PowerShell viene eseguito per la prima volta, verrà chiesto
 
 Questo file di **script di PowerShell** completa le attività seguenti:
 
-- **Esegue il download e l'installazione di AzCopy**, se non è già installato
+- **Download e installazione di AzCopy**, se non è già installato
 
 		$AzCopy_path = SearchAzCopy
     	if ($AzCopy_path -eq $null){
@@ -146,7 +153,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 					$env_path = $env:Path
 				}	
 
-- **Copia i dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
+- **Copia dei dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
 
 		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
 		$start_time = Get-Date
@@ -158,7 +165,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
     	Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
 
 
-- **Carica i dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
+- **Caricamento dei dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
 	
 	- Creare uno schema
 
@@ -309,11 +316,11 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 
 >[AZURE.NOTE] A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche di più e il processo di caricamento dei dati dall'account di archiviazione ad Azure SQL DW può richiedere 20 minuti o più.
 
->[AZURE.NOTE] Se i file da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere singolarmente i file con estensione csv.
+>[AZURE.NOTE] Se i file da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
 
 ![Grafico n. 21][21]
 
->[AZURE.TIP] **Usare i dati locali:** se i dati si trovano nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
+>[AZURE.TIP] **Usare i dati locali:** se i dati si trovano nel computer locale nell'applicazione reale, è comunque possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
 	
 >[AZURE.TIP] Se i dati sono già nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile saltare il passaggio di AzCopy nello script di PowerShell e caricare direttamente i dati in Azure SQL DW. Saranno necessarie altre modifiche dello script per adattarlo al formato dei dati.
 
@@ -350,7 +357,7 @@ Queste query consentono una verifica rapida del numero di righe e di colonne nel
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-Si dovrebbero ottenere 173.179.759 righe e 14 colonne.
+**Output:** si dovrebbero ottenere 173.179.759 righe e 14 colonne.
 
 ### Esplorazione: distribuzione delle corse per licenza
 
@@ -362,7 +369,7 @@ Questa query di esempio identifica le licenze (numeri dei taxi) che hanno esegui
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-La query dovrebbe restituire 13.369 licenze.
+**Output:** la query dovrebbe restituire una tabella con righe che specificano le 13.369 licenze (taxi) e il numero di viaggi eseguiti da ognuna nel 2013. L'ultima colonna contiene il totale delle corse eseguite.
 
 ### Esplorazione: distribuzione delle corse per licenza e hack\_license
 
@@ -373,6 +380,8 @@ Questo esempio identifica le licenze (numeri dei taxi) e i numeri di hack\_licen
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
+
+**Output:** la query dovrebbe restituire una tabella con 13.369 righe in cui vengono specificati quali dei 13.369 ID di automobile/autista hanno eseguito più di 100 corse nel 2013. L'ultima colonna contiene il totale delle corse eseguite.
 
 ### Valutazione della qualità dei dati: verifica dei record con longitudine o latitudine errate
 
@@ -387,9 +396,11 @@ In questo esempio viene esaminato se uno dei campi relativi alla longitudine o a
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
+**Output:** la query restituisce 837.467 corse i cui campi longitudine e/o latitudine non sono validi.
+
 ### Esplorazione: distribuzione delle corse per le quali è stata lasciata una mancia e di quelle per le quali non è stata lasciata una mancia
 
-Questo esempio trova il numero di corse per cui è stata lasciata una mancia rispetto a quelle per cui non è stata lasciata una mancia in un periodo specificato oppure nel set di dati completo, se copre tutto l'anno. Questa distribuzione riflette la distribuzione delle etichette binarie che dovranno essere utilizzate in seguito per la creazione di modelli di classificazione binaria.
+Questo esempio trova il numero di corse per cui è stata lasciata una mancia rispetto a quelle per cui non è stata lasciata una mancia in un periodo specificato oppure nel set di dati completo, se copre tutto l'anno (come in questo caso). Questa distribuzione riflette la distribuzione delle etichette binarie che dovranno essere utilizzate in seguito per la creazione di modelli di classificazione binaria.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -397,7 +408,7 @@ Questo esempio trova il numero di corse per cui è stata lasciata una mancia ris
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-La query dovrebbe restituire le frequenze di mance seguenti: 90.447.622 corse per cui è stata lasciata una mancia e 82.264.709 corse per cui non è stata lasciata una mancia.
+**Output:** la query dovrebbe restituire le frequenze di mance seguenti per l'anno 2013: 90.447.622 corse per cui è stata lasciata una mancia e 82.264.709 corse per cui non è stata lasciata una mancia.
 
 ### Esplorazione: distribuzione della classe o dell'intervallo delle mance
 
@@ -415,6 +426,16 @@ In questo esempio viene calcolata la distribuzione degli intervalli delle mance 
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
+**Output:**
+
+|tip\_class | tip\_freq |
+| --------- | -------|
+|1 | 82230915 |
+|2 | 6198803 |
+|3 | 1932223 |
+|0 | 82264625 |
+|4 | 85765 |
+
 ### Esplorazione: calcolo e confronto della distanza delle corse
 
 In questo esempio, la longitudine e la latitudine del prelievo e dello scarico vengono convertite in punti geografici SQL, viene calcolata la distanza della corsa mediante la differenza dei punti geografici di SQL e viene restituito un campione casuale dei risultati per il confronto. Nell'esempio i risultati vengono limitati unicamente alle coordinate valide tramite la query per la valutazione della qualità dei dati illustrata in precedenza.
@@ -430,7 +451,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 	  DROP FUNCTION fnCalculateDistance
 	GO
 
-	-- User-defined function calculate the direct distance between two geographical coordinates.
+	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 	
 	RETURNS float
@@ -511,9 +532,19 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
+**Output:** questa query genera una tabella (con 2.803.538 righe) con la latitudine e la longitudine del prelievo e dello scarico e le corrispondenti distanze dirette in miglia. Di seguito sono riportati i risultati delle prime 3 righe:
+
+|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+|---| --------- | -------|-------| --------- | -------|
+|1 | 40\.731804 | -74.001083 | 40\.736622 | -73.988953 | .7169601222 |
+|2 | 40\.715794 | -74,010635 | 40\.725338 | -74.00399 | .7448343721 |
+|3 | 40\.761456 | -73.999886 | 40\.766544 | -73.988228 | 0\.7037227967 |
+
+
+
 ### Preparazione dei dati per la creazione del modello
 
-Le query seguenti consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Reader][reader] di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza di database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza. La query può essere copiata e incollata direttamente nel modulo [Reader][reader] di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza di database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -556,7 +587,7 @@ Se si è già configurata un'area di lavoro di AzureML, è possibile caricare di
 
 	![Grafico n. 24][24]
 
-4. Trascinare l'esempio di IPython Notebook nella pagina **albero** del servizio IPython Notebook di Azure Machine Learning e fare clic su **Carica**. L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
+4. Trascinare l'esempio di IPython Notebook nella pagina **tree** del servizio IPython Notebook di Azure Machine Learning e fare clic su **Upload**. L'esempio di IPython Notebook verrà quindi caricato nel servizio IPython Notebook di AzureML.
 
 	![Grafico n. 25][25]
 
@@ -807,11 +838,11 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
 
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati nei problemi di stima identificati in precedenza, in modo specifico:
 
-1. **Classificazione binaria**: per prevedere se per la corsa è stata lasciata o meno una mancia.
+1. **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
 
-2. **Classificazione multiclasse**: per prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
+2. **Classificazione multiclasse**: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
 
-3. **Attività di regressione**: per prevedere l'importo della mancia lasciata per una corsa.
+3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.
 
 
 
@@ -860,7 +891,7 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere le colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Project Columns][project-columns] o [Metadata Editor][metadata-editor]. Per ulteriori informazioni, vedere le pagine di riferimento [Colonne progetto][project-columns] ed [Editor metadati][metadata-editor].
+> Per escludere le colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Project Columns][project-columns] o [Editor metadati][metadata-editor]. Per ulteriori informazioni, vedere le pagine di riferimento [Colonne progetto][project-columns] ed [Editor metadati][metadata-editor].
 
 ## <a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
 
@@ -933,4 +964,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -104,7 +104,7 @@ Il codice dell'agente gestito richiede Microsoft .NET Framework 4.5
 
 ## Certificazione Microsoft Azure per IoT
 
-**Il programma di certificazione Microsoft Azure per IoT** è il programma per i partner che mette in contatto un ampio ecosistema IoT con Microsoft Azure in modo che sviluppatori e architetti conoscano gli scenari di compatibilità. In particolare, fornisce un elenco attendibile di combinazioni di sistema operativo/dispositivo per iniziare rapidamente a usare un progetto IoT, indipendentemente dal fatto che ci si trovi in fase di modello di prova o pilota. Con le combinazioni certificate di dispositivo e sistema operativo, il progetto IoT può partire rapidamente, riducendo il lavoro e la personalizzazione necessari per garantire la compatibilità dei dispositivi con Azure IoT Suite e l'hub IoT di Azure.
+**Il programma di certificazione Microsoft Azure per IoT** è il programma per i partner che mette in contatto un ampio ecosistema IoT con Microsoft Azure in modo che sviluppatori e architetti conoscano gli scenari di compatibilità. In particolare, fornisce un elenco attendibile di combinazioni di sistema operativo/dispositivo per iniziare rapidamente a usare un progetto IoT, indipendentemente dal fatto che ci si trovi in fase di modello di prova o pilota. Con le combinazioni certificate di dispositivo e sistema operativo, il progetto IoT può partire rapidamente, riducendo il lavoro e la personalizzazione necessari per garantire la compatibilità dei dispositivi con [Azure IoT Suite][lnk-iot-suite] e l'hub IoT di Azure.
 
 ## Dispositivi certificati per IoT
 
@@ -171,4 +171,7 @@ Ogni dispositivo è stato certificato per l'uso dell'SDK nel sistema operativo e
 
 Altre informazioni sullo sviluppo di soluzioni che usano [dispositivi certificati per IoT](http://azure.com/iotdev).
 
-<!---HONumber=AcomDC_0204_2016-->
+
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0211_2016-->

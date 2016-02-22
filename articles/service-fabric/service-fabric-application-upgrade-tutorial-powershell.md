@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -33,7 +33,7 @@ Questi passaggi possono essere eseguiti tramite il download dell'applicazione da
 
 Dopo aver aggiunto i file al progetto, compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionare il comando **Pubblica** nella voce di menu di Service Fabric come indicato di seguito. Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md). In alternativa, è possibile usare PowerShell per distribuire l'applicazione.
 
-> [AZURE.NOTE]Per poter usare uno dei comandi di Service Fabric in PowerShell, è necessario connettersi prima al cluster con il cmdlet `Connect-ServiceFabricCluster`. Si presuppone che il cluster sia stato già configurato nel computer locale. Vedere l'articolo relativo alla [configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
+> [AZURE.NOTE] Per poter usare uno dei comandi di Service Fabric in PowerShell, è necessario connettersi prima al cluster con il cmdlet `Connect-ServiceFabricCluster`. Si presuppone che il cluster sia stato già configurato nel computer locale. Vedere l'articolo relativo alla [configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 
 Dopo aver compilato il progetto in Visual Studio, è possibile usare il comando di PowerShell **Copy-ServiceFabricApplicationPackage** per copiare il pacchetto dell'applicazione in ImageStore. Questo passaggio viene eseguito registrando l'applicazione nel runtime di Service Fabric con il cmdlet **Register-ServiceFabricApplicationPackage**. Il passaggio finale consiste nell'avviare un'istanza dell'applicazione con il cmdlet **New-ServiceFabricApplication**. Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.
 
@@ -136,4 +136,4 @@ Per informazioni su come usare funzionalità avanzate durante l'aggiornamento de
 
 Risolvere problemi comuni negli aggiornamenti delle applicazioni facendo riferimento ai passaggi descritti in [Risolvere i problemi relativi agli aggiornamenti delle applicazioni](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

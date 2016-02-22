@@ -3,7 +3,7 @@
 	description="Ulteriori informazioni sull’uso della libreria Serializer in SDK per dispositivi Azure IoT per C"
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK per C: altre informazioni sulla libreria serializer
 
@@ -52,7 +52,7 @@ I modelli contengono una definizione degli eventi che è possibile inserire nell
 
 In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati dall'SDK, che saranno trattati in seguito.
 
-> [AZURE.NOTE]L'hub IoT fa riferimento ai dati inviati da un dispositivo come *eventi*, mentre il linguaggio di modellazione li definisce *dati*, usando **WITH\_DATA**. In modo analogo, l'hub IoT fa riferimento ai dati inviati ai dispositivi come *messaggi*, mentre il linguaggio di modellazione li definisce *azioni*, usando **WITH\_ACTION**. Tenere presente che questi termini possono essere usati in modo intercambiabile in questo articolo.
+> [AZURE.NOTE] L'hub IoT fa riferimento ai dati inviati da un dispositivo come *eventi*, mentre il linguaggio di modellazione li definisce *dati*, usando **WITH\_DATA**. In modo analogo, l'hub IoT fa riferimento ai dati inviati ai dispositivi come *messaggi*, mentre il linguaggio di modellazione li definisce *azioni*, usando **WITH\_ACTION**. Tenere presente che questi termini possono essere usati in modo intercambiabile in questo articolo.
 
 ### Tipi di dati supportati
 
@@ -658,4 +658,4 @@ Questo articolo descrive in dettaglio gli aspetti univoci della libreria **seria
 
 Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza approfondita del funzionamento delle API. Per altre informazioni, nell'SDK sono disponibili alcuni esempi non illustrati in questo articolo. Anche la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

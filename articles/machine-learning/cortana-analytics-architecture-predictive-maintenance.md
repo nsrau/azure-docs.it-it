@@ -18,7 +18,7 @@
 
 # Architettura del modello di soluzione Cortana Analytics per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
-Nel diagramma seguente viene fornita una panoramica dell'architettura del [modello di soluzione Cortana Analytics per la manutenzione predittiva](cortana-analytics-playbook-predictive-maintenance.md).
+Nel diagramma seguente viene fornita una panoramica dell'architettura del [modello di soluzione Cortana Analytics per la manutenzione predittiva](https://gallery.cortanaanalytics-int.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
 È possibile scaricare una versione ingrandita del diagramma di seguito: [diagramma dell'architettura: modello di soluzione per la manutenzione predittiva](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
@@ -26,4 +26,4 @@ Nel diagramma seguente viene fornita una panoramica dell'architettura del [model
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Accesso Single Sign-On con il proxy di applicazione
 
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Fornisce la migliore esperienza utente: un utente accede al cloud, dove vengono eseguite tutte le convalide di sicurezza (preautenticazione) e, quando la richiesta viene inviata all'applicazione locale, il connettore del proxy di applicazione rappresenta l'utente in modo che l'applicazione back-end lo identifichi come proveniente da un dispositivo aggiunto al dominio.
 
@@ -80,7 +80,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` può essere l'account del computer SPS o un account del servizio tramite cui è in esecuzione il pool di app SPS.
+>[AZURE.NOTE] `sharepointserviceaccount` può essere l'account del computer SPS o un account del servizio tramite cui è in esecuzione il pool di app SPS.
 
 
 ### Configurazione del portale di Azure classico
@@ -90,7 +90,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 3. In **Proprietà** impostare **Metodo di autenticazione interna** su **Autenticazione integrata di Windows**. ![Configurazione dell'applicazione avanzata](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Immettere l’**SPN dell'applicazione interna** del server dell'applicazione. In questo esempio il nome dell'entità servizio per l'applicazione pubblicata è http/lob.contoso.com.  
 
->[AZURE.IMPORTANT]Per il corretto funzionamento della preautenticazione, i nomi delle entità servizio in Azure Active Directory devono essere identici ai nomi delle entità servizio in Active Directory locale. Assicurarsi che l'istanza di Azure Active Directory sia sincronizzata con l'istanza di Active Directory locale.
+>[AZURE.IMPORTANT] Per il corretto funzionamento della preautenticazione, i nomi delle entità servizio in Azure Active Directory devono essere identici ai nomi delle entità servizio in Active Directory locale. Assicurarsi che l'istanza di Azure Active Directory sia sincronizzata con l'istanza di Active Directory locale.
 
 | | |
 | --- | --- |
@@ -160,9 +160,14 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## Risorse aggiuntive
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

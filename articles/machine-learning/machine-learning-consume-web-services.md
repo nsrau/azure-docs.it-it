@@ -3,7 +3,7 @@
 	description="Dopo la pubblicazione di un servizio di apprendimento automatico, può essere utilizzato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+	ms.date="02/10/2016"
+	ms.author="garye" />
 
 
 # Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning
@@ -33,13 +33,13 @@ Ciò significa che i servizi possono essere utilizzati da applicazioni Web, appl
 
 Un servizio Web di Azure Machine Learning può essere utilizzato in due modi diversi, come un servizio di richiesta-risposta o come un servizio di esecuzione batch. In ogni scenario, la funzionalità viene fornita tramite il servizio Web RESTFul reso disponibile per l'utilizzo dopo la pubblicazione dell'esperimento. La distribuzione di un servizio Web di apprendimento automatico in Azure con un endpoint del servizio Web di Azure, dove il servizio viene ridimensionato automaticamente in base all'utilizzo, è possibile evitare i costi iniziali e successivi per le risorse hardware.
 
-> [AZURE.TIP]Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[utilizzare di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
+> [AZURE.TIP] Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[utilizzare di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere l'articolo relativo allo [sviluppo di una soluzione di analisi predittiva mediante Azure Machine Learning][walkthrough].
+Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][walkthrough].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -63,17 +63,17 @@ Un BES potrebbe essere utile quando le risposte non sono necessarie immediatamen
 ## esempi
 Per visualizzare il funzionamento di RRS e BES, viene utilizzato un servizio Web di Azure di esempio. Questo servizio potrebbe essere utilizzato in uno scenario IOT (Internet Of Things). In breve, il dispositivo invia solo un valore, `cog_speed`, e riceve una sola risposta.
 
-Esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o BES. Queste informazioni sono disponibili nelle [pagine del servizio Azure Machine Learning](https://studio.azureml.net) dopo la pubblicazione dell'esperimento. Fare clic sul collegamento SERVIZI WEB sulla sinistra dello schermo per visualizzare i servizi pubblicati. Per informazioni su un servizio specifico, esistono i collegamenti alla pagina Guida API RRS e BES.
+Esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o BES. Queste informazioni sono disponibili nelle pagine del servizio [Azure Machine Learning Studio](https://studio.azureml.net) dopo la distribuzione dell'esperimento. Fare clic sulla scheda SERVIZI WEB sulla sinistra dello schermo per visualizzare i servizi distribuiti. Fare clic su un servizio per trovare i collegamenti e le informazioni seguenti per RRS e BES:
 
-1.	**Chiave API del servizio**, disponibile nella pagina principale dei servizi
-2.	**URI del servizio**, disponibile nella pagina della Guida all'API del servizio scelto
-3.	**Corpo della richiesta API** previsto, disponibile nella pagina della Guida all'API del servizio scelto
-4.	**Corpo della risposta API** previsto, disponibile nella pagina della Guida all'API del servizio scelto
+1.	La **chiave API** del servizio, disponibile nel dashboard dei servizi
+2.	L'**URI della richiesta** del servizio, disponibile nella pagina della Guida per l'API del servizio scelto
+3.	Le **intestazioni ** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida all'API del servizio scelto
+4.	Le **intestazioni ** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida all'API del servizio scelto
 
 Nei due esempi seguenti, il linguaggio c# viene utilizzato per illustrare che il codice necessario e la piattaforma di destinazione è un desktop di Windows 8.
 
 ### Esempio RRS
-Nella pagina della Guida di API, a parte l'URI, è necessario immettere e restituire definizioni ed esempi di codice. L'input API viene chiamato, in particolare per questo servizio, e rappresenta il carico utile della chiamata API.
+Fare clic su **RICHIESTA/RISPOSTA** sotto la **PAGINA DELLA GUIDA API** nel dashboard del servizio per visualizzare la pagina della Guida per l'API. In questa pagina, a parte l'URI, sono presenti le definizioni di input e output ed esempi di codice. In particolare per questo servizio, l'input API viene visualizzato di seguito e rappresenta il carico utile della chiamata API.
 
 **Richiesta di esempio**
 
@@ -97,7 +97,7 @@ Nella pagina della Guida di API, a parte l'URI, è necessario immettere e restit
 	}
 
 
-Analogamente, la risposta dell'API viene chiamata nuovamente in particolare per questo servizio.
+Analogamente, la risposta dell'API per questo servizio viene ugualmente visualizzata di seguito.
 
 **Risposta di esempio**
 
@@ -125,7 +125,7 @@ Analogamente, la risposta dell'API viene chiamata nuovamente in particolare per 
 	  "GlobalParameters": {}
 	}
 
-Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito si trova il codice di esempio per l'implementazione c#
+Nella parte inferiore della pagina della guida si trovano gli esempi di codice. Di seguito si trova il codice di esempio per l'implementazione C#.
 
 **Codice di esempio**
 
@@ -200,7 +200,7 @@ Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito s
 	}
 
 ### Esempio BES
-Nella pagina della Guida di API, oltre all'URI, è possibile trovare informazioni sulle diverse chiamate disponibili. A differenza del servizio RRS, il servizio BES è asincrono. Ciò significa che l'API BES accoda semplicemente un processo da eseguire e il chiamante esegue il polling dello stato del processo per verificarne il completamento. Ecco le operazioni attualmente supportate per i processi batch:
+A differenza del servizio RRS, il servizio BES è asincrono. Ciò significa che l'API BES accoda semplicemente un processo da eseguire e il chiamante esegue il polling dello stato del processo per verificarne il completamento. Ecco le operazioni attualmente supportate per i processi batch:
 
 1. Creare (inviare) un processo batch.
 1. Avviare questo processo batch.
@@ -213,13 +213,15 @@ Quando si crea un processo batch per l'endpoint di servizio di Azure Machine Lea
 
 * **Input**: rappresenta un riferimento al BLOB in cui viene archiviato il processo batch di input.
 * **GlobalParameters**: rappresenta il set di parametri globali che è possibile definire per l'esperimento. Un esperimento di Azure Machine Learning può avere contemporaneamente parametri obbligatori e facoltativi che personalizzano l'esecuzione del servizio e tutti i parametri obbligatori, se disponibili, devono essere forniti dal chiamante. Questi parametri vengono specificati come una raccolta di coppie chiave-valore.
-* **Outputs**: se il servizio ha definito uno o più output, al chiamante è consentito reindirizzare alcuni di essi verso un percorso BLOB di Azure di propria scelta. Ciò consentirà di salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente. **NOTA**: il servizio prevede che l'output del contenuto, in base al relativo tipo, venga salvato in formati supportati:
+* **Outputs**: se il servizio ha definito uno o più output, al chiamante è consentito reindirizzarli verso un percorso BLOB di Azure. Ciò consente di salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente. 
+
+    Si noti che il servizio prevede che l'output del contenuto, in base al tipo, venga salvato in formati supportati:
   - Output di set di dati: possono essere salvati come file con estensione **csv, tsv, arff**.
   - Output di modelli sottoposti a training: possono essere salvati come file con estensione **ilearner**.
 
   Gli override del percorso di output vengono specificati come una raccolta di *<output name  blob reference>* coppie, dove il *nome di output* è il nome definito dall'utente per un nodo di output specifico (visualizzato anche nella pagina della Guida per l'API del servizio) e un *riferimento al BLOB* è un riferimento al percorso di un BLOB di Azure verso cui l'output deve essere reindirizzato.
 
-Tutti questi parametri di creazione del processo possono essere facoltativi, a seconda della natura del servizio. I servizi con nessun nodo di input definito, non richiedono ad esempio il passaggio di un parametro *Input* e la funzionalità di override del percorso di output è completamente facoltativa. In caso contrario, gli output verranno archiviati nell'account di archiviazione predefinito configurato per l'area di lavoro di Azure Machine Learning. Di seguito, viene illustrato un payload di richiesta di esempio passato all'API REST, per un servizio in cui vengono passate solo le informazioni di input:
+Tutti questi parametri di creazione del processo possono essere facoltativi, a seconda della natura del servizio. I servizi per cui non sono definiti nodi di input, non richiedono ad esempio il passaggio di un parametro *Input*. Analogamente, la funzionalità di override del percorso di output è completamente facoltativa. In caso contrario, gli output verranno archiviati nell'account di archiviazione predefinito configurato per l'area di lavoro di Azure Machine Learning. Di seguito, viene illustrato un payload di richiesta di esempio passato all'API REST, per un servizio in cui vengono fornite solo le informazioni di input:
 
 **Richiesta di esempio**
 
@@ -235,7 +237,7 @@ Tutti questi parametri di creazione del processo possono essere facoltativi, a s
 	  "GlobalParameters": null
 	}
 
-La risposta all'API di creazione del processo batch è l'ID processo univoco associato al proprio processo. Questo ID è molto importante perché fornisce l'unico mezzo per poter fare riferimento al processo nel sistema per altre operazioni.
+La risposta all'API di creazione del processo batch è l'ID processo univoco associato al processo. Questo ID è molto importante perché rappresenta l'unico mezzo per poter fare riferimento al processo nel sistema per altre operazioni.
 
 **Risposta di esempio**
 
@@ -243,11 +245,11 @@ La risposta all'API di creazione del processo batch è l'ID processo univoco ass
 
 **2. Avviare un processo di esecuzione batch**
 
-La creazione di un processo batch ne comporta solo la registrazione nel sistema e viene inserito in uno stato *Not started*. Per pianificare effettivamente il processo per l'esecuzione, sarà necessario chiamare l'API di **avvio** descritta nella pagina della Guida all'API dell'endpoint di servizio e fornire l'ID processo ottenuto durante la creazione del processo stesso.
+La creazione di un processo batch ne comporta la registrazione nel sistema e l'inserimento in uno stato *Not started*. Per pianificare effettivamente il processo per l'esecuzione, chiamare l'API di **avvio** descritta nella pagina della Guida per l'API dell'endpoint di servizio e fornire l'ID processo ottenuto durante la creazione del processo stesso.
 
 **3. Ottenere lo stato di un processo di esecuzione batch**
 
-È possibile eseguire il polling dello stato del processo batch asincrono in qualsiasi momento passando l'ID del processo all'API GetJobStatus. Se l'operazione è stata completata correttamente, la risposta dell'API conterrà un indicatore dello stato corrente del processo, nonché i risultati effettivi del processo batch. In caso di errore, vengono restituite altre informazioni sui motivi effettivi che hanno causato l'errore nella proprietà *Details*.
+È possibile eseguire il polling dello stato del processo batch asincrono in qualsiasi momento passando l'ID del processo all'API GetJobStatus. Se l'operazione è stata completata correttamente, la risposta dell'API conterrà un indicatore dello stato corrente del processo, nonché i risultati effettivi del processo batch. In caso di errore, vengono restituite altre informazioni sui motivi effettivi che hanno causato l'errore nella proprietà *Details*, come illustrato di seguito:
 
 **Payload della risposta**
 
@@ -297,11 +299,11 @@ La proprietà *Results* viene popolata solo se il processo è stato completato c
 
 
 
-#### Uso dell'[SDK BES](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+#### Uso dell'SDK BES
 
-Il [pacchetto NuGet BES SDK](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornisce funzioni che semplificano la chiamata a BES per assegnare un punteggio in modalità batch. Per installare il pacchetto NuGet in Visual Studio, passare a Strumenti, quindi selezionare Gestione pacchetti NuGet e fare clic su Console di Gestione pacchetti.
+Il [pacchetto NuGet BES SDK](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornisce funzioni che semplificano la chiamata a BES per assegnare un punteggio in modalità batch. Per installare il pacchetto NuGet in Visual Studio, nel menu **Strumenti** selezionare **Gestione pacchetti NuGet** e fare clic su **Console di Gestione pacchetti**.
 
-Gli esperimenti AzureML pubblicati come servizi Web possono includere moduli di input del servizio Web. Significa che prevedono di ricevere l'input tramite la chiamata al servizio Web sotto forma di un riferimento a un percorso BLOB. È inoltre possibile non usare un modulo di input del servizio Web e usare invece un modulo Reader. In questo caso, Reader in genere legge da un database SQL usando una query in fase di esecuzione per ottenere i dati. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
+Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che prevedono che l'input sia fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non usare un modulo di input del servizio Web e usare invece un modulo **Reader**. In questo caso, per ottenere i dati, il modulo **Reader** in genere legge da un database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
 
 L'esempio di codice riportato di seguito illustra come inviare e monitorare un processo batch su un endpoint di servizio di Azure Machine Learning tramite BES SDK. Per informazioni dettagliate su impostazioni e chiamate, osservare i commenti.
 
@@ -433,4 +435,4 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	    }
 	}
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

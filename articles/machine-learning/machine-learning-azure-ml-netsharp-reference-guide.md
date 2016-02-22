@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 
@@ -171,7 +171,7 @@ Le aggregazioni convoluzionali usano **kernel** rettangolari inseriti nelle dime
 
 Le aggregazioni convoluzionali supportano gli attributi seguenti:
 
-**InputShape** definisce la dimensionalità del livello di origine ai fini di questa aggregazione convoluzionale. Il valore deve essere una tupla di valori Integer positivi. Il prodotto dei valori Integer deve essere uguale al numero di nodi del livello di origine, ma non deve corrispondere in altro modo alla dimensionalità dichiarata per il livello di origine. La lunghezza di questa tupla diventa il valore di **grado** per l'aggregazione convoluzionale. In genere, il grado fa riferimento al numero di argomenti oppure operandi che una funziona può accettare.
+**InputShape** definisce la dimensionalità del livello di origine ai fini di questa aggregazione convoluzionale. Il valore deve essere una tupla di valori Integer positivi. Il prodotto dei valori Integer deve essere uguale al numero di nodi del livello di origine, ma non deve corrispondere in altro modo alla dimensionalità dichiarata per il livello di origine. La lunghezza di questa tupla diventa il valore di **arietà** per l'aggregazione convoluzionale. In genere, il grado fa riferimento al numero di argomenti oppure operandi che una funziona può accettare.
 
 Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelShape**, **Stride**, **Padding**, **LowerPad** e **UpperPad**:
 
@@ -181,7 +181,7 @@ Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelSha
 -	**MapCount**: (facoltativo) definisce il numero di mapping di funzionalità per l'aggregazione convoluzionale. Il valore può essere un singolo numero intero positivo o una tupla di numeri interi positivi, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore Integer viene esteso in modo da diventare una tupla di lunghezza corretta quando i primi componenti sono uguali al valore specificato e tutti i componenti rimanenti sono uguali a uno. Il valore predefinito è uno. Il numero totale di mapping di funzionalità è il prodotto dei componenti della tupla. La fattorizzazione di questo numero totale nei componenti determina il modo in cui i valori di mapping di funzionalità vengono raggruppati nei nodi di destinazione. 
 -	**Weights**: (facoltativo) definisce i pesi iniziali per l'aggregazione. Il valore deve essere una tupla di valori a virgola mobile con una lunghezza corrispondente al numero di pesi per kernel, come definito in seguito in questo articolo. I pesi predefiniti sono generati in modo casuale.  
 
-Sono disponibili due set di proprietà che controllano la spaziatura interna e che si escludono a vicenda:
+Sono disponibili due set di proprietà che controllano la spaziatura interna. Le proprietà si escludono a vicenda:
 
 -	**Padding**: (facoltativo) determina se l'input deve essere riempito usando uno **schema di riempimento predefinito**. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato. Se il valore per una dimensione è True, l'origine sarà riempita in modo logico in quella dimensione con celle a valore zero per supportare altre applicazioni di kernel, in modo che i nodi centrali del primo e dell'ultimo kernel in quella dimensione siano i primi e gli ultimi nodi di quella dimensione nel livello di origine. Il numero di nodi "fittizi" in ogni dimensione viene quindi determinato automaticamente, in modo da inserire esattamente i kernel _(InputShape[d] - 1) / Stride[d] + 1_ nel livello di origine riempito. Se il valore per una dimensione è False, i kernel verranno definiti in modo che il numero di nodi esclusi in ogni lato sia uguale (con una differenza massima di 1). Il valore predefinito di questo attributo è una tupla con tutti i componenti uguali a False.
 -	**UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** questi attributi possono essere definiti se e solo se la proprietà **Padding** precedente ***non*** è stata definita. I valori devono essere tuple con numeri interi con lunghezza corrispondente al grado dell'aggregazione. Quando questi attributi sono specificati, i nodi "fittizi" vengono aggiunti alle estremità superiori e inferiori di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiori e superiori in ogni dimensione è determinato rispettivamente da **LowerPad**[i] e **UpperPad**[i]. Per assicurare che i kernel corrispondano solo a nodi "effettivi" e non a nodi "fittizi", è necessario che siano soddisfatte le condizioni seguenti:
@@ -234,7 +234,7 @@ Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi
 
 Poiché le aggregazioni di normalizzazione delle risposte applicano una funzione predefinita ai valori del nodo di origine per determinare il valore del nodo di destinazione, non hanno stati sottoponibili a training (pesi o distorsioni).
 
-**Alert**: i nodi del livello di destinazione corrispondono ai neuroni che costituiscono i nodi centrali dei kernel. Se KernelShape[d] è ad esempio dispari, _KernelShape[d]/2_ corrisponderà al nodo centrale del kernel. Se _KernelShape[d]_ è pari, il nodo centrale si trova in _KernelShape[d]/2 - 1_. Quindi, se **Padding**[d] è False, il primo e l'ultimo nodo _KernelShape[d]/2_ non dispongono di nodi corrispondenti nel livello di destinazione. Per evitare questa situazione, definire **Padding** come [true, true, …, true].
+**Alert**: i nodi del livello di destinazione corrispondono ai neuroni che costituiscono i nodi centrali dei kernel. Ad esempio, se KernelShape[d] è dispari, _KernelShape[d]/2_ corrisponderà al nodo centrale del kernel. Se _KernelShape[d]_ è pari, il nodo centrale si trova in _KernelShape[d]/2 - 1_. Quindi, se **Padding**[d] è False, il primo e l'ultimo nodo _KernelShape[d]/2_ non dispongono di nodi corrispondenti nel livello di destinazione. Per evitare questa situazione, definire **Padding** come [true, true, …, true].
 
 Oltre ai quattro attributi descritti precedentemente, le aggregazioni di normalizzazione delle risposte supportano anche gli attributi seguenti:
 
@@ -408,10 +408,10 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 
 ## Riconoscimenti
 
-Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere il post di blog relativo alle [reti neurali in Azure ML - Introduzione a Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per ulteriori informazioni, vedere [Reti neurali in Azure ML - Introduzione a Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

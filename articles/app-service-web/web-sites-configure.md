@@ -14,10 +14,10 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
-# Configurare le app Web nel servizio app di Azure #
+# Configurazione delle app Web in Servizio app di Azure #
 
 In questo argomento viene descritto come configurare un'app usando il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
@@ -78,7 +78,7 @@ Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponi
 
 - SQL Server: SQLCONNSTR\_
 - MySQL: MYSQLCONNSTR\_
-- Database SQL: SQLAZURECONNSTR\_
+- SQL Database: SQLAZURECONNSTR\_
 - Custom: CUSTOMCONNSTR\_
 
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
@@ -177,4 +177,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -17,11 +17,11 @@
 	ms.date="11/13/2015"
 	ms.author="szark"/>
 
-# Preparare una macchina virtuale SLES od openSUSE per Azure
+# Preparare una macchina virtuale SLES o openSUSE per Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Prerequisiti##
+## Prerequisiti ##
 
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux SUSE od openSUSE in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -103,17 +103,15 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
-2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
 
-3. Nella shell eseguire il comando '`zypper lr`'. Se questo comando restituisce un output simile al seguente (si noti che i numeri di versione possono variare):
+3. Nella shell eseguire il comando '`zypper lr`'. Se questo comando restituisce un output simile al seguente, i repository vengono configurati come previsto e non sono necessarie modifiche. Si noti che i numeri di versione possono variare:
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	gli archivi sono configurati correttamente e non sono necessarie correzioni.
 
 	Se il comando restituisce un messaggio simile a "Nessun archivio definito..." usare i comandi seguenti per aggiungere gli archivi:
 
@@ -134,7 +132,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 		# sudo zypper update
 
-5.	Installare l'agente Linux di Azure
+5.	Installare l'agente Linux di Azure.
 
 		# sudo zypper install WALinuxAgent
 
@@ -180,7 +178,6 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 13. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## Passaggi successivi
-È ora possibile usare il file .vhd SUSE Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
- 
+È ora possibile usare il disco rigido virtuale SUSE Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file con estensione vhd in Azure, vedere i passaggi 2 e 3 in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

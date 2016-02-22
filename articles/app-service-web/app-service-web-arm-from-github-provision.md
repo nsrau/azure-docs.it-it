@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # Distribuire un'app Web collegata a un repository GitHub
@@ -66,7 +66,7 @@ Crea l'app Web collegata al progetto in GitHub.
 
 Il nome dell'app Web viene specificato tramite il parametro **siteName** e il percorso dell'app Web tramite il parametro **siteLocation**. Nell'elemento **dependsOn** il modello consente di definire l'app Web dipendente dal piano di hosting del servizio. Dipendendo dal piano di hosting, l'app Web non viene creata prima del termine della creazione del piano di hosting. L'elemento **dependsOn** viene usato solo per specificare l'ordine di distribuzione. Se non si contrassegna l'app Web come dipendente dal piano di hosting, Gestione risorse di Azure tenterà di creare entrambe le risorse contemporaneamente. È possibile che si verifichi un errore se l'app Web viene creata prima del piano di hosting.
 
-L'app Web dispone anche di una risorsa figlio che viene definita nella sezione delle **risorse** riportata di seguito. Questa risorsa figlio consente di definire il controllo del codice sorgente per il progetto distribuito con l'app Web. In questo modello, il controllo del codice sorgente è collegato a un determinato repository GitHub. Il repository GitHub viene definito con il codice **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** È possibile impostare come hardcoded l'URL del repository, se si desidera creare un modello che distribuisce ripetutamente un progetto singolo richiedendo il numero minimo di parametri. Anziché impostare come hardcoded l'URL del repository, è possibile aggiungere un parametro per l'URL del repository e usare tale valore per la proprietà **RepoUrl**. È possibile vedere un esempio del parametro dell'URL del repository nel [modello dell'app Web con processi Web](../app-service-web-deploy-web-app-with-webjobs.md).
+L'app Web dispone anche di una risorsa figlio che viene definita nella sezione delle **risorse** riportata di seguito. Questa risorsa figlio consente di definire il controllo del codice sorgente per il progetto distribuito con l'app Web. In questo modello, il controllo del codice sorgente è collegato a un determinato repository GitHub. Il repository GitHub viene definito con il codice **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** È possibile impostare come hardcoded l'URL del repository, se si desidera creare un modello che distribuisce ripetutamente un progetto singolo richiedendo il numero minimo di parametri. Anziché impostare come hardcoded l'URL del repository, è possibile aggiungere un parametro per l'URL del repository e usare tale valore per la proprietà **RepoUrl**.
 
     {
       "apiVersion":"2015-04-01",
@@ -110,4 +110,4 @@ L'app Web dispone anche di una risorsa figlio che viene definita nella sezione d
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

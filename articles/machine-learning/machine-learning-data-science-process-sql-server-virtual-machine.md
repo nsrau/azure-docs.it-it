@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
-In questo documento viene descritta l'elaborazione dei dati e la creazione di funzionalità per i dati archiviati in una macchina virtuale di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
+Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
 
 
-> [AZURE.NOTE]Le istruzioni SQL di esempio fornite nel documento presuppongono che i dati si trovino in SQL Server. In caso contrario, fare riferimento al processo di analisi scientifica dei dati cloud per visualizzare informazioni su come spostare i dati in SQL Server.
+> [AZURE.NOTE] Le istruzioni SQL di esempio fornite nel documento presuppongono che i dati si trovino in SQL Server. In caso contrario, fare riferimento al processo di analisi scientifica dei dati cloud per visualizzare informazioni su come spostare i dati in SQL Server.
 
 ##<a name="SQL"></a>Utilizzo di SQL
 
@@ -34,7 +34,7 @@ In questa sezione, vengono descritte le seguenti attività di gestione dei dati 
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
 
-> [AZURE.NOTE]Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
+> [AZURE.NOTE] Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
 
 1. Visualizzare il numero di osservazioni per giorno
 
@@ -62,7 +62,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
+> [AZURE.NOTE] Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
 
 ###<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 
@@ -113,10 +113,10 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
 
 
-> [AZURE.TIP]A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
@@ -152,4 +152,4 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

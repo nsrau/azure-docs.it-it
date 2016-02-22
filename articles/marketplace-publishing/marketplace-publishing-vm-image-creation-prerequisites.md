@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Prerequisiti tecnici per la creazione di un'immagine di macchina virtuale per Azure Marketplace
@@ -33,7 +33,7 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 - Se si usa Linux, vedere la sezione relativa alla creazione di un disco rigido virtuale (basato su Linux) compatibile con Azure della [Guida alla pubblicazione di un'immagine di macchina virtuale](marketplace-publishing-vm-image-creation.md).
 - Se si usa Windows, vedere la sezione relativa alla creazione di un disco rigido virtuale (basato su Windows) compatibile con Azure della [Guida alla pubblicazione di un'immagine di macchina virtuale](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE]Sarà necessario accedere a un computer Windows per: - Eseguire lo strumento di convalida della certificazione - Creare l'URL della firma di accesso condiviso del disco rigido virtuale per l'invio della certificazione del disco rigido virtuale.
+> [AZURE.NOTE] Sarà necessario accedere a un computer Windows per: - Eseguire lo strumento di convalida della certificazione - Creare l'URL della firma di accesso condiviso del disco rigido virtuale per l'invio della certificazione del disco rigido virtuale.
 
 ## Sviluppare il disco rigido virtuale
 È possibile sviluppare i dischi rigidi virtuali di Azure nel cloud o in locale:
@@ -51,4 +51,4 @@ Dopo avere esaminato i prerequisiti e completato le attività necessarie, ora è
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

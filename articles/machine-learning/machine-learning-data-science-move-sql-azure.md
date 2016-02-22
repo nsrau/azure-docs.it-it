@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;bradsev" />
 
 # Spostamento dei dati in un database di SQL Azure per Azure Machine Learning
-
-Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Introduzione
 **In questo argomento** vengono indicate le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da dati archiviati in un server SQL locale a un database SQL Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un server SQL locale per Machine Learning, vedere [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
+
+Il **menu** seguente collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il processo Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati a un database di SQL Azure.
 
@@ -86,4 +86,4 @@ La procedura per lo spostamento dei dati a un database Azure SQL con Azure Data 
 
 È consigliabile utilizzare ADF quando i dati devono essere migrati continuamente in uno scenario ibrido che accede a risorse locali e cloud e quando i dati sono transazionali o devono essere modificati o avere una logica di business aggiunta durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

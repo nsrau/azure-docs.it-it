@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@ Per trovare questi valori, passare al portale di gestione di Azure, selezionare 
 
 Prima di iniziare la programmazione basata su Servizi multimediali, è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori.
 
->[AZURE.NOTE]La classe **CloudMediaContext** non è di tipo thread-safe. È quindi necessario creare una nuova istanza di CloudMediaContext per ogni thread o set di operazioni.
+>[AZURE.NOTE] La classe **CloudMediaContext** non è di tipo thread-safe. È quindi necessario creare una nuova istanza di CloudMediaContext per ogni thread o set di operazioni.
 
 
 CloudMediaContext include cinque overload del costruttore. Si consiglia di usare costruttori che accettano **MediaServicesCredentials** come parametro. Per altre informazioni, vedere la sezione **Riutilizzo dei token del Servizio di controllo di accesso** seguente.
@@ -196,4 +196,4 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

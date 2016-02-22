@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="subramar"/>
 
 
@@ -112,4 +112,4 @@ Nel file manifesto del cluster è possibile assegnare al client funzionalità di
 
 [Creazione del cluster di Service Fabric](service-fabric-cluster-creation-via-portal.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

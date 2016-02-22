@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # Connettersi in remoto al dispositivo StorSimple
@@ -32,6 +32,8 @@ In questa esercitazione viene illustrato come configurare il dispositivo per la 
 - La connessione tramite una sessione HTTPS con un certificato autofirmato è l'opzione più sicura e consigliata.
 
 È possibile connettersi in remoto all'interfaccia di Windows PowerShell. Tuttavia, l'accesso remoto al dispositivo StorSimple tramite l'interfaccia di Windows PowerShell non è abilitato per impostazione predefinita. È necessario abilitare innanzitutto la gestione remota sul dispositivo, quindi sul client che viene utilizzato per l'accesso al dispositivo.
+
+I passaggi descritti in questo articolo sono stati eseguiti in un sistema host che esegue Windows Server 2012 R2.
 
 ## Connessione tramite HTTP
 
@@ -61,7 +63,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per abilitare la gest
 
 4. È ora possibile scegliere di connettersi tramite HTTP. (La connessione su HTTPS rappresenta la scelta predefinita.) Assicurarsi che HTTP sia selezionato.
 
-    >[AZURE.NOTE]La connessione tramite HTTP dovrebbe essere eseguita solo su reti attendibili.
+    >[AZURE.NOTE] La connessione tramite HTTP dovrebbe essere eseguita solo su reti attendibili.
 
 6. Fare clic su **Save** nella parte inferiore della pagina.
 
@@ -112,7 +114,7 @@ Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 
      `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE]Per creare una sessione di Windows PowerShell per l'utilizzo con il dispositivo virtuale StorSimple, aggiungere il parametro `–port` e specificare la porta pubblica configurata nella comunicazione remota per il dispositivo virtuale StorSimple.
+     >[AZURE.NOTE] Per creare una sessione di Windows PowerShell per l'utilizzo con il dispositivo virtuale StorSimple, aggiungere il parametro `–port` e specificare la porta pubblica configurata nella comunicazione remota per il dispositivo virtuale StorSimple.
 
      A questo punto, è necessario disporre di una sessione remota attiva di Windows PowerShell sul dispositivo.
 
@@ -176,7 +178,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 4. Dall'output di `Get-HcsSystem`, copiare il numero di serie del dispositivo e salvarlo per un utilizzo successivo.
 
-    >[AZURE.NOTE]Il numero di serie esegue il mapping sul nome CN nel certificato.
+    >[AZURE.NOTE] Il numero di serie esegue il mapping sul nome CN nel certificato.
 
 5. Ottenere un certificato di gestione remota digitando:
  
@@ -188,7 +190,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 5. Copiare le informazioni sul certificato da **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** in un editor di testo come Blocco note e salvarlo come file con estensione .cer. (Il file dovrà essere copiato sull'host remoto quando si prepara l'host.)
 
-    >[AZURE.NOTE]Per generare un nuovo certificato, utilizzare il cmdlet `Set-HcsRemoteManagementCert`.
+    >[AZURE.NOTE] Per generare un nuovo certificato, utilizzare il cmdlet `Set-HcsRemoteManagementCert`.
 
 ### Preparazione dell'host per la gestione remota
 
@@ -272,4 +274,4 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

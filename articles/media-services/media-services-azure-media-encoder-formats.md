@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Formati e codec di Azure Media Encoder
@@ -143,4 +143,4 @@ Formato YVU9 prodotto da Indeo|Formato YVU9 prodotto da Indeo con informazioni a
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

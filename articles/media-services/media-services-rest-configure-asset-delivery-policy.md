@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Procedura: Configurare i criteri di distribuzione degli asset
@@ -62,7 +62,7 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 - È possibile avere più criteri di distribuzione degli asset associati a un singolo asset, ma è possibile specificare solo un modo per gestire un determinato AssetDeliveryProtocol. Ciò significa che se si tenta di collegare due criteri di distribuzione che specificano il protocollo AssetDeliveryProtocol.SmoothStreaming, verrà generato un errore perché il sistema non sa quale applicare quando un client effettua una richiesta di Smooth Streaming.  
 - Se si dispone di un asset con un localizzatore di streaming esistente, non è possibile collegare un nuovo criterio all'asset, scollegare un criterio esistente dall'asset, o aggiornare un criterio di distribuzione associato all'asset. È innanzitutto necessario rimuovere il localizzatore di streaming, modificare i criteri e quindi creare nuovamente il localizzatore di streaming. È possibile utilizzare lo stesso ID quando si ricrea il localizzatore di streaming, ma è necessario assicurarsi che questo non causi problemi per i client poiché il contenuto può essere memorizzato nella cache per l'origine o una rete CDN a valle.  
  
->[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
@@ -273,7 +273,7 @@ Richiesta:
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Se si desidera proteggere il contenuto utilizzando DRM Widevine, aggiornare i valori AssetDeliveryConfiguration per utilizzare WidevineLicenseAcquisitionUrl (che ha il valore 7) e specificare l'URL di un servizio di recapito di licenza. È possibile usare i partner AMS seguenti per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+Se si desidera proteggere il contenuto utilizzando DRM Widevine, aggiornare i valori AssetDeliveryConfiguration per utilizzare WidevineLicenseAcquisitionUrl (che ha il valore 7) e specificare l'URL di un servizio di recapito di licenza. È possibile utilizzare i seguenti partner AMS per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Ad esempio:
  
@@ -287,7 +287,7 @@ Ad esempio:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
 
 ###AssetDeliveryProtocol 
 
@@ -456,4 +456,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

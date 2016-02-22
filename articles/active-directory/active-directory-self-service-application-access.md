@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory
@@ -101,9 +101,12 @@ Il riquadro **Configura** viene visualizzato solo se l'applicazione è stata con
 
 * **Gli utenti accedono automaticamente usando un singolo account da me gestito**: questo è un caso speciale ed è possibile adottare questa modalità quando è necessario concedere l'accesso a tutti gli utenti assegnati usando un singolo account condiviso. Il caso d'uso più comune per questa modalità è rappresentato dalle applicazioni per social media, in cui un'organizzazione ha un singolo account della società che deve essere aggiornato da più utenti. Anche questo corrisponde al caso di SSO con password in cui [le credenziali sono gestite dagli amministratori](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Dopo aver selezionato questa opzione, al responsabile dell'approvazione verrà chiesto di immettere il nome utente e la password per il singolo account condiviso. Al termine, facendo clic sull'applicazione nel pannello di accesso di Azure AD o in Office 365 viene eseguito l'accesso per tutti gli utenti assegnati usando questo account.
 
+##Risorse aggiuntive
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

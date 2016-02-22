@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS
+
+[SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornisce componenti per la connessione ad Azure, il trasferimento di dati tra Azure e origini dati locali e l'elaborazione di dati archiviati in Azure.
 
 Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da un archivio BLOB di Azure sono disponibili qui:
 
@@ -24,15 +26,13 @@ Collegamenti a indicazioni sulle tecnologie usate per spostare i dati in e/o da 
 
 ## Introduzione
 
-[SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornisce componenti per la connessione ad Azure, il trasferimento di dati tra Azure e origini dati locali e l'elaborazione di dati archiviati in Azure.
-
 Dopo che i clienti hanno spostato i dati locali sul cloud, potranno accedere ai dati da qualsiasi servizio di Azure, per sfruttare le capacità complete della famiglia di tecnologie Azure. È ad esempio possibile usare i dati in Azure Machine Learning o in un cluster HDInsight.
 
-Questo sarà in genere il primo passaggio per le esercitazioni dettagliate su [SQL](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/) e [HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/).
+Questo sarà in genere il primo passaggio per le esercitazioni dettagliate su [SQL](machine-learning-data-science-process-sql-walkthrough.md) e [HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze aziendali comuni in scenari di integrazione dei dati ibridi, vedere il blog relativo ai [vantaggi offerti da SQL Server Integration Services Feature Pack for Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
 
-> [AZURE.NOTE]Per un'introduzione completa dell'archiviazione BLOB di Azure, vedere [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Per un'introduzione completa dell'archiviazione BLOB di Azure, vedere [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Prerequisiti
 
@@ -47,7 +47,7 @@ Per usare i **connettori SSIS** è necessario scaricare:
 - **SQL Server 2014 o 2016 Standard (o versioni successive)**: l'installazione include SQL Server Integration Services.
 - **Microsoft SQL Server 2014 o 2016 Pacchetto delle caratteristiche del servizio di integrazione per Azure**: disponibili, rispettivamente per il download nelle pagine di [SQL Server 2014 Servizi di integrazione](http://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Servizi di integrazione](https://www.microsoft.com/download/details.aspx?id=49492).
 
-> [AZURE.NOTE]SSIS viene installato con SQL Server, ma non è incluso nella versione Express. Per informazioni sulle applicazioni incluse nelle diverse edizioni di SQL Server, vedere [Edizioni di SQL Server](http://www.microsoft.com/it-IT/server-cloud/products/sql-server-editions/)
+> [AZURE.NOTE] SSIS viene installato con SQL Server, ma non è incluso nella versione Express. Per informazioni sulle applicazioni incluse nelle diverse edizioni di SQL Server, vedere [Edizioni di SQL Server](http://www.microsoft.com/it-IT/server-cloud/products/sql-server-editions/)
 
 Per materiale di formazione su SSIS, vedere [Risorse pratiche per la formazione su SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
 
@@ -76,7 +76,7 @@ Campo|Descrizione|
 **TimeRangeFrom/TimeRangeTo**|Specifica un filtro basato su un intervallo di tempo. Verranno inclusi i file modificati dopo *TimeRangeFrom* e prima di *TimeRangeTo*.|
 
 
-> [AZURE.NOTE]Prima di provare a eseguire il trasferimento, è necessario assicurarsi che le credenziali **AzureStorageConnection** siano corrette e che **BlobContainer** esista.
+> [AZURE.NOTE] Prima di provare a eseguire il trasferimento, è necessario assicurarsi che le credenziali **AzureStorageConnection** siano corrette e che **BlobContainer** esista.
  
 ## Scaricare i dati da un archivio BLOB di Azure
 
@@ -88,4 +88,4 @@ Si noti che il Feature Pack di SSIS consente la gestione di flussi più compless
 - Per eseguire uno script Hive in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).
 - Per eseguire uno script Pig in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

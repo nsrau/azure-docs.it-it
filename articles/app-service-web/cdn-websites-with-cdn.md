@@ -504,27 +504,8 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
 	
-	``` 
-	... 
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<script>(function() { 
-		var loadFallback, 
-			len = document.styleSheets.length; 
-		for (var i = 0; i < len; i++) { 
-			var sheet = document.styleSheets[i]; 
-			if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
-		 	   var meta = document.createElement('meta'); 
-		           meta.className = 'sr-only'; 
-			   document.head.appendChild(meta); 
-			   var value = window.getComputedStyle(meta).getPropertyValue('width'); 
-			   document.head.removeChild(meta); 
-			   if (value !== '1px') { 
-			   document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
-			   } 
-			} 
-		} 
-		return true; 
-	}())||document.write('<script src="/Content/css"><\\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -537,11 +518,11 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 	...
 	```
 
-	Si noti che lo script inserito per il bundle CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Per verificare il funzionamento dello script di fallback, tornare indietro al dashboard dell'endpoint della rete CDN e fare clic su **Disabilita endpoint**.
 
@@ -550,15 +531,15 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 7. Aggiornare la finestra del browser per l'app Web di Azure. Si noterà ora che tutti gli script e i fogli di stile vengono caricati correttamente.
 
 ## Altre informazioni 
-- [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](../cdn-overview.md)
-- [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrare un servizio cloud con la rete CDN di Azure](../cdn-cloud-service-with-cdn.md)
+- [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](../cdn/cdn-overview.md)
+- [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso della rete CDN per Azure](../cdn-how-to-use-cdn.md)
+- [Uso della rete CDN per Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

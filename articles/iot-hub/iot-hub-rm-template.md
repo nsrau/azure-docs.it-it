@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creare un hub IoT utilizzando un modello di gestione risorse | Microsoft Azure"
-	description="Seguire questa esercitazione per iniziare a utilizzare modelli di Gestione risorse per creare un hub IoT."
+	description="Seguire questa esercitazione per iniziare a usare modelli di Gestione risorse per creare un hub IoT con un programma C# o PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -31,6 +31,8 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 - Microsoft Visual Studio 2015
 - Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
+
+> [AZURE.TIP] Questo articolo descrive come creare un nuovo hub IoT usando un programma C# e un modello di Gestione risorse di Azure. È inoltre possibile usare il [modello di Gestione risorse di Azure](#submit-a-template-to-create-an-iot-hub) nell'articolo corrente con uno script di PowerShell invece di un programma C#. L'articolo [Uso di Azure PowerShell con Gestione risorse di Azure][lnk-powershell-arm] descrive come scrivere uno script di PowerShell che usa un modello di Gestione risorse di Azure per creare una risorsa di Azure, ad esempio un hub IoT.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -189,6 +191,7 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

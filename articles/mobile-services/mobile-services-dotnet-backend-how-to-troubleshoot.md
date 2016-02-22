@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="02/07/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Risolvere i problemi del back-end .NET di Servizi mobili
@@ -41,7 +41,8 @@ Quando si sviluppano app con Servizi mobili, di solito si sfrutta l'SDK del clie
 1. Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versione successiva. Se non è disponibile alcun progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Microsoft Azure**.
 2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**.
 
-    >[AZURE.NOTE]Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel portale di Azure classico passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
+    >[AZURE.NOTE]
+    Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel portale di Azure classico passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
     >
     > ![Prompt di autenticazione per accedere alla pagina della guida][HelpPageAuth]
 
@@ -123,7 +124,7 @@ Quando viene pubblicato su Azure, il servizio mobile viene caricato dall'ambient
 
 Talvolta è possibile introdurre conflitti di controllo delle versioni facendo riferimento a *diverse versioni principali* di assembly obbligatori (sono consentite diverse versioni *minori*). Ciò accade di frequente quando NuGet richiede di eseguire l'aggiornamento alla versione più recente di uno dei pacchetti usati dal back-end .NET di Servizi mobili.
 
->[AZURE.NOTE]Servizi mobili è attualmente compatibile solo con ASP.NET 5.1, mentre ASP.NET 5.2 non è attualmente supportato. L'aggiornamento dei pacchetti NuGet ASP.NET alla versione 5.2.* può generare un errore dopo la distribuzione.
+>[AZURE.NOTE] Servizi mobili è attualmente compatibile solo con ASP.NET 5.1, mentre ASP.NET 5.2 non è attualmente supportato. L'aggiornamento dei pacchetti NuGet ASP.NET alla versione 5.2.* può generare un errore dopo la distribuzione.
 
 Se si effettua l'aggiornamento di uno qualsiasi di questi pacchetti, quando si pubblica il servizio aggiornato su Azure verrà visualizzata una pagina di avviso che indica il conflitto:
 
@@ -163,4 +164,4 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 <!-- Links -->
 [SymbolSource]: http://symbolsource.org
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

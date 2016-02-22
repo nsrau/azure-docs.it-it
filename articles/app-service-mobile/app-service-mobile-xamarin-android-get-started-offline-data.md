@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
     ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 
@@ -40,8 +38,8 @@ Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l
 
 Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Creare un'app Xamarin Android] contiene già il codice che supporta la sincronizzazione offline mediante un database SQLite locale. Ecco un breve riepilogo degli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
-* Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Il database di archiviazione locale viene inizializzato quando `ToDoActivity.OnCreate()` esegue `ToDoActivity.InitLocalStoreAsync()`. Questo comporta la creazione di un nuovo database SQLite locale usando la classe `MobileServiceSQLiteStore` fornita dall'SDK del client delle app per dispositivi mobili di Azure. 
- 
+* Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Il database di archiviazione locale viene inizializzato quando `ToDoActivity.OnCreate()` esegue `ToDoActivity.InitLocalStoreAsync()`. Questo comporta la creazione di un nuovo database SQLite locale usando la classe `MobileServiceSQLiteStore` fornita dall'SDK del client delle app per dispositivi mobili di Azure.
+
 	Il metodo `DefineTable` crea nell'archivio locale una tabella corrispondente ai campi del tipo specificato, `ToDoItem` in questo caso. Il tipo non deve necessariamente includere tutte le colonne presenti nel database remoto. È possibile archiviare solo un subset di colonne.
 
 		// ToDoActivity.cs
@@ -60,14 +58,14 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+            // To use a different conflict handler, pass a parameter to InitializeAsync.
 			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
 
 * Il membro `toDoTable` di `ToDoActivity` è di tipo `IMobileServiceSyncTable` invece che `IMobileServiceTable`. Per questo motivo, tutte le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) sulle tabelle vengono indirizzate al database di archiviazione locale.
- 
+
 	È possibile decidere quando eseguire il push delle modifiche nel back-end dell'app per dispositivi mobili di Azure chiamando `IMobileServiceSyncContext.PushAsync()` con il contesto di sincronizzazione per la connessione client. Il contesto di sincronizzazione aiuta a mantenere le relazioni tra tabelle rilevando le modifiche apportate da un'app client in tutte le tabelle ed eseguendone il push quando viene chiamato `PushAsync`.
 
 	Il codice fornito chiama `ToDoActivity.SyncAsync()` per eseguire la sincronizzazione ogni volta che l'elenco todoitem viene aggiornato o un oggetto todoitem viene aggiunto o completato. La sincronizzazione avviene quindi dopo ogni modifica locale, eseguendo un'operazione push nel contesto di sincronizzazione e un'operazione pull nella tabella di sincronizzazione. Tuttavia, è importante tenere presente che se viene eseguita un'operazione pull su una tabella con aggiornamenti locali in sospeso rilevati dal contesto, tale operazione attiva automaticamente un'operazione push sul contesto, che viene eseguita prima del pull. In questi casi (aggiornamento, aggiunta e completamento di elementi) è quindi possibile omettere la chiamata esplicita a `PushAsync`, che è ridondante.
@@ -75,9 +73,7 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
     Nel codice fornito viene eseguita una query su tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando un ID di query e una query a `PushAsync`. Per altre informazioni, vedere la sezione *Sincronizzazione incrementale* in [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->	
-		// ToDoActivity.cs
-
+-->	// ToDoActivity.cs
         private async Task SyncAsync()
         {
 			try {
@@ -101,7 +97,7 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
 1. All'inizio di `ToDoActivity.cs` modificare l'inizializzazione di `applicationURL` in modo da puntare a URL non validi:
 
-        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
+        const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
 	Se l'app usa anche una procedura di autenticazione, non sarà possibile eseguire l'accesso. È possibile anche illustrare il funzionamento offline disabilitando sul dispositivo le reti Wi-Fi e cellulare o impostando la modalità aereo.
 
@@ -132,7 +128,7 @@ In questa sezione si modificherà l'app client per simulare uno scenario offline
 
    In Visual Studio aprire **Esplora server**. Passare al database in **Azure**->**Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto.
 
-6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 
 ## Aggiornare l'app client per la riconnessione al back-end mobile
@@ -151,7 +147,7 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- ##Summary
 
@@ -175,6 +171,6 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [Xamarin Studio]: http://xamarin.com/download
 [Estensione Xamarin]: http://xamarin.com/visual-studio
 
-[Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_0211_2016-->

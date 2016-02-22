@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/22/2016"
+  ms.date="02/04/2016"
   ms.author="jimpark; trinadhk;"/>
 
 # Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
@@ -66,7 +66,7 @@ Per creare un insieme di credenziali per il backup:
 
 6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT] Subito dopo la creazione dell'insieme di credenziali, assicurarsi di avere scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+  > [AZURE.IMPORTANT] Subito dopo la creazione dell'insieme di credenziali, assicurarsi di avere scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
 
 ## 3\. Pacchetto software
@@ -107,11 +107,11 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     ![Installazione guidata di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. Nella schermata iniziale fare clic su **Avanti**. Verrà visualizzata la sezione *Controlli dei prerequisiti*. In questa schermata fare clic su **Controlla** per determinare se i prerequisiti hardware e software per il server di Backup di Azure sono stati soddisfatti. Se tutti i prerequisiti sono stati soddisfatti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic su **Avanti**.
+2. Nella schermata iniziale fare clic su **Avanti**. Verrà visualizzata la sezione *Controlli dei prerequisiti*. In questa schermata fare clic su **Controlla** per determinare se i prerequisiti hardware e software per il server di Backup di Azure sono stati soddisfatti. Se tutti i prerequisiti sono stati soddisfatti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic sul pulsante **Avanti**.
 
     ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
-3. Il server di Backup di Microsoft Azure richiede SQL Server Standard e il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Installa una nuova istanza di SQL Server con questa installazione** e quindi fare clic sul pulsante ** Controlla e installa**. Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
+3. Il server di Backup di Microsoft Azure richiede SQL Server Standard e il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Installa una nuova istanza di SQL Server con questa installazione** e quindi fare clic sul pulsante **Controlla e installa**. Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
 
     ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -150,7 +150,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
     ![Server di backup di Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-Al termine della fase di installazione, vengono create anche le icone sul desktop per il prodotto. È sufficiente fare doppio clic sull'icona per avviare il prodotto.
+Al termine della fase di installazione, verranno create anche le icone sul desktop per il prodotto. È sufficiente fare doppio clic sull'icona per avviare il prodotto.
 
 ### Aggiungere risorse di archiviazione di backup
 
@@ -203,7 +203,7 @@ In caso di errori del server di Backup di Microsoft Azure durante la fase di ins
 
 ## Passaggi successivi
 
-Per informazioni dettagliate sulla [Preparazione dell'ambiente per System Center 2012 R2 Data Protection Manager (DPM)](https://technet.microsoft.com/library/hh758176.aspx), vedere il sito Web Microsoft TechNet. Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure.
+Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://technet.microsoft.com/library/hh758176.aspx), vedere il sito Web Microsoft TechNet. Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure.
 
 È possibile usare questi articoli per acquisire una comprensione più profonda della protezione dei carichi di lavoro tramite il server di Backup di Microsoft Azure.
 
@@ -211,4 +211,4 @@ Per informazioni dettagliate sulla [Preparazione dell'ambiente per System Center
 - [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

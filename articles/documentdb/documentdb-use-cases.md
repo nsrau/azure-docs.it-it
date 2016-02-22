@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/30/2015" 
+    ms.date="02/10/2016" 
     ms.author="hawong"/>
 
 # Casi di utilizzo comuni di DocumentDB
@@ -79,4 +79,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). L'archivio del futuro si basa sulla velocità delle ricerche e su un flusso di dati scorrevole.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -114,7 +114,7 @@ Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due pun
 
 Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
-* *Nessun dato utente o pagina?* - [Aggiungere i dati utente e pagina](app-insights-asp-net-client.md)
+* *Nessun dato utente o pagina?* - [Aggiungere i dati utente e pagina](app-insights-web-track-usage.md)
 
 ### Ricerca: singoli eventi
 
@@ -146,7 +146,7 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 #### Problemi del server di compilazione
 
-Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
+Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
@@ -169,7 +169,7 @@ In Visual Studio 2015 o versione successiva Hub diagnostica mostra i dati di tel
 
 ## Passaggi successivi
 
-- [Dati utente e pagina](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Dati utente e pagina](../article/application-insights/app-insights-javascript.md#selector1)
 - [Eccezioni](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dipendenze](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilità](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

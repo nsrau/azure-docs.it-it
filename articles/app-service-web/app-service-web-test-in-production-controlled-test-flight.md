@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Distribuzione di versioni di anteprima (test beta) nel servizio app di Azure
 
@@ -32,7 +32,7 @@ Una distribuzione di versioni di anteprima non riguarda semplicemente il routing
 In questa esercitazione si apprenderà come combinare gli scenari seguenti per testare l'app del servizio app nell'ambiente di produzione:
 
 - [Instradare il traffico di produzione](app-service-web-test-in-production-get-start.md) all'app beta
-- [Instrumentare l'app](app-insights-web-track-usage.md) per ottenere metrica utile
+- [Instrumentare l'app](../application-insights/app-insights-web-track-usage.md) per ottenere metrica utile
 - Distribuire continuamente l'app beta e tenere traccia della metrica dell'app attiva
 - Confrontare la metrica tra l'app di produzione e l'app beta per vedere in che modo le modifiche al codice vengono convertite in risultati
 
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come combinare gli scenari seguenti per t
 -	Git Shell (installato con [GitHub per Windows](https://windows.github.com/)): consente di eseguire sia comandi Git che PowerShell nella stessa sessione
 -	Ultimi bit di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi)
 -	Conoscenza di base degli argomenti seguenti:
-	-	Distribuzione di modelli di [Gestione risorse di Azure](resource-group-overview.md); vedere [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
+	-	Distribuzione di modelli di [Gestione risorse di Azure](../resource-group-overview.md); vedere [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@ L'operazione è terminata.
 
 In questa sezione si configureranno i diversi slot di distribuzione per inviare dati di telemetria specifici dello slot alla stessa risorsa di Application Insights. In questo modo, è possibile confrontare i dati di telemetria nel traffico proveniente da diversi slot (ambienti di distribuzione) per vedere facilmente l'effetto delle modifiche apportate all'app. Allo stesso tempo, è possibile separare il traffico di produzione dal resto, per poter continuare a monitorare l'app di produzione secondo le esigenze.
 
-Poiché si raccolgono dati sul comportamento del client, si dovrà [aggiungere un inizializzatore di telemetria al codice JavaScript](app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. Se si vuole ad esempio eseguire il test delle prestazioni sul lato server, è possibile procedere in modo analogo anche nel codice del server. Vedere [API di Application Insights per metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md).
+Poiché si raccolgono dati sul comportamento del client, si dovrà [aggiungere un inizializzatore di telemetria al codice JavaScript](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. Se si vuole ad esempio eseguire il test delle prestazioni sul lato server, è possibile procedere in modo analogo anche nel codice del server. Vedere [API di Application Insights per metriche ed eventi personalizzati](../application-insights/app-insights-api-custom-events-metrics.md).
 
 1. Aggiungere prima di tutto il codice tra i due commenti `//` seguenti nel blocco JavaScript aggiunto in precedenza al tag `<heading>`.
 
@@ -215,7 +215,7 @@ Poiché si raccolgono dati sul comportamento del client, si dovrà [aggiungere u
 
 5. Fare clic sul pulsante **Preferiti** per salvare le impostazioni correnti di Esplora metriche, che dovrebbero essere simili a **Eventi personalizzati: Produzione**. È possibile passare facilmente tra questa visualizzazione e una visualizzazione dello slot di distribuzione in un secondo momento.
 
-    > [AZURE.TIP] Per analisi ancora più avanzate, prendere in considerazione l'[l'integrazione della risorsa di Application Insights con Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Per analisi ancora più avanzate, prendere in considerazione l'[l'integrazione della risorsa di Application Insights con Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Aggiungere tag specifici dello slot alla metrica dell'app server
 Di nuovo per completezza, si configurerà l'app sul lato server. A differenza dell'app client che è stata instrumentata in JavaScript, i tag specifici dello slot per l'app server sono instrumentati con codice .NET.
@@ -369,10 +369,10 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 -   [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md)
 -   [Configurare ambienti di staging per le app Web nel servizio app di Azure](web-sites-staged-publishing.md)
 -	[Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
--	[Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
+-	[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 -	[JSONLint - Il validator JSON](http://jsonlint.com/)
 -	[Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

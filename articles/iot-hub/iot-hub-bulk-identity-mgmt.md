@@ -336,6 +336,6 @@ In questo articolo si è appreso come eseguire operazioni in blocco sul registro
 
 - [Creare un hub IoT a livello di codice](iot-hub-rm-template.md)
 - [Metriche di utilizzo dell'hub IoT](iot-hub-metrics.md)
-- [Monitoraggio delle operazioni dell'hub IoT](iot-hub-operations-montoring.md)
+- [Monitoraggio delle operazioni dell'hub IoT](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

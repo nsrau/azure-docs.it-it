@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 L'utilizzo di un dominio predefinito consente di impostare lo stesso URL come URL interno ed esterno per l'accesso all'applicazione in modo che gli utenti dispongano solo di un URL per ricordare l'accesso all'app indipendentemente dal luogo da cui si accede. Ciò consente inoltre di creare un collegamento singolo nel Pannello di accesso per l'applicazione. Se si utilizza il dominio predefinito fornito dal Proxy di applicazione Azure AD, non esiste alcuna configurazione aggiuntiva necessaria per abilitare il dominio. Nel caso in cui si utilizza un dominio personalizzato, esistono alcune cose da fare per assicurarsi che il Proxy di applicazione riconosca il dominio e convalidi i certificati.
 
@@ -48,8 +48,8 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Risorse aggiuntive
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
 
-* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-* [Identità di Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

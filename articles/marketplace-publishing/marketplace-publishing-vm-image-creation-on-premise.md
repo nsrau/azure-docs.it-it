@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/08/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace
@@ -43,8 +43,7 @@ Individuare l'URL BLOB dal nuovo [portale di Microsoft Azure](https://ms.portal.
 
 ### Scaricare il VHD
 Quando si conosce l'URL BLOB, è possibile scaricare il VHD utilizzando il [portale di Azure](http://manage.windowsazure.com/) o PowerShell.
-
-> [AZURE.NOTE]Al momento della creazione della guida, la funzionalità per scaricare un VHD non è ancora presente nel nuovo portale di Microsoft Azure.
+> [AZURE.NOTE] Al momento della creazione della guida, la funzionalità per scaricare un VHD non è ancora presente nel nuovo portale di Microsoft Azure.
 
 **Scaricare il VHD del sistema operativo tramite il [portale di Azure](http://manage.windowsazure.com/) corrente**
 
@@ -75,7 +74,7 @@ Oltre al portale di Azure, è possibile usare il cmdlet [Save-AzureVhd](http://m
         -StorageKey <keyForStorageAccount>
 Ad esempio, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE]**Save-AzureVhd** dispone inoltre dell'opzione **NumberOfThreads**, che può essere utilizzata per aumentare il parallelismo per un utilizzo ottimale della larghezza di banda disponibile per il download.
+> [AZURE.NOTE] **Save-AzureVhd** dispone inoltre dell'opzione **NumberOfThreads**, che può essere utilizzata per aumentare il parallelismo per un utilizzo ottimale della larghezza di banda disponibile per il download.
 
 ## Caricare VHD in un account di archiviazione di Azure
 Se i VHD sono stati preparati in locale, è necessario caricarli in un account di archiviazione in Azure. Questo passaggio avviene dopo la creazione del VHD locale, ma prima di ottenere una certificazione per l'immagine della macchina virtuale.
@@ -101,7 +100,7 @@ Per creare un account di archiviazione è possibile utilizzare il [portale di Mi
 
 7.	Nel pannello Contenitori selezionare **Aggiungi** e quindi immettere un nome e le autorizzazioni per il contenitore. Selezionare **Privato** per le autorizzazioni del contenitore.
 
-> [AZURE.TIP]Si consiglia di creare un contenitore per ogni SKU che si intende pubblicare.
+> [AZURE.TIP] Si consiglia di creare un contenitore per ogni SKU che si intende pubblicare.
 
   ![disegno](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
@@ -114,7 +113,7 @@ Sarà quindi possibile creare un contenitore in tale account di archiviazione us
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE]Tali comandi presuppongono che il contesto dell’account di archiviazione corrente sia già stato impostato in PowerShell. Per ulteriori dettagli sulla configurazione di PowerShell fare riferimento a [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md).
+> [AZURE.NOTE] Tali comandi presuppongono che il contesto dell’account di archiviazione corrente sia già stato impostato in PowerShell. Per ulteriori dettagli sulla configurazione di PowerShell fare riferimento a [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md).
 ### Creare un account di archiviazione con lo strumento da riga di comando per Mac e Linux
 Dallo [strumento da riga di comando per Linux](../virtual-machines/command-line-tools/) creare un account di archiviazione come segue.
 
@@ -139,4 +138,4 @@ Con lo [strumento da riga di comando per Linux](../virtual-machines/command-line
 - [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

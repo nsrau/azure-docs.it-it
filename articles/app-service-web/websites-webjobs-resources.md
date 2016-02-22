@@ -34,7 +34,7 @@ Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di
 * [Post di blog sui vantaggi offerti da Processi Web di Azure](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (di Troy Hunt)
 * [Funzionalità di Processi Web di Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Informazioni su WebJobs SDK](websites-dotnet-webjobs-sdk.md)
-* [Indicazioni di processi di background Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Indicazioni di processi di background Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
 * [Annuncio della versione 1.1.0 RTM di Microsoft Azure WebJobs SDK](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introduzione a Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 * [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * [Twitter](http://twitter.com/). Usare l'hashtag #AzureWebJobs.
 * [Segnalare un bug o un problema di Processi Web](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

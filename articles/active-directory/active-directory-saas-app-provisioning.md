@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
@@ -106,6 +106,14 @@ Affinché un'applicazione supporti il provisioning utenti automatizzato, deve in
 
 Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articoli correlati
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
+- [Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
+- [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
+- [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

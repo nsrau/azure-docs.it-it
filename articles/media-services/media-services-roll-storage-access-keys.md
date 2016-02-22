@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
@@ -89,7 +89,7 @@ Attendere almeno 30 minuti dopo la sincronizzazione della nuova chiave di archiv
 
 Si noti che, quando si aggiorna (o si ricrea) un localizzatore SAS, l’URL cambierà sempre.
 
->[AZURE.NOTE]Per assicurarsi che si mantengano gli URL esistenti dei localizzatori su richiesta, è necessario eliminare l'indicatore di posizione esistente e crearne uno nuovo con lo stesso ID.
+>[AZURE.NOTE] Per assicurarsi che si mantengano gli URL esistenti dei localizzatori su richiesta, è necessario eliminare l'indicatore di posizione esistente e crearne uno nuovo con lo stesso ID.
  
 Nell'esempio di .NET riportato di seguito viene illustrato come ricreare un localizzatore con lo stesso ID.
 	
@@ -159,4 +159,4 @@ Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

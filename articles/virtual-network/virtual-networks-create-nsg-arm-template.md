@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Come creare NSG utilizzando un modello
@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È inoltre possibile [creare NSG nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile creare gruppi di sicurezza di rete con il [modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 ## Risorse NSG in un file di modello
 
-È possibile visualizzare e scaricare il [modello di esempio](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/).
+È possibile visualizzare e scaricare il [modello di esempio](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
 La sezione seguente illustra la definizione di NSG front-end in base allo scenario precedente.
 
@@ -100,7 +100,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroup**.
+3. Eseguire il cmdlet **`New-AzureRmResourceGroup`** per creare un gruppo di risorse usando il modello.
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
@@ -147,7 +147,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, seguire la procedura di seguito.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
-2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+2. Eseguire il comando **`azure config mode`** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
 
@@ -155,7 +155,7 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 		info:    New mode is arm
 
-4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il cmdlet **`azure group deployment create`** per distribuire la nuova rete virtuale usando il modello e i file dei parametri scaricati e modificati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -176,9 +176,9 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 		data:    
 		info:    group create command OK
 
-	- **-n (or --name)**. Nome del gruppo di risorse da creare.
-	- **-l (or --location)**. L'area di Azure in cui verrà creato il gruppo di risorse.
-	- **-f (or --template-file)**. Percorso del file di modello ARM.
-	- **-e (or --parameters-file)**. Percorso del file di parametri ARM.
+	- **-n (o --nome)**. Nome del gruppo di risorse da creare.
+	- **-l (o --location)**. L'area di Azure in cui verrà creato il gruppo di risorse.
+	- **-f (o --template-file)**. Percorso del file di modello ARM.
+	- **-e (o --parameters-file)**. Percorso del file di parametri ARM.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # Uso del bus di servizio da Python con AMQP 1.0
@@ -21,7 +21,7 @@
 
 Proton-Python è un binding di linguaggio Python per Proton-C. In altri termini, Proton-Python viene implementato come wrapper attorno a un motore implementato in C.
 
-## Download della libreria client basata su Proton
+## Scaricare la libreria client basata su Proton
 
 È possibile scaricare Proton-C e i rispettivi binding associati, incluso Python, da [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). Il download è in formato codice sorgente. Per compilare il codice, seguire le istruzioni contenute nel pacchetto scaricato.
 
@@ -31,7 +31,7 @@ Si noti che al momento della stesura di questo articolo, il supporto SSL in Prot
 
 Il codice seguente illustra come inviare e ricevere messaggi da un'entità di messaggistica del bus di servizio.
 
-### Invio di messaggi tramite Proton-Python
+### Inviare messaggi tramite Proton-Python
 
 Il codice seguente illustra come inviare un messaggio a un'entità di messaggistica del bus di servizio.
 
@@ -45,7 +45,7 @@ messenger.put(message)
 messenger.send()
 ```
 
-### Ricezione di messaggi tramite Proton-Python
+### Ricevere messaggi tramite Proton-Python
 
 Il codice seguente illustra come ricevere un messaggio da un'entità di messaggistica del bus di servizio.
 
@@ -173,4 +173,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

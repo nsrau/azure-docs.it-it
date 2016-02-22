@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
@@ -80,7 +80,7 @@ Single Sign-On basato su password si basa su un'estensione del browser per recup
 
 Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
 
-- Internet Explorer 8, 9 e 10 -- su Windows 7 o versione successiva (vedere anche [Guida alla distribuzione dell’estensione di Internet Explorer](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8, 9, 10 e 11 -- su Windows 7 o versione successiva (vedere anche [Guida alla distribuzione dell'estensione di Internet Explorer](active-directory-saas-ie-group-policy.md))
 - Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
@@ -210,7 +210,14 @@ Quando un utente autorizzato fa clic su uno di questi collegamenti specifici del
 
 Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso come il pannello di accesso e Office 365 e solo gli utenti o i gruppi che sono stati assegnati all'applicazione nel portale di gestione di Azure potranno eseguire l'autenticazione. Tuttavia, gli utenti non autorizzati vedranno un messaggio che indica che non sono autorizzati all’accesso e verrà fornito loro un collegamento per caricare il pannello di accesso per visualizzare le applicazioni disponibili per cui dispongono dell’accesso.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Ricerca di applicazioni cloud non autorizzate con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Introduzione alla gestione dell'accesso alle app](active-directory-managing-access-to-apps.md)
+- [Confronto tra le funzionalità per la gestione di identità esterne con Azure AD](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

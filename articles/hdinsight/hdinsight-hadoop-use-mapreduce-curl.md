@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di processi MapReduce con Hadoop in HDInsight mediante Curl
@@ -25,7 +25,7 @@ In questo documento si apprenderà come usare Curl per l'esecuzione di processi 
 
 Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="curl"></a>Eseguire processi MapReduce mediante Curl
 
-> [AZURE.NOTE]Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password da amministratore del cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI usato per inviare le richieste al server.
+> [AZURE.NOTE] Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password da amministratore del cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI usato per inviare le richieste al server.
 >
 > Per i comandi riportati in questa sezione, sostituire **USERNAME** con l'utente da autenticare nel cluster e **PASSWORD** con la password dell'account utente. Sostituire **CLUSTERNAME** con il nome del cluster.
 >
@@ -83,7 +83,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 	Se il processo è stato completato, lo stato sarà "SUCCEEDED".
 
-    > [AZURE.NOTE]Questa richiesta Curl restituisce un documento JSON con informazioni sul processo. jq viene usato per recuperare il valore di stato.
+    > [AZURE.NOTE] Questa richiesta Curl restituisce un documento JSON con informazioni sul processo. jq viene usato per recuperare il valore di stato.
 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso, ****wasb:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
@@ -95,7 +95,7 @@ Per scaricare un file, usare il comando seguente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Per altre informazioni, vedere [come caricare dati in HDInsight](hdinsight-upload-data.md).
+> [AZURE.NOTE] È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Per altre informazioni, vedere [come caricare dati in HDInsight](hdinsight-upload-data.md).
 
 ##<a id="summary"></a>Riepilogo
 
@@ -115,4 +115,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -29,7 +29,7 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 
 Per creare un'applicazione PHP che accede al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
-> [AZURE.NOTE]L'installazione di PHP deve avere anche l'[estensione OpenSSL](http://php.net/openssl) installata e abilitata.
+> [AZURE.NOTE] L'installazione di PHP deve avere anche l'[estensione OpenSSL](http://php.net/openssl) installata e abilitata.
 
 Questo articolo illustra come usare le funzionalità del servizio che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
@@ -46,7 +46,7 @@ Per usare le API del bus di servizio:
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServiceBusService**.
 
-> [AZURE.NOTE]Questo esempio (e in altri esempi in questo articolo) presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
+> [AZURE.NOTE] Questo esempio (e in altri esempi in questo articolo) presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, è necessario fare riferimento al file autoloader **WindowsAzure.php**.
 
 ```
 require_once 'vendor\autoload.php';
@@ -88,7 +88,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 È possibile eseguire operazioni di gestione per gli argomenti del bus di servizio usando la classe **ServiceBusRestProxy**. Un oggetto **ServiceBusRestProxy** viene costruito tramite il metodo factory **ServicesBuilder::createServiceBusService** con una stringa di connessione appropriata che incapsula le autorizzazioni di token per la relativa gestione.
 
-L'esempio seguente illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare **ServiceBusRestProxy->createTopic** per creare un argomento denominato `mytopic` all'interno di uno spazio dei nomi `MySBNamespace`:
+Il seguente esempio illustra come creare un'istanza di **ServiceBusRestProxy** e chiamare **ServiceBusRestProxy->createTopic** per creare un argomento denominato `mytopic` all'interno di uno spazio dei nomi `MySBNamespace`:
 
 ```
 require_once 'vendor\autoload.php';
@@ -115,7 +115,7 @@ catch(ServiceException $e){
 }
 ```
 
-> [AZURE.NOTE]È possibile usare il metodo `listTopics` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già un argomento con il nome specificato.
+> [AZURE.NOTE] È possibile usare il metodo `listTopics` negli oggetti `ServiceBusRestProxy` per verificare se in uno spazio dei nomi del servizio esiste già un argomento con il nome specificato.
 
 ## Creare una sottoscrizione
 
@@ -143,7 +143,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -154,7 +154,7 @@ catch(ServiceException $e){
 
 È inoltre possibile impostare i filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento. Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un sottoinsieme di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni su SqlFilters, vedere [SqlFilter.SqlExpression Property][sqlfilter].
 
-> [AZURE.NOTE]Ogni regola in una sottoscrizione elabora i messaggi in arrivo indipendentemente, aggiungendo i messaggi risultanti alla sottoscrizione stessa. Ogni nuova sottoscrizione presenta inoltre un oggetto **Rule** predefinito con un filtro che aggiunge tutti i messaggi dall'argomento alla sottoscrizione. Per ricevere solo messaggi corrispondenti al filtro in uso, è necessario rimuovere la regola predefinita. È possibile rimuovere la regola predefinita usando il metodo `ServiceBusRestProxy->deleteRule`.
+> [AZURE.NOTE] Ogni regola in una sottoscrizione elabora i messaggi in arrivo indipendentemente, aggiungendo i messaggi risultanti alla sottoscrizione stessa. Ogni nuova sottoscrizione presenta inoltre un oggetto **Rule** predefinito con un filtro che aggiunge tutti i messaggi dall'argomento alla sottoscrizione. Per ricevere solo messaggi corrispondenti al filtro in uso, è necessario rimuovere la regola predefinita. È possibile rimuovere la regola predefinita usando il metodo `ServiceBusRestProxy->deleteRule`.
 
 Nel seguente esempio viene creata una sottoscrizione denominata **HighMessages** con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **MessageNumber** è maggiore di 3. Per informazioni sull'aggiunta di proprietà personalizzate ai messaggi, vedere [Inviare messaggi a un argomento](#send-messages-to-a-topic).
 
@@ -211,7 +211,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	// http://msdn.microsoft.com/library/azure/hh780775
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -278,7 +278,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	// http://msdn.microsoft.com/library/azure/hh780735
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -316,7 +316,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -331,11 +331,11 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, per altre informazioni, vedere [Code, Argomenti e Sottoscrizioni][].
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni][] per altre informazioni.
 
-[Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
+[Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
 [Code di Azure e code del bus di servizio]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

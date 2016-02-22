@@ -22,7 +22,7 @@ Il runtime di Reliable Actors emette eventi [EventSource](https://msdn.microsoft
 ## Eventi EventSource
 Il nome provider di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
 
-Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Parole chiave
 Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. Sono definiti i bit delle parole chiave seguenti:
@@ -44,7 +44,7 @@ Il runtime di Reliable Actors definisce le categorie di contatori delle prestazi
 
 Ognuna di queste categorie include uno o più contatori.
 
-L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx), disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
+L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx), disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
 
 ### Nomi delle istanze dei contatori delle prestazioni
 Un cluster con un numero elevato di servizi attore o di partizioni di servizi attore disporrà di un numero considerevole di istanze di contatori delle prestazioni degli attori. I nomi delle istanze possono facilitare l'identificazione della [partizione](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) specifica e del metodo dell'attore (se applicabile) a cui l'istanza è associata.
@@ -153,4 +153,4 @@ Il runtime di Reliable Actors emette gli eventi seguenti relativi all'[attivazio
 |ActorActivated|5|Informazioni|0x1|Un attore è stato attivato.|
 |ActorDeactivated|6|Informazioni|0x1|Un attore è stato disattivato.|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

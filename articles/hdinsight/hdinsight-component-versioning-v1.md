@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -59,7 +59,7 @@ Se si usa l'opzione **Creazione rapida**, per impostazione predefinita si otterr
 ##Funzionalità in primo piano
 Alcune delle funzionalità principali della piattaforma HDInsight includono:
 
-- **Spark** - Apache Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning.
+- **Spark**: Apache Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning.
 
 	È possibile usare Spark anche per eseguire operazioni di elaborazione dati convenzionale basata su disco. Spark rappresenta un miglioramento rispetto al framework MapReduce tradizionale in quanto evita la scrittura su disco nelle fasi intermedie. Spark è anche compatibile con il file system distribuito Hadoop (HDFS) e l'archivio BLOB di Azure e quindi i dati esistenti possono essere elaborati facilmente tramite Spark.
 
@@ -120,7 +120,7 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 **Data in cui è deprecata** è la data dopo la quale non è possibile creare la versione del cluster su HDInsight.
 
-> [AZURE.NOTE]Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest Azure, [famiglia 4](../cloud-services-guestos-update-matrix.md), che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1.
+> [AZURE.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest Azure, [famiglia 4](../cloud-services-guestos-update-matrix.md), che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1.
 
 ## Note sulla versione di Hortonworks associate alle versioni di HDInsight##
 
@@ -160,4 +160,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

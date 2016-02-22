@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/09/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory (Azure AD) B2B Collaboration
@@ -71,5 +71,6 @@ Vedere gli altri articoli su Azure B2B Collaboration.
 - [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

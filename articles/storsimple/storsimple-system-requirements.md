@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -36,7 +36,7 @@ Di seguito sono indicati i requisiti software per i client di archiviazione che 
 | Sistemi operativi supportati | Versione richiesta | Requisiti aggiuntivi/note |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008 R2 SP1, 2012, 2012 R2 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Le funzionalità ODX e di thin provisioning di Windows Server 2012 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple può creare volumi con thin provisioning e con provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione, eseguire il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.5 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
+| VMWare ESX | 5\.1 e 5.5 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Supporto per client Linux iSCSI con iniziatore Open-iSCSI versioni 5 e 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX attualmente non è supportato con StorSimple.
@@ -67,7 +67,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
-<sup>2</sup> Se per più porte è disponibile una configurazione del gateway, l'ordine del traffico instradato in uscita sarà determinato in base all'ordine di routing delle porte descritto in [Routing delle porte](#port-routing) di seguito.
+<sup>2</sup> Se per più porte è disponibile una configurazione del gateway, l'ordine del traffico instradato in uscita sarà determinato in base all'ordine di routing delle porte descritto in [Routing delle porte](#routing-metric) di seguito.
 
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet. Gli indirizzi IP fissi vengono usati per l'installazione degli aggiornamenti nel dispositivo. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple.
 
@@ -77,7 +77,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 Una metrica di routing è associata alle interfacce e al gateway che instrada i dati alle reti specificate. La metrica di routing è usata dal protocollo di routing per calcolare il percorso migliore per una determinata destinazione, se apprende dell'esistenza di più percorsi per la stessa destinazione. Minore è la metrica di routing, maggiore è la preferenza.
 
-Nel contesto di StorSimple, se sono configurate più interfacce di rete e gateway per il traffico del canale, le metriche di routing entreranno in gioco per determinare l'ordine relativo in cui le interfacce verranno usate. Le metriche di routing non possono essere modificate dall'utente. È tuttavia possibile usare il cmdlet `Get-HcsRoutingTable` per stampare la tabella di routing (e le metriche) sul dispositivo StorSimple. Altre informazioni sul [cmdlet Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
+Nel contesto di StorSimple, se sono configurate più interfacce di rete e gateway per il traffico del canale, le metriche di routing entreranno in gioco per determinare l'ordine relativo in cui le interfacce verranno usate. Le metriche di routing non possono essere modificate dall'utente. È tuttavia possibile usare il cmdlet `Get-HcsRoutingTable` per stampare la tabella di routing (e le metriche) sul dispositivo StorSimple. Altre informazioni sul cmdlet Get-HcsRoutingTable sono disponibili nell'articolo relativo alla [risoluzione dei problemi di distribuzione di StorSimple](storsimple-troubleshoot-deployment.md).
 
 Gli algoritmi delle metriche di routing sono diversi a seconda della versione del software in esecuzione sul dispositivo StorSimple.
 
@@ -108,12 +108,7 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 		
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - L'ordine in cui il traffico cloud verrà instradato tramite le interfacce di rete è:
@@ -215,7 +210,7 @@ Per altre informazioni sulle funzionalità di rete del dispositivo per disponibi
 
 #### SSD e HDD
 
-I dispositivi StorSimple includono unità SSD (Solid State Drive, unità a stato solido) e HDD (Hard Disk Drive, unità disco rigido) che sono protette mediante spazi con mirroring. Inoltre, per le unità HDD viene fornito un disco di riserva a caldo. Mediante gli spazi con mirroring è possibile assicurarsi che il dispositivo sia in grado di tollerare l'errore di una o più unità SSD o HDD.
+I dispositivi StorSimple includono unità SSD (Solid State Drive) e unità disco rigido protette mediante spazi con mirroring. Mediante gli spazi con mirroring è possibile assicurarsi che il dispositivo sia in grado di tollerare l'errore di una o più unità SSD o HDD.
 
 - Accertarsi che tutti i moduli SSD e HDD siano installati.
 
@@ -256,9 +251,9 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 ## Passaggi successivi
 
 - [Ulteriori informazioni sui Limiti di StorSimple](storsimple-limits.md).
-- [Informazioni su come distribuire la soluzione StorSimple](storsimple-deployment-walkthrough.md).
+- [Informazioni su come distribuire la soluzione StorSimple](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory
@@ -25,7 +25,13 @@ La risposta da Azure AD che contiene il token SAML è in genere quella che si ve
  
 **Nota**: per visualizzare il contenuto di questa richiesta HTTP, Fiddler potrebbe richiedere di configurare la decrittografia del traffico HTTPS; è necessario eseguire questa operazione.
 
+## Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)
+- [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

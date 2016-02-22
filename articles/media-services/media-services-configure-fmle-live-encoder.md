@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #Usare il codificatore FMLE per inviare un flusso live a velocità in bit singola.
@@ -49,19 +49,19 @@ Si noti che questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impos
 
 ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Channel Settings, selezionare **Standard** per l'opzione di codifica live con Input Protocol impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
+2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Channel Settings, selezionare **Standard** per l'opzione Live Encoding con Input Protocol impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
 
 
-Assicurarsi che l'opzione **Start the new channel now** sia selezionata.
+Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
 
 3. Fare clic su **Create Channel**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]Per l'avvio del canale possono essere richiesti fino a 20 minuti.
+>[AZURE.NOTE] Per l'avvio del canale possono essere richiesti fino a 20 minuti.
 
 
 Durante l'avvio di canale è possibile [configurare il codificatore](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT]Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configurare il codificatore FMLE
 
@@ -127,7 +127,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 	Per garantire la ridondanza aggiuntiva, ripetere questi passaggi con l'URL di Input secondari.
 8. Selezionare **Connessione**.
 
->[AZURE.IMPORTANT]Prima di fare clic su **Connessione**, ci si **deve** assicurare che il Canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un feed per l’input/contributo per più di 15 minuti.
+>[AZURE.IMPORTANT] Prima di fare clic su **Connessione**, ci si **deve** assicurare che il Canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un feed per l’input/contributo per più di 15 minuti.
 
 ##Testare la riproduzione
   
@@ -170,4 +170,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

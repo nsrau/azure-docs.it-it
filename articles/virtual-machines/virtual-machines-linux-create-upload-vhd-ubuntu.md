@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Immagini di Ubuntu Cloud ufficiale
+## Immagini di Ubuntu Cloud ufficiali
 Attualmente, Ubuntu pubblica VHD di Azure ufficiali per il download all'indirizzo [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Se si deve creare un'immagine Ubuntu specializzata per Azure, piuttosto che seguire la procedura manuale riportata sotto si consiglia di iniziare con questi noti VHD funzionanti e personalizzarli in base alle esigenze.
 
 
@@ -63,7 +63,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Le immagini di Ubuntu Azure ora seguono il kernel *Attivazione di HardWare* (HWE). Aggiornare il sistema operativo al kernel più recente eseguendo i comandi seguenti:
+4. Le immagini di Ubuntu Azure ora seguono il kernel *HWE* (Hardware Enablement). Aggiornare il sistema operativo al kernel più recente eseguendo i comandi seguenti:
 
 	Ubuntu 12.04:
 
@@ -117,13 +117,13 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 11. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## Passaggi successivi
-È ora possibile usare il file .vhd Ubuntu Linux per creare nuove macchine virtuali Azure in Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+È ora possibile usare il disco rigido virtuale Ubuntu Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file con estensione vhd in Azure, vedere i passaggi 2 e 3 in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ## Riferimenti ##
 
-Kernel di attivazione (HWE) HardWare Ubuntu
+Kernel HWE di Ubuntu
 
 - [http://blog.utlemming.org/2015/01/Ubuntu-1404-Azure-Images-Now-Tracking.HTML](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-Azure-cloud-Images-Now-using-Hwe.HTML](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

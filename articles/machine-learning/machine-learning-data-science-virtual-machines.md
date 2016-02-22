@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Macchine virtuali per l'analisi scientifica dei dati in Azure
+
+Vengono fornite istruzioni che descrivono come configurare una VM di Azure e una VM di Azure con il servizio SQL come server di IPython Notebook. La macchina virtuale di Windows è configurata con strumenti di supporto quali IPython Notebook, Esplora archivi Azure e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nella memoria di Azure dal computer locale o per scaricarli dalla memoria nel computer locale.
 
 Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati utilizzati da Cortana Analytics Process (CAP).
 
@@ -24,11 +26,10 @@ Questo menu si collega ad argomenti che descrivono come configurare i diversi am
 
 È possibile eseguire il provisioning di diversi tipi di macchine virtuali di Azure e configurarle per usarle come parte di un ambiente di analisi scientifica dei dati basato su cloud. La scelta della versione di macchina virtuale da usare dipende dal tipo e dalla quantità di dati da modellare con l'apprendimento automatico e dalla destinazione di quei dati nel cloud.
 
-
 * Per informazioni aggiuntive sulle questioni da prendere in considerazione per prendere questa decisione, vedere [Pianificazione dell'ambiente di analisi scientifica dei dati di Azure Machine Learning](machine-learning-data-science-plan-your-environment.md). 
 * Per un catalogo di alcuni degli scenari che potrebbero verificarsi quando si esegue l'analisi avanzata, vedere l'argomento relativo agli [scenari di Advanced Analytics Process and Technology in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md)
 
-Vengono fornite istruzioni che descrivono come configurare una macchina virtuale di Azure e una macchina virtuale di Azure con il servizio SQL come server di IPython Notebook. La macchina virtuale di Windows è configurata con strumenti di supporto quali IPython Notebook, Esplora archivi Azure e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nella memoria di Azure dal computer locale o per scaricarli dalla memoria nel computer locale. Sono disponibili due set di istruzioni:
+Sono disponibili due set di istruzioni:
 
 * In [Configurazione di una macchina virtuale di Azure per l'analisi scientifica dei dati](machine-learning-data-science-setup-virtual-machine.md) viene illustrato come eseguire il provisioning di una macchina virtuale di Azure con IPython Notebook e altri strumenti usati per l'analisi scientifica dei dati nei casi in cui è possibile usare una forma di risorsa di archiviazione di Azure diversa da SQL per archiviare i dati.
 
@@ -37,7 +38,7 @@ Vengono fornite istruzioni che descrivono come configurare una macchina virtuale
 In seguito al provisioning e alla configurazione delle macchine virtuali, è possibile usarle come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e al Cortana Analytics Process (CAP). I passaggi successivi del processo di analisi scientifica dei dati sono illustrati in [Percorso di apprendimento CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento dei dati in SQL Server o HDInsight, l’elaborazione e il campionamento in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 
-> [AZURE.NOTE]Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
+> [AZURE.NOTE] Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

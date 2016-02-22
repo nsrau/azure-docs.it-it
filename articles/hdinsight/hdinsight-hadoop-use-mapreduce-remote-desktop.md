@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Uso di MapReduce con Hadoop in HDInsight con Desktop remoto
@@ -41,7 +41,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
 1. Dal desktop di HDInsight avviare la **riga di comando di Hadoop**. Viene aperta una finestra del prompt dei comandi nella directory **c:\\apps\\dist\\hadoop-&lt;numero versione>**.
 
-	> [AZURE.NOTE]Quando Hadoop viene aggiornato, il numero di versione viene modificato. La variabile di ambiente **HADOOP\_HOME** può essere usata per trovare il percorso. Ad esempio, `cd %HADOOP_HOME%` modifica le directory nella directory di Hadoop, senza richiedere il nome della versione.
+	> [AZURE.NOTE] Quando Hadoop viene aggiornato, il numero di versione viene modificato. La variabile di ambiente **HADOOP\_HOME** può essere usata per trovare il percorso. Ad esempio, `cd %HADOOP_HOME%` modifica le directory nella directory di Hadoop, senza richiedere il nome della versione.
 
 2. Per usare il comando **Hadoop** per l'esecuzione di un processo MapReduce di esempio, usare il comando seguente:
 
@@ -49,7 +49,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
 	Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar** nella directory corrente. Come input, usa il documento ****wasb://example/data/gutenberg/davinci.txt** e l'output viene archiviato in ****wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere <a href="hdinsight-use-mapreduce.md">Usare MapReduce in Hadoop in HDInsight</a>.
+	> [AZURE.NOTE] Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere <a href="hdinsight-use-mapreduce.md">Usare MapReduce in Hadoop in HDInsight</a>.
 
 2. Il processo genera dettagli durante l'elaborazione e al completamento restituisce informazioni simili alle seguenti:
 
@@ -64,7 +64,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
 	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
-	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
+	> [AZURE.NOTE] Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
@@ -96,4 +96,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

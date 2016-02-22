@@ -3,7 +3,7 @@
 	description="Riferimento concettuale e panoramica della funzionalità di autenticazione / autorizzazione nelle app per dispositivi mobili di Azure"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Autenticazione e autorizzazione in App per dispositivi mobili di Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Informazioni sull’autenticazione / autorizzazione di servizio app
 
@@ -52,7 +50,7 @@ Dopo che sono state effettuate tutte le configurazioni nel back-end, è possibil
 - Utilizzo di una singola riga di codice che consentire all’SDK del client di App per dispositivi mobili di fare accedere gli utenti.
 - Utilizzo di un SDK pubblicato da un provider di identità specificata per stabilire l'identità e quindi accedere al servizio App.
 
->[AZURE.TIP]La maggior parte delle applicazioni devono utilizzare un provider SDK per ottenere un'esperienza di accesso più nativa e sfruttare il supporto dell’aggiornamento e altri vantaggi specifici del provider.
+>[AZURE.TIP] La maggior parte delle applicazioni devono utilizzare un provider SDK per ottenere un'esperienza di accesso più nativa e sfruttare il supporto dell’aggiornamento e altri vantaggi specifici del provider.
 
 ### Funzionamento dell'autenticazione senza un SDK del provider
 
@@ -106,4 +104,4 @@ Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti,
 [Come configurare un'applicazione per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

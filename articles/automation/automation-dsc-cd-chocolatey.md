@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="02/04/2016"
    ms.author="golive"/>
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
@@ -78,7 +78,7 @@ PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'a
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Installare il modulo necessario nella workstation, come indicato di seguito:
-    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest). 
+    -   Installare [Windows Management Framework versione 5](http://www.microsoft.com/download/details.aspx?id=48729) (non necessario per Windows 10).
     -   `Install-Module  –ModuleName MODULENAME` <—estrae il modulo da PowerShell Gallery. 
 -   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
 -   Eliminare esempi e documentazione dalla cartella principale. 
@@ -88,7 +88,7 @@ In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di 
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 L'esempio incluso esegue questi passaggi per cChoco e xNetworking. Per informazioni sulla gestione specifica di cChoco, vedere le [note](#notes).
@@ -177,8 +177,6 @@ Non è necessario usare un modello ARM e l'estensione VM per usare questa tecnic
 
 Naturalmente, quando si aggiorna un pacchetto in una VM in produzione, è necessario escluderla dalla rotazione mentre viene installato l'aggiornamento. La procedura per eseguire questa operazione varia ampiamente. Ad esempio, per una VM con bilanciamento del carico di Azure è possibile aggiungere un probe personalizzato. Durante l'aggiornamento della VM, l'endpoint del probe dovrà restituire un messaggio 400. La modifica necessaria per ottenere questo cambiamento può essere eseguita nella configurazione, così come può esserlo la modifica per ripristinare la restituzione di un messaggio 200 una volta completato l'aggiornamento.
 
-La versione della risorsa cChoco DSC in PowerShell Gallery non è abbastanza aggiornata con la relativa origine. cChoco.zip nel progetto di origine GitHub è aggiornato. Per l'installazione, usare la tecnica manuale descritta nel passaggio 3.
-
 Il codice sorgente completo per questo esempio di utilizzo si trova in [questo progetto di Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) su GitHub.
 
 ##Articoli correlati##
@@ -187,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

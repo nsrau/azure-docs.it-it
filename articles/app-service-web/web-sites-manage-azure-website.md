@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 # Scalare un'app Web in Servizio app di Azure
 
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

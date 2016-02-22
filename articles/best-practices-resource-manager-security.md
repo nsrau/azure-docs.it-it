@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+	ms.date="02/09/2016"
+	ms.author="georgem;tomfitz"/>
 
 
 # Considerazioni sulla sicurezza per Gestione risorse di Azure
@@ -147,6 +147,8 @@ Il seguente frammento di modello viene composto in costrutti di distribuzione or
         }
     }
 
+Per passare un valore da un insieme di credenziali delle chiavi come parametro durante la distribuzione di un modello, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+
 ## Entità servizio per le interazioni tra sottoscrizioni
 
 Le identità di servizio sono rappresentate dalle entità di servizio di Active Directory. Le entità servizio costituiscono l'aspetto centrale dell'abilitazione degli scenari principali per organizzazioni IT di classe enterprise, integratori di sistemi e fornitori di servizi cloud. In particolare, ci sono casi di utilizzo in cui una di queste organizzazioni deve interagire con la sottoscrizione di uno dei clienti.
@@ -174,7 +176,7 @@ Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla sot
 
 È possibile associare un gruppo di sicurezza di rete a una macchina virtuale o a una subnet all'interno di una rete virtuale. Se è associato a una macchina virtuale, il gruppo di sicurezza di rete si applica a tutto il traffico inviato e ricevuto dall'istanza della macchina virtuale. Se è associato a una subnet della rete virtuale, si applica a tutto il traffico inviato e ricevuto da tutte le istanze di macchina virtuale della subnet. Una macchina virtuale o una subnet può essere associata a un solo gruppo di sicurezza di rete, ognuno dei quali può contenere un massimo di 200 regole. È possibile disporre di 100 gruppi di sicurezza di rete per sottoscrizione.
 
->[AZURE.NOTE]Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### Come funzionano i gruppi di sicurezza di rete
 
@@ -306,7 +308,7 @@ Ogni subnet creata in una rete virtuale viene associata automaticamente a una ta
 
 Al momento della redazione di questo articolo, [ExpressRoute](expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
+>[AZURE.NOTE] Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
 ### Route definite dall'utente
 
@@ -323,7 +325,7 @@ Subnet si basano su route predefinite fino a quando non è associata alla subnet
 2.	Route BGP (quando viene utilizzato ExpressRoute)
 3.	Route predefinita
 
->[AZURE.NOTE]Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale flusso attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
+>[AZURE.NOTE] Route definite dall'utente vengono applicate solo a servizi cloud e macchine virtuali di Azure. Ad esempio, se si vuole aggiungere un dispositivo virtuale firewall tra la rete locale e Azure, è necessario creare una route definita dall'utente per le tabelle di route di Azure per inoltrare tutto il traffico indirizzato allo spazio degli indirizzi locale al dispositivo virtuale. Tuttavia, il traffico in ingresso dallo spazio degli indirizzi locale flusso attraverso il gateway VPN o il circuito ExpressRoute direttamente all'ambiente di Azure, ignorando il dispositivo virtuale.
 
 ### Inoltro IP
 
@@ -335,6 +337,6 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Per informazioni su come impostare le entità di sicurezza principali con l'accesso corretto per lavorare con le risorse nell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
 - Se è necessario bloccare l'accesso a una risorsa, è possibile utilizzare i blocchi di gestione. Vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md)
 - Per configurare routing e inoltro IP, vedere [Come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo di accesso in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
+- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

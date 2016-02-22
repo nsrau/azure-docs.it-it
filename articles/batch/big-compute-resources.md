@@ -66,11 +66,13 @@ HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie di Mi
 
 ### Soluzioni cluster Linux e OSS
 
-Usare questi modelli di Guida introduttiva di Azure per distribuire cluster HPC Linux con strumenti open source.
+Usare questi modelli di Azure per distribuire cluster HPC Linux.
 
 * [Avviare un cluster SLURM](https://azure.microsoft.com/documentation/templates/slurm/) e [post di blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [Avviare un cluster Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Intel Cloud Edition per software Lustre - Valutazione](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -81,7 +83,7 @@ Usare questi modelli di Guida introduttiva di Azure per distribuire cluster HPC 
 
 * [Informazioni di riferimento su MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Forum di MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Forum di MPI](https://social.microsoft.com/Forums/it-IT/home?forum=windowshpcmpi)
 
 
 ## Istanze con utilizzo intensivo di calcolo
@@ -114,11 +116,25 @@ Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-
 
 * [Servizi multimediali](https://azure.microsoft.com/documentation/services/media-services/)
 
+## Casi di successo dei clienti
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## Passaggi successivi
 
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](https://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

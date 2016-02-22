@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
 # Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con Spark in HDInsight (Linux)
 
-> [AZURE.TIP]Questa esercitazione è disponibile anche come notebook Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
+> [AZURE.TIP] Questa esercitazione è disponibile anche come notebook Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
 
 
 Questo articolo illustra come usare **MLLib**, le librerie di apprendimento automatico predefinite di Spark, per eseguire una semplice analisi predittiva su un set di dati aperto. MLLib è una libreria Spark di base che fornisce alcune utilità che agevolano le attività di apprendimento automatico, incluse utilità adatte a:
@@ -59,7 +59,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
-	> [AZURE.NOTE]È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
+	> [AZURE.NOTE] È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire __CLUSTERNAME__ con il nome del cluster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -97,7 +97,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 È già disponibile un elemento SQLContext che è possibile usare per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food\_Inspections1.csv**) in un *frame di dati* Spark SQL. I frammenti di codice seguenti presumono che i dati siano già stati caricati nel contenitore di archiviazione predefinito associato al cluster Spark.
 
-1. Poiché i dati non elaborati sono in formato CSV, è necessario usare il contesto Spark per effettuare il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga. 
+1. Poiché i dati non elaborati sono in formato con estensione csv, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga. 
 
 
 		def csvParse(s):
@@ -112,7 +112,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 		                .map(csvParse)
 
 
-2. Il file CSV ora è disponibile come RDD. Recuperare ora una riga dal file RDD per conoscere lo schema dei dati.
+2. Il file con estensione csv ora è disponibile come RDD. Recuperare ora una riga dal file RDD per conoscere lo schema dei dati.
 
 
 		inspections.take(1)
@@ -375,7 +375,9 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Estensioni
+### Strumenti ed estensioni
+
+* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -385,4 +387,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

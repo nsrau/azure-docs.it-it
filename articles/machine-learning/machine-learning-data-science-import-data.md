@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="02/08/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -25,14 +25,14 @@
 Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile:
 
 - caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.  
-- accedere ai dati da una delle diverse **origini dati online** mentre l'esperimento viene eseguito tramite il modulo [Reader][reader]. 
+- Accedere ai dati da una delle diverse **origini dati online** mentre l'esperimento viene eseguito tramite il modulo [Reader][reader]. 
 - usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Ciascuna di queste opzioni viene descritta in uno degli argomenti del precedente menu. Questi argomenti illustrano come importare dati da diverse origini dati per l'uso in Machine Learning Studio.
 
-> [AZURE.NOTE]In Machine Learning Studio sono disponibili numerosi esempi che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> [AZURE.NOTE] In Machine Learning Studio sono disponibili numerosi esempi che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
 
 Questo argomento introduttivo illustra anche come ottenere dati pronti per l'uso in Machine Learning Studio e descrive i tipi e i formati di dati supportati.
 
@@ -91,4 +91,4 @@ Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Aggiungere notifiche push all'app Xamarin.iAndroid tramite il servizio app di Azure"
 	description="Informazioni su come usare Servizio app di Azure e Hub di notifica di Azure per inviare notifiche push all'app per Xamarin Android."
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -31,7 +29,7 @@ In questa esercitazione si aggiungeranno notifiche push al progetto della [guida
 Per completare questa esercitazione, è necessario disporre di:
 
 + Account Google attivo È possibile iscriversi a un account di Google in [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
-   
+
 + [Componente client di Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/) Questo componente verrà aggiunto durante l'esercitazione.
 
 + Esercitazione sulla [guida introduttiva per Xamarin.Android] completata
@@ -65,7 +63,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 È possibile testare l'app mediante un dispositivo virtuale nell'emulatore. Ci sono altri passaggi di configurazione richiesti durante l'esecuzione in un emulatore.
 
-1. Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google API impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android (AVD). 
+1. Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google API impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android (AVD).
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
@@ -85,4 +83,4 @@ Per completare questa esercitazione, è necessario disporre di:
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

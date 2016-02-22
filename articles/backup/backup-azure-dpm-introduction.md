@@ -70,7 +70,7 @@ Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuz
 - DPM può eseguire il backup della maggior parte dei carichi di lavoro nel servizio Backup di Azure. Per visualizzare un elenco completo degli elementi supportati, consultare gli elementi supportati di Backup di Azure riportati di seguito.
 - Usando l'opzione "Copia su nastro", non è possibile ripristinare i dati memorizzati in Backup di Azure.
 - È necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
-- Per usare Backup di Azure è necessario che Azure Backup Agent sia installato sui server da sottoporre a backup. Ogni server deve disporre di almeno 2,5 GB di spazio di archiviazione locale dedicato al percorso della cache. Tuttavia, per il percorso della cache si consiglia di disporre di almeno 15 GB di spazio di archiviazione locale.
+- Per usare Backup di Azure è necessario che Azure Backup Agent sia installato sui server da sottoporre a backup. Le dimensioni di ogni server devono essere almeno il 10% di quelle dei dati sottoposti a backup. Spazio disponibile come archiviazione locale. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 10 GB di spazio disponibile nello spazio di lavoro. Anche se la dimensione minima è 10%, è consigliabile usare uno spazio di archiviazione locale del 15% per il percorso della cache.
 - I dati verranno memorizzati nell'archiviazione relativa all'insieme di credenziali di Azure. Non esistono limiti relativi alla quantità di dati che è possibile sottoporre a backup in un insieme di credenziali di Backup di Azure, tuttavia la dimensione dell'origine dati (ad esempio, un database o una macchina virtuale) non deve superare i 54400 GB.
 
 Il backup in Azure è supportato per i tipi di file seguenti:
@@ -92,4 +92,4 @@ Questi tipi di file non sono supportati:
 
 >[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

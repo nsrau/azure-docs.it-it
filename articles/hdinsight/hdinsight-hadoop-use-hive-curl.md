@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di query Hive con Hadoop in HDInsight mediante Curl
@@ -25,7 +25,7 @@ In questo documento si apprenderà come usare Curl per l'esecuzione di query Hiv
 
 Curl viene usato per illustrare come sia possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di query Hive. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="curl"></a>Eseguire query Hive usando Curl
 
-> [AZURE.NOTE]Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password dell'amministratore cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI (Uniform Resource Identifier) usato per inviare le richieste al server.
+> [AZURE.NOTE] Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password dell'amministratore cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI (Uniform Resource Identifier) usato per inviare le richieste al server.
 >
 > Per i comandi riportati in questa sezione, sostituire **USERNAME** con l'utente da autenticare nel cluster e **PASSWORD** con la password dell'account utente. Sostituire **CLUSTERNAME** con il nome del cluster.
 >
@@ -86,7 +86,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.
 
-		> [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+		> [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
 		>
 		> L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -96,11 +96,11 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
-    > [AZURE.NOTE]Si noti che gli spazi tra le istruzioni HiveQL vengono sostituiti dal carattere `+` se è in uso Curl. I valori tra virgolette che contengono uno spazio, ad esempio il delimitatore, non devono essere sostituiti da `+`.
+    > [AZURE.NOTE] Si noti che gli spazi tra le istruzioni HiveQL vengono sostituiti dal carattere `+` se è in uso Curl. I valori tra virgolette che contengono uno spazio, ad esempio il delimitatore, non devono essere sostituiti da `+`.
 
     * **INPUT\_\_FILE\_\_NAME come '% 25.log'** - Questo limita solo ai file che terminano con. log. Se non è presente, Hive tenterà di cercare tutti i file in questa directory e nelle relative sottodirectory, inclusi i file che non corrispondono allo schema di colonna definito per questa tabella.
 
-    > [AZURE.NOTE]Si noti che 25% è l'URL con codifica %, pertanto la condizione effettiva è `like '%.log'`. % deve essere l'URL codificato, poiché viene considerato come un carattere speciale negli URL.
+    > [AZURE.NOTE] Si noti che 25% è l'URL con codifica %, pertanto la condizione effettiva è `like '%.log'`. % deve essere l'URL codificato, poiché viene considerato come un carattere speciale negli URL.
 
     Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo.
 
@@ -112,7 +112,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 	Se il processo è stato completato, lo stato sarà **SUCCEEDED**.
 
-    > [AZURE.NOTE]Questa richiesta curl restituisce un documento JSON (JavaScript Object Notation) con informazioni sul processo. jq viene usato per recuperare il valore di stato.
+    > [AZURE.NOTE] Questa richiesta curl restituisce un documento JSON (JavaScript Object Notation) con informazioni sul processo. jq viene usato per recuperare il valore di stato.
 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso ****wasb:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
@@ -124,7 +124,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Vedere <a href="hdinsight-upload-data.md" target="\_blank" per altre informazioni.
+	> [AZURE.NOTE] È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**. Vedere <a href="hdinsight-upload-data.md" target="\_blank" per altre informazioni.
 
 6. Usare le seguenti istruzioni per creare una nuova tabella "internal" denominata **errorLogs**:
 
@@ -134,13 +134,13 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
-		> [AZURE.NOTE]A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
+		> [AZURE.NOTE] A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
 
     * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
     * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
     * **SELECT**: seleziona tutte le righe della nuova tabella **errorLogs**.
 
-7. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **[ERROR]**.
+7. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **ERROR**.
 
 
 ##<a id="summary"></a>Riepilogo
@@ -187,4 +187,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

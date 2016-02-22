@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di Azure Active Directory per la gestione self-service dell'accesso alle applicazioni | Microsoft Azure"
-	description="panoramica della gestione self-service dei gruppi che consente agli utenti di creare e gestire i gruppi di sicurezza in Azure Active Directory, nonché di richiedere l'appartenenza a tali gruppi"
+	description="Panoramica della gestione self-service dei gruppi che consente agli utenti di creare e gestire i gruppi di sicurezza o gruppi di Office in Azure Active Directory, nonché di richiedere l'appartenenza a tali gruppi."
 	services="active-directory"
 	documentationCenter=""
   authors="curtand"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
-# Configurazione di Azure Active Directory per la gestione self-service dell'accesso alle applicazioni
+# Configurazione di Azure Active Directory per la gestione self-service dei gruppi
 
-La funzionalità di gestione self-service dei gruppi consente agli utenti di creare e gestire i gruppi di sicurezza in Azure Active Directory (Azure AD), nonché di richiedere l'appartenenza a tali gruppi. La richiesta può successivamente essere approvata o rifiutata dal proprietario del gruppo. Grazie alle funzionalità di gestione self-service dei gruppi, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale. Si noti che le funzionalità di gestione di gruppo self-service sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, non per i gruppi di sicurezza abilitato alla posta o alle liste di distribuzione.
+La funzionalità di gestione self-service dei gruppi consente agli utenti di creare e gestire i gruppi di sicurezza o i gruppi di Office in Azure Active Directory (Azure AD), nonché di richiedere l'appartenenza a tali gruppi. La richiesta può successivamente essere approvata o rifiutata dal proprietario del gruppo. Grazie alle funzionalità di gestione self-service dei gruppi, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale. Si noti che le funzionalità di gestione di gruppo self-service sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, non per i gruppi di sicurezza abilitato alla posta o alle liste di distribuzione.
 
 La gestione self-service dei gruppi è attualmente costituita da due scenari principali, ovvero gestione delegata e gestione self-service.
 
@@ -31,7 +31,7 @@ La gestione self-service dei gruppi è attualmente costituita da due scenari pri
 
 ## Rendere un gruppo disponibile per la modalità self-service per gli utenti finali
 
-Nella scheda **Configura** del portale di Azure impostare l'opzione **Gestione gruppi delegata** su Abilitata e quindi impostare l'opzione **Gli utenti possono creare i gruppi** su Abilitato.
+Nella scheda **Configura** del portale di Azure impostare l'opzione **Gestione gruppi delegata** su Abilitata e quindi impostare l'opzione **Gli utenti possono creare i gruppi** o **Gli utenti possono creare gruppi di Office** su Abilitato.
 
 Quando l'opzione **Gli utenti possono creare i gruppi** è impostata su **Abilitato**, tutti gli utenti nella directory possono creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi. Questi nuovi gruppi sono visibili anche nel pannello di accesso per tutti gli altri utenti e che gli altri utenti possono creare richieste di iscrizione a questi gruppi se ciò è consentito dall'impostazione dei criteri del gruppo. Se questa opzione è impostata su Disabilitato, gli utenti non possono creare gruppi né modificare i gruppi esistenti di cui sono proprietari, ma possono comunque gestire le appartenenze a tali gruppi e approvare le richieste di iscrizione ricevute da altri utenti.
 
@@ -45,8 +45,10 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

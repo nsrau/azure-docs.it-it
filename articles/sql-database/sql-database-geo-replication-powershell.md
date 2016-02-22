@@ -38,7 +38,7 @@ Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
-- Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -84,8 +84,8 @@ Se il database partner esiste già, ad esempio come risultato della terminazione
 
 Il comando seguente crea un database secondario non accessibile in lettura del database "mydb" nel server "srv2" nel gruppo di risorse "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
@@ -93,7 +93,7 @@ Il comando seguente crea un database secondario non accessibile in lettura del d
 
 Il comando seguente crea un database secondario accessibile in lettura del database "mydb" nel server "srv2" nel gruppo di risorse "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 
 
@@ -103,15 +103,15 @@ Il comando seguente crea un database secondario accessibile in lettura del datab
 
 Il comando seguente crea un database secondario non accessibile in lettura del database "mydb" nel pool di database elastici denominato "ElasticPool1" del server "srv2" nel gruppo di risorse "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
 ### Aggiungere un database secondario accessibile in lettura (database elastico)
 
 Il comando seguente crea un database secondario accessibile in lettura del database "mydb" nel pool di database elastici denominato "ElasticPool1" del server "srv2" nel gruppo di risorse "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
@@ -131,7 +131,7 @@ Per rimuovere il database secondario gli utenti devono aver accesso in scrittura
 
 Il codice seguente rimuove il collegamento di replica del database denominato "mydb" nel server "srv2" del gruppo di risorse "rg2".
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
@@ -159,7 +159,7 @@ Il risultato di questo cmdlet verrà restituito quando il processo di scambio da
 
 Il comando seguente cambia in primario i ruoli del database denominato "mydb” nel server "srv2” del gruppo di risorse "rg2”. Il database primario originale a cui è stato connesso "db2” diventerà secondario dopo la sincronizzazione completa dei due database.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -181,7 +181,7 @@ Se il database primario ha più database secondari, il comando riuscirà in part
 
 Il comando seguente cambia i ruoli del database denominato "mydb” in primario quando il database primario non è disponibile. Il database primario originale a cui è stato connesso "mydb” diventerà secondario dopo essere ritornato online. A questo punto la sincronizzazione potrebbe causare una perdita di dati.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
 
 
@@ -194,7 +194,7 @@ Le attività di monitoraggio includono il controllo della configurazione della r
 
 Il comando seguente recupera lo stato del collegamento di replica tra il database primario "mydb” e il database secondario nel server "srv2” del gruppo di risorse "rg2”.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
@@ -215,4 +215,4 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

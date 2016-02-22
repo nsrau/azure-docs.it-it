@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure
@@ -34,10 +34,10 @@ Poiché in questo momento non è possibile disporre di macchine virtuali con una
 Prima di distribuire i server back-end, è necessario distribuire il gruppo di risorse principale con tutte le risorse necessarie per questo scenario. Per distribuire tali risorse, seguire questa procedura.
 
 1. Passare alla [pagina del modello](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Nella pagina del modello, a destra del **gruppo di risorse padre**, fare clic su **Distribuisci in Azure**.
+2. Nella pagina del modello, a destra del **gruppo di risorse padre**, fare clic su **Deploy to Azure**.
 3. Se necessario, modificare i valori dei parametri, quindi seguire i passaggi nel portale di anteprima di Azure per distribuire il gruppo di risorse.
 
-> [AZURE.IMPORTANT]Assicurarsi che i nomi degli account di archiviazione siano univoci. In Azure non sono infatti ammessi nomi di account di archiviazione duplicati.
+> [AZURE.IMPORTANT] Assicurarsi che i nomi degli account di archiviazione siano univoci. In Azure non sono infatti ammessi nomi di account di archiviazione duplicati.
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -45,13 +45,13 @@ Prima di distribuire i server back-end, è necessario distribuire il gruppo di r
 
 Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate di seguito.
 
-- **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzeranno la tecnologia unità SSD, che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare la risorsa di archiviazione premium.
+- **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare che la posizione di Azure distribuita supporti l'archiviazione premium.
 - **Schede di rete**. Ogni macchina virtuale ha due schede di rete, una per l'accesso al database e una per la gestione.
-- **Set di disponibilità**. Tutti i server di database verranno aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
 
 ### Passaggio 1 - avviare lo script
 
-È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
+È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Attenersi alla procedura seguente per modificare lo script da usare nell'ambiente.
 
 1. Modificare i valori delle variabili indicate di seguito in base al gruppo di risorse esistente distribuito in precedenza in [Prerequisiti](#Prerequisites).
 
@@ -88,7 +88,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP]Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
+>[AZURE.TIP] Il primo comando precedente usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipolazione delle stringhe](http://tldp.org/LDP/abs/html/string-manipulation.html) (in particolare, la rimozione di sotto stringhe).
 
 4. Recuperare l'ID per l’NSG `NSG-RemoteAccess`. È necessario farlo poiché le schede di rete associate a tale NSG sono in un gruppo di risorse diverso.
 
@@ -330,4 +330,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

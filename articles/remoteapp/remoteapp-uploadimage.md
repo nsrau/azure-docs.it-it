@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 ## Prima di iniziare
 
 1.      Verificare che l'immagine personalizzata soddisfi i [requisiti per l'immagine](remoteapp-imagereqs.md) e i [requisiti per l'applicazione](remoteapp-appreqs.md).
-2.      Installare il [modulo Azure PowerShell](../install-configure-powershell.md).
+2.      Installare il [modulo Azure PowerShell](../powershell-install-configure.md).
 
 ## Istruzioni dettagliate su come caricare un'immagine personalizzata
 
@@ -43,7 +43,7 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 
 11.    Se il caricamento non riesce a causa di interruzioni di rete o problemi simili, è possibile riprendere il processo di caricamento avviato in qualsiasi momento. Per riprendere il caricamento, eseguire di nuovo lo script usando la stessa riga di comando.
 
-> [AZURE.WARNING]Non modificare mai lo script di caricamento. Sono stati implementati controlli specifici che assicurano che l'immagine soddisfi i requisiti per l'immagine e per l'applicazione.
+> [AZURE.WARNING] Non modificare mai lo script di caricamento. Sono stati implementati controlli specifici che assicurano che l'immagine soddisfi i requisiti per l'immagine e per l'applicazione.
 
 ## Problemi frequenti
 
@@ -51,4 +51,4 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 - Non modificare in nessun caso lo script. Le convalide sono state applicate per semplificare l'utilizzo da parte degli utenti.
 - Se il file VHD si blocca durante il caricamento, copiare il file o spostarlo in un nuovo percorso e riprovare il caricamento. Il caricamento potrebbe essere ostacolato da qualche processo di Windows in esecuzione.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

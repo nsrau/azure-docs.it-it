@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Creare una macchina virtuale con più NIC
@@ -97,7 +97,7 @@ Se una subnet è associata a un Gruppo di sicurezza di rete e una NIC all'intern
 - ****Il traffico in entrata**, la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC.
 - **Il traffico in uscita**, la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet. 
 
-Ulteriori informazioni su [Gruppi di sicurezza di rete](virtual-networks-nsg) e su come vengono applicati in base alle associazioni con le subnet, con le macchine virtuali e con le schede di rete..
+Ulteriori informazioni su [Gruppi di sicurezza di rete](virtual-networks-nsg.md) e su come vengono applicati in base alle associazioni con le subnet, con le macchine virtuali e con le schede di rete..
 
 ## Come configurare una macchina virtuale Multi-NIC in una distribuzione classica
 
@@ -164,7 +164,7 @@ Per creare una macchina virtuale con più NICs, attenersi alla seguente procedur
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]La rete virtuale specificata deve essere già esistente (come indicato nei prerequisiti). Nell'esempio seguente viene specificata una rete virtuale denominata **MultiNIC-VNet**.
+>[AZURE.NOTE] La rete virtuale specificata deve essere già esistente (come indicato nei prerequisiti). Nell'esempio seguente viene specificata una rete virtuale denominata **MultiNIC-VNet**.
 
 ## Accesso NIC secondario ad altre subnet
 
@@ -265,4 +265,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

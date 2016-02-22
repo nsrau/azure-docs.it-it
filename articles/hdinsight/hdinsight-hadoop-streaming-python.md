@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Sviluppo di programmi per la creazione di flussi Python per HDInsight
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java. In questo articolo si apprenderà come usare Python per eseguire operazioni MapReduce.
 
-> [AZURE.NOTE]Mentre il codice Python in questo documento può essere utilizzato con un cluster HDInsight basato su Windows, i passaggi descritti in questo documento sono specifici di cluster basati su Linux.
+> [AZURE.NOTE] Mentre il codice Python in questo documento può essere utilizzato con un cluster HDInsight basato su Windows, i passaggi descritti in questo documento sono specifici di cluster basati su Linux.
 
 Questo articolo si basa su informazioni ed esempi pubblicati da Michael Noll nell'articolo relativo alla [scrittura di un programma MapReduce di Hadoop in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
@@ -69,29 +69,29 @@ Il mapper e il reducer sono file di testo, in questo caso **mapper.py** e **redu
 
 Creare un nuovo file denominato **mapper.py** e usare il seguente codice come contenuto:
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# Use the sys module
-	import sys
+    # Use the sys module
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_input(file):
-		# Split each line into words
-		for line in file:
-			yield line.split()
+    # 'file' in this case is STDIN
+    def read_input(file):
+        # Split each line into words
+        for line in file:
+            yield line.split()
 
-	def main(separator='\t'):
-		# Read the data using read_input
-		data = read_input(sys.stdin)
-		# Process each words returned from read_input
-		for words in data:
-			# Process each word
-			for word in words:
-				# Write to STDOUT
-				print '%s%s%d' % (word, separator, 1)
+    def main(separator='\t'):
+        # Read the data using read_input
+        data = read_input(sys.stdin)
+        # Process each words returned from read_input
+        for words in data:
+            # Process each word
+            for word in words:
+                # Write to STDOUT
+                print '%s%s%d' % (word, separator, 1)
 
-	if __name__ == "__main__":
-		main()
+    if __name__ == "__main__":
+        main()
 
 Soffermarsi per leggere il codice e comprenderne la funzione.
 
@@ -99,40 +99,40 @@ Soffermarsi per leggere il codice e comprenderne la funzione.
 
 Creare un nuovo file denominato **reducer.py** e usare il seguente codice come contenuto:
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# import modules
-	from itertools import groupby
-	from operator import itemgetter
-	import sys
+    # import modules
+    from itertools import groupby
+    from operator import itemgetter
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_mapper_output(file, separator='\t'):
-		# Go through each line
-	    for line in file:
-			# Strip out the separator character
-	        yield line.rstrip().split(separator, 1)
+    # 'file' in this case is STDIN
+    def read_mapper_output(file, separator='\t'):
+        # Go through each line
+        for line in file:
+            # Strip out the separator character
+            yield line.rstrip().split(separator, 1)
 
-	def main(separator='\t'):
-	    # Read the data using read_mapper_output
-	    data = read_mapper_output(sys.stdin, separator=separator)
-		# Group words and counts into 'group'
-		#   Since MapReduce is a distributed process, each word
+    def main(separator='\t'):
+        # Read the data using read_mapper_output
+        data = read_mapper_output(sys.stdin, separator=separator)
+        # Group words and counts into 'group'
+        #   Since MapReduce is a distributed process, each word
         #   may have multiple counts. 'group' will have all counts
         #   which can be retrieved using the word as the key.
-	    for current_word, group in groupby(data, itemgetter(0)):
-	        try:
-				# For each word, pull the count(s) for the word
-				#   from 'group' and create a total count
-	            total_count = sum(int(count) for current_word, count in group)
-				# Write to stdout
-	            print "%s%s%d" % (current_word, separator, total_count)
-	        except ValueError:
-	            # Count was not a number, so do nothing
-	            pass
+        for current_word, group in groupby(data, itemgetter(0)):
+            try:
+                # For each word, pull the count(s) for the word
+                #   from 'group' and create a total count
+                total_count = sum(int(count) for current_word, count in group)
+                # Write to stdout
+                print "%s%s%d" % (current_word, separator, total_count)
+            except ValueError:
+                # Count was not a number, so do nothing
+                pass
 
-	if __name__ == "__main__":
-	    main()
+    if __name__ == "__main__":
+        main()
 
 ##Caricare i file
 
@@ -144,7 +144,7 @@ Dal client, usare il seguente comando dalla stessa directory di **mapper.py** e 
 
 In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
-> [AZURE.NOTE]Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 ##Eseguire MapReduce
 
@@ -152,11 +152,11 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
+	> [AZURE.NOTE] Se è stata usata una password per proteggere l'account SSH, verrà richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
 2. Usare il seguente comando per avviare il processo MapReduce.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	Questo comando include le seguenti parti:
 
@@ -172,7 +172,7 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
 	* **-output**: la directory in cui verrà scritto l'output.
 
-		> [AZURE.NOTE]Questa directory verrà creata dal processo.
+		> [AZURE.NOTE] Questa directory verrà creata dal processo.
 
 Si noteranno alcune istruzioni **INFO** all'avvio del processo e infine le operazioni **map** e **reduce** visualizzate come valori percentuali.
 
@@ -186,7 +186,7 @@ Verranno visualizzate informazioni sullo stato del processo quando verrà comple
 
 Una volta completato il processo, usare il seguente comando per visualizzare l'output:
 
-	hadoop fs -text /example/wordcountout/part-00000
+	hdfs dfs -text /example/wordcountout/part-00000
 
 Verrà visualizzato un elenco di parole con l'indicazione del numero di occorrenze di ciascuna. Di seguito è riportato un esempio di dati di output:
 
@@ -205,4 +205,4 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

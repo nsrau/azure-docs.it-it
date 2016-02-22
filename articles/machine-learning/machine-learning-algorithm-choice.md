@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="10/13/2015"
+	ms.date="02/10/2016"
 	ms.author="brohrer;garye" />
 
 # Come scegliere gli algoritmi di Microsoft Azure Machine Learning
@@ -118,20 +118,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Footprint della memoria ridotto|
 |[rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato| 
-|**Regressione**| | | | | |
-|[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
- |[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | 
- |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | 
- |[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni|
-|[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti|
-|[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti|
-|[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche|
-|**Rilevamento delle anomalie**| | | | | |
-|[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni|
-|[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato| |**Regressione**| | | | | | |[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni| |[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti| |[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti| |[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche| |**Rilevamento delle anomalie**| | | | | | |[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni| |[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
 
 
 **Proprietà algoritmo:**
@@ -237,4 +224,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

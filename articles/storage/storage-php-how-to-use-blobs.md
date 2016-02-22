@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione BLOB da PHP
@@ -47,7 +47,7 @@ Per usare le API del servizio BLOB di Azure, è necessario:
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [AZURE.NOTE]In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
+> [AZURE.NOTE] In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -306,4 +306,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare l'autenticazione Twitter per un'applicazione dei servizi app."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Questo argomento descrive come configurare il servizio app di Azure per usare Twitter come provider di autenticazione.
 
@@ -43,11 +41,11 @@ Questo argomento illustra le modalità di utilizzo della funzione di autenticazi
 	> [AZURE.NOTE]
 	Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-twitter_.
 
-3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Creare l'applicazione Twitter**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
+3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Create your Twitter application**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 
-4. Fare clic sulla scheda **Impostazioni**, selezionare **Consentire l'uso dell'applicazione per l'accesso con Twitter** e quindi fare clic su **Aggiornare le impostazioni**.
+4. Fare clic sulla scheda **Settings**, selezionare **Allow this application to be used to sign in with Twitter** e quindi fare clic su **Update Settings**.
 
-5. Selezionare la scheda **Chiavi e token di accesso**. Prendere nota dei valori di **Chiave utente (chiave API)** e **Segreto utente (segreto API)**.
+5. Selezionare la scheda **Keys and Access Tokens**. Prendere nota dei valori di **Consumer Key (API Key)** e **Consumer secret (API Secret)**.
 
     > [AZURE.NOTE] Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
 
@@ -91,4 +89,4 @@ Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gat
 [portale di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

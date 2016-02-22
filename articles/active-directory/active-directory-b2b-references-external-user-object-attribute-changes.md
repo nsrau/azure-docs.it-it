@@ -2,6 +2,7 @@
    pageTitle="L’attributo dell’oggetto utente esterno cambia per l'anteprima di B2B Azure Active Directory Collaboration | Microsoft Azure"
    description="Azure Active Directory B2B supporta le relazioni tra aziende abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -34,5 +35,6 @@ Vedere gli altri articoli sulla collaborazione B2B di Azure:
 - [Riferimento sul formato di file CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

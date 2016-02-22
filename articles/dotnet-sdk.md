@@ -103,7 +103,7 @@ Gli strumenti HDInsight in Esplora Server consentono di esplorare i database Hiv
 
 ###<a id="mobile">SDK di App per dispositivi mobili di Microsoft Azure
 
-Strumenti per lavorare con le [app per dispositivi mobili in Azure App Service](app-service-mobile/app-service-mobile-value-prop-preview.md).
+Strumenti per lavorare con le [app per dispositivi mobili in Azure App Service](app-service-mobile/app-service-mobile-value-prop.md).
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -186,4 +186,4 @@ Per il codice sorgente di Azure SDK per .NET, comprese le librerie client, veder
 
 Per la documentazione di riferimento sulle librerie client di Azure, vedere [Informazioni di riferimento su .NET per Azure](/documentation/api/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

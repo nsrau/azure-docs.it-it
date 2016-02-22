@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
-
-
 
 #<a id="monitormediaservicesaccount"></a>Come monitorare un account di Servizi multimediali
 
 Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di uso e informazioni relative all'account che è possibile usare per gestire il proprio account di Servizi multimediali.
 
-È possibile monitorare il numero di processi di codifica in coda, le attività di codifica non riuscite, i processi di codifica attivi rappresentati dai dati di input e output dal codificatore e l'utilizzo dell'archiviazione BLOB associato all'account di Servizi multimediali. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
+You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. Se si trasferiscono informazioni in streaming ai clienti, è inoltre possibile recuperare varie metriche relative allo streaming. È possibile scegliere di monitorare i dati relativi alle ultime 6 o 24 ore oppure agli ultimi 7 giorni.
  
->[AZURE.NOTE]Al monitoraggio dei dati di archiviazione nel portale di Azure classico sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Al monitoraggio dei dati di archiviazione nel portale di Azure classico sono associati costi aggiuntivi. Per ulteriori informazioni, vedere [Analisi archiviazione e fatturazione](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Procedura: Monitorare un account di Servizi multimediali
 
@@ -38,7 +36,7 @@ Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di us
 1. Fare clic sul nome dello **STORAGE ACCOUNT** nella sezione **quick glance**.
 2. Nella pagina dell'account di archiviazione fare clic sul collegamento **configure page** e scorrere verso il basso fino alle impostazioni **monitoring** per i servizi BLOB, tabelle e accodamento, illustrati di seguito.
 
-	>[AZURE.NOTE]I BLOB sono l'unico tipo di archiviazione supportata in Servizi multimediali.
+	>[AZURE.NOTE] I BLOB sono l'unico tipo di archiviazione supportata in Servizi multimediali.
 
 	![StorageOptions][storage_options_scoped]
 
@@ -73,4 +71,4 @@ Nel dashboard di Servizi multimediali di Azure vengono presentate metriche di us
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

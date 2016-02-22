@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/04/2015"
+   	ms.date="02/05/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
@@ -355,4 +355,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

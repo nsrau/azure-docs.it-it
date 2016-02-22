@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # Che cos'è la Ricerca di Azure?
@@ -19,7 +19,7 @@ Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che
 
 ## Offrire agli utenti un'esperienza di ricerca avanzata
 
-**Query efficaci** possono essere formulate mediante una [semplice sintassi di query](https://msdn.microsoft.com/library/azure/dn798920.aspx), in grado di offrire operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza. Inoltre, la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (attualmente in anteprima) consente la ricerca fuzzy, la ricerca di errori di ortografia, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. Ricerca di Azure supporta anche gli analizzatori lessicali personalizzati per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
+**Query efficaci** possono essere formulate mediante una [semplice sintassi di query](https://msdn.microsoft.com/library/azure/dn798920.aspx), in grado di offrire operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza. Inoltre, la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) consente la ricerca fuzzy, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. Ricerca di Azure supporta anche gli analizzatori lessicali personalizzati per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
 
 È incluso il **supporto** per [56 lingue diverse](https://msdn.microsoft.com/library/azure/dn879793.aspx). Tramite gli analizzatori Lucene e Microsoft (perfezionati da anni di elaborazione del linguaggio naturale in Office e Bing), la Ricerca di Azure può analizzare il testo nella casella di ricerca dell'applicazione per gestire in modo intelligente le funzionalità linguistiche di una lingua specifica, tra cui i tempi verbali, il genere, i sostantivi plurali irregolari (ad esempio, 'uomo' vs. 'uomini'), la scomposizione delle parole, il ritorno a capo (per le lingue senza spazi) e altro.
 
@@ -82,4 +82,4 @@ Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire qu
 
 Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

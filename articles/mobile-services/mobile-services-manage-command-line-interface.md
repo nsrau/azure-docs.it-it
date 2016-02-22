@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # Eseguire l'automazione dei servizi mobili con gli strumenti da riga di comando
@@ -79,7 +79,7 @@ Il comando `mobile create` ha esito negativo quando il servizio mobile specifica
 
 ##Come visualizzare l'elenco dei servizi mobili esistenti in una sottoscrizione
 
-> [AZURE.NOTE]È possibile usare i comandi nell'interfaccia da riga di comando correlati a "list" e "script" solo con il back-end JavaScript.
+> [AZURE.NOTE] È possibile usare i comandi nell'interfaccia da riga di comando correlati a "list" e "script" solo con il back-end JavaScript.
 
 Il comando seguente restituisce un elenco di tutti i servizi mobili in una sottoscrizione di Azure:
 
@@ -95,7 +95,7 @@ Questo comando mostra inoltre lo stato corrente e l'URL di ogni servizio mobile.
 
 Se si includono i parametri `-a` e `-q`, questo comando consente di eliminare anche il database SQL e il server usati dal servizio mobile senza visualizzare una richiesta di conferma.
 
-> [AZURE.NOTE]Se non viene specificato il parametro <code>-q</code> insieme al parametro <code>-a</code> o <code>-d</code>, l'esecuzione viene sospesa e viene richiesto di selezionare le opzioni di eliminazione per il database SQL. Usare il parametro <code>-a</code> solo quando nessun altro servizio usa il database o il server, altrimenti usare il parametro <code>-d</code> per eliminare solo i dati appartenenti al servizio mobile che si intende eliminare.
+> [AZURE.NOTE] Se non viene specificato il parametro <code>-q</code> insieme al parametro <code>-a</code> o <code>-d</code>, l'esecuzione viene sospesa e viene richiesto di selezionare le opzioni di eliminazione per il database SQL. Usare il parametro <code>-a</code> solo quando nessun altro servizio usa il database o il server, altrimenti usare il parametro <code>-d</code> per eliminare solo i dati appartenenti al servizio mobile che si intende eliminare.
 
 ##Come creare una tabella nel servizio mobile
 
@@ -187,4 +187,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Come installare gli strumenti da riga di comando di Azure per Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

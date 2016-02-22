@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/21/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -147,4 +147,4 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 [Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -26,7 +26,7 @@ Un dispositivo può connettersi a un hub IoT con il protocollo MQTT usando le li
 
 ## Uso degli SDK per client per dispositivi
 
-[SDK per client per dispositivi][lnk-mqtt-org] che supportano il protocollo MQTT sono disponibili per Java, Node.js, C e C#. Gli SDK per client per dispositivi usano la stringa di connessione dell'hub IoT standard per stabilire una connessione a un hub IoT. Per usare il protocollo MQTT, il parametro del protocollo del client deve essere impostato su **MQTT**. Per impostazione predefinita, gli SDK per client per dispositivi si connettono a un hub IoT con il flag **CleanSession** impostato su **0** e usano **QoS 1** per lo scambio di messaggi con l'hub IoT.
+[SDK per client per dispositivi][lnk-device-sdks] che supportano il protocollo MQTT sono disponibili per Java, Node.js, C e C#. Gli SDK per client per dispositivi usano la stringa di connessione dell'hub IoT standard per stabilire una connessione a un hub IoT. Per usare il protocollo MQTT, il parametro del protocollo del client deve essere impostato su **MQTT**. Per impostazione predefinita, gli SDK per client per dispositivi si connettono a un hub IoT con il flag **CleanSession** impostato su **0** e usano **QoS 1** per lo scambio di messaggi con l'hub IoT.
 
 Quando un dispositivo è connesso a un hub IoT, gli SDK per client per dispositivi forniscono i metodi che consentono al dispositivo di inviare messaggi a un hub IoT e di riceverne.
 
@@ -81,4 +81,4 @@ Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][l
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

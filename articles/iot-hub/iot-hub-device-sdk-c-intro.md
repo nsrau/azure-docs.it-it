@@ -3,7 +3,7 @@
 	description="Altre informazioni e introduzione all'uso del codice di esempio nel dispositivo Azure IoT SDK per C"
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # Introduzione ad Azure IoT device SDK per C
 
@@ -78,7 +78,7 @@ Dopo il download di una copia del codice sorgente, è necessario completare la p
 
 -   Prima di aprire il **Prompt dei comandi per gli sviluppatori per VS2015**, installare gli strumenti da riga di comando di Git. Per installare questi strumenti, completare i passaggi seguenti:
 
-	1. Avviare il programma di installazione di **Visual Studio 2015** oppure scegliere **Microsoft Visual Studio 2015** da **Programmi e funzionalità** nel Pannello di controllo e selezionare **Modifica**).
+	1. Avviare il programma di installazione di **Visual Studio 2015** oppure scegliere **Microsoft Visual Studio 2015** da **Programmi e funzionalità** nel Pannello di controllo e selezionare **Modifica**.
 	
 	2. Assicurarsi che la funzionalità **GIT per Windows** sia selezionata nel programma di installazione. È anche consigliabile selezionare l'opzione **Estensione GitHub per Visual Studio** per offrire l'integrazione dell'IDE:
 
@@ -460,4 +460,4 @@ Ognuna di queste tre funzioni è allineata con le tre funzioni di inizializzazio
 
 Questo articolo descrive le nozioni di base relative all'uso delle librerie in **Azure IoT device SDK per C**. Fornisce informazioni sufficienti per comprendere il contenuto dell'SDK, la relativa architettura e come iniziare a usare gli esempi per Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

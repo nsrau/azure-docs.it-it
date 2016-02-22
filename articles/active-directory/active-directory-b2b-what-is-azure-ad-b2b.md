@@ -2,6 +2,7 @@
    pageTitle="Anteprima della collaborazione B2B di Azure Active Directory: integrazione cloud dei partner semplice e sicura | Microsoft Azure"
    description="La collaborazione B2B di Azure Active Directory supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: integrazione cloud dei partner semplice e sicura
@@ -39,5 +40,6 @@ Vedere gli altri articoli sulla collaborazione B2B di Azure:
 - [Formato del token per l'utente esterno](active-directory-b2b-references-external-user-token-format.md)
 - [Modifiche agli attributi dell'oggetto utente esterno](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

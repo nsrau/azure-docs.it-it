@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -37,14 +37,19 @@ Questa funzionalità può essere usata con centinaia di applicazioni che è poss
 4. È inoltre possibile visualizzare quali utenti sono assegnati all'applicazione direttamente o in base all'appartenenza a un gruppo. A tale scopo, impostare **Mostra elenco a discesa da "Gruppi"** su **"Tutti gli utenti"**. Nell'elenco sono visualizzati gli utenti nella directory ed è indicato se ogni utente è assegnato o meno all'applicazione. Nell'elenco è inoltre indicato se gli utenti sono assegnati direttamente all'applicazione (il tipo di assegnazione è indicato come 'Diretto') oppure in base all'appartenenza al gruppo (il tipo di assegnazione è indicato come 'Ereditato').
 
 
-> [AZURE.NOTE]La scheda Utenti e gruppi sarà visibile solo dopo aver abilitato Azure AD Premium o Azure AD Basic.
+> [AZURE.NOTE]
+La scheda Utenti e gruppi sarà visibile solo dopo aver abilitato Azure AD Premium o Azure AD Basic.
+
+##Articoli correlati
 
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="mattshel"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -107,4 +107,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux Azure]: service-bus-amqp-apache.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

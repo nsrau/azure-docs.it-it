@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Si rivelano quindi molto utili per diagnosticare i problemi che si verificano in fase di esecuzione.
 
-> [AZURE.NOTE]Le informazioni contenute in questo articolo si applicano solo a HDInsight basato su Linux. Per informazioni su HDInsight basato su Windows, vedere [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
+> [AZURE.NOTE] Le informazioni contenute in questo articolo si applicano solo a HDInsight basato su Linux. Per informazioni su HDInsight basato su Windows, vedere [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
 
 ## <a name="whichServices"></a>Services
 
@@ -49,7 +49,7 @@ I processi di mapping e riduzione sono leggermente diversi, in quanto sono proce
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE]È consigliabile usare Ambari per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestirà la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Ambari](#using-ambari).
+> [AZURE.NOTE] È consigliabile usare Ambari per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestirà la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Ambari](#using-ambari).
 
 ###Abilitare i dump dell'heap
 
@@ -59,7 +59,7 @@ L'opzione seguente abilita il dump dell'heap quando si verifica un OutOfMemoryEr
 
 **+** indica che l'opzione è abilitata. L'impostazione predefinita è disabilitata.
 
-> [AZURE.WARNING]I dump dell'heap non sono abilitati per i servizi Hadoop in HDInsight per impostazione predefinita, perché i file di dump possono essere di grandi dimensioni. Se li si abilita per la risoluzione dei problemi, ricordarsi di disabilitarli dopo aver riprodotto il problema e raccolto i file di dump.
+> [AZURE.WARNING] I dump dell'heap non sono abilitati per i servizi Hadoop in HDInsight per impostazione predefinita, perché i file di dump possono essere di grandi dimensioni. Se li si abilita per la risoluzione dei problemi, ricordarsi di disabilitarli dopo aver riprodotto il problema e raccolto i file di dump.
 
 ###Percorso dei dump
 
@@ -75,7 +75,7 @@ Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump verrà archiviato nella d
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE]Poiché Hadoop è un sistema distribuito, tutti gli script usati devono essere posizionati in tutti i nodi del cluster in cui viene eseguito il servizio.
+> [AZURE.NOTE] Poiché Hadoop è un sistema distribuito, tutti gli script usati devono essere posizionati in tutti i nodi del cluster in cui viene eseguito il servizio.
 >
 > Lo script deve anche trovarsi in un percorso accessibile dall'account con cui viene eseguito il servizio e deve fornire autorizzazioni di esecuzione. Ad esempio, è possibile archiviare gli script in `/usr/local/bin` e usare `chmod go+rx /usr/local/bin/filename.sh` per concedere autorizzazioni di lettura ed esecuzione.
 
@@ -87,7 +87,7 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     Quando richiesto, eseguire l'autenticazione al sito usando il nome dell'account HTTP (impostazione predefinita: admin) e la password per il cluster.
 
-    > [AZURE.NOTE]È possibile che Ambari richieda il nome utente e la password una seconda volta. In questo caso, immettere di nuovo lo stesso nome dell'account e la stessa password.
+    > [AZURE.NOTE] È possibile che Ambari richieda il nome utente e la password una seconda volta. In questo caso, immettere di nuovo lo stesso nome dell'account e la stessa password.
 
 2. Usando l'elenco a sinistra, selezionare l'area del servizio da modificare. Ad esempio, **HDFS**. Nell'area centrale selezionare la scheda **Configs**.
 
@@ -101,7 +101,7 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     ![HADOOP\_NAMENODE\_OPTS con -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE]Quando si abilitato i dump dell'heap per il processo figlio di mapping o riduzione, si cercheranno invece i campi con etichetta **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
+	> [AZURE.NOTE] Quando si abilitato i dump dell'heap per il processo figlio di mapping o riduzione, si cercheranno invece i campi con etichetta **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
     Fare clic sul pulsante **Save** per salvare le modifiche apportate. Sarà possibile immettere una breve nota che descrive le modifiche.
 
@@ -117,8 +117,8 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     ![Voce Restart All Affected](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [AZURE.NOTE]le voci del pulsante **Restart** possono essere diverse per altri servizi.
+    > [AZURE.NOTE] le voci del pulsante **Restart** possono essere diverse per altri servizi.
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Turn Off Maintenance Mode**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

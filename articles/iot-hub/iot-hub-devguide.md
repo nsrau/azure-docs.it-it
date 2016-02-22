@@ -98,7 +98,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 
 | Proprietà | Opzioni | Descrizione |
 | -------- | ------- | ----------- |
-| deviceId | Obbligatoria, di sola lettura negli aggiornamenti | Stringa con distinzione tra maiuscole/minuscole (al massimo 128 caratteri di lunghezza) di caratteri alfanumerici ASCII a 7 bit + `{'-', ':', '.', '+', '&percnt;', '_', '&num;', '&ast;', '?', '!', '(', ')', ',', '=', '&commat;', ';', '&dollar;', '''}`. |
+| deviceId | Obbligatoria, di sola lettura negli aggiornamenti | Stringa con distinzione tra maiuscole/minuscole (al massimo 128 caratteri di lunghezza) di caratteri alfanumerici ASCII a 7 bit + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId | Obbligatoria, di sola lettura | Stringa con distinzione tra maiuscole/minuscole generata dall'hub con lunghezza massima di 128 caratteri. Viene usata per distinguere i dispositivi con lo stesso valore **deviceId** in caso di eliminazione e nuova creazione. |
 | etag | Obbligatoria, di sola lettura | Stringa che rappresenta un eTag vulnerabile per l'identità del dispositivo, come indicato in [RFC7232][lnk-rfc7232].|
 | auth | Facoltativa | Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
@@ -366,10 +366,10 @@ Questo è il set di proprietà del sistema nei messaggi dell'hub IoT.
 | -------- | ----------- |
 | MessageId | Identificatore configurabile dall'utente per il messaggio, usato in genere per modelli di richiesta-risposta. Formato: stringa con distinzione tra maiuscole/minuscole (al massimo 128 caratteri di lunghezza) di caratteri alfanumerici ASCII a 7 bit + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numero di sequenza | Numero, univoco per ogni dispositivo-coda, assegnato dall'hub IoT a ogni messaggio da cloud a dispositivo. |
-| To | Usata nei messaggi [da cloud a dispositivo](#c2d) per specificare la destinazione.|
+| To | Usata nei messaggi [da cloud a dispositivo](#c2d) per specificare la destinazione. |
 | ExpiryTimeUtc | Data e ora della scadenza del messaggio. |
-| EnqueuedTime | Ora di ricezione del messaggio da parte dell'hub IoT. |
-| CorrelationId | Proprietà di stringa che contiene in genere l'ID del messaggio della richiesta nei modelli richiesta-risposta. |
+| EnqueuedTime | Data e ora di ricezione del messaggio da parte dell'hub IoT. |
+| CorrelationId | Proprietà di stringa in un messaggio di risposta che contiene in genere il valore MessageId della richiesta nei modelli richiesta-risposta. |
 | UserId | Usata per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. |
 | Ack | Usata nei messaggi da cloud a dispositivo per richiedere all'hub IoT di generare messaggi con commenti come risultato dell'utilizzo del messaggio da parte del dispositivo. Di seguito sono indicati i valori possibili: **none** (predefinito): non viene generato alcun messaggio con commenti. **positive**: se il messaggio è stato completato, viene ricevuto un messaggio con commenti. **negative**: se il messaggio è scaduto o se è stato raggiunto il numero massimo di recapiti senza il completamento da parte del dispositivo, viene ricevuto un messaggio con commenti. **full**: esito positivo e negativo. Per altre informazioni, vedere [Commenti sul messaggio](#feedback). |
 | ConnectionDeviceId | Impostata dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **deviceId** del dispositivo che ha inviato il messaggio. |
@@ -418,7 +418,7 @@ Esistono tuttavia alcune differenze tra i messaggi da dispositivo a cloud dell'h
 * L'hub IoT non consente il partizionamento arbitrario con **PartitionKey**. I messaggi da dispositivo a cloud vengono partizionati in base al relativo **deviceId** di origine.
 * Il ridimensionamento dell'hub IoT è leggermente diverso rispetto agli hub eventi. Per altre informazioni, vedere [Ridimensionamento dell'hub IoT][lnk-guidance-scale].
 
-Si noti che ciò non significa che sia possibile sostituire Hub eventi con l'hub IoT in tutti gli scenari. Ad esempio, in alcuni calcoli di elaborazione eventi potrebbe essere necessario ripartizionare gli eventi rispetto a una proprietà o un campo diverso prima di analizzare i flussi dei dati. In questo scenario è possibile usare Hub eventi per disaccoppiare due porzioni della pipeline di elaborazione dei flussi.
+Si noti che ciò non significa che sia possibile sostituire Hub eventi con l'hub IoT in tutti gli scenari. Ad esempio, in alcuni calcoli di elaborazione eventi potrebbe essere necessario ripartizionare gli eventi rispetto a una proprietà o un campo diverso prima di analizzare i flussi dei dati. In questo scenario è possibile usare Hub eventi per disaccoppiare due porzioni della pipeline di elaborazione dei flussi. Per altre informazioni, vedere *Partizioni* in [Panoramica di Hub eventi di Azure][lnk-eventhub-partitions].
 
 Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud, vedere [API e SDK dell'hub IoT][lnk-apis-sdks].
 
@@ -428,7 +428,7 @@ Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud
 
 In molti casi, oltre ai punti dati di telemetria, i dispositivi inviano anche messaggi e richieste che devono essere eseguiti e gestiti dal livello della logica di business dell'applicazione. Ad esempio, avvisi critici che devono attivare un'azione specifica nel back-end o risposte a comandi inviati dal back-end.
 
-Per altre informazioni sul modo migliore per elaborare questo tipo di messaggi, vedere l'articolo relativo all'[elaborazione dei messaggi da dispositivo a cloud][lnk-guidance-d2c-processing].
+Per altre informazioni sul modo migliore per elaborare questo tipo di messaggi, vedere [Elaborazione di messaggi da dispositivo a cloud][lnk-guidance-d2c-processing].
 
 #### Opzioni di configurazione da dispositivo a cloud <a id="d2cconfiguration"></a>
 
@@ -501,13 +501,15 @@ Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere 
 - Se si imposta la proprietà **Ack** su **negative**, l'hub IoT genera un messaggio di commenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Non recapitabile**.
 - Se si imposta la proprietà **Ack** su **full**, l'hub IoT genera un messaggio di commenti in entrambi i casi.
 
-Come illustrato nella sezione [Endpoint](#endpoints), l'hub IoT invia commenti tramite un endpoint per il servizio (**/messages/servicebound/feedback**) sotto forma di messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo, con lo stesso [Ciclo di vita dei messaggi](#ciclo di vita dei messaggi). Quando possibile, i commenti sul messaggio vengono riuniti in un singolo messaggio con il formato seguente.
+> [AZURE.NOTE] Se **Ack** è **full** e non viene ricevuto alcun messaggio di feedback significa che il messaggio di feedback è scaduto e il servizio non può sapere che cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Poiché il periodo di scadenza massimo è di due giorni, è disponibile un tempo sufficiente per garantire il funzionamento del servizio in caso di errore.
 
-Ogni messaggio recuperato dall'endpoint di commenti ha le proprietà seguenti.
+Come illustrato nella sezione [Endpoint](#endpoints), l'hub IoT invia commenti tramite un endpoint per il servizio (**/messages/servicebound/feedback**) sotto forma di messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [Ciclo di vita dei messaggi](#ciclo di vita dei messaggi). Quando possibile, i commenti sul messaggio vengono riuniti in un singolo messaggio con il formato seguente.
+
+Ogni messaggio recuperato da un dispositivo dall'endpoint di commenti ha le proprietà seguenti:
 
 | Proprietà | Descrizione |
 | -------- | ----------- |
-| EnqueuedTime | Timestamp che indica quando è stato creato il batch. |
+| EnqueuedTime | Timestamp che indica quando è stato creato il messaggio. |
 | UserId | `{iot hub name}` |
 | ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -517,9 +519,11 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | -------- | ----------- |
 | EnqueuedTimeUtc | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
 | OriginalMessageId | **MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
-| Descrizione | Valori di stringa per i risultati precedenti. |
+| StatusCode | Numero intero obbligatorio. Usato nei messaggi con commenti e suggerimenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = messaggio scaduto <br/> 2 = conteggio distribuzione massimo superato <br/> 3 = messaggio rifiutato |
+| Descrizione | Valori stringa per **StatusCode**. |
 | DeviceId | **DeviceId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | DeviceGenerationId | **DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
+
 
 **Importante**. Il servizio deve specificare un valore **MessageId** per il messaggio da cloud a dispositivo per potere correlare i rispettivi commenti al messaggio originale.
 
@@ -530,6 +534,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
   {
     "OriginalMessageId": "0987654321",
     "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "StatusCode": 0
     "Description": "Success",
     "DeviceId": "123",
     "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -552,6 +557,8 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 | feedback.ttlAsIso8601 | Conservazione per messaggi con commenti diretti al servizio. | Intervallo ISO\_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora. |
 | feedback.maxDeliveryCount | Numero massimo di recapiti per la coda di commenti. | Da 1 a 100. Predefinito: 100. |
 
+Per altre informazioni, vedere [Gestire hub IoT][lnk-manage].
+
 ## Quote e limitazione <a id="throttling"></a>
 
 Ogni sottoscrizione di Azure può avere al massimo 10 hub IoT.
@@ -569,10 +576,10 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 | Limitazione | Valore per ogni hub |
 | -------- | ------------- |
 | Operazioni del registro delle identità (creazione, recupero, elenco, aggiornamento, eliminazione) | 100/min/unità, fino a 5000/min |
-| Connessioni del dispositivo | 120/sec/unità (per S2), 12/sec/unità (per S1). Almeno 100/sec. |
-| Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1). Almeno 100/sec. |
-| Invii da cloud a dispositivo | 100/min/unità |
-| Ricezioni da cloud a dispositivo | 1000/min/unità |
+| Connessioni del dispositivo | 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Almeno 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si otterrà almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
+| Inoltri dal dispositivo al cloud | 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Almeno 100/sec. <br/> Ad esempio, due unità S1 sono 2*12 = 24/sec, ma si otterrà almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9*12) tra le unità. |
+| Inoltri dal cloud al dispositivo | 100/min/unità |
+| Ricezioni dal cloud al dispositivo | 1000/min/unità |
 
 **Nota**. È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 
@@ -629,5 +636,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
+[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

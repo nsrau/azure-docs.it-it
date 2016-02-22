@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/07/2016"
 	ms.author="christopheranderson"/>
 
 # Ripristinare il servizio mobile in caso di emergenza
@@ -59,9 +59,9 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 
 4. È ora possibile usare il servizio secondario per ripristinare quello primario.
 
-	> [AZURE.IMPORTANT]Oltre a eseguire la migrazione dei file, il comando migrate aggiorna anche il nome host del servizio primario, in modo che punti al servizio secondario. Non sarà quindi necessario aggiornare le applicazioni client. Per la risoluzione del nome host nel nuovo servizio, saranno necessari fino a 30 minuti. Per questo motivo, è consigliabile usare il comando migrate solo in scenari di ripristino di emergenza.
+	> [AZURE.IMPORTANT] Oltre a eseguire la migrazione dei file, il comando migrate aggiorna anche il nome host del servizio primario, in modo che punti al servizio secondario. Non sarà quindi necessario aggiornare le applicazioni client. Per la risoluzione del nome host nel nuovo servizio, saranno necessari fino a 30 minuti. Per questo motivo, è consigliabile usare il comando migrate solo in scenari di ripristino di emergenza.
 
-	> [AZURE.IMPORTANT]Quando si esegue il comando in questo passaggio, il servizio secondario viene eliminato per fare in modo che la relativa capacità possa essere usata per il ripristino del servizio primario. Se si intende conservare gli script e le impostazioni, è consigliabile eseguirne il backup prima di eseguire il comando.
+	> [AZURE.IMPORTANT] Quando si esegue il comando in questo passaggio, il servizio secondario viene eliminato per fare in modo che la relativa capacità possa essere usata per il ripristino del servizio primario. Se si intende conservare gli script e le impostazioni, è consigliabile eseguirne il backup prima di eseguire il comando.
 
 	A questo punto è possibile eseguire il seguente comando:
 
@@ -74,7 +74,7 @@ Per ripristinare il servizio mobile in seguito a un'interruzione:
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]La visualizzazione delle modifiche del portale di Azure classico dopo il completamento del comando potrebbe richiedere qualche minuto.
+    > [AZURE.NOTE] La visualizzazione delle modifiche del portale di Azure classico dopo il completamento del comando potrebbe richiedere qualche minuto.
 
 5. Verificare che il ripristino di tutti gli script sia avvenuto correttamente confrontandoli con i rispettivi originali nel controllo del codice sorgente. Nella maggior parte dei casi, gli script vengono ripristinati automaticamente senza perdite di dati. Se tuttavia si dovessero riscontrare discrepanze per uno degli script, sarà possibile ripristinarlo manualmente.
 
@@ -114,4 +114,4 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 [dashboard dei servizi mobili di Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

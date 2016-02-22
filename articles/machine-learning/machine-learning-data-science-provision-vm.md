@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -144,4 +144,4 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Informazioni su come creare soluzioni di analisi end-to-end sistematicamente usando il [processo di analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare la [raccolta di Cortana Analytics](http://gallery.cortanaanalytics.com) per esempi sull'apprendimento automatico e l'analisi dei dati usando la suite di Cortana Analytics. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

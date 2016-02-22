@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="tarcher" />
 
 # Aggiornare lo script di PowerShell per il progetto di gruppo di risorse di Azure
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

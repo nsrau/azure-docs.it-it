@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # Pianificare i processi ricorrenti in Servizi mobili
@@ -97,7 +97,7 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 
 	La tabella Updates, creata nel database al primo accesso alla classe DbSet, viene utilizzata per archiviare i dati dei tweet.
 
-	>[AZURE.NOTE]Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-use-code-first-migrations.md).
+	>[AZURE.NOTE] Quando si usa l'inizializzatore del database predefinito, Entity Framework elimina e crea nuovamente il database ogni volta che rileva una modifica nel modello di dati nella definizione del modello Code First. Per apportare modifiche al modello di dati e conservare i dati esistenti nel database, è necessario utilizzare Migrazioni Code First. L'inizializzatore predefinito non può essere utilizzato su un database SQL in Azure. Per altre informazioni vedere [Come usare le Migrazioni Code First per aggiornare il modello di dati](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 Sarà quindi possibile creare l'attività pianificata che accede a Twitter e archivia i dati dei tweet nella nuova tabella Updates.
 
@@ -305,4 +305,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

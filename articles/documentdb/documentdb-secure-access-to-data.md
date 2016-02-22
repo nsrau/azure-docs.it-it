@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ryancraw"/>
 
 # Protezione dell'accesso ai dati in DocumentDB #
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

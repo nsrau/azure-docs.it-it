@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio
@@ -32,17 +32,17 @@ Per informazioni su come prepararsi per possibili emergenze e su quando ripristi
 L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica della stringa di connessione SQL e può comportare una perdita di dati permanente. Pertanto, è necessario eseguirla solo quando è probabile che l'interruzione del servizio duri più a lungo dell'obiettivo del tempo di ripristino dell'applicazione. Quando l'applicazione viene distribuita nell'ambiente di produzione, è consigliabile eseguire il monitoraggio regolare dell'integrità dell'applicazione e usare i punti dati seguenti per determinare se il ripristino è possibile:
 
 1. Si è verificato un errore di connettività permanente dal livello applicazione al database.
-2. Il portale di Azure classico visualizza un avviso relativo a un evento imprevisto con un vasto impatto nell'area.
+2. Il portale di Azure visualizza un avviso relativo a un evento imprevisto con un vasto impatto nell'area.
 
 > [AZURE.NOTE] Dopo avere ripristinato il database è possibile configurarlo per utilizzarlo seguendo la guida [Configurare il database dopo il ripristino](#postrecovery).
 
 ## Failover al database secondario con replica geografica
 > [AZURE.NOTE] È necessario eseguire la configurazione per disporre di un database secondario da utilizzare per il failover. La funzionalità di replica geografica è disponibile solo per i database Standard e Premium. Informazioni su [come configurare la replica geografica](sql-database-business-continuity-design.md)
 
-###Portale di Azure classico
-Utilizzare il portale di Azure classico per terminare la relazione di copia continua con il database secondario con replica geografica.
+###Portale di Azure
+Utilizzare il portale di Azure per terminare la relazione di copia continua con il database secondario con replica geografica.
 
-1. Accedere al [portale di Azure classico](https://portal.Azure.com)
+1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA** e quindi selezionare **Database SQL**.
 3. Individuare e selezionare il database. 
 4. Nella parte inferiore del pannello del database selezionare la **mappa della replica geografica**.
@@ -66,16 +66,29 @@ In caso di interruzione del servizio di un database, è possibile ripristinare i
 
 > [AZURE.NOTE] Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Portale di Azure classico
-Per ripristinare un database SQL tramite il Ripristino geografico nel portale di Azure classico, osservare la seguente procedura.
+###Portale di Azure (ripristino in un database autonomo)
+Per ripristinare un database SQL tramite il Ripristino geografico nel portale di Azure, osservare la seguente procedura.
 
-1. Accedere al [portale di Azure classico](https://portal.Azure.com)
+1. Accedere al [Portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **NUOVO**, selezionare **Dati e archiviazione** e quindi **Database SQL**.
 2. Selezionare **BACKUP** come origine e quindi selezionare la copia di backup con ridondanza geografica che si desidera ripristinare.
 3. Specificare il resto delle proprietà del database e quindi fare clic su **Crea**.
 4. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
 
+###Portale di Azure (ripristino in un pool di database elastici)
+Per ripristinare un database SQL mediante ripristino geografico in un pool di database elastici tramite il portale, seguire queste istruzioni.
+
+1. Accedere al [portale di Azure](https://portal.Azure.com).
+2. Sul lato sinistro della schermata selezionare **Sfoglia** e quindi selezionare **Pool elastici SQL**.
+3. Selezionare il pool in cui si vuole eseguire il ripristino geografico del database.
+4. Nella parte superiore del pannello del pool elastico, selezionare **Crea database**.
+5. Selezionare **BACKUP** come origine e quindi selezionare la copia di backup con ridondanza geografica che si desidera ripristinare.
+6. Specificare il resto delle proprietà del database e quindi fare clic su **Crea**.
+7. Il processo di ripristino del database inizierà e potrà essere monitorato tramite **NOTIFICHE** sul lato sinistro della schermata.
+
 ###PowerShell 
+> [AZURE.NOTE] Il ripristino geografico con PowerShell supporta attualmente solo il ripristino in un database autonomo. Per il ripristino geografico in un pool di database elastici usare il [portale di Azure](https://portal.Azure.com).
+
 Per ripristinare un database SQL tramite ripristino geografico con PowerShell, avviare una richiesta di ripristino geografico con il cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
@@ -131,4 +144,4 @@ Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere 
 
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

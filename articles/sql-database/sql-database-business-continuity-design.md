@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #Progettazione per la continuità aziendale
@@ -98,4 +98,4 @@ Questa API è asincrona. Dopo la restituzione, usare l’API [Get Replication Li
 
 Quando si progetta l'applicazione per la continuità aziendale, è necessario considerare alcune opzioni di configurazione. La scelta dipenderà dalla topologia di distribuzione dell'applicazione e dalle parti dell'applicazione più vulnerabili a un'interruzione del servizio. Per informazioni aggiuntive, vedere [Progettazione di soluzioni cloud per il ripristino di emergenza mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

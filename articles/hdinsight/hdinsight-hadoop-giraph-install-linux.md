@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
@@ -23,7 +23,7 @@
 
 In questo argomento si apprenderà come installare Giraph usando le azioni script. Dopo l'installazione di Giraph, verranno fornite anche informazioni su come usare Giraph per la maggior parte delle applicazioni tipiche, ovvero per l'elaborazione di grafici di grandi dimensioni.
 
-> [AZURE.NOTE]Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'utilizzo di cluster basati su Windows, vedere [Installare Giraph nei cluster Hadoop HDInsight (Windows)](hdinsight-hadoop-giraph-install.md)
+> [AZURE.NOTE] Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'utilizzo di cluster basati su Windows, vedere [Installare Giraph nei cluster Hadoop HDInsight (Windows)](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="whatis"></a>Che cos'è Giraph?
 
@@ -44,20 +44,20 @@ Lo script esegue le azioni seguenti:
 
 Uno script di esempio per l'installazione di Giraph in un cluster HDInsight è disponibile in un BLOB di archiviazione di Azure di sola lettura all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si crea il cluster usando il portale di Azure classico.
 
-> [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare i cluster HDInsight con azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
-2. Nel pannello **Configurazione facoltativa** selezionare **Azioni script** e specificare le informazioni seguenti:
+2. Nel pannello **Configurazione facoltativa** selezionare **Azioni di script** e specificare le informazioni seguenti:
 
 	* __NOME__: immettere un nome descrittivo per l'azione script.
 	* __URI SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 	* __HEAD__: selezionare questa opzione.
 	* __LAVORO__: selezionare questa opzione.
-	* __ZOOKEEPER__: selezionare questa opzione per l'installazione nel nodo Zookeeper.
-	* __PARAMETRI__: lasciare questo campo vuoto.
+	* __ZOOKEEPER__: selezionare questa opzione per l'installazione nel nodo Zookeeper
+	* __PARAMETERS__: lasciare questo campo vuoto
 
-3. Nella parte inferiore di **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
+3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione. Usare infine il pulsante **Seleziona** nella parte inferiore del pannello **Configurazione facoltativa** per salvare le informazioni relative alla configurazione facoltativa.
 
 4. Continuare a creare il cluster come descritto nell'argomento relativo alla [creazione di cluster HDInsight basati su Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -152,4 +152,4 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

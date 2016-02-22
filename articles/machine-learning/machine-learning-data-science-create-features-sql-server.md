@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" />
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" />
 
 
 # Creare funzionalità per i dati in SQL Server tramite SQL e Python
 
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come progettare le funzionalità per dati in diversi ambienti. Questa attività è un passaggio di Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
 ## Introduzione
 
-Questo documento descrive la creazione di funzionalità per i dati archiviati in una macchina virtuale di SQL Server in Azure. Questa operazione può essere eseguita tramite SQL o usando un linguaggio di programmazione come Python.
+Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure da cui gli algoritmi possono apprendere in modo efficiente. Questa operazione può essere eseguita tramite SQL o usando un linguaggio di programmazione come Python. In questo esempio vengono usati entrambi.
 
-> [AZURE.NOTE]Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
+> [AZURE.NOTE] Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -45,7 +44,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
+> [AZURE.NOTE] Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
 
 ###<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 
@@ -96,10 +95,10 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
 
 
-> [AZURE.TIP]A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
  
 
-> [AZURE.TIP]Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
@@ -126,4 +125,4 @@ A questo punto è possibile usare il frame di dati di Pandas, come descritto nel
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

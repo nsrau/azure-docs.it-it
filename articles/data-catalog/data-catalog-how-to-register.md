@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/18/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -49,7 +49,7 @@ Per impostazione predefinita, solo i metadati vengono estratti dalle origini dat
 Lo strumento di registrazione dell'origine dati del **Catalogo dati di Azure** consente agli utenti di includere un'anteprima dei dati in ogni tabella sotto forma di snapshot e una vista registrata. Se l'utente sceglie di includere anteprime durante la registrazione, lo strumento di registrazione includerà un massimo di 20 record da ogni tabella e vista. Questo snapshot viene quindi copiato nel catalogo insieme ai metadati strutturali e descrittivi.
 
 
-> [AZURE.NOTE]Nell'anteprima delle tabelle di grandi dimensioni con un numero elevato di colonne potrebbero essere inclusi meno di 20 record.
+> [AZURE.NOTE]  Nell'anteprima delle tabelle di grandi dimensioni con un numero elevato di colonne potrebbero essere inclusi meno di 20 record.
 
 
 ## Includere profili dati
@@ -65,7 +65,7 @@ Lo strumento di registrazione dell'origine dati del **Catalogo dati di Azure** c
 
 Queste statistiche vengono quindi copiate nel catalogo insieme ai metadati strutturali e descrittivi.
 
-> [AZURE.NOTE]Le colonne del testo e della data non includeranno le statistiche della media o della deviazione standard nel profilo dati.
+> [AZURE.NOTE]  Le colonne del testo e della data non includeranno le statistiche della media o della deviazione standard nel profilo dati.
 
 ## Aggiornamento delle registrazioni
 
@@ -76,4 +76,4 @@ La nuova registrazione di un'origine dati già registrata esegue un'operazione d
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Dopo la registrazione di un'origine dati, questa potrà essere annotata, gestita e individuata tramite il portale del **Catalogo dati di Azure**.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

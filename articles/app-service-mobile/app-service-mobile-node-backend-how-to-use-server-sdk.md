@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # Come usare Node.js SDK per App per dispositivi mobili di Azure
@@ -327,7 +327,7 @@ Di seguito è riportato un file _azureMobile.js_ di esempio che implementa le im
 
 È consigliabile aggiungere _azureMobile.js_ al file con estensione _gitignore_, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud. Configurare sempre le impostazioni di produzione in Impostazioni app nel [portale di Azure].
 
-### <a name="howto-appsettings"><a>Impostazioni app per la configurazione dell'app per dispositivi mobili
+### <a name="howto-appsettings"></a>Impostazioni app per la configurazione dell'app per dispositivi mobili
 
 Quasi tutte le impostazioni nel file _azureMobile.js_ hanno un'impostazione app equivalente nel [portale di Azure]. Usare l'elenco seguente per configurare l'app in Impostazioni app:
 
@@ -561,9 +561,9 @@ Una volta installato, è possibile abilitare il supporto di Swagger nel costrutt
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-L'endpoint swagger sarà posizionato in http://\_yoursite\_.azurewebsites.net/swagger. È possibile accedere all'interfaccia utente di Swagger tramite l'endpoint `/swagger/ui`. Si noti che Swagger genera un errore per / endpoint se si sceglie di richiedere l'autenticazione a livello dell'intera applicazione. Per ottenere risultati ottimali, scegliere di consentire richieste non autenticate tramite le impostazioni di Autenticazione/Autorizzazione del servizio app di Azure, quindi controllare l'autenticazione con la proprietà `table.access`.
+L'endpoint di Swagger si trova in http://_yoursite_.azurewebsites.net/swagger. È possibile accedere all'interfaccia utente di Swagger tramite l'endpoint `/swagger/ui`. Si noti che Swagger genera un errore per / endpoint se si sceglie di richiedere l'autenticazione a livello dell'intera applicazione. Per ottenere risultati ottimali, scegliere di consentire le richieste non autenticate tramite le impostazioni di autenticazione/autorizzazione del Servizio app di Azure e quindi controllare l'autenticazione con la proprietà `table.access`.
 
-È anche possibile aggiungere l'opzione Swagger al file `azureMobile.js` se si vuole il supporto di Swagger solo quando si sviluppa in locale.
+È anche possibile aggiungere l'opzione Swagger al file `azureMobile.js` se si vuole supportare Swagger solo quando si sviluppa in locale.
 
 ## <a name="CustomAPI"></a>API personalizzate
 
@@ -645,6 +645,32 @@ L'SDK di App per dispositivi mobili di Azure implementa l'autenticazione nello s
 
 Lo stesso token usato per l'endpoint delle tabelle deve essere usato per le API personalizzate che richiedono l'autenticazione.
 
+### <a name="howto-customapi-auth"></a>Procedura: Gestire il caricamento di file di grandi dimensioni
+
+Azure Mobile Apps SDK usa il [middleware body-parser](https://github.com/expressjs/body-parser) per accettare e decodificare il contenuto del corpo nell'elemento inviato. È possibile preconfigurare il body-parser per accettare caricamenti di file più grandi:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+Il limite di 50 MB mostrato in precedenza può essere modificato. Si noti che il file ha una codifica base-64 prima della trasmissione, che aumenterà le dimensioni del caricamento effettivo.
+
 ## <a name="Debugging"></a>Debug e risoluzione dei problemi
 
 Il Servizio app di Azure offre diverse tecniche di debug e risoluzione dei problemi per le applicazioni Node.js. Sono disponibili tutte le tecniche seguenti:
@@ -725,7 +751,7 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [Abilitazione della registrazione diagnostica nel servizio app di Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Risoluzione dei problemi di un Servizio app di Azure in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specificare la versione di Node.js]: ../nodejs-specify-node-version-azure-apps.md
-[usare i moduli di Node]: ../nodejs-use-node-mobiles-azure-apps.md
+[usare i moduli di Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -745,4 +771,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

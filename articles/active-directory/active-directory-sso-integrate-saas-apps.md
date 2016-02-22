@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS  
@@ -43,7 +43,7 @@ Azure AD fornisce diverse soluzioni personalizzabili per distribuire le applicaz
 
 L'impostazione di Single Sign-On per un'applicazione in uso nell'organizzazione è un processo diverso rispetto alla creazione di nuovi account per una nuova applicazione. Esistono un paio di passaggi preliminari tra cui il mapping di identità utente nell'applicazione alle identità di Azure AD e le informazioni sull'esperienza utente durante l'accesso a un'applicazione dopo la relativa integrazione.
 
-> [AZURE.NOTE]Per configurare SSO per un'applicazione esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD sia per l'applicazione SaaS.
+> [AZURE.NOTE] Per configurare SSO per un'applicazione esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD sia per l'applicazione SaaS.
 
 ### Mapping degli account utente
 
@@ -68,4 +68,8 @@ Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta
 
 La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Vedere anche
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

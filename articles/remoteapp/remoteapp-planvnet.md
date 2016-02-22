@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 # Come pianificare la rete virtuale per Azure RemoteApp
 
-Questo documento descrive come configurare la rete virtuale di Azure e la subnet per Azure RemoteApp. Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di virtualizzare l'infrastruttura di rete nel cloud e di creare soluzioni ibride con Azure e le risorse locali. Per altre informazioni, leggere [qui](virtual-networks-overview.md).
+Questo documento descrive come configurare la rete virtuale di Azure e la subnet per Azure RemoteApp. Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di virtualizzare l'infrastruttura di rete nel cloud e di creare soluzioni ibride con Azure e le risorse locali. Per altre informazioni, leggere [qui](../virtual-network/virtual-networks-overview.md).
 
-Per definire i criteri di protezione per il traffico, sia in ingresso che in uscita, nella rete virtuale in cui si distribuirà Azure RemoteApp, è consigliabile creare una subnet per Azure RemoteApp separata dal resto delle distribuzioni nella rete virtuale di Azure. Per altre informazioni sulla definizione dei criteri di sicurezza della subnet della rete virtuale di Azure, vedere [Che cos'è un gruppo di sicurezza di rete](virtual-networks-nsg.md).
+Per definire i criteri di protezione per il traffico, sia in ingresso che in uscita, nella rete virtuale in cui si distribuirà Azure RemoteApp, è consigliabile creare una subnet per Azure RemoteApp separata dal resto delle distribuzioni nella rete virtuale di Azure. Per altre informazioni sulla definizione dei criteri di sicurezza della subnet della rete virtuale di Azure, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
 ## Tipi di raccolte Azure RemoteApp con reti virtuali di Azure
 
@@ -53,6 +53,6 @@ Di seguito sono elencati gli elementi che è necessario abilitare nella subnet d
 
 ## Rete virtuale con tunneling forzato
 
-Il [tunneling forzato](vpn-gateway-about-forced-tunneling.md) ora è supportato per tutte le nuove raccolte Azure RemoteApp. Attualmente non è supportata la migrazione di una raccolta esistente per supportare il tunneling forzato. Sarà necessario eliminare tutte le raccolte esistenti usando la rete virtuale collegata ad Azure RemoteApp e crearne di nuove per abilitare il tunneling forzato nelle raccolte.
+Il [tunneling forzato](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) ora è supportato per tutte le nuove raccolte Azure RemoteApp. Attualmente non è supportata la migrazione di una raccolta esistente per supportare il tunneling forzato. Sarà necessario eliminare tutte le raccolte esistenti usando la rete virtuale collegata ad Azure RemoteApp e crearne di nuove per abilitare il tunneling forzato nelle raccolte.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

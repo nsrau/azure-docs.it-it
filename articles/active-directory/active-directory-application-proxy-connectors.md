@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
-> [AZURE.NOTE]Il Proxy applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il Proxy applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 I gruppi di connettori sono utili in varie situazioni, ad esempio:
 
@@ -70,7 +70,7 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Risorse aggiuntive
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

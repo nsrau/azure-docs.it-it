@@ -31,7 +31,7 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 
 ## Visualizzare gli eventi di sistema di Service Fabric in Visual Studio
 
-Service Fabric emette eventi ETW per aiutare gli sviluppatori di applicazioni a capire cosa sta accadendo nella piattaforma. Se necessario, andare avanti e seguire la procedura descritta in [Creare la prima applicazione in Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md) per creare ed eseguire un'applicazione in cui il visualizzatore degli eventi di diagnostica mostra i messaggi di traccia.
+Service Fabric emette eventi ETW per aiutare gli sviluppatori di applicazioni a capire cosa sta accadendo nella piattaforma. Se necessario, andare avanti e seguire la procedura descritta in [Creare la prima applicazione in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) per creare ed eseguire un'applicazione in cui il visualizzatore degli eventi di diagnostica mostra i messaggi di traccia.
 
 1. Se la finestra degli eventi di diagnostica non viene visualizzata automaticamente, passare alla scheda **Esplora server in Visual Studio** , fare clic con il pulsante destro del mouse sul **cluster di Service Fabric** e scegliere **Visualizza eventi di diagnostica** dal menu di scelta rapida.
 
@@ -60,4 +60,4 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 ## Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Per altre informazioni, consultare gli articoli seguenti che illustrano le diverse opzioni disponibili per gli strumenti e descrivono le modalità per impostarle. * [Raccolta di log da un cluster di Service Fabric in Azure mediante Diagnostica di Microsoft Azure e Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso di ElasticSearch come archivio di traccia dell'applicazione di Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

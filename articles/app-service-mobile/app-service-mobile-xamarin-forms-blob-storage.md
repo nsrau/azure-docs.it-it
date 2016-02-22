@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Connettersi ad Archiviazione di Azure nell'app Xamarin.Forms
@@ -93,7 +93,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
             return base.DeleteFileAsync(id, name);
         }
 
-6. Pubblicare il progetto server nel back-end dell'app per dispositivi mobili.
+6. Aggiornare la configurazione dell'API Web per configurare il routing degli attributi. In **Startup.MobileApp.cs**, aggiungere la riga seguente al metodo `ConfigureMobileApp()` dopo la definizione della variabile `config`:
+
+        config.MapHttpAttributeRoutes();
+
+7. Pubblicare il progetto server nel back-end dell'app per dispositivi mobili.
 
 ###Route registrate dal controller di archiviazione
 
@@ -721,4 +725,4 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Creare un account di archiviazione]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

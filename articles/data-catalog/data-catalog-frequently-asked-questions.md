@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
@@ -42,9 +42,11 @@ Il **Catalogo dati di Azure** offre funzionalità per gli utenti tecnici, tra cu
 Durante l'anteprima, i servizi del **Catalogo dati di Azure** sono disponibili solo nei data center seguenti:
 
 - Stati Uniti occidentali
-- Stati Uniti orientali
+- Stati Uniti Orientali
 - Europa occidentale
+- Europa settentrionale
 - Australia orientale
+- Asia sudorientale
 
 ## D: quali sono i limiti sul numero di asset di dati nel Catalogo dati di Azure?
 
@@ -54,7 +56,7 @@ L'edizione Standard del **Catalogo dati di Azure** supporta fino a 100.000 asset
 
 ## D: quali sono i tipi di origine dati e di asset supportati?
 
-Per un elenco delle origini dati attualmente supportate, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
+Per l'elenco delle origini dati attualmente supportate, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
 
 
 ## D: come si richiede il supporto per un'altra origine dati?
@@ -80,11 +82,11 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 - Tipi di dati di colonna/attributo
 - Descrizione di colonna/attributo
 
-> [AZURE.IMPORTANT]La registrazione delle risorse di dati con **Catalogo dati di Azure** non sposta o copia i dati nel cloud. Registrando gli asset da un'origine dati si copiano i metadati degli asset in Azure, ma i dati rimangono nel percorso esistente dell’origine dati. L'unica eccezione a questa regola si rileva quando un utente sceglie di caricare i record di anteprima o un profilo dei dati durante la registrazione degli asset. Quando è prevista un'anteprima, vengono copiati fino a 20 record da ogni asset e vengono archiviati come snapshot nel **Catalogo dati di Azure**. Quando si include un profilo dei dati, le informazioni di aggregazione (ad esempio le dimensioni di tabelle, i valori null in percentuale per ogni colonna e i valori minimi, massimi e medi per le colonne) verranno calcolate e incluse nei metadati archiviati nel catalogo.
+> [AZURE.IMPORTANT] La registrazione delle risorse di dati con **Catalogo dati di Azure** non sposta o copia i dati nel cloud. Registrando gli asset da un'origine dati si copiano i metadati degli asset in Azure, ma i dati rimangono nel percorso esistente dell’origine dati. L'unica eccezione a questa regola si rileva quando un utente sceglie di caricare i record di anteprima o un profilo dei dati durante la registrazione degli asset. Quando è prevista un'anteprima, vengono copiati fino a 20 record da ogni asset e vengono archiviati come snapshot nel **Catalogo dati di Azure**. Quando si include un profilo dei dati, le informazioni di aggregazione (ad esempio le dimensioni di tabelle, i valori null in percentuale per ogni colonna e i valori minimi, massimi e medi per le colonne) verranno calcolate e incluse nei metadati archiviati nel catalogo.
 
 <br/>
 
-> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l'applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
+> [AZURE.NOTE] Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l'applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
 
 ## D: quanto tempo deve trascorrere prima che gli asset appena registrati vengano visualizzati nel Catalogo dati di Azure?
 
@@ -147,4 +149,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -34,8 +34,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 	-  Abilitare il peering pubblico di Azure: è necessario abilitare questo peering se si desidera connettersi ai servizi di Azure ospitati in indirizzi IP pubblici. Questo è un requisito per accedere alle risorse di Azure se si è scelto di abilitare il routing predefinito per il peering privato di Azure.
 	-  Abilitare il peering Microsoft: è necessario abilitare questo peering per accedere ai servizi Office 365 e CRM Online. 
 	
-	>[AZURE.IMPORTANT]Se si abilita il peering Microsoft, assicurarsi che sia abilitato anche il peering pubblico di Azure per l'accesso ad Azure Active Directory. Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
-
+	>[AZURE.IMPORTANT] Per la connessione a Microsoft è necessario usare un server proxy/perimetrale separato rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -110,7 +109,7 @@ Lo stato di provisioning BGP indica se la sessione BGP è stata abilitata sul la
 
 Se invece è impostato lo stato *validation needed*, la sessione BGP non è abilitata, poiché i prefissi annunciati non corrispondono al numero AS nei registri di routing.
 
->[AZURE.IMPORTANT]Se i prefissi pubblici annunciati sono impostati sullo stato *manual validation*, è necessario aprire un ticket di supporto con il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornire la prova di essere proprietari degli indirizzi IP annunciati insieme con il numero di sistema autonomo (AS) associato.
+>[AZURE.IMPORTANT] Se i prefissi pubblici annunciati sono impostati sullo stato *manual validation*, è necessario aprire un ticket di supporto con il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e fornire la prova di essere proprietari degli indirizzi IP annunciati insieme con il numero di sistema autonomo (AS) associato.
 
 
 ## Passaggi successivi
@@ -121,4 +120,4 @@ Se invece è impostato lo stato *validation needed*, la sessione BGP non è abil
 	- [Configurare il routing](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/03/2016" 
 	ms.author="cephalin"/>
 
 #Accesso alle risorse locali usando connessioni ibride nel servizio app di Azure
 
-È possibile connettere un'app Web nel servizio app di Azure a qualsiasi risorsa locale che utilizza una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP, Servizi mobili e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra un'app Web nel servizio app e un database di SQL Server locale.
+È possibile connettere un'app del Servizio app di Azure a qualsiasi risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Questo articolo illustra come creare una connessione ibrida tra il Servizio app e un database di SQL Server locale.
 
 > [AZURE.NOTE] La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> 
+> Questo contenuto si applica anche a App per dispositivi mobili del Servizio app di Azure.
 
 ## Prerequisiti
 - Una sottoscrizione di Azure. Per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+ 
+	Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 - Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. È consigliabile usare un'istanza predefinita di on SQL Server, perché usa la porta statica 1433. Per informazioni sull'installazione e configurazione di SQL Server Express per l'uso con le connessioni ibride, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -37,7 +41,7 @@
 
 ## Creazione di un'app Web nel portale di Azure ## ##
 
-> [AZURE.NOTE] Se nel portale di Azure è già stata creata un'app Web da usare per questa esercitazione, è possibile passare alla [creazione di una connessione ibrida e di un servizio BizTalk](#CreateHC).
+> [AZURE.NOTE] Se nel portale di Azure è già stata creata un'app Web o un back-end per App per dispositivi mobili da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e un servizio BizTalk](#CreateHC) e proseguire da quel punto.
 
 1. Nell'angolo inferiore sinistro del [portale di Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
 	
@@ -75,11 +79,7 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Nel **blade di connessione ibrida crea**:
-	- per **nome**, fornisce un nome per la connessione
-	- per **Hostname**, immettere il nome del computer locale che ospita la risorsa.
-	- per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).
-	- fare clic su **servizio parlare Biz**
+	Nel **blade di connessione ibrida crea**: - per **nome**, fornisce un nome per la connessione - per **Hostname**, immettere il nome del computer locale che ospita la risorsa. - per **porta**, immettere il numero di porta che la risorsa locale utilizza (1433 per un'istanza predefinita di SQL Server).-fare clic su **servizio parlare Biz**
 
 
 4. Viene visualizzato il pannello **Crea servizio BizTalk**. Immettere un nome per il servizio BizTalk, quindi fare clic su **OK**.
@@ -93,17 +93,18 @@ Verranno quindi creati una connessione ibrida e un servizio BizTalk per l'app We
 	![Fare clic su OK.][CreateBTScomplete]
 	
 6. Al termine del processo l'area delle notifiche nel portale informa che la connessione è stata creata correttamente.
-	<!-- TODO
-	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+	<!--- TODO
 
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
+
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. Nel panello dell'app Web, l'icona **Connessioni ibride** ora mostra che è stata creata una connessione ibrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -155,14 +156,64 @@ A questo punto è stata completata una parte importante dell'infrastruttura dell
 
 Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile creata un'applicazione Web che la usa.
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Nelle sezioni seguenti viene illustrato come usare una connessione ibrida con un progetto di back-end .NET per App per dispositivi mobili.
+
+## Configurare il progetto di back-end .NET per App per dispositivi mobili per la connessione al database di SQL Server
+
+In Servizio app, un progetto di back-end .NET per App per dispositivi mobili è semplicemente un'app Web ASP.NET dotata di un SDK per App per dispositivi mobili installato e inizializzato. Per usare l'app Web come backend di App per dispositivi mobili, è necessario [scaricare e inizializzare l'SDK back-end .NET per App per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+
+Per App per dispositivi mobili, è necessario anche definire una stringa di connessione per il database locale e modificare il back-end in modo che possa usare questa connessione.
+
+1. In Esplora soluzioni di Visual Studio, aprire il file Web.config per il back-end .NET per App per dispositivi mobili, individuare la sezione **connectionStrings**, aggiungere una nuova voce SqlClient simile alla seguente, che punta al database di SQL Server locale:
+
+	    <add name="OnPremisesDBConnection"
+         connectionString="Data Source=OnPremisesServer,1433;
+         Initial Catalog=OnPremisesDB;
+         User ID=HybridConnectionLogin;
+         Password=<**secure_password**>;
+         MultipleActiveResultSets=True"
+         providerName="System.Data.SqlClient" />
+
+	Ricordare di sostituire `<**secure_password**>` in questa stringa con la password creata per *HybridConnectionLogin*.
+
+3. Fare clic su **Salva** in Visual Studio per salvare il file Web.config.
+
+	> [AZURE.NOTE]Questa impostazione di connessione viene usata per l'esecuzione nel computer locale. Per l'esecuzione in Azure viene eseguito l'override di questa impostazione con l'impostazione di connessione definita nel portale.
+
+4. Espandere la cartella **Modelli** e aprire il file di modello dati, che termina con *Context.cs*.
+
+6. Modificare il costruttore di istanza **DbContext** per passare il valore `OnPremisesDBConnection` al costruttore **DbContext** di base, simile al frammento di codice seguente:
+
+        public class hybridService1Context : DbContext
+        {
+            public hybridService1Context()
+                : base("OnPremisesDBConnection")
+            {
+            }
+        }
+
+	Il servizio userà ora la nuova connessione al database di SQL Server.
+
+## Aggiornare il back-end per App per dispositivi mobili in modo che usi la stringa di connessione locale
+
+Successivamente, è necessario aggiungere un'impostazione dell'app per la nuova stringa di connessione in modo da poter essere usata da Azure.
+
+1. Nel codice back-end dell'app Web per l'app per dispositivi mobili all'interno del [portale di Azure](https://portal.azure.com) fare clic su **Tutte le impostazioni** e quindi su **Impostazioni applicazione**.
+
+3. Nel pannello **Impostazioni app Web** scorrere fino a **Stringhe di connessione** e aggiungere una nuova stringa di connessione di **SQL Server** denominata `OnPremisesDBConnection` con un valore simile a `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
+
+	Sostituire `<**secure_password**>` con la password sicura per il database locale.
+
+	![Stringa di connessione del database locale](./media/web-sites-hybrid-connection-get-started/set-sql-server-database-connection.png)
+
+2. Premere **Salva** per salvare la connessione ibrida e la stringa di connessione creata.
+
+A questo punto è possibile ripubblicare il progetto server e provare la nuova connessione con i client di App per dispositivi mobili esistenti. I dati verranno letti da e scritti nel database locale tramite la connessione ibrida.
 
 <a name="NextSteps"></a>
 ## Passaggi successivi ##
 
-- Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride](http://go.microsoft.com/fwlink/?LinkID=397979).
-
-- Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+- Per informazioni sulla creazione di un'applicazione Web ASP.NET che usa una connessione ibrida, vedere [Connettersi a un'istanza di SQL Server locale da un sito Web di Azure mediante Connessioni ibride](http://go.microsoft.com/fwlink/?LinkID=397979). 
 
 ### Risorse aggiuntive
 
@@ -207,4 +258,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

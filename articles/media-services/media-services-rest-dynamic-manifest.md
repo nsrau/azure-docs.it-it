@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Creazione di filtri con l'API REST di Servizi multimediali di Azure
@@ -40,7 +40,7 @@ Durante la creazione dei filtri vengono usati i tipi seguenti:
 
 
 
->[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+>[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
@@ -374,4 +374,4 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

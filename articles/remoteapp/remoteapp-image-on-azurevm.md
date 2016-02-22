@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016" 
+    ms.date="02/05/2016" 
     ms.author="elizapo" />
 
 
@@ -29,15 +29,15 @@ Usare questi passaggi per creare un'immagine basata su una macchina virtuale di 
 
 1. Creare una macchina virtuale di Azure. È possibile utilizzare l’immagine "Windows Server Host sessione Desktop remoto" o "Windows Server Host sessione Desktop remoto con Microsoft Office 365 ProPlus" dalla raccolta immagini della macchina virtuale di Azure. Questa immagine soddisfa tutti i requisiti dell'immagine modello di Azure RemoteApp.
 
-	Per i dettagli, vedere [Creare una macchina virtuale che esegue Windows](virtual-machines-windows-tutorial.md).
+	Per i dettagli, vedere [Creare una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 2. Connettersi alla macchina virtuale e installare e configurare le app da condividere mediante RemoteApp. Assicurarsi di eseguire tutte le configurazioni aggiuntive di Windows richieste dalle app.
 
-	Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md).
+	Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-log-on-windows-server.md).
 
 3. Se si usa una delle immagini Host sessione Desktop remoto di Windows Server, viene fornito uno script di valutazione che assicura che la macchina virtuale soddisfi i prerequisiti di RemoteApp. Per eseguire lo script, fare doppio clic su **ValidateRemoteAppImage** nel desktop. Assicurarsi di risolvere tutti gli errori rilevati dallo script prima di procedere al passaggio successivo.
 
-4. Generalizzare l'immagine con SYSPREP e acquisirla. Per istruzioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](../virtual-machines-capture-image-windows-server.md).
+4. Generalizzare l'immagine con SYSPREP e acquisirla. Per istruzioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](../virtual-machines/virtual-machines-capture-image-windows-server.md).
 
 
 
@@ -58,4 +58,4 @@ Usare questi passaggi per importare la nuova immagine Azure RemoteApp:
 
 Ora è possibile creare la nuova raccolta, [cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md), in base alle proprie esigenze.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@ L’**albero delle decisioni** per la scelta degli scenari di esempio appropriat
 
 Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scenario vengono elencati un flusso di dati scientifici o di analisi avanzata possibile e le risorse di Azure di supporto.
 
->[AZURE.NOTE]**Per tutti gli scenari seguenti, è necessario:**
+>[AZURE.NOTE] **Per tutti gli scenari seguenti, è necessario:**
 
 *   [Creare un account di archiviazione](storage-whatis-account.md)
 *   [Creare un'area di lavoro Azure ML](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
     f. Se sono richiesti join di tabella, creare gli indici per velocizzarli.
 
- >[AZURE.NOTE]Per caricare più velocemente dati di grandi dimensioni, è consigliabile creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, è consigliabile creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 
@@ -208,7 +208,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 	f. Se sono richiesti join di tabella, creare gli indici per velocizzarli.
 
-> [AZURE.NOTE]Per caricare più velocemente dati di grandi dimensioni, creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 
@@ -264,7 +264,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
 
     d. Eseguire le query Hive per creare tabelle e database e caricare i dati dall'archivio BLOB nelle tabelle Hive.
 
- 	> [AZURE.NOTE]Se i dati sono di grandi dimensioni, gli utenti possono creare la tabella Hive con partizioni. Gli utenti possono quindi usare un ciclo `for` nella riga di comando di Hadoop nel nodo head per caricare dati nella tabella Hive partizionata in base alla partizione.
+ 	> [AZURE.NOTE] Se i dati sono di grandi dimensioni, gli utenti possono creare la tabella Hive con partizioni. Gli utenti possono quindi usare un ciclo `for` nella riga di comando di Hadoop nel nodo head per caricare dati nella tabella Hive partizionata in base alla partizione.
 
 6.  Esaminare i dati e creare le funzionalità necessarie nella riga di comando di Hadoop. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 
@@ -314,4 +314,4 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

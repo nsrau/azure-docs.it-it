@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight nel Cortana Analytics Process
@@ -127,7 +127,7 @@ In questa sezione, vengono descritte le attività di gestione dei dati seguenti 
 1. [Esplorazione dei dati](#hive-dataexploration)
 2. [Creazione di funzionalità](#hive-featureengineering)
 
-> [AZURE.NOTE]Le query Hive di esempio presuppongono che i dati siano stati caricati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
+> [AZURE.NOTE] Le query Hive di esempio presuppongono che i dati siano stati caricati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 
 ###<a name="hive-dataexploration"></a>Esplorazione dei dati
 Di seguito sono riportati alcuni script Hive di esempio che possono essere usati per esplorare i dati nelle tabelle Hive.
@@ -179,7 +179,7 @@ In questa sezione verranno descritti i modi per creare funzionalità tramite que
 4. [Estrazione delle funzionalità dal campo Text](#hive-textfeature)
 5. [Calcolo della distanza tra le coordinate GPS](#hive-gpsdistance)
 
-> [AZURE.NOTE]Dopo avere creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente o creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che possono quindi essere unite con la tabella originale.
+> [AZURE.NOTE] Dopo avere creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente o creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che possono quindi essere unite con la tabella originale.
 
 ####<a name="hive-frequencyfeature"></a> Creazione di funzionalità basata sulla frequenza
 
@@ -325,4 +325,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

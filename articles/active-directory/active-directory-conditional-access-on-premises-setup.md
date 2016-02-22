@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@ Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza 
 5.	Nella sezione **distribuisci e gestisci** eseguire i passaggi da 1 a 3 per integrare Azure Active Directory con la directory locale.
   1.	Aggiungere i domini.
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio. >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. >[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
+  3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
+  >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente.[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
   
    
 
@@ -244,4 +245,8 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 ![Schermata di un errore visualizzato quando gli utenti non hanno registrato il dispositivo con Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

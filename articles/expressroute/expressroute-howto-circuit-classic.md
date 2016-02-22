@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute mediante PowerShell
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite i cmdlet di PowerShell e il modello di distribuzione classica. I passaggi che seguono descrivono anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito ExpressRoute.
+Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite i cmdlet di PowerShell e il modello di distribuzione **classica**. I passaggi che seguono descrivono anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito ExpressRoute. Se si vuole creare e modificare un circuito ExpressRoute usando il modello di distribuzione di **Gestione risorse**, vedere [Creare e modificare un circuito ExpressRoute tramite Gestione risorse di Azure e PowerShell](expressroute-howto-circuit-arm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -197,7 +197,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite 
 
 7. **Collegare una rete virtuale a un circuito ExpressRoute.**
 
-	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale usando il modello di distribuzione classico per ExpressRoute, per istruzioni vedere [Configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+	Collegare ora una rete virtuale a un circuito ExpressRoute. Per istruzioni dettagliate, vedere la pagina relativa al [collegamento di circuiti ExpressRoute a reti virtuali](expressroute-howto-linkvnet-classic.md). Se è necessario creare una rete virtuale usando il modello di distribuzione classica per ExpressRoute, vedere le istruzioni contenute in [Configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 ##  Ottenere lo stato di un circuito ExpressRoute
 
@@ -328,4 +328,4 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 
 - [Configurare il routing](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

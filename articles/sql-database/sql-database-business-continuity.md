@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL
@@ -88,4 +88,4 @@ La funzionalità di replica geografica standard è disponibile per i database St
 
 La funzionalità di replica geografica attiva è disponibile per i database Premium. È stata progettata per le applicazioni con un utilizzo notevole della scrittura e con requisiti di ripristino particolarmente elevati. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover a qualsiasi database secondario allo stesso modo della funzionalità di replica geografica standard. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate su come configurare la funzionalità di replica geografica, vedere [Progettazione per la continuità aziendale](sql-database-business-continuity-design.md). Per informazioni dettagliate su come eseguire il failover al database secondario, vedere [Ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md). Per informazioni dettagliate su come implementare l'aggiornamento dell'applicazione senza tempo di inattività, vedere [Aggiornamento dell'applicazione senza tempo di inattività](sql-database-business-continuity-application-upgrade.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

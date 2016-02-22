@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -31,7 +31,7 @@ Informazioni su come installare i notebook di Zeppelin in cluster Spark e su com
 
 	> [AZURE.NOTE] Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
 
-* Un browser web che può essere configurato per utilizzare un proxy SOCKS
+* Un browser Web che può essere configurato per usare un proxy SOCKS
 
 * __(facoltativo)__: un plug-in, ad esempio [FoxyProxy](http://getfoxyproxy.org/,) che possa applicare delle regole che instradano solo richieste specifiche attraverso il tunnel.
 
@@ -51,9 +51,9 @@ Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script pe
 
 * Per lo script non sono necessari parametri.
 
-### Utilizzo di .NET SDK per HDInsight
+### Uso di HDInsight .NET SDK
 
-Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
+Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
 
 * È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
@@ -129,7 +129,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
 
 ### Creare un tunnel usando PuTTY (Windows)
 
-Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
+Usare la procedura seguente per creare un tunnel SSH usando PuTTY.
 
 1. Aprire PuTTY e immettere le informazioni di connessione. Se non si ha familiarità con PuTTY, vedere l'articolo relativo all'[uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) per informazioni su come usarlo con HDInsight.
 
@@ -137,7 +137,7 @@ Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
 
 3. Fornire le seguenti informazioni nel modulo **Options controlling SSH port forwarding**:
 
-	* **Source port**: la porta del client che si desidera inoltrare. Ad esempio, **9876**.
+	* **Source port**: la porta del client che si vuole inoltrare. Ad esempio, **9876**.
 
 	* **Destination**: l'indirizzo SSH del cluster HDInsight basato su Linux. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
 
@@ -149,11 +149,11 @@ Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
 
 5. Quando richiesto, accedere al server. Verrà stabilita una sessione SSH e verrà abilitato il tunnel.
 
-### Utilizzare il tunnel dal browser
+### Usare il tunnel dal browser
 
-> [AZURE.NOTE] I passaggi descritti in questa sezione utilizzano il browser FireFox, poiché è disponibile gratuitamente per i sistemi Linux, Unix, Macintosh OS X e Windows. Anche altri browser moderni come Google Chrome, Edge Microsoft o Apple Safari dovrebbero funzionare; tuttavia, il plug-in FoxyProxy utilizzato in alcuni passaggi potrebbe non essere disponibile per tutti i browser.
+> [AZURE.NOTE] I passaggi descritti in questa sezione usano il browser FireFox, poiché è disponibile gratuitamente per i sistemi Linux, Unix, Macintosh OS X e Windows. Anche altri browser moderni come Google Chrome, Edge Microsoft o Apple Safari dovrebbero funzionare; tuttavia, il plug-in FoxyProxy usato in alcuni passaggi potrebbe non essere disponibile per tutti i browser.
 
-1. Configurare il browser per usare **localhost:9876** come proxy **SOCKS v5**. Ecco visualizzate le impostazioni di Firefox. Se si utilizza una porta diversa da quella 9876, cambiare la porta con quella utilizzata:
+1. Configurare il browser per usare **localhost:9876** come proxy **SOCKS v5**. Ecco visualizzate le impostazioni di Firefox. Se si usa una porta diversa da quella 9876, cambiare la porta con quella usata:
 
 	![image of Firefox settings](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
@@ -254,7 +254,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 	È inoltre possibile fornire un titolo a ogni paragrafo. Nell'angolo superiore destro fare clic sull'icona **Impostazioni** e quindi su **Mostra titolo**.
 
-5. È ora possibile eseguire istruzioni SQL Spark su tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID di compilazione e la differenza tra le temperature effettive e quelle di destinazione per ogni compilazione di una determinata data. Premere **MAIUSC + INVIO**.
+5. È ora possibile eseguire istruzioni SQL Spark su tabella **hvac**. Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID dell'edificio e la differenza tra le temperature effettive e quelle di destinazione per ogni edificio in una determinata data. Premere **MAIUSC + INVIO**.
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date 
@@ -297,7 +297,7 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -311,7 +311,9 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Estensioni
+### Strumenti ed estensioni
+
+* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -330,4 +332,4 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

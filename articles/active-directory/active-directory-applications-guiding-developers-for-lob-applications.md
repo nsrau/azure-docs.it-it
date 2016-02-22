@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD e applicazioni: Guida per gli sviluppatori
@@ -77,4 +77,8 @@ Per le applicazioni attendibili, è possibile fornire il consenso per l'applicaz
 
 Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Azure, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

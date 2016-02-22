@@ -19,9 +19,9 @@
 
 
 
-#Preparare Debian VHD per Azure
+# Preparare un disco rigido virtuale Debian per Azure
 
-##Prerequisiti
+## Prerequisiti
 In questa sezione si presuppone che un sistema operativo Linux Debian sia già stato installato da un file .iso scaricato dal [sito Web di Debian](https://www.debian.org/distrib/) in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione .vhd; Hyper-V è solo un esempio. Per istruzioni sull’uso di Hyper-V, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -33,7 +33,7 @@ In questa sezione si presuppone che un sistema operativo Linux Debian sia già s
 - Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
 
 
-##Debian 7.x e 8. x
+## Debian 7.x e 8. x
 
 1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
 
@@ -47,13 +47,13 @@ In questa sezione si presuppone che un sistema operativo Linux Debian sia già s
 
 5. Ricompilare il grub ed eseguire:
 
-        # sudo update-grub 
+        # sudo update-grub
 
 6. Installare i pacchetti di dipendenza per l’agente Linux di Azure:
 
         # apt-get install -y git parted
 
-7.	Installare l'agente Linux di Azure da Github tramite [indicazioni](virtual-machines-linux-update-agent.md) e scegliere la versione 2.0.14:
+7.	Installare l'agente Linux di Azure da GitHub seguendo le [indicazioni](virtual-machines-linux-update-agent.md) e scegliere la versione 2.0.14:
 
 			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
 			# chmod +x waagent
@@ -65,10 +65,10 @@ In questa sezione si presuppone che un sistema operativo Linux Debian sia già s
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
- 
+
 9. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-##Utilizzo di Credativ Script per creare Debian VHD
+## Uso di uno script Credativ per creare un disco rigido virtuale Debian
 
 Sul sito Web Credativ che consente di compilare automaticamente il Debian VHD è disponibile uno script. È possibile scaricarlo da [qui](https://gitlab.credativ.com/de/azure-manage) e installarlo nella VM Linux. Per creare un Debian VHD (ad esempio Debian 7) eseguire:
 
@@ -78,6 +78,6 @@ Se ci sono dei problemi per usare questo script, presentare semplicemente il pro
 
 ## Passaggi successivi
 
-Ora si è pronti a usare il file con estensione vhd. di Debian per creare nuove macchine virtuali di Azure. Se si usa Azure e si carica il file .vhd in Azure per la prima volta, è possibile seguire i passaggi 2 e 3 in [questo articolo](virtual-machines-linux-create-upload-vhd.md).
+È ora possibile usare il disco rigido virtuale Debian per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file con estensione vhd in Azure, vedere i passaggi 2 e 3 in [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

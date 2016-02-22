@@ -28,11 +28,12 @@ Lo spostamento delle applicazioni line-of-business nelle app Web di Servizio app
 -  Possibilità di concentrarsi più sullo sviluppo delle applicazioni e meno sull'acquisizione e sulla gestione dell'infrastruttura.
 -  Maggiore supporto per i dipendenti e i partner nell'uso dell'applicazione da qualsiasi postazione. Non è necessario che gli utenti siano connessi alla rete aziendale per poter usare l'applicazione e il gruppo IT evita di dover implementare soluzioni complesse con proxy inverso. Sono disponibili molte opzioni di autenticazione per proteggere l'accesso alle applicazioni aziendali.
 
-Di seguito è riportato un esempio di un'applicazione line-of-business in esecuzione nelle app Web di Servizio app di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo le app Web con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni**.
+Di seguito è riportato un esempio di un'applicazione line-of-business in esecuzione nelle app Web di Servizio app di Azure. L'esempio illustra le attività che è possibile eseguire con investimenti tecnici minimi semplicemente componendo le app Web con altri servizi. **Fare clic su un elemento nella topografia per visualizzare ulteriori informazioni.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. Nelle app Web di Servizio app di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere le guide relative alla [presenza Web globale](web-sites-global-web-presence-solution-overview.md) e alle [campagne di marketing digitali](web-sites-digital-marketing-application-solution-overview.md).
+> [AZURE.NOTE]
+Questa guida presenta alcune delle aree e delle attività più comuni relative alle applicazioni line-of-business. Nelle app Web di Servizio app di Azure sono tuttavia disponibili altre funzionalità che è possibile usare nelle implementazioni specifiche. Per informazioni dettagliate su tali funzionalità, vedere le guide relative alla [presenza Web globale](web-sites-global-web-presence-solution-overview.md) e alle [campagne di marketing digitali](web-sites-digital-marketing-application-solution-overview.md).
 
 ## Trasferire gli asset esistenti
 
@@ -79,10 +80,10 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 ## Altre risorse
 
 - [Documentazione relativa alle app Web del servizio app](/services/app-service/web/)
-- [Mappa di formazione per le app Web del servizio app di Azure](websites-learning-map.md)
+- [Mappa di formazione per le app Web del servizio app di Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog Web di Azure](/blog/topics/web/)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

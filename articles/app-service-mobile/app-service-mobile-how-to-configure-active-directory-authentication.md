@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app" 
-	description="Informazioni su come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app." 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+<properties
+	pageTitle="Come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app"
+	description="Informazioni su come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app."
+	authors="mattchenderson"
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Questo argomento descrive come configurare i servizi app di Azure per usare Azure Active Directory come provider di autenticazione.
 
@@ -38,7 +36,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 16. Fare clic su **OK** per registrare l'applicazione in Azure Active Directory. Verrà creata una nuova registrazione. Se invece si desidera scegliere una registrazione esistente, fare clic su **Seleziona un'app esistente** e quindi cercare il nome di una registrazione creata in precedenza all'interno del tenant. Fare clic sulla registrazione per selezionarla e fare clic su **OK**. Quindi, fare clic su **OK** nel pannello Impostazioni di Azure Active Directory.
 
     ![][0]
-	
+
 	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 
 17. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
@@ -69,8 +67,8 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 8. Una volta aggiunta l'applicazione, fare clic sulla scheda **Configura**. Modificare il valore di **URL di risposta** in **Single Sign-on** in modo che corrisponda all'URL dell'applicazione con il percorso _/.auth/login/aad/callback_ come suffisso. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
     ![][3]
-	
-	
+
+
 	> [AZURE.NOTE]
 	Se si usa il gateway del servizio app, anziché la funzionalità Autenticazione/Autorizzazione, l'URL di risposta usa l'URL del gateway URL con il percorso _/signin-aad_.
 
@@ -94,7 +92,7 @@ Se si usa il gateway del servizio app, ignorare questa sezione e accedere al gat
 15. Fare clic su **Azure Active Directory** e quindi su **Avanzata** in **Modalità di gestione**. Incollare i valori relativi all'ID client e all'URL dell'autorità di certificazione ottenuti in precedenza. Fare quindi clic su **OK**.
 
     ![][1]
-	
+
 	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 
 17. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
@@ -145,4 +143,4 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [metodo alternativo]: #advanced
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

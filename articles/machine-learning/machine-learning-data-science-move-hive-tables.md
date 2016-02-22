@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Creare e caricare dati nelle tabelle Hive dall'archiviazione BLOB di Azure
 
+## Introduzione
+In **questo documento** vengono presentate le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
+
 Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
- 
-## Introduzione
-In **questo documento** vengono presentate le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
 
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
@@ -93,7 +93,7 @@ Per impostazione predefinita, dopo aver inviato una query Hive nella riga di com
 
 #### Inviare query Hive nella console dei comandi di Hive
 
-Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
+Gli utenti possono anche immettere la console dei comandi di Hive eseguendo il comando `hive` dalla riga di comando di Hadoop e quindi inviare query Hive dalla console dei comandi di Hive al prompt **hive>**. Di seguito è fornito un esempio.
 
 ![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
@@ -168,7 +168,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
 - **&#60;path to blob data>**: se il file BLOB da caricare nella tabella Hive si trova nel contenitore predefinito del cluster Hadoop di HDInsight, *&#60;path to blob data>* deve essere nel formato *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. Il file BLOB può trovarsi inoltre in un contenitore aggiuntivo del cluster Hadoop di HDInsight. In questo caso, *&#60;path to blob data>* deve essere nel formato *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
 
-	>[AZURE.NOTE]I dati BLOB da caricare nella tabella Hive devono trovarsi nel contenitore predefinito o aggiuntivo dell'account di archiviazione del cluster Hadoop. In caso contrario, la query di *CARICAMENTO DEI DATI* avrà esito negativo perché non può accedere ai dati.
+	>[AZURE.NOTE] I dati BLOB da caricare nella tabella Hive devono trovarsi nel contenitore predefinito o aggiuntivo dell'account di archiviazione del cluster Hadoop. In caso contrario, la query di *CARICAMENTO DEI DATI* avrà esito negativo perché non può accedere ai dati.
 
 
 ## <a name="partition-orc"></a>Argomenti avanzati: Tabella partizionata e archiviazione dei dati Hive in formato ORC
@@ -232,7 +232,7 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	>[AZURE.NOTE]Se la tabella TEXTFILE *&#60;database name>.&#60;external textfile table name>* presenta partizioni, al PASSAGGIO 3, il comando `SELECT * FROM <database name>.<external textfile table name>` selezionerà la variabile della partizione come un campo nel set di dati restituito. L'inserimento di tale tabella in *&#60;database name>.&#60;ORC table name>* avrà esito negativo poiché *&#60;database name>.&#60;ORC table name>* non dispone della variabile della partizione come un campo nello schema della tabella. In questo caso, gli utenti devono selezionare i campi da inserire in *&#60;database name>.&#60;ORC table name>* come indicato di seguito:
+	>[AZURE.NOTE] Se la tabella TEXTFILE *&#60;database name>.&#60;external textfile table name>* presenta partizioni, al PASSAGGIO 3, il comando `SELECT * FROM <database name>.<external textfile table name>` selezionerà la variabile della partizione come un campo nel set di dati restituito. L'inserimento di tale tabella in *&#60;database name>.&#60;ORC table name>* avrà esito negativo poiché *&#60;database name>.&#60;ORC table name>* non dispone della variabile della partizione come un campo nello schema della tabella. In questo caso, gli utenti devono selezionare i campi da inserire in *&#60;database name>.&#60;ORC table name>* come indicato di seguito:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
@@ -250,4 +250,4 @@ Al termine della procedura, si disporrà di una tabella con i dati nel formato O
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

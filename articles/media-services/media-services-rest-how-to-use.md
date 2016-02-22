@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Servizi multimediali di Microsoft Azure è un servizio che accetta richieste HTTP basate su OData e può rispondere in formato JSON dettagliato o atom+pub. Poiché Servizi multimediali è conforme alle linee guida di progettazione di Azure, esiste un set di intestazioni HTTP obbligatorie che devono essere usate da ogni client per la connessione a Servizi multimediali, oltre a un set di intestazioni facoltative. Le seguenti sezioni descrivono le intestazioni e i verbi HTTP che è possibile usare quando si creano richieste e si ricevono risposte da Servizi multimediali.
 
+##Considerazioni 
+
+Quando si usa REST, si applicano le considerazioni seguenti:
+
+
+- Se si usa JSON, è NECESSARIO impostare l'intestazione Accept sul [formato JSON dettagliato](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). OData non riconosce la proprietà \_\_metadata nella richiesta, a meno che non venga impostata su verbose.
+
+	**Accept**: application/json;odata=verbose
+- Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** and **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## Intestazioni delle richieste HTTP standard supportate da Servizi multimediali
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|Decimale|3\.0
 
 
 
->[AZURE.NOTE]Poiché Servizi multimediali usa OData per esporre l'archivio di metadati di asset sottostante tramite le API REST, le intestazioni DataServiceVersion e MaxDataServiceVersion devono essere incluse in tutte le richieste. Se non vengono incluse, Servizi multimediali suppone che il valore di DataServiceVersion in uso sia 3.0.
+>[AZURE.NOTE] Poiché Servizi multimediali usa OData per esporre l'archivio di metadati di asset sottostante tramite le API REST, le intestazioni DataServiceVersion e MaxDataServiceVersion devono essere incluse in tutte le richieste. Se non vengono incluse, Servizi multimediali suppone che il valore di DataServiceVersion in uso sia 3.0.
 
 Nella seguente tabella è riportato un set di intestazioni facoltative:
 
@@ -81,6 +90,10 @@ DELETE|Elimina un oggetto.
 MERGE|Aggiorna un oggetto esistente con le modifiche alle proprietà denominate.
 HEAD|Restituisce i metadati di un oggetto per una risposta GET.
 
+##Limitazione
+
+Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** and **Take** (.NET)/ **top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [in questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+
 
 ## Individuazione del modello di Servizi multimediali
 
@@ -105,4 +118,4 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

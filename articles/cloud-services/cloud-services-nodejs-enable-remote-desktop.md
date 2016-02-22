@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Abilitazione di Desktop remoto in Azure
 
 Desktop remoto consente di accedere al desktop di un'istanza del ruolo in esecuzione in Azure. È possibile usare una connessione di desktop remoto per configurare la macchina virtuale oppure per risolvere e diagnosticare i problemi dell'applicazione.
 
-> [AZURE.NOTE]Questo articolo si applica alle applicazioni Node.js ospitate come servizio cloud di Azure.
+> [AZURE.NOTE] Questo articolo si applica alle applicazioni Node.js ospitate come servizio cloud di Azure.
 
 
 ## Prerequisiti
 
-- Installare e configurare [Azure PowerShell](../install-configure-powershell.md).
+- Installare e configurare [Azure PowerShell](../powershell-install-configure.md).
 - Distribuire un’app Node.js in un servizio cloud di Azure Per altre informazioni, vedere [Creazione e distribuzione di un'applicazione Node.js in un servizio cloud di Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -74,7 +73,7 @@ Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile 
 
     ![Avviso di sicurezza di Windows][5]
 
-4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1]\[Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
+4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1][Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
 
     ![richiesta di nome utente/password][6]
 
@@ -106,14 +105,14 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Accesso remoto alle istanze del ruolo in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Accesso remoto alle istanze del ruolo in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

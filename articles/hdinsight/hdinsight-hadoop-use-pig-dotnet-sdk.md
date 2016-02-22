@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -23,7 +23,7 @@
 
 Questo documento fornisce un esempio d'uso di .NET SDK per Hadoop per inviare i processi Pig a un cluster Hadoop in HDInsight.
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C#per inviare un processo Pig a un cluster HDInsight.
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C# per inviare un processo Pig a un cluster HDInsight.
 
 [AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -49,7 +49,7 @@ Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di anteprima di Azure][portale di anteprima].
+1. Visitare il [portale di Azure][portale di anteprima].
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
@@ -60,9 +60,7 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 ##<a id="create"></a>Creare l'applicazione
 
 1. Aprire Visual Studio 2012 o 2013.
-
 2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
-
 3. Nella finestra di dialogo Nuovo progetto digitare o selezionare i seguenti valori:
 
 	<table>
@@ -83,65 +81,62 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 <th>SubmitPigJob</th>
 </tr>
 </table>
-
 4. Fare clic su **OK** per creare il progetto.
-
 5. Selezionare **Gestione pacchetti libreria** o **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi scegliere **Console di Gestione pacchetti**.
-
 6. Usare il seguente comando nella console per installare i pacchetti di .NET SDK.
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
 7. In Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo. Replace Sostituire il codice esistente con il seguente.
 
-		using System;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
-		using Hyak.Common;
-		
-		namespace HDInsightSubmitPigJobsDotNet
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-					var ExistingClusterName = "<HDInsightClusterName>";
-					var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-					var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
-					var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
-		
-		            // The Pig Latin statements to run
-		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-		                "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-		                "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-		                "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-		                "RESULT = order FREQUENCIES by COUNT desc;" +
-		                "DUMP RESULT;";
-		
-		
-		            HDInsightJobManagementClient _hdiJobManagementClient;
-		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-		
-		            // Define the Pig job
-		            var parameters = new PigJobSubmissionParameters()
-		            {
-		                UserName = ExistingClusterUsername,
-		                Query = queryString,
-		            };
-		
-		            System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
-		            var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
-		            System.Console.WriteLine("Validating that the response is as expected...");
-		            System.Console.WriteLine("Response status code is " + response.StatusCode);
-		            System.Console.WriteLine("Validating the response object...");
-		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-		            Console.WriteLine("Press ENTER to continue ...");
-		            Console.ReadLine();
-		        }
-		    }
-		}
+        using System;
+        using Microsoft.Azure.Management.HDInsight.Job;
+        using Microsoft.Azure.Management.HDInsight.Job.Models;
+        using Hyak.Common;
+        
+        namespace HDInsightSubmitPigJobsDotNet
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    var ExistingClusterName = "<HDInsightClusterName>";
+                    var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+                    var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+                    var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+        
+                    // The Pig Latin statements to run
+                    string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+                        "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
+                        "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
+                        "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
+                        "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
+                        "RESULT = order FREQUENCIES by COUNT desc;" +
+                        "DUMP RESULT;";
+        
+        
+                    HDInsightJobManagementClient _hdiJobManagementClient;
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+        
+                    // Define the Pig job
+                    var parameters = new PigJobSubmissionParameters()
+                    {
+                        UserName = ExistingClusterUsername,
+                        Query = queryString,
+                    };
+        
+                    System.Console.WriteLine("Submitting the Pig job to the cluster...");
+                    var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
+                    System.Console.WriteLine("Validating that the response is as expected...");
+                    System.Console.WriteLine("Response status code is " + response.StatusCode);
+                    System.Console.WriteLine("Validating the response object...");
+                    System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+                    Console.WriteLine("Press ENTER to continue ...");
+                    Console.ReadLine();
+                }
+            }
+        }
 
 7. Premere **F5** per avviare l'applicazione.
 8. Premere **INVIO** per uscire dall'applicazione.
@@ -160,7 +155,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[portale di anteprima]: https://portal.azure.com/
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md) [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

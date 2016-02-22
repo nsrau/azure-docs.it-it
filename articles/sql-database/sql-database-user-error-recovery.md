@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure a seguito di un errore causato dall'utente
@@ -106,4 +106,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

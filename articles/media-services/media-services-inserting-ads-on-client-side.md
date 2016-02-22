@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@ Questo argomento contiene informazioni su come inserire diversi tipi di annunci 
 
 Per informazioni sul supporto di sottotitoli codificati e annunci nei video in streaming live, vedere, [Sottotitoli codificati supportati e standard per l'inserimento di annunci](media-services-manage-channels-overview.md#cc_and_ads).
 
- 
+>[AZURE.NOTE] Azure Media Player attualmente non supporta gli annunci.
+
 ##<a id="insert_ads_into_media"></a>Inserimento di annunci nei file multimediali
 
 Servizi multimediali di Azure offre il supporto per l'inserimento di annunci tramite la piattaforma Windows Media Platform, ovvero i player framework. Player Framework con supporto per gli annunci sono disponibili per i dispositivi Windows 8, Silverlight, Windows Phone 8 e iOS. Ogni player framework contiene codice di esempio che illustra come implementare un'applicazione di tipo lettore. È possibile inserire tre tipi diversi di annunci nei file multimediali.
@@ -320,7 +321,7 @@ L'elemento **<trigger>** contiene un elemento **<startConditions>** che specific
 1. **type** - specifica il tipo di condizione, di evento o di proprietà.
 1. **name** - nome della proprietà o dell'evento da usare durante la valutazione.
 1. **value** – valore in base al quale sarà valutata una proprietà.
-1. **operator** – operazione da usare durante la valutazione: EQ (uguale), NEQ (diverso da), GTR (maggiore), GEQ (maggiore o uguale), LT (minore), LEQ (minore o uguale), MOD (modulo).
+1. **operator**: operazione da usare durante la valutazione: EQ (uguale), NEQ (diverso da), GTR (maggiore), GEQ (maggiore o uguale), LT (minore), LEQ (minore o uguale), MOD (modulo).
 
 **<endConditions>** contiene anche elementi <condition>. Quando una condizione restituisce true, il trigger viene reimpostato. L'elemento <trigger> contiene anche un elemento <sources> che include uno o più elementi <source>. Gli elementi <source> definiscono l'URI per la risposta annuncio e il tipo della risposta annuncio. In questo esempio si assegna un URI a una risposta VAST.
 
@@ -812,4 +813,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

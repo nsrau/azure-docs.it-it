@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="02/09/2016"
 	ms.author="cephalin"/>
 
 # Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
 
 Le connessioni ibride possono connettere le App Web di [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a risorse locali che usano una porta TCP statica. Le risorse supportate includono Microsoft SQL Server, MySQL, HTTP API Web, servizi mobili e la maggior parte dei servizi Web personalizzati.
 
-In questa esercitazione si apprenderà come creare un'app Web del servizio app nel [portale di anteprima di Azur](http://go.microsoft.com/fwlink/?LinkId=529715), connettere l'app Web al database SQL Server locale mediante la nuova funzionalità Connessioni ibride, creare una semplice applicazione Web ASP.NET che userà la connessione ibrida e distribuire l'applicazione nell'app Web del servizio app. Il sito Web completato su Azure memorizza le credenziali dell'utente in un database di appartenenza locale. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET.
+Questa esercitazione spiega come creare un'app Web del servizio app nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), connettere l'app Web al database SQL Server locale mediante la nuova funzionalità Connessione ibrida, creare una semplice applicazione ASP.NET che usa la connessione ibrida e distribuire l'applicazione nell'app Web del servizio app. Il sito Web completato su Azure memorizza le credenziali dell'utente in un database di appartenenza locale. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET.
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
 >La parte relativa alle app Web della funzionalità Connessioni ibride è disponibile solo nel [portale di Azure](https://portal.azure.com). Per creare una connessione nei servizi BizTalk, vedere [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
@@ -54,7 +54,7 @@ Porta|Motivo
 80|**Obbligatorio** per la porta HTTP per la convalida del certificato e, facoltativamente, per la connettività dati.
 443|**Facoltativo** per la connettività dei dati. Se la connettività in uscita alla porta 443 non è disponibile, viene usata la porta TCP 80.
 5671 e 9352|**Consigliato** ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.
-- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale.
+- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale.
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -63,7 +63,7 @@ Se SQL Server è già installato in una configurazione e in un ambiente che sodd
 <a name="InstallSQL"></a>
 ## R. Installare SQL Server Express, abilitare TCP/IP e creare un database SQL Server locale ##
 
-In questa sezione viene illustrato come installare SQL Server Express, abilitare TCP/IP e creare un database in modo che l'applicazione Web funzioni con l'ambiente di Anteprima di Azure.
+Questa sezione illustra come installare SQL Server Express, abilitare TCP/IP e creare un database in modo che l'applicazione Web funzioni con il portale di Azure.
 
 ### Installare SQL Server Express ###
 
@@ -118,7 +118,7 @@ L'applicazione Web Visual Studio richiede un database di appartenenza al quale A
 <a name="CreateSite"></a>
 ## B. Creazione di un'app Web nel portale di Azure ## ##
 
-> [AZURE.NOTE]Se nel portale di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e servizi BizTalk](#CreateHC) e proseguire da quel punto.
+> [AZURE.NOTE] Se nel portale di Azure è già stato creato un sito Web da usare per questa esercitazione, è possibile passare a [Creare una connessione ibrida e servizi BizTalk](#CreateHC) e proseguire da quel punto.
 
 1. Nel [portale Azure](https://portal.azure.com), fare clic su **Nuovo** > **Web + Mobile** > **App Web**.
 
@@ -192,7 +192,7 @@ Dopo aver completato l'infrastruttura della connessione ibrida, verrà creata un
 
 In questo passaggio verrà modificata la stringa di connessione che comunica all'applicazione dove trovare il database SQL Server Express locale. La stringa di connessione si trova nel file Web.config dell'applicazione, che contiene le informazioni di configurazione relative all'applicazione.
 
-> [AZURE.NOTE]Per assicurarsi che l'applicazione usi il database creato in SQL Server Express, e non quello presente nel database LocalDB predefinito di Visual Studio, è importante completare questo passaggio prima di eseguire il progetto.
+> [AZURE.NOTE] Per assicurarsi che l'applicazione usi il database creato in SQL Server Express, e non quello presente nel database LocalDB predefinito di Visual Studio, è importante completare questo passaggio prima di eseguire il progetto.
 
 1. In Esplora soluzioni fare doppio clic sul file Web.config.
 
@@ -302,7 +302,7 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 
 [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 [Connettersi a un'istanza di SQL Server locale da Servizi mobili di Azure mediante Connessioni ibride (video Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
@@ -363,4 +363,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

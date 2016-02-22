@@ -36,7 +36,7 @@ Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Serv
 </Resources>
 ```
 
-Per informazioni sugli endpoint di riferimento del file delle impostazioni del pacchetto di configurazione (settings.xml), vedere [Configurazione di Reliable Services con stato](../Service-Fabric/service-fabric-reliable-services-configuration.md).
+Per altre informazioni sugli endpoint di riferimento del file delle impostazioni del pacchetto di configurazione (settings.xml), vedere [Configurazione di Reliable Services con stato](service-fabric-reliable-services-configuration.md).
 
 ## Esempio: specificare un endpoint HTTP per il servizio
 
@@ -137,4 +137,4 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

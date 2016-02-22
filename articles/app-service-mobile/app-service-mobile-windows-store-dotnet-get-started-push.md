@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Aggiungere notifiche push all'app universale di Windows Runtime 8.1 | App per dispositivi mobili di Azure" 
-	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure e gli hub di notifica di Azure per inviare notifiche push all'app di Windows." 
-	services="app-service\mobile,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Aggiungere notifiche push all'app universale di Windows Runtime 8.1 | App per dispositivi mobili di Azure"
+	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure e gli hub di notifica di Azure per inviare notifiche push all'app di Windows."
+	services="app-service\mobile,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app universale di Windows Runtime 8.1
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Panoramica
 
@@ -34,7 +32,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un [account di Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) attivo.
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Completare l'[esercitazione della guida introduttiva](../app-service-mobile-windows-store-dotnet-get-started.md).  
+* Completare l'[esercitazione della guida introduttiva](../app-service-mobile-windows-store-dotnet-get-started.md).
 
 
 ##<a name="create-hub"></a>Creare un hub di notifica
@@ -73,16 +71,16 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 	    HttpConfiguration config = this.Configuration;
 	    MobileAppSettingsDictionary settings =
 	        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
-	
+
 	    // Get the Notification Hubs credentials for the Mobile App.
 	    string notificationHubName = settings.NotificationHubName;
 	    string notificationHubConnection = settings
 	        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
-	
+
 	    // Create the notification hub client.
 	    NotificationHubClient hub = NotificationHubClient
 	        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-	
+
 	    // Define a WNS payload
 	    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
 	                            + item.Text + @"</text></binding></visual></toast>";
@@ -90,7 +88,7 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 	    {
 	        // Send the push notification.
 	        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-	
+
 	        // Write the success result to the logs.
 	        config.Services.GetTraceWriter().Info(result.State.ToString());
 	    }
@@ -100,7 +98,7 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 	        config.Services.GetTraceWriter()
 	            .Error(ex.Message, null, "Push.SendAsync Error");
 	    }
-	
+
 	Questo codice indica all'hub di notifica di inviare una notifica push dopo l'inserimento di un nuovo elemento.
 
 4. Pubblicare di nuovo il progetto server.
@@ -114,18 +112,18 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
 	    logger = require('azure-mobile-apps/src/logger');
-	
+
 		var table = azureMobileApps.table();
-		
+
 		table.insert(function (context) {
-	    // For more information about the Notification Hubs JavaScript SDK,  
+	    // For more information about the Notification Hubs JavaScript SDK,
 	    // see http://aka.ms/nodejshubs
 	    logger.info('Running TodoItem.insert');
-	    
+
 	    // Define the WNS payload that contains the new item Text.
 	    var payload = "<toast><visual><binding template=\ToastText01><text id="1">"
 		                            + context.item.text + "</text></binding></visual></toast>";
-	    
+
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
 	    return context.execute()
@@ -149,7 +147,7 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 	        });
 		});
 
-		module.exports = table;  
+		module.exports = table;
 
 	Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica popup WNS contenente l'elemento item.text.
 
@@ -159,11 +157,11 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
 1. Aprire il file di progetto condiviso **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
 
-		using System.Threading.Tasks;  
-        using Windows.Networking.PushNotifications;       
+		using System.Threading.Tasks;
+        using Windows.Networking.PushNotifications;
 
 2. Nello stesso file aggiungere la seguente definizione del metodo **InitNotificationsAsync** alla classe **App**:
-    
+
         private async Task InitNotificationsAsync()
         {
             // Get a channel URI from WNS.
@@ -173,9 +171,9 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
             // Register the channel URI with Notification Hubs.
             await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
-    
+
     Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'app per dispositivi mobili del servizio app.
-    
+
 3. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs**, aggiungere il modificatore **async** alla definizione del metodo e quindi aggiungere la seguente chiamata al nuovo metodo **InitNotificationsAsync**, come illustrato di seguito:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
@@ -203,7 +201,7 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 ##<a id="more"></a>Altro
 
 * I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare il client gestito per le App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) illustra come registrare modelli.
-* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) illustra come aggiungere tag all’installazione di un dispositivo.
+* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) illustra come aggiungere tag all’installazione di un dispositivo.
 
 <!-- Anchors. -->
 
@@ -212,4 +210,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 <!-- Images. -->
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

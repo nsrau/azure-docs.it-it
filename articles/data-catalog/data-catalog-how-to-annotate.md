@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -48,7 +48,7 @@ Durante l’anteprima **Catalogo dati Azure**, sono supportati i seguenti tipi d
 ## Asset con più annotazioni
 Quando si selezionano asset con più dati nel portale **Catalogo dati Azure**, gli utenti possono annotare tutti gli asset selezionati in un'unica operazione. Le annotazioni verranno applicate a tutti gli asset selezionati, rendendo più semplice selezionare e fornire una descrizione coerente e set di tag e esperti per asset di dati correlati.
 
-> [AZURE.NOTE]I tag e gli esperti possono anche essere forniti durante la registrazione degli asset di dati utilizzando lo strumento di registrazione origine dati di **Catalogo dati Azure**.
+> [AZURE.NOTE] I tag e gli esperti possono anche essere forniti durante la registrazione degli asset di dati utilizzando lo strumento di registrazione origine dati di **Catalogo dati Azure**.
 
 Quando si selezionano più tabelle e viste, verranno visualizzate solo le colonne comuni a tutti gli asset di dati selezionati nel portale **Catalogo dati Azure**. In questo modo gli utenti possono fornire tag e descrizioni per tutte le colonne con lo stesso nome per tutti gli asset selezionati.
 
@@ -58,4 +58,4 @@ I metadati estratti dai dati di origine durante la registrazione e i metadati fo
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono fornire le annotazioni affinché venga individuata e compresa in maniera più semplice dal portale **Catalogo dati Azure**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

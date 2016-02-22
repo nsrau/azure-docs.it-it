@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 
 # Aggiungere notifiche push all'app iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Panoramica
 In questa esercitazione si aggiungeranno notifiche push al progetto di [avvio rapido di iOS] per attivare l'invio di una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -55,7 +53,7 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 ##<a id="more"></a>Altro
 
 * I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. [Come usare la libreria client iOS per le app per dispositivi mobili di Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) illustra come registrare modelli.
-* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) illustra come aggiungere tag all’installazione di un dispositivo.
+* I tag consentono di orientarsi a clienti segmentati con notifiche push. [Lavorare con l’SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) illustra come aggiungere tag all’installazione di un dispositivo.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
@@ -72,4 +70,4 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 <!-- URLs. -->
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

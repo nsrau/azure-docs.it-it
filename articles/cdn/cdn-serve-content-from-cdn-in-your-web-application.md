@@ -252,11 +252,11 @@ Se si modifica il numero di assembly a ogni ciclo di pubblicazione, si potrà es
 
 L'integrazione di Azure App Service o Servizi cloud di Azure con la rete CDN di Azure offre i vantaggi seguenti:
 
-- Integrazione della distribuzione del contenuto (immagini, script e fogli di stile) come parte del processo di [distribuzione continua](../web-sites-publish-source-control.md) delle app Web di Azure
+- Integrazione della distribuzione del contenuto (immagini, script e fogli di stile) come parte del processo di [distribuzione continua](../app-service-web/web-sites-publish-source-control.md) delle app Web di Azure
 - Facile aggiornamento dei pacchetti NuGet gestiti dalla rete CDN, come le versioni jQuery o Bootstrap 
 - Gestione dell'applicazione Web e del contenuto gestito dalla rete CDN dalla stessa interfaccia di Visual Studio
 
-Per le relative esercitazioni, vedere:- [Usare la rete CDN di Azure in Azure App Service](../cdn-websites-with-cdn.md) - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
+Per le relative esercitazioni, vedere:- [Usare la rete CDN di Azure in Azure App Service](../app-service-web/cdn-websites-with-cdn.md) - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 
 Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure è possibile usare la rete CDN di Azure per i bundle di script, con le seguenti avvertenze:
 
@@ -267,10 +267,10 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 
 ## Altre informazioni ##
 - [Panoramica della Rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md)
-- [Usare la rete CDN di Azure in Azure App Service](../cdn-websites-with-cdn.md)
+- [Usare la rete CDN di Azure in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 - [Come eseguire il mapping del contenuto della rete per la distribuzione di contenuti (CDN) a un dominio personalizzato](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

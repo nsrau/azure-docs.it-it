@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # Come usare la libreria client gestita per Servizi mobili di Azure
@@ -86,7 +86,7 @@ Questa sezione descrive come eseguire query nel servizio mobile, incluse le funz
 - [Selezionare colonne specifiche]
 - [Cercare dati in base all'ID]
 
->[AZURE.NOTE]Viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutte le righe. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. Per restituire più di 50 righe, usare il metodo `Take` descritto in [Restituire i dati in pagine].
+>[AZURE.NOTE] Viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutte le righe. In questo modo, le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio. Per restituire più di 50 righe, usare il metodo `Take` descritto in [Restituire i dati in pagine].
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
 
@@ -211,7 +211,7 @@ Per cercare oggetti dal database caratterizzati da un particolare ID, è possibi
 
 ##<a name="inserting"></a>Procedura: Inserire dati in un servizio mobile
 
-> [AZURE.NOTE]Per eseguire operazioni di inserimento, ricerca, eliminazione o aggiornamento su un tipo, è necessario creare un membro denominato **Id**. La classe di esempio **TodoItem** ha infatti un membro denominato **Id**. Un valore ID è valido solo se è sempre presente nelle operazioni di aggiornamento ed eliminazione.
+> [AZURE.NOTE] Per eseguire operazioni di inserimento, ricerca, eliminazione o aggiornamento su un tipo, è necessario creare un membro denominato **Id**. La classe di esempio **TodoItem** ha infatti un membro denominato **Id**. Un valore ID è valido solo se è sempre presente nelle operazioni di aggiornamento ed eliminazione.
 
 Nel codice seguente viene illustrato come inserire nuove righe in una tabella. Il parametro contiene i dati da inserire come oggetto .NET.
 
@@ -309,7 +309,7 @@ Il client di Servizi mobili consente di registrarsi per le notifiche push con Hu
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app Windows, vedere [Aggiungere notifiche push all'applicazione](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Si noti che in questo esempio due tag sono inclusi con la registrazione. Per altre informazioni sulle app Windows, vedere [Aggiungere notifiche push all'app di Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
 Le app Xamarin in esecuzione su iOS o Android richiedono codice aggiuntivo per poter essere registrate, rispettivamente, con i servizi APNS (Apple Push Notification Service) e GCM (Google Cloud Messaging). Per altre informazioni, vedere **Aggiungere notifiche push all'app di Servizi mobili** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
@@ -769,4 +769,4 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

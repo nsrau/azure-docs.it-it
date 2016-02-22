@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure"
-	description="Informazioni su come usare la pubblicazione per fasi per le app Web nel servizio app di Azure."
+	pageTitle="Configurare ambienti di gestione temporanea per le app Web in Azure App Service"
+	description="Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service.";"
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
@@ -17,18 +17,18 @@
 	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
-# Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure
+# Configurare ambienti di gestione temporanea per le app Web in Azure App Service
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione a uno slot di distribuzione distinto, invece di quello predefinito, se la modalità dei piani del servizio app è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app Web dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+Quando si distribuisce l'app Web ad [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione a uno slot di distribuzione distinto, invece di quello predefinito se la modalità dei piani App Service utilizzata è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app Web dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
-- È possibile convalidare le modifiche alle app Web in uno slot di distribuzione di staging prima di scambiarlo con quello di produzione.
+- È possibile convalidare le modifiche alle app Web in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
 
 - La distribuzione preliminare di un'app Web in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app Web. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#configure-auto-swap-for-your-web-app) quando non è necessario spazio di pre-swapping convalida.
 
 - Dopo uno scambio, lo slot con l'app Web gestita temporaneamente includerà l'app Web di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
-Ciascuna modalità di piano del servizio app supporta un numero diverso di slot di distribuzione. Per scoprire il numero di slot supportati dalla modalità della propria app Web, vedere [Tariffe del servizio app](/pricing/details/app-service/).
+Ciascuna modalità di piano App Service supporta un numero diverso di slot di distribuzione. Per scoprire il numero di slot supportati dalla modalità della propria app Web, vedere [Tariffe di App Service](/pricing/details/app-service/).
 
 - Se l'app Web dispone di più slot, non è possibile cambiare la modalità.
 
@@ -49,7 +49,8 @@ Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in
 
 	![Aggiungi nuovo slot di distribuzione][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]Se l'app Web non è già in modalità **Standard** o **Premium**, si riceverà un messaggio di errore che indica le modalità supportate per l'abilitazione della pubblicazione per fasi. A questo punto, è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scala** dell'app Web prima di continuare.
+	> [AZURE.NOTE]
+	Se l'app Web non è già in modalità **Standard** o **Premium**, si riceverà un messaggio di errore che indica le modalità supportate per l'abilitazione della pubblicazione per fasi. A questo punto, è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scala** dell'app Web prima di continuare.
 
 2. Nel pannello **Aggiungi uno slot**, dare un nome allo slot e selezionare se clonare la configurazione dell'app Web da uno slot di distribuzione esistente. Fare clic sul segno di spunta per continuare.
 
@@ -70,7 +71,7 @@ Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in
 Non è presente alcun contenuto dopo la creazione dello slot di distribuzione. È possibile distribuire lo slot da un'area diversa dell'archivio o da un altro archivio. È anche possibile modificare la configurazione dello slot. Usare le credenziali del profilo di pubblicazione o di distribuzione associate allo slot di distribuzione per gli aggiornamenti dei contenuti. È ad esempio possibile [pubblicare in questo slot con git](web-sites-publish-source-control.md).
 
 <a name="AboutConfiguration"></a>
-## Configurazione per gli slot di distribuzione ##
+## Configurazione per gli slot di distribuzione ## ##
 Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Inoltre, alcuni elementi della configurazione seguiranno il contenuto nello scambio (non specifici dello slot) mentre altri elementi della configurazione resteranno nello stesso slot dopo uno scambio (specifici dello slot). Negli elenchi seguenti sono riportati gli elementi di configurazione che verranno modificati al momento dello scambio degli slot.
 
 **Impostazioni che vengono scambiate**:
@@ -97,7 +98,7 @@ Per configurare un'impostazione app o una stringa di connessione in modo da adat
 <a name="Swap"></a>
 ## Per scambiare gli slot di distribuzione ##
 
->[AZURE.IMPORTANT]Prima di scambiare un'app Web da uno slot di distribuzione alla produzione, accertarsi che tutte le impostazioni non specifiche dello slot siano configurate esattamente nel modo in cui si desidera nello slot di destinazione.
+>[AZURE.IMPORTANT] Prima di scambiare un'app Web da uno slot di distribuzione alla produzione, accertarsi che tutte le impostazioni non specifiche dello slot siano configurate esattamente nel modo in cui si desidera nello slot di destinazione.
 
 1. Per scambiare gli slot di distribuzione, fare clic sul pulsante **Scambia** nella barra dei comandi dell'app Web o di uno slot di distribuzione. Assicurarsi che l'origine e la destinazione dello scambio siano impostati correttamente. In genere, la destinazione dello scambio è rappresentata dallo slot di produzione.  
 
@@ -107,9 +108,9 @@ Per configurare un'impostazione app o una stringa di connessione in modo da adat
 
 ## Configurare lo scambio automatico per l'app Web ##
 
-Lo scambio automatico semplifica gli scenari DevOps nei quali si desidera distribuire continuamente l'app Web senza avvio a freddo e senza tempi di inattività per i clienti finali dell'app Web. Quando uno slot di distribuzione viene configurato per lo scambio automatico in produzione, ogni volta che si esegue il push dell'aggiornamento del codice in tale slot, il servizio app eseguirà automaticamente lo scambio dell'app Web in produzione dopo che è stato eseguito nello slot.
+Lo scambio automatico semplifica gli scenari DevOps nei quali si desidera distribuire continuamente l'app Web senza avvio a freddo e senza tempi di inattività per i clienti finali dell'app Web. Quando uno slot di distribuzione viene configurato per lo scambio automatico in produzione, ogni volta che si esegue il push dell'aggiornamento del codice in tale slot, App Service eseguirà automaticamente lo scambio dell'app Web in produzione dopo che è stato eseguito nello slot.
 
->[AZURE.IMPORTANT]Quando si abilita lo scambio automatico per uno slot, assicurarsi che la configurazione dello slot corrisponda esattamente a quella desiderata per lo slot di destinazione (in genere lo slot di produzione).
+>[AZURE.IMPORTANT] AZURE.IMPORTANTE Quando si abilita lo scambio automatico per uno slot, assicurarsi che la configurazione dello slot corrisponda esattamente alla configurazione dello slot desiderata per lo slot di destinazione (in genere lo slot di produzione).
 
 La configurazione dello scambio automatico per uno slot è semplice. Attenersi ai passaggi indicati di seguito:
 
@@ -123,7 +124,7 @@ La configurazione dello scambio automatico per uno slot è semplice. Attenersi a
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]Per verificare lo scambio automatico per l'app Web, è possibile selezionare dapprima uno slot di destinazione non di produzione in **Slot scambio automatico** per acquisire familiarità con la funzionalità.
+	>[AZURE.NOTE] Per verificare lo scambio automatico per l'app Web, è possibile selezionare dapprima uno slot di destinazione non di produzione in **Slot scambio automatico** per acquisire familiarità con la funzionalità.
 
 3. Eseguire un push del codice in tale slot di distribuzione. Lo scambio automatico verrà eseguito poco dopo e l'aggiornamento verrà riflesso nell'URL dello slot di destinazione.
 
@@ -134,23 +135,34 @@ Lo swap multifase è disponibile per semplificare la convalida nel contesto di e
 
 <a name="Rollback"></a>
 ## Per eseguire il rollback di un'app di produzione dopo lo scambio ##
+
 Se vengono identificati errori nel sito di produzione dopo lo scambio di uno slot, ripristinare i due slot allo stato precedente scambiandoli immediatamente.
 
+<a name="Warm-up"></a>
+## Riscaldamento personalizzato prima dello scambio ##
+
+Alcune app potrebbero richiedere azioni di riscaldamento personalizzate. L'elemento di configurazione applicationInitialization in web.config consente di specificare le azioni di inizializzazione personalizzate da eseguire prima che venga ricevuta una richiesta. L'operazione di scambio attenderà il completamento del riscaldamento personalizzato. Di seguito è riportato un frammento web.config di esempio.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
+
 <a name="Delete"></a>
-## Per eliminare uno slot di distribuzione##
+## Per eliminare uno slot di distribuzione####
 
 Nel pannello di uno slot di distribuzione, fare clic su **Elimina** nella barra dei comandi.
 
-![Eliminare uno slot di distribuzione][DeleteStagingSiteButton]
+![Per eliminare uno slot di distribuzione][DeleteStagingSiteButton]
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
 ## Cmdlet Azure PowerShell per gli slot di distribuzione
 
-Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione delle app Web nel servizio app di Azure.
+Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione delle app Web in Azure App Service.
 
-- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../install-configure-powershell.md).  
+- Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../powershell-install-configure.md).  
 
 - Per utilizzare la nuova modalità di gestione risorse di Azure per i cmdlet PowerShell iniziare con il seguente: `Switch-AzureMode -Name AzureResourceManager`.
 
@@ -233,7 +245,7 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 
 ----------
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Passaggi successivi ##
 [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app di Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -259,4 +271,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

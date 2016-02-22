@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -130,7 +130,7 @@ Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi 
 
 È possibile creare le sottoscrizioni a un argomento tramite l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi recapitati alla coda virtuale della sottoscrizione.
 
-> [AZURE.NOTE]le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono associate, non vengono eliminate. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già utilizzando il metodo **getSubscription**.
+> [AZURE.NOTE] le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono associate, non vengono eliminate. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già utilizzando il metodo **getSubscription**.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -152,7 +152,7 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è 
 
 È possibile aggiungere i filtri a una sottoscrizione tramite il metodo **createRule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
-> [AZURE.NOTE]Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti **MatchAll** sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **deleteRule** dell'oggetto **ServiceBusService**.
+> [AZURE.NOTE] Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario innanzitutto rimuovere il filtro predefinito, altrimenti **MatchAll** sovrascriverà qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **deleteRule** dell'oggetto **ServiceBusService**.
 
 L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** personalizzata è maggiore di 3:
 
@@ -316,7 +316,7 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -   Riferimento sulle API per [SqlFilter][]
 -   Archivio [Azure SDK for Node][] su GitHub
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [portale di Azure classico]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
@@ -327,4 +327,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Applicazione Web Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

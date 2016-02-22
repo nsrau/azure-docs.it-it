@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Aggiornamento del servizio mobile .NET di Azure esistente al Servizio app
@@ -277,4 +277,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

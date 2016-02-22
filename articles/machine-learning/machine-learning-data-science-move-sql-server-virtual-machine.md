@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
-Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
-
 ## Introduzione
+
 **In questo documento** vengono descritte le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Cortana Analytics Process fornito da Azure.
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
+
+Il **menu** seguente collega ad argomenti che descrivono come inserire dati in ambienti di destinazione dove i dati possono essere archiviati ed elaborati durante il processo Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
 
 Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.
 
@@ -37,7 +38,7 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
 
-> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](../data-factory/data-factory-copy-activity.md).
+> [AZURE.TIP] In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](data-factory-data-movement-activities.md).
 
 
 ## <a name="prereqs"></a>Prerequisiti
@@ -62,7 +63,7 @@ Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), 
 
 BCP è un'utilità della riga di comando installata con SQL Server e rappresenta uno dei metodi più rapidi per spostare i dati. Funziona in tutte e tre le varianti di SQL Server (SQL Server locale, SQL Azure e macchine virtuali SQL Server in Azure).
 
-> [AZURE.NOTE]**Dove devono trovarsi i dati per eseguire la copia BCP?** Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage-use-azcopy.md), [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
+> [AZURE.NOTE] **Dove devono trovarsi i dati per eseguire la copia BCP?** Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage-use-azcopy.md), [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
 
 1. Assicurarsi che il database e le tabelle vengano create nel database di SQL Server di destinazione. Ecco un esempio di come procedere utilizzando i comandi `Create Database` e `Create Table`:
 
@@ -89,7 +90,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 
 Se i dati che si stanno spostando sono grandi, è possibile velocizzare l'operazione eseguendo contemporaneamente più comandi BCP in uno script di PowerShell.
 
-> [AZURE.NOTE]**Inserimento di Big Data** Per ottimizzare il caricamento dei dati per set di dati grandi e molto grandi, partizionare le tabelle dei database logici e fisici mediante più filegroup e tabelle di partizione. Per ulteriori informazioni sulla creazione e sul caricamento dei dati in tabelle di partizione, vedere [Caricamento parallelo di tabelle di partizione SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] **Inserimento di Big Data** Per ottimizzare il caricamento dei dati per set di dati grandi e molto grandi, partizionare le tabelle dei database logici e fisici mediante più filegroup e tabelle di partizione. Per ulteriori informazioni sulla creazione e sul caricamento dei dati in tabelle di partizione, vedere [Caricamento parallelo di tabelle di partizione SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 Lo script PowerShell di esempio illustra gli inserimenti mediante bcp:
@@ -223,4 +224,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

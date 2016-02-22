@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -146,7 +146,7 @@ Il metodo **EncodeToAdaptiveBitrateMP4Set** seguente crea un processo di codific
 
 In molti scenari di applicazione, gli sviluppatori desiderano creare una serie di attività di elaborazione. In Servizi multimediali è possibile creare una serie di attività concatenate. Ogni attività esegue diversi passaggi di elaborazione e può usare processori di contenuti multimediali differenti. Le attività concatenate possono trasferire un asset da un'attività a un'altra e consentono quindi l'esecuzione delle attività dell'asset in sequenza lineare. Tuttavia, non è necessario che le attività eseguite in un processo siano in sequenza. Quando si crea un'attività concatenata, gli oggetti **ITask** concatenati vengono creati in un singolo oggetto **IJob**.
 
->[AZURE.NOTE]Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
+>[AZURE.NOTE] Attualmente è previsto un limite di 30 attività per processo. Se è necessario concatenare più di 30 attività, creare più processi in modo da contenerle tutte.
 
 Il metodo **CreateChainedTaskEncodingJob** seguente crea un processo contenente due attività concatenate e restituisce come risultato un processo contenente due asset di output.
 
@@ -225,4 +225,4 @@ Il metodo **CreateChainedTaskEncodingJob** seguente crea un processo contenente 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

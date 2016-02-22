@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Eseguire query Hive usando Query Console
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
 
-> [AZURE.NOTE]Query Console è disponibile solo nei cluster HDInsight basati su Windows.
+> [AZURE.NOTE] Query Console è disponibile solo nei cluster HDInsight basati su Windows.
 
 
 ##<a id="prereq"></a>Prerequisiti
@@ -45,6 +45,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 	Sostituire il testo `Select * from hivesampletable` con le seguenti istruzioni HiveQL:
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -56,7 +57,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
-    > [AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+    > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
     >
     > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -121,4 +122,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

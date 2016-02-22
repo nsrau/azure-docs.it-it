@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,8 +43,6 @@ Si noti che le unità riservate sono le stesse per le attività di codifica e in
 
 Per altre informazioni, vedere [Gestione di asset di Servizi multimediali su più account di archiviazione](https://msdn.microsoft.com/library/azure/dn271889.aspx) e [Uso dell'archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-
-
 ##Percorsi di apprendimento di Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -53,4 +51,4 @@ Per altre informazioni, vedere [Gestione di asset di Servizi multimediali su pi�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Utilizzo di access condizionale
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 È ora possibile abilitare le regole di accesso per garantire l'accesso condizionale a utenti e gruppi di accesso alle applicazioni pubblicate tramite Proxy dell'applicazione. Ciò consente di:
 
@@ -76,9 +76,10 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+
 ## Risorse aggiuntive
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Identità di Azure](fundamentals-identity.md)
 
-* [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-* [Identità di Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

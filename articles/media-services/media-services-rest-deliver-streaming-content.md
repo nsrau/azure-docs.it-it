@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -191,4 +191,4 @@ esempio:
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

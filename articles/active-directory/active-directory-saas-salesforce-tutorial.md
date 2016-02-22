@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Esercitazione: Come eseguire l'integrazione di Salesforce con Azure Active Directory
@@ -220,7 +220,10 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Articoli correlati
+
+- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+- [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -253,4 +256,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

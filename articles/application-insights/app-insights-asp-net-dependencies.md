@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
  * Azure DocumentDB, tabelle, archivio BLOB e coda
 * Java
  * Chiamate a un database tramite un driver[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
+* JavaScript nelle pagine Web: l'[SDK della pagina Web](app-insights-javascript.md) registra automaticamente le chiamate Ajax come dipendenze.
 
 È possibile scrivere chiamate SDK per monitorare altre dipendenze usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -111,7 +112,7 @@ Fare clic su tale riga per visualizzare gli eventi di richiesta singola:
 
 Fare clic su qualsiasi istanza con esecuzione prolungata per esaminarla ulteriormente.
 
-> [AZURE.NOTE]Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
+> [AZURE.NOTE] Scorrere verso il basso per scegliere un'istanza. Una latenza nella pipeline potrebbe indicare che i dati per le istanze superiore sono incompleti.
 
 Scorrere in basso fino alle chiamate alle dipendenze remote correlate a questa richiesta:
 
@@ -181,9 +182,7 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->
