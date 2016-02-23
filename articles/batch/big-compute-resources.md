@@ -38,7 +38,7 @@ Informazioni sulle opzioni Big Compute in Azure e sulla scelta dell'approccio pi
 
 * [Esercitazione: Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md)
 
-* [Forum di Batch](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurebatch)
+* [Forum di Batch](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Video su Batch](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
