@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/02/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Esercitazione: Introduzione ad Azure Data Lake Analytics con l’interfaccia della riga di comandi (CLI) di Azure
@@ -39,7 +39,7 @@ In questa esercitazione si svilupperà un processo che legge un file di valori s
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md).
+- **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 	- Scaricare e installare gli [Strumenti di Azure CLI](https://github.com/MicrosoftBigData/AzureDataLake/releases) **pre-release** per completare questa demo.
 - **Autenticazione**, utilizzando il comando seguente:
 
@@ -53,7 +53,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:
 
-- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
+- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](../resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
 
 	Per elencare i gruppi di risorse nella sottoscrizione:
     
@@ -75,7 +75,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
-	> [AZURE.NOTE]Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
+	> [AZURE.NOTE] Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
 
 
 
@@ -88,7 +88,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ![Account di visualizzazione di Data Lake Analytics](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
-> [AZURE.NOTE]Il nome dell'account di Data Lake Analytics deve contenere solo lettere minuscole e numeri.
+> [AZURE.NOTE] Il nome dell'account di Data Lake Analytics deve contenere solo lettere minuscole e numeri.
 
 
 ## Caricare dati nell’Archivio Data Lake
@@ -102,7 +102,7 @@ Per caricare i file utilizzando cli, utilizzare il comando seguente:
   	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
   	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure. Per caricare i dati nell'archiviazione BLOB di Azure, vedere [Uso dell’interfaccia della riga di comando di Azure con Archiviazione di Azure](storage-azure-cli.md).
+Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure. Per caricare i dati nell'archiviazione BLOB di Azure, vedere [Uso dell’interfaccia della riga di comando di Azure con Archiviazione di Azure](../storage/storage-azure-cli.md).
 
 ## Inviare processi di Data Lake Analytics
 
@@ -139,7 +139,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
+    >[AZURE.NOTE] Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
 
 	
 **Per inviare il processo**
@@ -169,4 +169,4 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

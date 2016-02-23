@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
@@ -87,7 +87,7 @@ Se sono state acquistate licenze di Azure MFA, Azure AD Premium o Enterprise Mob
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-Stato | Descrizione |Interessate le app non basate su browser| Note 
+Stato | Descrizione |App interessate non basate su browser| Note 
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication.|No|L'utente attualmente non utilizza la modalità Multi-Factor Authentication.
 Enabled |L'utente è stato registrato alla modalità Multi-Factor Authentication.|No. Continueranno a funzionare fino al completamento della registrazione.|L'utente è abilitato ma non ha completato la procedura di registrazione. All'utente verrà chiesto di completare la procedura all'accesso successivo.
@@ -118,7 +118,7 @@ Per modificare lo stato dell'utente utilizzando Windows PowerShell, è possibile
 
 ## Inviare un messaggio di posta elettronica agli utenti finali
 
-Dopo avere attivato gli utenti, si consiglia di inviare agli utenti un messaggio di posta elettronica per invitarli a fornire le propri informazioni di contatto. Di seguito è riportato un modello di messaggio di posta elettronica che può essere utilizzato e che include un collegamento a un video per gli utenti.
+Dopo aver abilitato gli utenti, si consiglia di inviare agli utenti un messaggio di posta elettronica per invitarli a fornire le proprie informazioni di contatto. Di seguito è riportato un modello di messaggio di posta elettronica che può essere utilizzato e che include un collegamento a un video per gli utenti.
 
 		Subject: ACTION REQUIRED: Your password for Outlook and other apps needs updated
 
@@ -155,4 +155,4 @@ Dopo avere attivato gli utenti, si consiglia di inviare agli utenti un messaggio
 ## Passaggi successivi
 Ora che è stata impostata la modalità Multi-Factor Authentication nel cloud, è possibile passare alla fase successiva andando alla sezione [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Da qui sarà possibile apprendere come creare report, segnalare avvisi di illecito, personalizzare i messaggi vocali e tutte le funzionalità offerte da Azure multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/08/2016" 
+	ms.date="02/17/2016" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -34,9 +34,9 @@ Per completare questa esercitazione, sono necessari:
   + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web. La carta di credito non verrà mai addebitata, a meno l'utente non modifichi le impostazioni e che richieda esplicitamente di essere addebitato.
   
   + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
-- Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+- Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
-Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, quali moduli, cmdlet e sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, quali moduli, cmdlet e sessioni.
 
 ## Elementi distribuiti
 
@@ -358,6 +358,8 @@ Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancan
     (Type !? for Help.)
     administratorLoginPassword: ********
 
+Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+
 Il comando viene eseguito e restituisce dei messaggi quando le risorse vengono create. Infine viene visualizzato il risultato della distribuzione.
 
     DeploymentName    : azuredeploy
@@ -395,7 +397,7 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
 		
 		...
 
-      Se si desidera ottenere un determinato gruppo di risorse, fornire il parametro **Nome**.
+      Se si vuole ottenere un determinato gruppo di risorse, fornire il parametro **Nome**.
       
           PS C:\> Get-AzureRmResourceGroup -Name TestRG1
 
@@ -461,4 +463,4 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

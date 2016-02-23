@@ -1,28 +1,25 @@
 
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure](https://portal.windowsazure.com/) e quindi fare clic su **+NUOVO** nella parte inferiore della schermata.
 
-2. Fare clic su **Servizi app**, selezionare **Bus di servizio**, **Hub di notifica** e infine **Creazione rapida**.
+2. Fare clic su **Nuovo**, **Web e dispositivi mobili**, **Hub di notifica** e quindi su **Creazione rapida**.
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal.png)
+   	![Portale di Azure: creare hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-
-3. Specificare un nome in **Nome hub di notifica**. Selezionare l'**area** e la **sottoscrizione** desiderate.
+3. Assicurarsi di specificare un nome univoco nel campo **Hub di notifica**. Selezionare l'**Area**, la **Sottoscrizione** e il **Gruppo di risorse**, se già disponibile.
  
-	Se è già presente uno spazio dei nomi del bus di servizio in cui si vuole creare l'hub, selezionare il **Nome spazio dei nomi**. In caso contrario, usare il **Nome spazio dei nomi** predefinito che verrà creato in base al nome dell'hub, se tale nome è disponibile.
+	Se è già disponibile uno spazio dei nomi del bus di servizio in cui creare l'hub, selezionarlo usando l'opzione **Seleziona esistente** nel campo **Spazio dei nomi**. In caso contrario, usare il nome predefinito che verrà creato in base al nome dell'hub, se tale nome è disponibile.
 
-	Fare clic su **Crea un nuovo hub di notifica**.
+	Al termine, fare clic su **Crea**.
 
-   	![Impostare le proprietà dell'hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal2.png)
+   	![Portale di Azure: impostare le proprietà dell'hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Al termine della creazione dello spazio dei nomi e dell'hub di notifica, verranno visualizzati gli spazi dei nomi nel bus di servizio. Fare clic sullo spazio dei nomi in cui è stato creato l'hub, in genere ***nome hub di notifica*-ns**.
+4. Dopo aver creato l'hub di notifica e lo spazio dei nomi, sarà possibile accedere alle rispettive pagine del portale.
 
-5. Nella pagina relativa allo spazio dei nomi fare clic sulla scheda **Hub di notifica** nella parte superiore e quindi fare clic sull'hub di notifica appena creato. Verrà aperto il dashboard per il nuovo hub di notifica.
+   	![Portale di Azure: pagina del portale dell'hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+       
+5. Fare clic su **Impostazioni** e quindi su **Criteri di accesso**. Prendere nota delle due stringhe di connessione che saranno disponibili, perché saranno necessarie per la gestione delle notifiche push in un secondo momento.
 
-6. Nel dashboard per il nuovo hub fare clic su **Visualizza stringa di connessione**. Prendere nota delle due stringhe di connessione. Verranno usati in seguito.
+   	![Portale di Azure: stringhe di connessione dell'hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
-
-	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="02/09/2016"
+	ms.topic="get-started-article" 
+	ms.date="02/11/2016"
 	ms.author="bwren;sngun"/>
 
 # Panoramica di Automazione di Azure
@@ -101,4 +101,4 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

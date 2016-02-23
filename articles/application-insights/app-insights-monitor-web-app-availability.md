@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -129,7 +129,7 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio, q
 
 Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
 
-#### 1. Registrare uno scenario
+#### 1\. Registrare uno scenario
 
 Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
@@ -160,7 +160,7 @@ Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
     ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2. Caricare il test Web in Application Insights
+#### 2\. Caricare il test Web in Application Insights
 
 1. Nel portale Application Insights, creare un nuovo test Web.
 
@@ -207,19 +207,22 @@ I plug-in del test Web consentono di definire questa impostazione.
 
 Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
 
-## Accesso OAuth
+## Gestione degli accessi
 
-Se gli utenti accedono all'app usando la propria password OAuth, ad esempio, Microsoft, Google o Facebook, è possibile simulare l'accsso al test Web in più passaggi usando il plug-in SAML.
+Se gli utenti accedono all'app, è possibile simulare l'accesso in diversi modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
 
-![Test web di esempio per OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+In tutti i casi è necessario creare un account solo a scopo di test. Se possibile, limitarne le autorizzazioni in modo che sia un account di sola lettura.
 
-Il test di esempio esegue questi passaggi:
+* Nome utente e password semplici: registrare un test Web nel modo consueto. Eliminare prima di tutto i cookie.
+* Autenticazione SAML: è possibile usare il plug-in SAML disponibile per i test Web.
+* Segreto client: da usare se l'applicazione ha un percorso di accesso che comporta un segreto client. Azure Active Directory ne fornisce uno. 
+* Autenticazione aperta: ad esempio, l'accesso con il proprio account Microsoft o Google. Molte app che usano OAuth offrono l'alternativa del segreto client, si consiglia quindi di cercare prima di tutto il segreto client. Se il test deve eseguire l'accesso tramite OAuth, procedere come indicato di seguito:
+ * Usare uno strumento come Fiddler per esaminare il traffico tra il Web browser, il sito di autenticazione e l'app. 
+ * Eseguire due o più accessi usando computer o browser diversi oppure a distanza di tempo, per lasciar scadere i token.
+ * Mettendo a confronto le diverse sessioni, identificare il token restituito dal sito di autenticazione e poi passato al server applicazioni dopo l'accesso. 
+ * Registrare un test Web usando Visual Studio. 
+ * Impostare i parametri dei token quando questi vengono restituiti dall'autenticatore e usarli per l'esecuzione di query nel sito. Visual Studio prova a impostare i parametri del test, ma non imposta correttamente i parametri dei token.
 
-1. Chiede all'app Web sottoposta a test l'indirizzo dell'endpoint OAuth.
-2. Accede con il plug-in SAML.
-3. Esegue il resto del test nello stato di accesso eseguito.
-
-Il plug-in SAML imposta una variabile `Assert` usata nel passaggio 2.
 
 ## <a name="edit"></a> Modificare o disabilitare un test
 
@@ -263,4 +266,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

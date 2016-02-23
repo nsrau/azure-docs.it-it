@@ -4,15 +4,15 @@
 	keywords="database scalabile,configurazione del database"
 	services="sql-database"
 	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/02/2015"
-	ms.author="sstein"
+	ms.date="02/12/2016"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
@@ -30,7 +30,10 @@ Questo articolo illustra come creare un [pool di database elastici](sql-database
 > [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-powershell.md) in un unico passaggio.
 
 
-Prima di iniziare, è necessario avere un database in un server di database SQL V12. Se non è disponibile, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per crearne uno in meno di cinque minuti. In alternativa, se si ha già un server di database SQL V11 è possibile [eseguire l'aggiornamento a V12 nel portale](sql-database-v12-upgrade.md) e tornare a seguire queste istruzioni per creare un pool.
+## Prerequisiti
+
+* Un database in un server di database SQL V12. Se non è disponibile, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per crearne uno in meno di cinque minuti. 
+* In alternativa, se si ha già un server di database SQL V11 è possibile [eseguire l'aggiornamento a V12 nel portale](sql-database-v12-plan-prepare-upgrade.md) e tornare a seguire queste istruzioni per creare un pool.
 
 
 ## Passaggio 1: Creare un nuovo pool
@@ -98,7 +101,7 @@ Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è po
 
 È possibile aggiungere o rimuovere database in un pool in qualsiasi momento.
 
-1. Durante la creazione del pool, fare clic su **Aggiungi database** nel pannello **Configura pool**.
+1. Durante la creazione del pool fare clic su **Aggiungi database** nel pannello **Configura pool**.
 2. Selezionare i database da aggiungere al pool:
 
     ![Aggiungere database](./media/sql-database-elastic-pool-portal/add-databases.png)
@@ -110,7 +113,7 @@ Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è po
 
 ### Indicazioni dinamiche
 
-Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente generate in base all'utilizzo storico dei database selezionati. Queste indicazioni saranno visualizzate nel grafico relativo all'utilizzo di eDTU e GB, oltre che come banner nella parte superiore del pannello **Configura pool**. Queste indicazioni sono concepite per facilitare la creazione di un pool ottimizzato per database specifici.
+Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente generate in base all'utilizzo storico dei database selezionati. Queste indicazioni saranno visualizzate nel grafico relativo all'uso di eDTU e GB, oltre che come banner nella parte superiore del pannello **Configura pool**. Queste indicazioni sono concepite per facilitare la creazione di un pool ottimizzato per database specifici.
 
 
  ![indicazioni dinamiche](./media/sql-database-elastic-pool-portal/dynamic-recommendation.png)
@@ -173,8 +176,7 @@ Dopo aver creato un pool, è possibile effettuare le seguenti operazioni:
 
 Quando si seleziona un pool esistente, è possibile visualizzare l'utilizzo delle risorse del pool. Fare clic sul grafico **Utilizzo delle risorse** per aprire il pannello **Metrica**, nel quale è possibile personalizzare il grafico e configurare gli avvisi.
 
-![Monitorare un pool elastico][4] 
-![utilizzo delle risorse][6]
+![Monitorare un pool elastico][4] ![utilizzo delle risorse][6]
 
 Fare clic su **Modifica grafico** per aggiungere parametri in modo da poter visualizzare facilmente i dati di telemetria per il pool.
 
@@ -201,4 +203,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database n
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

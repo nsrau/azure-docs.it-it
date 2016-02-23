@@ -1,6 +1,6 @@
 <properties
    pageTitle="Procedura dettagliata di utilizzo dell'anteprima di Azure Active Directory B2B Collaboration| Microsoft Azure"
-   description="Azure Active Directory B2B supporta le relazioni tra aziende abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
+   description="La collaborazione B2B di Azure Active Directory supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
@@ -11,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: procedura dettagliata
@@ -28,7 +28,7 @@ In questa procedura dettagliata viene descritto come utilizzare Azure AD B2B Col
 Dopo aver inviato gli inviti agli utenti dell’azienda partner, è possibile configurarli in Azure AD per garantire l'accesso alle app e l'appartenenza ai gruppi tramite il portale di Azure. Si inizia aggiungendo Alice.
 
 ## Si aggiunge Alice alla directory di Contoso
-1. Creare un file .cvs con le intestazioni come illustrato, compilando solo le voci che indicano l’**Email**, il **DisplayName**, e **InviteContactUsUrl** di Alice. **DisplayName** è il nome che verrà visualizzato nell'invito, nonché il nome che verrà visualizzato nella directory di Azure AD di Contoso. **InviteContactUsUrl** è un modo che ha Alice di contattare Contoso. Nell'esempio seguente viene specificato il profilo di LinkedIn di Contoso. È importante che le etichette siano nella prima riga del file .cvs nello stesso ordine e digitate nello stesso modo in cui è stato illustrato. Vedere di seguito la sezione formato CSV. ![File CSV di esempio per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
+1. Creare un file .cvs con le intestazioni come illustrato, compilando solo le voci che indicano l’**Email**, il **DisplayName**, e **InviteContactUsUrl** di Alice. **DisplayName** è il nome che verrà visualizzato nell'invito, nonché il nome che verrà visualizzato nella directory di Azure AD di Contoso. **InviteContactUsUrl** è un modo che ha Alice di contattare Contoso. Nell'esempio seguente viene specificato il profilo di LinkedIn di Contoso. È importante che le etichette nella prima riga del file CSV siano nello stesso ordine e digitate esattamente come mostrato. Vedere di seguito la sezione formato CSV. ![File CSV di esempio per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 
 2. Nel portale di Azure, aggiungere un utente alla directory di Contoso (Active Directory > Contoso > Utenti > Aggiungi utente). Nell’elenco a discesa "Tipo di utente", selezionare "Utenti nelle aziende partner". Caricare il file con estensione .csv. Assicurarsi che il file con estensione .csv venga chiuso prima di caricarlo. ![Carica file CSV per Alice](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
 
@@ -82,4 +82,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

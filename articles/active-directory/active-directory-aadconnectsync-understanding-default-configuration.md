@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita | Microsoft Azure"
-   description="Questo articolo descrive la configurazione predefinita nel servizio di sincronizzazione Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita | Microsoft Azure"
+    description="Questo articolo descrive la configurazione predefinita nel servizio di sincronizzazione Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 
@@ -121,7 +120,7 @@ In questa configurazione si presuppone di trovare un account abilitato nella for
 
 L'obiettivo della configurazione predefinita è il seguente:
 
-- Le informazioni sugli attributi relativi all'account di accesso saranno sincronizzati dalla foresta con l'accesso abilitato.
+- Le informazioni sugli attributi relative all'accesso saranno sincronizzate dalla foresta con l'account abilitato.
 - Gli attributi che si possono trovare nell'Elenco indirizzi globale saranno sincronizzati dalla foresta con la cassetta postale. Se non si trova una cassetta postale, verrà usata un'altra foresta.
 - Se si trova una cassetta postale collegata, è necessario che venga trovato l'account abilitato collegato per consentire l'esportazione dell'oggetto in Azure AD.
 
@@ -191,7 +190,7 @@ La sezione Trasformazioni definisce tutti i flussi di attributi che verranno app
 
 ![Modifica regole di sincronizzazione in ingresso](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
 
-Per contestualizzare, in una distribuzione con una foresta di account e una di risorse è probabile trovare un account abilitato nella foresta di account e un account disabilitato nella foresta di risorse con impostazioni Exchange e Lync. La regola di sincronizzazione ora presa in esame contiene gli attributi necessari per eseguire l'accesso. Si desidera che tali attributi vengano trasmessi dalla foresta in cui è presente un account abilitato. Tutti questi flussi di attributi vengono riuniti in una regola di sincronizzazione.
+Per contestualizzare, in una distribuzione con una foresta di account e una di risorse è probabile trovare un account abilitato nella foresta di account e un account disabilitato nella foresta di risorse con impostazioni Exchange e Lync. La regola di sincronizzazione ora presa in esame contiene gli attributi necessari per eseguire l'accesso. Tali attributi devono essere trasmessi dalla foresta in cui è presente un account abilitato. Tutti questi flussi di attributi vengono riuniti in una regola di sincronizzazione.
 
 Una trasformazione può avere diversi tipi: Costante, Diretto ed Espressione.
 
@@ -230,7 +229,7 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 | Nome | Commento |
 | :------------- | :------------- |
 | In from AD – User Join | Regola per l'unione degli oggetti dello spazio connettore con il metaverse. |
-| In from AD – UserAccount Enabled | Attributi necessari per l'accesso a Azure AD e Office 365. Questi attributi dovranno essere rilevati dall'account abilitato. |
+| In from AD – UserAccount Enabled | Attributi necessari per l'accesso ad Azure AD e Office 365. Questi attributi dovranno essere rilevati dall'account abilitato. |
 | In from AD – User Common from Exchange | Attributi trovati nell'Elenco indirizzi globale. Si presuppone che la qualità dei dati sia migliore nella foresta in cui è stata individuata la cassetta postale dell'utente. |
 | In from AD – User Common | Attributi trovati nell'Elenco indirizzi globale. Se non è stata trovata una cassetta postale, alla definizione del valore dell'attributo può contribuire qualsiasi altro oggetto unito. |
 | In from AD – User Exchange | È presente solo se è stato rilevato Exchange. Trasmetterà tutti gli attributi dell'infrastruttura di Exchange. |
@@ -241,4 +240,4 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

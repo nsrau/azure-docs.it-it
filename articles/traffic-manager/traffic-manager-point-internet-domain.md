@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure
@@ -25,7 +25,7 @@ Ad esempio, per scegliere il nome di dominio aziendale www.contoso.com per il no
 
 Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT]Non è possibile scegliere un dominio di secondo livello, come *contoso.com*, per il dominio di Gestione traffico. Si tratta del limite del protocollo DNS, che non consente record CNAME per i nomi di dominio di secondo livello.
+>[AZURE.IMPORTANT] Non è possibile scegliere un dominio di secondo livello, come *contoso.com*, per il dominio di Gestione traffico. Si tratta del limite del protocollo DNS, che non consente record CNAME per i nomi di dominio di secondo livello.
 
 ## Passaggi successivi
 
@@ -35,4 +35,4 @@ Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *co
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

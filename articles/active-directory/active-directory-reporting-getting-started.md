@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/10/2016"
    ms.author="curtand;kenhoff"/>
 
 # Introduzione ad Azure Active Directory Reporting
@@ -156,4 +156,4 @@ Indirizzo di posta elettronica [aadreportinghelp@microsoft.com](mailto:aadreport
 
 > [AZURE.TIP] Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

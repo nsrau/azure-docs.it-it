@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/28/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB #
@@ -145,4 +145,4 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

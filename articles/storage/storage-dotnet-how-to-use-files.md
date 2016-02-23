@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/03/2016"
+      ms.date="02/14/2016"
       ms.author="robinsh" />
 
 # Introduzione ad Archiviazione file di Azure in Windows
@@ -55,7 +55,7 @@ In questa guida introduttiva vengono illustrate le nozioni di base sull'uso dell
 	- Copiare un file in un BLOB nello stesso account di archiviazione.
 - Usare la metrica di archiviazione di Azure per la risoluzione dei problemi
 
-Il servizio Archiviazione file è ora supportato per tutti gli account di archiviazione, quindi è possibile usare un account di archiviazione esistente o crearne uno nuovo. Per informazioni su come creare un nuovo account di archiviazione, vedere [Come creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
+Il servizio Archiviazione file è ora supportato per tutti gli account di archiviazione, quindi è possibile usare un account di archiviazione esistente o crearne uno nuovo. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
 ## Usare il portale di Azure per gestire una condivisione file
 
@@ -130,11 +130,11 @@ In alternativa, è possibile usare Azure PowerShell per creare e gestire le cond
 
 ### Installare i cmdlet di PowerShell per l'archiviazione di Azure
 
-Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per le istruzioni relative al punto di installazione e all’installazione.
+Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per le istruzioni relative al punto di installazione e all’installazione.
 
 > [AZURE.NOTE] Si consiglia di scaricare e installare oppure aggiornare il modulo alla versione di Azure PowerShell più recente.
 
-Aprire una finestra di Azure PowerShell facendo clic su **Start** e digitando **Azure PowerShell**. La finestra di Azure PowerShell carica automaticamente il modulo di Azure PowerShell.
+Per aprire una finestra di Azure PowerShell, fare clic su **Start** e digitare **Windows PowerShell**. La finestra di PowerShell carica automaticamente il modulo Azure PowerShell.
 
 ### Creare un contesto per l'account e la chiave di archiviazione
 
@@ -210,8 +210,8 @@ Quando un client accede al servizio Archiviazione file, la versione di SMB usata
 
 Per illustrare come si monta una condivisione file di Azure, viene creata una macchina virtuale di Azure che esegue Windows e viene eseguito l'accesso remoto per montare la condivisione.
 
-1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../virtual-machines-windows-tutorial.md).
-2. Accedere quindi in remoto alla macchina virtuale seguendo le istruzioni in [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server.md).
+1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
+2. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md).
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
@@ -419,13 +419,13 @@ Nell'esempio seguente viene creato un criterio di accesso condiviso in una condi
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archivio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiare i file
 
 A partire dalla versione 5.x della libreria del client di archiviazione di Azure, è possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Le sezioni seguenti illustrano come eseguire queste operazioni di copia a livello di programmazione.
 
-È inoltre possibile utilizzare AzCopy per copiare un file in un altro o per copiare un blob in un file o viceversa. Per i dettagli sulla copia dei file con AzCopy, vedere la sezione [Copiare i file in un'archiviazione file di Azure con AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
+È inoltre possibile utilizzare AzCopy per copiare un file in un altro o per copiare un blob in un file o viceversa. Vedere [Copiare i file in Archiviazione file di Azure con AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
 
 > [AZURE.NOTE] Se si copia un BLOB in un file o un file in un BLOB, è necessario utilizzare una firma di accesso condiviso (SAS) per autenticare l'oggetto di origine, anche se si copia nello stesso account di archiviazione.
 
@@ -586,8 +586,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 
 ### Articoli concettuali e video
 
-- [Archiviazione file di Azure: un file system SMB nel cloud senza problemi per Windows e Linux
-- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Archiviazione di file in Azure: un file system SMB nel cloud senza problemi per Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Come usare Archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md)
 
 ### Supporto degli strumenti per Archiviazione file
@@ -608,4 +607,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

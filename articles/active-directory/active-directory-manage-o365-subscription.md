@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/10/2016"
    ms.author="curtand"/>
 
 #Gestire la directory per la sottoscrizione di Office 365 in Azure
@@ -48,7 +48,8 @@ In questo caso, le due directory sono indipendenti tra loro.
 ##Per gestire due directory indipendenti
 Per poter gestire entrambe le directory mentre è connesso a Azure come msmith@hotmail.com, Michael Smith deve eseguire le operazioni seguenti:
 
-> [AZURE.NOTE]Questa procedura può essere eseguita solo se l'utente ha eseguito l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile, in quanto gli account aziendali o dell'istituto di istruzione possono essere autenticati solo dalla relativa home directory, ovvero la directory in cui tale account è archiviato e che è di proprietà dell'azienda o dell'istituto di istruzione.
+> [AZURE.NOTE]
+Questa procedura può essere eseguita solo se l'utente ha eseguito l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile, in quanto gli account aziendali o dell'istituto di istruzione possono essere autenticati solo dalla relativa home directory, ovvero la directory in cui tale account è archiviato e che è di proprietà dell'azienda o dell'istituto di istruzione.
 
 1.	Accedere al portale di Azure classico come msmith@hotmail.com.
 2.	Fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**.
@@ -70,4 +71,4 @@ Ora si supponga che John Doe debba eseguire l'accesso al portale di Azure classi
 ##Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Come vengono associate le sottoscrizioni Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

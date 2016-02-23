@@ -12,7 +12,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
@@ -22,7 +22,7 @@ Indipendentemente dal fatto che sia eseguito nel cloud o in locale, spesso è ne
 
 ## Dati fondamentali del bus di servizio
 
-A seconda delle situazioni, possono essere necessari stili di comunicazione diversi. Talvolta, consentire alle applicazioni di inviare e ricevere messaggi attraverso una semplice coda è la soluzione migliore. In altre situazioni, una coda ordinaria non è sufficiente e l'uso di una coda con un meccanismo di pubblicazione e sottoscrizione risulta la soluzione più adatta. In altri casi, invece, è sufficiente una connessione tra applicazioni e le code non sono necessarie. Il bus di servizio offre tutte e tre le opzioni, consentendo alle applicazioni in uso di interagire in diversi modi.
+A seconda delle situazioni, possono essere necessari stili di comunicazione diversi. Talvolta, consentire alle applicazioni di inviare e ricevere messaggi attraverso una semplice coda è la soluzione migliore. In altre situazioni, una coda ordinaria non è sufficiente e l'uso di una coda con un meccanismo di pubblicazione e sottoscrizione risulta la soluzione più adatta. In alcuni casi, è sufficiente una connessione tra applicazioni e le code non sono necessarie. Il bus di servizio offre tutte e tre le opzioni e permette alle applicazioni di interagire in diversi modi.
 
 Il bus di servizio è un servizio cloud multi-tenant, il che significa che il servizio è condiviso da più utenti. Ogni utente, ad esempio uno sviluppatore di applicazioni, crea uno *spazio dei nomi* e quindi definisce i meccanismi di comunicazione necessari all'interno di tale spazio dei nomi, come illustrato nella figura 1.
 
@@ -63,7 +63,7 @@ La seconda opzione, *PeekLock*, consente di risolvere il problema. Come **Receiv
 - Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo **Abandon**. La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
 - Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi) la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso, si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
 
-Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio presenta una proprietà **MessageID** che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda.
+Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà **MessageID** univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda.
 
 Le code risultano utili in un numero limitato di situazioni. Consentono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, pertanto sono ideali per l'utilizzo con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
@@ -73,15 +73,15 @@ Sebbene siano utili, non sempre le code rappresentano la soluzione più appropri
 
 ![][3]
  
-**Figura 3**: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.
+**Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
-Un argomento e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza principale sta nel fatto che gli argomenti abilitano ogni applicazione ricevente a creare la propria sottoscrizione tramite la creazione di un *filtro*. Un sottoscrittore potrà quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
+Un argomento e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza principale sta nel fatto che gli argomenti consentono a ogni applicazione ricevente di creare la propria sottoscrizione con la creazione di un *filtro*. Un sottoscrittore potrà quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
 
 - Il sottoscrittore 1 riceve solo i messaggi che contengono la proprietà *Venditore="Ava"*.
-- Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Venditore="Ruby"* e/o che contengono una proprietà *Importo* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che desidera visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le ha concluse.
+- Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Venditore="Ruby"* e/o che contengono una proprietà *Importo* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
 - Il sottoscrittore 3 presenta un filtro impostato su *True* e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail, pertanto è necessario che possa visualizzare tutti i messaggi.
 
-Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione **ReceiveAndDelete** o **PeekLock**. Diversamente dalle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrittori. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
+Come per le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità **ReceiveAndDelete** o **PeekLock**. Diversamente dalle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrittori. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 
 ## Inoltri
 
@@ -97,9 +97,9 @@ Ad esempio, potrebbe essere necessario connettere due applicazioni locali, entra
 
 L'inoltro del bus di servizio garantisce questo supporto. Per comunicare in modalità bidirezionale tramite un inoltro, ogni applicazione stabilisce una connessione TCP in uscita con il bus di servizio e la mantiene aperta. Tutte le comunicazioni tra le due applicazioni avvengono su tali connessioni. Poiché ogni connessione è stata stabilita dall'interno del data center, il firewall consentirà il traffico in ingresso a ogni applicazione senza aprire nuove porte. Questo approccio consente inoltre di risolvere il problema relativo al processo NAT, in quanto ogni applicazione presenta un endpoint coerente nel cloud nel corso della comunicazione. Lo scambio di dati tramite l'inoltro consente alle applicazioni di evitare i problemi che potrebbero rendere difficoltosa la comunicazione.
 
-Per utilizzare l'inoltro del bus di servizio, le applicazioni utilizzano Windows Communication Foundation (WCF). Il bus di servizio fornisce le associazioni WCF che semplificano l'interazione delle applicazioni Windows tramite inoltro. Le applicazioni che utilizzano già WCF possono in genere specificare una di queste associazioni e quindi comunicare tra loro tramite un inoltro. Diversamente da code e argomenti, l'utilizzo degli inoltri da applicazioni non Windows, sebbene possibile, richiede alcune operazioni di programmazione, in quanto non sono disponibili librerie standard.
+Per usare l'inoltro del bus di servizio, le applicazioni usano Windows Communication Foundation (WCF). Il bus di servizio fornisce le associazioni WCF che semplificano l'interazione delle applicazioni Windows tramite inoltro. Le applicazioni che utilizzano già WCF possono in genere specificare una di queste associazioni e quindi comunicare tra loro tramite un inoltro. Diversamente da code e argomenti, l'utilizzo degli inoltri da applicazioni non Windows, sebbene possibile, richiede alcune operazioni di programmazione, in quanto non sono disponibili librerie standard.
 
-Diversamente da code e argomenti, le applicazioni non creano inoltri in modo esplicito. Al contrario, quando un'applicazione che desidera ricevere messaggi stabilisce una connessione TCP con il bus di servizio, l'inoltro viene creato automaticamente. Quando la connessione viene chiusa, l'inoltro viene eliminato. Per abilitare un'applicazione a trovare l'inoltro creato da un listener specifico, il bus di servizio fornisce un registro che permette alle applicazioni di individuare un inoltro specifico in base al nome.
+Diversamente da code e argomenti, le applicazioni non creano inoltri in modo esplicito. Al contrario, quando un'applicazione che desidera ricevere messaggi stabilisce una connessione TCP con il bus di servizio, l'inoltro viene creato automaticamente. Quando la connessione viene chiusa, l'inoltro viene eliminato. Per consentire a un'applicazione di trovare l'inoltro creato da un listener specifico, il bus di servizio fornisce un registro che permette alle applicazioni di trovare un inoltro specifico in base al nome.
 
 Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la comunicazione diretta tra applicazioni, ad esempio un sistema di prenotazione di una compagnia aerea in esecuzione in un data center locale al quale devono poter accedere banchi del check-in, dispositivi mobili e altri computer. Le applicazioni in esecuzione in questi sistemi possono usare l'inoltro del bus di servizio nel cloud per comunicare, indipendentemente dalla posizione in cui risiedono.
 
@@ -115,9 +115,9 @@ La connessione tra applicazioni è sempre stata parte integrante dello sviluppo 
 
 A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azure, usare i seguenti collegamenti per altre informazioni.
 
-- Come usare le [Code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
-- Come usare gli [Argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Come usare l’[Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
+- Come usare le [code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+- Come usare gli [argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Come usare l'[inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 - [Esempi relativi al bus di servizio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -125,4 +125,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

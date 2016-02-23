@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="02/04/2016"
@@ -49,4 +49,4 @@ Esplorare queste risorse per ulteriori informazioni su IoT in Azure:
 [Azure Machine Learning]: https://azure.microsoft.com/it-IT/services/machine-learning/
 [Archiviazione di Azure]: https://azure.microsoft.com/it-IT/services/storage/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

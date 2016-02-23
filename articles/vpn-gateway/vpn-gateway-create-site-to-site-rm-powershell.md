@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito mediante PowerShell
@@ -38,12 +38,9 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 - Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
 	
 - Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
-## Installare i moduli di PowerShell
-
-Per configurare la connessione è necessario usare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure.
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+
 
 ## 1\. Eseguire la connessione alla sottoscrizione 
 
@@ -63,8 +60,7 @@ Specificare la sottoscrizione da usare.
 
 ## 2\. Creare una rete virtuale e una subnet del gateway
 
-- Se è già presente una rete virtuale con una subnet del gateway, è possibile procedere direttamente al **Passaggio 3 - Aggiungere il sito locale**. 
-- Se è già presente una rete virtuale e si vuole aggiungere una subnet del gateway della rete virtuale, vedere [Aggiungere una subnet del gateway a una rete virtuale](#gatewaysubnet).
+I seguenti esempi mostrano una subnet del gateway di /28. Anche se è possibile, non è consigliabile creare una subnet del gateway più piccola di /29. È consigliabile creare una subnet del gateway con dimensioni di /27 o superiori (/26, /25 e così via) per soddisfare i requisiti di funzionalità aggiuntive. Se si ha già una rete virtuale con una subnet del gateway con dimensioni di /29 o superiori, è possibile procedere direttamente al **Passaggio 3: Aggiungere il sito locale**.
 
 ### Per creare una rete virtuale e una subnet del gateway
 
@@ -82,11 +78,11 @@ Nell'esempio seguente viene creata una rete virtuale denominata *testvnet* e due
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>Per aggiungere una subnet del gateway a una rete virtuale (facoltativo)
+### <a name="gatewaysubnet"></a>Per aggiungere una subnet del gateway a una rete virtuale già creata
 
 Questo passaggio è obbligatorio solo se è necessario aggiungere una subnet del gateway a una rete virtuale creata in precedenza.
 
-Se si dispone già di una rete virtuale esistente e si desidera aggiungere una subnet del gateway, è possibile creare quest'ultima tramite l'esempio seguente. Assicurarsi di assegnare alla subnet del gateway il nome 'GatewaySubnet'. Se si assegna un altro nome, si creerà una subnet, ma non verrà visualizzata da Azure come una subnet del gateway.
+È possibile creare la subnet del gateway con l'esempio riportato di seguito. Assicurarsi di assegnare alla subnet del gateway il nome 'GatewaySubnet'. Se si assegna un altro nome, si creerà una subnet, ma non verrà visualizzata da Azure come una subnet del gateway.
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -143,8 +139,8 @@ In questo passaggio si creerà il gateway di rete virtuale. Si noti che la creaz
 
 Usare i valori seguenti:
 
-- Il tipo di gateway è *VPN*.
-- Il tipo di VPN può essere basato su route* (definito Gateway dinamico in alcuni documenti) o *basato su criteri* (definito Gateway statico in alcuni documenti). Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). 	
+- **-GatewayType** per una configurazione da sito a sito è **Vpn**. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Ad esempio, altre configurazioni di gateway possono richiedere -GatewayType ExpressRoute o -GatewayType VNet2VNet. **Una configurazione da sito a sito richiede Vpn**.
+- **-VpnType** può essere **RouteBased** (definito Gateway dinamico in alcuni documenti) o**PolicyBased** (definito Gateway statico in alcuni documenti). Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -246,4 +242,4 @@ Se è stata creata la connessione VPN e si desidera aggiungere o rimuovere i pre
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

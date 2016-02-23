@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con Visual Studio
+# Introduzione a Data Factory di Azure (Visual Studio)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -290,9 +290,8 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
  
 ## Passaggio 4: Monitorare la pipeline
 
-6. Accedere al [portale di Azure](http://portal.azure.com/) e seguire questa procedura:
-	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
-	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
+	1. Fare clic su **Sfoglia** e selezionare **Data factory**. ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
@@ -441,4 +440,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

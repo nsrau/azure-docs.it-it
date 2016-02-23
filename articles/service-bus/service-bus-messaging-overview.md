@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
@@ -56,4 +56,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

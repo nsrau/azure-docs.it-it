@@ -13,11 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # Introduzione a DNS di Azure utilizzando CLI
-
 
 
 > [AZURE.SELECTOR]
@@ -40,7 +39,7 @@ Installare l'interfaccia della riga di comando di Azure. È possibile installare
 	Azure network
 
 
->[AZURE.IMPORTANT]I comandi DNS richiedono la versione 0.9.8 di Azure CLI o versione successiva. Digitare `azure -v`per controllare quale versione di Azure CLI è attualmente installata nel computer.
+>[AZURE.IMPORTANT] I comandi DNS richiedono la versione 0.9.8 di Azure CLI o versione successiva. Digitare `azure -v`per controllare quale versione di Azure CLI è attualmente installata nel computer.
  
 ### Passaggio 2
 
@@ -90,7 +89,7 @@ Una zona DNS viene creata utilizzando il comando `azure network dns zone create`
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE]In Azure DNS, è necessario specificare i nomi di zona senza una terminazione ‘.’, ad esempio, ‘contoso.com’ anziché ‘contoso.com’.
+>[AZURE.NOTE] In Azure DNS, è necessario specificare i nomi di zona senza una terminazione ‘.’, ad esempio, ‘contoso.com’ anziché ‘contoso.com’.
 
 
 La zona DNS è stata creata nel servizio DNS di Azure. La creazione di una zona DNS comporta anche la creazione dei record DNS seguenti:
@@ -140,7 +139,7 @@ Nell'esempio seguente, l’esecuzione del comando con il gruppo di risorse "myre
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE]I set di record alla radice (o "vertice") di una zona DNS usano "@" come nome del set di record.
+>[AZURE.NOTE] I set di record alla radice (o "vertice") di una zona DNS usano "@" come nome del set di record.
 
 Dopo aver creato la prima zona DNS, è possibile eseguirne il test usando gli strumenti DNS, ad esempio nslookup, DIG o il **cmdlet di PowerShell Resolve-DnsName**. Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario indirizzare la query DNS direttamente a uno dei server dei nomi per la zona. I server dei nomi per la zona sono specificati nei record NS, ottenuti tramite il comando "azure network dns-record-set show" mostrato sopra. Assicurarsi di sostituire i valori corretti per la propria zona nel comando seguente.
 
@@ -170,7 +169,6 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 ## Passaggi successivi
 
+Dopo aver creato una zona DNS, è necessario creare [set di record e record](dns-getstarted-create-recordset-cli.md) per avviare la risoluzione dei nomi per il dominio Internet.<BR> È anche possibile apprendere [come gestire le zone DNS](dns-operations-dnszones-cli.md) e le relative operazioni per zone DNS.<BR> Informazioni su [come gestire i record DNS](dns-operations-recordsets-cli.md) e [automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md).<BR> [Riferimento all'API REST di Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx).
 
-[Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset-cli.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones-cli.md)<BR> [Come gestire i record DNS](dns-operations-recordsets-cli.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -51,7 +51,7 @@ L'applicazione è una semplice applicazione "hello world":
 Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding di Node.js è necessario eseguire queste operazioni:
 
 
-1. Eseguire **Azure PowerShell** come amministratore. Dal **menu Start** o dalla **schermata Start** cercare **Azure PowerShell**.
+1. Eseguire **Windows PowerShell** come amministratore. Nel **menu Start** o nella **schermata Start** cercare **Azure PowerShell**.
 
 2.  [Eseguire la connessione di PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) alla sottoscrizione.
 3.  Immettere il seguente cmdlet di PowerShell per creare il progetto:
@@ -198,4 +198,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/dev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

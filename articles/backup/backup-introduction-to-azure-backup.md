@@ -13,7 +13,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
@@ -61,8 +61,7 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
-| Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Windows)| - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## Funzionalità
 Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funzionalità di Backup in ogni componente:
@@ -181,4 +180,4 @@ Per prendere decisioni relative al backup e al ripristino di emergenza, è neces
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->
