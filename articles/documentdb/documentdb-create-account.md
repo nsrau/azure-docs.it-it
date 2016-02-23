@@ -17,7 +17,7 @@
 	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
-# Creare un account database DocumentDB usando il portale di Azure
+# Come creare un account database DocumentDB usando il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -50,4 +50,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

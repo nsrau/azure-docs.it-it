@@ -13,11 +13,11 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Come creare un database per DocumentDB
+# Come creare un database per DocumentDB usando il portale di Azure
 
 Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account DocumentDB](documentdb-create-account.md), un database, una raccolta e documenti. In questo argomento viene descritto come creare un database per DocumentDB nel portale di Microsoft Azure.
 
@@ -49,4 +49,4 @@ Una volta creata la raccolta, è possibile[aggiungere documenti JSON](documentdb
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti tramite [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

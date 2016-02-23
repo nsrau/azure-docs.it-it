@@ -32,7 +32,7 @@ Le informazioni contenute in questo documento sono specifiche per i cluster HDIn
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unixl.md). 
+- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
 
 ## Nome del cluster HBase
@@ -201,7 +201,7 @@ Un file di dati di esempio è stato caricato in un contenitore BLOB pubblico, **
 
 HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoraggio dei cluster. Usando l’interfaccia Web è possibile richiedere statistiche o informazioni sulle aree.
 
-SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta verrà quindi instradata alla risorsa richiesta come se provenisse dal nodo head del cluster HDInsight. Per altre informazioni, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows (anteprima)](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta verrà quindi instradata alla risorsa richiesta come se provenisse dal nodo head del cluster HDInsight. Per altre informazioni, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
 
 **Per stabilire una sessione di tunneling SSH**
 
@@ -287,4 +287,4 @@ Per ulteriori informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

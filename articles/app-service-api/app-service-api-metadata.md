@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # Metadati delle app per le API del servizio app per l'individuazione di API e la generazione di codice 
@@ -56,4 +56,4 @@ Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è l
 
 Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e utilizzo di un'app per le API, vedere [Introduzione alle app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

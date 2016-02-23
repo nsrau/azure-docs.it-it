@@ -1,6 +1,6 @@
 ## Informazioni sull'archiviazione di accodamento
 
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Un account di archiviazione può contenere fino a 500 TB di dati relativi a BLOB, code e tabelle. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx).
+Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Un account di archiviazione può contenere fino a 500 TB di dati relativi a BLOB, code e tabelle. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md).
 
 Di seguito sono riportati gli utilizzi più comuni per il servizio di archiviazione di accodamento.
 
@@ -26,4 +26,4 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 - **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

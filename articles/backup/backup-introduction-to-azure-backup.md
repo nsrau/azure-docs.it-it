@@ -13,7 +13,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
@@ -181,4 +181,4 @@ Per prendere decisioni relative al backup e al ripristino di emergenza, è neces
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

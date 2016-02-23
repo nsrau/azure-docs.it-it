@@ -2,7 +2,7 @@
 
 Nella libreria del client di archiviazione di Azure per .NET è possibile usare una stringa di connessione di archiviazione per configurare gli endpoint e le credenziali per l'accesso ai servizi di archiviazione. Si consiglia di gestire la stringa di connessione di archiviazione in un file di configurazione, invece di impostarla come hardcoded nell'applicazione. Sono disponibili due opzioni per salvare la stringa di connessione:
 
-- Se l'applicazione viene eseguita in un servizio cloud di Azure, salvare la stringa di connessione con il sistema di configurazione dei servizi di Azure (file `*.csdef` e `*.cscfg`). Vedere [Come creare e distribuire un servizio Cloud](../articles/cloud-services/cloud-services-how-to-create-deploy.md) per informazioni dettagliate sulla configurazione del servizio cloud di Azure.
+- Se l'applicazione viene eseguita in un servizio cloud di Azure, salvare la stringa di connessione con il sistema di configurazione dei servizi di Azure (file `*.csdef` e `*.cscfg`). Per informazioni dettagliate sulla configurazione del servizio cloud di Azure, vedere [Come creare e distribuire un servizio Cloud](../articles/cloud-services/cloud-services-how-to-create-deploy.md).
 - Se l'applicazione viene eseguita in macchine virtuali di Azure o si compilano applicazioni .NET che verranno eseguite all'esterno di Azure, salvare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file `web.config` o `app.config`.
 
 Più avanti in questa guida verrà spiegato come recuperare la stringa di connessione dal codice.
@@ -25,11 +25,11 @@ Per configurare la stringa di connessione nella configurazione dei servizi di Az
 
 5.  Scegliere se si desidera utilizzare come destinazione l'emulatore di archiviazione (servizio Archiviazione di Microsoft Azure simulato nel computer locale) oppure un account di archiviazione nel cloud. Il codice riportato in questa guida funziona con entrambe le opzioni.
 
-	> [AZURE.NOTE]È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questa esercitazione saranno minimi.
+	> [AZURE.NOTE] È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questa esercitazione saranno minimi.
 
-	Se si imposta come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account di archiviazione. Per scoprire come copiare la chiave di accesso primaria tramite il Portale di gestione di Azure, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+	Se si imposta come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account di archiviazione. Per scoprire come copiare la chiave di accesso primaria tramite il portale di gestione di Azure, vedere [Visualizzare e copiare le chiavi di accesso nelle risorse di archiviazione](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-	> [AZURE.NOTE]La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. Assicurarsi di proteggere la chiave. Evitare di distribuirla agli altri utenti o salvarla in un file di testo normale accessibile ad altri utenti. Rigenerare la chiave tramite il portale di gestione se si ritiene che potrebbe essere stata violata.
+	> [AZURE.NOTE] La chiave dell’account di archiviazione è simile alla password radice per l'account di archiviazione. Assicurarsi di proteggere la chiave. Evitare di distribuirla agli altri utenti o salvarla in un file di testo normale accessibile ad altri utenti. Rigenerare la chiave tramite il portale di gestione se si ritiene che potrebbe essere stata violata.
 	
     ![Select target environment][connection-string4]
 
@@ -63,4 +63,4 @@ Ad esempio, l'impostazione configuration nel file di configurazione sarà simile
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

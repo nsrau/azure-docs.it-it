@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -423,8 +423,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
 - Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    - Per archiviare dati non strutturati, utilizzare [Archiviazione BLOB](storage-dotnet-how-to-use-blobs.md).
-    - Per archiviare dati relazionali, usare [Database SQL](sql-database-dotnet-how-to-use.md).
+    - Per archiviare dati non strutturati, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
+    - Per archiviare dati relazionali, vedere [Come usare il database SQL di Azure in applicazioni .NET](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,4 +444,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

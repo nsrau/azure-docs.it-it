@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="01/21/2016"
@@ -20,7 +20,7 @@
 
 Questo articolo fornisce una panoramica di base delle principali funzionalità delle API del servizio Azure Batch. Per lo sviluppo di una soluzione di calcolo distribuita con l'API [Batch REST][batch_rest_api] o [.NET Batch][batch_net_api], si useranno molte delle entità e delle funzionalità descritte di seguito.
 
-> [AZURE.TIP]Per una panoramica tecnica di Batch di livello superiore, vedere [Nozioni di base di Azure Batch](batch-technical-overview.md).
+> [AZURE.TIP] Per una panoramica tecnica di Batch di livello superiore, vedere [Nozioni di base di Azure Batch](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flusso di lavoro del servizio Batch
 
@@ -38,7 +38,7 @@ Il flusso di lavoro di alto livello seguente è quello tipico usato in quasi tut
 
 6. Monitorare lo stato del processo e recuperare i risultati.
 
-> [AZURE.NOTE]È necessario un [account Batch](batch-account-create-portal.md) per usare il servizio Batch e quasi tutte le soluzioni useranno un account di[Archiviazione di Azure][azure_storage] per l'archiviazione e il recupero dei file.
+> [AZURE.NOTE] È necessario un [account Batch](batch-account-create-portal.md) per usare il servizio Batch e quasi tutte le soluzioni useranno un account di[Archiviazione di Azure][azure_storage] per l'archiviazione e il recupero dei file.
 
 Le sezioni seguenti illustrano ognuna delle risorse citate nel flusso di lavoro precedente e molte altre funzionalità di Batch che abiliteranno lo scenario di calcolo distribuito.
 
@@ -253,7 +253,8 @@ Una formula può essere basata sulle metriche seguenti:
 
 Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md).
 
-> [AZURE.TIP]Anche se non è sempre necessario, è possibile specificare singoli nodi da rimuovere da un pool. Se si sospetta, ad esempio, che un nodo sia meno affidabile, è possibile rimuoverlo dal pool per impedire l'assegnazione di attività aggiuntive.
+> [AZURE.TIP]
+ Anche se non è sempre necessario, è possibile specificare singoli nodi da rimuovere da un pool. Se si sospetta, ad esempio, che un nodo sia meno affidabile, è possibile rimuoverlo dal pool per impedire l'assegnazione di attività aggiuntive.
 
 ## <a name="cert"></a>Sicurezza con certificati
 
@@ -294,7 +295,7 @@ Per qualsiasi attività pianificata in un processo, il servizio Batch imposta il
 | `AZ_BATCH_TASK_ID` | ID dell'attività corrente. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Percorso completo della directory di lavoro nel nodo. |
 
->[AZURE.NOTE]Non è possibile sovrascrivere le variabili definite dal sistema precedenti, perché sono di sola lettura.
+>[AZURE.NOTE] Non è possibile sovrascrivere le variabili definite dal sistema precedenti, perché sono di sola lettura.
 
 ## <a name="errorhandling"></a>Gestione degli errori
 
@@ -319,7 +320,7 @@ Durante l'esecuzione un'applicazione può generare un output di diagnostica che 
 
 È possibile eseguire un'operazione di debug ancora più approfondita accedendo a un nodo di calcolo tramite *Desktop remoto*. È possibile [Ottenere un file RDP da un nodo][rest_rdp] (API Batch REST) o usare il metodo [ComputeNode.GetRDPFile][net_rdp] (API Batch .NET) per l'accesso remoto.
 
->[AZURE.NOTE]Per connettersi a un nodo tramite RDP, è necessario creare prima di tutto un utente nel nodo. [Aggiungere un account utente a un nodo][rest_create_user] nell'API Batch REST o usare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET.
+>[AZURE.NOTE] Per connettersi a un nodo tramite RDP, è necessario creare prima di tutto un utente nel nodo. [Aggiungere un account utente a un nodo][rest_create_user] nell'API Batch REST o usare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET.
 
 ### Considerazioni sugli errori o sulle interruzioni delle attività
 
@@ -371,4 +372,4 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/16/2016"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica con Xamarin per Android
@@ -41,7 +41,6 @@ Per completare questa esercitazione, è necessario disporre di:
 
 + [Xamarin.Android]
 + Un account Google attivo
-+ [Componente Servizi mobili di Azure]
 + [Componente di messaggistica di Azure]
 + [Componente client di Google Cloud Messaging]
 
@@ -519,8 +518,7 @@ In questo semplice esempio le notifiche sono state trasmesse a tutti i dispositi
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
-[Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Componente di messaggistica di Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

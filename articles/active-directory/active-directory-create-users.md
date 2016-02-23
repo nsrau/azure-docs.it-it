@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="curtand;viviali"/>
 
 # Creare o modificare utenti in Azure AD
@@ -124,4 +124,4 @@ In seguito è possibile modificare le opzioni di controllo degli accessi per gli
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

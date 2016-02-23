@@ -1,5 +1,5 @@
 <properties
- pageTitle="Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure | Microsoft Azure"
+ pageTitle="Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Microsoft Azure"
  description=""
  services="scheduler"
  documentationCenter=".NET"
@@ -12,212 +12,127 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="12/04/2015"
+ ms.date="02/17/2016"
  ms.author="krisragh"/>
 
-# Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure classico
+# Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 
-## Introduzione
+L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
 
-Creare processi e raccolte di processi nell'Utilità di pianificazione di Azure è un'operazione semplice. Questa esercitazione illustra la procedura dettagliata per la creazione di una raccolta di processi da usare per archiviare i progetti, per la creazione di un processo in una raccolta di processi e una panoramica delle attività di monitoraggio e gestione dei processi disponibili. Per svolgere l'esercitazione, non è necessario avere esperienze precedenti nell'utilizzo di Azure.
+## Creare un processo
 
-Quando si apre il portale di Azure classico per la prima volta viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**, al cui interno sono presenti delle colonne che è possibile ordinare. Per visualizzare i processi e le raccolte di processi dell'Utilità di pianificazione, fare clic sulla scheda **UTILITÀ DI PIANIFICAZIONE**.
+1.  Accedere al [portale di Azure](https://portal.azure.com/).  
 
-![][1]
+2.  Fare clic su **+Nuovo**, digitare _Utilità di pianificazione_ nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
 
-## Creare una raccolta di processi e un processo
+   ![][marketplace-create]
 
-1.  Accedere al [portale di Azure classico](https://manage.windowsazure.com/).  
+3.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
 
-2.  Fare clic su **Servizi app**> **Crea nuovo** > **Utilità di pianificazione** e quindi fare clic su **Creazione personalizzata**. <br /><br /> ![][2]
+    1.  **Nome:** `getmicrosoft`  
 
-3.  In **Raccolta processi** selezionare il nome della raccolta di processi esistente nell'elenco a discesa **Raccolta processi**. Se non si dispone di una raccolta processi esistente a cui aggiungere il processo, selezionare **Crea nuovo** e immettere un nome per identificare la nuova raccolta processi.<br /><br /> ![][3]
+    2.  **Sottoscrizione:** sottoscrizione di Azure
 
-4.  In **Area** selezionare l'area geografica per la raccolta di processi.
+    3.  **Raccolta processi:** selezionare una raccolta di processi esistente oppure fare clic su **Crea nuovo** e immettere un nome.
 
-5.  Fare clic sul tasto di direzione per creare la raccolta di processi e passare alla fase successiva – creare un processo.
+4.  Successivamente, in **Impostazioni azione** definire i valori seguenti:
 
-6.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Azione processo** definire i valori seguenti per i campi modulo obbligatori:
+    1.  **Tipo di azione:** ` HTTP`  
 
-    1.  **Nome:** ` getmicrosoft`  
+    2.  **Metodo:** `GET`
 
-    2.  **Tipo di azione:** ` HTTP`
+    3.  **URL:** ` http://www.microsoft.com`
 
-    3.  **Metodo:** ` GET`
+   ![][action-settings]
 
-    4.  **URI:** ` http://www.microsoft.com`
+5.  Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
 
-   	![][4]
+    1. **Ricorrenza**: `Recurring`
 
-7.  Dopo aver creato un processo, definire una pianificazione. Il processo può essere impostato come processo one-time, ma in questo caso selezioniamo una pianificazione di ricorrenza. Alcune schermate in questa esercitazione mostrano una ricorrenza di 1 minuto a scopo puramente illustrativo, scegliere invece una ricorrenza di 12 ore.
+    2. **Inizia**: data odierna
 
-    1.  **Ricorre ogni:** ` 12 Hours`  
+    3. **Ricorre ogni:** `12 Hours`
 
-    2.  **Avvio:** ` Now`
+    4. **Termina entro**: due giorni dalla data odierna
 
-    3.  **Data di fine:** ` Select date 2 days after current day and any time`
+   ![][recurrence-schedule]
 
-   	![][5]
+6.  Fare clic su **Crea**
 
-8.  Fare clic su **OK**. La creazione del processo e della raccolta di processi può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale.
+## Gestire e monitorare i processi
 
-   	![][6]
+Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
 
-   	Dopo aver completato la procedura, un messaggio indicherà che il processo o la raccolta di processi è stata creata. Il processo viene visualizzato nella sezione Processi dell'Utilità di pianificazione e la raccolta di processi viene visualizzata nella sezione Raccolte processi. Per configurare ulteriori impostazioni avanzate del processo, vedere la sezione "Configurare un processo" riportata di seguito.
+1.  Proprietà  
 
-   	![][7]
+2.  Impostazioni azione
 
-## Gestire e monitorare le raccolte di processi e i processi
+3.  Pianificazione
 
-Dopo la creazione, la raccolta di processi viene visualizzata nella schermata principale di gestione dell'Utilità di pianificazione.
+4.  History
 
-![][8]
+5.  Utenti
 
-Fare clic su una raccolta di processi per visualizzare una nuova finestra con le opzioni seguenti:
+   ![][job-overview]
 
-1.  Dashboard  
+### Proprietà
 
-2.  Scalabilità
+Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
-3.  History
+   ![][job-properties]
 
-4.  Processi
 
-Gli argomenti seguenti descrivono in dettaglio queste schede.
+### Impostazioni di azione
 
-### Dashboard
+Per configurare un processo, fare clic su un processo nella schermata **Processi**. Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
 
-Quando si fa clic sul nome della propria raccolta di processi, viene visualizzata la scheda **Dashboard**. Nella scheda Dashboard sono visualizzate le informazioni seguenti:
+Per tutti i tipi di azione è possibile modificare i criteri per i tentativi e l'azione di errore.
 
-![][9]
+Per le azioni di processo di tipo HTTP e HTTPS, è possibile modificare il metodo a qualsiasi verbo HTTP consentito. È inoltre possibile aggiungere, eliminare o modificare le intestazioni e le informazioni di autenticazione di base.
 
-#### Panoramica sull'utilizzo del processo e Panoramica sull'utilizzo di esecuzione
+Per le azioni di tipo coda di archiviazione, è possibile modificare l'account di archiviazione, il nome della coda, token SAS e corpo.
 
-Una tabella e una serie di grafici che mostrano un elenco fisso di metriche. Queste metriche forniscono valori in tempo reale riguardo lo stato corrente della propria raccolta di processi, inclusi:
+Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio.
 
-1.  Processi correnti  
+   ![][job-action-settings]
 
-2.  Processi completati
+### Pianificazione
 
-3.  Processi con errori
+Permette di riconfigurare la pianificazione creata nella procedura guidata di creazione rapida.
 
-4.  Processi abilitati
+Offre la possibilità di compilare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md).
 
-5.  Processi disabilitati
+È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente).
 
-6.  Esecuzioni del processo
+   ![][job-schedule]
 
-#### Riepilogo rapido
 
-Una tabella che mostra un elenco fisso di metriche su stati e impostazioni. Queste metriche forniscono valori in tempo reale riguardo lo stato e le impostazioni associati alla propria raccolta di processi, inclusi:
+### Cronologia
 
-1.  Stato  
-
-2.  Region
-
-3.  Numero di errori
-
-4.  Numero di occorrenze con errori
-
-5.  URI
-
-### Scalabilità
-
-Nella scheda **Ridimensiona** è possibile modificare le impostazioni e il livello di servizio usati dall'Utilità di pianificazione.
-
-![][10]
-
-#### Generale
-
-Indica se si utilizza il piano **Free** o **Standard**.
-
-#### Quote
-
-L’Utilità di pianificazione di Azure implementa le quote in base a diversi parametri. In questa sezione vengono elencate le soglie di quota ed è possibile modificarle. Per impostazione predefinita è configurato un solo set di quote. I limiti di queste impostazioni di quote sono vincolati dal proprio piano, e modificare il proprio Piano può influire sui costi.. Le quote possono essere modificate per scalare l'Utilità di pianificazione. Le opzioni includono:
-
-1.  Processi massimi  
-
-2.  Frequenza massima
-
-3.  Intervallo massimo
-
-### History
-
-La scheda **Cronologia** visualizza le informazioni seguenti per il processo selezionato:
-
-![][11]
-
-#### Tabella cronologia
-
-Una tabella che visualizza le metriche selezionate per ogni esecuzione del processo nel sistema per il processo selezionato. Queste metriche forniscono valori in tempo reale riguardo lo stato corrente dell’Utilità di pianificazione.
-
-#### Metriche disponibili
-
-Sono disponibili i contatori/le metriche seguenti:
+La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
 1.  Stato  
 
 2.  Dettagli
 
-3.  Tentativo di ripetizione
+3.  Tentativi
 
-4.  Numero di esecuzioni (prima, seconda, terza, ecc.)
+4.  Occorrenza: 1, 2, 3 e così via
 
-5.  Timestamp dell’esecuzione
+5.  Ora di inizio dell'esecuzione
 
-Per esaminare l'intera risposta per ogni esecuzione, è possibile fare clic su **Visualizza dettagli cronologia**. La finestra di dialogo consente anche di copiare la risposta negli appunti.
+6.  Ora di fine dell'esecuzione
 
-![][12]
+   ![][job-history]
 
-### Processi
+È possibile fare clic su un'esecuzione per visualizzarne i **Dettagli cronologia**, inclusa l'intera risposta per ogni esecuzione. La finestra di dialogo consente anche di copiare la risposta negli appunti.
 
-La scheda processi visualizza le informazioni seguenti per monitorare la cronologia di esecuzione dei processi:
+   ![][job-history-details]
 
-![][13]
+### Utenti
 
-#### Tabella processi
+Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
-Una tabella che visualizza le metriche selezionate per ogni processo nel sistema. Queste metriche forniscono valori in tempo reale riguardo lo stato corrente dell’Utilità di pianificazione.
-
-#### Disabilitazione, abilitazione o eliminazione di un processo
-
-Per abilitare, disabilitare o eliminare un processo, fare clic sul nome di un processo. I processi eliminati potrebbero non essere ripristinabili.
-
-#### Metriche disponibili
-
-Sono disponibili i seguenti contatori e metriche:
-
-1.  Nome  
-
-2.  Ultima esecuzione
-
-3.  Prossima esecuzione
-
-4.  Stato
-
-5.  Frequenza
-
-6.  Errori
-
-7.  Errori
-
-8.  Esecuzioni
-
-9.  Tipo di azione
-
-### Configurare un processo
-
-Per configurare un processo, fare clic su un processo nella schermata **Processi**. Ciò consente di configurare le impostazioni avanzate aggiuntive non disponibili nella procedura guidata di creazione rapida. Per configurare un processo, fare clic sulla freccia destra accanto al nome del processo nella schermata **Processi**.
-
-La pagina di configurazione del processo consente di aggiornare le impostazioni del processo. La pagina di configurazione del processo è illustrata di seguito per i processi di tipo HTTP e HTTPS. Per le azioni di processo di tipo HTTP e HTTPS, è possibile modificare il metodo a qualsiasi verbo HTTP consentito. È inoltre possibile aggiungere, eliminare o modificare le intestazioni e le informazioni di autenticazione di base.
-
-![][14]
-
-La pagina di configurazione del processo appare come mostrata di seguito per i processi su coda di archiviazione. Per le azioni di tipo coda di archiviazione, è possibile modificare l'account di archiviazione, il nome della coda, token SAS e corpo. La sezione "Pianificazione" (non illustrata di seguito) è identica alla sezione "Pianificazione" per le azione dei processi di tipo HTTP/HTTPS.
-
-![][15]
-
-Infine, per tutti i tipi di azione, è possibile modificare la pianificazione stessa e il relativo comportamento di ricorrenza. È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente). Dopo aver apportato le modifiche, è possibile salvarle facendo clic su **Salva** o annullarle facendo clic su **Annulla**.
 
 ## Vedere anche
 
@@ -240,6 +155,16 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
 
 
+[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
+[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
+[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
+[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
+[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
+[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
+[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
+[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
+[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
+
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
@@ -257,4 +182,4 @@ Infine, per tutti i tipi di azione, è possibile modificare la pianificazione st
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

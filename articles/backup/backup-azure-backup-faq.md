@@ -13,7 +13,7 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
+	 ms.topic="get-started-article"
 	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
@@ -100,6 +100,10 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 - *.microsoftonline.com
 - *.windows.net
 
+**D21. È possibile installare l'agente di Backup di Azure in una macchina virtuale di Azure già supportata dal servizio Backup di Azure usando l'estensione della macchina virtuale?** <br/> R21. Certo. Backup di Azure consente il backup a livello di macchina virtuale per le macchine virtuali di Azure con l'estensione della macchina virtuale. È possibile installare l'agente di Backup di Azure nel sistema operativo guest di Windows per proteggere file e cartelle in un sistema operativo guest.
+
+**D22. È possibile installare l'agente di Backup di Azure in una macchina virtuale di Azure per eseguire il backup di file e cartelle presenti nell'archivio temporaneo fornito dalla macchina virtuale di Azure?** <br/> R22. È possibile installare l'agente di Backup di Azure nel sistema operativo guest di Windows ed eseguire il backup di file e cartelle nell'archivio temporaneo. Tenere presente, tuttavia, che dopo la cancellazione dei dati dall'archivio temporaneo i backup avranno esito negativo. Se i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
+
 
 ## Backup e conservazione
 **D1. Esiste un limite alle dimensioni di ogni origine dati sottoposta a backup?** <br/> R1. A partire da agosto 2015, le dimensioni massime delle origini dati per i diversi sistemi operativi sono indicate di seguito
@@ -183,4 +187,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

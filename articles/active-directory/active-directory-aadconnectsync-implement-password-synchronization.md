@@ -6,14 +6,13 @@
 	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
-
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/12/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -91,7 +90,7 @@ Se l'utente cambia di nuovo la password locale, la nuova password verrà sincron
 
 Se si usano le impostazioni rapide quando si installa Azure AD Connect, la sincronizzazione password viene abilitata per impostazione predefinita.
 
-Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente. 
+Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente.
 ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
 Se si sceglie di usare **la federazione tramite ADFS**, è possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura di ADFS. È inoltre possibile abilitarla se si prevede di usare Servizi di dominio Azure AD.
@@ -161,4 +160,4 @@ Non è obbligatorio forzare una sincronizzazione completa di tutte le password, 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

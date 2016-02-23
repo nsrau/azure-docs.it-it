@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/25/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Introduzione al server Azure Multi-Factor Authentication
@@ -41,8 +41,7 @@ Esistono due modi diversi per scaricare il server Azure Multi-Factor Authenticat
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore della pagina Active Directory, selezionare **Provider Multi-Factor Authentication**
 4. Nella parte inferiore fare clic su **Gestisci**
-5. Verrà aperta una nuova pagina. Fare clic su **Download.** 
-![Download](./media/multi-factor-authentication-sdk/download.png)
+5. Verrà aperta una nuova pagina. Fare clic su **Download.** ![Download](./media/multi-factor-authentication-sdk/download.png)
 6. Sopra all'opzione relativa alla **generazione delle credenziali di attivazione**, fare clic su **Download**. ![Scaricare](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Salvare il download.
 
@@ -56,8 +55,7 @@ Esistono due modi diversi per scaricare il server Azure Multi-Factor Authenticat
 3. Fare doppio clic sull'istanza di Azure AD.
 4. Nella parte superiore fare clic su **Configura** ![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
 5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**
-6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**. 
-![Scaricare](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**. ![Scaricare](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. Verrà aperta una nuova pagina. Fare clic su **Download**.
 8. Sopra all'opzione relativa alla **generazione delle credenziali di attivazione**, fare clic su **Download**.
 9. Salvare il download.
@@ -108,7 +106,7 @@ Subnet IP|Netmask|Intervallo IP
 1. Fare doppio clic sul file eseguibile. Viene avviata l'installazione.
 2. Nella schermata di selezione della cartella di installazione, assicurarsi che la cartella sia corretta e fare clic su Avanti.
 3. Al termine dell'installazione, fare clic su Fine. Verrà avviata la configurazione guidata.
-4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autenticazione** e fare clic su **Avanti**. Verrà chiusa la procedura guidata e avviato il server. 
+4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autenticazione** e fare clic su **Avanti**. Verrà chiusa la procedura guidata e avviato il server.
 ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. Tornare nella pagina da cui è stato scaricato il server, scegliere il pulsante relativo alla **generazione delle credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
@@ -188,4 +186,4 @@ Metodo|Descrizione
 [Sincronizzazione con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Informazioni sull'installazione e la configurazione della sincronizzazione tra Active Directory e il Server di autenticazione a più fattori di Azure.
 [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-webservice.md)|Informazioni sull'installazione e configurazione del servizio web del server Azure di autenticazione a più fattori.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

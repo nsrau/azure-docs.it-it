@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/06/2015"
@@ -17,13 +17,13 @@
 
 # Architettura del bus di servizio
 
-In questo articolo viene descritta l'architettura di elaborazione dei messaggi del bus di servizio di Azure.
+Questo articolo descrive l'architettura di elaborazione dei messaggi del bus di servizio di Azure.
 
 ## Unità di scala del bus di servizio
 
 Il bus di servizio è organizzato in base a *unità di scala*. Un'unità di scala è un'unità di distribuzione e contiene tutti i componenti necessari per eseguire il servizio. Ogni area distribuisce una o più unità di scala del bus di servizio.
 
-Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unità di scala gestisce tutti i tipi di entità del bus di servizio: inoltri ed entità di messaggistica negoziata (code, argomenti, sottoscrizioni). Un’unità di scala del bus di servizio include i seguenti componenti:
+Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unità di scala gestisce tutti i tipi di entità del bus di servizio, ovvero inoltri ed entità di messaggistica negoziata come code, argomenti e sottoscrizioni. Un’unità di scala del bus di servizio include i seguenti componenti:
 
 - **Un set di nodi del gateway.** I nodi del gateway autenticano le richieste in ingresso e gestiscono le richieste di inoltro. Ogni nodo del gateway ha un indirizzo IP pubblico.
 
@@ -33,7 +33,7 @@ Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unit�
 
 - **Un archivio del gateway.** Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
 
-- **Numerosi archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene inoltre tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. Ad eccezione della [messaggistica Premium](service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
+- **Numerosi archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene inoltre tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
 
 - **Archivi di registrazione multipli.** Gli archivi di registrazione contengono registrazioni dei dispositivi per tutti gli hub di notifica definiti nell'unità di scala. Gli archivi di registrazione vengono implementati nei database SQL Azure.
 
@@ -67,6 +67,6 @@ A questo punto, dopo aver letto una panoramica del funzionamento del bus di serv
 
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
-- Una [soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

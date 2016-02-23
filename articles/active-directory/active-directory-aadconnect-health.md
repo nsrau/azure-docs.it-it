@@ -77,7 +77,7 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 ![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
 - **Avvio rapido**: selezionando questa opzione, viene visualizzato il pannello Avvio rapido. in cui è possibile scaricare l'agente di Azure AD Connect Health scegliendo Scarica strumenti, accedere alla documentazione e fornire commenti e suggerimenti.
-- **Active Directory Federation Services**: rappresenta tutti i servizi di AD FS attualmente monitorati da Azure AD Connect Health. Selezionando una delle istanze, verrà visualizzato un altro pannello che contiene informazioni su tale istanza del servizio. Queste informazioni includono una panoramica, le proprietà, gli avvisi, informazioni di monitoraggio e analisi di utilizzo. 
+- **Active Directory Federation Services**: rappresenta tutti i servizi di AD FS attualmente monitorati da Azure AD Connect Health. Selezionando una delle istanze, verrà visualizzato un altro pannello che contiene informazioni su tale istanza del servizio. Queste informazioni includono una panoramica, le proprietà, gli avvisi, informazioni di monitoraggio e analisi di utilizzo.
 - Configura: consente di attivare e disattivare i comportamenti seguenti:
 <ol>
 1. Aggiornamento automatico dell'agente di Azure AD Connect Health alla versione più recente: l'agente di Azure AD Connect Health viene aggiornato automaticamente ogni volta che è disponibile una nuova versione. Questa opzione è abilitata per impostazione predefinita.
@@ -112,7 +112,7 @@ Per iniziare, eseguire una di queste operazioni:
 
 
 - Per una guida introduttiva all'uso di Azure AD Connect Health, è possibile scaricare la versione più recente dell'agente qui: [Download dell'agente di Azure AD Connect Health per AD FS](http://go.microsoft.com/fwlink/?LinkID=518973). Assicurarsi di aver aggiunto il servizio da Marketplace prima di installare gli agenti.
-- Per iniziare a usare Azure AD Connect Health per la sincronizzazione, scaricare e installare la versione più recente di Azure AD Connect. L'agente per l'integrità verrà installato come parte dell'installazione di Azure AD Connect. Azure AD Connect supporta un aggiornamento sul posto da versioni precedenti.
+- Per iniziare a usare Azure AD Connect Health per la sincronizzazione, scaricare e installare la [versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). L'agente per l'integrità verrà installato come parte dell'installazione di Azure AD Connect. Azure AD Connect supporta un aggiornamento sul posto da versioni precedenti.
 
 
 ## Collegamenti correlati
@@ -123,4 +123,4 @@ Per iniziare, eseguire una di queste operazioni:
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

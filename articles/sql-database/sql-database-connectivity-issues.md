@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="02/17/2016"
 	ms.author="daleche"/>
 
 
@@ -104,31 +104,43 @@ Per testare la logica di ripetizione dei tentativi, è necessario simulare o pro
 ### Eseguire il test mediante la disconnessione dalla rete
 
 
-Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. Verrà visualizzato un errore analogo a: - **SqlException.Number** = 11001 - Messaggio: "Host sconosciuto".
+Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. Verrà visualizzato un errore analogo a:
+
+- **SqlException.Number** = 11001
+- Messaggio: "Host sconosciuto"
 
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
 
-Per semplificare le operazioni, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma: 1. Aggiunta temporanea di 11001 al rispettivo elenco di errori da considerare temporanei. 2. Tentativo della prima connessione come di consueto. 3. Dopo il rilevamento dell'errore, rimozione di 11001 dall'elenco. 4. Visualizzazione di un messaggio che richiede all'utente di connettere il computer alla rete. - Sospendere altre esecuzioni usando il metodo **Console.ReadLine** o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete. 5. Nuovo tentativo di connessione, con esito positivo previsto.
+Per semplificare le operazioni, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma:
+
+1. Aggiunta temporanea di 11001 al rispettivo elenco di errori da considerare temporanei.
+2. Tentativo della prima connessione come di consueto.
+3. Dopo il rilevamento dell'errore, rimozione di 11001 dall'elenco.
+4. Visualizzazione di un messaggio che richiede all'utente di connettere il computer alla rete.
+ - Sospensione di altre esecuzioni con il metodo **console.ReadLine** metodo o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete.
+5. Nuovo tentativo di connessione, con esito positivo previsto.
 
 
 ### Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
 
 
-Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore sarà analogo al seguente: 
-- **SqlException.Number** = 18456 
+Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. Verrà visualizzato un errore analogo a:
+
+- **SqlException.Number** = 18456
 - Messaggio: "Accesso non riuscito per l'utente 'WRONG\_MyUserName'."
 
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
 
-Per semplificare le operazioni, il programma potrebbe riconoscere un parametro di runtime che ha le conseguenze seguenti sul programma: 
-1. Aggiunta temporanea di 18456 al rispettivo elenco di errori da considerare temporanei. 
-2. Aggiunta intenzionale di 'WRONG_' al nome utente. 
-3. Dopo il rilevamento dell'errore, rimozione di 18456 dall'elenco. 
-4. Rimozione di 'WRONG_' dal nome utente. 
+Per semplificare le operazioni, il programma potrebbe riconoscere un parametro di runtime che ha le conseguenze seguenti sul programma:
+
+1. Aggiunta temporanea di 18456 al rispettivo elenco di errori da considerare temporanei.
+2. Aggiunta intenzionale di 'WRONG\_' al nome utente.
+3. Dopo il rilevamento dell'errore, rimozione di 18456 dall'elenco.
+4. Rimozione di 'WRONG\_' dal nome utente.
 5. Nuovo tentativo di connessione, con esito positivo previsto.
 
 
@@ -177,7 +189,7 @@ I parametri **ConnectRetryCount** e **ConnectRetryInterval** consentono all'ogge
 - Chiamata al metodo mySqlConnection.Open
 - Chiamata al metodo mySqlConnection.Execute
 
-È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query*, l'oggetto **SqlConnection** non ripete tentativi di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se rileva un problema, ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
+È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query*, l'oggetto **SqlConnection** non ripete i tentativi di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se rileva un problema, ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
 
 
 #### Opportunità di combinare ConnectRetryCount con la logica di ripetizione dei tentativi nell'applicazione
@@ -238,14 +250,18 @@ Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** 
 
 
 ADO.NET 4.6.1:
- - Aggiunge il supporto per il protocollo TDS 7.4, inclusi miglioramenti alla connessione superiori rispetto a quelli della versione 4.0. 
- - Supporta i pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
+
+- Per il database SQL di Azure, è possibile migliorare l'affidabilità aprendo una connessione con il metodo il **SqlConnection.Open**. Il metodo **Open** incorpora ora meccanismi di ripetizione dei tentativi di tipo "massimo sforzo" in risposta agli errori temporanei, per alcuni errori entro l'intervallo di timeout connessione.
+- Supporta il pool di connessioni, inclusa una verifica efficiente del funzionamento dell'oggetto connessione fornito al programma.
+
 
 
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se non deve essere usata immediatamente. La riapertura di una connessione è meno dispendiosa della creazione di una nuova connessione.
 
 
-Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. A partire da novembre 2015 è possibile [scaricare ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET.
+
+- A partire da novembre 2015 è possibile [scaricare ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -256,8 +272,9 @@ Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiorn
 Se il programma non riesce a connettersi al database SQL di Azure, un'opzione di diagnostica consente di provare a connettersi mediante un programma di utilità. Idealmente l'utilità si connette mediante la stessa libreria usata dal programma.
 
 
-In qualsiasi computer Windows è possibile provare a usare queste utilità: 
-- SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET. 
+In qualsiasi computer Windows è possibile provare queste utilità:
+
+- SQL Server Management Studio (ssms.exe), che si connette tramite ADO.NET.
 - sqlcmd.exe, che si connette tramite [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
@@ -272,17 +289,18 @@ Dopo la connessione, verificare il funzionamento di una breve query SQL SELECT.
 Si supponga che si sospetti che gli errori di connessione siano dovuti a problemi relativi alle porte. Nel computer è possibile eseguire un'utilità che fornisce informazioni sulle configurazioni delle porte.
 
 
-In Linux potrebbero essere utili le utilità seguenti: 
-- `netstat -nap` 
-- `nmap -sS -O 127.0.0.1` 
-- Sostituire il valore dell'esempio con l'indirizzo IP in uso.
+In Linux possono risultare utili le utilità seguenti:
+
+- `netstat -nap`
+- `nmap -sS -O 127.0.0.1`
+ - Modificare il valore di esempio con il proprio indirizzo IP.
 
 
 In Windows è possibile usare l'utilità [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148). Ecco un'esecuzione di esempio che ha eseguito una query relativa alla situazione delle porte in un server di database SQL di Azure e che è stata eseguita in un computer portatile:
 
 
 ```
-[C:\Users\johndoe\]
+[C:\Users\johndoe]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -294,7 +312,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe\]
+[C:\Users\johndoe]
 >>
 ```
 
@@ -310,7 +328,9 @@ La diagnosi di un problema intermittente è spesso agevolata dal rilevamento di 
 Il client può supportare l'analisi tramite la registrazione di tutti gli errori rilevati. È possibile che si riesca a correlare le voci del log con i dati di errore registrati internamente dal database SQL di Azure.
 
 
-Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione: - [5 - Più facile che mai: uso del blocco applicazione di registrazione](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione:
+
+- [5 - Più facile che mai: Uso del blocco applicazione di registrazione](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -323,7 +343,7 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log alla ricer
 
 | Query di un log | Descrizione |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) presenta informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria è possibile correlare i valori **start\_time** e **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La visualizzazione [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) presenta informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria è possibile correlare il valore **start\_time** o **end\_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La visualizzazione [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) offre un conteggio aggregato dei tipi di evento, per consentire operazioni di diagnostica aggiuntive.<br/><br/>**SUGGERIMENTO:** è necessario connettersi al database **master** per eseguire questa operazione. |
 
 
@@ -359,7 +379,7 @@ ORDER BY
 ```
 
 
-#### Alcune righe restituite da sys.fn_xe_telemetry_blob_target_read_file
+#### Alcune righe restituite da sys.fn\_xe\_telemetry\_blob\_target\_read\_file
 
 
 Una riga restituita avrà un aspetto analogo al seguente. I valori Null mostrati sono spesso non Null in altre righe.
@@ -377,16 +397,19 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in: 
-- [Enterprise Library 6 - Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL di Azure SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in:
+
+- [Enterprise Library 6 – Aprile 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-La logica di ripetizione dei tentativi per la gestione di errori temporanei è una delle aree per cui EntLib60 può risultare utile: 
-- Vedere in proposito l'articolo relativo a [perseveranza, il segreto di ogni successo: uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile:
+
+- [4 - Perseveranza, il segreto di ogni successo: Uso del blocco applicazione di gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un breve esempio di codice C# che usa EntLib60 nella logica di ripetizione dei tentativi è disponibile in: 
-- [Codice di esempio: logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
+Un breve esempio di codice C# che usa EntLib60 nella propria logica di ripetizione dei tentativi è disponibile in:
+
+- [Codice di esempio: Logica di ripetizione tentativi di Enterprise Library 6 in C# per la connessione al database SQL](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE] Il codice sorgente per EntLib60 è disponibile per il [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) pubblico. Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
@@ -527,4 +550,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

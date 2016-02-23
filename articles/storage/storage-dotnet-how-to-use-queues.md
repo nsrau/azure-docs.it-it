@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="gusapost"/>
 
 # Introduzione all'archiviazione code di Azure con .NET
@@ -51,7 +51,7 @@ Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll
 
 ## Creare una coda
 
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questa guida viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount][].
+Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questa guida viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount_methods.aspx).
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,20 +246,18 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 - Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
     - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
+- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-    - Per archiviare dati strutturati, usare [Archiviazione tabelle](storage-dotnet-how-to-use-tables.md).
-    - Per archiviare dati non strutturati, usare [Archiviazione BLOB](storage-dotnet-how-to-use-blobs.md).
-    - Per archiviare dati relazionali, usare [Database SQL](sql-database-dotnet-how-to-use.md).
+    - Per archiviare dati strutturati, vedere [Introduzione all'archivio tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
+    - Per archiviare dati non strutturati, vedere [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
+    - Per archiviare dati relazionali, vedere [Come usare il database SQL di Azure in applicazioni .NET](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

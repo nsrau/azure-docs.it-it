@@ -46,7 +46,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 
 	![Finestra di dialogo Nuovo servizio in Visual Studio][2]
 
-	>[AZURE.NOTE]Per altre informazioni sulle opzioni, vedere [Scegliere un framework](service-fabric-choose-framework.md).
+	>[AZURE.NOTE] Per altre informazioni sulle opzioni, vedere [Scegliere un framework](service-fabric-choose-framework.md).
 
 	Visual studio crea il progetto di applicazione e il progetto di servizio con stato e li visualizza in Esplora soluzioni.
 
@@ -68,7 +68,7 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 1. Premere F5 in Visual Studio per compilare l'applicazione per il debug.
 
-	>[AZURE.NOTE]La prima volta questa operazione richiederà alcuni minuti, perché Visual Studio crea un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che verrà creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster sarà visualizzato nella finestra di output di Visual Studio.
+	>[AZURE.NOTE] La prima volta questa operazione richiederà alcuni minuti, perché Visual Studio crea un cluster locale per lo sviluppo. Un cluster locale esegue lo stesso codice della piattaforma che verrà creato in un cluster con più macchine virtuali, ma in una singola macchina virtuale. Lo stato della creazione del cluster sarà visualizzato nella finestra di output di Visual Studio.
 
 	Quando il cluster è pronto, l'applicazione di gestione dell'area di notifica del cluster locale inclusa nell'SDK visualizzerà un messaggio.
 
@@ -86,7 +86,7 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 	Il cluster locale include cinque nodi ospitati in un singolo computer. Simula un cluster di cinque nodi, ognuno dei quali risiede in un computer distinto. Verrà quindi portato offline uno dei nodi del cluster locale per simulare la perdita di una macchina virtuale e provare a eseguire il debugger di Visual Studio.
 
-    >[AZURE.NOTE]Gli eventi di diagnostica dell'applicazione generati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere l'articolo che illustra [come monitorare e diagnosticare i servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
+    >[AZURE.NOTE] Gli eventi di diagnostica dell'applicazione generati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere l'articolo che illustra [come monitorare e diagnosticare i servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. Nel progetto di servizio trovare la classe che deriva da StatefulService, ad esempio MyStatefulService, e impostare un punto di interruzione sulla prima riga del metodo `RunAsync`.
 
@@ -142,4 +142,4 @@ A questo punto, è possibile provare a eseguire l'app creata.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

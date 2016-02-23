@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/29/2015" 
+	ms.date="02/11/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -21,11 +21,12 @@
 
 ## Introduzione
 
-In precedenza, per gestire una risorsa in Microsoft Azure, ad esempio un server di database, un database o un'app Web, era necessario eseguire operazioni su una risorsa alla volta. Se si disponeva di un'applicazione complessa costituita da più risorse, era necessario coordinare manualmente le modifiche all'infrastruttura dell'applicazione. Nel portale di Azure è possibile utilizzare Gestione risorse di Azure per creare gruppi di risorse per distribuire e gestire tutte le risorse di un'applicazione contemporaneamente.
+Gestione risorse di Azure consente di distribuire e gestire le soluzioni attraverso gruppi di risorse. Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di Azure. In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
 
-In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
+Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità dei portali di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di Azure. Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [grafico di disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+È anche possibile gestire le risorse usando Azure PowerShell e l'interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di tali interfacce, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md) e [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md).
+
 
 ## Creare risorse e un gruppo di risorse
 
@@ -37,13 +38,17 @@ Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione
 
 ![impostare i valori del gruppo](./media/resource-group-portal/set-group-properties.png)
 
-Tuttavia, non è necessario creare in modo esplicito un gruppo di risorse vuoto. Quando si crea una nuova risorsa, è possibile scegliere di creare un nuovo gruppo di risorse oppure di usarne uno esistente. L'immagine seguente illustra come creare una nuova app Web con l'opzione di selezione di un gruppo di risorse esistente o di creazione di un nuovo gruppo.
+Quando si distribuiscono le risorse, è possibile scegliere di distribuirle al gruppo di risorse creato. L'immagine seguente mostra come creare una nuova app Web in un gruppo di risorse esistente.
 
 ![creare un gruppo di risorse](./media/resource-group-portal/select-existing-group.png)
 
+In alternativa, è possibile decidere di creare un nuovo gruppo di risorse durante la distribuzione delle risorse. Anziché selezionare uno dei gruppi di risorse esistenti nella sottoscrizione, selezionare **Nuovo** e assegnare un nome al gruppo di risorse.
+
+![creare un nuovo gruppo di risorse](./media/resource-group-portal/select-new-group.png)
+
 ## Esplorare i gruppi di risorse
 
-È possibile esplorare tutti i gruppi di risorse selezionando **Esplora tutto** e **Gruppi di risorse**.
+È possibile esplorare tutti i gruppi di risorse facendo clic su **Gruppi di risorse**.
 
 ![esplorare i gruppi di risorse](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +59,20 @@ Quando si seleziona un gruppo di risorse specifico, viene visualizzato un pannel
 Il pannello del gruppo di risorse offre inoltre una vista unificata delle informazioni di fatturazione e monitoraggio relative a tutte le risorse del gruppo.
 
 ![monitoraggio e fatturazione](./media/resource-group-portal/monitoring-billing.png)
+
+## Visualizzare la sottoscrizione e i costi
+
+È possibile visualizzare informazioni sulla sottoscrizione e un riepilogo dei costi per tutte le risorse. Selezionare **Sottoscrizioni** e la sottoscrizione da visualizzare. Potrebbe essere disponibile una sola sottoscrizione da selezionare.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Nel pannello della sottoscrizione viene visualizzata la velocità.
+
+![velocità](./media/resource-group-portal/burn-rate.png)
+
+E una suddivisione dei costi in base al tipo di risorsa.
+
+![costo delle risorse](./media/resource-group-portal/cost-by-resource.png)
 
 ## Personalizzazione dell'interfaccia
 
@@ -131,13 +150,13 @@ Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le r
 
 Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo**, **Marketplace** e **Tutto**.
-
-![individuare la distribuzione del modello](./media/resource-group-portal/launch-template.png)
-
-Cercare la **distribuzione del modello** e selezionarla nell'elenco restituito.
+Per distribuire un modello personalizzato attraverso il portale, selezionare **Nuovo** e attendere che sia possibile selezionare l'opzione **Distribuzione modello**.
 
 ![cercare la distribuzione del modello](./media/resource-group-portal/search-template.png)
+
+Selezionare **Distribuzione modello** dalle risorse disponibili.
+
+![selezionare la distribuzione del modello](./media/resource-group-portal/select-template.png)
 
 Dopo aver avviato la distribuzione del modello, è possibile creare il modello personalizzato e impostare i valori per la distribuzione.
 
@@ -146,12 +165,8 @@ Dopo aver avviato la distribuzione del modello, è possibile creare il modello p
 ## Passaggi successivi
 Introduzione
 
-- Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).  
+- Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md). 
-  
+- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
-
- 
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

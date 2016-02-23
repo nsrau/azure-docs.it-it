@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/07/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
@@ -52,7 +52,7 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 1. Aprire Visual Studio.
 2. Scegliere **Esplora server** dal menu **Visualizza** per aprire Esplora server. In alternativa, premere **[CTRL] + [ALT] + S**.
 3. Fare clic con il pulsante destro del mouse su **Azure**, fare clic su "Connetti a sottoscrizioni di Microsoft Azure" e quindi seguire le istruzioni.
-4. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account di Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione a Analisi di Azure Data Lake con il portale di Azure](data-lake-analytics-get-started-portal.md) o [Introduzione a Analisi di Azure Data Lake con Azure PowerShell](data-lake-analytics--get-started-powershell.md).
+4. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account di Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione a Analisi di Azure Data Lake con il portale di Azure](data-lake-analytics-get-started-portal.md) o [Introduzione a Analisi di Azure Data Lake con Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Caricare i file dei dati di origine
 
@@ -101,7 +101,11 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-        
+
+		@res =
+		    SELECT *
+		    FROM @searchlog;        
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
@@ -118,7 +122,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
+    >[AZURE.NOTE] Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
 
 	Prestare attenzione alle funzionalità seguenti:
 
@@ -131,7 +135,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     - **Espandere le colonne con il simbolo dell'asterisco * **
 
         Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.
-    	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+	! [Strumenti di Data Lake per Visual Studio espande l'asterisco] (./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
     
@@ -260,14 +264,14 @@ Esistono due modi per eseguire i file C# personalizzati:
 È possibile eseguire il debug delle assembly C# senza inviarle e registrarle al servizio di Analisi Azure Data Lake. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.
 
 **Per eseguire il debug del codice locale nel file code-behind**
-1.	Impostare dei punti di interruzione nel file dietro il codice. 
-2.	Premere **F5** per eseguire il debug dello script in locale.
+1. Impostare dei punti di interruzione nel file dietro il codice.
+2. Premere **F5** per eseguire il debug dello script in locale.
 
 La procedura seguente funziona solo in Visual Studio 2015. Nella versione precedente di Visual Studio potrebbe essere necessario aggiungere manualmente i file .pdb.
 
 **Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento**
-1.	Creare un progetto Assembly C# e compilarlo per generare l’output dll.
-2.	Registrare la dll utilizzando un'istruzione U-SQL:
+1. Creare un progetto Assembly C# e compilarlo per generare l’output dll.
+2. Registrare la dll utilizzando un'istruzione U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Impostare i punti di interruzione nel codice C#.
@@ -286,7 +290,7 @@ Per visualizzare altri argomenti relativi allo sviluppo:
 - [Analizzare blog mediante Analisi Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
+- [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Appendice: Esempio di PowerShell per la preparazione dell'esercitazione
 
@@ -360,4 +364,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->
