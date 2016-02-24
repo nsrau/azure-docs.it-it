@@ -161,7 +161,8 @@ If you are familiar with PowerShell, you know that you can cycle through the ava
 Below is the full command with parameters included. You can provide your own values for the names of the resources.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 .... ```
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+```
  
 ## Passaggi successivi
  
@@ -172,4 +173,4 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
