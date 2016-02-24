@@ -135,6 +135,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     - **Espandere le colonne con il simbolo dell'asterisco**
 
         Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.
+
 	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
@@ -364,4 +365,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
