@@ -38,4 +38,4 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 
 ![Archiviazione con ridondanza locale](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
