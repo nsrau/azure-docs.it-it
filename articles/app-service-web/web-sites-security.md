@@ -56,7 +56,7 @@ Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo 
 
 ##<a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
 
-Se si usa il nome di dominio ***.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio ***.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
+Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
 
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
 
@@ -123,4 +123,4 @@ Per informazioni sulla registrazione di informazioni nelle app del servizio app,
 
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
