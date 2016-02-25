@@ -426,13 +426,13 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 6. Fare clic su **Create New Client ID** in **OAuth**. Verrà visualizzata la finestra di dialogo **Create Client ID**.  
 	![Google - creare ID Client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Nella finestra di dialogo **Create Client ID** per il tipo di applicazione mantenere l'impostazione predefinita **Web application**.  
-8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione ****https://localhost:44300/** a meno che non siano stati creati altri progetti SSL). Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL da tenere in considerazione per localhost e produzione.
+8. Impostare **Authorized JavaScript Origins** sull'URL SSL usato in precedenza in questa esercitazione **https://localhost:44300/** a meno che non siano stati creati altri progetti SSL). Questo URL rappresenta l'origine dell'applicazione. Per questo esempio, sarà necessario immettere solo l'URL di test localhost. È tuttavia possibile immettere più URL da tenere in considerazione per localhost e produzione.
 
 9. Per **Authorized Redirect URI** immettere le impostazioni seguenti:
 
 		https://localhost:44300/signin-google  
 
-	Questo valore è l'URI che verrà usato da ASP.NET OAuth per comunicare con il server OAuth di Google. Immettere l'URL SSL usato in precedenza (***https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).
+	Questo valore è l'URI che verrà usato da ASP.NET OAuth per comunicare con il server OAuth di Google. Immettere l'URL SSL usato in precedenza (**https://localhost:44300/** a meno che non siano stati creati altri progetti SSL).
  
 10. Selezionare il pulsante **Create**.
 11. In Visual Studio aggiornare il metodo `UseGoogleAuthentication` della pagina *Startup.Auth.cs* copiando e incollando i valori di **AppId** e **AppSecret** nel metodo. I valori di **AppIdd** e **AppSecret** mostrati di seguito sono valori di esempio non funzionanti.  
@@ -757,4 +757,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
