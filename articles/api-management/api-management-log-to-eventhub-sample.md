@@ -268,4 +268,4 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
