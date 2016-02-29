@@ -136,7 +136,7 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 La tabella seguente illustra i limiti imposti sull'assegnazione degli indirizzi IP in Azure per ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai limiti massimi consentiti, in base alle esigenze aziendali.
 
-|Limite predefinito|Limite massimo|
+||Limite predefinito|Limite massimo|
 |---|---|---|
 |Indirizzi IP pubblici (dinamici)|5|Contattare il supporto tecnico|
 |Indirizzi IP pubblici riservati.|20|Contattare il supporto tecnico|
@@ -152,16 +152,16 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 ## Differenze tra le distribuzioni di Gestione risorse e le distribuzioni classiche
 Di seguito è riportato un confronto tra la funzione di assegnazione degli indirizzi IP in Gestione risorse e quella usata nel modello di distribuzione classico.
 
-|Risorsa|Classico|Gestione risorse|
+|| Risorsa| Classico| Gestione risorse|
 |---|---|---|---|
 |**Indirizzo IP pubblico**|VM|Indicato come un ILPIP (solo dinamico)|Indicato come un IP pubblico (dinamico o statico)|
-|Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda NIC della VM|
-|Servizio di bilanciamento del carico con connessione Internet|Indicato come indirizzo VIP (dinamico) o IP riservato (statico)|Indicato come un IP pubblico (dinamico o statico)|
-|Assegnato a un servizio cloud|Associato alla configurazione front-end del servizio di bilanciamento del carico|
-|
+|||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda NIC della VM|
+||Servizio di bilanciamento del carico con connessione Internet|Indicato come indirizzo VIP (dinamico) o IP riservato (statico)|Indicato come un IP pubblico (dinamico o statico)|
+|||Assegnato a un servizio cloud|Associato alla configurazione front-end del servizio di bilanciamento del carico|
+||||
 |**Indirizzo IP privato**|VM|Indicato come un DIP|Indicato come un indirizzo IP privato|
-|Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Assegnato alla scheda NIC della VM|
-|Servizio di bilanciamento del carico interno (ILB)|Assegnato all'ILB (dinamico o statico)|Assegnato alla configurazione front-end dell'ILB (dinamico o statico)|
+|||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Assegnato alla scheda NIC della VM|
+||Servizio di bilanciamento del carico interno (ILB)|Assegnato all'ILB (dinamico o statico)|Assegnato alla configurazione front-end dell'ILB (dinamico o statico)|
 
 ## Passaggi successivi
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-classic-pportal.md) con il portale classico.

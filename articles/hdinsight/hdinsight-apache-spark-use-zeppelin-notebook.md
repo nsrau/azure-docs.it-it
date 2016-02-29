@@ -39,13 +39,13 @@ Informazioni su come installare i notebook di Zeppelin in cluster Spark e su com
 
 ## Installare Zeppelin come parte della creazione del cluster
 
-È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. Lo script personalizzato per installare Zeppelin in un cluster Spark è disponibile all'indirizzo ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. Lo script personalizzato per installare Zeppelin in un cluster Spark è disponibile all'indirizzo **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Uso del portale di Azure
 
 Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
 
-* È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* È necessario usare lo script per installare Zeppelin. Lo script da usare è **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * È necessario eseguire l'azione script solo sul nodo head.
 
@@ -55,7 +55,7 @@ Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script pe
 
 Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
 
-* È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* È necessario usare lo script per installare Zeppelin. Lo script da usare è **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Per lo script non sono necessari parametri.
 

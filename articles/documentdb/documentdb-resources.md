@@ -68,7 +68,18 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ### Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
-|Valore di \_self |Descrizione |-------------------|----------- |/dbs |Feed di database in un account di database |/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database |/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc} |/dbs/{\_rid-db}/users/ |Feed di utenti in un database |/dbs/{\_rid-db}/users/{\_rid-user} |Utente con un ID corrispondente al valore {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un utente |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con un ID corrispondente al valore {\_rid-permission}
+|Valore di \_self |Descrizione
+|-------------------|-----------
+|/dbs |Feed di database in un account di database
+|/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db}
+|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database
+|/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll}
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta
+|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc}
+|/dbs/{\_rid-db}/users/ |Feed di utenti in un database
+|/dbs/{\_rid-db}/users/{\_rid-user} |Utente con un ID corrispondente al valore {\_rid-user}
+|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un utente
+|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con un ID corrispondente al valore {\_rid-permission}
   
 Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
 

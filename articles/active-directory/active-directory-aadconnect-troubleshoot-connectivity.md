@@ -37,7 +37,11 @@ Quelle riportate nella tabella seguente sono le impostazioni minime assolutament
 | URL | Porta | Descrizione |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL. |
-| **.verisign.com | HTTP/80 | Usata per scaricare gli elenchi di CRL. | | *.trust.com | HTTP/80 | Usata per scaricare gli elenchi di CRL per MFA. | | *.windows.net | HTTPS/443 | Usata per accedere ad Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usata per MFA. | | *.microsoftonline.com | HTTPS/443 | Usata per configurare la directory di Azure AD e importare/esportare i dati. |
+| *.verisign.com | HTTP/80 | Usata per scaricare gli elenchi di CRL. |
+| *.trust.com | HTTP/80 | Usata per scaricare gli elenchi di CRL per MFA. |
+| *.windows.net | HTTPS/443 | Usata per accedere ad Azure AD. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usata per MFA. |
+| *.microsoftonline.com | HTTPS/443 | Usata per configurare la directory di Azure AD e importare/esportare i dati. |
 
 ## Errori nella procedura guidata
 L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Le configurazioni che si apportano al proxy vengono riflesse globalmente nel computer, quindi se si verifica un problema, questo si manifesterà probabilmente già nella pagina **Connessione ad Azure AD** della procedura guidata.
